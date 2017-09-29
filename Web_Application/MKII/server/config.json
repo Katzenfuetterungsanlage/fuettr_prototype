@@ -1,0 +1,7 @@
+{
+  "admin": {
+    "name": "Max Mustermann",
+    "mail": "max@mustermann.com"
+  },
+  "morgan": "/tmp/morgan.log"
+}

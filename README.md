@@ -1,2 +1,2 @@
-# fuettr_prototype
-Dipl Arbeit
+# Katzenfueterungsanlage Prototyp
+Alle Testdateien bitte hier hochpushen. 

@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks":[
+
+    {
+      "taskName": "build",
+      "command": "gulp",
+      "isShellCommand": true,
+      "args": [ "--gulpfile", "server/gulpfile.js", "build" ],
+      "isBuildCommand": true,
+      "showOutput": "silent",
+      "problemMatcher": [
+        { "owner": "gulp-typescript",
+          "fileLocation": ["relative", "${workspaceRoot}/server"],
+          "pattern": {
+            "regexp": "(.*)\\((\\d*),(\\d*)\\): (error|warning) (.*)",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "severity": 4,
+            "message": 5
+          }
+        }
+      ]
+    },
+
+    {
+      "taskName": "clean",
+      "command": "gulp",
+      "isShellCommand": true,
+      "args": [ "--gulpfile", "server/gulpfile.js", "clean" ],
+      "isBuildCommand": true,
+      "showOutput": "silent"
+    },
+
+    {
+      "taskName": "cleanAndBuild",
+      "command": "gulp",
+      "isShellCommand": true,
+      "args": [ "--gulpfile", "server/gulpfile.js", "cleanAndBuild" ],
+      "isBuildCommand": true,
+      "showOutput": "silent"
+    },
+
+    {
+      "taskName": "buildAngular",
+      "command": "ng",
+      "isShellCommand": true,
+      "args": [ "build", "--progress", "false" ],
+      "isBuildCommand": true,
+      "showOutput": "always",
+      "options": {
+        "cwd": "${workspaceRoot}/ng2"
+      }
+    }
+
+  ]
+}
