@@ -33,3 +33,5 @@
 # System Files
 *.DS_Store
 */Thumbs.db
+/Java_Application/nbproject/private/
+/Server-Client/nbproject/private/
