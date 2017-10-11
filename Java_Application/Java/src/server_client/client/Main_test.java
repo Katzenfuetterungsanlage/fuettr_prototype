@@ -3,21 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package server_client.client;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import javax.swing.SwingWorker;
 
 /**
  *
  * @author Florian
  */
-public class main extends javax.swing.JFrame
+public class Main_test extends javax.swing.JFrame
 {
 
     /**
      * Creates new form main
      */
-    public main()
+    public Main_test()
     {
         initComponents();
+        ConnectionWorker worker = new ConnectionWorker();
+        worker.execute();
     }
 
     /**
@@ -36,8 +48,8 @@ public class main extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbUhrzeit = new javax.swing.JLabel();
+        lbDatum = new javax.swing.JLabel();
         east = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         center1 = new javax.swing.JPanel();
@@ -85,11 +97,11 @@ public class main extends javax.swing.JFrame
 
         south.add(jPanel2, java.awt.BorderLayout.WEST);
 
-        jLabel2.setText("Uhrzeit");
-        jPanel1.add(jLabel2);
+        lbUhrzeit.setText("Uhrzeit");
+        jPanel1.add(lbUhrzeit);
 
-        jLabel3.setText("Datum");
-        jPanel1.add(jLabel3);
+        lbDatum.setText("Datum");
+        jPanel1.add(lbDatum);
 
         south.add(jPanel1, java.awt.BorderLayout.EAST);
 
@@ -268,17 +280,20 @@ public class main extends javax.swing.JFrame
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -286,7 +301,7 @@ public class main extends javax.swing.JFrame
         {
             public void run()
             {
-                new main().setVisible(true);
+                new Main_test().setVisible(true);
             }
         });
     }
@@ -311,8 +326,6 @@ public class main extends javax.swing.JFrame
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -325,6 +338,8 @@ public class main extends javax.swing.JFrame
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel lbDatum;
+    private javax.swing.JLabel lbUhrzeit;
     private javax.swing.JMenuItem manuelleSteuerung;
     private javax.swing.JMenuItem positionsinformationen;
     private javax.swing.JPanel south;
@@ -332,4 +347,60 @@ public class main extends javax.swing.JFrame
     private javax.swing.JMenu steuerung;
     private javax.swing.JMenuItem update;
     // End of variables declaration//GEN-END:variables
+
+private class ConnectionWorker extends SwingWorker<Object,String>
+{
+    
+    String text; 
+
+    @Override
+    protected Object doInBackground() throws Exception
+    {
+        String adress = "127.0.0.1"; 
+        int port = 101; 
+        
+        try
+        {
+            Socket socket = new Socket(adress,port);
+            System.out.println("Verbindung wurde erfolgreich hergestellt:" + socket);
+            
+            BufferedReader reader = new BufferedReader(
+                new InputStreamReader(socket.getInputStream()));
+
+            BufferedWriter writer = new BufferedWriter(
+                new OutputStreamWriter(socket.getOutputStream()));
+            
+            while (true)
+            {
+                writer.write("Tell me the time\n");
+                writer.flush();
+
+                text = reader.readLine();
+                
+                if (text.equals("403"))
+                {
+                    text = "ERROR";
+                }
+          
+                publish(text); // gibt Text an process weiter
+          
+                TimeUnit.MILLISECONDS.sleep(500);
+            }
+        }
+        
+        catch (IOException ex)
+        {
+            System.out.println("ERROR: " + ex.getMessage());
+        }
+        
+        return null; 
+    }
+
+        @Override
+        protected void process(List<String> chunks)
+        {
+            lbUhrzeit.setText(text);
+        }    
+}
+    
 }
