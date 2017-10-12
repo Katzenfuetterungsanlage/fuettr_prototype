@@ -11,8 +11,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -33,9 +31,6 @@ public class ConnectionThread implements Runnable
         System.out.println("ConnectionThread ist gestartet");
         try
         {
-            // o -> timeout infinity, readLine will block
-            socket.setSoTimeout(0);
-
             BufferedReader reader = new BufferedReader(
                 new InputStreamReader(socket.getInputStream()));
 
