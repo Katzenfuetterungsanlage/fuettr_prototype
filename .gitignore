@@ -37,3 +37,11 @@
 /Server-Client/nbproject/private/
 /Java_Application/Server-Client/nbproject/private/
 /Java_Application/Server-Client/build/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
