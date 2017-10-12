@@ -1,0 +1,100 @@
+<nav class="container-fluid navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" routerLink="/"><img alt="Brand" src="../favicon.ico" width="26"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a routerLink="/">Home</a></li>
+                <li><a routerLink="/feed">Fütterung</a></li>
+                <li><a routerLink="/control">Steuerung</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Einstellungen
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a routerLink="/info">Geräteinfo</a></li>
+                        <li><a routerLink="/update">Update</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <span class="navbar-text navbar-right">{{Time}}</span>
+        </div>
+    </div>
+</nav>
+<p><br><br></p>
+<div class="row">
+    <div class="col-sm-8">
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <p>
+                    Ea non in adipisicing aliqua consectetur in officia nisi cillum incididunt nostrud. Aute anim labore ea culpa est. Mollit anim est cillum pariatur ut officia adipisicing laborum. Incididunt nostrud ipsum voluptate eiusmod do do amet voluptate nulla incididunt
+                    sit aute. Laboris dolor Lorem eiusmod dolore do tempor ut. Eu exercitation veniam reprehenderit ipsum. Consectetur eiusmod officia occaecat laborum quis qui voluptate aliquip.
+                </p>
+            </div>
+            <div class="alert alert-warning fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Warning!</strong> This is an alert.
+            </div>
+            <div class="alert alert-danger fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Error!</strong> This is an alert.
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <h3 class="text-center">Fütterungszeiten</h3>
+        <table class="table text-right container-fluid">
+            <tbody>
+                <tr>
+                    <td> </td>
+                    <td>
+                        <h4>Zeit 1:</h4>
+                    </td>
+                    <td>
+                        <div class="input-group spinner">
+                            <input type="time" class="form-control" value="10:10">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td>
+                        <h4>Zeit 2:</h4>
+                    </td>
+                    <td>
+                        <div class="input-group spinner">
+                            <input type="time" class="form-control" value="11:11">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td>
+                        <h4>Zeit 3:</h4>
+                    </td>
+                    <td>
+                        <div class="input-group spinner">
+                            <input type="time" class="form-control" value="12:12">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td>
+                        <h4>Zeit 4:</h4>
+                    </td>
+                    <td>
+                        <div class="input-group spinner">
+                            <input type="time" class="form-control" value="13:13">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

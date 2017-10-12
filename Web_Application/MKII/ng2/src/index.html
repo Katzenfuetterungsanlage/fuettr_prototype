@@ -1,14 +1,64 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>webserver</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>webserver</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        .navbar {
+            margin-bottom: 0;
+            background-color: #191816;
+            border: 0;
+            letter-spacing: 1px;
+            border-radius: 0px;
+            color: #c6bfb9 !important;
+        }
+        
+        .navbar li a,
+        .navbar .navbar-brand {
+            color: #c6bfb9 !important;
+        }
+        
+        .navbar-nav li a:hover,
+        .navbar-nav li.active a {
+            color: #c6bfb9 !important;
+            background-color: #62584c !important;
+        }
+        
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #000000 !important;
+        }
+        
+        .open .dropdown {
+            color: #c6bfb9 !important;
+            background-color: #191816;
+        }
+        
+        .dropdown-menu li a {
+            color: #c6bfb9 !important;
+        }
+        
+        .dropdown-menu li a:hover {
+            color: #c6bfb9 !important;
+            background-color: #62584c !important;
+        }
+    </style>
 </head>
+
 <body>
-  <script>window.__theme = 'bs4';</script>
-  <app-root></app-root>
+    <script>
+        window.__theme = 'bs4';
+    </script>
+    <app-home>Loading...</app-home>
 </body>
+
 </html>

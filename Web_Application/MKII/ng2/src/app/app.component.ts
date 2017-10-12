@@ -4,7 +4,7 @@ import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
-  template: `
+  template: `<app-home></app-home>
   `,
   styles: [  ]
 })
