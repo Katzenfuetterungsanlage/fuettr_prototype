@@ -357,7 +357,7 @@ private class ConnectionWorker extends SwingWorker<Object,String>
     protected Object doInBackground() throws Exception
     {
         String adress = "127.0.0.1"; 
-        int port = 101; 
+        int port = 8080; 
         
         try
         {

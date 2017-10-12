@@ -22,6 +22,7 @@
             border: 0;
             letter-spacing: 1px;
             border-radius: 0px;
+            color: #c6bfb9 !important;
         }
         
         .navbar li a,
@@ -39,6 +40,20 @@
             border-color: transparent;
             color: #000000 !important;
         }
+        
+        .open .dropdown {
+            color: #c6bfb9 !important;
+            background-color: #191816;
+        }
+        
+        .dropdown-menu li a {
+            color: #c6bfb9 !important;
+        }
+        
+        .dropdown-menu li a:hover {
+            color: #c6bfb9 !important;
+            background-color: #62584c !important;
+        }
     </style>
 </head>
 
@@ -51,14 +66,21 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" href="main.html"><img alt="Brand" src="favicon.ico" width="26"></a>
+                <a class="navbar-brand" routerLink="/"><img alt="Brand" src="favicon.ico" width="26"></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="main.html">Home</a></li>
-                    <li><a href="feed.html">Fütterung</a></li>
-                    <li><a href="control.html">Steuerung</a></li>
-                    <li><a href="settings.html">Einstellungen</a></li>
+                    <li class="active"><a routerLink="/">Home</a></li>
+                    <li><a routerLink="/feed">Fütterung</a></li>
+                    <li><a routerLink="/control">Steuerung</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Einstellungen
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a routerLink="/info">Geräteinfo</a></li>
+                            <li><a routerLink="/update">Update</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -78,7 +100,7 @@
                     <strong>Warning!</strong> This is an alert.
                 </div>
                 <div class="alert alert-danger fade in">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <a href="{{close}}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Error!</strong> This is an alert.
                 </div>
             </div>
@@ -105,7 +127,7 @@
                         </td>
                         <td>
                             <div class="input-group spinner">
-                                <input type="time" class="form-control" value="10:10">
+                                <input type="time" class="form-control" value="11:11">
                             </div>
                         </td>
                     </tr>
@@ -116,7 +138,7 @@
                         </td>
                         <td>
                             <div class="input-group spinner">
-                                <input type="time" class="form-control" value="10:10">
+                                <input type="time" class="form-control" value="12:12">
                             </div>
                         </td>
                     </tr>
@@ -127,7 +149,7 @@
                         </td>
                         <td>
                             <div class="input-group spinner">
-                                <input type="time" class="form-control" value="10:10">
+                                <input type="time" class="form-control" value="13:13">
                             </div>
                         </td>
                     </tr>
