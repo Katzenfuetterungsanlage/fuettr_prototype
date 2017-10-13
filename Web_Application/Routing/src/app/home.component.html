@@ -4,21 +4,20 @@
             <div class="container-fluid">
                 <div class="jumbotron">
                     <p>
-                        Ea non in adipisicing aliqua consectetur in officia nisi cillum incididunt nostrud. Aute anim labore ea culpa est. Mollit anim est cillum pariatur ut officia adipisicing laborum. Incididunt nostrud ipsum voluptate eiusmod do do amet voluptate nulla incididunt
-                        sit aute. Laboris dolor Lorem eiusmod dolore do tempor ut. Eu exercitation veniam reprehenderit ipsum. Consectetur eiusmod officia occaecat laborum quis qui voluptate aliquip.
+                        {{statusmessage}}
                     </p>
                 </div>
                 <div class="alert alert-warning alert-dismissable fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                     </button>
-                    <strong>Warning!</strong> This is an alert.
+                    <strong>Warning! </strong>{{warning_message}}
                 </div>
                 <div class="alert alert-danger alert-dismissable fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <strong>Error!</strong> This is an alert.
+                    <strong>Error! </strong>{{error_message}}
                 </div>
             </div>
         </div>
@@ -33,7 +32,7 @@
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="10:10">
+                                    <input type="time" class="btn-secondary" value="10:10" disabled>
                                 </div>
                             </td>
                         </tr>
@@ -43,7 +42,7 @@
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="11:11">
+                                    <input type="time" class="btn-secondary" value="11:11" disabled>
                                 </div>
                             </td>
                         </tr>
@@ -53,7 +52,7 @@
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="12:12">
+                                    <input type="time" class="btn-secondary" value="12:12" disabled>
                                 </div>
                             </td>
                         </tr>
@@ -63,7 +62,7 @@
                             </td>
                             <td>
                                 <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="13:13">
+                                    <input type="time" class="btn-secondary" value="13:13" disabled>
                                 </div>
                             </td>
                         </tr>
