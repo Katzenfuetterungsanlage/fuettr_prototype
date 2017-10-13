@@ -1,2 +1,3 @@
+# Katzenfütterungsanlage
 # fuettr_prototype
-Dipl Arbeit
+*Diplomarbeit*
