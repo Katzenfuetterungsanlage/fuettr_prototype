@@ -47,10 +47,9 @@ public class Client extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
+        lbTime.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         lbTime.setText("jLabel1");
-        jPanel1.add(lbTime, java.awt.BorderLayout.CENTER);
+        jPanel1.add(lbTime);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -116,7 +115,7 @@ private class ConnectionWorker extends SwingWorker<Object,String>
     protected Object doInBackground() throws Exception
     {
         String adress = "127.0.0.1"; 
-        int port = 101; 
+        int port = 8080; 
         
         try
         {
