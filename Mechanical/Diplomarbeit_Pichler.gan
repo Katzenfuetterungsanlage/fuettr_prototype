@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Diplomarbeit_Katzenfuttermaschine_Pichler" company="" webLink="http://" view-date="2017-08-21" view-index="0" gantt-divider-location="644" resource-divider-location="300" version="2.8.4" locale="de">
+    <description/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Vorgang" width="286" order="0"/>
+        <field id="tpd4" name="Anfang" width="82" order="1"/>
+        <field id="tpd5" name="Ende" width="113" order="2"/>
+        <field id="tpc0" name="" width="69" order="3"/>
+        <field id="tpd6" name="Dauer" width="90" order="4"/>
+        <timeline><![CDATA[7]]></timeline>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Ressource" width="210" order="0"/>
+        <field id="1" name="Rolle" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+            <taskproperty id="tpc0" name="" type="custom" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Terminplan fertigstellen" color="#8cb6ce" meeting="false" start="2017-03-23" duration="7" complete="0" expand="true">
+            <depend id="9" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="9" name="Terminplan fertigestellt" color="#8cb6ce" meeting="true" start="2017-04-03" duration="0" complete="0" expand="true">
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="1" name="Einarbeiten" color="#000000" meeting="false" start="2017-04-03" duration="68" complete="0" expand="false">
+            <depend id="16" type="2" difference="0" hardness="Strong"/>
+            <task id="4" name="Konstruktionsarten" meeting="false" start="2017-04-03" duration="68" complete="0" expand="true">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+                <task id="25" name="Konstruktion Auswurfarten" color="#8cb6ce" meeting="false" start="2017-04-03" duration="50" complete="0" expand="false">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                    <task id="580" name="Arten für den Auswurf" color="#8cb6ce" meeting="false" start="2017-04-03" duration="50" complete="0" expand="true"/>
+                </task>
+                <task id="27" name="Konstruktion Schneidearten" color="#8cb6ce" meeting="false" start="2017-04-03" duration="68" complete="0" expand="false">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                    <task id="577" name="Arten der Schneidwerkzeuge" color="#8cb6ce" meeting="false" start="2017-04-03" duration="68" complete="0" expand="true"/>
+                </task>
+                <task id="29" name="Schüsselmagazin" color="#8cb6ce" meeting="false" start="2017-04-03" duration="46" complete="0" expand="false">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                    <task id="272" name="Arten der Schüsselmagazine" color="#8cb6ce" meeting="false" start="2017-04-03" duration="46" complete="0" expand="true">
+                        <depend id="16" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                </task>
+                <task id="31" name="Nachfüllanlage" color="#8cb6ce" meeting="false" start="2017-04-03" duration="65" complete="0" expand="false">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                    <task id="270" name="Arten der Anlage" color="#8cb6ce" meeting="false" start="2017-04-03" duration="65" complete="0" expand="true">
+                        <depend id="16" type="2" difference="0" hardness="Strong"/>
+                    </task>
+                </task>
+            </task>
+            <task id="6" name="Materialien" meeting="false" start="2017-04-03" duration="55" complete="0" expand="false">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+                <task id="33" name="Gehäuse" color="#8cb6ce" meeting="false" start="2017-04-03" duration="49" complete="0" expand="true">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="39" name="Schneide" color="#8cb6ce" meeting="false" start="2017-04-03" duration="49" complete="0" expand="true">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="51" name="Nachfüllanlage" color="#8cb6ce" meeting="false" start="2017-04-03" duration="55" complete="0" expand="true"/>
+                <task id="37" name="Drehplatte" color="#8cb6ce" meeting="false" start="2017-04-03" duration="55" complete="0" expand="true">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+            <task id="42" name="Plazierungsstellen" color="#000000" meeting="false" start="2017-04-03" duration="60" complete="0" expand="false">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+                <task id="30" name="Raspberry plazierung" color="#8cb6ce" meeting="false" start="2017-04-03" duration="55" complete="0" expand="true">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="40" name="Sensorplazierung" color="#8cb6ce" meeting="false" start="2017-04-03" duration="55" complete="0" expand="true">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="7" name="Motorplazierung" color="#8cb6ce" meeting="false" start="2017-04-03" duration="60" complete="0" thirdDate="2017-04-13" thirdDate-constraint="0" expand="true">
+                    <depend id="16" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+        </task>
+        <task id="16" name="Konstruktion etc. ausgearbeitet" color="#8cb6ce" meeting="true" start="2017-07-06" duration="0" complete="0" expand="true">
+            <depend id="58" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="58" name="Inventorzeichung Nachfüllanlage" color="#8cb6ce" meeting="false" start="2017-07-06" duration="17" complete="0" expand="false">
+            <depend id="60" type="2" difference="0" hardness="Strong"/>
+            <task id="268" name="Skizzen der verschiedenen Arten" color="#8cb6ce" meeting="false" start="2017-07-10" duration="5" complete="0" expand="true">
+                <depend id="250" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="250" name="Bauteilezeichnen" color="#8cb6ce" meeting="false" start="2017-07-17" duration="5" complete="0" expand="false">
+                <depend id="266" type="2" difference="0" hardness="Strong"/>
+                <task id="742" name="Riemen" color="#8cb6ce" meeting="false" start="2017-07-19" duration="3" complete="0" expand="true"/>
+                <task id="746" name="Trommel für den Antrieb" color="#8cb6ce" meeting="false" start="2017-07-17" duration="4" complete="0" expand="true"/>
+                <task id="750" name="Die auf Riemen befestigten Platten" meeting="false" start="2017-07-17" duration="2" complete="0" expand="true">
+                    <depend id="742" type="2" difference="0" hardness="Strong"/>
+                </task>
+            </task>
+            <task id="266" name="Bauteile zusammenfügen" meeting="false" start="2017-07-24" duration="5" complete="0" expand="true"/>
+            <task id="650" name="Festigkeitsanalyse mit Inventor" color="#8cb6ce" meeting="false" start="2017-07-10" duration="2" complete="0" expand="true">
+                <depend id="250" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="656" name="Händisch Dimensionierung" color="#8cb6ce" meeting="false" start="2017-07-06" duration="3" complete="0" expand="true">
+                <depend id="250" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="60" name="Nachfüll. fertiggestellt" color="#8cb6ce" meeting="true" start="2017-07-31" duration="0" complete="0" expand="true">
+            <depend id="61" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="61" name="Inventorzeichnung Schneidefläche" meeting="false" start="2017-07-31" duration="24" complete="1" expand="false">
+            <depend id="63" type="2" difference="0" hardness="Strong"/>
+            <task id="291" name="Skizzen der verschiedenen Arten" color="#8cb6ce" meeting="false" start="2017-07-31" duration="5" complete="0" expand="true">
+                <depend id="293" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="293" name="Bauteilezeichnen" color="#8cb6ce" meeting="false" start="2017-08-18" duration="3" complete="12" expand="false">
+                <depend id="295" type="2" difference="0" hardness="Strong"/>
+                <task id="755" name="1.Große Platte" color="#8cb6ce" meeting="false" start="2017-08-18" duration="3" complete="0" expand="true"/>
+                <task id="760" name="2. Kleine Platte" color="#8cb6ce" meeting="false" start="2017-08-18" duration="2" complete="0" expand="true"/>
+                <task id="763" name="Knickvorrichtung" color="#8cb6ce" meeting="false" start="2017-08-18" duration="2" complete="0" expand="true"/>
+                <task id="766" name="Befestigungen" meeting="false" start="2017-08-18" duration="1" complete="100" expand="true"/>
+            </task>
+            <task id="295" name="Bauteile zusammenfügen" meeting="false" start="2017-08-23" duration="7" complete="0" expand="true"/>
+            <task id="657" name="Händische Dimensionierung" color="#8cb6ce" meeting="false" start="2017-07-31" duration="14" complete="0" expand="true">
+                <depend id="293" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="659" name="Festigkeitsanalyse mit Inventor" color="#8cb6ce" meeting="false" start="2017-07-31" duration="7" complete="0" expand="true">
+                <depend id="293" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="63" name="Schneidefläche fertiggestellt" color="#8cb6ce" meeting="true" start="2017-09-01" duration="0" complete="0" expand="true">
+            <depend id="66" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="66" name="Inventorzeichnung Schüsselmagazin" color="#8cb6ce" meeting="false" start="2017-09-27" duration="13" complete="0" expand="false">
+            <depend id="79" type="2" difference="0" hardness="Strong"/>
+            <task id="313" name="Skizzen der verschiedenen Arten" color="#8cb6ce" meeting="false" start="2017-09-27" duration="5" complete="0" expand="true">
+                <depend id="315" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="315" name="Bauteilezeichnen" color="#8cb6ce" meeting="false" start="2017-10-04" duration="3" complete="0" expand="false">
+                <depend id="317" type="2" difference="0" hardness="Strong"/>
+                <task id="774" name="Schüsselzeichnung" color="#8cb6ce" meeting="false" start="2017-10-04" duration="3" complete="0" expand="true"/>
+                <task id="782" name="Rundeplatte auf den die Schüsseln befestigt werden" meeting="false" start="2017-10-04" duration="1" complete="0" expand="true"/>
+                <task id="785" name="Befestigung der Schüssel" meeting="false" start="2017-10-04" duration="1" complete="0" expand="true"/>
+                <task id="788" name="Kugellager für die Drehbewegung" meeting="false" start="2017-10-04" duration="1" complete="0" expand="true"/>
+            </task>
+            <task id="317" name="Bauteile zusammenfügen" meeting="false" start="2017-10-09" duration="5" complete="0" expand="true"/>
+            <task id="703" name="Händische Dimensionierung" meeting="false" start="2017-09-27" duration="4" complete="0" expand="true">
+                <depend id="315" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="705" name="Festigkeitsanalyse mit Inventor" meeting="false" start="2017-09-27" duration="3" complete="0" expand="true">
+                <depend id="315" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="79" name="Schüsselmagazin fertiggestellt" color="#8cb6ce" meeting="true" start="2017-10-16" duration="0" complete="0" expand="true">
+            <depend id="78" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="78" name="Inventorzeichnung Schneide + Befästigung" color="#8cb6ce" meeting="false" start="2017-10-20" duration="16" complete="0" expand="false">
+            <depend id="83" type="2" difference="0" hardness="Strong"/>
+            <task id="358" name="Skizzen der verschiedenen Arten" color="#8cb6ce" meeting="false" start="2017-10-20" duration="7" complete="0" expand="true">
+                <depend id="360" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="360" name="Bauteilezeichnen" color="#8cb6ce" meeting="false" start="2017-11-09" duration="2" complete="0" expand="false">
+                <depend id="711" type="2" difference="0" hardness="Strong"/>
+                <task id="791" name="Schneide zeichnen" color="#8cb6ce" meeting="false" start="2017-11-09" duration="2" complete="0" expand="true"/>
+                <task id="801" name="Anbringen der Schneiden and der großen Platte" meeting="false" start="2017-11-09" duration="1" complete="0" expand="true"/>
+            </task>
+            <task id="713" name="Händische Dimensionierung" meeting="false" start="2017-10-20" duration="14" complete="0" expand="true">
+                <depend id="360" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="715" name="Festigkeitsanalyse mit Inventor" meeting="false" start="2017-10-20" duration="10" complete="0" expand="true">
+                <depend id="360" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="83" name="Schneide fertiggestellt" color="#8cb6ce" meeting="true" start="2017-11-13" duration="0" complete="0" expand="true">
+            <depend id="98" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="98" name="Zusammensetzung aller Teile" meeting="false" start="2017-11-13" duration="20" complete="62" expand="true">
+            <depend id="100" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="100" name="Zusammensetzung fertiggestellt" color="#8cb6ce" meeting="true" start="2017-12-12" duration="0" complete="0" expand="false">
+            <depend id="114" type="2" difference="0" hardness="Strong"/>
+            <task id="711" name="Bauteile zusammenfügen" color="#8cb6ce" meeting="false" start="2017-12-12" duration="20" complete="0" expand="true">
+                <task id="804" name="Schüssel zum Unterteil des Gehäuses" color="#8cb6ce" meeting="false" start="2017-12-12" duration="4" complete="0" expand="true"/>
+                <task id="802" name="Schneide auf Platte" color="#8cb6ce" meeting="false" start="2017-12-12" duration="3" complete="0" expand="true"/>
+                <task id="806" name="Auswurfmechanismus auf Platte" meeting="false" start="2017-12-12" duration="6" complete="0" expand="true"/>
+                <task id="808" name="Nachfüllanlage anbringen am Gehäuse" color="#8cb6ce" meeting="false" start="2017-12-12" duration="20" complete="0" expand="true"/>
+            </task>
+        </task>
+        <task id="114" name="Gehäuse Zeichnen" meeting="false" start="2018-01-12" duration="16" complete="0" expand="true">
+            <depend id="120" type="2" difference="0" hardness="Strong"/>
+            <task id="408" name="Design skizzieren" color="#8cb6ce" meeting="false" start="2018-01-12" duration="4" complete="0" expand="true">
+                <depend id="419" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="419" name="Bauteile zeichnen" color="#8cb6ce" meeting="false" start="2018-01-18" duration="7" complete="0" expand="true">
+                <depend id="421" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="421" name="Bauteile zusammenfügen" color="#8cb6ce" meeting="false" start="2018-01-29" duration="5" complete="0" expand="true"/>
+        </task>
+        <task id="120" name="Gesamtprojekt fertiggestellt" color="#8cb6ce" meeting="true" start="2018-02-05" duration="0" complete="0" expand="true">
+            <depend id="122" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="122" name="Schreiben der Diplomarbeit" meeting="false" start="2018-02-05" duration="25" complete="0" expand="true">
+            <depend id="124" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="124" name="fertiggeschrieben" color="#8cb6ce" meeting="true" start="2018-03-12" duration="0" complete="0" expand="true">
+            <depend id="127" type="2" difference="0" hardness="Strong"/>
+        </task>
+        <task id="127" name="Überprüfen lassen" color="#8cb6ce" meeting="false" start="2018-03-12" duration="7" complete="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
