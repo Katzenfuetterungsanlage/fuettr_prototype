@@ -1,4 +1,4 @@
-# Katzenfütterungsanlage ![Logo](https://github.com/Katzenfuetterungsanlage/fuettr_prototype/blob/master/Logo.png)
+# ![Logo](https://github.com/Katzenfuetterungsanlage/fuettr_prototype/blob/master/Logo.png) Katzenfütterungsanlage
 # fuettr_prototype
 *Diplomarbeit*
 
