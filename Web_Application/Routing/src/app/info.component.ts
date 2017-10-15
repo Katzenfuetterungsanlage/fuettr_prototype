@@ -9,5 +9,5 @@ export class InfoComponent {
   processor = 'Raspberry Pi 3 Model B';
   wlanstate = '@TODO';
   ipadress = '@TODO';
-  version = '0.0.1';
+  version = 'alpha@0.0.1';
 }

@@ -1,2 +1,5 @@
+# Katzenfütterungsanlage
 # fuettr_prototype
-Dipl Arbeit
+*Diplomarbeit*
+
+*Alle Rechte liegen bei den Schülern die sich mit dieser Arbeit auseinandersetzen!"
