@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #191816;
+    border: 0;
+    letter-spacing: 1px;
+    border-radius: 0px;
+}
+
+.navbar li a,
+.navbar .navbar-brand {
+    color: #c6bfb9 !important;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+    color: #c6bfb9 !important;
+    background-color: #62584c !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #000000 !important;
+}
