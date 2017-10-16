@@ -14,7 +14,6 @@
 * [**npm**][12] by egamma
 * [**Snippet for JSON**][13] by Wilson Montalvo
 * [**TSLint**][14] by egamma
-* [**Typescript Hero**][15] by Christoph Bühler
 * [**VSCode Great Icons**][16] by Emmanuel Béziat
 
 [1]: https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2
@@ -30,7 +29,6 @@
 [12]: https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script
 [13]: https://marketplace.visualstudio.com/items?itemName=wmontalvo.vsc-jsonsnippets
 [14]: https://marketplace.visualstudio.com/items?itemName=eg2.tslint
-[15]: https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero
 [16]: https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons
 [17]: https://marketplace.visualstudio.com/items?itemName=hwencc.html-tag-wrapper
 [18]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
