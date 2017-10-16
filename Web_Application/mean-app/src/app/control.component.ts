@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './control.component.html',
 })
 export class ControlComponent {
+  
 }
