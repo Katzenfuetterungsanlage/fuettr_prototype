@@ -9,20 +9,20 @@
                 </div>
                 <div class="alert alert-warning alert-dismissable fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                    </button>
+            <span aria-hidden="true">&times;</span>
+          </button>
                     <strong>Warning! </strong>{{warning_message}}
                 </div>
                 <div class="alert alert-danger alert-dismissable fade show" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <span aria-hidden="true">&times;</span>
+          </button>
                     <strong>Error! </strong>{{error_message}}
                 </div>
             </div>
         </div>
         <div class="col-lg-4">
-            <h3 class="text-center">Fütterungszeiten</h3>
+            <h2 class="text-center">Fütterungszeiten</h2>
             <div class="container-fluid">
                 <table class="table">
                     <tbody>
@@ -31,9 +31,7 @@
                                 <h4>Zeit 1:</h4>
                             </td>
                             <td>
-                                <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="10:10" disabled>
-                                </div>
+                                <span class="btn btn-secondary">{{time1}}</span>
                             </td>
                         </tr>
                         <tr>
@@ -41,9 +39,7 @@
                                 <h4>Zeit 2:</h4>
                             </td>
                             <td>
-                                <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="11:11" disabled>
-                                </div>
+                                <span class="btn btn-secondary">{{time2}}</span>
                             </td>
                         </tr>
                         <tr>
@@ -51,9 +47,7 @@
                                 <h4>Zeit 3:</h4>
                             </td>
                             <td>
-                                <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="12:12" disabled>
-                                </div>
+                                <span class="btn btn-secondary">{{time3}}</span>
                             </td>
                         </tr>
                         <tr>
@@ -61,9 +55,7 @@
                                 <h4>Zeit 4:</h4>
                             </td>
                             <td>
-                                <div class="input-group">
-                                    <input type="time" class="btn-secondary" value="13:13" disabled>
-                                </div>
+                                <span class="btn btn-secondary">{{time4}}</span>
                             </td>
                         </tr>
                     </tbody>
