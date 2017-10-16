@@ -1,6 +1,7 @@
 # VSCode Extensions
 * [**Angular v4 TypeScript Snippets**][1] by johnpapa
 * [**Auto Close Tag**][3] by Jun Han
+* [**Auto-Open Markdown Preview**][18] by hnw
 * [**Beautify**][4] by HookyQR
 * [**Class autocomplete for HTML**][10] by AES Soft
 * [**gitignore**][5] by CodeZombie
@@ -32,3 +33,4 @@
 [15]: https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero
 [16]: https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons
 [17]: https://marketplace.visualstudio.com/items?itemName=hwencc.html-tag-wrapper
+[18]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
