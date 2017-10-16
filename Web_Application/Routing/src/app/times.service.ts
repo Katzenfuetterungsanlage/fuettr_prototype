@@ -13,7 +13,6 @@ export class TimesService {
 
     public progress(): number {
         const err = new MyError('test', 100);
-        debugger;
         console.log(err);
         this.http.get('localhost:8080/info').toPromise()
             .then(response => {
