@@ -16,12 +16,5 @@ export class AppComponent {
 
   private refreshTime() {
     this.Time = new Date().toLocaleTimeString();
-    this.promise
-      .then(n => {
-        this.promiseResult = '' + n;
-      })
-      .catch(err => {
-        this.promiseResult = err.message;
-      });
   }
 }
