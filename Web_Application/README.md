@@ -12,6 +12,7 @@
 * [**JS-CSS-HTML Formatter**][9] by lonefy
 * [**Lorem Ipsum**][10] by Daniel Imms
 * [**npm**][12] by egamma
+* [**npm Intellisense**][15] by Christian Kohler
 * [**Snippet for JSON**][13] by Wilson Montalvo
 * [**TSLint**][14] by egamma
 * [**VSCode Great Icons**][16] by Emmanuel Béziat
@@ -29,6 +30,7 @@
 [12]: https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script
 [13]: https://marketplace.visualstudio.com/items?itemName=wmontalvo.vsc-jsonsnippets
 [14]: https://marketplace.visualstudio.com/items?itemName=eg2.tslint
+[15]: https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense
 [16]: https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons
 [17]: https://marketplace.visualstudio.com/items?itemName=hwencc.html-tag-wrapper
 [18]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
