@@ -18,14 +18,11 @@ const pugEngine = serverApp.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
 
 // middleware for web-server
-// serverApp.use(requestHandler);
+serverApp.use(requestHandler);
 serverApp.use(express.static(path.join(__dirname, 'public')));
 serverApp.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
 serverApp.get('/error', handleGetError);
-serverApp.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
-});
 serverApp.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
 });
@@ -46,7 +43,7 @@ function requestHandler (req: express.Request, res: express.Response, next: expr
   const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
   debug.info('%s %s from %s', req.method, req.url, clientSocket);
   if (req.method === 'GET' && req.url === '/') {
-    res.render('ngmain.pug');
+    res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
   } else {
     next();
   }
