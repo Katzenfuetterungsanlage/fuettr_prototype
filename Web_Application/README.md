@@ -3,7 +3,7 @@
 * [**Auto Close Tag**][3] by Jun Han
 * [**Auto-Open Markdown Preview**][18] by hnw
 * [**Beautify**][4] by HookyQR
-* [**Bracket Pair Colorizer**[19] by CoenraadS
+* [**Bracket Pair Colorizer**][19] by CoenraadS
 * [**Class autocomplete for HTML**][10] by AES Soft
 * [**gitignore**][5] by CodeZombie
 * [**HTML CSS Support**][6] by ecmel
