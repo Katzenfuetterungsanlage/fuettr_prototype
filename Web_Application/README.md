@@ -3,6 +3,7 @@
 * [**Auto Close Tag**][3] by Jun Han
 * [**Auto-Open Markdown Preview**][18] by hnw
 * [**Beautify**][4] by HookyQR
+* [**Bracket Pair Colorizer**[19] by CoenraadS
 * [**Class autocomplete for HTML**][10] by AES Soft
 * [**gitignore**][5] by CodeZombie
 * [**HTML CSS Support**][6] by ecmel
@@ -34,3 +35,4 @@
 [16]: https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons
 [17]: https://marketplace.visualstudio.com/items?itemName=hwencc.html-tag-wrapper
 [18]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
+[19]: https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer
