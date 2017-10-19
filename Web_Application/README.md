@@ -1,6 +1,5 @@
 # VSCode Extensions
 * [**Angular v4 TypeScript Snippets**][1] by johnpapa
-* [**Auto Close Tag**][3] by Jun Han
 * [**Auto-Open Markdown Preview**][18] by hnw
 * [**Beautify**][4] by HookyQR
 * [**Bracket Pair Colorizer**][19] by CoenraadS
@@ -19,7 +18,6 @@
 * [**VSCode Great Icons**][16] by Emmanuel Béziat
 
 [1]: https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2
-[3]: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
 [4]: https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
 [5]: https://marketplace.visualstudio.com/items?itemName=codezombiech.gitignore
 [6]: https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css
