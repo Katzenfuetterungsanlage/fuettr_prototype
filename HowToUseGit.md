@@ -1,8 +1,8 @@
 
-1) git pull
+* ## **git pull**
 
-2) git add -A
+* ## git add -A
 
-3) git commit -m "Message"
+* ## git commit -m "Message"
 
-4) git push
+* ## git push
