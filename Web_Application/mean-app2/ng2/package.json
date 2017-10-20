@@ -1,6 +1,6 @@
 {
     "name": "fuettr_server",
-    "version": "alpha@0.0.1",
+    "version": "alpha0.0.1",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
