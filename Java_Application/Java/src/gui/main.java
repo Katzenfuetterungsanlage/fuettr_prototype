@@ -32,6 +32,7 @@ public class main extends javax.swing.JFrame
         java.awt.GridBagConstraints gridBagConstraints;
 
         south = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -39,7 +40,7 @@ public class main extends javax.swing.JFrame
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         east = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         center1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -49,16 +50,18 @@ public class main extends javax.swing.JFrame
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         jFormattedTextField3 = new javax.swing.JFormattedTextField();
         jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        jLabel7 = new javax.swing.JLabel();
         center = new javax.swing.JPanel();
-        center2 = new javax.swing.JPanel();
+        center3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         south1 = new javax.swing.JPanel();
+        south2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
-        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fuetterung = new javax.swing.JMenu();
         ein_aus = new javax.swing.JMenuItem();
@@ -77,13 +80,16 @@ public class main extends javax.swing.JFrame
         south.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         south.setLayout(new java.awt.BorderLayout());
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
         jLabel1.setText("Maschine:");
         jPanel2.add(jLabel1);
 
         jLabel4.setText("Ein/Aus");
         jPanel2.add(jLabel4);
 
-        south.add(jPanel2, java.awt.BorderLayout.WEST);
+        jPanel3.add(jPanel2, java.awt.BorderLayout.WEST);
 
         jLabel2.setText("Uhrzeit");
         jPanel1.add(jLabel2);
@@ -91,16 +97,17 @@ public class main extends javax.swing.JFrame
         jLabel3.setText("Datum");
         jPanel1.add(jLabel3);
 
-        south.add(jPanel1, java.awt.BorderLayout.EAST);
+        jPanel3.add(jPanel1, java.awt.BorderLayout.EAST);
+
+        south.add(jPanel3, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(south, java.awt.BorderLayout.SOUTH);
 
         east.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         east.setLayout(new java.awt.BorderLayout());
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("Fütterrungszeiten");
-        east.add(jLabel7, java.awt.BorderLayout.NORTH);
+        jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        jPanel4.setLayout(new java.awt.BorderLayout());
 
         center1.setLayout(new java.awt.GridBagLayout());
 
@@ -160,36 +167,50 @@ public class main extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
         center1.add(jFormattedTextField4, gridBagConstraints);
 
-        east.add(center1, java.awt.BorderLayout.CENTER);
+        jPanel4.add(center1, java.awt.BorderLayout.CENTER);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Fütterrungszeiten");
+        jPanel4.add(jLabel7, java.awt.BorderLayout.NORTH);
+
+        east.add(jPanel4, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(east, java.awt.BorderLayout.LINE_END);
 
         center.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         center.setLayout(new java.awt.BorderLayout());
 
-        center2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        center2.setLayout(new java.awt.GridLayout(0, 2));
+        center3.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        center3.setLayout(new java.awt.GridLayout(0, 2));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Letzte erfolgte Fütterung:");
-        center2.add(jLabel6);
+        center3.add(jLabel6);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("<Uhrzeit>");
-        center2.add(jLabel12);
+        center3.add(jLabel12);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Nächste Fütterung erfolgt in:");
-        center2.add(jLabel13);
+        center3.add(jLabel13);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Stunden:Minuten");
-        center2.add(jLabel14);
+        center3.add(jLabel14);
 
-        center.add(center2, java.awt.BorderLayout.CENTER);
+        center.add(center3, java.awt.BorderLayout.CENTER);
 
         south1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         south1.setLayout(new java.awt.BorderLayout());
+
+        south2.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        south2.setLayout(new java.awt.BorderLayout());
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Fehler und Warnungen");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        south2.add(jLabel5, java.awt.BorderLayout.NORTH);
 
         jList1.setModel(new javax.swing.AbstractListModel<String>()
         {
@@ -199,12 +220,9 @@ public class main extends javax.swing.JFrame
         });
         jScrollPane1.setViewportView(jList1);
 
-        south1.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        south2.add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Fehler und Warnungen");
-        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        south1.add(jLabel5, java.awt.BorderLayout.NORTH);
+        south1.add(south2, java.awt.BorderLayout.PAGE_END);
 
         center.add(south1, java.awt.BorderLayout.SOUTH);
 
@@ -294,7 +312,7 @@ public class main extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel center;
     private javax.swing.JPanel center1;
-    private javax.swing.JPanel center2;
+    private javax.swing.JPanel center3;
     private javax.swing.JPanel east;
     private javax.swing.JMenuItem ein_aus;
     private javax.swing.JMenu einstellungen;
@@ -323,12 +341,15 @@ public class main extends javax.swing.JFrame
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuItem manuelleSteuerung;
     private javax.swing.JMenuItem positionsinformationen;
     private javax.swing.JPanel south;
     private javax.swing.JPanel south1;
+    private javax.swing.JPanel south2;
     private javax.swing.JMenu steuerung;
     private javax.swing.JMenuItem update;
     // End of variables declaration//GEN-END:variables
