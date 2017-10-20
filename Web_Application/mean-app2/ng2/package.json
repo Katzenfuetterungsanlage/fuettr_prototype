@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "prestart": "cd ../server && gulp cleanAndBuild",
+        "prestart": "cd ../server && sudo gulp cleanAndBuild",
         "start": "ng build && sudo node ../server/dist/main.js",
         "build": "ng build",
         "test": "ng test",
