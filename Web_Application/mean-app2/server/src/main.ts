@@ -30,7 +30,7 @@ serverApp.use(error404Handler);
 serverApp.use(errorHandler);
 
 // start of application
-const port = 80;
+const port = 8080;
 const server = http.createServer(serverApp).listen(port);
 debug.info('Server running on port ' + port);
 
