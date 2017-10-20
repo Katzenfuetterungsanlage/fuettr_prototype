@@ -5,7 +5,7 @@
     "scripts": {
         "ng": "ng",
         "prestart": "cd ../server && gulp cleanAndBuild",
-        "start": "ng build && node ../server/dist/main.js",
+        "start": "ng build && sudo node ../server/dist/main.js",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
