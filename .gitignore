@@ -1,14 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-*/dist
+*/dist/*
 */tmp
 */out-tsc
 
 # dependencies
-*/node_modules
-**/package-lock.json
-Web_Application/**/package-lock.json
+*/node_modules/
+package-lock.json
 
 
 
@@ -37,10 +36,6 @@ Web_Application/**/package-lock.json
 # System Files
 *.DS_Store
 */Thumbs.db
-/Java_Application/nbproject/private/
-/Server-Client/nbproject/private/
-/Java_Application/Server-Client/nbproject/private/
-/Java_Application/Server-Client/build/
 
 # NetBeans
 */nbproject/private/
