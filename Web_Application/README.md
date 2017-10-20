@@ -1,8 +1,8 @@
 # VSCode Extensions
 * [**Angular v4 TypeScript Snippets**][1] by johnpapa
-* [**Auto Close Tag**][3] by Jun Han
-* [**Auto-Open Markdown Preview**][18] by hnw
+* [**Auto-Open Markdown Preview**][2] by hnw
 * [**Beautify**][4] by HookyQR
+* [**Bracket Pair Colorizer**][3] by CoenraadS
 * [**Class autocomplete for HTML**][10] by AES Soft
 * [**gitignore**][5] by CodeZombie
 * [**HTML CSS Support**][6] by ecmel
@@ -18,7 +18,8 @@
 * [**VSCode Great Icons**][16] by Emmanuel Béziat
 
 [1]: https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2
-[3]: https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag
+[2]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
+[3]: https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer
 [4]: https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
 [5]: https://marketplace.visualstudio.com/items?itemName=codezombiech.gitignore
 [6]: https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css
@@ -33,4 +34,3 @@
 [15]: https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense
 [16]: https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons
 [17]: https://marketplace.visualstudio.com/items?itemName=hwencc.html-tag-wrapper
-[18]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview

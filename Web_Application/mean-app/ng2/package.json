@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng build && node server.js",
+        "start": "ng build && node ../server/src/server.js",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
@@ -23,7 +23,12 @@
         "@angular/router": "^4.2.4",
         "body-parser": "^1.18.2",
         "core-js": "^2.4.1",
+        "debug-sx": "^0.1.7",
+        "del": "^3.0.0",
         "express": "^4.16.2",
+        "gulp": "^3.9.1",
+        "gulp-changed": "^3.1.0",
+        "gulp-typescript": "^3.2.2",
         "rxjs": "^5.4.2",
         "zone.js": "^0.8.14"
     },
