@@ -76,7 +76,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 
 function update() {
   setTimeout(() => {
-    child.exec('sudo reboot', (error, stdout, stderr) => {
+    child.execFile('sudo reboot', (error, stdout, stderr) => {
       console.log(stdout);
     });
   }, 250);
