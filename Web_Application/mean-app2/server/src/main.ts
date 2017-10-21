@@ -75,11 +75,11 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 }
 
 function update() {
-  setTimeout(() => {
     child.execFile('sudo reboot', (error, stdout, stderr) => {
-      console.log(stdout);
+      debug.info(stdout);
+      debug.warn(error);
+      debug.warn(stderr);
     });
-  }, 250);
 
 }
 

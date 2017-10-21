@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <h4>Klick the button to check for updates:</h4>
     <br>
-    <button type="button" class="btn btn-secondary btn-lg" (click)="checkUpdate()" data-toggle="modal" data-target="#myModal">Check for updates</button>
+    <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#myModal">Check for updates</button>
 </div>
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -16,8 +16,8 @@
             <div class="modal-body">
                 <p>{{message}}</p>
             </div>
-            <div class="modal-footer">
-                <button *ngIf="show" type="button" class="btn btn-primary" (click)="update()">Update</button>
+            <div *ngIf="show" class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="update()">Update</button>
             </div>
         </div>
     </div>

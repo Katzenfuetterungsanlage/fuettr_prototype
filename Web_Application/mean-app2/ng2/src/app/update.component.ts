@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UpdateService } from './update.service';
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
 })
-export class UpdateComponent {
+export class UpdateComponent implements OnInit {
 
   private message: string;
   private show = false;
@@ -16,7 +16,7 @@ export class UpdateComponent {
     this.updateService.getUpdate();
   }
 
-  checkUpdate() {
+  ngOnInit() {
     this.message = 'Checking for updates...';
     setTimeout(() => {
       this.message = 'Update found';
