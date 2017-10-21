@@ -10,6 +10,7 @@ import { HomeComponent } from './home.component';
 import { InfoComponent } from './info.component';
 import { TimesService } from './times.service';
 import { UpdateComponent } from './update.component';
+import { UpdateService } from './update.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { UpdateComponent } from './update.component';
     UpdateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpModule],
-  providers: [TimesService],
+  providers: [TimesService, UpdateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
