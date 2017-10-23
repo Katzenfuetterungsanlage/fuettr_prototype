@@ -23,15 +23,16 @@
         "@angular/platform-browser-dynamic": "^4.2.4",
         "@angular/router": "^4.2.4",
         "body-parser": "^1.18.2",
+        "bootstrap": "^4.0.0-beta.2",
         "core-js": "^2.4.1",
         "debug-sx": "^0.1.7",
         "del": "^3.0.0",
-        "exec": "^0.2.1",
         "express": "^4.16.2",
         "gulp": "^3.9.1",
         "gulp-changed": "^3.1.0",
         "gulp-typescript": "^3.2.2",
-        "rxjs": "^5.4.2",
+        "jquery": "^3.1.1",
+        "popper.js": "^1.12.6",
         "zone.js": "^0.8.14"
     },
     "devDependencies": {

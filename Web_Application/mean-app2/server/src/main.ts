@@ -20,13 +20,14 @@ pugEngine.locals.pretty = true;
 
 // middleware for web-server
 serverApp.use(requestHandler);
-serverApp.use(express.static(path.join(__dirname, 'public')));
-serverApp.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
+serverApp.use(express.static(path.join(__dirname, '../public')));
+serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
 serverApp.get('/error', handleGetError);
 serverApp.get('/api/getUpdate', update);
 serverApp.get('/api/extensions', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/README.html'))})
+  res.sendFile(path.join(__dirname, 'views/README.html'))
+});
 serverApp.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
 });
@@ -66,23 +67,22 @@ function error404Handler(req: express.Request, res: express.Response, next: expr
 
 
 function errorHandler(err: express.Errback, req: express.Request, res: express.Response, next: express.NextFunction) {
-  const ts = new Date().toISOString();
+  const ts = new Date().toLocaleString();
   debug.warn('Error %s\n%e', ts, err);
   res.status(500).render('error500.pug',
     {
       time: ts,
-      href: 'mailto:max@mustermann.com?subject=' + ts,
-      serveradmin: 'Max Mustermann'
+      href: 'mailto:greflm13@htl-kaindorf.ac.at?subject=Füttr server failed ' + ts,
+      serveradmin: 'Florian Greistorfer'
     });
 }
 
 function update() {
-  console.log('Fick Dich');
-    child.exec('dir', (error, stdout, stderr) => {
-      debug.info(stdout);
-      debug.warn(error);
-      debug.warn(stderr);
-    });
+  child.exec('sudo reboot', (error, stdout, stderr) => {
+    debug.info(stdout);
+    debug.warn(error);
+    debug.warn(stderr);
+  });
 
 }
 
