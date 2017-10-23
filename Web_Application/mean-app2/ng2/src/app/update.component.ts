@@ -11,12 +11,12 @@ export class UpdateComponent implements OnInit {
 
   private message: string;
   private show = false;
-  private test: string;
+  private updater: string;
 
   constructor(private updateService: UpdateService) { }
 
   update() {
-    this.test = 'in progress...';
+    this.updater = 'in progress...';
     this.updateService.getUpdate();
   }
 
