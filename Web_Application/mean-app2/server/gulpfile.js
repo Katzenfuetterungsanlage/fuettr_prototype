@@ -56,7 +56,7 @@ gulp.task('copyFiles', function(done) {
 
     const copyPugViews =
         gulp
-        .src('src/views/**/*.pug')
+        .src('src/views/**/*')
         .pipe(changed('dist/views', { extension: '.pug' }))
         .pipe(using({ prefix: '  --> Copying file', path: 'cwd', color: 'blue', filesize: false }))
         .pipe(gulp.dest('dist/views/'));

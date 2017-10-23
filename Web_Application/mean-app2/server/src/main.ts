@@ -24,7 +24,9 @@ serverApp.use(express.static(path.join(__dirname, 'public')));
 serverApp.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
 serverApp.get('/error', handleGetError);
-serverApp.get('/getUpdate', update);
+serverApp.get('/api/getUpdate', update);
+serverApp.get('/api/extensions', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/README.html'))})
 serverApp.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
 });
@@ -75,7 +77,8 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 }
 
 function update() {
-    child.execFile('sudo reboot', (error, stdout, stderr) => {
+  console.log('Fick Dich');
+    child.exec('dir', (error, stdout, stderr) => {
       debug.info(stdout);
       debug.warn(error);
       debug.warn(stderr);

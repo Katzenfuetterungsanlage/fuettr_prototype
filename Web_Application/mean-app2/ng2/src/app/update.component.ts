@@ -9,10 +9,12 @@ export class UpdateComponent implements OnInit {
 
   private message: string;
   private show = false;
+  private test: string;
 
   constructor(private updateService: UpdateService) { }
 
   update() {
+    this.test = 'Works net';
     this.updateService.getUpdate();
   }
 
@@ -21,6 +23,6 @@ export class UpdateComponent implements OnInit {
     setTimeout(() => {
       this.message = 'Update found';
       this.show = true;
-    }, 5000);
+    }, 2550);
   }
 }

@@ -7,7 +7,7 @@ export class UpdateService {
   constructor(private http: Http) { }
 
   getUpdate() {
-    return this.http.get('/getUpdate');
+    this.http.get('/api/getUpdate');
   }
 
 }
