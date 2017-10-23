@@ -3,33 +3,19 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class UpdateService {
+  private Url = 'api/getUpdate';  // URL to web api
 
   constructor(private http: Http) { }
 
-  public getUpdate(): number {
-    const err = new MyError('test', 100);
-    console.log(err);
-    this.http.get('http://localhost/api/getUpdate').toPromise()
-      .then(response => {
-        console.log('Update...');
-      })
-      .catch(error => {
-        if (error instanceof Error) {
-          console.log(error);
-        } else {
-          console.log('?');
-        }
-      });
-    return 0;
-  }
-}
-
-class MyError extends Error {
-  constructor(message: string, private x: number) {
-    super(message);
+  getUpdate(): Promise<any> {
+    return this.http.get(this.Url)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
   }
 
-  public toString(): string {
-    return this.message + ', x=' + this.x;
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
   }
 }
