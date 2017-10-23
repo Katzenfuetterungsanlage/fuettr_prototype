@@ -16,7 +16,7 @@ export class UpdateComponent implements OnInit {
   constructor(private updateService: UpdateService) { }
 
   update() {
-    this.test = 'Works net';
+    this.test = 'in progress...';
     this.updateService.getUpdate();
   }
 
