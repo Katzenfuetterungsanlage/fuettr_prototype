@@ -5,9 +5,6 @@
     <h4>Klick the button to check for updates:</h4>
     <br>
     <button type="button" class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#myModal">Check for updates</button>
-    <br>
-    <h6>Shutdown:</h6>
-    <button type="button" class="btn btn-outline-secondary btn-sm" (click)="shutdown()">Shutdown</button>
 </div>
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -27,3 +24,8 @@
         </div>
     </div>
 </div>
+<nav class="navbar fixed-bottom navbar-inverse" style="background-color: #191816;">
+    <form class="form-inline">
+        <button class="btn btn-outline-light" type="button" (click)="shutdown()">Shutdown</button>
+    </form>
+</nav>
