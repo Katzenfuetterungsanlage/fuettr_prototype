@@ -1,6 +1,6 @@
 {
     "name": "server",
-    "version": "alpha0.0.3",
+    "version": "0.0.3",
     "description": "Express Server",
     "main": "main.js",
     "scripts": {
