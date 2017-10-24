@@ -6,7 +6,7 @@
         "ng": "ng",
         "prestart": "sudo ng build && cd ../server && sudo gulp cleanAndBuild",
         "start": "sudo node ../server/dist/main.js",
-        "build": "ng build",
+        "build": "sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
