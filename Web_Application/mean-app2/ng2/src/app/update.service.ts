@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
+import { Version } from './version';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UpdateService {
   private getUrl = 'api/getUpdate';  // URL to web api
-  private checkUrl = '';  // URL to web api
+  private checkUrl = 'https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/version.json';  // URL to web api
+  private lVersionUrl = 'api/version';
 
   constructor(private http: Http) { }
 
@@ -15,11 +19,18 @@ export class UpdateService {
       .catch(this.handleError);
   }
 
-  checkUpdate(): Promise<any> {
+  checkUpdate(): Promise<Version> {
     return this.http.get(this.checkUrl)
-    .toPromise()
-    .then(response => response.json())
-    .catch(this.handleError);
+      .toPromise()
+      .then(response => response.json() as Version)
+      .catch(this.handleError);
+  }
+
+  getVersion(): Promise<Version> {
+    return this.http.get(this.lVersionUrl)
+      .toPromise()
+      .then(response => response.json() as Version)
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
@@ -27,3 +38,4 @@ export class UpdateService {
     return Promise.reject(error.message || error);
   }
 }
+
