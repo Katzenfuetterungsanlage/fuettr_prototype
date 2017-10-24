@@ -18,6 +18,7 @@
                 <div *ngIf="show">{{newVersion}}</div>
             </div>
             <div *ngIf="show" class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="refresh()">Check again</button>
                 <button type="button" class="btn btn-primary" (click)="update()">Update {{updater}}</button>
             </div>
         </div>

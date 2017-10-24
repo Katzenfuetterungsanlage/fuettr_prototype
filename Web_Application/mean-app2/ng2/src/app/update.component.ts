@@ -24,6 +24,28 @@ export class UpdateComponent implements OnInit {
     this.updateService.getUpdate();
   }
 
+  refresh() {
+    this.message = 'Checking for updates...';
+
+    this.updateService.checkUpdate().then((version) => {
+      this.version = version;
+      this.updateService.getVersion().then((lVersion) => {
+        this.lVersion = lVersion;
+        if (this.version.version !== this.lVersion.version) {
+          this.message = 'Update found:';
+          this.show = true;
+          this.newVersion = this.version.version.toString();
+        } else {
+          this.message = 'Up do date';
+        }
+      }).catch((err) => {
+        alert(err);
+      });
+    }).catch((err) => {
+      alert(err);
+    });
+  }
+
   ngOnInit() {
     this.message = 'Checking for updates...';
 
