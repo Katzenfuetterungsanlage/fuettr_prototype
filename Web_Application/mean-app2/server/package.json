@@ -1,21 +1,16 @@
 {
     "name": "server",
-    "version": "0.0.1",
-    "description": "Web-Server Node.js/Express",
+    "version": "alpha0.0.3",
+    "description": "Express Server",
     "main": "main.js",
     "scripts": {
         "prestart": "gulp cleanAndBuild",
-        "start": "node dist/main.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node dist/main.js"
     },
-    "keywords": [
-        "typescript",
-        "express"
-    ],
-    "author": "Manfred Steiner",
+    "author": "Florian Greistorfer",
     "license": "ISC",
     "private": true,
-    "repository": "https://github.com/ManfredSteiner/webserver-template",
+    "repository": {},
     "dependencies": {
         "@types/debug": "0.0.29",
         "@types/express": "^4.0.36",
