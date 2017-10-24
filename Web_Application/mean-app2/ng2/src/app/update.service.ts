@@ -9,11 +9,19 @@ export class UpdateService {
   private getUrl = 'api/getUpdate';  // URL to web api
   private checkUrl = 'https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/version.json';  // URL to web api
   private lVersionUrl = 'api/version';
+  private shutdownUrl = 'api/shutdown';
 
   constructor(private http: Http) { }
 
   getUpdate(): Promise<any> {
     return this.http.get(this.getUrl)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
+  }
+
+  shutdown(): Promise<any> {
+    return this.http.get(this.shutdownUrl)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);

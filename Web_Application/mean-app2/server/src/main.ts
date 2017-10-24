@@ -25,6 +25,7 @@ serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/no
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
 serverApp.get('/error', handleGetError);
 serverApp.get('/api/getUpdate', update);
+serverApp.get('/api/shutdown', shutdown);
 serverApp.get('/api/version', (req, res) => {
   res.sendFile(path.join(__dirname, '../../../../version.json'))
 });
@@ -84,14 +85,17 @@ function update() {
   child.exec(`cd /home/pi/git/fuettr_prototype && git stash && sudo git pull &&
   sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local &&
   sudo reboot`, (error, stdout, stderr) => {
-    if (stdout !== '') {
-      debug.info(stdout);
-    }
-    if (error !== null) {
-      debug.warn(error);
-    }
-  });
+      if (stdout !== '') {
+        debug.info(stdout);
+      }
+      if (error !== null) {
+        debug.warn(error);
+      }
+    });
 }
 
+function shutdown() {
+  child.exec('sudo poweroff');
+}
 
 

@@ -24,6 +24,10 @@ export class UpdateComponent implements OnInit {
     this.updateService.getUpdate();
   }
 
+  shutdown() {
+    this.updateService.shutdown();
+  }
+
   refresh() {
     this.message = 'Checking for updates...';
 
