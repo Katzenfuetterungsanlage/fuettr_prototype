@@ -17,10 +17,10 @@
                 <p>{{message}}</p>
                 <div *ngIf="show">{{newVersion}}</div>
             </div>
-            <divclass="modal-footer">
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="refresh()">Check again</button>
                 <button *ngIf="show" type="button" class="btn btn-primary" (click)="update()">Update {{updater}}</button>
+            </div>
         </div>
     </div>
-</div>
 </div>
