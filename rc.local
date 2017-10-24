@@ -17,6 +17,8 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
+sudo npm install -g @angular/cli gulp npm-install-missing && cd ../server && sudo npm-install-missing && cd ../ng2 && sudo npm-install-missing
+
 cd /home/pi/git/fuettr_prototype/Web_Application/mean-app2/ng2 && npm start &
 
 exit 0

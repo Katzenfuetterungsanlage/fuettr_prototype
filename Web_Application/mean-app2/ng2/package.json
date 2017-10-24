@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "prestart": "sudo npm install -g @angular/cli gulp && cd ../server && sudo npm install && sudo gulp cleanAndBuild && cd ../ng2 && sudo npm install && sudo ng build",
+        "prestart": "sudo ng build && cd ../server && sudo gulp cleanAndBuild",
         "start": "sudo node ../server/dist/main.js",
         "build": "ng build",
         "test": "ng test",
