@@ -19,9 +19,9 @@ fi
 
 sudo npm install -g @angular/cli gulp npm-install-missing
 
-cd /home/pi/git/fuettr_prototype/Web_Application/mean-app2/server && sudo npm-install-missing
+cd /home/pi/git/fuettr_prototype/Web_Application/mean-app2/server && sudo npm-install-missing &
 
-cd /home/pi/git/fuettr_prototype/Web_Application/mean-app2/ng2 && sudo npm-install-missing
+cd /home/pi/git/fuettr_prototype/Web_Application/mean-app2/ng2 && sudo npm-install-missing &
 
 cd /home/pi/git/fuettr_prototype/Web_Application/mean-app2/ng2 && npm start &
 
