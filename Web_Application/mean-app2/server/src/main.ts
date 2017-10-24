@@ -78,13 +78,13 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 }
 
 function update() {
-  child.exec('cd /home/pi/git/fuettr_prototype && sudo git pull', (error, stdout, stderr) => {
+  child.exec(`cd /home/pi/git/fuettr_prototype && sudo git pull &&
+  sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local &&
+  sudo reboot`, (error, stdout, stderr) => {
     debug.info(stdout);
     debug.warn(error);
     debug.warn(stderr);
   });
-  child.exec('sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local');
-  child.exec('sudo reboot');
 }
 
 
