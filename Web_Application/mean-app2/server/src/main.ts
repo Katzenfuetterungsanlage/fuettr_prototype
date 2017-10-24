@@ -78,7 +78,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 }
 
 function update() {
-  child.exec('git pull', (error, stdout, stderr) => {
+  child.exec('cd /home/pi/git/fuettr_prototype && sudo git pull', (error, stdout, stderr) => {
     debug.info(stdout);
     debug.warn(error);
     debug.warn(stderr);
