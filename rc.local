@@ -17,20 +17,6 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-#rsync -aP /home/pi/git/fuettr_prototype/Web_Application/mean-app2/ng2/node_modules/ /home/pi/git/tmp/ng2/node_modules/
-
-#rsync -aP /home/pi/git/fuettr_prototype/Web_Application/mean-app2/server/node_modules/ /home/pi/git/tmp/server/node_modules/
-
-#cd /home/pi/git && sudo rm -r fuettr_prototype/
-
-#cd /home/pi/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype
-
-#rsync -aP /home/pi/git/tmp/ng2/node_modules/ /home/pi/git/fuettr_prototype/Web_Application/mean-app2/ng2/node_modules/
-
-#rsync -aP /home/pi/git/tmp/server/node_modules/ /home/pi/git/fuettr_prototype/Web_Application/mean-app2/server/node_modules/
-
-#cd /home/pi/git/fuettr_prototype && git pull
-
 cd /home/pi/git/fuettr_prototype/Web_Application/mean-app2/ng2 && npm start &
 
 exit 0

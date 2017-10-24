@@ -24,8 +24,6 @@
         "@angular/router": "^4.2.4",
         "bootstrap": "^4.0.0-beta.2",
         "core-js": "^2.4.1",
-        "debug-sx": "^0.1.7",
-        "del": "^3.0.0",
         "jquery": "^3.1.1",
         "popper.js": "^1.12.6",
         "zone.js": "^0.8.14"
