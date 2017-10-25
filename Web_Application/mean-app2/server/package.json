@@ -21,6 +21,7 @@
         "debug-sx": "^0.1.6",
         "express": "^4.15.3",
         "pug": "^2.0.0-rc.2",
+        "resolve": "^1.5.0",
         "spin": "0.0.1"
     },
     "devDependencies": {
