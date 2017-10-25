@@ -21,7 +21,7 @@
                         <input type="checkbox">
                     </td>
                     <td class="text-center">
-                        <input type="time" value="10:10">
+                        <input type="time" [(ngModel)]="time1">
                     </td>
                 </tr>
                 <tr>
@@ -32,7 +32,7 @@
                         <input type="checkbox">
                     </td>
                     <td class="text-center">
-                        <input type="time" value="10:10">
+                        <input type="time" [(ngModel)]="time2">
                     </td>
                 </tr>
                 <tr>
@@ -43,7 +43,7 @@
                         <input type="checkbox">
                     </td>
                     <td class="text-center">
-                        <input type="time" value="10:10">
+                        <input type="time" [(ngModel)]="time3">
                     </td>
                 </tr>
                 <tr>
@@ -54,10 +54,11 @@
                         <input type="checkbox">
                     </td>
                     <td class="text-center">
-                        <input type="time" value="10:10">
+                        <input type="time" [(ngModel)]="time4">
                     </td>
                 </tr>
             </table>
+            Time1: {{time1}} <br> Time2: {{time2}} <br> Time3: {{time3}} <br> Time4: {{time4}}
         </div>
         <div class="col-sm-9">
             <img src="/assets/Wolf.png" width="400" alt="Wolfi">

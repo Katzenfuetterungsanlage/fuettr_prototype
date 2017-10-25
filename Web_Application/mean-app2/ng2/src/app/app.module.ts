@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,7 @@ import { UpdateService } from './update.service';
     InfoComponent,
     UpdateComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpModule],
+  imports: [BrowserModule, AppRoutingModule, HttpModule, FormsModule],
   providers: [TimesService, UpdateService],
   bootstrap: [AppComponent]
 })

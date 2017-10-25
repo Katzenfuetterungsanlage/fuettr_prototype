@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.time1 = '10:10';
+    this.time1 = '';
     this.time2 = '11:11';
     this.time3 = '12:12';
     this.time4 = '13:13';
