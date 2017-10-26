@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit {
   private time3: string;
   private time4: string;
 
+  private warning = false;
+  private danger = false;
+
   public constructor() {
     this.statusmessage = `Dummytext: Sunt enim minim cupidatat deserunt ullamco dolore eiusmod
       fugiat eu quis aliquip mollit labore. Aute fugiat fugiat veniam cupidatat minim est irure
