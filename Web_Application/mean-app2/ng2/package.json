@@ -6,7 +6,7 @@
         "ng": "ng",
         "prestart": "sudo ng build && cd ../server && sudo gulp cleanAndBuild",
         "start": "sudo node ../server/dist/main.js",
-        "build": "sudo git config --global user.email "fuettr@gmail.com" && sudo git config --global user.name "fuettr" && sudo git pull && sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local && sudo reboot",
+        "build": "sudo git pull && sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local && sudo reboot",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e"
