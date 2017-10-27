@@ -1,4 +1,4 @@
-*/*.png
-*/*.jpg
-*/*.bmp
-*/*.ico
+*.png
+*.jpg
+*.bmp
+*.ico

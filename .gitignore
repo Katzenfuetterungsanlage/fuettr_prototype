@@ -36,6 +36,7 @@ package-lock.json
 # System Files
 *.DS_Store
 */Thumbs.db
+*.odt#
 
 # NetBeans
 */nbproject/private/
