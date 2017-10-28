@@ -5,21 +5,32 @@
  */
 package gui;
 
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import javax.swing.SwingWorker;
+
 /**
  *
  * @author Florian
  */
 public class Hauptfenster extends javax.swing.JFrame
 {
-
+    
+    boolean zustand = false;
+    
     /**
      * Creates new form Hauptfenster
      */
     public Hauptfenster()
     {
         initComponents();
+        UhrzeitWorker uworker = new UhrzeitWorker();
+        uworker.execute();
+        DatumWorker dworker = new DatumWorker();
+        dworker.execute();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,10 +85,10 @@ public class Hauptfenster extends javax.swing.JFrame
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbZustand = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lbUhrzeit = new javax.swing.JLabel();
+        lbDatum = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fuetterung = new javax.swing.JMenu();
         ein_aus = new javax.swing.JMenuItem();
@@ -85,10 +96,13 @@ public class Hauptfenster extends javax.swing.JFrame
         fuetterungszeiten_verwalten = new javax.swing.JMenuItem();
         steuerung = new javax.swing.JMenu();
         manuelleSteuerung = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         positionsinformationen = new javax.swing.JMenuItem();
         einstellungen = new javax.swing.JMenu();
         update = new javax.swing.JMenuItem();
-        geraeteinformationen = new javax.swing.JMenuItem();
+        benutzer_anlegen = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        geraeteinformation = new javax.swing.JMenuItem();
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Letzte erfolgte Fütterung: ");
@@ -283,16 +297,18 @@ public class Hauptfenster extends javax.swing.JFrame
         jLabel1.setText("Maschine: ");
         jPanel5.add(jLabel1);
 
-        jLabel2.setText("Ein/Aus");
-        jPanel5.add(jLabel2);
+        lbZustand.setText("Ein/Aus");
+        jPanel5.add(lbZustand);
 
         jPanel3.add(jPanel5, java.awt.BorderLayout.WEST);
 
-        jLabel3.setText("Uhrzeit");
-        jPanel4.add(jLabel3);
+        jPanel4.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 5));
 
-        jLabel4.setText("Datum");
-        jPanel4.add(jLabel4);
+        lbUhrzeit.setText("Uhrzeit");
+        jPanel4.add(lbUhrzeit);
+
+        lbDatum.setText("Datum");
+        jPanel4.add(lbDatum);
 
         jPanel3.add(jPanel4, java.awt.BorderLayout.EAST);
 
@@ -305,12 +321,33 @@ public class Hauptfenster extends javax.swing.JFrame
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
         fuetterung.setText("Fütterung");
+        fuetterung.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onFütterungszeitenVerwalten(evt);
+            }
+        });
 
         ein_aus.setText("Ein-/Ausschalten");
+        ein_aus.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onEinAusSchalten(evt);
+            }
+        });
         fuetterung.add(ein_aus);
         fuetterung.add(jSeparator1);
 
         fuetterungszeiten_verwalten.setText("Fütterungszeiten verwalten");
+        fuetterungszeiten_verwalten.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onFuetterungszeitenVerwalten(evt);
+            }
+        });
         fuetterung.add(fuetterungszeiten_verwalten);
 
         jMenuBar1.add(fuetterung);
@@ -318,9 +355,24 @@ public class Hauptfenster extends javax.swing.JFrame
         steuerung.setText("Steuerung");
 
         manuelleSteuerung.setText("manuelle Steuerung");
+        manuelleSteuerung.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onManuelleSteuerung(evt);
+            }
+        });
         steuerung.add(manuelleSteuerung);
+        steuerung.add(jSeparator3);
 
         positionsinformationen.setText("Positionsinformationen");
+        positionsinformationen.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onPositionsinformation(evt);
+            }
+        });
         steuerung.add(positionsinformationen);
 
         jMenuBar1.add(steuerung);
@@ -328,10 +380,35 @@ public class Hauptfenster extends javax.swing.JFrame
         einstellungen.setText("Einstellungen");
 
         update.setText("Update");
+        update.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onUpdate(evt);
+            }
+        });
         einstellungen.add(update);
 
-        geraeteinformationen.setText("Geräteinformationen");
-        einstellungen.add(geraeteinformationen);
+        benutzer_anlegen.setText("Benutzer anlegen");
+        benutzer_anlegen.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onBenutzerAnlegen(evt);
+            }
+        });
+        einstellungen.add(benutzer_anlegen);
+        einstellungen.add(jSeparator2);
+
+        geraeteinformation.setText("Geräteinformation");
+        geraeteinformation.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onGeraeteinformation(evt);
+            }
+        });
+        einstellungen.add(geraeteinformation);
 
         jMenuBar1.add(einstellungen);
 
@@ -339,6 +416,61 @@ public class Hauptfenster extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void onEinAusSchalten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onEinAusSchalten
+    {//GEN-HEADEREND:event_onEinAusSchalten
+        if (zustand != true)
+        {
+            zustand = true;
+            lbZustand.setText("Ein");
+        }                    
+        else
+        {
+            zustand = false;
+            lbZustand.setText("Aus");
+        }                 
+    }//GEN-LAST:event_onEinAusSchalten
+
+    private void onFütterungszeitenVerwalten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onFütterungszeitenVerwalten
+    {//GEN-HEADEREND:event_onFütterungszeitenVerwalten
+
+    }//GEN-LAST:event_onFütterungszeitenVerwalten
+
+    private void onManuelleSteuerung(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onManuelleSteuerung
+    {//GEN-HEADEREND:event_onManuelleSteuerung
+        // TODO add your handling code here:
+    }//GEN-LAST:event_onManuelleSteuerung
+
+    private void onPositionsinformation(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onPositionsinformation
+    {//GEN-HEADEREND:event_onPositionsinformation
+        // TODO add your handling code here:
+    }//GEN-LAST:event_onPositionsinformation
+
+    private void onUpdate(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUpdate
+    {//GEN-HEADEREND:event_onUpdate
+        final Update infoDlg = new Update(this, true); 
+        infoDlg.setVisible(true);
+    }//GEN-LAST:event_onUpdate
+
+    private void onFuetterungszeitenVerwalten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onFuetterungszeitenVerwalten
+    {//GEN-HEADEREND:event_onFuetterungszeitenVerwalten
+        //Objektobjekt erzeugen ==> Dialog ist MODAL! (modal ... blockieren des Elternfensters) 
+        final ZeitenManagement zeitenDlg = new ZeitenManagement(this, true); // true = modal (blockiert das Hauptfenster) , false = nicht modal 
+        zeitenDlg.setVisible(true); //Dialog sichtbar setzen
+        //An dieser Stelle "blockiert" das Programm, solange der Dialog geöffnet ist!        
+    }//GEN-LAST:event_onFuetterungszeitenVerwalten
+
+    private void onGeraeteinformation(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onGeraeteinformation
+    {//GEN-HEADEREND:event_onGeraeteinformation
+        final GeraeteInfo infoDlg = new GeraeteInfo(this, true); 
+        infoDlg.setVisible(true);
+    }//GEN-LAST:event_onGeraeteinformation
+
+    private void onBenutzerAnlegen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onBenutzerAnlegen
+    {//GEN-HEADEREND:event_onBenutzerAnlegen
+        final BenutzerAnlegen infoDlg = new BenutzerAnlegen(this, true); 
+        infoDlg.setVisible(true);
+    }//GEN-LAST:event_onBenutzerAnlegen
 
     /**
      * @param args the command line arguments
@@ -388,11 +520,12 @@ public class Hauptfenster extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CenterNorth;
     private javax.swing.JPanel CenterSouth;
+    private javax.swing.JMenuItem benutzer_anlegen;
     private javax.swing.JMenuItem ein_aus;
     private javax.swing.JMenu einstellungen;
     private javax.swing.JMenu fuetterung;
     private javax.swing.JMenuItem fuetterungszeiten_verwalten;
-    private javax.swing.JMenuItem geraeteinformationen;
+    private javax.swing.JMenuItem geraeteinformation;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
@@ -407,9 +540,6 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -437,6 +567,11 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JLabel lbDatum;
+    private javax.swing.JLabel lbUhrzeit;
+    private javax.swing.JLabel lbZustand;
     private javax.swing.JMenuItem manuelleSteuerung;
     private javax.swing.JPanel pCenter;
     private javax.swing.JPanel pEast;
@@ -445,4 +580,55 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JMenu steuerung;
     private javax.swing.JMenuItem update;
     // End of variables declaration//GEN-END:variables
+
+private class UhrzeitWorker extends SwingWorker<Object,String>
+{
+    String uhrzeit; 
+
+    @Override
+    protected Object doInBackground() throws Exception
+    {
+        while (true)
+        {
+            uhrzeit = String.format("%1$tH:%1$tM", new Date(System.currentTimeMillis()));
+                        
+            publish(uhrzeit); // gibt Text an process weiter
+
+            TimeUnit.MILLISECONDS.sleep(500);
+        } 
+    }
+
+        @Override
+        protected void process(List<String> chunks)
+        {
+            lbUhrzeit.setText(uhrzeit);
+        }    
+    }
+
+private class DatumWorker extends SwingWorker<Object,String>
+{
+    String datum; 
+
+    @Override
+    protected Object doInBackground() throws Exception
+    {
+        while (true)
+        {
+            datum = String.format("%1$td.%1$tm.%1$tY", new Date(System.currentTimeMillis()));
+            
+            publish(datum); // gibt Text an process weiter
+            
+            TimeUnit.MILLISECONDS.sleep(500);
+        } 
+    }
+
+        @Override
+        protected void process(List<String> chunks)
+        {
+            lbDatum.setText(datum);
+        }    
+    }
+
+
+
 }

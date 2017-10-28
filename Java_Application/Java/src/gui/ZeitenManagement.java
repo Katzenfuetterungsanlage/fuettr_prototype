@@ -14,24 +14,20 @@ import javax.swing.SpinnerDateModel;
  *
  * @author Florian
  */
-public class ZeitenManagement extends javax.swing.JFrame
+public class ZeitenManagement extends javax.swing.JDialog
 {
  
     /**
      * Creates new form ZeitenManagemeint
      */
-    public ZeitenManagement()
+    public ZeitenManagement(java.awt.Frame parent, boolean modal)
     {
-       
-        
-//        Date date = new Date();
-//        SpinnerDateModel sm = 
-//        new SpinnerDateModel(date, null, null, Calendar.HOUR_OF_DAY);
-//        spZeit1 = new javax.swing.JSpinner(sm);
-//        JSpinner.DateEditor de = new JSpinner.DateEditor(spZeit1, "HH:mm:ss");
-//        spZeit1.setEditor(de);
-        
-         initComponents();
+        super(parent, modal);
+               
+        initComponents();
+         
+        setLocationRelativeTo(parent);
+        pack();
     }
 
     /**
@@ -86,7 +82,7 @@ public class ZeitenManagement extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Zeitenmanagement");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
@@ -96,14 +92,28 @@ public class ZeitenManagement extends javax.swing.JFrame
         pButton.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         btSpeichern.setText("Speichern");
+        btSpeichern.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onSpeichern(evt);
+            }
+        });
         jPanel5.add(btSpeichern);
 
         btSchließen.setText("Schließen");
+        btSchließen.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onSchließen(evt);
+            }
+        });
         jPanel5.add(btSchließen);
 
         jPanel4.add(jPanel5);
@@ -248,6 +258,16 @@ public class ZeitenManagement extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void onSchließen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSchließen
+    {//GEN-HEADEREND:event_onSchließen
+        dispose();
+    }//GEN-LAST:event_onSchließen
+
+    private void onSpeichern(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSpeichern
+    {//GEN-HEADEREND:event_onSpeichern
+        // TODO add your handling code here:
+    }//GEN-LAST:event_onSpeichern
+
     /**
      * @param args the command line arguments
      */
@@ -289,7 +309,16 @@ public class ZeitenManagement extends javax.swing.JFrame
         {
             public void run()
             {
-                new ZeitenManagement().setVisible(true);
+                ZeitenManagement dialog = new ZeitenManagement(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter()
+                {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e)
+                    {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

@@ -9,15 +9,20 @@ package gui;
  *
  * @author Florian
  */
-public class BenutzerAnlegen extends javax.swing.JFrame
+public class BenutzerAnlegen extends javax.swing.JDialog
 {
 
     /**
      * Creates new form BenutzerAnlegen
      */
-    public BenutzerAnlegen()
+    public BenutzerAnlegen(java.awt.Frame parent, boolean modal)
     {
+        super(parent, modal);
+               
         initComponents();
+         
+        setLocationRelativeTo(parent);
+        pack();
     }
 
     /**
@@ -46,7 +51,7 @@ public class BenutzerAnlegen extends javax.swing.JFrame
         btSpeichern = new javax.swing.JButton();
         btSchließen1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Benutzer anlegen");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
@@ -87,14 +92,28 @@ public class BenutzerAnlegen extends javax.swing.JFrame
         pButton.setLayout(new java.awt.BorderLayout());
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jPanel6.setLayout(new java.awt.GridLayout());
+        jPanel6.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         btSpeichern.setText("Speichern");
+        btSpeichern.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onSpeichern(evt);
+            }
+        });
         jPanel7.add(btSpeichern);
 
         btSchließen1.setText("Schließen");
+        btSchließen1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onSchließen(evt);
+            }
+        });
         jPanel7.add(btSchließen1);
 
         jPanel6.add(jPanel7);
@@ -107,6 +126,16 @@ public class BenutzerAnlegen extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void onSchließen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSchließen
+    {//GEN-HEADEREND:event_onSchließen
+        dispose();
+    }//GEN-LAST:event_onSchließen
+
+    private void onSpeichern(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSpeichern
+    {//GEN-HEADEREND:event_onSpeichern
+        // TODO add your handling code here:
+    }//GEN-LAST:event_onSpeichern
 
     /**
      * @param args the command line arguments
@@ -148,7 +177,16 @@ public class BenutzerAnlegen extends javax.swing.JFrame
         {
             public void run()
             {
-                new BenutzerAnlegen().setVisible(true);
+                BenutzerAnlegen dialog = new BenutzerAnlegen(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter()
+                {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e)
+                    {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

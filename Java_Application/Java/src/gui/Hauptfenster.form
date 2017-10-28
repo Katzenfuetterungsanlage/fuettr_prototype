@@ -52,11 +52,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="F&#xfc;tterung"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onF&#xfc;tterungszeitenVerwalten"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="ein_aus">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ein-/Ausschalten"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onEinAusSchalten"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
@@ -64,6 +70,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="F&#xfc;tterungszeiten verwalten"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onFuetterungszeitenVerwalten"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -76,11 +85,19 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="manuelle Steuerung"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onManuelleSteuerung"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator3">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="positionsinformationen">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Positionsinformationen"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onPositionsinformation"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -93,11 +110,27 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onUpdate"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="geraeteinformationen">
+            <MenuItem class="javax.swing.JMenuItem" name="benutzer_anlegen">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ger&#xe4;teinformationen"/>
+                <Property name="text" type="java.lang.String" value="Benutzer anlegen"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onBenutzerAnlegen"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="geraeteinformation">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ger&#xe4;teinformation"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onGeraeteinformation"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -603,7 +636,7 @@
                             <Property name="text" type="java.lang.String" value="Maschine: "/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel2">
+                        <Component class="javax.swing.JLabel" name="lbZustand">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Ein/Aus"/>
                           </Properties>
@@ -617,14 +650,16 @@
                         </Constraint>
                       </Constraints>
 
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                        <Property name="horizontalGap" type="int" value="10"/>
+                      </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabel3">
+                        <Component class="javax.swing.JLabel" name="lbUhrzeit">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Uhrzeit"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel4">
+                        <Component class="javax.swing.JLabel" name="lbDatum">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Datum"/>
                           </Properties>

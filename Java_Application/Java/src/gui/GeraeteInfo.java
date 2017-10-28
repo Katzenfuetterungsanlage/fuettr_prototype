@@ -9,15 +9,20 @@ package gui;
  *
  * @author Florian
  */
-public class GeraeteInfo extends javax.swing.JFrame
+public class GeraeteInfo extends javax.swing.JDialog
 {
 
     /**
      * Creates new form GeraeteInfo
      */
-    public GeraeteInfo()
+    public GeraeteInfo(java.awt.Frame parent, boolean modal)
     {
+        super(parent, modal);
+               
         initComponents();
+         
+        setLocationRelativeTo(parent);
+        pack();
     }
 
     /**
@@ -49,7 +54,7 @@ public class GeraeteInfo extends javax.swing.JFrame
         jLabel9 = new javax.swing.JLabel();
         lbVersionsnummer = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Geräteinformation");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
@@ -59,11 +64,18 @@ public class GeraeteInfo extends javax.swing.JFrame
         pButton.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        jPanel4.setLayout(new java.awt.GridLayout());
+        jPanel4.setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
         btSchließen.setText("Schließen");
+        btSchließen.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onSchließen(evt);
+            }
+        });
         jPanel5.add(btSchließen);
 
         jPanel4.add(jPanel5);
@@ -120,6 +132,11 @@ public class GeraeteInfo extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void onSchließen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSchließen
+    {//GEN-HEADEREND:event_onSchließen
+        dispose();
+    }//GEN-LAST:event_onSchließen
+
     /**
      * @param args the command line arguments
      */
@@ -160,7 +177,16 @@ public class GeraeteInfo extends javax.swing.JFrame
         {
             public void run()
             {
-                new GeraeteInfo().setVisible(true);
+                GeraeteInfo dialog = new GeraeteInfo(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter()
+                {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e)
+                    {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
