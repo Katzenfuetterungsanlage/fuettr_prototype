@@ -13,14 +13,14 @@ export class UpdateService {
 
   constructor(private http: Http) { }
 
-  getUpdate(): Promise<any> {
+  getUpdate(): Promise<void> {
     return this.http.get(this.getUrl)
       .toPromise()
       .then(response => response.json())
       .catch(this.handleError);
   }
 
-  shutdown(): Promise<any> {
+  shutdown(): Promise<void> {
     return this.http.get(this.shutdownUrl)
       .toPromise()
       .then(response => response.json())

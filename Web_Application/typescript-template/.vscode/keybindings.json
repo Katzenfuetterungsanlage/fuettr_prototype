@@ -1,0 +1,17 @@
+[
+    {
+        "key": "ctrl+alt+v",
+        "command": "workbench.action.tasks.runTask",
+        "args": "cleanAndBuild"
+    },{
+        "key": "ctrl+alt+b",
+        "command": "workbench.action.tasks.runTask",
+        "args": "build"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "workbench.action.tasks.runTask",
+        "args": "clean"
+    }
+]
+

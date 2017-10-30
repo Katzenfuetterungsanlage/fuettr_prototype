@@ -1,0 +1,35 @@
+{
+    "name": "typescript-template",
+    "version": "1.0.0",
+    "description": "Project Template for Node.js/Typescript FIVU 5AHME",
+    "main": "dist/main.js",
+    "repository": {},
+    "scripts": {
+        "clean": "gulp clean",
+        "build": "gulp build",
+        "prestart": "gulp cleanAndBuild",
+        "start": "node dist/main.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "??",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^8.0.31",
+        "@types/sprintf-js": "^1.1.0",
+        "sprintf-js": "^1.1.1"
+    },
+    "devDependencies": {
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-changed": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.1",
+        "gulp-tslint": "^8.1.2",
+        "gulp-typescript": "^3.2.2",
+        "gulp-using": "^0.1.1",
+        "merge-stream": "^1.0.1",
+        "path": "^0.12.7",
+        "run-sequence": "^2.2.0",
+        "tslint": "^5.7.0",
+        "typescript": "^2.5.3"
+    }
+}
