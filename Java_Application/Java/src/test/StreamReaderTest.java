@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package methods;
+package test;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -13,11 +13,11 @@ import java.io.InputStreamReader;
  *
  * @author Florian
  */
-public class StreamReader
+public class StreamReaderTest
 {
     private String text, text2, text3, text4;
     
-    public StreamReader()
+    public StreamReaderTest()
     {
        einlesen();   
        
@@ -45,6 +45,6 @@ public class StreamReader
     
     public static void main(String[] args)
     {
-        new StreamReader();
+        new StreamReaderTest();
     }
 }
