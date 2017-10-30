@@ -55,11 +55,17 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="neustarten">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\restartIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Neustarten"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="herunterfahren">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\powerIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Herunterfahren"/>
               </Properties>
             </MenuItem>
@@ -75,6 +81,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="ein_aus">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\switchIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ein-/Ausschalten"/>
               </Properties>
               <Events>
@@ -85,6 +94,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="fuetterungszeiten_verwalten">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\timeIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="F&#xfc;tterungszeiten verwalten"/>
               </Properties>
               <Events>
@@ -100,6 +112,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="manuelleSteuerung">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\remotecontrolIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="manuelle Steuerung"/>
               </Properties>
               <Events>
@@ -110,6 +125,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="positionsinformationen">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\infoIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Positionsinformationen"/>
               </Properties>
               <Events>
@@ -125,6 +143,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="update">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\downloadIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
               <Events>
@@ -133,6 +154,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="benutzer_anlegen">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\userIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Benutzer anlegen"/>
               </Properties>
               <Events>
@@ -143,6 +167,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="geraeteinformation">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="D:\Schule\Diplomarbeit\Git\fuettr_prototype\Java_Application\Java\src\icons\info_aboutIcon16x16.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Ger&#xe4;teinformation"/>
               </Properties>
               <Events>

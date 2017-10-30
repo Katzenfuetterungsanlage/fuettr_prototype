@@ -1,0 +1,2 @@
+Das ist mein Test-Stream-Writer
+Ende
