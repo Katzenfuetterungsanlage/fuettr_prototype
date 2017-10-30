@@ -23,7 +23,7 @@ serverApp.use(requestHandler);
 serverApp.use(express.static(path.join(__dirname, '../public')));
 serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
-serverApp.get('/error', handleGetError);
+serverApp.get('/api/error', handleGetError);
 serverApp.get('/api/getUpdate', update);
 serverApp.get('/api/shutdown', shutdown);
 serverApp.get('/api/version', (req, res) => {
@@ -66,7 +66,7 @@ function handleGetError() {
 function error404Handler(req: express.Request, res: express.Response, next: express.NextFunction) {
   const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
   debug.warn('Error 404 for %s %s from %s', req.method, req.url, clientSocket);
-  res.status(404).render('error404.pug');
+  res.status(404).sendFile(path.join(__dirname, 'views/error404.html'));
 }
 
 
@@ -77,7 +77,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
     {
       time: ts,
       href: 'mailto:greflm13@htl-kaindorf.ac.at?subject=Füttr server failed ' + ts,
-      serveradmin: 'Florian Greistorfer'
+      serveradmin: 'Florian Greistorfer',
     });
 }
 
