@@ -1,2 +1,4 @@
-Das ist mein Test-Stream-Writer
-Ende
+Zeit1
+Zeit2
+Zeit3
+Zeit4

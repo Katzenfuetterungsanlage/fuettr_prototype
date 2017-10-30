@@ -22,8 +22,10 @@ public class StreamWriter
                         new FileOutputStream("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\test.txt"), "utf8"));) 
             // "AutoCloseable". Wird automatisch geschlossen wenn es in den runden Klammern steht. Wird von allen Streams unterstützt
         {
-            writer.write(String.format("Das ist mein Test-Stream-Writer%n"));
-            writer.write(String.format("Ende%n"));
+            writer.write(String.format("Zeit1%n"));
+            writer.write(String.format("Zeit2%n"));
+            writer.write(String.format("Zeit3%n"));
+            writer.write(String.format("Zeit4%n"));
             System.out.println("It is working!");
         }
         catch (Exception ex)

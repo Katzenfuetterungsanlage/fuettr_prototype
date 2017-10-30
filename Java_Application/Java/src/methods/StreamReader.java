@@ -13,17 +13,18 @@ import java.io.InputStreamReader;
  *
  * @author Florian
  */
-
 public class StreamReader
 {
+    private String text, text2, text3, text4;
     
-    private String text;
-
-    public StreamReader(String text)
+    public StreamReader()
     {
-        this.text = text; 
-        
-       einlesen();                
+       einlesen();   
+       
+        System.out.format("%s%n",text);
+        System.out.format("%s%n",text2);
+        System.out.format("%s%n",text3);
+        System.out.format("%s%n",text4);
     }
     
     private void einlesen()
@@ -32,17 +33,18 @@ public class StreamReader
                         new InputStreamReader(new FileInputStream("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\test.txt"),"utf8"))) //in doInBackground kann nur auf final Objekte zugegriffen werden - file2
         {
             text = reader.readLine();
+            text2 = reader.readLine();
+            text3 = reader.readLine();
+            text4 = reader.readLine();
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
     }
-
-    public String getText()
-    {
-        return text;
-    }
-
     
+    public static void main(String[] args)
+    {
+        new StreamReader();
+    }
 }
