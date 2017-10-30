@@ -90,6 +90,9 @@ public class Hauptfenster extends javax.swing.JFrame
         lbUhrzeit = new javax.swing.JLabel();
         lbDatum = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        raspberry = new javax.swing.JMenu();
+        neustarten = new javax.swing.JMenuItem();
+        herunterfahren = new javax.swing.JMenuItem();
         fuetterung = new javax.swing.JMenu();
         ein_aus = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -320,6 +323,16 @@ public class Hauptfenster extends javax.swing.JFrame
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
+        raspberry.setText("Raspberry");
+
+        neustarten.setText("Neustarten");
+        raspberry.add(neustarten);
+
+        herunterfahren.setText("Herunterfahren");
+        raspberry.add(herunterfahren);
+
+        jMenuBar1.add(raspberry);
+
         fuetterung.setText("Fütterung");
         fuetterung.addActionListener(new java.awt.event.ActionListener()
         {
@@ -433,17 +446,19 @@ public class Hauptfenster extends javax.swing.JFrame
 
     private void onFütterungszeitenVerwalten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onFütterungszeitenVerwalten
     {//GEN-HEADEREND:event_onFütterungszeitenVerwalten
-
+        //Delete
     }//GEN-LAST:event_onFütterungszeitenVerwalten
 
     private void onManuelleSteuerung(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onManuelleSteuerung
     {//GEN-HEADEREND:event_onManuelleSteuerung
-        // TODO add your handling code here:
+        final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true); 
+        strDlg.setVisible(true);
     }//GEN-LAST:event_onManuelleSteuerung
 
     private void onPositionsinformation(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onPositionsinformation
     {//GEN-HEADEREND:event_onPositionsinformation
-        // TODO add your handling code here:
+        final Positionsinformation posDlg = new Positionsinformation(this, true); 
+        posDlg.setVisible(true);
     }//GEN-LAST:event_onPositionsinformation
 
     private void onUpdate(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUpdate
@@ -526,6 +541,7 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JMenu fuetterung;
     private javax.swing.JMenuItem fuetterungszeiten_verwalten;
     private javax.swing.JMenuItem geraeteinformation;
+    private javax.swing.JMenuItem herunterfahren;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
@@ -573,10 +589,12 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JLabel lbUhrzeit;
     private javax.swing.JLabel lbZustand;
     private javax.swing.JMenuItem manuelleSteuerung;
+    private javax.swing.JMenuItem neustarten;
     private javax.swing.JPanel pCenter;
     private javax.swing.JPanel pEast;
     private javax.swing.JPanel pSouth;
     private javax.swing.JMenuItem positionsinformationen;
+    private javax.swing.JMenu raspberry;
     private javax.swing.JMenu steuerung;
     private javax.swing.JMenuItem update;
     // End of variables declaration//GEN-END:variables
