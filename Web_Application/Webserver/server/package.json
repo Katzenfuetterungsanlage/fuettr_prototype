@@ -1,7 +1,7 @@
 {
     "name": "server",
     "version": "0.0.3",
-    "description": "Express Server",
+    "description": "express server for fuettr",
     "main": "main.js",
     "scripts": {
         "prestart": "gulp cleanAndBuild",

@@ -5,8 +5,7 @@
     "main": "main.js",
     "scripts": {
         "prestart": "gulp cleanAndBuild",
-        "start": "node dist/main.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node dist/main.js"
     },
     "author": "Florian Greistorfer",
     "license": "ISC",
