@@ -6,12 +6,17 @@
 package gui;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.JOptionPane;
+import methods.StreamReader;
 import methods.StreamWriter;
 
 /**
@@ -22,6 +27,45 @@ public class ZeitenManagement extends javax.swing.JDialog
 {
     boolean gespeichert = false;
     
+    private void spinnerFuellen ()
+    {
+                StreamReader streamReader = new StreamReader(); 
+        String string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt");
+        
+        //test
+        System.out.format("%s %n",string);
+        
+        String[] token = string.split(";"); 
+        String zeit1 = token[0];
+        String zeit2 = token[1];
+        String zeit3 = token[2];
+        String zeit4 = token[3];    
+        
+        //test
+        System.out.format("%s %n",zeit1);
+        System.out.format("%s %n",zeit2);
+        System.out.format("%s %n",zeit3);
+        System.out.format("%s %n",zeit4);
+        
+        Date date1 = null,date2 = null,date3 = null,date4 = null;
+        
+        DateFormat format = new SimpleDateFormat("HH:mm", Locale.GERMANY);
+        try
+        {
+            date1 = format.parse(zeit1);
+            date2 = format.parse(zeit2);
+            date3 = format.parse(zeit3);
+            date4 = format.parse(zeit4);
+        } catch (ParseException ex)
+        {
+            Logger.getLogger(ZeitenManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        spZeit1.setValue(date1);
+        spZeit2.setValue(date2);
+        spZeit3.setValue(date3);
+        spZeit4.setValue(date4);
+    }
     /**
      * Creates new form ZeitenManagemeint
      */
@@ -42,6 +86,8 @@ public class ZeitenManagement extends javax.swing.JDialog
         
         JSpinner.DateEditor at4 = new JSpinner.DateEditor(spZeit4, "HH:mm");
         spZeit4.setEditor(at4);
+        
+        spinnerFuellen();
          
         setLocationRelativeTo(parent);
         pack();
