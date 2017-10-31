@@ -1,0 +1,3 @@
+#!/bin/bash
+# install script for Fuettr Server and Java-Application
+cd /home/pi/git/fuettr_prototype && sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local && sudo reboot
