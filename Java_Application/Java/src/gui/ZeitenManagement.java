@@ -29,7 +29,7 @@ public class ZeitenManagement extends javax.swing.JDialog
     
     private void spinnerFuellen ()
     {
-                StreamReader streamReader = new StreamReader(); 
+        StreamReader streamReader = new StreamReader(); 
         String string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt");
         
         //test
