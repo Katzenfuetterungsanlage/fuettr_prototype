@@ -16,7 +16,7 @@ import java.io.OutputStreamWriter;
 
 public class StreamWriter
 {
-    public void schreiben(String pfad, String zeit1, String zeit2, String zeit3, String zeit4)
+    public void schreiben(String pfad, String zeit1)
     {
         try (final BufferedWriter writer = 
             new BufferedWriter(
@@ -25,10 +25,8 @@ public class StreamWriter
             // "AutoCloseable". Wird automatisch geschlossen wenn es in den runden Klammern steht. Wird von allen Streams unterstützt
         {
             writer.write(String.format(zeit1 + "%n"));
-            writer.write(String.format(zeit2 + "%n"));
-            writer.write(String.format(zeit3 + "%n"));
-            writer.write(String.format(zeit4 + "%n"));
-            System.out.println("It is working!");
+
+            System.out.println("Streams wurden erfolgreich geschrieben!");
         }
         catch (Exception ex)
         {

@@ -5,10 +5,14 @@
  */
 package gui;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+import javax.swing.JOptionPane;
+import methods.StreamWriter;
 
 /**
  *
@@ -16,15 +20,28 @@ import javax.swing.SpinnerDateModel;
  */
 public class ZeitenManagement extends javax.swing.JDialog
 {
- 
+    boolean gespeichert = false;
+    
     /**
      * Creates new form ZeitenManagemeint
      */
     public ZeitenManagement(java.awt.Frame parent, boolean modal)
     {
         super(parent, modal);
-               
+
         initComponents();
+        
+        JSpinner.DateEditor at1 = new JSpinner.DateEditor(spZeit1, "HH:mm");
+        spZeit1.setEditor(at1);
+        
+        JSpinner.DateEditor at2 = new JSpinner.DateEditor(spZeit2, "HH:mm");
+        spZeit2.setEditor(at2);
+        
+        JSpinner.DateEditor at3 = new JSpinner.DateEditor(spZeit3, "HH:mm");
+        spZeit3.setEditor(at3);
+        
+        JSpinner.DateEditor at4 = new JSpinner.DateEditor(spZeit4, "HH:mm");
+        spZeit4.setEditor(at4);
          
         setLocationRelativeTo(parent);
         pack();
@@ -68,15 +85,15 @@ public class ZeitenManagement extends javax.swing.JDialog
         spZeit1 = new javax.swing.JSpinner(sm1);
         Date date2 = new Date();
         SpinnerDateModel sm2 =
-        new SpinnerDateModel(date1, null, null, Calendar.HOUR_OF_DAY);
+        new SpinnerDateModel(date2, null, null, Calendar.HOUR_OF_DAY);
         spZeit2 = new javax.swing.JSpinner(sm2);
         Date date3 = new Date();
         SpinnerDateModel sm3 =
-        new SpinnerDateModel(date1, null, null, Calendar.HOUR_OF_DAY);
+        new SpinnerDateModel(date3, null, null, Calendar.HOUR_OF_DAY);
         spZeit3 = new javax.swing.JSpinner(sm3);
         Date date4 = new Date();
         SpinnerDateModel sm4 =
-        new SpinnerDateModel(date1, null, null, Calendar.HOUR_OF_DAY);
+        new SpinnerDateModel(date4, null, null, Calendar.HOUR_OF_DAY);
         spZeit4 = new javax.swing.JSpinner(sm4);
         jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -193,33 +210,21 @@ public class ZeitenManagement extends javax.swing.JDialog
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(jRadioButton4, gridBagConstraints);
-
-        JSpinner.DateEditor at1 = new JSpinner.DateEditor(spZeit1, "HH:mm");
-        spZeit1.setEditor(at1);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(spZeit1, gridBagConstraints);
-
-        JSpinner.DateEditor at2 = new JSpinner.DateEditor(spZeit2, "HH:mm");
-        spZeit2.setEditor(at2);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(spZeit2, gridBagConstraints);
-
-        JSpinner.DateEditor at3 = new JSpinner.DateEditor(spZeit3, "HH:mm");
-        spZeit3.setEditor(at3);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(spZeit3, gridBagConstraints);
-
-        JSpinner.DateEditor at4 = new JSpinner.DateEditor(spZeit4, "HH:mm");
-        spZeit4.setEditor(at4);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -260,12 +265,52 @@ public class ZeitenManagement extends javax.swing.JDialog
 
     private void onSchließen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSchließen
     {//GEN-HEADEREND:event_onSchließen
-        dispose();
+       if (gespeichert == false)
+       {
+           if (JOptionPane.showConfirmDialog(this, "Fenster wirklich schließen? Nicht gespeicherte Inhalte gehen verloren!",
+                 "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+           {
+               dispose();
+           }
+       }
+       else
+       {
+           dispose();
+       }
+        
     }//GEN-LAST:event_onSchließen
 
     private void onSpeichern(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSpeichern
     {//GEN-HEADEREND:event_onSpeichern
-        // TODO add your handling code here:
+        DateFormat df = new SimpleDateFormat("HH:mm");
+
+        Date date1 = (Date) spZeit1.getValue();   
+        String zeit1 = df.format(date1);
+        
+        Date date2 = (Date) spZeit2.getValue();   
+        String zeit2 = df.format(date2);
+        
+        Date date3 = (Date) spZeit3.getValue();   
+        String zeit3 = df.format(date3);
+        
+        Date date4 = (Date) spZeit4.getValue();   
+        String zeit4 = df.format(date4);
+
+        System.out.println("Report Date: " + zeit1);
+        System.out.println("Report Date: " + zeit2);
+        System.out.println("Report Date: " + zeit3);
+        System.out.println("Report Date: " + zeit4);
+        
+        String string = zeit1 + ";" + zeit2 + ";" + zeit3 + ";" + zeit4 + ";";
+
+        StreamWriter streamWriter = new StreamWriter(); 
+        streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",string);
+        
+        //TODO die anderen Zeiten
+        
+        System.out.println("Zeiten gespeichert!"); 
+        
+        gespeichert = true;         
     }//GEN-LAST:event_onSpeichern
 
     /**

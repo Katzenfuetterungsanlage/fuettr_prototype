@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-/**
+/**D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\test.txt
  *
  * @author Florian
  */
@@ -30,7 +30,8 @@ public class StreamReaderTest
     private void einlesen()
     {
         try (final BufferedReader reader = new BufferedReader( //fasst in blöcke zusammen
-                        new InputStreamReader(new FileInputStream("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\test.txt"),"utf8"))) //in doInBackground kann nur auf final Objekte zugegriffen werden - file2
+                    new InputStreamReader(new FileInputStream("D:\\\\Schule\\\\Diplomarbeit\\\\Git\\\\fuettr_prototype\\\\version.json"),"utf8"))) 
+                    //in doInBackground kann nur auf final Objekte zugegriffen werden - file2
         {
             text = reader.readLine();
             text2 = reader.readLine();

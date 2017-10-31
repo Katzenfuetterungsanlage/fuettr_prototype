@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test; 
+package test;
 
-import methods.StreamWriter;
+import methods.StreamReader;
 
 /**
  *
  * @author Florian
  */
-public class StreamWriterTest2
+public class StreamReaderTest2
 {
     public static void main(String[] args)
     {
@@ -25,11 +25,21 @@ public class StreamWriterTest2
         
         //zahl = Integer.parseInt(stringZahl); String in Zahl umwandeln
         
-        string = zeit1 + ";" + zeit2 + ";" + zeit3 + ";" + zeit4;
+        StreamReader streamreader = new StreamReader(); 
         
-        StreamWriter streamwriter = new StreamWriter(); 
+        string = streamreader.einlesen(pfad); 
         
-        streamwriter.schreiben(pfad,string/*,zeit2,zeit3,stringZahl*/); 
+        System.out.format("%s %n",string);
         
+        String[] token = string.split(";"); 
+        zeit1 = token[0];
+        zeit2 = token[1];
+        zeit3 = token[2];
+        zeit4 = token[3];    
+        
+        System.out.format("%s %n",zeit1);
+        System.out.format("%s %n",zeit2);
+        System.out.format("%s %n",zeit3);
+        System.out.format("%s %n",zeit4);
     }
 }
