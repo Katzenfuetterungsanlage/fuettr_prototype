@@ -248,6 +248,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JSpinner" name="spZeit1">
+                          <Events>
+                            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spZeit1StateChanged"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm1)"/>
                             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date1 = new Date();&#xa;SpinnerDateModel sm1 = &#xa;        new SpinnerDateModel(date1, null, null, Calendar.HOUR_OF_DAY);"/>
@@ -259,6 +262,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JSpinner" name="spZeit2">
+                          <Events>
+                            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spZeit2StateChanged"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm2);"/>
                             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date2 = new Date();&#xa;        SpinnerDateModel sm2 = &#xa;        new SpinnerDateModel(date2, null, null, Calendar.HOUR_OF_DAY);"/>
@@ -270,6 +276,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JSpinner" name="spZeit3">
+                          <Events>
+                            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spZeit3StateChanged"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm3)"/>
                             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date3 = new Date();&#xa;         SpinnerDateModel sm3 = &#xa;        new SpinnerDateModel(date3, null, null, Calendar.HOUR_OF_DAY);"/>
@@ -281,6 +290,9 @@
                           </Constraints>
                         </Component>
                         <Component class="javax.swing.JSpinner" name="spZeit4">
+                          <Events>
+                            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spZeit4StateChanged"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(sm4)"/>
                             <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Date date4 = new Date();&#xa;        SpinnerDateModel sm4 = &#xa;        new SpinnerDateModel(date4, null, null, Calendar.HOUR_OF_DAY);"/>

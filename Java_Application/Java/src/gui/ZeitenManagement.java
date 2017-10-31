@@ -210,21 +210,53 @@ public class ZeitenManagement extends javax.swing.JDialog
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(jRadioButton4, gridBagConstraints);
+
+        spZeit1.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                spZeit1StateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(spZeit1, gridBagConstraints);
+
+        spZeit2.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                spZeit2StateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(spZeit2, gridBagConstraints);
+
+        spZeit3.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                spZeit3StateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(spZeit3, gridBagConstraints);
+
+        spZeit4.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                spZeit4StateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -312,6 +344,26 @@ public class ZeitenManagement extends javax.swing.JDialog
         
         gespeichert = true;         
     }//GEN-LAST:event_onSpeichern
+
+    private void spZeit1StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_spZeit1StateChanged
+    {//GEN-HEADEREND:event_spZeit1StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_spZeit1StateChanged
+
+    private void spZeit2StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_spZeit2StateChanged
+    {//GEN-HEADEREND:event_spZeit2StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_spZeit2StateChanged
+
+    private void spZeit3StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_spZeit3StateChanged
+    {//GEN-HEADEREND:event_spZeit3StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_spZeit3StateChanged
+
+    private void spZeit4StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_spZeit4StateChanged
+    {//GEN-HEADEREND:event_spZeit4StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_spZeit4StateChanged
 
     /**
      * @param args the command line arguments

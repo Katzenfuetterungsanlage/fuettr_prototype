@@ -8,6 +8,7 @@ package gui;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 
 
@@ -124,7 +125,7 @@ public class Hauptfenster extends javax.swing.JFrame
         jLabel13.setText("<Stunden:Minuten>");
         jPanel16.add(jLabel13);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Katzenfütterungsanlage");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
@@ -328,10 +329,24 @@ public class Hauptfenster extends javax.swing.JFrame
 
         neustarten.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\restartIcon16x16.png")); // NOI18N
         neustarten.setText("Neustarten");
+        neustarten.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onNeustarten(evt);
+            }
+        });
         raspberry.add(neustarten);
 
         herunterfahren.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\powerIcon16x16.png")); // NOI18N
         herunterfahren.setText("Herunterfahren");
+        herunterfahren.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onHerunterfahren(evt);
+            }
+        });
         raspberry.add(herunterfahren);
 
         jMenuBar1.add(raspberry);
@@ -496,6 +511,21 @@ public class Hauptfenster extends javax.swing.JFrame
         final BenutzerAnlegen infoDlg = new BenutzerAnlegen(this, true); 
         infoDlg.setVisible(true);
     }//GEN-LAST:event_onBenutzerAnlegen
+
+    private void onNeustarten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onNeustarten
+    {//GEN-HEADEREND:event_onNeustarten
+        // TODO add your handling code here:
+    }//GEN-LAST:event_onNeustarten
+
+    private void onHerunterfahren(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onHerunterfahren
+    {//GEN-HEADEREND:event_onHerunterfahren
+        if (JOptionPane.showConfirmDialog(this, "Raspberry wirklick herunterfahren?",
+                 "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+           {
+               //TODO
+               dispose();
+           }
+    }//GEN-LAST:event_onHerunterfahren
 
     /**
      * @param args the command line arguments
