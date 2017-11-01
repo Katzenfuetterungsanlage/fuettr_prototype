@@ -26,7 +26,7 @@ public class StreamWriter
         {
             writer.write(String.format(zeit1 + "%n"));
 
-            System.out.println("Streams wurden erfolgreich geschrieben!");
+            System.out.println("StreamWriter: Streams wurden erfolgreich geschrieben!");
         }
         catch (Exception ex)
         {

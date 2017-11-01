@@ -25,7 +25,7 @@ public class StreamReader
         {
             text = reader.readLine(); 
             
-            System.out.println("Streams wurden erfolgreich gelesen!");
+            System.out.println("StreamReader: Streams wurden erfolgreich gelesen!");
         }
         catch (Exception ex)
         {

@@ -26,6 +26,13 @@ import methods.StreamWriter;
 public class ZeitenManagement extends javax.swing.JDialog
 {
     boolean gespeichert = false;
+    boolean zeitenVeraendert = false; 
+    
+    //Datenaustausch
+    public boolean zeitenVeraendert()
+    {
+        return zeitenVeraendert;
+    }
     
     private void spinnerFuellen ()
     {
@@ -352,7 +359,9 @@ public class ZeitenManagement extends javax.swing.JDialog
            }
        }
        else
-       {
+       {           
+           zeitenVeraendert = true; 
+           
            dispose();
        }
         
@@ -374,17 +383,18 @@ public class ZeitenManagement extends javax.swing.JDialog
         Date date4 = (Date) spZeit4.getValue();   
         String zeit4 = df.format(date4);
 
-        System.out.println("Report Date: " + zeit1);
-        System.out.println("Report Date: " + zeit2);
-        System.out.println("Report Date: " + zeit3);
-        System.out.println("Report Date: " + zeit4);
+        System.out.println("ZeitenManagement");
+        System.out.println(zeit1);
+        System.out.println(zeit2);
+        System.out.println(zeit3);
+        System.out.println(zeit4);
         
         String string = zeit1 + ";" + zeit2 + ";" + zeit3 + ";" + zeit4 + ";";
 
         StreamWriter streamWriter = new StreamWriter(); 
         streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",string);
         
-        //TODO die anderen Zeiten
+        
         
         System.out.println("Zeiten gespeichert!"); 
         
@@ -496,4 +506,5 @@ public class ZeitenManagement extends javax.swing.JDialog
     private javax.swing.JSpinner spZeit3;
     private javax.swing.JSpinner spZeit4;
     // End of variables declaration//GEN-END:variables
+
 }

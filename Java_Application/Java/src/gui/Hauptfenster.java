@@ -5,11 +5,13 @@
  */
 package gui;
 
+
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import methods.StreamReader;
 
 
 /**
@@ -20,6 +22,7 @@ public class Hauptfenster extends javax.swing.JFrame
 {
     
     boolean zustand = false;
+    boolean zeitenVeraendert = true; 
     
     /**
      * Creates new form Hauptfenster
@@ -27,10 +30,16 @@ public class Hauptfenster extends javax.swing.JFrame
     public Hauptfenster()
     {
         initComponents();
-        UhrzeitWorker uworker = new UhrzeitWorker();
-        uworker.execute();
-        DatumWorker dworker = new DatumWorker();
-        dworker.execute();
+        UhrzeitWorker uWorker = new UhrzeitWorker();
+        uWorker.execute();
+        
+        DatumWorker dWorker = new DatumWorker();
+        dWorker.execute();
+        
+        ZeitenAnzeigenWorker zaWorker = new ZeitenAnzeigenWorker();
+        zaWorker.execute(); 
+//        ZeitenVeraendertWorker zeitenVeraendertWorker = new ZeitenVeraendertWorker();
+//        zeitenVeraendertWorker.execute();
     }
     
     /**
@@ -61,10 +70,10 @@ public class Hauptfenster extends javax.swing.JFrame
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        lbZeit1 = new javax.swing.JLabel();
+        lbZeit2 = new javax.swing.JLabel();
+        lbZeit3 = new javax.swing.JLabel();
+        lbZeit4 = new javax.swing.JLabel();
         pCenter = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         CenterSouth = new javax.swing.JPanel();
@@ -148,11 +157,13 @@ public class Hauptfenster extends javax.swing.JFrame
 
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Zeit 1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel9.add(jLabel6, gridBagConstraints);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Zeit 2");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -160,6 +171,7 @@ public class Hauptfenster extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel9.add(jLabel7, gridBagConstraints);
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Zeit 3");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -167,6 +179,7 @@ public class Hauptfenster extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel9.add(jLabel8, gridBagConstraints);
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Zeit 4");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -174,39 +187,35 @@ public class Hauptfenster extends javax.swing.JFrame
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel9.add(jLabel9, gridBagConstraints);
 
-        jFormattedTextField1.setEditable(false);
-        jFormattedTextField1.setColumns(10);
-        jFormattedTextField1.setText("Uhrzeit");
+        lbZeit1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit1.setText("<Zeit>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jFormattedTextField1, gridBagConstraints);
+        jPanel9.add(lbZeit1, gridBagConstraints);
 
-        jFormattedTextField2.setEditable(false);
-        jFormattedTextField2.setColumns(10);
-        jFormattedTextField2.setText("Uhrzeit");
+        lbZeit2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit2.setText("<Zeit>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jFormattedTextField2, gridBagConstraints);
+        jPanel9.add(lbZeit2, gridBagConstraints);
 
-        jFormattedTextField3.setEditable(false);
-        jFormattedTextField3.setColumns(10);
-        jFormattedTextField3.setText("Uhrzeit");
+        lbZeit3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit3.setText("<Zeit>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jFormattedTextField3, gridBagConstraints);
+        jPanel9.add(lbZeit3, gridBagConstraints);
 
-        jFormattedTextField4.setEditable(false);
-        jFormattedTextField4.setColumns(10);
-        jFormattedTextField4.setText("Uhrzeit");
+        lbZeit4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit4.setText("<Zeit>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jFormattedTextField4, gridBagConstraints);
+        jPanel9.add(lbZeit4, gridBagConstraints);
 
         jPanel8.add(jPanel9, java.awt.BorderLayout.CENTER);
 
@@ -497,7 +506,14 @@ public class Hauptfenster extends javax.swing.JFrame
         //Objektobjekt erzeugen ==> Dialog ist MODAL! (modal ... blockieren des Elternfensters) 
         final ZeitenManagement zeitenDlg = new ZeitenManagement(this, true); // true = modal (blockiert das Hauptfenster) , false = nicht modal 
         zeitenDlg.setVisible(true); //Dialog sichtbar setzen
-        //An dieser Stelle "blockiert" das Programm, solange der Dialog geöffnet ist!        
+        //An dieser Stelle "blockiert" das Programm, solange der Dialog geöffnet ist!   
+        
+        if (zeitenDlg.zeitenVeraendert())
+        {
+            zeitenVeraendert = true; 
+            ZeitenAnzeigenWorker zaWorker = new ZeitenAnzeigenWorker();
+            zaWorker.execute(); 
+        }
     }//GEN-LAST:event_onFuetterungszeitenVerwalten
 
     private void onGeraeteinformation(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onGeraeteinformation
@@ -582,10 +598,6 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JMenuItem fuetterungszeiten_verwalten;
     private javax.swing.JMenuItem geraeteinformation;
     private javax.swing.JMenuItem herunterfahren;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -627,6 +639,10 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JLabel lbDatum;
     private javax.swing.JLabel lbUhrzeit;
+    private javax.swing.JLabel lbZeit1;
+    private javax.swing.JLabel lbZeit2;
+    private javax.swing.JLabel lbZeit3;
+    private javax.swing.JLabel lbZeit4;
     private javax.swing.JLabel lbZustand;
     private javax.swing.JMenuItem manuelleSteuerung;
     private javax.swing.JMenuItem neustarten;
@@ -687,6 +703,44 @@ private class DatumWorker extends SwingWorker<Object,String>
         }    
     }
 
+    private class ZeitenAnzeigenWorker extends SwingWorker<Object,String>
+    {
+        String string;
 
+        //ZeitenManagement zeitenManagement = new ZeitenManagement(this, true);
+        
+        @Override
+        protected Object doInBackground() throws Exception
+        {
+            while (true)
+            {
+                if (zeitenVeraendert == true /*|| zeitenManagement.ZeitenVeraendert() == true*/)
+                {
+                    StreamReader streamReader = new StreamReader(); 
+                    string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt");
+                    
+                    publish(string); 
+                    
+                    zeitenVeraendert = false; 
+                }              
+            }
+        }
 
+        @Override
+        protected void process(List<String> chunks)
+        {
+            System.out.format("Hauptfenster - ZeitenAnzeigeWorker: %s",string);
+            
+            String[] token = string.split(";"); 
+            String zeit1 = token[0];
+            String zeit2 = token[1];
+            String zeit3 = token[2];
+            String zeit4 = token[3]; 
+            
+            lbZeit1.setText(zeit1);
+            lbZeit2.setText(zeit2);
+            lbZeit3.setText(zeit3);
+            lbZeit4.setText(zeit4);
+        }
+    }
 }
