@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
+import methods.NaechsteFuetterung;
 import methods.StreamReader;
 
 
@@ -23,6 +24,9 @@ public class Hauptfenster extends javax.swing.JFrame
     
     boolean zustand = false;
     boolean zeitenVeraendert = true; 
+    String uhrzeit, zeit1, zeit2, zeit3, zeit4;
+    int letzteFuetterung; 
+    String naechsteFuetterungUm, naechsteFuetterungIn;
     
     /**
      * Creates new form Hauptfenster
@@ -30,6 +34,7 @@ public class Hauptfenster extends javax.swing.JFrame
     public Hauptfenster()
     {
         initComponents();
+        
         UhrzeitWorker uWorker = new UhrzeitWorker();
         uWorker.execute();
         
@@ -38,8 +43,15 @@ public class Hauptfenster extends javax.swing.JFrame
         
         ZeitenAnzeigenWorker zaWorker = new ZeitenAnzeigenWorker();
         zaWorker.execute(); 
-//        ZeitenVeraendertWorker zeitenVeraendertWorker = new ZeitenVeraendertWorker();
-//        zeitenVeraendertWorker.execute();
+        
+        lbLetzteFuetterung.setText("ausstehend");
+        
+        AutomatischeFuetterungAblaufWorker automatischeFuetterungAblaufWorker = new AutomatischeFuetterungAblaufWorker();
+        automatischeFuetterungAblaufWorker.execute();
+        
+        NaechsteFuetterungWorker naechsteFuetterungWorker = new NaechsteFuetterungWorker();
+        naechsteFuetterungWorker.execute();
+
     }
     
     /**
@@ -87,10 +99,13 @@ public class Hauptfenster extends javax.swing.JFrame
         jPanel13 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        lbLetzteFuetterung = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
+        lbNaechsteFuetterungUm = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        lbNaechsteFuetterungIn = new javax.swing.JLabel();
         pSouth = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -273,21 +288,31 @@ public class Hauptfenster extends javax.swing.JFrame
         jLabel15.setText("Letzte erfolgte Fütterung: ");
         jPanel17.add(jLabel15);
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel16.setText("<Uhrzeit>");
-        jPanel17.add(jLabel16);
+        lbLetzteFuetterung.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbLetzteFuetterung.setText("<Uhrzeit>");
+        jPanel17.add(lbLetzteFuetterung);
 
         jPanel13.add(jPanel17);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel17.setText("Nächste Fütterung erfolgt in: ");
+        jLabel17.setText("Nächste Fütterung erfolgt um: ");
         jPanel18.add(jLabel17);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel18.setText("<Stunden:Minuten>");
-        jPanel18.add(jLabel18);
+        lbNaechsteFuetterungUm.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbNaechsteFuetterungUm.setText("<Uhrzeit>");
+        jPanel18.add(lbNaechsteFuetterungUm);
 
         jPanel13.add(jPanel18);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setText("Nächste Fütterung erfolgt in: ");
+        jPanel19.add(jLabel18);
+
+        lbNaechsteFuetterungIn.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbNaechsteFuetterungIn.setText("<Stunden:Minuten>");
+        jPanel19.add(lbNaechsteFuetterungIn);
+
+        jPanel13.add(jPanel19);
 
         jPanel12.add(jPanel13, java.awt.BorderLayout.CENTER);
 
@@ -620,7 +645,6 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel5;
@@ -640,6 +664,7 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -653,6 +678,9 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JLabel lbDatum;
+    private javax.swing.JLabel lbLetzteFuetterung;
+    private javax.swing.JLabel lbNaechsteFuetterungIn;
+    private javax.swing.JLabel lbNaechsteFuetterungUm;
     private javax.swing.JLabel lbUhrzeit;
     private javax.swing.JLabel lbZeit1;
     private javax.swing.JLabel lbZeit2;
@@ -672,8 +700,6 @@ public class Hauptfenster extends javax.swing.JFrame
 
 private class UhrzeitWorker extends SwingWorker<Object,String>
 {
-    String uhrzeit; 
-
     @Override
     protected Object doInBackground() throws Exception
     {
@@ -747,10 +773,10 @@ private class DatumWorker extends SwingWorker<Object,String>
             System.out.format("Hauptfenster - ZeitenAnzeigeWorker: %s",string);
             
             String[] token = string.split(";"); 
-            String zeit1 = token[0];
-            String zeit2 = token[1];
-            String zeit3 = token[2];
-            String zeit4 = token[3]; 
+            zeit1 = token[0];
+            zeit2 = token[1];
+            zeit3 = token[2];
+            zeit4 = token[3]; 
             
             lbZeit1.setText(zeit1);
             lbZeit2.setText(zeit2);
@@ -758,4 +784,85 @@ private class DatumWorker extends SwingWorker<Object,String>
             lbZeit4.setText(zeit4);
         }
     }
+    
+    private class AutomatischeFuetterungAblaufWorker extends SwingWorker<Object,String>
+    {
+        String letzteFuetterungHilfsstring; 
+
+        @Override
+        protected Object doInBackground() throws Exception
+        {
+            while (true)
+            {                               
+                if (zustand == true)
+                {
+                    if (zeit1.equals(uhrzeit))
+                    {
+                        //TODO Fütterung
+                        letzteFuetterung = 1;
+                        letzteFuetterungHilfsstring = zeit1; 
+                        publish(letzteFuetterungHilfsstring); 
+                    }
+                    
+                    if (zeit2.equals(uhrzeit))
+                    {
+                        //TODO Fütterung
+                        letzteFuetterung = 2;
+                        letzteFuetterungHilfsstring = zeit2; 
+                        publish(letzteFuetterungHilfsstring); 
+                    }
+                    
+                    if (zeit3.equals(uhrzeit))
+                    {
+                        //TODO Fütterung
+                        letzteFuetterung = 3;
+                        letzteFuetterungHilfsstring = zeit3; 
+                        publish(letzteFuetterungHilfsstring); 
+                    }
+                    
+                    if (zeit4.equals(uhrzeit))
+                    {
+                        //TODO Fütterung
+                        letzteFuetterung = 4;
+                        letzteFuetterungHilfsstring = zeit4; 
+                        publish(letzteFuetterungHilfsstring);  
+                    }
+                }
+                
+                TimeUnit.SECONDS.sleep(1); 
+            }
+        } 
+
+        @Override
+        protected void process(List<String> chunks)
+        {
+            lbLetzteFuetterung.setText(letzteFuetterungHilfsstring); 
+        }  
+    }
+    
+    private class NaechsteFuetterungWorker extends SwingWorker<Object,String>
+    {
+        String string; 
+        
+
+        @Override
+        protected Object doInBackground() throws Exception
+        {
+            while (true)
+            {
+                NaechsteFuetterung naechsteFuetterung = new NaechsteFuetterung(); 
+                string = naechsteFuetterung.naechsteFuetterung(letzteFuetterung, zeit1, zeit2, zeit3, zeit4, naechsteFuetterungUm, naechsteFuetterungIn, uhrzeit);
+                
+                publish(string);
+            } 
+        }
+
+        @Override
+        protected void process(List<String> chunks)
+        {
+            System.out.format("%s",string);
+            lbNaechsteFuetterungUm.setText(string);
+        }
+    }
+   
 }
