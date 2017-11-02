@@ -9,9 +9,10 @@ import { ControlComponent } from './control.component';
 import { FeedComponent } from './feed.component';
 import { HomeComponent } from './home.component';
 import { InfoComponent } from './info.component';
-import { TimesService } from './times.service';
 import { UpdateComponent } from './update.component';
+
 import { UpdateService } from './update.service';
+import { HttpgetService } from './httpget.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { UpdateService } from './update.service';
     UpdateComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpModule, FormsModule],
-  providers: [TimesService, UpdateService],
+  providers: [UpdateService, HttpgetService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
