@@ -364,7 +364,6 @@ public class ZeitenManagement extends javax.swing.JDialog
            
            dispose();
        }
-        
     }//GEN-LAST:event_onSchließen
 
     private void onSpeichern(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSpeichern

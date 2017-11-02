@@ -5,12 +5,19 @@
  */
 package gui;
 
+import static java.lang.String.valueOf;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import methods.StreamWriter;
+
 /**
  *
  * @author Florian
  */
 public class BenutzerAnlegen extends javax.swing.JDialog
 {
+    boolean gespeichert = false; 
 
     /**
      * Creates new form BenutzerAnlegen
@@ -40,11 +47,11 @@ public class BenutzerAnlegen extends javax.swing.JDialog
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        tfBenutzername = new javax.swing.JFormattedTextField();
         jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        pwtfPasswort = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        pwtfPasswortWhd = new javax.swing.JPasswordField();
         pButton = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -67,20 +74,16 @@ public class BenutzerAnlegen extends javax.swing.JDialog
         jLabel1.setText("Benutername:");
         jPanel2.add(jLabel1);
 
-        jFormattedTextField1.setColumns(16);
-        jPanel2.add(jFormattedTextField1);
+        tfBenutzername.setColumns(16);
+        jPanel2.add(tfBenutzername);
 
         jLabel3.setText("Passwort:");
         jPanel2.add(jLabel3);
-
-        jFormattedTextField2.setColumns(16);
-        jPanel2.add(jFormattedTextField2);
+        jPanel2.add(pwtfPasswort);
 
         jLabel5.setText("Passwort wiederholen:");
         jPanel2.add(jLabel5);
-
-        jFormattedTextField3.setColumns(16);
-        jPanel2.add(jFormattedTextField3);
+        jPanel2.add(pwtfPasswortWhd);
 
         jPanel3.add(jPanel2);
 
@@ -129,12 +132,66 @@ public class BenutzerAnlegen extends javax.swing.JDialog
 
     private void onSchließen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSchließen
     {//GEN-HEADEREND:event_onSchließen
-        dispose();
+        if (gespeichert == false)
+       {
+           if (JOptionPane.showConfirmDialog(this, "Fenster wirklich schließen? Nicht gespeicherte Inhalte gehen verloren!",
+                 "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+           {
+               dispose();
+           }
+       }
+       else
+       {                     
+           dispose();
+       }
     }//GEN-LAST:event_onSchließen
 
     private void onSpeichern(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSpeichern
     {//GEN-HEADEREND:event_onSpeichern
-        // TODO add your handling code here:
+        
+        String benutzername = tfBenutzername.getText();
+        char[] passwort = pwtfPasswort.getPassword();
+        char[] passwortWhd = pwtfPasswortWhd.getPassword();
+
+        String stringPw = valueOf(passwort);
+        String stringPwWhd = valueOf(passwortWhd);
+        
+        System.out.println("Benutzer anlegen");
+        System.out.println(benutzername);
+        System.out.println(stringPw);
+        System.out.println(stringPwWhd);
+        
+        if ("".equals(stringPwWhd) || "".equals(benutzername) || "".equals(stringPw))
+        {
+            JOptionPane.showMessageDialog(this, "Benutzername und Passwort dürfen nicht leer sein!", "Fehler",ERROR_MESSAGE);
+        }
+        else
+        {
+            if (!stringPw.equals(stringPwWhd))
+            {
+                JOptionPane.showMessageDialog(this, "Die Passwörter stimmen nicht überein!", "Fehler",ERROR_MESSAGE);
+                pwtfPasswort.setText("");
+                pwtfPasswortWhd.setText("");
+            }
+            else
+            {
+                String string = benutzername + ";" + stringPw;
+
+                StreamWriter streamWriter = new StreamWriter(); 
+                streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\benutzer_passwort.txt",string);
+            
+                System.out.println("Benutzerdaten gespeichert!"); 
+        
+                JOptionPane.showMessageDialog(this, String.format("Der Benutzer %s wurde erfolgreich angelegt!",benutzername), "Hinweis",INFORMATION_MESSAGE);
+            
+                gespeichert = true; 
+            
+                tfBenutzername.setText(""); 
+                pwtfPasswort.setText("");
+                pwtfPasswortWhd.setText("");
+            }
+        }
+    
     }//GEN-LAST:event_onSpeichern
 
     /**
@@ -194,9 +251,6 @@ public class BenutzerAnlegen extends javax.swing.JDialog
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSchließen1;
     private javax.swing.JButton btSpeichern;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
@@ -207,5 +261,8 @@ public class BenutzerAnlegen extends javax.swing.JDialog
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel pBenutzer;
     private javax.swing.JPanel pButton;
+    private javax.swing.JPasswordField pwtfPasswort;
+    private javax.swing.JPasswordField pwtfPasswortWhd;
+    private javax.swing.JFormattedTextField tfBenutzername;
     // End of variables declaration//GEN-END:variables
 }

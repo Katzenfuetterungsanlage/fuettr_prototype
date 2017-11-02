@@ -5,6 +5,9 @@
  */
 package gui;
 
+import jdk.nashorn.internal.parser.JSONParser;
+import methods.StreamReader;
+
 /**
  *
  * @author Florian
@@ -21,6 +24,15 @@ public class GeraeteInfo extends javax.swing.JDialog
                
         initComponents();
          
+        StreamReader streamReader = new StreamReader(); 
+        String internerRechner = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\internerRechner.txt");
+        
+        lbInternerRechner.setText(internerRechner);
+        
+        String seriennummer = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\seriennummer.txt");
+        
+        lbSeriennummer.setText(seriennummer);
+        
         setLocationRelativeTo(parent);
         pack();
     }
@@ -211,4 +223,13 @@ public class GeraeteInfo extends javax.swing.JDialog
     private javax.swing.JPanel pButton;
     private javax.swing.JPanel pInfo;
     // End of variables declaration//GEN-END:variables
+
+//private void version()
+//{
+//    StreamReader streamReader = new StreamReader(); 
+//    String string_json = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\version.json");
+//    
+//    System.out.format("%s",string_json);
+//}
+//    
 }
