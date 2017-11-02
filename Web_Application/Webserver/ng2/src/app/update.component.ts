@@ -16,6 +16,9 @@ export class UpdateComponent implements OnInit {
   private version: Version;
   private lVersion: Version;
   private newVersion: string;
+  private t1: number;
+  private t2: number;
+  private t: number;
 
   constructor(private updateService: UpdateService) { }
 
@@ -30,6 +33,7 @@ export class UpdateComponent implements OnInit {
 
   refresh() {
     this.message = 'Checking for updates...';
+    this.t1 = new Date().getMilliseconds();
 
     this.updateService.checkUpdate().then((version) => {
       this.version = version;
@@ -40,7 +44,10 @@ export class UpdateComponent implements OnInit {
           this.show = true;
           this.newVersion = this.version.version.toString();
         } else {
-          this.message = 'Up do date';
+          this.t2 = new Date().getMilliseconds();
+          this.t = this.t2 - this.t1;
+
+          this.message = 'Up to date in ' + this.t + 'ms';
         }
       }).catch((err) => {
         alert(err);
@@ -52,6 +59,7 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit() {
     this.message = 'Checking for updates...';
+    this.t1 = new Date().getMilliseconds();
 
     this.updateService.checkUpdate().then((version) => {
       this.version = version;
@@ -62,7 +70,10 @@ export class UpdateComponent implements OnInit {
           this.show = true;
           this.newVersion = this.version.version.toString();
         } else {
-          this.message = 'Up do date';
+          this.t2 = new Date().getMilliseconds();
+          this.t = this.t2 - this.t1;
+
+          this.message = 'Up to date in ' + this.t + 'ms';
         }
       }).catch((err) => {
         alert(err);
