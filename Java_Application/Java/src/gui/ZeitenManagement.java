@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 import methods.StreamReader;
 import methods.StreamWriter;
 
@@ -381,7 +382,7 @@ public class ZeitenManagement extends javax.swing.JDialog
         
         Date date4 = (Date) spZeit4.getValue();   
         String zeit4 = df.format(date4);
-
+        
         System.out.println("ZeitenManagement");
         System.out.println(zeit1);
         System.out.println(zeit2);
@@ -389,15 +390,27 @@ public class ZeitenManagement extends javax.swing.JDialog
         System.out.println(zeit4);
         
         String string = zeit1 + ";" + zeit2 + ";" + zeit3 + ";" + zeit4 + ";";
+        
+        if (date1.equals(date2) || date1.equals(date3) || date1.equals(date4) || date2.equals(date3) || date2.equals(date4) || date3.equals(date4))
+        {
+            JOptionPane.showMessageDialog(this, "Es müssen 4 verschiedene Uhrzeiten gewählt werden!", "Fehler",ERROR_MESSAGE);
+        }
+        else
+        {
+            if (date1.after(date2) || date1.after(date3) || date1.after(date4) || date2.after(date3) || date2.after(date4) || date3.after(date4))
+            {
+                JOptionPane.showMessageDialog(this, "Die Uhrzeiten müssen in aufsteigender Reihenfolge angeordnet werden!", "Fehler",ERROR_MESSAGE);
+            }
+            else 
+            {
+                StreamWriter streamWriter = new StreamWriter(); 
+                streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",string);
 
-        StreamWriter streamWriter = new StreamWriter(); 
-        streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",string);
+                System.out.println("Zeiten gespeichert!"); 
         
-        
-        
-        System.out.println("Zeiten gespeichert!"); 
-        
-        gespeichert = true;         
+                gespeichert = true;
+            }
+        }           
     }//GEN-LAST:event_onSpeichern
 
     private void spZeit1StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_spZeit1StateChanged
