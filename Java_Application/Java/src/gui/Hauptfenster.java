@@ -485,8 +485,23 @@ public class Hauptfenster extends javax.swing.JFrame
 
     private void onManuelleSteuerung(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onManuelleSteuerung
     {//GEN-HEADEREND:event_onManuelleSteuerung
-        final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true); 
-        strDlg.setVisible(true);
+        if (zustand == true)
+        {
+            if (JOptionPane.showConfirmDialog(this, "Um fortzufahren müssen Sie die automatische Fütterung deaktivieren. \n Wollen sie diese deaktivieren? ",
+                 "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+            {
+                zustand = false;
+                lbZustand.setText("Aus");
+                
+                final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true); 
+                strDlg.setVisible(true);
+            } 
+        }
+        else
+        {
+            final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true); 
+            strDlg.setVisible(true);
+        }
     }//GEN-LAST:event_onManuelleSteuerung
 
     private void onPositionsinformation(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onPositionsinformation

@@ -43,7 +43,6 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         jPanel10 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         pZustimmung = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         pMotor1_1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
@@ -112,21 +111,16 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         jPanel10.setBorder(javax.swing.BorderFactory.createEmptyBorder(4, 4, 4, 4));
         jPanel10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 16, 32));
 
-        jPanel12.setLayout(new java.awt.GridLayout(4, 0, 0, 8));
+        jPanel12.setLayout(new java.awt.GridLayout(3, 0, 0, 8));
 
         pZustimmung.setLayout(new java.awt.BorderLayout());
-
-        jCheckBox1.setText("Maschinenzustand");
-        pZustimmung.add(jCheckBox1, java.awt.BorderLayout.CENTER);
-
-        jPanel12.add(pZustimmung);
 
         pMotor1_1.setLayout(new java.awt.BorderLayout());
 
         jLabel2.setText("Motor 1");
         pMotor1_1.add(jLabel2, java.awt.BorderLayout.NORTH);
 
-        jPanel14.setLayout(new java.awt.GridLayout());
+        jPanel14.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton4.setText("Links Drehen");
         jPanel14.add(jButton4);
@@ -141,14 +135,16 @@ public class ManuelleSteuerung extends javax.swing.JDialog
 
         pMotor1_1.add(jPanel13, java.awt.BorderLayout.WEST);
 
-        jPanel12.add(pMotor1_1);
+        pZustimmung.add(pMotor1_1, java.awt.BorderLayout.CENTER);
+
+        jPanel12.add(pZustimmung);
 
         pMotor2_2.setLayout(new java.awt.BorderLayout());
 
         jLabel3.setText("Motor 2");
         pMotor2_2.add(jLabel3, java.awt.BorderLayout.NORTH);
 
-        jPanel16.setLayout(new java.awt.GridLayout());
+        jPanel16.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton7.setText("Links Drehen");
         jPanel16.add(jButton7);
@@ -304,7 +300,7 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btSchließenonSchließen(evt);
+                onSchließen(evt);
             }
         });
         jPanel5.add(btSchließen);
@@ -320,10 +316,10 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btSchließenonSchließen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btSchließenonSchließen
-    {//GEN-HEADEREND:event_btSchließenonSchließen
+    private void onSchließen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onSchließen
+    {//GEN-HEADEREND:event_onSchließen
         dispose();
-    }//GEN-LAST:event_btSchließenonSchließen
+    }//GEN-LAST:event_onSchließen
 
     /**
      * @param args the command line arguments
@@ -387,7 +383,6 @@ public class ManuelleSteuerung extends javax.swing.JDialog
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

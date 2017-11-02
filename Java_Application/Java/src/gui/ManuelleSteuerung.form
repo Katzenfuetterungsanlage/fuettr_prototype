@@ -104,7 +104,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                             <Property name="columns" type="int" value="0"/>
-                            <Property name="rows" type="int" value="4"/>
+                            <Property name="rows" type="int" value="3"/>
                             <Property name="verticalGap" type="int" value="8"/>
                           </Layout>
                           <SubComponents>
@@ -112,65 +112,60 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JCheckBox" name="jCheckBox1">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Maschinenzustand"/>
-                                  </Properties>
+                                <Container class="javax.swing.JPanel" name="pMotor1_1">
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                                       <BorderConstraints direction="Center"/>
                                     </Constraint>
                                   </Constraints>
-                                </Component>
-                              </SubComponents>
-                            </Container>
-                            <Container class="javax.swing.JPanel" name="pMotor1_1">
 
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
-                              <SubComponents>
-                                <Component class="javax.swing.JLabel" name="jLabel2">
-                                  <Properties>
-                                    <Property name="text" type="java.lang.String" value="Motor 1"/>
-                                  </Properties>
-                                  <Constraints>
-                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                      <BorderConstraints direction="North"/>
-                                    </Constraint>
-                                  </Constraints>
-                                </Component>
-                                <Container class="javax.swing.JPanel" name="jPanel13">
-                                  <Constraints>
-                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-                                      <BorderConstraints direction="West"/>
-                                    </Constraint>
-                                  </Constraints>
-
-                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                                   <SubComponents>
-                                    <Container class="javax.swing.JPanel" name="jPanel14">
+                                    <Component class="javax.swing.JLabel" name="jLabel2">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="Motor 1"/>
+                                      </Properties>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="North"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Container class="javax.swing.JPanel" name="jPanel13">
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
+                                          <BorderConstraints direction="West"/>
+                                        </Constraint>
+                                      </Constraints>
 
-                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-                                        <Property name="columns" type="int" value="0"/>
-                                        <Property name="rows" type="int" value="1"/>
-                                      </Layout>
+                                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
                                       <SubComponents>
-                                        <Component class="javax.swing.JButton" name="jButton4">
+                                        <Container class="javax.swing.JPanel" name="jPanel14">
+
+                                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                                            <Property name="columns" type="int" value="0"/>
+                                            <Property name="rows" type="int" value="1"/>
+                                          </Layout>
+                                          <SubComponents>
+                                            <Component class="javax.swing.JButton" name="jButton4">
+                                              <Properties>
+                                                <Property name="text" type="java.lang.String" value="Links Drehen"/>
+                                              </Properties>
+                                            </Component>
+                                          </SubComponents>
+                                        </Container>
+                                        <Component class="javax.swing.JButton" name="jButton5">
                                           <Properties>
-                                            <Property name="text" type="java.lang.String" value="Links Drehen"/>
+                                            <Property name="text" type="java.lang.String" value="Rechts Drehen"/>
+                                          </Properties>
+                                        </Component>
+                                        <Component class="javax.swing.JButton" name="jButton6">
+                                          <Properties>
+                                            <Property name="text" type="java.lang.String" value="Stop"/>
                                           </Properties>
                                         </Component>
                                       </SubComponents>
                                     </Container>
-                                    <Component class="javax.swing.JButton" name="jButton5">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Rechts Drehen"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JButton" name="jButton6">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Stop"/>
-                                      </Properties>
-                                    </Component>
                                   </SubComponents>
                                 </Container>
                               </SubComponents>
@@ -570,7 +565,7 @@
                         <Property name="text" type="java.lang.String" value="Schlie&#xdf;en"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSchlie&#xdf;enonSchlie&#xdf;en"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onSchlie&#xdf;en"/>
                       </Events>
                     </Component>
                   </SubComponents>
