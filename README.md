@@ -10,6 +10,7 @@
 
 ## Installation
 
+Download [this](https://github.com/Katzenfuetterungsanlage/fuettr_prototype/releases/download/alpha0.0.3.5/install.sh) file
 ```bash
 sh install.sh
 ```
