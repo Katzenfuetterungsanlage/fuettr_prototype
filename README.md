@@ -18,6 +18,6 @@ sudo apt install -y git
 ``` -->
 
 ```bash
-curl -o- https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/install | bash
+curl https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/install | bash
 ```
 
