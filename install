@@ -31,7 +31,7 @@ echo "#!/bin/sh -e
 
 sudo service cron start &
 
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i && cd ../ng2 && sudo npm i && npm start &
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &
 
 exit 0" | sudo tee /etc/rc.local
 

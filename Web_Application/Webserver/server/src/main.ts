@@ -83,6 +83,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 
 function update() {
   child.exec(`cd /home/pi/git/fuettr_prototype && git reset --hard && git pull &&
+  cd ng2 && npm i && cd ../server && npm i &&
   sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local &&
   sudo reboot`, (error, stdout, stderr) => {
       if (stdout !== '') {
