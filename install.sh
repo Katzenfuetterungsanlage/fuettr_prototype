@@ -1,7 +1,7 @@
 #!/bin/bash
 # install script for Fuettr Server and Java-Application
 
-home = ${HOME}
+home = $HOME
 
 echo "Home:" $home
 
