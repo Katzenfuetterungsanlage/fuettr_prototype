@@ -24,7 +24,7 @@ read test
 
 echo "
 creating rc.local..."
-sudo cat <<EOF >/etc/rc.local
+sudo cat <<EOF >sudo /etc/rc.local
 #!/bin/sh -e
 #
 # rc.local
