@@ -4,25 +4,23 @@
 THISUSER=/home/$USER
 
 echo "setting git credentials..."
-sudo git config --global user.name "fuettr"
-sudo git config --global user.email "fuettr@gmail.com"
+git config --global user.name "fuettr"
+git config --global user.email "fuettr@gmail.com"
 
 echo "downloading..."
-cd $THISUSER && mkdir git && cd git && sudo git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
+cd $THISUSER && mkdir git && cd git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
 
-echo "copying rc.local..."
+echo "mcopying rc.local..."
 sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 
 echo "installing node dependencies..."
-sudo npm i -g @angular/cli gulp
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm i --unsafe-perm
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i
+sudo npm install -g @angular/cli gulp
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm install --unsafe-perm
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm install
 
 echo "building server..."
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo ng build
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo gulp cleanAndBuild
 
 echo "starting server..."
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js &
-
-echo "done"
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js
