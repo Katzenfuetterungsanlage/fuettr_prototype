@@ -15,14 +15,14 @@ sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 
 echo "\e[46minstalling node dependencies...\e[0m"
 sudo npm install -g @angular/cli gulp
-cd $THISUSER/git/Web_Application/Webserver/ng2 && sudo npm install
-cd $THISUSER/git/Web_Application/Webserver/server && sudo npm install
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm install
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm install
 
 echo "\e[46mbuilding server...\e[0m"
-cd $THISUSER/git/Web_Application/Webserver/ng2 && ng build
-cd $THISUSER/git/Web_Application/Webserver/server && gulp cleanAndBuild
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && ng build
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && gulp cleanAndBuild
 
 echo "\e[46mstarting server...\e[0m"
-cd $THISUSER/git/Web_Application/Webserver/server/dist && sudo node main.js
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js
 
 echo "\e[42mdone\e[0m"
