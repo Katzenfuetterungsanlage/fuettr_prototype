@@ -1,7 +1,7 @@
 #!/bin/bash
 # install script for Fuettr Server and Java-Application
 
-THISUSER = /home/$USER
+THISUSER=/home/$USER
 
 echo "Home directory: $THISUSER"
 
