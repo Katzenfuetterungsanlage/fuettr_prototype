@@ -13,7 +13,7 @@ export class UpdateService {
 
   constructor(private http: Http) { }
 
-  getUpdate(): Promise<void> {
+  async getUpdate(): Promise<void> {
     return this.http.get(this.getUrl)
       .toPromise()
       .then(response => response.json())
@@ -27,14 +27,14 @@ export class UpdateService {
       .catch(this.handleError);
   }
 
-  checkUpdate(): Promise<Version> {
+  async checkUpdate(): Promise<Version> {
     return this.http.get(this.checkUrl)
       .toPromise()
       .then(response => response.json() as Version)
       .catch(this.handleError);
   }
 
-  getVersion(): Promise<Version> {
+  async getVersion(): Promise<Version> {
     return this.http.get(this.lVersionUrl)
       .toPromise()
       .then(response => response.json() as Version)
