@@ -37,7 +37,7 @@ exit 0" | sudo tee /etc/rc.local
 
 echo "
 creating update script..."
-echo "#!/bin/bash -e
+echo `#!/bin/bash -e
 # update script for Fuettr Server and Java-Application
 
 echo \"
@@ -57,7 +57,7 @@ cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &
 exit 0\" | sudo tee /etc/rc.local
 
 echo \"rebooting...\"
-sudo reboot" | tee $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/update.sh
+sudo reboot` | tee $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/update.sh
 
 echo "
 installing node dependencies..."
