@@ -82,7 +82,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 }
 
 function update() {
-  child.exec(`cd .. && bash update`, (error, stdout, stderr) => {
+  child.exec(`cd .. && ls`, (error, stdout, stderr) => {
       if (stdout !== '') {
         debug.info(stdout);
       }
