@@ -15,7 +15,7 @@ sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 
 echo "\e[46minstalling node dependencies...\e[0m"
 sudo npm install -g @angular/cli gulp
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm install
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm install --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm install
 
 echo "\e[46mbuilding server...\e[0m"
