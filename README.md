@@ -10,12 +10,12 @@
 
 ## Installation
 
-```bash
+<!-- ```bash
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 ```
 ```bash
 sudo apt install -y git
-```
+``` -->
 
 ```bash
 curl -o- https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/install | sudo bash
