@@ -19,8 +19,8 @@ git config --global user.email "fuettr@gmail.com"
 
 echo "
 downloading..."
-cd $THISUSER && mkdir git && cd git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
-read test
+cd $THISUSER && mkdir git
+cd $THISUSER/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
 
 echo "
 creating rc.local..."
