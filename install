@@ -6,7 +6,7 @@ THISUSER=/home/$USER
 echo "
 downloading node.js..."
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt install nodejs
+sudo apt install -y nodejs
 
 echo "
 installing git..."
