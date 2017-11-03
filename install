@@ -4,14 +4,6 @@
 THISUSER=/home/$USER
 
 echo "
-downloading node.js..."
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-
-echo "
-installing git..."
-sudo apt install -y git
-
-echo "
 setting git credentials..."
 git config --global user.name "fuettr"
 git config --global user.email "fuettr@gmail.com"
@@ -24,6 +16,8 @@ echo "
 creating rc.local..."
 sudo cat <<EOF >/etc/rc.local
 #!/bin/sh -e
+#
+# rc.local
 
 sudo service cron start &
 
