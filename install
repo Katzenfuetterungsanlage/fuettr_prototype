@@ -3,19 +3,23 @@
 
 THISUSER=/home/$USER
 
-echo "downloading node.js and git..."
+echo "
+downloading node.js and git..."
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt install -y git
 
 
-echo "setting git credentials..."
+echo "
+setting git credentials..."
 git config --global user.name "fuettr"
 git config --global user.email "fuettr@gmail.com"
 
-echo "downloading..."
+echo "
+downloading..."
 cd $THISUSER && mkdir git && cd git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
 
-echo "creating rc.local..."
+echo "
+creating rc.local..."
 sudo cat <<EOF >/etc/rc.local
 #!/bin/sh -e
 
@@ -27,17 +31,21 @@ exit 0
 
 EOF
 
-echo "installing node dependencies..."
+echo "
+installing node dependencies..."
 sudo npm i -g npm
 sudo npm install -g @angular/cli gulp
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm install --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm install
 
-echo "building server..."
+echo "
+building server..."
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo ng build
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo gulp cleanAndBuild
 
-echo "starting server..."
+echo "
+starting server..."
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js &
 
-echo "done"
+echo "
+done"
