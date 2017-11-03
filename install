@@ -37,17 +37,16 @@ exit 0" | sudo tee /etc/rc.local
 
 echo "
 creating update script..."
-echo "
-#!/bin/bash -e
+echo "#!/bin/bash -e
 # update script for Fuettr Server and Java-Application
 
-echo "
-downloading..."
+echo \"
+downloading...\"
 cd $THISUSER/git/fuettr_prototype && git pull
 
-echo "
-creating rc.local..."
-echo "#!/bin/sh -e
+echo \"
+creating rc.local...\"
+echo \"#!/bin/sh -e
 #
 # rc.local
 
@@ -55,9 +54,9 @@ sudo service cron start &
 
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &
 
-exit 0" | sudo tee /etc/rc.local
+exit 0\" | sudo tee /etc/rc.local
 
-echo "rebooting..."
+echo \"rebooting...\"
 sudo reboot" | tee $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/update.sh
 
 echo "
