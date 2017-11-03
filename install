@@ -43,6 +43,8 @@ echo "#!/bin/bash -e
 echo \"
 downloading...\"
 cd $THISUSER/git/fuettr_prototype && git pull
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm i --unsafe-perm
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && npm i
 
 echo \"
 creating rc.local...\"
