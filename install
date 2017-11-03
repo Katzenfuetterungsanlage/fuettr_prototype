@@ -5,7 +5,7 @@ THISUSER=/home/$USER
 
 echo "downloading node.js and git..."
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt install -y git nodejs
+sudo apt install -y git
 
 
 echo "setting git credentials..."
@@ -28,6 +28,7 @@ exit 0
 EOF
 
 echo "installing node dependencies..."
+sudo npm i -g npm
 sudo npm install -g @angular/cli gulp
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm install --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm install
