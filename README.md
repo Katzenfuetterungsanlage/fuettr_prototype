@@ -11,6 +11,6 @@
 ## Installation
 
 ```bash
-curl -o- https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/install.sh | bash
+curl -o- https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/install | bash
 ```
 
