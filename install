@@ -33,7 +33,7 @@ fi
 
 sudo service cron start &
 
-cd /home/pi/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i && cd ../ng2 && sudo npm i && npm start &
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i && cd ../ng2 && sudo npm i && npm start &
 
 exit 0
 
