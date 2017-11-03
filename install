@@ -64,7 +64,7 @@ installing node dependencies..."
 sudo npm i -g npm
 sudo npm i -g @angular/cli gulp
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm i --unsafe-perm
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && npm i
 
 echo "
 building server..."
