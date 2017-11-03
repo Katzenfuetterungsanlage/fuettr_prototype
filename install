@@ -21,10 +21,11 @@ echo "
 downloading..."
 cd $THISUSER && mkdir git
 cd $THISUSER/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
+cd §THISUSER/git/fuettr_prototype && git pull
 
 echo "
 creating rc.local..."
-sudo cat <<EOF >sudo /etc/rc.local
+sudo cat > /etc/rc.local <<- "EOF" 
 #!/bin/sh -e
 #
 # rc.local
@@ -34,8 +35,17 @@ sudo service cron start &
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i && cd ../ng2 && sudo npm i && npm start &
 
 exit 0
-
 EOF
+
+echo "#!/bin/sh -e
+#
+# rc.local
+
+sudo service cron start &
+
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i && cd ../ng2 && sudo npm i && npm start &
+
+exit 0" | sudo tee /etc/rc.local
 
 echo "
 installing node dependencies..."
