@@ -1,9 +1,9 @@
 #!/bin/bash
 # install script for Fuettr Server and Java-Application
 
-home = $HOME
+home = ~
 
-echo "Home:" $home
+echo $home
 
 echo "setting git credentials..."
 sudo git config --global user.name "fuettr"
