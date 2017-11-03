@@ -1,26 +1,54 @@
-#!/bin/bash
+#!/bin/bash -e
 # install script for Fuettr Server and Java-Application
 
 THISUSER=/home/$USER
 
-echo "setting git credentials..."
+echo "\e[46msetting git credentials...\e[0m"
 git config --global user.name "fuettr"
 git config --global user.email "fuettr@gmail.com"
 
-echo "downloading..."
+echo "\e[46mdownloading...\e[0m"
 cd $THISUSER && mkdir git && cd git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
 
-echo "mcopying rc.local..."
-sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
+echo "\e[46mcreating rc.local...\e[0m"
+sudo cat <<EOF >/etc/rc.local
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
 
-echo "installing node dependencies..."
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+sudo service cron start &
+
+cd /home/pi/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i && cd ../ng2 && sudo npm i && npm start &
+
+exit 0
+
+EOF
+
+echo "\e[46minstalling node dependencies...\e[0m"
 sudo npm install -g @angular/cli gulp
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm install --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm install
 
-echo "building server..."
+echo "\e[46mbuilding server...\e[0m"
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo ng build
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo gulp cleanAndBuild
 
-echo "starting server..."
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js
+echo "\e[46mstarting server...\e[0m"
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js &
+
+echo "\e[42mdone\e[0m"
