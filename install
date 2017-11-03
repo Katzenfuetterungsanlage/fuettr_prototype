@@ -23,4 +23,6 @@ cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo ng build
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo gulp cleanAndBuild
 
 echo "starting server..."
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js &
+
+echo "done"
