@@ -11,6 +11,7 @@ import { Version } from './version';
 export class UpdateComponent implements OnInit {
 
   private show = false;
+  private show2 = false;
   private progress = false;
   private updater: string;
   private message: string;
@@ -26,9 +27,16 @@ export class UpdateComponent implements OnInit {
   update() {
     this.message = '';
     this.show = false;
+    this.show2 = true;
     this.progress = true;
     this.updater = 'in progress...';
     this.updateService.getUpdate();
+    setInterval(() => {
+      if (this.updateService.getVersion() === undefined) {
+        this.progress = false;
+        this.message = 'rebooting... please reload the page.';
+      }
+    }, 1000);
   }
 
   shutdown() {
