@@ -81,15 +81,16 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
     });
 }
 
-function update() {
+function update(req: express.Request, res: express.Response, next: express.NextFunction) {
+  res.sendFile(path.join(__dirname, 'views/update.html'))
   child.exec(`cd .. && sh update.sh`, (error, stdout, stderr) => {
-      if (stdout !== '') {
-        debug.info(stdout);
-      }
-      if (error !== null) {
-        debug.warn(error);
-      }
-    });
+    if (stdout !== '') {
+      debug.info(stdout);
+    }
+    if (error !== null) {
+      debug.warn(error);
+    }
+  });
 }
 
 function shutdown() {
