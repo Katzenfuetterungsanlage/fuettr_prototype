@@ -4,27 +4,27 @@
 THISUSER=/home/$USER
 
 echo "
-downloading node.js..."
+--> downloading and installing node.js..."
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt install -y nodejs
 
 echo "
-installing git..."
+--> downloading and installing git..."
 sudo apt install -y git
 
 echo "
-setting git credentials..."
+--> setting git credentials..."
 git config --global user.name "fuettr"
 git config --global user.email "fuettr@gmail.com"
 
 echo "
-downloading..."
+--> downloading..."
 cd $THISUSER && mkdir git
 cd $THISUSER/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
 cd $THISUSER/git/fuettr_prototype && git pull
 
 echo "
-creating rc.local..."
+--> creating rc.local..."
 echo "#!/bin/sh -e
 #
 # rc.local
@@ -36,45 +36,19 @@ cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &
 exit 0" | sudo tee /etc/rc.local
 
 echo "
-creating update script..."
-echo "#!/bin/bash -e
-# update script for Fuettr Server and Java-Application
-
-echo \"
-downloading...\"
-git pull
-npm i
-cd ../ng2 && sudo npm i --unsafe-perm
-
-echo \"
-creating rc.local...\"
-echo \"#!/bin/sh -e
-#
-# rc.local
-
-sudo service cron start &
-
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &
-
-exit 0\" | sudo tee /etc/rc.local
-
-echo \"rebooting...\"
-sudo reboot" | tee $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/update.sh
-
-echo "
-installing node dependencies..."
+--> installing node dependencies..."
 sudo npm i -g npm
 sudo npm i -g @angular/cli gulp
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm i --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && npm i
 
 echo "
-building server..."
+--> building server..."
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo ng build
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo gulp cleanAndBuild
 
 echo "
-starting server..."
+--> starting server..."
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js &
 
 echo "
