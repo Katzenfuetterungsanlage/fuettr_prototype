@@ -23,6 +23,9 @@ export class UpdateComponent implements OnInit {
   constructor(private updateService: UpdateService) { }
 
   update() {
+    this.message = `<div class="progress">
+    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">updating...</div>
+    </div>`;
     this.updater = 'in progress...';
     this.updateService.getUpdate();
   }
