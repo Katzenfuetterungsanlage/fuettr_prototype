@@ -23,6 +23,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" (click)="refresh()">Check again</button>
                 <button *ngIf="show" type="button" class="btn btn-primary" (click)="update()">Update {{updater}}</button>
+                <button *ngIf="progress" type="button" class="btn btn-primary">Update {{updater}}</button>
             </div>
         </div>
     </div>

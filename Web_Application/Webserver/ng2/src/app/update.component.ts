@@ -25,6 +25,7 @@ export class UpdateComponent implements OnInit {
 
   update() {
     this.message = '';
+    this.show = false;
     this.progress = true;
     this.updater = 'in progress...';
     this.updateService.getUpdate();
