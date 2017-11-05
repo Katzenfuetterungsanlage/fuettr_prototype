@@ -10,12 +10,13 @@ import { Version } from './version';
 })
 export class UpdateComponent implements OnInit {
 
-  private message: string;
   private show = false;
+  private progress = false;
   private updater: string;
+  private message: string;
+  private newVersion: string;
   private version: Version;
   private lVersion: Version;
-  private newVersion: string;
   private t1: number;
   private t2: number;
   private t: number;
@@ -23,9 +24,8 @@ export class UpdateComponent implements OnInit {
   constructor(private updateService: UpdateService) { }
 
   update() {
-    this.message = `<div class="progress">
-    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">updating...</div>
-    </div>`;
+    this.message = '';
+    this.progress = true;
     this.updater = 'in progress...';
     this.updateService.getUpdate();
   }
