@@ -82,7 +82,7 @@ export class UpdateComponent implements OnInit {
         if (this.version.version !== this.lVersion.version) {
           this.t2 = new Date().getMilliseconds();
           this.t = this.t2 - this.t1;
-          this.message = 'Update found in' + this.t + 'ms:';
+          this.message = 'Update found in ' + this.t + 'ms:';
           this.show = true;
           this.newVersion = this.version.version.toString();
         } else {
