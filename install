@@ -27,6 +27,7 @@ cd $THISUSER/git/fuettr_prototype && sudo git pull
 echo "
 --> copying rc.local..."
 sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
+sudo chmod +x /etc/rc.local
 
 echo "
 --> copying autostart..."
