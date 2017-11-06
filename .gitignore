@@ -1,7 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-*/dist/*
 */tmp
 */out-tsc
 
@@ -42,6 +41,5 @@ package-lock.json
 */nbproject/private/
 */build/
 */nbbuild/
-*/dist/
 */nbdist/
 */.nb-gradle/
