@@ -29,7 +29,7 @@ sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 
 echo "
 --> edititng rc.local..."
-sudo sed -i 's/USER/$THISUSER/g' /etc/rc.local
+sudo rpl USER $THISUSER /etc/rc.local
 
 echo "
 --> installing node dependencies..."
