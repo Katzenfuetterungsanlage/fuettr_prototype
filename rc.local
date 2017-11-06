@@ -4,12 +4,12 @@
 
 sudo service cron start &
 
-echo \"
---> Starting server\"
+echo "
+--> Starting server"
 cd USER/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &
 
-echo \"
---> starting java appliction\"
+echo "
+--> starting java appliction"
 java -jar USER/git/fuettr_prototype/Java_Application/Java/prj/dist/Diplomarbeit_Prototyping.jar &
 
 _IP=$(hostname -I) || true
