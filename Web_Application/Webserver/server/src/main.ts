@@ -81,24 +81,33 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
     });
 }
 
-async function update(req: express.Request, res: express.Response, next: express.NextFunction) {
+function update(req: express.Request, res: express.Response, next: express.NextFunction) {
   res.sendFile(path.join(__dirname, 'views/update.html'))
-  await child.exec(`cd .. && git pull && sudo rsync -aP /home/git/fuettr_prototype/rc.local /etc/rc.local && sudo npm-install-missing`, (error, stdout, stderr) => {
+  child.exec(`cd .. && git pull && sudo rsync -aP /home/git/fuettr_prototype/rc.local /etc/rc.local && sudo npm-install-missing`, (error, stdout, stderr) => {
     if (stdout !== '') {
       debug.info(stdout);
     }
     if (error !== null) {
       debug.warn(error);
     }
+    child.exec(`cd ../ng2 && sudo npm-install-missing`, (error, stdout, stderr) => {
+      if (stdout !== '') {
+        debug.info(stdout);
+      }
+      if (error !== null) {
+        debug.warn(error);
+      }
+      child.exec(`sudo reboot`, (error, stdout, stderr) => {
+        if (stdout !== '') {
+          debug.info(stdout);
+        }
+        if (error !== null) {
+          debug.warn(error);
+        }
+      });
+    });
   });
-  await child.exec(`cd ../ng2 && sudo npm-install-missing`, (error, stdout, stderr) => {
-    if (stdout !== '') {
-      debug.info(stdout);
-    }
-    if (error !== null) {
-      debug.warn(error);
-    }
-  });
+
 }
 
 function shutdown() {
