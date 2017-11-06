@@ -49,4 +49,8 @@ echo "
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js &
 
 echo "
+--> starting java application..."
+cd $THISUSER/git/fuettr_prototype/Java_Application/Java/prj/dist && java -jar Diplomarbeit_Prototyping.jar &
+
+echo "
 done"
