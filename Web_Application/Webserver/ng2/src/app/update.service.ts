@@ -27,14 +27,14 @@ export class UpdateService {
       .catch(this.handleError);
   }
 
-  async checkUpdate(): Promise<Version> {
+  checkUpdate(): Promise<Version> {
     return this.http.get(this.checkUrl)
       .toPromise()
       .then(response => response.json() as Version)
       .catch(this.handleError);
   }
 
-  async getVersion(): Promise<Version> {
+  getVersion(): Promise<Version> {
     return this.http.get(this.lVersionUrl)
       .toPromise()
       .then(response => response.json() as Version)

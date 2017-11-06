@@ -81,9 +81,25 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
     });
 }
 
-function update(req: express.Request, res: express.Response, next: express.NextFunction) {
+async function update(req: express.Request, res: express.Response, next: express.NextFunction) {
   res.sendFile(path.join(__dirname, 'views/update.html'))
-  child.exec(`cd .. && git pull && npm i && cd ../ng2 && npm i && sudo reboot`, (error, stdout, stderr) => {
+  await child.exec(`cd .. && git pull && npm-install-missing`, (error, stdout, stderr) => {
+    if (stdout !== '') {
+      debug.info(stdout);
+    }
+    if (error !== null) {
+      debug.warn(error);
+    }
+  });
+  await child.exec(`cd ../ng2 && npm-install-missing`, (error, stdout, stderr) => {
+    if (stdout !== '') {
+      debug.info(stdout);
+    }
+    if (error !== null) {
+      debug.warn(error);
+    }
+  });
+  child.exec(`sudo reboot`, (error, stdout, stderr) => {
     if (stdout !== '') {
       debug.info(stdout);
     }

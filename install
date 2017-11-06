@@ -24,21 +24,17 @@ cd $THISUSER/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_
 cd $THISUSER/git/fuettr_prototype && git pull
 
 echo "
---> creating rc.local..."
-echo "#!/bin/sh -e
-#
-# rc.local
+--> copying rc.local..."
+sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 
-sudo service cron start &
-
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &
-
-exit 0" | sudo tee /etc/rc.local
+echo "
+--> edititng rc.local..."
+sudo sed -i 's/USER/$THISUSER/g' /etc/rc.local
 
 echo "
 --> installing node dependencies..."
 sudo npm i -g npm
-sudo npm i -g @angular/cli gulp
+sudo npm i -g @angular/cli gulp npm-install-missing
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm i --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && npm i
 
