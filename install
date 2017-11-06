@@ -39,6 +39,10 @@ echo "
 rsync -aP $THISUSER/git/fuettr_prototype/autostart $THISUSER/.config/lxsession/LXDE-$USER/autostart
 
 echo "
+--> edititng autostart..."
+sudo rpl USER $THISUSER $THISUSER/.config/lxsession/LXDE-$USER/autostart
+
+echo "
 --> installing node dependencies..."
 sudo npm i -g npm
 sudo npm i -g @angular/cli gulp npm-install-missing
