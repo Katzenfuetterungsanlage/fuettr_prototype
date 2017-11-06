@@ -6,7 +6,7 @@
 
 echo "
 --> Starting server"
-cd /home/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm start &
+cd USER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm start &
 
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then

@@ -11,6 +11,7 @@ sudo apt install -y nodejs
 echo "
 --> downloading and installing git..."
 sudo apt install -y git
+sudo apt install -y rpl
 sudo apt -y autoremove
 
 echo "
@@ -30,8 +31,12 @@ sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 sudo chmod +x /etc/rc.local
 
 echo "
+--> edititng rc.local..."
+sudo rpl USER $THISUSER /etc/rc.local
+
+echo "
 --> copying autostart..."
-rsync -aP $THISUSER/git/fuettr_prototype/autostart /$THISUSER/.config/lxsession/LXDE-$USER/autostart
+rsync -aP $THISUSER/git/fuettr_prototype/autostart $THISUSER/.config/lxsession/LXDE-$USER/autostart
 
 echo "
 --> installing node dependencies..."
