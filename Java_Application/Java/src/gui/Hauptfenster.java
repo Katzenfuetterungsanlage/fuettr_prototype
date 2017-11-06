@@ -579,6 +579,7 @@ public class Hauptfenster extends javax.swing.JFrame
                  "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
            {
                //TODO
+             
                dispose();
            }
     }//GEN-LAST:event_onHerunterfahren
