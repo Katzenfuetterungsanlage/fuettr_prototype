@@ -14,14 +14,14 @@ sudo apt install -y git
 
 echo "
 --> setting git credentials..."
-git config --global user.name "fuettr"
-git config --global user.email "fuettr@gmail.com"
+sudo git config --global user.name "fuettr"
+sudo git config --global user.email "fuettr@gmail.com"
 
 echo "
 --> downloading..."
 cd $THISUSER && mkdir git
-cd $THISUSER/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
-cd $THISUSER/git/fuettr_prototype && git pull
+cd $THISUSER/git && sudo git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
+cd $THISUSER/git/fuettr_prototype && sudo git pull
 
 echo "
 --> copying rc.local..."
