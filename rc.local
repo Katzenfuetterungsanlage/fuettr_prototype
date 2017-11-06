@@ -8,11 +8,6 @@ echo "
 --> Starting server"
 cd /home/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm start &
 
-echo "
---> starting java appliction"
-export DISPLAY=0.0
-sudo java -jar /home/git/fuettr_prototype/Java_Application/Java/prj/dist/Diplomarbeit_Prototyping.jar &
-
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"

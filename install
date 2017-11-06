@@ -1,7 +1,7 @@
 #!/bin/bash -e
 # install script for Fuettr Server and Java-Application
 
-THISUSER=/home
+THISUSER=/home/$USER
 
 echo "
 --> downloading and installing node.js..."
@@ -26,6 +26,10 @@ cd $THISUSER/git/fuettr_prototype && sudo git pull
 echo "
 --> copying rc.local..."
 sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
+
+echo "
+--> copying autostart..."
+rsync -aP $THISUSER/git/fuettr_prototype/autostart /$THISUSER/.config/lxsession/LXDE-$USER/autostart
 
 echo "
 --> installing node dependencies..."
