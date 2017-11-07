@@ -84,7 +84,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 
 function update(req: express.Request, res: express.Response, next: express.NextFunction) {
   res.sendFile(path.join(__dirname, 'views/update.html'))
-  child.exec(`cd .. && git pull && sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local && sudo npm-install-missing`, (error, stdout, stderr) => {
+  child.exec(`cd .. &&git reset --hard && git pull && sudo rsync -aP /home/pi/git/fuettr_prototype/rc.local /etc/rc.local && sudo npm-install-missing`, (error, stdout, stderr) => {
     if (stdout !== '') {
       debug.info(stdout);
     }
