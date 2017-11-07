@@ -1,5 +1,6 @@
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
+@lxterminal --command "USER/git/fuettr_prototype/start.sh"
 @xscreensaver -no-splash
 @point-rpi
-@java -jar USER/git/fuettr_prototype/Java_Application/Java/prj/dist/Diplomarbeit_Prototyping.jar
+

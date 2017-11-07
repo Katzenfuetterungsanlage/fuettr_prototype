@@ -5,7 +5,6 @@
  */
 package gui;
 
-
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -15,53 +14,51 @@ import javax.swing.SwingWorker;
 import methods.NaechsteFuetterung;
 import methods.StreamReader;
 
-
 /**
  *
  * @author Florian
  */
-public class Hauptfenster extends javax.swing.JFrame
-{
-    
+public class Hauptfenster extends javax.swing.JFrame {
+
     boolean zustand = false;
-    boolean zeitenVeraendert = true; 
+    boolean zeitenVeraendert = true;
     String uhrzeit, zeit1, zeit2, zeit3, zeit4;
-    int letzteFuetterung; 
+    int letzteFuetterung;
     String naechsteFuetterungUm, naechsteFuetterungIn;
-    
+
     /**
      * Creates new form Hauptfenster
      */
-    public Hauptfenster()
-    {
+    public Hauptfenster() {
         this.setUndecorated(true);
         this.setAlwaysOnTop(true);
         this.setResizable(false);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
-        
-        if (zustand == false)
+
+        if (zustand == false) {
             lbZustand.setText("Aus");
-        
+        }
+
         UhrzeitWorker uWorker = new UhrzeitWorker();
         uWorker.execute();
-        
+
         DatumWorker dWorker = new DatumWorker();
         dWorker.execute();
-        
+
         ZeitenAnzeigenWorker zaWorker = new ZeitenAnzeigenWorker();
-        zaWorker.execute(); 
-        
+        zaWorker.execute();
+
         lbLetzteFuetterung.setText("ausstehend");
-        
+
         AutomatischeFuetterungAblaufWorker automatischeFuetterungAblaufWorker = new AutomatischeFuetterungAblaufWorker();
         automatischeFuetterungAblaufWorker.execute();
-        
+
         NaechsteFuetterungWorker naechsteFuetterungWorker = new NaechsteFuetterungWorker();
         naechsteFuetterungWorker.execute();
 
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -490,16 +487,13 @@ public class Hauptfenster extends javax.swing.JFrame
 
     private void onEinAusSchalten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onEinAusSchalten
     {//GEN-HEADEREND:event_onEinAusSchalten
-        if (zustand != true)
-        {
+        if (zustand != true) {
             zustand = true;
             lbZustand.setText("Ein");
-        }                    
-        else
-        {
+        } else {
             zustand = false;
             lbZustand.setText("Aus");
-        }                 
+        }
     }//GEN-LAST:event_onEinAusSchalten
 
     private void onFütterungszeitenVerwalten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onFütterungszeitenVerwalten
@@ -509,34 +503,30 @@ public class Hauptfenster extends javax.swing.JFrame
 
     private void onManuelleSteuerung(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onManuelleSteuerung
     {//GEN-HEADEREND:event_onManuelleSteuerung
-        if (zustand == true)
-        {
+        if (zustand == true) {
             if (JOptionPane.showConfirmDialog(this, "Um fortzufahren müssen Sie die automatische Fütterung deaktivieren. \n Wollen sie diese deaktivieren? ",
-                 "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-            {
+                    "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 zustand = false;
                 lbZustand.setText("Aus");
-                
-                final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true); 
+
+                final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true);
                 strDlg.setVisible(true);
-            } 
-        }
-        else
-        {
-            final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true); 
+            }
+        } else {
+            final ManuelleSteuerung strDlg = new ManuelleSteuerung(this, true);
             strDlg.setVisible(true);
         }
     }//GEN-LAST:event_onManuelleSteuerung
 
     private void onPositionsinformation(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onPositionsinformation
     {//GEN-HEADEREND:event_onPositionsinformation
-        final Positionsinformation posDlg = new Positionsinformation(this, true); 
+        final Positionsinformation posDlg = new Positionsinformation(this, true);
         posDlg.setVisible(true);
     }//GEN-LAST:event_onPositionsinformation
 
     private void onUpdate(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUpdate
     {//GEN-HEADEREND:event_onUpdate
-        final Update infoDlg = new Update(this, true); 
+        final Update infoDlg = new Update(this, true);
         infoDlg.setVisible(true);
     }//GEN-LAST:event_onUpdate
 
@@ -546,24 +536,23 @@ public class Hauptfenster extends javax.swing.JFrame
         final ZeitenManagement zeitenDlg = new ZeitenManagement(this, true); // true = modal (blockiert das Hauptfenster) , false = nicht modal 
         zeitenDlg.setVisible(true); //Dialog sichtbar setzen
         //An dieser Stelle "blockiert" das Programm, solange der Dialog geöffnet ist!   
-        
-        if (zeitenDlg.zeitenVeraendert())
-        {
-            zeitenVeraendert = true; 
+
+        if (zeitenDlg.zeitenVeraendert()) {
+            zeitenVeraendert = true;
             ZeitenAnzeigenWorker zaWorker = new ZeitenAnzeigenWorker();
-            zaWorker.execute(); 
+            zaWorker.execute();
         }
     }//GEN-LAST:event_onFuetterungszeitenVerwalten
 
     private void onGeraeteinformation(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onGeraeteinformation
     {//GEN-HEADEREND:event_onGeraeteinformation
-        final GeraeteInfo infoDlg = new GeraeteInfo(this, true); 
+        final GeraeteInfo infoDlg = new GeraeteInfo(this, true);
         infoDlg.setVisible(true);
     }//GEN-LAST:event_onGeraeteinformation
 
     private void onBenutzerAnlegen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onBenutzerAnlegen
     {//GEN-HEADEREND:event_onBenutzerAnlegen
-        final BenutzerAnlegen infoDlg = new BenutzerAnlegen(this, true); 
+        final BenutzerAnlegen infoDlg = new BenutzerAnlegen(this, true);
         infoDlg.setVisible(true);
     }//GEN-LAST:event_onBenutzerAnlegen
 
@@ -575,60 +564,46 @@ public class Hauptfenster extends javax.swing.JFrame
     private void onHerunterfahren(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onHerunterfahren
     {//GEN-HEADEREND:event_onHerunterfahren
         if (JOptionPane.showConfirmDialog(this, "Raspberry wirklick herunterfahren?",
-                 "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
-           {
-               //TODO
-             
-               dispose();
-           }
+                "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            //TODO
+
+            dispose();
+        }
     }//GEN-LAST:event_onHerunterfahren
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Hauptfenster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Hauptfenster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Hauptfenster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Hauptfenster.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
-            public void run()
-            {
-                Hauptfenster hf =new Hauptfenster();
-//                hf.setExtendedState(JFrame.MAXIMIZED_BOTH); //öffnet Fenster in Vollbild
-  //              hf.setUndecorated(true);
-                hf.setVisible(true);
-                
+            public void run() {
+                new Hauptfenster().setVisible(true);
+
             }
         });
     }
@@ -703,237 +678,197 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JMenuItem update;
     // End of variables declaration//GEN-END:variables
 
-private class UhrzeitWorker extends SwingWorker<Object,String>
-{
-    @Override
-    protected Object doInBackground() throws Exception
-    {
-        while (true)
-        {
-            uhrzeit = String.format("%1$tH:%1$tM", new Date(System.currentTimeMillis()));
-                        
-            publish(uhrzeit); // gibt Text an process weiter
-
-            TimeUnit.MILLISECONDS.sleep(500);
-        } 
-    }
+    private class UhrzeitWorker extends SwingWorker<Object, String> {
 
         @Override
-        protected void process(List<String> chunks)
-        {
-            lbUhrzeit.setText(uhrzeit);
-        }    
-    }
+        protected Object doInBackground() throws Exception {
+            while (true) {
+                uhrzeit = String.format("%1$tH:%1$tM", new Date(System.currentTimeMillis()));
 
-private class DatumWorker extends SwingWorker<Object,String>
-{
-    String datum; 
+                publish(uhrzeit); // gibt Text an process weiter
 
-    @Override
-    protected Object doInBackground() throws Exception
-    {
-        while (true)
-        {
-            datum = String.format("%1$td.%1$tm.%1$tY", new Date(System.currentTimeMillis()));
-            
-            publish(datum); // gibt Text an process weiter
-            
-            TimeUnit.MILLISECONDS.sleep(500);
-        } 
-    }
-
-        @Override
-        protected void process(List<String> chunks)
-        {
-            lbDatum.setText(datum);
-        }    
-    }
-
-    private class ZeitenAnzeigenWorker extends SwingWorker<Object,String>
-    {
-        String string;
-
-        //ZeitenManagement zeitenManagement = new ZeitenManagement(this, true);
-        
-        @Override
-        protected Object doInBackground() throws Exception
-        {
-            while (true)
-            {
-                if (zeitenVeraendert == true /*|| zeitenManagement.ZeitenVeraendert() == true*/)
-                {
-                    StreamReader streamReader = new StreamReader(); 
-                    string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",false);
-                    
-                    publish(string); 
-                    
-                    zeitenVeraendert = false; 
-                }              
+                TimeUnit.MILLISECONDS.sleep(500);
             }
         }
 
         @Override
-        protected void process(List<String> chunks)
-        {
-            System.out.format("Hauptfenster - ZeitenAnzeigeWorker: %s",string);
-            
-            String[] token = string.split(";"); 
+        protected void process(List<String> chunks) {
+            lbUhrzeit.setText(uhrzeit);
+        }
+    }
+
+    private class DatumWorker extends SwingWorker<Object, String> {
+
+        String datum;
+
+        @Override
+        protected Object doInBackground() throws Exception {
+            while (true) {
+                datum = String.format("%1$td.%1$tm.%1$tY", new Date(System.currentTimeMillis()));
+
+                publish(datum); // gibt Text an process weiter
+
+                TimeUnit.MILLISECONDS.sleep(500);
+            }
+        }
+
+        @Override
+        protected void process(List<String> chunks) {
+            lbDatum.setText(datum);
+        }
+    }
+
+    private class ZeitenAnzeigenWorker extends SwingWorker<Object, String> {
+
+        String string;
+
+        //ZeitenManagement zeitenManagement = new ZeitenManagement(this, true);
+        @Override
+        protected Object doInBackground() throws Exception {
+            while (true) {
+                if (zeitenVeraendert == true /*|| zeitenManagement.ZeitenVeraendert() == true*/) {
+                    StreamReader streamReader = new StreamReader();
+                    string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt", false);
+
+                    publish(string);
+
+                    zeitenVeraendert = false;
+                }
+            }
+        }
+
+        @Override
+        protected void process(List<String> chunks) {
+            System.out.format("Hauptfenster - ZeitenAnzeigeWorker: %s", string);
+
+            String[] token = string.split(";");
             zeit1 = token[0];
             zeit2 = token[1];
             zeit3 = token[2];
-            zeit4 = token[3]; 
+            zeit4 = token[3];
             String b1 = token[4];
             String b2 = token[5];
             String b3 = token[6];
             String b4 = token[7];
-            
+
             boolean bZeit1 = Boolean.valueOf(b1);
             boolean bZeit2 = Boolean.valueOf(b2);
             boolean bZeit3 = Boolean.valueOf(b3);
             boolean bZeit4 = Boolean.valueOf(b4);
-            
-            if (bZeit1 != true)
-            {
+
+            if (bZeit1 != true) {
                 lbZeit1.setVisible(false);
                 lbZeit1Beschreibung.setVisible(false);
-            }
-            else
-            {
+            } else {
                 lbZeit1.setVisible(true);
                 lbZeit1Beschreibung.setVisible(true);
                 lbZeit1.setText(zeit1);
             }
-            
-            if (bZeit2 != true)
-            {
+
+            if (bZeit2 != true) {
                 lbZeit2.setVisible(false);
                 lbZeit2Beschreibung.setVisible(false);
-            }
-            else
-            {
+            } else {
                 lbZeit2.setVisible(true);
                 lbZeit2Beschreibung.setVisible(true);
                 lbZeit2.setText(zeit2);
             }
-            
-            if (bZeit3 != true)
-            {
+
+            if (bZeit3 != true) {
                 lbZeit3.setVisible(false);
                 lbZeit3Beschreibung.setVisible(false);
-            }
-            else
-            {   
+            } else {
                 lbZeit3.setVisible(true);
                 lbZeit3Beschreibung.setVisible(true);
                 lbZeit3.setText(zeit3);
             }
-            
-            if (bZeit4 != true)
-            {
+
+            if (bZeit4 != true) {
                 lbZeit4.setVisible(false);
                 lbZeit4Beschreibung.setVisible(false);
-            }
-            else
-            {   
+            } else {
                 lbZeit4.setVisible(true);
                 lbZeit4Beschreibung.setVisible(true);
                 lbZeit4.setText(zeit4);
             }
-            
+
         }
     }
-    
-    private class AutomatischeFuetterungAblaufWorker extends SwingWorker<Object,String>
-    {
-        String letzteFuetterungHilfsstring; 
+
+    private class AutomatischeFuetterungAblaufWorker extends SwingWorker<Object, String> {
+
+        String letzteFuetterungHilfsstring;
 
         @Override
-        protected Object doInBackground() throws Exception
-        {
-            while (true)
-            {                               
-                if (zustand == true)
-                {
-                    if (zeit1.equals(uhrzeit))
-                    {
+        protected Object doInBackground() throws Exception {
+            while (true) {
+                if (zustand == true) {
+                    if (zeit1.equals(uhrzeit)) {
                         //TODO Fütterung
                         letzteFuetterung = 1;
-                        letzteFuetterungHilfsstring = zeit1; 
-                        publish(letzteFuetterungHilfsstring); 
-                    }
-                    else
-                    {
-                        if (zeit2.equals(uhrzeit))
-                        {
+                        letzteFuetterungHilfsstring = zeit1;
+                        publish(letzteFuetterungHilfsstring);
+                    } else {
+                        if (zeit2.equals(uhrzeit)) {
                             //TODO Fütterung
                             letzteFuetterung = 2;
-                            letzteFuetterungHilfsstring = zeit2; 
-                            publish(letzteFuetterungHilfsstring); 
-                        }
-                        else
-                        {
-                            if (zeit3.equals(uhrzeit))
-                            {
+                            letzteFuetterungHilfsstring = zeit2;
+                            publish(letzteFuetterungHilfsstring);
+                        } else {
+                            if (zeit3.equals(uhrzeit)) {
                                 //TODO Fütterung
                                 letzteFuetterung = 3;
-                                letzteFuetterungHilfsstring = zeit3; 
-                                publish(letzteFuetterungHilfsstring); 
-                            }
-                            else
-                            {
-                                if (zeit4.equals(uhrzeit))
-                                {       
+                                letzteFuetterungHilfsstring = zeit3;
+                                publish(letzteFuetterungHilfsstring);
+                            } else {
+                                if (zeit4.equals(uhrzeit)) {
                                     //TODO Fütterung
                                     letzteFuetterung = 4;
-                                    letzteFuetterungHilfsstring = zeit4; 
-                                    publish(letzteFuetterungHilfsstring);  
+                                    letzteFuetterungHilfsstring = zeit4;
+                                    publish(letzteFuetterungHilfsstring);
+                                } else {
+                                    TimeUnit.SECONDS.sleep(1);
                                 }
-                                else
-                                    TimeUnit.SECONDS.sleep(1); 
                             }
-                        }                   
+                        }
                     }
                 }
             }
-        } 
-
-        @Override
-        protected void process(List<String> chunks)
-        {
-            lbLetzteFuetterung.setText(letzteFuetterungHilfsstring); 
-        }  
-    }
-    
-    private class NaechsteFuetterungWorker extends SwingWorker<Object,String>
-    {
-        String string1; 
-        
-        @Override
-        protected Object doInBackground() throws Exception
-        {
-            while (true)
-            {
-                StreamReader streamReader = new StreamReader(); 
-                String zeiten = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",false);
-                NaechsteFuetterung naechsteFuetterung = new NaechsteFuetterung(); 
-                string1 = naechsteFuetterung.naechsteFuetterung(letzteFuetterung, zeiten);
-                
-                publish(string1);
-                
-                TimeUnit.MILLISECONDS.sleep(500); //muss klein sein damit nach einer Fütterung die Zeiten schnell aktualisiert werden
-            } 
         }
 
         @Override
-        protected void process(List<String> chunks)
-        {
-            String[] token = string1.split(";"); 
+        protected void process(List<String> chunks) {
+            lbLetzteFuetterung.setText(letzteFuetterungHilfsstring);
+        }
+    }
+
+    private class NaechsteFuetterungWorker extends SwingWorker<Object, String> {
+
+        String string1;
+
+        @Override
+        protected Object doInBackground() throws Exception {
+            while (true) {
+                StreamReader streamReader = new StreamReader();
+                String zeiten = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt", false);
+                NaechsteFuetterung naechsteFuetterung = new NaechsteFuetterung();
+                string1 = naechsteFuetterung.naechsteFuetterung(letzteFuetterung, zeiten);
+
+                publish(string1);
+
+                TimeUnit.MILLISECONDS.sleep(500); //muss klein sein damit nach einer Fütterung die Zeiten schnell aktualisiert werden
+            }
+        }
+
+        @Override
+        protected void process(List<String> chunks) {
+            String[] token = string1.split(";");
             naechsteFuetterungUm = token[0];
             naechsteFuetterungIn = token[1];
-            
+
             lbNaechsteFuetterungUm.setText(naechsteFuetterungUm);
             lbNaechsteFuetterungIn.setText(naechsteFuetterungIn);
         }
     }
-   
+
 }
