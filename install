@@ -31,7 +31,7 @@ sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 
 echo "
 --> editing rc.local..."
-sudo rpl USER $THISUSER /etc/rc.local
+sudo rpl USERR $THISUSER /etc/rc.local
 sudo chmod +x /etc/rc.local
 
 echo "
@@ -40,7 +40,7 @@ rsync -aP $THISUSER/git/fuettr_prototype/autostart $THISUSER/.config/lxsession/L
 
 echo "
 --> edititng autostart..."
-sudo rpl USER $THISUSER $THISUSER/.config/lxsession/LXDE-$USER/autostart
+sudo rpl USERR $THISUSER $THISUSER/.config/lxsession/LXDE-$USER/autostart
 
 echo "
 --> installing node dependencies..."
