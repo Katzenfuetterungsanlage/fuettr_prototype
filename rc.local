@@ -2,7 +2,7 @@
 #
 # rc.local
 
-# sudo service cron start &
+sudo service cron start &
 
 echo "
 --> Starting server"
