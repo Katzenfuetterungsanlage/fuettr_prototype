@@ -1,3 +1,3 @@
 #!/bin/bash
 
-java -jar /home/$USER/git/fuettr_prototype/Java_Application/Java/prj/dist/Diplomarbeit_Prototyping.jar
+cd USER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm start &
