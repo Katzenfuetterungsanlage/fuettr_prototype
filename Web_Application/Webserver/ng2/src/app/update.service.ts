@@ -41,6 +41,10 @@ export class UpdateService {
       .catch(this.handleError);
   }
 
+  stillThere(): Promise<any> {
+    return this.http.get(this.lVersionUrl).toPromise();
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

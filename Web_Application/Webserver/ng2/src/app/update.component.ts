@@ -9,18 +9,22 @@ import { Version } from './version';
   templateUrl: './update.component.html',
 })
 export class UpdateComponent implements OnInit {
-
   private show = false;
   private show2 = false;
   private progress = false;
   private updater: string;
   private message: string;
   private newVersion: string;
+  private prgbar: string;
   private version: Version;
   private lVersion: Version;
   private t1: number;
   private t2: number;
   private t: number;
+  private get2;
+  private get1;
+  private interval;
+
 
   constructor(private updateService: UpdateService) { }
 
@@ -29,9 +33,26 @@ export class UpdateComponent implements OnInit {
     this.show = false;
     this.show2 = true;
     this.progress = true;
+    this.prgbar = 'updating...';
     this.updater = 'in progress...';
     this.updateService.getUpdate();
-    setInterval(() => { }, 1000);
+    this.interval = setInterval(() => {
+      this.get1 = this.updateService.stillThere().catch(
+        error => {
+          console.log('restarting...');
+          this.prgbar = 'restarting...';
+          this.get2 = this.updateService.stillThere().then(value => {
+            console.log('updated...');
+            this.message = 'updated';
+            clearInterval(this.interval);
+            location.reload();
+            this.show2 = false;
+            this.progress = false;
+            this.updater = '';
+          });
+        }
+      );
+    }, 1000);
   }
 
   shutdown() {
