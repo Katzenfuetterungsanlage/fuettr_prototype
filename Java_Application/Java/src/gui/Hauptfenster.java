@@ -856,33 +856,39 @@ private class DatumWorker extends SwingWorker<Object,String>
                         letzteFuetterungHilfsstring = zeit1; 
                         publish(letzteFuetterungHilfsstring); 
                     }
-                    
-                    if (zeit2.equals(uhrzeit))
+                    else
                     {
-                        //TODO Fütterung
-                        letzteFuetterung = 2;
-                        letzteFuetterungHilfsstring = zeit2; 
-                        publish(letzteFuetterungHilfsstring); 
-                    }
-                    
-                    if (zeit3.equals(uhrzeit))
-                    {
-                        //TODO Fütterung
-                        letzteFuetterung = 3;
-                        letzteFuetterungHilfsstring = zeit3; 
-                        publish(letzteFuetterungHilfsstring); 
-                    }
-                    
-                    if (zeit4.equals(uhrzeit))
-                    {
-                        //TODO Fütterung
-                        letzteFuetterung = 4;
-                        letzteFuetterungHilfsstring = zeit4; 
-                        publish(letzteFuetterungHilfsstring);  
+                        if (zeit2.equals(uhrzeit))
+                        {
+                            //TODO Fütterung
+                            letzteFuetterung = 2;
+                            letzteFuetterungHilfsstring = zeit2; 
+                            publish(letzteFuetterungHilfsstring); 
+                        }
+                        else
+                        {
+                            if (zeit3.equals(uhrzeit))
+                            {
+                                //TODO Fütterung
+                                letzteFuetterung = 3;
+                                letzteFuetterungHilfsstring = zeit3; 
+                                publish(letzteFuetterungHilfsstring); 
+                            }
+                            else
+                            {
+                                if (zeit4.equals(uhrzeit))
+                                {       
+                                    //TODO Fütterung
+                                    letzteFuetterung = 4;
+                                    letzteFuetterungHilfsstring = zeit4; 
+                                    publish(letzteFuetterungHilfsstring);  
+                                }
+                                else
+                                    TimeUnit.SECONDS.sleep(1); 
+                            }
+                        }                   
                     }
                 }
-                
-                TimeUnit.SECONDS.sleep(1); 
             }
         } 
 
@@ -909,7 +915,7 @@ private class DatumWorker extends SwingWorker<Object,String>
                 
                 publish(string1);
                 
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.MILLISECONDS.sleep(500); //muss klein sein damit nach einer Fütterung die Zeiten schnell aktualisiert werden
             } 
         }
 

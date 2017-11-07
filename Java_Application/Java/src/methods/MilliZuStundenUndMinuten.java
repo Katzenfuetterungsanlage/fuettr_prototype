@@ -25,7 +25,9 @@ public class MilliZuStundenUndMinuten
     String std = Long.toString(stunden);
     String min = Long.toString(minuten);
     
-    return std + ":" + min;  
+    String string = String.format("HH:MM",std,min);
+    
+    return string;  
   }
   
   public static void main (String[] args)
@@ -33,6 +35,6 @@ public class MilliZuStundenUndMinuten
     MilliZuStundenUndMinuten rechner = new MilliZuStundenUndMinuten();
     String str = rechner.rechnen(24000000);
     
-    System.out.format("hh:mm = %s%n",str);
+    System.out.format("HH:MM = %s%n",str);
   }
 }
