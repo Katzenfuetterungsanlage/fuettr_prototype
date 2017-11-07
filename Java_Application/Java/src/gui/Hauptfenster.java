@@ -9,6 +9,7 @@ package gui;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import methods.NaechsteFuetterung;
@@ -33,6 +34,10 @@ public class Hauptfenster extends javax.swing.JFrame
      */
     public Hauptfenster()
     {
+        this.setUndecorated(true);
+        this.setAlwaysOnTop(true);
+        this.setResizable(false);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
         
         if (zustand == false)
