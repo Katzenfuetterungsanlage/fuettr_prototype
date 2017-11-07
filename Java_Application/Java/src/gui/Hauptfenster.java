@@ -32,13 +32,13 @@ public class Hauptfenster extends javax.swing.JFrame {
      * Creates new form Hauptfenster
      */
     public Hauptfenster() {
-        GraphicsDevice d = GraphicsEnvironment
-                        .getLocalGraphicsEnvironment().getDefaultScreenDevice();
+        GraphicsDevice d = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
                 if (d.isFullScreenSupported()) {
                     this.setUndecorated(true);
                     this.setResizable(false);
                     d.setFullScreenWindow(this);
                 } else {
+                    this.setSize(800, 480);
                     this.setVisible(true);
                 }
         initComponents();
