@@ -29,7 +29,7 @@ public class StreamWriterTest2
         
         StreamWriter streamwriter = new StreamWriter(); 
         
-        streamwriter.schreiben(pfad,string/*,zeit2,zeit3,stringZahl*/); 
+        streamwriter.schreiben(pfad,string/*,zeit2,zeit3,stringZahl*/,true); 
         
     }
 }

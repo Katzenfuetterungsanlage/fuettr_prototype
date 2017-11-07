@@ -39,7 +39,7 @@ public class ZeitenManagement extends javax.swing.JDialog
     private void spinnerFuellen ()
     {
         StreamReader streamReader = new StreamReader(); 
-        String string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt");
+        String string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",true);
         
         //test
         System.out.format("%s %n",string);
@@ -48,13 +48,22 @@ public class ZeitenManagement extends javax.swing.JDialog
         String zeit1 = token[0];
         String zeit2 = token[1];
         String zeit3 = token[2];
-        String zeit4 = token[3];    
+        String zeit4 = token[3]; 
+        String booleanZeit1 = token[4]; //zeit1 checkbox
+        String booleanZeit2 = token[5]; //zeit2 checkbox
+        String booleanZeit3 = token[6]; //zeit3 checkbox
+        String booleanZeit4 = token[7]; //zeit4 checkbox
+        
         
         //test
         System.out.format("%s %n",zeit1);
         System.out.format("%s %n",zeit2);
         System.out.format("%s %n",zeit3);
         System.out.format("%s %n",zeit4);
+        System.out.format("%s %n",booleanZeit1);
+        System.out.format("%s %n",booleanZeit2);
+        System.out.format("%s %n",booleanZeit3);
+        System.out.format("%s %n",booleanZeit4);        
         
         Date date1 = null,date2 = null,date3 = null,date4 = null;
         
@@ -74,6 +83,11 @@ public class ZeitenManagement extends javax.swing.JDialog
         spZeit2.setValue(date2);
         spZeit3.setValue(date3);
         spZeit4.setValue(date4);
+        cbZeit1.setSelected(Boolean.valueOf(booleanZeit1));
+        cbZeit2.setSelected(Boolean.valueOf(booleanZeit2));
+        cbZeit3.setSelected(Boolean.valueOf(booleanZeit3));
+        cbZeit4.setSelected(Boolean.valueOf(booleanZeit4));
+        
     }
     /**
      * Creates new form ZeitenManagemeint
@@ -130,10 +144,6 @@ public class ZeitenManagement extends javax.swing.JDialog
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
         Date date1 = new Date();
         SpinnerDateModel sm1 =
         new SpinnerDateModel(date1, null, null, Calendar.HOUR_OF_DAY);
@@ -150,6 +160,10 @@ public class ZeitenManagement extends javax.swing.JDialog
         SpinnerDateModel sm4 =
         new SpinnerDateModel(date4, null, null, Calendar.HOUR_OF_DAY);
         spZeit4 = new javax.swing.JSpinner(sm4);
+        cbZeit1 = new javax.swing.JCheckBox();
+        cbZeit2 = new javax.swing.JCheckBox();
+        cbZeit3 = new javax.swing.JCheckBox();
+        cbZeit4 = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -245,26 +259,6 @@ public class ZeitenManagement extends javax.swing.JDialog
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 2);
         jPanel6.add(jLabel14, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
-        jPanel6.add(jRadioButton1, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
-        jPanel6.add(jRadioButton2, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
-        jPanel6.add(jRadioButton3, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
-        jPanel6.add(jRadioButton4, gridBagConstraints);
 
         spZeit1.addChangeListener(new javax.swing.event.ChangeListener()
         {
@@ -317,6 +311,58 @@ public class ZeitenManagement extends javax.swing.JDialog
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
         jPanel6.add(spZeit4, gridBagConstraints);
+
+        cbZeit1.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                cbZeit1StateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
+        jPanel6.add(cbZeit1, gridBagConstraints);
+
+        cbZeit2.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                cbZeit2StateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
+        jPanel6.add(cbZeit2, gridBagConstraints);
+
+        cbZeit3.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                cbZeit3StateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
+        jPanel6.add(cbZeit3, gridBagConstraints);
+
+        cbZeit4.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                cbZeit4StateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(2, 4, 2, 4);
+        jPanel6.add(cbZeit4, gridBagConstraints);
 
         jPanel2.add(jPanel6, java.awt.BorderLayout.CENTER);
 
@@ -384,13 +430,27 @@ public class ZeitenManagement extends javax.swing.JDialog
         Date date4 = (Date) spZeit4.getValue();   
         String zeit4 = df.format(date4);
         
+        boolean bZeit1 = cbZeit1.isSelected();
+        boolean bZeit2 = cbZeit2.isSelected();
+        boolean bZeit3 = cbZeit3.isSelected();
+        boolean bZeit4 = cbZeit4.isSelected();
+        
         System.out.println("ZeitenManagement");
         System.out.println(zeit1);
         System.out.println(zeit2);
         System.out.println(zeit3);
         System.out.println(zeit4);
+        System.out.println(bZeit1);
+        System.out.println(bZeit2);
+        System.out.println(bZeit3);
+        System.out.println(bZeit4);
         
-        String string = zeit1 + ";" + zeit2 + ";" + zeit3 + ";" + zeit4 + ";";
+        String string = zeit1 + ";" + zeit2 + ";" + zeit3 + ";" + zeit4 + ";" + bZeit1 + ";" + bZeit2 + ";" + bZeit3 + ";" + bZeit4;
+        
+        if (bZeit1 == false && bZeit2 == false && bZeit3 == false && bZeit4 == false)
+        {
+            JOptionPane.showMessageDialog(this, "Es muss mindestens eine Zeit aktiv sein!", "Fehler",ERROR_MESSAGE);
+        }
         
         if (date1.equals(date2) || date1.equals(date3) || date1.equals(date4) || date2.equals(date3) || date2.equals(date4) || date3.equals(date4))
         {
@@ -405,7 +465,7 @@ public class ZeitenManagement extends javax.swing.JDialog
             else 
             {
                 StreamWriter streamWriter = new StreamWriter(); 
-                streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",string);
+                streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",string,true);
 
                 System.out.println("Zeiten gespeichert!"); 
         
@@ -433,6 +493,26 @@ public class ZeitenManagement extends javax.swing.JDialog
     {//GEN-HEADEREND:event_spZeit4StateChanged
         gespeichert = false; 
     }//GEN-LAST:event_spZeit4StateChanged
+
+    private void cbZeit1StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_cbZeit1StateChanged
+    {//GEN-HEADEREND:event_cbZeit1StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_cbZeit1StateChanged
+
+    private void cbZeit2StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_cbZeit2StateChanged
+    {//GEN-HEADEREND:event_cbZeit2StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_cbZeit2StateChanged
+
+    private void cbZeit3StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_cbZeit3StateChanged
+    {//GEN-HEADEREND:event_cbZeit3StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_cbZeit3StateChanged
+
+    private void cbZeit4StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_cbZeit4StateChanged
+    {//GEN-HEADEREND:event_cbZeit4StateChanged
+        gespeichert = false; 
+    }//GEN-LAST:event_cbZeit4StateChanged
 
     /**
      * @param args the command line arguments
@@ -492,6 +572,10 @@ public class ZeitenManagement extends javax.swing.JDialog
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSchließen;
     private javax.swing.JButton btSpeichern;
+    private javax.swing.JCheckBox cbZeit1;
+    private javax.swing.JCheckBox cbZeit2;
+    private javax.swing.JCheckBox cbZeit3;
+    private javax.swing.JCheckBox cbZeit4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -508,10 +592,6 @@ public class ZeitenManagement extends javax.swing.JDialog
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JPanel pButton;
     private javax.swing.JPanel pZeiten;
     private javax.swing.JSpinner spZeit1;

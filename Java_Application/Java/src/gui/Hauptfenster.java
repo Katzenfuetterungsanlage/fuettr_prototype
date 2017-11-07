@@ -35,6 +35,9 @@ public class Hauptfenster extends javax.swing.JFrame
     {
         initComponents();
         
+        if (zustand == false)
+            lbZustand.setText("Aus");
+        
         UhrzeitWorker uWorker = new UhrzeitWorker();
         uWorker.execute();
         
@@ -78,10 +81,10 @@ public class Hauptfenster extends javax.swing.JFrame
         jPanel8 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lbZeit1Beschreibung = new javax.swing.JLabel();
+        lbZeit2Beschreibung = new javax.swing.JLabel();
+        lbZeit3Beschreibung = new javax.swing.JLabel();
+        lbZeit4Beschreibung = new javax.swing.JLabel();
         lbZeit1 = new javax.swing.JLabel();
         lbZeit2 = new javax.swing.JLabel();
         lbZeit3 = new javax.swing.JLabel();
@@ -172,35 +175,35 @@ public class Hauptfenster extends javax.swing.JFrame
 
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Zeit 1");
+        lbZeit1Beschreibung.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit1Beschreibung.setText("Zeit 1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jLabel6, gridBagConstraints);
+        jPanel9.add(lbZeit1Beschreibung, gridBagConstraints);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Zeit 2");
+        lbZeit2Beschreibung.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit2Beschreibung.setText("Zeit 2:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jLabel7, gridBagConstraints);
+        jPanel9.add(lbZeit2Beschreibung, gridBagConstraints);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Zeit 3");
+        lbZeit3Beschreibung.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit3Beschreibung.setText("Zeit 3:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jLabel8, gridBagConstraints);
+        jPanel9.add(lbZeit3Beschreibung, gridBagConstraints);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Zeit 4");
+        lbZeit4Beschreibung.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbZeit4Beschreibung.setText("Zeit 4:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
-        jPanel9.add(jLabel9, gridBagConstraints);
+        jPanel9.add(lbZeit4Beschreibung, gridBagConstraints);
 
         lbZeit1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbZeit1.setText("<Zeit>");
@@ -361,7 +364,6 @@ public class Hauptfenster extends javax.swing.JFrame
 
         raspberry.setText("Raspberry");
 
-        neustarten.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\restartIcon16x16.png")); // NOI18N
         neustarten.setText("Neustarten");
         neustarten.addActionListener(new java.awt.event.ActionListener()
         {
@@ -372,7 +374,6 @@ public class Hauptfenster extends javax.swing.JFrame
         });
         raspberry.add(neustarten);
 
-        herunterfahren.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\powerIcon16x16.png")); // NOI18N
         herunterfahren.setText("Herunterfahren");
         herunterfahren.addActionListener(new java.awt.event.ActionListener()
         {
@@ -394,7 +395,6 @@ public class Hauptfenster extends javax.swing.JFrame
             }
         });
 
-        ein_aus.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\switchIcon16x16.png")); // NOI18N
         ein_aus.setText("Ein-/Ausschalten");
         ein_aus.addActionListener(new java.awt.event.ActionListener()
         {
@@ -406,7 +406,6 @@ public class Hauptfenster extends javax.swing.JFrame
         fuetterung.add(ein_aus);
         fuetterung.add(jSeparator1);
 
-        fuetterungszeiten_verwalten.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\timeIcon16x16.png")); // NOI18N
         fuetterungszeiten_verwalten.setText("Fütterungszeiten verwalten");
         fuetterungszeiten_verwalten.addActionListener(new java.awt.event.ActionListener()
         {
@@ -421,7 +420,6 @@ public class Hauptfenster extends javax.swing.JFrame
 
         steuerung.setText("Steuerung");
 
-        manuelleSteuerung.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\remotecontrolIcon16x16.png")); // NOI18N
         manuelleSteuerung.setText("manuelle Steuerung");
         manuelleSteuerung.addActionListener(new java.awt.event.ActionListener()
         {
@@ -433,7 +431,6 @@ public class Hauptfenster extends javax.swing.JFrame
         steuerung.add(manuelleSteuerung);
         steuerung.add(jSeparator3);
 
-        positionsinformationen.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\infoIcon16x16.png")); // NOI18N
         positionsinformationen.setText("Positionsinformationen");
         positionsinformationen.addActionListener(new java.awt.event.ActionListener()
         {
@@ -448,7 +445,6 @@ public class Hauptfenster extends javax.swing.JFrame
 
         einstellungen.setText("Einstellungen");
 
-        update.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\downloadIcon16x16.png")); // NOI18N
         update.setText("Update");
         update.addActionListener(new java.awt.event.ActionListener()
         {
@@ -459,7 +455,6 @@ public class Hauptfenster extends javax.swing.JFrame
         });
         einstellungen.add(update);
 
-        benutzer_anlegen.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\userIcon16x16.png")); // NOI18N
         benutzer_anlegen.setText("Benutzer anlegen");
         benutzer_anlegen.addActionListener(new java.awt.event.ActionListener()
         {
@@ -471,7 +466,6 @@ public class Hauptfenster extends javax.swing.JFrame
         einstellungen.add(benutzer_anlegen);
         einstellungen.add(jSeparator2);
 
-        geraeteinformation.setIcon(new javax.swing.ImageIcon("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\icons\\info_aboutIcon16x16.png")); // NOI18N
         geraeteinformation.setText("Geräteinformation");
         geraeteinformation.addActionListener(new java.awt.event.ActionListener()
         {
@@ -622,9 +616,14 @@ public class Hauptfenster extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
         {
+            @Override
             public void run()
             {
-                new Hauptfenster().setVisible(true);
+                Hauptfenster hf =new Hauptfenster();
+//                hf.setExtendedState(JFrame.MAXIMIZED_BOTH); //öffnet Fenster in Vollbild
+  //              hf.setUndecorated(true);
+                hf.setVisible(true);
+                
             }
         });
     }
@@ -649,10 +648,6 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -684,9 +679,13 @@ public class Hauptfenster extends javax.swing.JFrame
     private javax.swing.JLabel lbNaechsteFuetterungUm;
     private javax.swing.JLabel lbUhrzeit;
     private javax.swing.JLabel lbZeit1;
+    private javax.swing.JLabel lbZeit1Beschreibung;
     private javax.swing.JLabel lbZeit2;
+    private javax.swing.JLabel lbZeit2Beschreibung;
     private javax.swing.JLabel lbZeit3;
+    private javax.swing.JLabel lbZeit3Beschreibung;
     private javax.swing.JLabel lbZeit4;
+    private javax.swing.JLabel lbZeit4Beschreibung;
     private javax.swing.JLabel lbZustand;
     private javax.swing.JMenuItem manuelleSteuerung;
     private javax.swing.JMenuItem neustarten;
@@ -759,7 +758,7 @@ private class DatumWorker extends SwingWorker<Object,String>
                 if (zeitenVeraendert == true /*|| zeitenManagement.ZeitenVeraendert() == true*/)
                 {
                     StreamReader streamReader = new StreamReader(); 
-                    string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt");
+                    string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",false);
                     
                     publish(string); 
                     
@@ -778,11 +777,64 @@ private class DatumWorker extends SwingWorker<Object,String>
             zeit2 = token[1];
             zeit3 = token[2];
             zeit4 = token[3]; 
+            String b1 = token[4];
+            String b2 = token[5];
+            String b3 = token[6];
+            String b4 = token[7];
             
-            lbZeit1.setText(zeit1);
-            lbZeit2.setText(zeit2);
-            lbZeit3.setText(zeit3);
-            lbZeit4.setText(zeit4);
+            boolean bZeit1 = Boolean.valueOf(b1);
+            boolean bZeit2 = Boolean.valueOf(b2);
+            boolean bZeit3 = Boolean.valueOf(b3);
+            boolean bZeit4 = Boolean.valueOf(b4);
+            
+            if (bZeit1 != true)
+            {
+                lbZeit1.setVisible(false);
+                lbZeit1Beschreibung.setVisible(false);
+            }
+            else
+            {
+                lbZeit1.setVisible(true);
+                lbZeit1Beschreibung.setVisible(true);
+                lbZeit1.setText(zeit1);
+            }
+            
+            if (bZeit2 != true)
+            {
+                lbZeit2.setVisible(false);
+                lbZeit2Beschreibung.setVisible(false);
+            }
+            else
+            {
+                lbZeit2.setVisible(true);
+                lbZeit2Beschreibung.setVisible(true);
+                lbZeit2.setText(zeit2);
+            }
+            
+            if (bZeit3 != true)
+            {
+                lbZeit3.setVisible(false);
+                lbZeit3Beschreibung.setVisible(false);
+            }
+            else
+            {   
+                lbZeit3.setVisible(true);
+                lbZeit3Beschreibung.setVisible(true);
+                lbZeit3.setText(zeit3);
+            }
+            
+            if (bZeit4 != true)
+            {
+                lbZeit4.setVisible(false);
+                lbZeit4Beschreibung.setVisible(false);
+            }
+            else
+            {   
+                lbZeit4.setVisible(true);
+                lbZeit4Beschreibung.setVisible(true);
+                lbZeit4.setText(zeit4);
+            }
+            
         }
     }
     
@@ -843,26 +895,33 @@ private class DatumWorker extends SwingWorker<Object,String>
     
     private class NaechsteFuetterungWorker extends SwingWorker<Object,String>
     {
-        String string; 
+        String string1; 
         
-
         @Override
         protected Object doInBackground() throws Exception
         {
             while (true)
             {
+                StreamReader streamReader = new StreamReader(); 
+                String zeiten = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",false);
                 NaechsteFuetterung naechsteFuetterung = new NaechsteFuetterung(); 
-                string = naechsteFuetterung.naechsteFuetterung(letzteFuetterung, zeit1, zeit2, zeit3, zeit4, naechsteFuetterungUm, naechsteFuetterungIn, uhrzeit);
+                string1 = naechsteFuetterung.naechsteFuetterung(letzteFuetterung, zeiten);
                 
-                publish(string);
+                publish(string1);
+                
+                TimeUnit.SECONDS.sleep(5);
             } 
         }
 
         @Override
         protected void process(List<String> chunks)
         {
-            System.out.format("%s",string);
-            lbNaechsteFuetterungUm.setText(string);
+            String[] token = string1.split(";"); 
+            naechsteFuetterungUm = token[0];
+            naechsteFuetterungIn = token[1];
+            
+            lbNaechsteFuetterungUm.setText(naechsteFuetterungUm);
+            lbNaechsteFuetterungIn.setText(naechsteFuetterungIn);
         }
     }
    

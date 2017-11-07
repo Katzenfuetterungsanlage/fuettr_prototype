@@ -16,7 +16,7 @@ import java.io.OutputStreamWriter;
 
 public class StreamWriter
 {
-    public void schreiben(String pfad, String zeit1)
+    public void schreiben(String pfad, String zuSchreibenderString, boolean nachricht)
     {
         try (final BufferedWriter writer = 
             new BufferedWriter(
@@ -24,9 +24,10 @@ public class StreamWriter
             new FileOutputStream(pfad), "utf8"));) 
             // "AutoCloseable". Wird automatisch geschlossen wenn es in den runden Klammern steht. Wird von allen Streams unterstützt
         {
-            writer.write(String.format(zeit1 + "%n"));
-
-            System.out.println("StreamWriter: Streams wurden erfolgreich geschrieben!");
+            writer.write(String.format(zuSchreibenderString + "%n"));
+            
+            if (nachricht == true)
+                System.out.println("StreamWriter: Streams wurden erfolgreich geschrieben!");
         }
         catch (Exception ex)
         {

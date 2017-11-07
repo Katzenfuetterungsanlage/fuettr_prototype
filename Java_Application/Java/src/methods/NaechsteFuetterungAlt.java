@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
+package methods;
 
 import gui.ZeitenManagement;
 import java.text.DateFormat;
@@ -11,64 +11,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.SwingWorker;
-import methods.StreamReader;
-
 
 /**
  *
  * @author Florian
  */
-public class NaechsteZeitTest
+public class NaechsteFuetterungAlt
 {
-    String zeit1,zeit2,zeit3,zeit4, uhrzeit, naechsteFuetterungUm, naechsteFuetterungIn, stringHilfe;
-     
-    String naechsteFuetterung; 
-    
-    long diffInMillies;
-
-    public NaechsteZeitTest() throws ParseException
-    {        
-        StreamReader streamReader = new StreamReader(); 
-        String string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt",true);
-        
-        //test
-        System.out.format("%s %n",string);
-        
-        String[] token = string.split(";"); 
-        zeit1 = token[0];
-        zeit2 = token[1];
-        zeit3 = token[2];
-        zeit4 = token[3];    
-        
-        //test
-        System.out.format("%s %n",zeit1);
-        System.out.format("%s %n",zeit2);
-        System.out.format("%s %n",zeit3);
-        System.out.format("%s %n",zeit4);
-        
-        naechsteFuetterung();
-        
-        System.out.format("Nächste Fütterung: %s %n",naechsteFuetterungUm);
-        
-    }
-    
-    public static void main(String[] args) throws ParseException
+    public String naechsteFuetterung(int letzteFuetterung, String zeit1, String zeit2, String zeit3, String zeit4, String naechsteFuetterungUm, String naechsteFuetterungIn, String uhrzeit)
     {
-        new  NaechsteZeitTest();
-    }
-    
-    private void naechsteFuetterung() throws ParseException
-    {
-        uhrzeit = String.format("%1$tH:%1$tM", new Date(System.currentTimeMillis()));
+        Date date1 = null,date2 = null,date3 = null,date4 = null, dateUhrzeit = null;
         
-        System.out.format("Uhrzeit: %s%n",uhrzeit);
-        
-        Date date1 = null,date2 = null,date3 = null,date4 = null;
-        Date dateUhrzeit = null, dateHilfe = null; 
+        long diffInMillies;
         
         DateFormat format = new SimpleDateFormat("HH:mm", Locale.GERMANY);
         try
@@ -83,12 +39,10 @@ public class NaechsteZeitTest
             Logger.getLogger(ZeitenManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        int letzteFuetterung = 4;
-        
         switch(letzteFuetterung)
         {
             case 1:
-                naechsteFuetterungUm = zeit2;
+                naechsteFuetterungUm = zeit2; 
                 diffInMillies = date2.getTime() - dateUhrzeit.getTime();
                 System.out.format("Differenz: %s %n",diffInMillies);
                 naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillies));
@@ -105,7 +59,7 @@ public class NaechsteZeitTest
             
             case 3:
                 naechsteFuetterungUm = zeit4;
-                diffInMillies = date4.getTime() - dateUhrzeit.getTime();
+                diffInMillies =date4.getTime() - dateUhrzeit.getTime();
                 System.out.format("Differenz: %s %n",diffInMillies);
                 naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillies));
                 System.out.format("Differenz: %s %n",naechsteFuetterungIn);
@@ -113,9 +67,9 @@ public class NaechsteZeitTest
             
             case 4:
                 naechsteFuetterungUm = zeit1;
-                diffInMillies = date1.getTime() - dateUhrzeit.getTime();
-                System.out.format("Differenz: %s %n",diffInMillies); //mit Taschenrechner gerechnet richtig
-                naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillies)); //eine Stunde zu viel, diffInMillies stimmen - mit TR kontrolliert
+                diffInMillies = - date1.getTime() - dateUhrzeit.getTime();
+                System.out.format("Differenz: %s %n",diffInMillies);
+                naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillies));
                 System.out.format("Differenz: %s %n",naechsteFuetterungIn);
                 break;
                 
@@ -156,5 +110,6 @@ public class NaechsteZeitTest
                     System.out.format("Differenz: %s %n",naechsteFuetterungIn);
                 }
         }
+        return naechsteFuetterungUm + ";" + naechsteFuetterungIn;
     }
 }

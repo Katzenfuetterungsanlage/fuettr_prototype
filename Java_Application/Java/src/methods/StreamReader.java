@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
  */
 public class StreamReader
 {
-    public String einlesen(String pfad)
+    public String einlesen(String pfad, Boolean nachricht)
     {
         String text = null;
         
@@ -24,8 +24,8 @@ public class StreamReader
             //in doInBackground kann nur auf final Objekte zugegriffen werden - file2
         {
             text = reader.readLine(); 
-            
-            System.out.println("StreamReader: Streams wurden erfolgreich gelesen!");
+            if (nachricht == true)
+                System.out.println("StreamReader: Streams wurden erfolgreich gelesen!");
         }
         catch (Exception ex)
         {

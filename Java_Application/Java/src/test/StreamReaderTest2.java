@@ -27,7 +27,7 @@ public class StreamReaderTest2
         
         StreamReader streamreader = new StreamReader(); 
         
-        string = streamreader.einlesen(pfad); 
+        string = streamreader.einlesen(pfad,true); 
         
         System.out.format("%s %n",string);
         

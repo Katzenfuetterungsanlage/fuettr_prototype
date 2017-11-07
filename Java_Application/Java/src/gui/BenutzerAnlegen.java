@@ -178,7 +178,7 @@ public class BenutzerAnlegen extends javax.swing.JDialog
                 String string = benutzername + ";" + stringPw;
 
                 StreamWriter streamWriter = new StreamWriter(); 
-                streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\benutzer_passwort.txt",string);
+                streamWriter.schreiben("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\benutzer_passwort.txt",string,true);
             
                 System.out.println("Benutzerdaten gespeichert!"); 
         
