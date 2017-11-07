@@ -1,6 +1,6 @@
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
-@lxterminal --command "cd USER/git/fuettr_prototype && sh start.sh"
+@lxterminal --command "USER/git/fuettr_prototypestart.sh"
 @xscreensaver -no-splash
 @point-rpi
 
