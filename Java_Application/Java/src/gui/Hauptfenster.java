@@ -5,6 +5,8 @@
  */
 package gui;
 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -30,10 +32,15 @@ public class Hauptfenster extends javax.swing.JFrame {
      * Creates new form Hauptfenster
      */
     public Hauptfenster() {
-        this.setUndecorated(true);
-        this.setAlwaysOnTop(true);
-        this.setResizable(false);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        GraphicsDevice d = GraphicsEnvironment
+                        .getLocalGraphicsEnvironment().getDefaultScreenDevice();
+                if (d.isFullScreenSupported()) {
+                    this.setUndecorated(true);
+                    this.setResizable(false);
+                    d.setFullScreenWindow(this);
+                } else {
+                    this.setVisible(true);
+                }
         initComponents();
 
         if (zustand == false) {
@@ -602,8 +609,9 @@ public class Hauptfenster extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Hauptfenster().setVisible(true);
+                Hauptfenster frame = new Hauptfenster();
 
+                
             }
         });
     }
