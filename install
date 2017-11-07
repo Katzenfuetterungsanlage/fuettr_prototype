@@ -26,6 +26,14 @@ cd $THISUSER/git && sudo git clone https://github.com/Katzenfuetterungsanlage/fu
 cd $THISUSER/git/fuettr_prototype && sudo git pull
 
 echo "
+--> copy rc.local..."
+sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
+
+echo "
+--> editing rc.local..."
+sudo rpl USER $THISUSER /etc/rc.local
+
+echo "
 --> copying autostart..."
 rsync -aP $THISUSER/git/fuettr_prototype/autostart $THISUSER/.config/lxsession/LXDE-$USER/autostart
 
