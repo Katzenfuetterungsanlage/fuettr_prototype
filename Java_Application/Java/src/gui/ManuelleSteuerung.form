@@ -19,7 +19,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-124,0,0,2,96"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,1,-124,0,0,2,-16"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
@@ -236,7 +236,7 @@
                                   <SubComponents>
                                     <Component class="javax.swing.JLabel" name="jLabel15">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="Wenn das H&#xe4;kchen beim Maschinenzustand gesetzt ist, ist die normale F&#xfc;tterung aktiv. "/>
+                                        <Property name="text" type="java.lang.String" value="Wenn die manuelle Steuerung aktiv ist werden w&#xe4;hrenddessen keine automatischen"/>
                                       </Properties>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -246,7 +246,7 @@
                                     </Component>
                                     <Component class="javax.swing.JLabel" name="jLabel16">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="Um die manuelle Steuerung zu verwenden muss die normale F&#xfc;tterung deaktiviert sein."/>
+                                        <Property name="text" type="java.lang.String" value="F&#xfc;tterungen ausgef&#xfc;hrt, weil diese deaktiviert sind."/>
                                       </Properties>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -256,7 +256,7 @@
                                     </Component>
                                     <Component class="javax.swing.JLabel" name="jLabel17">
                                       <Properties>
-                                        <Property name="text" type="java.lang.String" value="Also darf das H&#xe4;kchen nicht gesetzt sein."/>
+                                        <Property name="text" type="java.lang.String" value="Die automatische F&#xfc;tterung muss vom User selbst wieder aktiviert werden."/>
                                       </Properties>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -339,7 +339,9 @@
                                 </Constraint>
                               </Constraints>
 
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                                <Property name="alignment" type="int" value="0"/>
+                              </Layout>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="jPanel7">
 
@@ -386,7 +388,9 @@
                                 </Constraint>
                               </Constraints>
 
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                                <Property name="alignment" type="int" value="0"/>
+                              </Layout>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="jPanel8">
 
@@ -433,7 +437,9 @@
                                 </Constraint>
                               </Constraints>
 
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                                <Property name="alignment" type="int" value="0"/>
+                              </Layout>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="jPanel19">
 
@@ -443,14 +449,14 @@
                                     <Property name="rows" type="int" value="1"/>
                                   </Layout>
                                   <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel11">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="(nicht)bet&#xe4;tigt"/>
+                                      </Properties>
+                                    </Component>
                                     <Component class="javax.swing.JLabel" name="jLabel10">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="Pos1"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="jLabel11">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Pos2"/>
                                       </Properties>
                                     </Component>
                                   </SubComponents>
@@ -480,7 +486,9 @@
                                 </Constraint>
                               </Constraints>
 
-                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                                <Property name="alignment" type="int" value="0"/>
+                              </Layout>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="jPanel21">
 
@@ -490,14 +498,14 @@
                                     <Property name="rows" type="int" value="1"/>
                                   </Layout>
                                   <SubComponents>
+                                    <Component class="javax.swing.JLabel" name="jLabel14">
+                                      <Properties>
+                                        <Property name="text" type="java.lang.String" value="(nicht)bet&#xe4;tigt"/>
+                                      </Properties>
+                                    </Component>
                                     <Component class="javax.swing.JLabel" name="jLabel13">
                                       <Properties>
                                         <Property name="text" type="java.lang.String" value="Pos1"/>
-                                      </Properties>
-                                    </Component>
-                                    <Component class="javax.swing.JLabel" name="jLabel14">
-                                      <Properties>
-                                        <Property name="text" type="java.lang.String" value="Pos2"/>
                                       </Properties>
                                     </Component>
                                   </SubComponents>

@@ -59,14 +59,14 @@ public class Positionsinformation extends javax.swing.JDialog
         jLabel9 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         pSensor2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Positionsinformation");
@@ -111,6 +111,8 @@ public class Positionsinformation extends javax.swing.JDialog
         jLabel1.setText("Motor 1");
         pMotor1.add(jLabel1, java.awt.BorderLayout.NORTH);
 
+        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         jPanel7.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
 
         jLabel5.setText("Pos1");
@@ -129,6 +131,8 @@ public class Positionsinformation extends javax.swing.JDialog
 
         jLabel4.setText("Motor 2");
         pMotor2.add(jLabel4, java.awt.BorderLayout.NORTH);
+
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jPanel8.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
 
@@ -149,13 +153,15 @@ public class Positionsinformation extends javax.swing.JDialog
         jLabel9.setText("Sensor 1");
         pSensor1.add(jLabel9, java.awt.BorderLayout.NORTH);
 
+        jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
+
+        jLabel11.setText("(nicht)betätigt");
+        jPanel19.add(jLabel11);
 
         jLabel10.setText("Pos1");
         jPanel19.add(jLabel10);
-
-        jLabel11.setText("Pos2");
-        jPanel19.add(jLabel11);
 
         jPanel18.add(jPanel19);
 
@@ -168,13 +174,15 @@ public class Positionsinformation extends javax.swing.JDialog
         jLabel12.setText("Sensor 2");
         pSensor2.add(jLabel12, java.awt.BorderLayout.NORTH);
 
+        jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         jPanel21.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
+
+        jLabel14.setText("(nicht)betätigt");
+        jPanel21.add(jLabel14);
 
         jLabel13.setText("Pos1");
         jPanel21.add(jLabel13);
-
-        jLabel14.setText("Pos2");
-        jPanel21.add(jLabel14);
 
         jPanel20.add(jPanel21);
 

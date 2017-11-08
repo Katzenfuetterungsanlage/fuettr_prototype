@@ -14,6 +14,8 @@ import java.util.logging.Logger;
 import methods.StreamReader;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+import methods.DatumPlusEinTag;
 
 /**
  *
@@ -57,6 +59,23 @@ public class ZeitenVergleichen2
             Logger.getLogger(ZeitenManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        //date1 + 1 Tag
+        long millis = date1.getTime();
+        millis = millis + (24*1000*3600);
+        Date date1und1Tag = new Date(millis);
+        System.out.format("date1 + 1 Tag: %s %n",date1und1Tag);
+        
+        //dateUhrzeit + 1 Tag
+        millis = dateUhrzeit.getTime();
+        millis = millis + (24*1000*3600);
+        Date dateUhrzeitund1Tag = new Date(millis);
+        System.out.format("dateUhrzeit + 1 Tag: %s %n",dateUhrzeitund1Tag);
+        
+        //eigene Methode Test
+        DatumPlusEinTag datumPlusEinTag = new DatumPlusEinTag();
+        Date testDateUhrzeitPlus = datumPlusEinTag.rechnen(dateUhrzeit);
+        System.out.format("dateUhrzeit + 1 Tag eigene Methode: %s %n",testDateUhrzeitPlus);
+        
         System.out.format("date1: %s %n",date1);
         System.out.format("dateUhrzeit: %s %n",dateUhrzeit);
         
@@ -68,7 +87,43 @@ public class ZeitenVergleichen2
         {
             System.out.println("date1 vor der aktuelle uhrzeit");
         }
-            
+        
+        if (date1.compareTo(dateUhrzeit) > 0)
+            {
+            System.out.println(".compareTo: date1 ist nach der aktuellen Uhrzeit");
+        }
+        else
+        {
+            System.out.println(".compareTo: date1 vor der aktuelle uhrzeit");
+        }
+        
+        if(dateUhrzeit.after(date1) == true && dateUhrzeit.before(date2))
+        {
+            System.out.println("die aktuelle Uhrzeit ist zwischen date1 und date2");
+        }
+        else
+        {
+            System.out.println("die aktuelle Uhrzeit ist nicht zwischen date1 und date2");
+        }
+        
+        if(dateUhrzeitund1Tag.after(date4) == true && dateUhrzeitund1Tag.before(date1und1Tag))
+        {
+            System.out.println("die aktuelle Uhrzeit ist zwischen date4 und date1");
+        }
+        else
+        {
+            System.out.println("die aktuelle Uhrzeit ist nicht zwischen date4 und date1");
+        }
+        
+          if(datumPlusEinTag.rechnen(dateUhrzeit).after(date4) == true && datumPlusEinTag.rechnen(dateUhrzeit).before(datumPlusEinTag.rechnen(date1)))
+        {
+            System.out.println("die aktuelle Uhrzeit ist zwischen date4 und date1");
+        }
+        else
+        {
+            System.out.println("die aktuelle Uhrzeit ist nicht zwischen date4 und date1");
+        }
+        
     }
   
             

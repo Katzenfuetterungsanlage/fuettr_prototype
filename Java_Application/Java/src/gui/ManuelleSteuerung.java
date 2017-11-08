@@ -81,14 +81,14 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         jLabel9 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         pSensor2 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         pButton = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -165,18 +165,18 @@ public class ManuelleSteuerung extends javax.swing.JDialog
 
         jPanel22.setLayout(new java.awt.GridBagLayout());
 
-        jLabel15.setText("Wenn das Häkchen beim Maschinenzustand gesetzt ist, ist die normale Fütterung aktiv. ");
+        jLabel15.setText("Wenn die manuelle Steuerung aktiv ist werden währenddessen keine automatischen");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
         jPanel22.add(jLabel15, gridBagConstraints);
 
-        jLabel16.setText("Um die manuelle Steuerung zu verwenden muss die normale Fütterung deaktiviert sein.");
+        jLabel16.setText("Fütterungen ausgeführt, weil diese deaktiviert sind.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         jPanel22.add(jLabel16, gridBagConstraints);
 
-        jLabel17.setText("Also darf das Häkchen nicht gesetzt sein.");
+        jLabel17.setText("Die automatische Fütterung muss vom User selbst wieder aktiviert werden.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -208,6 +208,8 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         jLabel1.setText("Motor 1");
         pMotor1.add(jLabel1, java.awt.BorderLayout.NORTH);
 
+        jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         jPanel7.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
 
         jLabel5.setText("Pos1");
@@ -226,6 +228,8 @@ public class ManuelleSteuerung extends javax.swing.JDialog
 
         jLabel4.setText("Motor 2");
         pMotor2.add(jLabel4, java.awt.BorderLayout.NORTH);
+
+        jPanel17.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jPanel8.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
 
@@ -246,13 +250,15 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         jLabel9.setText("Sensor 1");
         pSensor1.add(jLabel9, java.awt.BorderLayout.NORTH);
 
+        jPanel18.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         jPanel19.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
+
+        jLabel11.setText("(nicht)betätigt");
+        jPanel19.add(jLabel11);
 
         jLabel10.setText("Pos1");
         jPanel19.add(jLabel10);
-
-        jLabel11.setText("Pos2");
-        jPanel19.add(jLabel11);
 
         jPanel18.add(jPanel19);
 
@@ -265,13 +271,15 @@ public class ManuelleSteuerung extends javax.swing.JDialog
         jLabel12.setText("Sensor 2");
         pSensor2.add(jLabel12, java.awt.BorderLayout.NORTH);
 
+        jPanel20.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+
         jPanel21.setLayout(new java.awt.GridLayout(1, 0, 8, 0));
+
+        jLabel14.setText("(nicht)betätigt");
+        jPanel21.add(jLabel14);
 
         jLabel13.setText("Pos1");
         jPanel21.add(jLabel13);
-
-        jLabel14.setText("Pos2");
-        jPanel21.add(jLabel14);
 
         jPanel20.add(jPanel21);
 

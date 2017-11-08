@@ -56,8 +56,7 @@ public class NaechsteFuetterung
         }
         
         MilliZuStundenUndMinuten milliZuStdUndMin = new MilliZuStundenUndMinuten();
-        
-        
+        DatumPlusEinTag datumPlusEinTag = new DatumPlusEinTag();
         
         switch(letzteFuetterung)
         {
@@ -65,8 +64,6 @@ public class NaechsteFuetterung
                 naechsteFuetterungUm = zeit2;
                 diffInMillis = date2.getTime() - dateUhrzeit.getTime();
                 //Test
-//                System.out.format("Differenz: %s %n",diffInMillis);
-//                naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                 naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                 //Test
 //                System.out.format("Differenz: %s %n",naechsteFuetterungIn);
@@ -76,8 +73,6 @@ public class NaechsteFuetterung
                 naechsteFuetterungUm = zeit3;
                 diffInMillis = date3.getTime() - dateUhrzeit.getTime();
                 //Test
-//                System.out.format("Differenz: %s %n",diffInMillis);
-//                naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                 naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                 //Test
 //                System.out.format("Differenz: %s %n",naechsteFuetterungIn);
@@ -87,8 +82,6 @@ public class NaechsteFuetterung
                 naechsteFuetterungUm = zeit4;
                 diffInMillis =date4.getTime() - dateUhrzeit.getTime();
                 //Test
-//                System.out.format("Differenz: %s %n",diffInMillis);
-//                naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                 naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                 //Test
 //                System.out.format("Differenz: %s %n",naechsteFuetterungIn);
@@ -98,57 +91,53 @@ public class NaechsteFuetterung
                 naechsteFuetterungUm = zeit1;
                 diffInMillis = - date1.getTime() - dateUhrzeit.getTime();
                 //Test
-//                System.out.format("Differenz: %s %n",diffInMillis);
-//                naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                 naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                 //Test
 //                System.out.format("Differenz: %s %n",naechsteFuetterungIn);
                 break;
                 
             default: 
-                if (date1.before(dateUhrzeit) && date2.after(dateUhrzeit))
+                //System.out.println("default");
+                if (dateUhrzeit.after(date1) == true && dateUhrzeit.before(date2) == true)
+//                if (dateUhrzeit.compareTo(date1) > 0 && dateUhrzeit.compareTo(date2) < 0)
                 {
+//                    System.out.println("if 1");
                     naechsteFuetterungUm = zeit2; 
                     diffInMillis = date2.getTime() - dateUhrzeit.getTime();
                     //Test
-//                    System.out.format("Differenz: %s %n",diffInMillis);
-//                    naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                     naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                     //Test
 //                    System.out.format("Differenz: %s %n",naechsteFuetterungIn);
                 }
                 
-                if (date2.before(dateUhrzeit) && date3.after(dateUhrzeit))
+                if (dateUhrzeit.after(date2) == true && dateUhrzeit.before(date3)== true )
                 {
+//                    System.out.println("if 2");
                     naechsteFuetterungUm = zeit3;
                     diffInMillis = date3.getTime() - dateUhrzeit.getTime();
                     //Test
-//                    System.out.format("Differenz: %s %n",diffInMillis);
-//                    naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                     naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                     //Test
 //                    System.out.format("Differenz: %s %n",naechsteFuetterungIn);
                 }
                     
-                if (date3.before(dateUhrzeit) && date4.after(dateUhrzeit))
+                if (dateUhrzeit.after(date3) == true && dateUhrzeit.before(date4)== true )
                 {
+//                    System.out.println("if 3");
                     naechsteFuetterungUm = zeit4;
-                    diffInMillis =date4.getTime() - dateUhrzeit.getTime();
+                    diffInMillis = date4.getTime() - dateUhrzeit.getTime();
                     //Test
-//                    System.out.format("Differenz: %s %n",diffInMillis);
-//                    naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                     naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                     //Test
 //                    System.out.format("Differenz: %s %n",naechsteFuetterungIn);
                 }
                     
-                if (date4.before(dateUhrzeit) && date1.after(dateUhrzeit))
+                if (dateUhrzeit.after(date4) == true || dateUhrzeit.before(date1)&& datumPlusEinTag.rechnen(dateUhrzeit).before(datumPlusEinTag.rechnen(date1))== true )
                 {
+//                    System.out.println("if 4");
                     naechsteFuetterungUm = zeit1;
-                    diffInMillis = - date1.getTime() - dateUhrzeit.getTime();
+                    diffInMillis =  date1.getTime() - dateUhrzeit.getTime();
                     //Test
-//                    System.out.format("Differenz: %s %n",diffInMillis);
-//                    naechsteFuetterungIn = String.format("%1$tH:%1$tM", new Date(diffInMillis));
                     naechsteFuetterungIn = milliZuStdUndMin.rechnen(diffInMillis);
                     //Test
 //                    System.out.format("Differenz: %s %n",naechsteFuetterungIn);
