@@ -1,25 +1,34 @@
-
-// import of additional modules (npm install ...)
 import * as express from 'express';
 import * as path from 'path';
 
-// import of Node.js modules
 import * as http from 'http';
 import * as child from 'child_process';
 import * as fs from 'fs';
 
-// logging with debug-sx/debug
-process.env['DEBUG'] = '*';
-import * as debugsx from 'debug-sx';
-const debug: debugsx.ISimpleLogger = debugsx.createSimpleLogger('main');
 
-// web-server
+
+process.env['DEBUG'] = '*';
+process.env['DEBUG_PREFIX'] = '-- '
+process.env['DEBUG_LOCATION'] = "*::INFO";
+process.env['DEBUG_COLORS'] = "false";
+process.env['DEBUG_STREAM'] = "stdout";
+process.env['DEBUG_WMODULE'] = "6";
+process.env['DEBUG_WLEVEL'] = "6";
+process.env['DEBUG_WTIMEDIFF'] = "6";
+process.env['DEBUG_TIME'] = "dd, yyyy-mm-dd HH:MM:ss.1";
+import * as debugsx from 'debug-sx';
+const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
+let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', "*");
+let filelogger: debugsx.IHandler = debugsx.createFileHandler(
+  'logs/' + new Date().getFullYear() + '-' + new Date().getUTCMonth() + '-' + new Date().getUTCDay() + '_' + new Date().getUTCHours() + '-' + new Date().getUTCMinutes() + '-' + new Date().getUTCSeconds() + '.log', );
+
+debugsx.addHandler(consolelogger, filelogger);
+
 const serverApp = express();
 serverApp.set('views', path.join(__dirname, '/views'));
 const pugEngine = serverApp.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
 
-// middleware for web-server
 serverApp.use(logger);
 serverApp.use(express.static(path.join(__dirname, '../public')));
 serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
@@ -33,15 +42,12 @@ serverApp.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2
 serverApp.use(error404Handler);
 serverApp.use(errorHandler);
 
-// start of application
 const port = 80;
 const server = http.createServer(serverApp).listen(port);
 debug.info('Server running on port ' + port);
 
 
-// ***************************************************************************
-// Functions
-// ***************************************************************************
+
 function error404Handler(req: express.Request, res: express.Response, next: express.NextFunction) {
   const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
   debug.warn('Error 404 for %s %s from %s', req.method, req.url, clientSocket);
@@ -51,7 +57,7 @@ function error404Handler(req: express.Request, res: express.Response, next: expr
 
 function errorHandler(err: express.Errback, req: express.Request, res: express.Response, next: express.NextFunction) {
   const ts = new Date().toLocaleString();
-  debug.warn('Error %s\n%e', ts, err);
+  debug.severe('Error %s\n%e', ts, err);
   res.status(500).render('error500.pug',
     {
       time: ts,
@@ -62,8 +68,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 
 
 function reinhardihnschieb(req: express.Request, res: express.Response, next: express.NextFunction) {
-  switch(req.query)
-  {
+  switch (req.query) {
     default: error404Handler(req, res, next);
   }
 }
