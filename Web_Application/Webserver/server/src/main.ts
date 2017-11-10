@@ -10,7 +10,7 @@ import * as fs from 'fs';
 process.env['DEBUG'] = '*';
 process.env['DEBUG_PREFIX'] = '-- '
 process.env['DEBUG_LOCATION'] = "*::INFO";
-process.env['DEBUG_COLORS'] = "false";
+process.env['DEBUG_COLORS'] = "true";
 process.env['DEBUG_STREAM'] = "stdout";
 process.env['DEBUG_WMODULE'] = "6";
 process.env['DEBUG_WLEVEL'] = "6";
@@ -19,8 +19,9 @@ process.env['DEBUG_TIME'] = "dd, yyyy-mm-dd HH:MM:ss.1";
 import * as debugsx from 'debug-sx';
 const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
 let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', "*");
+let date = new Date();
 let filelogger: debugsx.IHandler = debugsx.createFileHandler(
-  'logs/' + new Date().getFullYear() + '-' + new Date().getUTCMonth() + '-' + new Date().getUTCDay() + '_' + new Date().getUTCHours() + '-' + new Date().getUTCMinutes() + '-' + new Date().getUTCSeconds() + '.log', );
+  'logs/' + date.getFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDay() + '_' + date.getUTCHours() + '-' + date.getUTCMinutes() + '-' + date.getUTCSeconds() + '.log', );
 
 debugsx.addHandler(consolelogger, filelogger);
 
