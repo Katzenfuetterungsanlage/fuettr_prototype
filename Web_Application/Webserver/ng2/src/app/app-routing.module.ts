@@ -10,16 +10,16 @@ import { Error404Component } from './error404.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: '', component: HomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'control', component: ControlComponent },
   { path: 'feed', component: FeedComponent },
   { path: 'info', component: InfoComponent },
   { path: 'update', component: UpdateComponent },
-  { path: '**', component: Error404Component}
+  { path: '**', component: Error404Component }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
