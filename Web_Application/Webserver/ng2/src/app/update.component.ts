@@ -68,14 +68,12 @@ export class UpdateComponent implements OnInit {
       this.updateService.getVersion().then((lVersion) => {
         this.lVersion = lVersion;
         if (this.version.version !== this.lVersion.version) {
-          this.t2 = Date.now();
-          this.t = this.t2 - this.t1;
+          this.t = this.t2 = Date.now() - this.t1;
           this.message = 'Update found in ' + this.t + 'ms:';
           this.show = true;
           this.newVersion = this.version.version.toString();
         } else {
-          this.t2 = new Date().getMilliseconds();
-          this.t = this.t2 - this.t1;
+          this.t = this.t2 = Date.now() - this.t1;
 
           this.message = 'Up to date in ' + this.t + 'ms';
         }
@@ -96,14 +94,12 @@ export class UpdateComponent implements OnInit {
       this.updateService.getVersion().then((lVersion) => {
         this.lVersion = lVersion;
         if (this.version.version !== this.lVersion.version) {
-          this.t2 = new Date().getMilliseconds();
-          this.t = this.t2 - this.t1;
+          this.t = this.t2 = Date.now() - this.t1;
           this.message = 'Update found in ' + this.t + 'ms:';
           this.show = true;
           this.newVersion = this.version.version.toString();
         } else {
-          this.t2 = new Date().getMilliseconds();
-          this.t = this.t2 - this.t1;
+          this.t = this.t2 = Date.now() - this.t1;
 
           this.message = 'Up to date in ' + this.t + 'ms';
         }
