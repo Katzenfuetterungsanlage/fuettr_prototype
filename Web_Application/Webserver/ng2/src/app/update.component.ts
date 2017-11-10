@@ -59,9 +59,37 @@ export class UpdateComponent implements OnInit {
     this.updateService.shutdown();
   }
 
-  async refresh() {
+  refresh() {
     this.message = 'Checking for updates...';
-    this.t1 = await this.time1();
+    this.t1 = Date.now();
+
+    this.updateService.checkUpdate().then((version) => {
+      this.version = version;
+      this.updateService.getVersion().then((lVersion) => {
+        this.lVersion = lVersion;
+        if (this.version.version !== this.lVersion.version) {
+          this.t2 = Date.now();
+          this.t = this.t2 - this.t1;
+          this.message = 'Update found in ' + this.t + 'ms:';
+          this.show = true;
+          this.newVersion = this.version.version.toString();
+        } else {
+          this.t2 = new Date().getMilliseconds();
+          this.t = this.t2 - this.t1;
+
+          this.message = 'Up to date in ' + this.t + 'ms';
+        }
+      }).catch((err) => {
+        alert(err);
+      });
+    }).catch((err) => {
+      alert(err);
+    });
+  }
+
+  ngOnInit() {
+    this.message = 'Checking for updates...';
+    this.t1 = this.t1 = Date.now();
 
     this.updateService.checkUpdate().then((version) => {
       this.version = version;
@@ -85,39 +113,6 @@ export class UpdateComponent implements OnInit {
     }).catch((err) => {
       alert(err);
     });
-  }
-
-  async ngOnInit() {
-    this.message = 'Checking for updates...';
-    this.t1 = await this.time1();
-
-    this.updateService.checkUpdate().then((version) => {
-      this.version = version;
-      this.updateService.getVersion().then((lVersion) => {
-        this.lVersion = lVersion;
-        if (this.version.version !== this.lVersion.version) {
-          this.t2 = new Date().getMilliseconds();
-          this.t = this.t2 - this.t1;
-          this.message = 'Update found in ' + this.t + 'ms:';
-          this.show = true;
-          this.newVersion = this.version.version.toString();
-        } else {
-          this.t2 = new Date().getMilliseconds();
-          this.t = this.t2 - this.t1;
-
-          this.message = 'Up to date in ' + this.t + 'ms';
-        }
-      }).catch((err) => {
-        alert(err);
-      });
-    }).catch((err) => {
-      alert(err);
-    });
-  }
-
-  async time1(): Promise<number> {
-    const t = new Date().getMilliseconds();
-    return t;
   }
 }
 

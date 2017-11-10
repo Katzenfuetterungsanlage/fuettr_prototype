@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class HttpgetService {
 
-  private warningUrl = 'http://localhost:666/warnings';
+  private warningUrl = '/api/schiebihnreinhard';
 
   constructor(private http: Http) { }
 

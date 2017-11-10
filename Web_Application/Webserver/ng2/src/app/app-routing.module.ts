@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { FeedComponent } from './feed.component';
 import { InfoComponent } from './info.component';
 import { UpdateComponent } from './update.component';
+import { Error404Component } from './error404.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent },
   { path: 'info', component: InfoComponent },
   { path: 'update', component: UpdateComponent },
-  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: Error404Component}
 ];
 
 @NgModule({

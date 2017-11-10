@@ -20,22 +20,16 @@ const pugEngine = serverApp.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
 
 // middleware for web-server
-serverApp.use(requestHandler);
+serverApp.use(logger);
 serverApp.use(express.static(path.join(__dirname, '../public')));
 serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
-serverApp.get('/api/error', handleGetError);
+serverApp.get('/api/schiebihnreinhard', reinhardihnschieb)
 serverApp.get('/api/getUpdate', update);
 serverApp.get('/api/shutdown', shutdown);
-serverApp.get('/api/version', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../../../version.json'))
-});
-serverApp.get('/api/extensions', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/README.html'))
-});
-serverApp.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
-});
+serverApp.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
+serverApp.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
+serverApp.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
 serverApp.use(error404Handler);
 serverApp.use(errorHandler);
 
@@ -48,22 +42,6 @@ debug.info('Server running on port ' + port);
 // ***************************************************************************
 // Functions
 // ***************************************************************************
-
-function requestHandler(req: express.Request, res: express.Response, next: express.NextFunction) {
-  const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
-  debug.info('%s %s from %s', req.method, req.url, clientSocket);
-  if (req.method === 'GET' && req.url === '/') {
-    res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
-  } else {
-    next();
-  }
-}
-
-function handleGetError() {
-  throw new Error('This simulates an exception....');
-}
-
-
 function error404Handler(req: express.Request, res: express.Response, next: express.NextFunction) {
   const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
   debug.warn('Error 404 for %s %s from %s', req.method, req.url, clientSocket);
@@ -81,6 +59,15 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
       serveradmin: 'Florian Greistorfer',
     });
 }
+
+
+function reinhardihnschieb(req: express.Request, res: express.Response, next: express.NextFunction) {
+  switch(req.query)
+  {
+    default: error404Handler(req, res, next);
+  }
+}
+
 
 function update(req: express.Request, res: express.Response, next: express.NextFunction) {
   res.sendFile(path.join(__dirname, 'views/update.html'))
@@ -111,8 +98,14 @@ function update(req: express.Request, res: express.Response, next: express.NextF
 
 }
 
+
 function shutdown() {
   child.exec('sudo poweroff');
 }
 
 
+function logger(req: express.Request, res: express.Response, next: express.NextFunction) {
+  const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
+  debug.info(req.method, req.url, clientSocket);
+  next();
+}

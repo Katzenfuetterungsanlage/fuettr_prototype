@@ -10,6 +10,7 @@ import { FeedComponent } from './feed.component';
 import { HomeComponent } from './home.component';
 import { InfoComponent } from './info.component';
 import { UpdateComponent } from './update.component';
+import { Error404Component } from './error404.component';
 
 import { UpdateService } from './update.service';
 import { HttpgetService } from './httpget.service';
@@ -21,7 +22,8 @@ import { HttpgetService } from './httpget.service';
     HomeComponent,
     FeedComponent,
     InfoComponent,
-    UpdateComponent
+    UpdateComponent,
+    Error404Component
   ],
   imports: [BrowserModule, AppRoutingModule, HttpModule, FormsModule],
   providers: [UpdateService, HttpgetService],
