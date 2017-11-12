@@ -7,9 +7,10 @@
 |   string  |  string   |    string    |    string     |
 
 Beispiel: {  
-    "last_time": "10:10",  
-    "next_time": "11:11",  
-    "next_time_in": "10min"  
+    "last_time" : "10:10",  
+    "next_time" : "11:11",  
+    "next_time_in" : "10min"  
+    "machine_state" : "Aus"  
 }
 
 ## 1.2 Fütterungszeiten
@@ -19,10 +20,10 @@ Beispiel: {
 | string | string | string | string |
 
 Beispiel: {  
-    "time1": "10:10",  
-    "time2": "11:11",  
-    "time3": "12:12",  
-    "time4": "--:--"  
+    "time1" : "10:10",  
+    "time2" : "11:11",  
+    "time3" : "12:12",  
+    "time4" : "--:--"  
 }
 
 ## 1.3 
