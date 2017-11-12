@@ -26,7 +26,7 @@
             <div class="container-fluid">
                 <table class="table">
                     <tbody>
-                        <tr>
+                        <tr *ngIf="time1_show">
                             <td class="text-right">
                                 <h4>Zeit 1:</h4>
                             </td>
@@ -34,7 +34,7 @@
                                 <span class="btn btn-secondary">{{time1}}</span>
                             </td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="time2_show">
                             <td class="text-right">
                                 <h4>Zeit 2:</h4>
                             </td>
@@ -42,7 +42,7 @@
                                 <span class="btn btn-secondary">{{time2}}</span>
                             </td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="time3_show">
                             <td class="text-right">
                                 <h4>Zeit 3:</h4>
                             </td>
@@ -50,7 +50,7 @@
                                 <span class="btn btn-secondary">{{time3}}</span>
                             </td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="time4_show">
                             <td class="text-right">
                                 <h4>Zeit 4:</h4>
                             </td>

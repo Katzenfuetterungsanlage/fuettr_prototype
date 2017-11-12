@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateService } from './update.service';
 import { Http } from '@angular/http';
-import { Version } from './version';
+import { Version } from './interfaces';
 
 
 @Component({

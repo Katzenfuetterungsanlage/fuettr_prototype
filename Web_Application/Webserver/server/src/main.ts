@@ -69,8 +69,17 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 
 
 function reinhardihnschieb(req: express.Request, res: express.Response, next: express.NextFunction) {
-  switch (req.query) {
-    default: error404Handler(req, res, next);
+  debug.info('query: ' + req.query.q);
+  switch (req.query.q) {
+    case 'warnings': {
+      res.sendFile(path.join(__dirname, '../testfiles/warnings.json'));
+      break;
+    }
+    case 'times': {
+      res.sendFile(path.join(__dirname, '../testfiles/times.json'));
+      break;
+    }
+    default: { error404Handler(req, res, next); }
   }
 }
 

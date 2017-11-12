@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UpdateService } from './update.service';
-import { Version } from './version';
+import { Version } from './interfaces';
 
 @Component({
   selector: 'app-info',

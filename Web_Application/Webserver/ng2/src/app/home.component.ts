@@ -17,6 +17,11 @@ export class HomeComponent implements OnInit {
   private time3: string;
   private time4: string;
 
+  private time1_show = false;
+  private time2_show = false;
+  private time3_show = false;
+  private time4_show = false;
+
   private warning = false;
   private danger = false;
 
@@ -26,23 +31,41 @@ export class HomeComponent implements OnInit {
       est ipsum. Duis exercitation qui quis proident ut exercitation. Ad labore sint ullamco est
       in proident labore consectetur ea et in nisi. Ullamco magna tempor ipsum occaecat do eu
       adipisicing. Cillum consequat mollit dolore proident commodo.`;
-    this.error_message = `This is an errormessage with a very long text, so I can see, that it
-      automatically breaks the line, if it is too long. In irure laboris esse elit cupidatat esse fugiat Lorem do voluptate aute qui.`;
   }
 
   ngOnInit(): void {
-    this.time1 = '10:10';
-    this.time2 = '11:11';
-    this.time3 = '12:12';
-    this.time4 = '13:13';
+
     this.httpgetService.getWarning().then((res) => {
-      this.warning_message = res; if (this.warning_message !== undefined) {
+      if (res.warnings !== 'null') {
+        this.warning_message = res.warnings;
         this.warning = true;
       }
     });
 
-    if (this.error_message !== undefined) {
-      this.danger = true;
-    }
+    this.httpgetService.getError().then((res) => {
+      if (res.errors !== 'null') {
+        this.error_message = res.errors;
+        this.danger = true;
+      }
+    });
+
+    this.httpgetService.getTimes().then((res) => {
+      if (res.time1 !== '--:--') {
+        this.time1 = res.time1;
+        this.time1_show = true;
+      }
+      if (res.time2 !== '--:--') {
+        this.time2 = res.time2;
+        this.time2_show = true;
+      }
+      if (res.time3 !== '--:--') {
+        this.time3 = res.time3;
+        this.time3_show = true;
+      }
+      if (res.time4 !== '--:--') {
+        this.time4 = res.time4;
+        this.time4_show = true;
+      }
+    });
   }
 }

@@ -1,19 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import * as itf from './interfaces';
 
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class HttpgetService {
 
-  private warningUrl = '/api/schiebihnreinhard';
+  private api = '/api/schiebihnreinhard?q=';
 
   constructor(private http: Http) { }
 
-  getWarning(): Promise<string> {
-    return this.http.get(this.warningUrl)
+  getWarning(): Promise<itf.Warnings> {
+    return this.http.get(this.api + 'warnings')
       .toPromise()
-      .then(response => response.json() as string)
+      .then(response => response.json() as itf.Warnings)
+      .catch(this.handleError);
+  }
+
+  getError(): Promise<itf.Errors> {
+    return this.http.get(this.api + 'errors')
+      .toPromise()
+      .then(response => response.json() as itf.Errors)
+      .catch(this.handleError);
+  }
+
+  getTimes(): Promise<itf.Times> {
+    return this.http.get(this.api + 'times')
+      .toPromise()
+      .then(response => response.json() as itf.Times)
       .catch(this.handleError);
   }
 
