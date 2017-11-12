@@ -1,3 +1,7 @@
 {
-    "warnings": "Warnings working."
+    "warnings": [{
+        "warning": "warnings working"
+    }, {
+        "warning": "multiple warnings working too"
+    }]
 }

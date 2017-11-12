@@ -8,14 +8,8 @@ import * as fs from 'fs';
 
 
 process.env['DEBUG'] = '*';
-process.env['DEBUG_PREFIX'] = '-- '
-process.env['DEBUG_LOCATION'] = "*::INFO";
 process.env['DEBUG_COLORS'] = "true";
 process.env['DEBUG_STREAM'] = "stdout";
-process.env['DEBUG_WMODULE'] = "6";
-process.env['DEBUG_WLEVEL'] = "6";
-process.env['DEBUG_WTIMEDIFF'] = "6";
-process.env['DEBUG_TIME'] = "dd, yyyy-mm-dd HH:MM:ss.1";
 import * as debugsx from 'debug-sx';
 const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
 let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', "*");
@@ -75,10 +69,21 @@ function reinhardihnschieb(req: express.Request, res: express.Response, next: ex
       res.sendFile(path.join(__dirname, '../testfiles/warnings.json'));
       break;
     }
+
+    case 'errors': {
+      break;
+    }
+
     case 'times': {
       res.sendFile(path.join(__dirname, '../testfiles/times.json'));
       break;
     }
+
+    case 'status': {
+      res.sendFile(path.join(__dirname, '../testfiles/status.json'));
+      break;
+    }
+
     default: { error404Handler(req, res, next); }
   }
 }

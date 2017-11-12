@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import * as itf from './interfaces';
 
 import 'rxjs/add/operator/toPromise';
@@ -11,14 +11,14 @@ export class HttpgetService {
 
   constructor(private http: Http) { }
 
-  getWarning(): Promise<itf.Warnings> {
+  getWarnings(): Promise<itf.Warnings> {
     return this.http.get(this.api + 'warnings')
       .toPromise()
       .then(response => response.json() as itf.Warnings)
       .catch(this.handleError);
   }
 
-  getError(): Promise<itf.Errors> {
+  getErrors(): Promise<itf.Errors> {
     return this.http.get(this.api + 'errors')
       .toPromise()
       .then(response => response.json() as itf.Errors)
@@ -29,6 +29,13 @@ export class HttpgetService {
     return this.http.get(this.api + 'times')
       .toPromise()
       .then(response => response.json() as itf.Times)
+      .catch(this.handleError);
+  }
+
+  getStatus(): Promise<itf.Status> {
+    return this.http.get(this.api + 'status')
+      .toPromise()
+      .then(response => response.json() as itf.Status)
       .catch(this.handleError);
   }
 

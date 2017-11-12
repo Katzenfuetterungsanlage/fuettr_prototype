@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpgetService } from './httpget.service';
+import * as itf from './interfaces';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  private statusmessage: string;
-  private warning_message: string;
-  private error_message: string;
-  private promise: Promise<number>;
-  private promiseResult: string;
+  private warning_messages: itf.Warning[];
+  private error_messages: itf.Error[];
+  private last_time: string;
+  private next_time: string;
+  private next_time_in: string;
 
   private time1: string;
   private time2: string;
@@ -25,26 +26,20 @@ export class HomeComponent implements OnInit {
   private warning = false;
   private danger = false;
 
-  public constructor(private httpgetService: HttpgetService) {
-    this.statusmessage = `Dummytext: Sunt enim minim cupidatat deserunt ullamco dolore eiusmod
-      fugiat eu quis aliquip mollit labore. Aute fugiat fugiat veniam cupidatat minim est irure
-      est ipsum. Duis exercitation qui quis proident ut exercitation. Ad labore sint ullamco est
-      in proident labore consectetur ea et in nisi. Ullamco magna tempor ipsum occaecat do eu
-      adipisicing. Cillum consequat mollit dolore proident commodo.`;
-  }
+  public constructor(private httpgetService: HttpgetService) { }
 
   ngOnInit(): void {
 
-    this.httpgetService.getWarning().then((res) => {
-      if (res.warnings !== 'null') {
-        this.warning_message = res.warnings;
+    this.httpgetService.getWarnings().then((res) => {
+      if (res.warnings !== undefined) {
+        this.warning_messages = res.warnings;
         this.warning = true;
       }
     });
 
-    this.httpgetService.getError().then((res) => {
-      if (res.errors !== 'null') {
-        this.error_message = res.errors;
+    this.httpgetService.getErrors().then((res) => {
+      if (res.errors !== undefined) {
+        this.error_messages = res.errors;
         this.danger = true;
       }
     });
@@ -66,6 +61,12 @@ export class HomeComponent implements OnInit {
         this.time4 = res.time4;
         this.time4_show = true;
       }
+    });
+
+    this.httpgetService.getStatus().then((res) => {
+      this.last_time = res.last_time;
+      this.next_time = res.next_time;
+      this.next_time_in = res.next_time_in;
     });
   }
 }
