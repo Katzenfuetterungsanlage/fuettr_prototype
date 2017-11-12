@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class HttpgetService {
 
-  private api = '/api/schiebihnreinhard?q=';
+  private api = '/api/callMeMaybe?q=';
 
   constructor(private http: Http) { }
 

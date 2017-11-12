@@ -28,7 +28,7 @@ serverApp.use(logger);
 serverApp.use(express.static(path.join(__dirname, '../public')));
 serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
-serverApp.get('/api/schiebihnreinhard', reinhardihnschieb)
+serverApp.get('/api/callMeMaybe', callMeMaybe)
 serverApp.get('/api/getUpdate', update);
 serverApp.get('/api/shutdown', shutdown);
 serverApp.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
@@ -62,8 +62,7 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 }
 
 
-function reinhardihnschieb(req: express.Request, res: express.Response, next: express.NextFunction) {
-  debug.info('query: ' + req.query.q);
+function callMeMaybe(req: express.Request, res: express.Response, next: express.NextFunction) {
   switch (req.query.q) {
     case 'warnings': {
       res.sendFile(path.join(__dirname, '../testfiles/warnings.json'));
@@ -71,6 +70,7 @@ function reinhardihnschieb(req: express.Request, res: express.Response, next: ex
     }
 
     case 'errors': {
+      res.sendFile(path.join(__dirname, '../testfiles/errors.json'));
       break;
     }
 

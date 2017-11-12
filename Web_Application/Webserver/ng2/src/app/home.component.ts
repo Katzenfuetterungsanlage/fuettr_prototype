@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   private last_time: string;
   private next_time: string;
   private next_time_in: string;
+  private machine_state: string;
 
   private time1: string;
   private time2: string;
@@ -67,6 +68,7 @@ export class HomeComponent implements OnInit {
       this.last_time = res.last_time;
       this.next_time = res.next_time;
       this.next_time_in = res.next_time_in;
+      this.machine_state = res.machine_state;
     });
   }
 }

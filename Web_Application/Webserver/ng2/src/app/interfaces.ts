@@ -28,4 +28,5 @@ export interface Status {
   last_time: string;
   next_time: string;
   next_time_in: string;
+  machine_state: string;
 }
