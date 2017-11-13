@@ -62,25 +62,51 @@ function errorHandler(err: express.Errback, req: express.Request, res: express.R
 }
 
 
+function getFromJava(res: express.Response, path: string) {
+  http.get({ port: 666, host: 'localhost', path: '/' + path }, (resp) => {
+    let data = '';
+
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    resp.on('end', () => {
+      try {
+        res.json(JSON.parse(data));
+      } catch (err) {
+        debug.severe(err);
+      }
+    });
+
+  }).on("error", (err) => {
+    debug.severe(err);
+  });
+}
+
+
 function callMeMaybe(req: express.Request, res: express.Response, next: express.NextFunction) {
   switch (req.query.q) {
     case 'warnings': {
       res.sendFile(path.join(__dirname, '../testfiles/warnings.json'));
+      // getFromJava(res, 'warnings');
       break;
     }
 
     case 'errors': {
       res.sendFile(path.join(__dirname, '../testfiles/errors.json'));
+      // getFromJava(res, 'errors');
       break;
     }
 
     case 'times': {
       res.sendFile(path.join(__dirname, '../testfiles/times.json'));
+      // getFromJava(res, 'times');
       break;
     }
 
     case 'status': {
       res.sendFile(path.join(__dirname, '../testfiles/status.json'));
+      // getFromJava(res, 'status');
       break;
     }
 
