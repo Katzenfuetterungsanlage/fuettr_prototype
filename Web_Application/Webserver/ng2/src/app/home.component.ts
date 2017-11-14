@@ -31,46 +31,50 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    setInterval(() => {
-      this.httpgetService.getWarnings().then((res) => {
-        if (res.warnings !== undefined) {
-          this.warning_messages = res.warnings;
-          this.warning = true;
-        }
-      });
+    this.callMeMaybe();
 
-      this.httpgetService.getErrors().then((res) => {
-        if (res.errors !== undefined) {
-          this.error_messages = res.errors;
-          this.danger = true;
-        }
-      });
+    setInterval(() => {this.callMeMaybe(); }, 30000);
+  }
 
-      this.httpgetService.getTimes().then((res) => {
-        if (res.time1 !== '--:--') {
-          this.time1 = res.time1;
-          this.time1_show = true;
-        }
-        if (res.time2 !== '--:--') {
-          this.time2 = res.time2;
-          this.time2_show = true;
-        }
-        if (res.time3 !== '--:--') {
-          this.time3 = res.time3;
-          this.time3_show = true;
-        }
-        if (res.time4 !== '--:--') {
-          this.time4 = res.time4;
-          this.time4_show = true;
-        }
-      });
-
-      this.httpgetService.getStatus().then((res) => {
-        this.last_time = res.last_time;
-        this.next_time = res.next_time;
-        this.next_time_in = res.next_time_in;
-        this.machine_state = res.machine_state;
+  callMeMaybe(): void {
+    this.httpgetService.getWarnings().then((res) => {
+      if (res.warnings !== undefined) {
+        this.warning_messages = res.warnings;
+        this.warning = true;
+      }
     });
-    }, 10000);
+
+    this.httpgetService.getErrors().then((res) => {
+      if (res.errors !== undefined) {
+        this.error_messages = res.errors;
+        this.danger = true;
+      }
+    });
+
+    this.httpgetService.getTimes().then((res) => {
+      if (res.time1 !== '--:--') {
+        this.time1 = res.time1;
+        this.time1_show = true;
+      }
+      if (res.time2 !== '--:--') {
+        this.time2 = res.time2;
+        this.time2_show = true;
+      }
+      if (res.time3 !== '--:--') {
+        this.time3 = res.time3;
+        this.time3_show = true;
+      }
+      if (res.time4 !== '--:--') {
+        this.time4 = res.time4;
+        this.time4_show = true;
+      }
+    });
+
+    this.httpgetService.getStatus().then((res) => {
+      this.last_time = res.last_time;
+      this.next_time = res.next_time;
+      this.next_time_in = res.next_time_in;
+      this.machine_state = res.machine_state;
+  });
   }
 }

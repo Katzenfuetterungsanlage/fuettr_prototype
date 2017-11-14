@@ -2,7 +2,6 @@ import * as express from 'express';
 import * as path from 'path';
 
 import * as http from 'http';
-import * as child from 'child_process';
 import * as fs from 'fs';
 
 
@@ -25,15 +24,8 @@ const pugEngine = serverApp.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
 
 serverApp.use(logger);
-serverApp.use(express.static(path.join(__dirname, '../public')));
-serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
-serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
 serverApp.get('/api/callMeMaybe', callMeMaybe);
-serverApp.get('/api/getUpdate', update);
-serverApp.get('/api/shutdown', shutdown);
-serverApp.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
-serverApp.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
-serverApp.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
+serverApp.get('**', (req, res) => { res.redirect('/api/callMeMaybe')});
 serverApp.use(error404Handler);
 serverApp.use(errorHandler);
 
@@ -87,74 +79,33 @@ function getFromJava(res: express.Response, path: string) {
 function callMeMaybe(req: express.Request, res: express.Response, next: express.NextFunction) {
   switch (req.query.q) {
     case 'warnings': {
-      res.sendFile(path.join(__dirname, '../testfiles/warnings.json'));
-      // getFromJava(res, 'warnings');
+      getFromJava(res, 'warnings');
       break;
     }
 
     case 'errors': {
-      res.sendFile(path.join(__dirname, '../testfiles/errors.json'));
-      // getFromJava(res, 'errors');
+      getFromJava(res, 'errors');
       break;
     }
 
     case 'times': {
-      res.sendFile(path.join(__dirname, '../testfiles/times.json'));
-      // getFromJava(res, 'times');
+      getFromJava(res, 'times');
       break;
     }
 
     case 'status': {
-      res.sendFile(path.join(__dirname, '../testfiles/status.json'));
-      // getFromJava(res, 'status');
+      getFromJava(res, 'status');
       break;
     }
 
     case 'info': {
-      res.sendFile(path.join(__dirname, '../testfiles/info.json'));
-      // getFromJava(res, 'info');
+      getFromJava(res, 'info');
       break;
     }
 
     default: { error404Handler(req, res, next); }
   }
 }
-
-
-function update(req: express.Request, res: express.Response, next: express.NextFunction) {
-  res.sendFile(path.join(__dirname, 'views/update.html'))
-  child.exec(`cd .. &&git reset --hard && git pull && sudo npm-install-missing`, (error, stdout, stderr) => {
-    if (stdout !== '') {
-      debug.info(stdout);
-    }
-    if (error !== null) {
-      debug.warn(error);
-    }
-    child.exec(`cd ../ng2 && sudo npm-install-missing`, (error, stdout, stderr) => {
-      if (stdout !== '') {
-        debug.info(stdout);
-      }
-      if (error !== null) {
-        debug.warn(error);
-      }
-      child.exec(`sudo reboot`, (error, stdout, stderr) => {
-        if (stdout !== '') {
-          debug.info(stdout);
-        }
-        if (error !== null) {
-          debug.warn(error);
-        }
-      });
-    });
-  });
-
-}
-
-
-function shutdown() {
-  child.exec('sudo poweroff');
-}
-
 
 function logger(req: express.Request, res: express.Response, next: express.NextFunction) {
   const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;

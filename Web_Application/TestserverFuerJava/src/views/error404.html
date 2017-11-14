@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Webserver</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="font" href="https://fonts.googleapis.com/css?family=Allerta">
+</head>
+
+<body class="container-fluid">
+    <br>
+    <div class="container-fluid" style="font-size: 40px; font-family: 'Allerta', sans-serif;">
+        Please enter a query after the URL. <br>
+        <strong>Example: </strong><code>/api/callMeMaybe?q=warnings</code>
+        <p>
+            <h4>Possible querys:</h4>
+            <ul>
+                <a href="/api/callMeMaybe?q=warnings">warnings</a>
+                <a href="/api/callMeMaybe?q=errors">errors</a>
+                <a href="/api/callMeMaybe?q=times">times</a>
+                <a href="/api/callMeMaybe?q=status">status</a>
+                <a href="/api/callMeMaybe?q=info">info</a>
+            </ul>
+        </p>
+    </div>
+</body>
+
+</html>

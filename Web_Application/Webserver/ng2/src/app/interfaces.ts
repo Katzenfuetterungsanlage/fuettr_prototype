@@ -30,3 +30,10 @@ export interface Status {
   next_time_in: string;
   machine_state: string;
 }
+
+export interface Info {
+  serialnumber: string;
+  internal: string;
+  wlanState: string;
+  ipadress: string;
+}
