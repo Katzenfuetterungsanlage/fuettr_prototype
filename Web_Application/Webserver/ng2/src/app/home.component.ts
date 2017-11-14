@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpgetService } from './httpget.service';
 import * as itf from './interfaces';
-import { setInterval } from 'timers';
 
 @Component({
   selector: 'app-home',
