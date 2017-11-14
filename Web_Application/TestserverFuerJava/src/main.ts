@@ -25,7 +25,7 @@ pugEngine.locals.pretty = true;
 
 serverApp.use(logger);
 serverApp.get('/api/callMeMaybe', callMeMaybe);
-serverApp.get('**', (req, res) => { res.redirect('/api/callMeMaybe')});
+serverApp.get('**', (req, res) => { res.redirect('/api/callMeMaybe') });
 serverApp.use(error404Handler);
 serverApp.use(errorHandler);
 
@@ -100,6 +100,11 @@ function callMeMaybe(req: express.Request, res: express.Response, next: express.
 
     case 'info': {
       getFromJava(res, 'info');
+      break;
+    }
+
+    case 'positions': {
+      getFromJava(res, 'positions');
       break;
     }
 
