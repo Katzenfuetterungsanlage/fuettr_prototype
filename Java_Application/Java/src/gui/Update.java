@@ -5,13 +5,27 @@
  */
 package gui;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.Socket;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingWorker;
+import worker.UpdateWorker;
+
+
 /**
  *
  * @author Florian
  */
 public class Update extends javax.swing.JDialog
 {
-
+    boolean updateVerfuegbar = false; 
+    
+        
     /**
      * Creates new form Update
      */
@@ -21,6 +35,10 @@ public class Update extends javax.swing.JDialog
                
         initComponents();
          
+        pTextUpdateErfolgreich.setVisible(false);
+        lbUpdateVerfuegbar.setText("Update: -");
+        btUpdate.setEnabled(false);
+        
         setLocationRelativeTo(parent);
         pack();
     }
@@ -43,12 +61,15 @@ public class Update extends javax.swing.JDialog
         pUpdate = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pUeberpruefen = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        btUeberpruefen = new javax.swing.JButton();
+        lbUpdateVerfuegbar = new javax.swing.JLabel();
         pStarten = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        pText = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
+        btUpdate = new javax.swing.JButton();
+        pTextUpdateErfolgreich = new javax.swing.JPanel();
+        pUpdateErfolgreich = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -87,30 +108,55 @@ public class Update extends javax.swing.JDialog
 
         jPanel2.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel1.setText("Update ist verfügbar / nicht verfügbar ");
-        jPanel2.add(jLabel1);
+        jPanel8.setLayout(new java.awt.GridBagLayout());
+
+        btUeberpruefen.setText("Auf Updates überprüfen");
+        btUeberpruefen.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onUeberpruefen(evt);
+            }
+        });
+        jPanel8.add(btUeberpruefen, new java.awt.GridBagConstraints());
+
+        pUeberpruefen.add(jPanel8);
+
+        jPanel2.add(pUeberpruefen);
+
+        lbUpdateVerfuegbar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbUpdateVerfuegbar.setText("Update ist verfügbar / nicht verfügbar ");
+        lbUpdateVerfuegbar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel2.add(lbUpdateVerfuegbar);
 
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
-        jButton1.setText("Update starten");
-        jPanel6.add(jButton1, new java.awt.GridBagConstraints());
+        btUpdate.setText("Update starten");
+        btUpdate.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                onUpdate(evt);
+            }
+        });
+        jPanel6.add(btUpdate, new java.awt.GridBagConstraints());
 
         pStarten.add(jPanel6);
 
         jPanel2.add(pStarten);
 
-        pText.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        pText.setLayout(new java.awt.BorderLayout());
+        pTextUpdateErfolgreich.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        pTextUpdateErfolgreich.setLayout(new java.awt.BorderLayout());
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
+        pUpdateErfolgreich.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
 
         jLabel2.setText("Update erfolgreich!");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel7.add(jLabel2);
+        pUpdateErfolgreich.add(jLabel2);
 
-        pText.add(jPanel7, java.awt.BorderLayout.CENTER);
+        pTextUpdateErfolgreich.add(pUpdateErfolgreich, java.awt.BorderLayout.CENTER);
 
-        jPanel2.add(pText);
+        jPanel2.add(pTextUpdateErfolgreich);
 
         jPanel3.add(jPanel2);
 
@@ -127,6 +173,27 @@ public class Update extends javax.swing.JDialog
     {//GEN-HEADEREND:event_onSchließen
         dispose();
     }//GEN-LAST:event_onSchließen
+
+    private void onUpdate(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUpdate
+    {//GEN-HEADEREND:event_onUpdate
+            
+    }//GEN-LAST:event_onUpdate
+
+    private void onUeberpruefen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUeberpruefen
+    {//GEN-HEADEREND:event_onUeberpruefen
+        
+        
+        UpdateWorker updateWorker = new UpdateWorker();
+        updateWorker.execute();
+        
+        
+        if (updateVerfuegbar == true)
+        {
+            lbUpdateVerfuegbar.setText("Update: Verfügbar");
+            btUpdate.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_onUeberpruefen
 
     /**
      * @param args the command line arguments
@@ -184,8 +251,8 @@ public class Update extends javax.swing.JDialog
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSchließen;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btUeberpruefen;
+    private javax.swing.JButton btUpdate;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -193,10 +260,59 @@ public class Update extends javax.swing.JDialog
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JLabel lbUpdateVerfuegbar;
     private javax.swing.JPanel pButton;
     private javax.swing.JPanel pStarten;
-    private javax.swing.JPanel pText;
+    private javax.swing.JPanel pTextUpdateErfolgreich;
+    private javax.swing.JPanel pUeberpruefen;
     private javax.swing.JPanel pUpdate;
+    private javax.swing.JPanel pUpdateErfolgreich;
     // End of variables declaration//GEN-END:variables
+
+public class UpdateWorker extends SwingWorker
+{   
+    @Override
+    protected Object doInBackground() 
+            throws Exception
+    {
+        Socket socket = null; 
+        
+        try
+        {
+            URL url = new URL("https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/version.json");
+
+            URLConnection con = url.openConnection();
+            //InputStream is = con.getInputStream();
+            
+            BufferedReader bReader = new BufferedReader(new InputStreamReader(con.getInputStream())); 
+            
+            System.out.println(bReader.readLine()); //json Datei einlesen 
+            
+//            Gson g = new Gson();
+//
+//            Person person = g.fromJson("{\"name\": \"John\"}", Person.class);
+//            System.out.println(person.name); //John
+//
+//            System.out.println(g.toJson(person)); // {"name":"John"}
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(UpdateWorker.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //TODO: lokale Versionsdatei einlesen und mit der online Version vergleichen
+        
+        return null; 
+    }
+
+    @Override
+    protected void done()
+    {
+        updateVerfuegbar = true;
+    }
+    
+    
+}
+
 }

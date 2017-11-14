@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingWorker;
 import methods.NaechsteFuetterung;
 import methods.StreamReader;
+import worker.UpdateWorker;
 
 /**
  *
@@ -42,7 +43,7 @@ public class Hauptfenster extends javax.swing.JFrame
 //            d.setFullScreenWindow(this);
 //        } else
 //        {
-//            this.setSize(800, 480);
+            this.setSize(800, 480);
             this.setVisible(true);
 //        }
         initComponents();
@@ -544,7 +545,7 @@ public class Hauptfenster extends javax.swing.JFrame
     private void onUpdate(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUpdate
     {//GEN-HEADEREND:event_onUpdate
         final Update infoDlg = new Update(this, true);
-        infoDlg.setVisible(true);
+        infoDlg.setVisible(true);                        
     }//GEN-LAST:event_onUpdate
 
     private void onFuetterungszeitenVerwalten(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onFuetterungszeitenVerwalten
@@ -585,8 +586,8 @@ public class Hauptfenster extends javax.swing.JFrame
                 "Hinweis", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
         {
             //TODO
-
-            dispose();
+            System.exit(0); 
+            //dispose();
         }
     }//GEN-LAST:event_onHerunterfahren
 
@@ -769,8 +770,9 @@ public class Hauptfenster extends javax.swing.JFrame
                 if (zeitenVeraendert == true /*|| zeitenManagement.ZeitenVeraendert() == true*/)
                 {
                     StreamReader streamReader = new StreamReader();
-                    string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt", false);
-
+                    //string = streamReader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\Java_Application\\Java\\src\\data\\testZeit.txt", false);
+                    string = streamReader.einlesen("data/testZeit.txt",false);
+                    
                     publish(string);
 
                     zeitenVeraendert = false;
@@ -857,7 +859,7 @@ public class Hauptfenster extends javax.swing.JFrame
             {
                 if (zustand == true)
                 {
-                    if (zeit1.equals(uhrzeit) && zustand == true)
+                    if (zeit1.equals(uhrzeit) )
                     {
                         //TODO Fütterung
                         letzteFuetterung = 1;
@@ -865,7 +867,7 @@ public class Hauptfenster extends javax.swing.JFrame
                         publish(letzteFuetterungHilfsstring);
                     } 
                     else 
-                        if (zeit2.equals(uhrzeit) && zustand == true)
+                        if (zeit2.equals(uhrzeit) )
                          {
                             //TODO Fütterung
                             letzteFuetterung = 2;
@@ -873,7 +875,7 @@ public class Hauptfenster extends javax.swing.JFrame
                             publish(letzteFuetterungHilfsstring);
                         }
                         else 
-                            if (zeit3.equals(uhrzeit) && zustand == true)
+                            if (zeit3.equals(uhrzeit) )
                             {
                                 //TODO Fütterung
                                 letzteFuetterung = 3;
@@ -881,7 +883,7 @@ public class Hauptfenster extends javax.swing.JFrame
                                 publish(letzteFuetterungHilfsstring);
                             } 
                             else 
-                                if (zeit4.equals(uhrzeit) && zustand == true)
+                                if (zeit4.equals(uhrzeit) )
                                 {
                                     //TODO Fütterung
                                     letzteFuetterung = 4;
@@ -890,7 +892,7 @@ public class Hauptfenster extends javax.swing.JFrame
                                 } 
                                 else
                                 {
-                                TimeUnit.SECONDS.sleep(1);
+                                    TimeUnit.SECONDS.sleep(1);
                                 }
                 }
             }
@@ -945,5 +947,7 @@ public class Hauptfenster extends javax.swing.JFrame
             lbNaechsteFuetterungIn.setText(naechsteFuetterungIn);
         }
     }
+    
+    
 
 }
