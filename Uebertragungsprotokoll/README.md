@@ -5,7 +5,9 @@
 * [1.1 Maschinenstatus](#11-Maschinenstatus)
     * [Möglichkeitenbaum](#möglichkeitenbaum)
     * [Beispiel](#beispiel)
-* [1.2 Fütterungszeiten]()
+* [1.2 Fütterungszeiten](#12-fütterungszeiten)
+    * [Möglichkeitenbaum](#möglichkeitenbaum-1)
+    * [Beispiel](#beispiel-1)
 
 ## 1.1 Maschinenstatus
 
