@@ -21,3 +21,6 @@ sudo apt install -y git
 curl https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/install | bash
 ```
 
+## Übertragungsprotokoll
+
+[*klick*](/tree/master/Uebertragungsprotokoll#Übertragungsprotokoll)
