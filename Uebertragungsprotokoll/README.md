@@ -2,19 +2,19 @@
 
 ## Inhaltsverzeichnis
 
-* [1.1 Maschinenstatus](#11-Maschinenstatus)
+* [1.1 Maschinenstatus](#11-maschinenstatus)
     * [Möglichkeitenbaum](#möglichkeitenbaum)
     * [Beispiel](#beispiel)
 * [1.2 Fütterungszeiten](#12-fütterungszeiten)
     * [Möglichkeitenbaum](#möglichkeitenbaum-1)
     * [Beispiel](#beispiel-1)
-* [1.3 Geräteinformationen](#13-Geräteinformationen)
+* [1.3 Geräteinformationen](#13-geräteinformationen)
     * [Möglichkeitenbaum](#möglichkeitenbaum-2)
     * [Beispiel](#beispiel-2)
-* [1.4 Warnungen](#14-Warnungen)
+* [1.4 Warnungen](#14-warnungen)
     * [Möglichkeitenbaum](#möglichkeitenbaum-3)
     * [Beispiel](#beispiel-3)
-* [1.5 Errors](15-Errors)
+* [1.5 Errors](15-errors)
     * [Möglichkeitenbaum](#möglichkeitenbaum-4)
     * [Beispiel](#beispiel-4)
 
