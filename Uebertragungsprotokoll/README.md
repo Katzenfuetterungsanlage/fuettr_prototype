@@ -8,6 +8,15 @@
 * [1.2 Fütterungszeiten](#12-fütterungszeiten)
     * [Möglichkeitenbaum](#möglichkeitenbaum-1)
     * [Beispiel](#beispiel-1)
+* [1.3 Geräteinformationen](#13-Geräteinformationen)
+    * [Möglichkeitenbaum](#möglichkeitenbaum-2)
+    * [Beispiel](#beispiel-2)
+* [1.4 Warnungen](#14-Warnungen)
+    * [Möglichkeitenbaum](#möglichkeitenbaum-3)
+    * [Beispiel](#beispiel-3)
+* [1.5 Errors](15-Errors)
+    * [Möglichkeitenbaum](#möglichkeitenbaum-4)
+    * [Beispiel](#beispiel-4)
 
 ## 1.1 Maschinenstatus
 
