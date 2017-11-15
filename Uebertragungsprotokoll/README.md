@@ -2,7 +2,7 @@
 
 ## Inhaltsverzeichnis
 
-* [Server zu Client Kommunikation](#)
+* [Server zu Client Kommunikation](#server-zu-client-kommunikation)
     * [1.1 Maschinenstatus](#11-maschinenstatus)
         * [Möglichkeitenbaum](#möglichkeitenbaum)
         * [Beispiel](#beispiel)
@@ -18,6 +18,7 @@
     * [1.5 Errors](15-errors)
         * [Möglichkeitenbaum](#möglichkeitenbaum-4)
         * [Beispiel](#beispiel-4)
+* [Client zu Server Kommunikation](#client-zu-server-kommunikation)
 
 ## Server zu Client Kommunikation
 
@@ -153,3 +154,4 @@
     }]
 }
 ```
+## Client zu Server Kommunikation
