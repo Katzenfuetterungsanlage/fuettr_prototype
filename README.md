@@ -23,4 +23,4 @@ curl https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/
 
 ## Übertragungsprotokoll
 
-[*klick*](/tree/master/Uebertragungsprotokoll#Übertragungsprotokoll)
+[*klick*](https://github.com/Katzenfuetterungsanlage/fuettr_prototype/tree/master/Uebertragungsprotokoll#Übertragungsprotokoll)
