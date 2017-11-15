@@ -115,7 +115,7 @@
 
 | warnings |
 |----------|
-|warning[] |
+|warning[ ]|
 
 #### Möglichkeitenbaum
 
@@ -138,7 +138,7 @@
 
 | errors |
 |--------|
-|error[] |
+|error[ ]|
 
 #### Möglichkeitenbaum
 
