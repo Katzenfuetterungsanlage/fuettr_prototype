@@ -2,29 +2,32 @@
 
 ## Inhaltsverzeichnis
 
-* [1.1 Maschinenstatus](#11-maschinenstatus)
-    * [Möglichkeitenbaum](#möglichkeitenbaum)
-    * [Beispiel](#beispiel)
-* [1.2 Fütterungszeiten](#12-fütterungszeiten)
-    * [Möglichkeitenbaum](#möglichkeitenbaum-1)
-    * [Beispiel](#beispiel-1)
-* [1.3 Geräteinformationen](#13-geräteinformationen)
-    * [Möglichkeitenbaum](#möglichkeitenbaum-2)
-    * [Beispiel](#beispiel-2)
-* [1.4 Warnungen](#14-warnungen)
-    * [Möglichkeitenbaum](#möglichkeitenbaum-3)
-    * [Beispiel](#beispiel-3)
-* [1.5 Errors](15-errors)
-    * [Möglichkeitenbaum](#möglichkeitenbaum-4)
-    * [Beispiel](#beispiel-4)
+* [Server zu Client Kommunikation](#)
+    * [1.1 Maschinenstatus](#11-maschinenstatus)
+        * [Möglichkeitenbaum](#möglichkeitenbaum)
+        * [Beispiel](#beispiel)
+    * [1.2 Fütterungszeiten](#12-fütterungszeiten)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-1)
+        * [Beispiel](#beispiel-1)
+    * [1.3 Geräteinformationen](#13-geräteinformationen)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-2)
+        * [Beispiel](#beispiel-2)
+    * [1.4 Warnungen](#14-warnungen)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-3)
+        * [Beispiel](#beispiel-3)
+    * [1.5 Errors](15-errors)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-4)
+        * [Beispiel](#beispiel-4)
 
-## 1.1 Maschinenstatus
+## Server zu Client Kommunikation
+
+### 1.1 Maschinenstatus
 
 | last_time | next_time | next_time_in | machine_state |
 |-----------|-----------|--------------|---------------|
 |   string  |  string   |    string    |    string     |
 
-### Möglichkeitenbaum
+#### Möglichkeitenbaum
 
 - last_time
     - 00:00 - 23:59
@@ -39,7 +42,7 @@
     - An
     - Aus
 
-### Beispiel: 
+#### Beispiel: 
 ```JSON
 {  
     "last_time" : "10:10",  
@@ -49,13 +52,13 @@
 }
 ```
 
-## 1.2 Fütterungszeiten
+### 1.2 Fütterungszeiten
 
 | time1  | time2  | time3  | time4  |
 |--------|--------|--------|--------|
 | string | string | string | string |
 
-### Möglichkeitenbaum
+#### Möglichkeitenbaum
 
 - time1
     - 00:00 - 23:59
@@ -66,7 +69,7 @@
 - time4
     - 00:00 - 23:59
 
-### Beispiel:
+#### Beispiel:
 ```JSON
 {  
     "time1" : "10:10",
@@ -76,13 +79,13 @@
 }
 ```
 
-## 1.3 Geräteinformationen
+### 1.3 Geräteinformationen
 
 | serialnumber | internal | wlanState | ipaddress |
 |--------------|----------|-----------|-----------|
 |   string     |  string  |   string  |   string  |
 
-### Möglichkeitenbaum
+#### Möglichkeitenbaum
 
 - serialnumber
     - #000000 - #FFFFFF
@@ -97,7 +100,7 @@
 - ipaddress
     - 0.0.0.0 - 255.255.255.255
 
-### Beispiel:
+#### Beispiel:
 ```JSON
 {  
     "serialnumber" : "#000001",
@@ -107,19 +110,19 @@
 }
 ```
 
-## 1.4 Warnungen
+### 1.4 Warnungen
 
 | warnings |
 |----------|
 |warning[] |
 
-### Möglichkeitenbaum
+#### Möglichkeitenbaum
 
 - warnings
     - warning
         - string
 
-### Beispiel
+#### Beispiel
 ```JSON
 {
     "warnings": [{
@@ -130,19 +133,19 @@
 }
 ```
 
-## 1.5 Errors
+### 1.5 Errors
 
 | errors |
 |--------|
 |error[] |
 
-### Möglichkeitenbaum
+#### Möglichkeitenbaum
 
 - errors
     - error
         - string
 
-### Beispiel
+#### Beispiel
 ```JSON
 {
     "errors": [{
