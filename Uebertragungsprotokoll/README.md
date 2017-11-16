@@ -18,7 +18,7 @@
     * [1.5 Warnungen](#15-warnungen)
         * [Möglichkeitenbaum](#möglichkeitenbaum-4)
         * [Beispiel](#beispiel-4)
-    * [1.6 Errors](16-errors)
+    * [1.6 Errors](#16-errors)
         * [Möglichkeitenbaum](#möglichkeitenbaum-5)
         * [Beispiel](#beispiel-5)
 * [Client zu Server Kommunikation](#client-zu-server-kommunikation)
