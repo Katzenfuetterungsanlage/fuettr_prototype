@@ -1,6 +1,10 @@
 {
     "time1": "10:10",
+    "time1_active": true,
     "time2": "11:11",
+    "time2_active": false,
     "time3": "12:12",
-    "time4": "--:--"
+    "time3_active": true,
+    "time4": "--:--",
+    "time4_active": false
 }

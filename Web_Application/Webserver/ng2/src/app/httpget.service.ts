@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+
 import * as itf from './interfaces';
 
 import 'rxjs/add/operator/toPromise';
@@ -51,6 +52,13 @@ export class HttpgetService {
     return this.http.get(this.ip)
     .toPromise()
     .then(response => response.json() as itf.Ip)
+    .catch(this.handleError);
+  }
+
+  getPositions(): Promise<itf.Positions> {
+    return this.http.get(this.api + 'positions')
+    .toPromise()
+    .then(response => response.json() as itf.Positions)
     .catch(this.handleError);
   }
 

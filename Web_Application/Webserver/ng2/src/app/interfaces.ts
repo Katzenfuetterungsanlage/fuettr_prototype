@@ -19,9 +19,13 @@ export interface Errors {
 }
 export interface Times {
   time1: string;
+  time1_active: boolean;
   time2: string;
+  time2_active: boolean;
   time3: string;
+  time3_active: boolean;
   time4: string;
+  time4_active: boolean;
 }
 
 export interface Status {
@@ -40,3 +44,11 @@ export interface Info {
 export interface Ip {
   ip: string;
 }
+
+export interface Positions {
+  motor1: string;
+  motor2: string;
+  sensor1: string;
+  sensor2: string;
+}
+

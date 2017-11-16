@@ -14,6 +14,7 @@ import { Error404Component } from './error404.component';
 
 import { UpdateService } from './update.service';
 import { HttpgetService } from './httpget.service';
+import { HttpputService } from './httpput.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { HttpgetService } from './httpget.service';
     Error404Component
   ],
   imports: [BrowserModule, AppRoutingModule, HttpModule, FormsModule],
-  providers: [UpdateService, HttpgetService],
+  providers: [UpdateService, HttpgetService, HttpputService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

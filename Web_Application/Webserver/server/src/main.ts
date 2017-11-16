@@ -28,6 +28,7 @@ serverApp.use(logger);
 serverApp.use(express.static(path.join(__dirname, '../public')));
 serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
+serverApp.put('/api/putMeHere', putMeHere)
 serverApp.get('/api/callMeMaybe', callMeMaybe);
 serverApp.get('/api/getUpdate', update);
 serverApp.get('/api/shutdown', shutdown);
@@ -116,12 +117,23 @@ function callMeMaybe(req: express.Request, res: express.Response, next: express.
       break;
     }
 
-    case 'position': {
-      res.sendFile(path.join(__dirname, '../testfiles/position.json'));
-      // getFromJava(res, 'position');
+    case 'positions': {
+      res.sendFile(path.join(__dirname, '../testfiles/positions.json'));
+      // getFromJava(res, 'positions');
+      break;
     }
 
     default: { error404Handler(req, res, next); }
+  }
+}
+
+
+function putMeHere(req: express.Request, res: express.Response, next: express.NextFunction) {
+  switch (req.query.q) {
+    case 'times': {
+      console.log(req.body);
+      break;
+    }
   }
 }
 

@@ -18,7 +18,7 @@
                         Zeit 1
                     </td>
                     <td class="text-center">
-                        <input type="checkbox">
+                        <input type="checkbox" [(ngModel)]="check1">
                     </td>
                     <td class="text-center">
                         <input type="time" [(ngModel)]="time1">
@@ -29,7 +29,7 @@
                         Zeit 2
                     </td>
                     <td class="text-center">
-                        <input type="checkbox">
+                        <input type="checkbox" [(ngModel)]="check2">
                     </td>
                     <td class="text-center">
                         <input type="time" [(ngModel)]="time2">
@@ -40,7 +40,7 @@
                         Zeit 3
                     </td>
                     <td class="text-center">
-                        <input type="checkbox">
+                        <input type="checkbox" [(ngModel)]="check3">
                     </td>
                     <td class="text-center">
                         <input type="time" [(ngModel)]="time3">
@@ -51,16 +51,17 @@
                         Zeit 4
                     </td>
                     <td class="text-center">
-                        <input type="checkbox">
+                        <input type="checkbox" [(ngModel)]="check4">
                     </td>
                     <td class="text-center">
                         <input type="time" [(ngModel)]="time4">
                     </td>
                 </tr>
             </table>
-        </div>
-        <div class="col-sm-9">
-            <img src="/assets/Wolf.png" width="400" alt="Wolfi">
+            <div class="btn-group">
+                <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+                <button type="submit" class="btn btn-success" (click)="save()">Speichern</button>
+            </div>
         </div>
     </div>
 </div>
