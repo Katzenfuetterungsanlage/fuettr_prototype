@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ControlComponent } from './control.component';
+import { PositionComponent } from './position.component';
 import { FeedComponent } from './feed.component';
 import { HomeComponent } from './home.component';
 import { InfoComponent } from './info.component';
@@ -18,7 +18,7 @@ import { HttpgetService } from './httpget.service';
 @NgModule({
   declarations: [
     AppComponent,
-    ControlComponent,
+    PositionComponent,
     HomeComponent,
     FeedComponent,
     InfoComponent,

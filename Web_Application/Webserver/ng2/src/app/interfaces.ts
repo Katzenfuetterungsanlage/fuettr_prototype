@@ -35,5 +35,8 @@ export interface Info {
   serialnumber: string;
   internal: string;
   wlanState: string;
-  ipaddress: string;
+}
+
+export interface Ip {
+  ip: string;
 }

@@ -18,16 +18,18 @@ export class InfoComponent implements OnInit {
 
 
   ngOnInit() {
-    this.updateService.getVersion().then((lVersion) => {
+    this.updateService.getVersion().then(lVersion => {
       this.version = lVersion.version.toString();
     });
 
-    this.httpgetService.getInfo().then((res) => {
+    this.httpgetService.getInfo().then(res => {
       this.serialnumber = res.serialnumber;
       this.processor = res.internal;
       this.wlanstate = res.wlanState;
-      this.ipadress = res.ipadress;
     });
 
+    this.httpgetService.getIp().then(res => {
+      this.ipadress = res.ip;
+    });
   }
 }

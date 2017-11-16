@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class HttpgetService {
 
   private api = '/api/callMeMaybe?q=';
+  private ip = 'http://api.ipify.org/?format=json';
 
   constructor(private http: Http) { }
 
@@ -44,6 +45,13 @@ export class HttpgetService {
       .toPromise()
       .then(response => response.json() as itf.Info)
       .catch(this.handleError);
+  }
+
+  getIp(): Promise<itf.Ip> {
+    return this.http.get(this.ip)
+    .toPromise()
+    .then(response => response.json() as itf.Ip)
+    .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

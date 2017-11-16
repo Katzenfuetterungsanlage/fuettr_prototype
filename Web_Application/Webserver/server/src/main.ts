@@ -116,6 +116,11 @@ function callMeMaybe(req: express.Request, res: express.Response, next: express.
       break;
     }
 
+    case 'position': {
+      res.sendFile(path.join(__dirname, '../testfiles/position.json'));
+      // getFromJava(res, 'position');
+    }
+
     default: { error404Handler(req, res, next); }
   }
 }

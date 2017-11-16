@@ -12,12 +12,15 @@
     * [1.3 Geräteinformationen](#13-geräteinformationen)
         * [Möglichkeitenbaum](#möglichkeitenbaum-2)
         * [Beispiel](#beispiel-2)
-    * [1.4 Warnungen](#14-warnungen)
+    * [1.4 Positions-info](#14-positions-info)
         * [Möglichkeitenbaum](#möglichkeitenbaum-3)
         * [Beispiel](#beispiel-3)
-    * [1.5 Errors](15-errors)
+    * [1.5 Warnungen](#15-warnungen)
         * [Möglichkeitenbaum](#möglichkeitenbaum-4)
         * [Beispiel](#beispiel-4)
+    * [1.6 Errors](16-errors)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-5)
+        * [Beispiel](#beispiel-5)
 * [Client zu Server Kommunikation](#client-zu-server-kommunikation)
 
 ## Server zu Client Kommunikation
@@ -82,9 +85,9 @@
 
 ### 1.3 Geräteinformationen
 
-| serialnumber | internal | wlanState | ipaddress |
-|--------------|----------|-----------|-----------|
-|   string     |  string  |   string  |   string  |
+| serialnumber | internal | wlanState |
+|--------------|----------|-----------|
+|   string     |  string  |   string  |
 
 #### Möglichkeitenbaum
 
@@ -98,20 +101,23 @@
     - nicht verbunden
     - verbunden
     - ausgeschalten
-- ipaddress
-    - 0.0.0.0 - 255.255.255.255
 
 #### Beispiel:
 ```JSON
 {  
     "serialnumber" : "#000001",
     "internal" : "Raspberry Pi 3 Model B",
-    "wlanState" : "disconnected",
-    "ipaddress" : "185.192.15.21"
+    "wlanState" : "disconnected"
 }
 ```
 
-### 1.4 Warnungen
+### 1.4 Positions-info
+
+#### Möglichkeitenbaum
+
+#### Beispiel:
+
+### 1.5 Warnungen
 
 | warnings |
 |----------|
@@ -134,7 +140,7 @@
 }
 ```
 
-### 1.5 Errors
+### 1.6 Errors
 
 | errors |
 |--------|
