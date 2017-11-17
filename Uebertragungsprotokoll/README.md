@@ -123,19 +123,26 @@
 |----------|
 |warning[ ]|
 
+| warning |  id  |
+|---------|------|
+| string  |number|
+
 #### Möglichkeitenbaum
 
 - warnings
     - warning
         - string
+        - 1 - 65535
 
 #### Beispiel
 ```JSON
 {
     "warnings": [{
         "warning" : "Füllstand niedrig",
+        "id": 65535
     },{
-        "warning" : "Füllstand leer"
+        "warning" : "Füllstand leer",
+        "id": 5168
     }]
 }
 ```
@@ -146,17 +153,23 @@
 |--------|
 |error[ ]|
 
+|error |  id  |
+|------|------|
+|string|number|
+
 #### Möglichkeitenbaum
 
 - errors
     - error
         - string
+        - 1 - 65535
 
 #### Beispiel
 ```JSON
 {
     "errors": [{
-        "error": "Motor 2 blockiert"
+        "error": "Motor 2 blockiert",
+        "id": 51644
     }]
 }
 ```
