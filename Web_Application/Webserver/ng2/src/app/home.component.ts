@@ -69,4 +69,12 @@ export class HomeComponent implements OnInit {
       this.machine_state = res.machine_state;
     });
   }
+
+  ackwarn(id: number) {
+    window.alert(id);
+  }
+
+  ackerr(id: number) {
+    window.alert(id);
+  }
 }

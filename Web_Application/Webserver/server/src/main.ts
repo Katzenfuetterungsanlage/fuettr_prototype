@@ -169,7 +169,9 @@ function update(req: express.Request, res: express.Response, next: express.NextF
 
 
 function shutdown() {
-  child.exec('sudo poweroff');
+  child.exec('sudo poweroff', error => {
+    debug.warn(error);
+  });
 }
 
 

@@ -4,6 +4,7 @@ export interface Version {
 
 export interface Warning {
   warning: string;
+  id: number;
 }
 
 export interface Warnings {
@@ -12,6 +13,7 @@ export interface Warnings {
 
 export interface Error {
   error: string;
+  id: number;
 }
 
 export interface Errors {

@@ -11,9 +11,9 @@
                     <li *ngFor="let warning_message of warning_messages">
                         <div class="alert alert-warning alert-dismissable fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true" (click)="ackwarn(warning_message.id)">&times;</span>
                             </button>
-                            <strong>Warning! </strong>{{warning_message.warning}}
+                            <strong>Warning! </strong>{{warning_message.warning}} Id: {{warning_message.id}}
                         </div>
                     </li>
                 </ul>
@@ -21,9 +21,9 @@
                     <li *ngFor="let error_message of error_messages">
                         <div class="alert alert-danger alert-dismissable fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                <span aria-hidden="true" (click)="ackerr(error_message.id)">&times;</span>
                             </button>
-                            <strong>Error! </strong>{{error_message.error}}
+                            <strong>Error! </strong>{{error_message.error}} Id: {{error_message.id}}
                         </div>
                     </li>
                 </ul>
