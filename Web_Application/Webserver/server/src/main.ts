@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as path from 'path';
+import * as bodyparser from 'body-parser';
 
 import * as http from 'http';
 import * as child from 'child_process';
@@ -20,6 +21,7 @@ let filelogger: debugsx.IHandler = debugsx.createFileHandler(
 debugsx.addHandler(consolelogger, filelogger);
 
 const serverApp = express();
+serverApp.use(bodyparser.json());
 serverApp.set('views', path.join(__dirname, '/views'));
 const pugEngine = serverApp.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
@@ -127,20 +129,37 @@ function callMeMaybe(req: express.Request, res: express.Response, next: express.
   }
 }
 
+function getToJava(path: string, data: string) {
+  console.log('Path: ' + path + ' Data: ' + data);
+}
+
 
 function putMeHere(req: express.Request, res: express.Response, next: express.NextFunction) {
   switch (req.query.q) {
     case 'times': {
-      console.log(req.body);
+      getToJava('/putTimes', JSON.stringify(req.body))
+      fs.writeFileSync('testfiles/times.json', JSON.stringify(req.body));
       break;
     }
+
+    case 'ackErr': {
+      getToJava('/ackErr', JSON.stringify(req.body));
+      break;
+    }
+
+    case 'ackWarn': {
+      getToJava('/ackWarn', JSON.stringify(req.body));
+      break;
+    }
+
+    default: { error404Handler(req, res, next); }
   }
 }
 
 
 function update(req: express.Request, res: express.Response, next: express.NextFunction) {
   res.sendFile(path.join(__dirname, 'views/update.html'))
-  child.exec(`cd .. &&git reset --hard && git pull && sudo npm-install-missing`, (error, stdout, stderr) => {
+  child.exec(`cd .. && git reset --hard && git pull && sudo npm-install-missing`, (error, stdout, stderr) => {
     if (stdout !== '') {
       debug.info(stdout);
     }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpgetService } from './httpget.service';
+import { HttpputService } from './httpput.service';
 import * as itf from './interfaces';
 
 @Component({
@@ -24,10 +25,7 @@ export class HomeComponent implements OnInit {
   private time3_show = false;
   private time4_show = false;
 
-  private warning = false;
-  private danger = false;
-
-  public constructor(private httpgetService: HttpgetService) { }
+  public constructor(private httpgetService: HttpgetService, private httpputService: HttpputService) { }
 
   ngOnInit(): void {
 
@@ -38,17 +36,11 @@ export class HomeComponent implements OnInit {
 
   callMeMaybe(): void {
     this.httpgetService.getWarnings().then(res => {
-      if (res.warnings !== undefined) {
-        this.warning_messages = res.warnings;
-        this.warning = true;
-      }
+      this.warning_messages = res.warnings;
     });
 
     this.httpgetService.getErrors().then(res => {
-      if (res.errors !== undefined) {
-        this.error_messages = res.errors;
-        this.danger = true;
-      }
+      this.error_messages = res.errors;
     });
 
     this.httpgetService.getTimes().then(res => {
@@ -70,11 +62,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  ackwarn(id: number) {
-    window.alert(id);
+  ackwarn(warning: itf.Warning) {
+    const id: itf.AckWarn = { id: warning.id };
+    this.httpputService.ackErr(id).subscribe();
   }
 
-  ackerr(id: number) {
-    window.alert(id);
+  ackerr(error: itf.Error) {
+    const id: itf.AckErr = { id: error.id };
+    this.httpputService.ackErr(id).subscribe();
   }
 }

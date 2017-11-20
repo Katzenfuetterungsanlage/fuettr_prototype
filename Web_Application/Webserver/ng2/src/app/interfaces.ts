@@ -11,6 +11,10 @@ export interface Warnings {
   warnings: Warning[];
 }
 
+export interface AckWarn {
+  id: number;
+}
+
 export interface Error {
   error: string;
   id: number;
@@ -19,6 +23,11 @@ export interface Error {
 export interface Errors {
   errors: Error[];
 }
+
+export interface AckErr {
+  id: number;
+}
+
 export interface Times {
   time1: string;
   time1_active: boolean;

@@ -7,21 +7,21 @@
                     <p>Nächste Fütterung erfolgt um: {{next_time}}</p>
                     <p>Nächste Fütterung erfolgt in: {{next_time_in}}</p>
                 </div>
-                <ul *ngIf="warning" style="list-style-type: none; margin-left: -40px;">
+                <ul style="list-style-type: none; margin-left: -40px;">
                     <li *ngFor="let warning_message of warning_messages">
                         <div class="alert alert-warning alert-dismissable fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true" (click)="ackwarn(warning_message.id)">&times;</span>
+                                <span aria-hidden="true" (click)="ackwarn(warning_message)">&times;</span>
                             </button>
                             <strong>Warning! </strong>{{warning_message.warning}}
                         </div>
                     </li>
                 </ul>
-                <ul *ngIf="danger" style="list-style-type: none; margin-left: -40px;">
+                <ul style="list-style-type: none; margin-left: -40px;">
                     <li *ngFor="let error_message of error_messages">
                         <div class="alert alert-danger alert-dismissable fade show" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true" (click)="ackerr(error_message.id)">&times;</span>
+                                <span aria-hidden="true" (click)="ackerr(error_message)">&times;</span>
                             </button>
                             <strong>Error! </strong>{{error_message.error}}
                         </div>

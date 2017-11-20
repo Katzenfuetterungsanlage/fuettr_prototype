@@ -18,7 +18,6 @@ export class FeedComponent implements OnInit {
   private check2: boolean;
   private check3: boolean;
   private check4: boolean;
-  private times: itf.Times;
 
   constructor(private httpgetService: HttpgetService, private httpputService: HttpputService) { }
 
@@ -49,17 +48,20 @@ export class FeedComponent implements OnInit {
   }
 
   save(): void {
-    this.times.time1 = this.time1;
-    this.times.time2 = this.time2;
-    this.times.time3 = this.time3;
-    this.times.time4 = this.time4;
+    const times: itf.Times = {
+      time1: this.time1,
+      time2: this.time2,
+      time3: this.time3,
+      time4: this.time4,
 
-    this.times.time1_active = this.check1;
-    this.times.time2_active = this.check2;
-    this.times.time3_active = this.check3;
-    this.times.time4_active = this.check4;
+      time1_active: this.check1,
+      time2_active: this.check2,
+      time3_active: this.check3,
+      time4_active: this.check4
+    };
 
-    this.httpputService.putTimes(this.times);
+    this.httpputService.putTimes(times).subscribe();
+    console.log(times);
   }
 }
 
