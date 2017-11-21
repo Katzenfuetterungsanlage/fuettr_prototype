@@ -28,9 +28,8 @@ pugEngine.locals.pretty = true;
 
 serverApp.use(logger);
 serverApp.use(express.static(path.join(__dirname, '../public')));
-serverApp.use('/node_modules', express.static(path.join(__dirname, '../../ng2/node_modules')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
-serverApp.put('/api/putMeHere', putMeHere)
+serverApp.put('/api/putMeHere', putMeHere);
 serverApp.get('/api/callMeMaybe', callMeMaybe);
 serverApp.get('/api/getUpdate', update);
 serverApp.get('/api/shutdown', shutdown);
@@ -130,16 +129,30 @@ function callMeMaybe(req: express.Request, res: express.Response, next: express.
 }
 
 function getToJava(path: string, data: string) {
-  console.log('Path: ' + path + ' Data: ' + data);
+  const options = {
+    host: 'localhost',
+    port: 666,
+    path: path,
+    method: 'PUT'
+  };
+
+  const req = http.request(options, function (res) { res.on('data', function () { }); });
+
+  req.on('error', function (error) {
+    debug.warn(error.message);
+  });
+
+  req.write(data);
+  req.end();
 }
 
 
 function putMeHere(req: express.Request, res: express.Response, next: express.NextFunction) {
   switch (req.query.q) {
     case 'times': {
-      getToJava('/putTimes', JSON.stringify(req.body))
-      
-  fs.writeFileSync('testfiles/times.json', JSON.stringify(req.body));
+      getToJava('/putTimes', JSON.stringify(req.body));
+
+      fs.writeFileSync('testfiles/times.json', JSON.stringify(req.body));
       break;
     }
 

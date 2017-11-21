@@ -45,3 +45,4 @@ package-lock.json
 */nbdist/
 */.nb-gradle/
 /Java_Application/ExampleJSONResponseServerByFlorianGreistorferXSx/nbproject/private/
+/Java_Application/ExampleJSONResponseServerByFlorianGreistorferXSx/build/
