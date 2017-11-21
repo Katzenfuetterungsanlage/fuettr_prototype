@@ -131,7 +131,7 @@ function callMeMaybe(req: express.Request, res: express.Response, next: express.
 
 function getToJava(path: string, data: string) {
   console.log('Path: ' + path + ' Data: ' + data);
-  fs.writeFileSync('../testfiles/'+ path +'.json', data);
+  fs.writeFileSync('../testfiles'+ path +'.json', data);
 }
 
 
