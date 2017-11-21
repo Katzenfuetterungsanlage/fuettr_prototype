@@ -27,7 +27,6 @@ chmod 755 /var/log/fuettr
 
 echo "
 --> downloading..."
-cd /var/log && sudo mkdir fuettr
 cd $THISUSER && mkdir git
 cd $THISUSER/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
 cd $THISUSER/git/fuettr_prototype && git pull
