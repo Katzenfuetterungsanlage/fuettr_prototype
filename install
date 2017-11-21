@@ -22,7 +22,7 @@ git config --global user.email "fuettr@gmail.com"
 echo "
 --> create logfolder..."
 cd /var/log && sudo mkdir fuettr
-chown $USER /var/log/fuettr
+sudo chown $USER /var/log/fuettr
 chmod 755 /var/log/fuettr
 
 echo "
