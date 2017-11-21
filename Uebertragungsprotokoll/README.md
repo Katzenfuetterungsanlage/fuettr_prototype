@@ -58,9 +58,9 @@
 
 ### 1.2 Fütterungszeiten
 
-| time1  | time2  | time3  | time4  |
-|--------|--------|--------|--------|
-| string | string | string | string |
+| time1  | time2  | time3  | time4  | time1_active | time2_active | time3_active | time4_active |
+|--------|--------|--------|--------|--------------|--------------|--------------|--------------|
+| string | string | string | string |   boolean    |   boolean    |   boolean    |   boolean    |
 
 #### Möglichkeitenbaum
 
@@ -72,14 +72,26 @@
     - 00:00 - 23:59
 - time4
     - 00:00 - 23:59
+- time1_active
+    - true/false
+- time2_active
+    - true/false
+- time3_active
+    - true/false
+- time4_active
+    - true/false
 
 #### Beispiel:
 ```JSON
 {  
-    "time1" : "10:10",
-    "time2" : "11:11",
-    "time3" : "12:12",
-    "time4" : "--:--"
+    "time1":"11:11",
+    "time2":"12:12",
+    "time3":"13:13",
+    "time4":"",
+    "time1_active":true,
+    "time2_active":false,
+    "time3_active":true,
+    "time4_active":false
 }
 ```
 
