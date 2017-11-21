@@ -16,14 +16,14 @@ sudo apt -y autoremove
 
 echo "
 --> setting git credentials..."
-sudo git config --global user.name "fuettr"
-sudo git config --global user.email "fuettr@gmail.com"
+git config --global user.name "fuettr"
+git config --global user.email "fuettr@gmail.com"
 
 echo "
 --> downloading..."
-cd $THISUSER && sudo mkdir git
-cd $THISUSER/git && sudo git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
-cd $THISUSER/git/fuettr_prototype && sudo git pull
+cd $THISUSER && mkdir git
+cd $THISUSER/git && git clone https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git
+cd $THISUSER/git/fuettr_prototype && git pull
 
 echo "
 --> copy rc.local..."
@@ -40,7 +40,7 @@ rsync -aP $THISUSER/git/fuettr_prototype/autostart $THISUSER/.config/lxsession/L
 
 echo "
 --> edititng autostart..."
-sudo rpl USERR $THISUSER $THISUSER/.config/lxsession/LXDE-$USER/autostart
+rpl USERR $THISUSER $THISUSER/.config/lxsession/LXDE-$USER/autostart
 
 echo "
 --> installing node dependencies..."
@@ -51,12 +51,13 @@ cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i
 
 echo "
 --> building server..."
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo ng build
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo gulp cleanAndBuild
 
 echo "
 --> starting server..."
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && sudo node main.js &
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && node main.js &
 
 echo "
 --> starting java application..."

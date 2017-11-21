@@ -40,7 +40,7 @@ serverApp.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2
 serverApp.use(error404Handler);
 serverApp.use(errorHandler);
 
-const port = 80;
+const port = 8080;
 const server = http.createServer(serverApp).listen(port);
 debug.info('Server running on port ' + port);
 
