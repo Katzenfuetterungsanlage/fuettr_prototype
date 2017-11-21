@@ -16,7 +16,7 @@ const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
 let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', "*");
 let date = new Date();
 let filelogger: debugsx.IHandler = debugsx.createFileHandler(
-  'logs/' + date.getFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDay() + '_' + date.getUTCHours() + '-' + date.getUTCMinutes() + '-' + date.getUTCSeconds() + '.log', );
+  '/var/log/fuettr/' + date.getFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDay() + '_' + date.getUTCHours() + '-' + date.getUTCMinutes() + '-' + date.getUTCSeconds() + '.log', );
 
 debugsx.addHandler(consolelogger, filelogger);
 
