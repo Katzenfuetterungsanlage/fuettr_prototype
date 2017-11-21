@@ -131,6 +131,7 @@ function callMeMaybe(req: express.Request, res: express.Response, next: express.
 
 function getToJava(path: string, data: string) {
   console.log('Path: ' + path + ' Data: ' + data);
+  fs.writeFileSync('../testfiles/'+ path +'.json', data);
 }
 
 
@@ -138,7 +139,6 @@ function putMeHere(req: express.Request, res: express.Response, next: express.Ne
   switch (req.query.q) {
     case 'times': {
       getToJava('/putTimes', JSON.stringify(req.body))
-      fs.writeFileSync('../testfiles/times.json', JSON.stringify(req.body));
       break;
     }
 
