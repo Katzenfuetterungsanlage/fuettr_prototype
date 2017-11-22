@@ -38,6 +38,7 @@ sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 echo "
 --> editing rc.local..."
 sudo rpl USERR $THISUSER /etc/rc.local
+sudo rpl USER $USER /etc/rc.local
 sudo chmod +x /etc/rc.local
 
 echo "
