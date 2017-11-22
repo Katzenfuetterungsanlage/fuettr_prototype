@@ -6,7 +6,7 @@ sudo service cron start &
 
 echo "
 --> Starting server"
-su pi -c 'USERR/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &'
+su USER -c 'USERR/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &'
 
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
