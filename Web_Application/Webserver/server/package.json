@@ -17,10 +17,12 @@
         "@types/express": "^4.0.38",
         "@types/node": "^8.0.47",
         "@types/pug": "^2.0.4",
-        "bootstrap": "^3.3.7",
+        "bootstrap": "^4.0.0-beta.2",
         "debug": "^2.6.9",
         "debug-sx": "^0.1.7",
         "express": "^4.16.2",
+        "jquery": "^3.2.1",
+        "popper.js": "^1.12.9",
         "pug": "^2.0.0-rc.4",
         "spin": "0.0.1"
     },

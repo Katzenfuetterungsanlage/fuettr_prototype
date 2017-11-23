@@ -134,9 +134,30 @@
 
 ### 1.4 Positions-info
 
+| motor1 | motor2 | sensor1 | sensor2 |
+|--------|--------|---------|---------|
+| string | string | string  | string  |
+
 #### Möglichkeitenbaum
 
+- motor1
+    -
+- motor2
+    -
+- sensor1
+    -
+- sensor2
+    -
+
 #### Beispiel:
+```JSON
+{
+    "motor1": "",
+    "motor2": "",
+    "sensor1": "",
+    "sensor2": ""
+}
+```
 
 ### 1.5 Warnungen
 

@@ -1,20 +1,18 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as bodyparser from 'body-parser';
+import * as debugsx from 'debug-sx';
 
 import * as http from 'http';
 import * as child from 'child_process';
 import * as fs from 'fs';
 
-
-
 process.env['DEBUG'] = '*';
 process.env['DEBUG_COLORS'] = "true";
 process.env['DEBUG_STREAM'] = "stdout";
-import * as debugsx from 'debug-sx';
+let date = new Date();
 const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
 let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', "*");
-let date = new Date();
 let filelogger: debugsx.IHandler = debugsx.createFileHandler(
   '/var/log/fuettr/' + date.getFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDay() + '_' + date.getUTCHours() + '-' + date.getUTCMinutes() + '-' + date.getUTCSeconds() + '.log', );
 
@@ -29,6 +27,7 @@ pugEngine.locals.pretty = true;
 serverApp.use(logger);
 serverApp.use(express.static(path.join(__dirname, '../public')));
 serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
+serverApp.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
 serverApp.put('/api/putMeHere', putMeHere);
 serverApp.get('/api/callMeMaybe', callMeMaybe);
 serverApp.get('/api/getUpdate', update);
