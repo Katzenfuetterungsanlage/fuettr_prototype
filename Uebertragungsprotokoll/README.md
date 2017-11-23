@@ -28,7 +28,7 @@
     * [2.2 Warnungen löschen](#22-warnungen-löschen)
         * [Möglichkeitenbaum](#möglichkeitenbaum-7)
         * [Beispiel](#beispiel-7)
-    * [2.3 Warnungen löschen](#23-errors-löschen)
+    * [2.3 Errors löschen](#23-errors-löschen)
         * [Möglichkeitenbaum](#möglichkeitenbaum-8)
         * [Beispiel](#beispiel-8)
 
