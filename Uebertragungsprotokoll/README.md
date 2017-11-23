@@ -22,6 +22,15 @@
         * [Möglichkeitenbaum](#möglichkeitenbaum-5)
         * [Beispiel](#beispiel-5)
 * [Client zu Server Kommunikation](#client-zu-server-kommunikation)
+    * [2.1 Fütterungszeiten](#21-fütterungszeiten)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-6)
+        * [Beispiel](#beispiel-6)
+    * [2.2 Warnungen löschen](#22-warnungen-löschen)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-7)
+        * [Beispiel](#beispiel-7)
+    * [2.3 Warnungen löschen](#23-errors-löschen)
+        * [Möglichkeitenbaum](#möglichkeitenbaum-8)
+        * [Beispiel](#beispiel-8)
 
 ## Server zu Client Kommunikation
 
@@ -186,3 +195,80 @@
 }
 ```
 ## Client zu Server Kommunikation
+
+### 2.1 Fütterungszeiten
+
+| time1  | time2  | time3  | time4  | time1_active | time2_active | time3_active | time4_active |
+|--------|--------|--------|--------|--------------|--------------|--------------|--------------|
+| string | string | string | string |   boolean    |   boolean    |   boolean    |   boolean    |
+
+#### Möglichkeitenbaum
+
+- time1
+    - 00:00 - 23:59
+- time2
+    - 00:00 - 23:59
+- time3
+    - 00:00 - 23:59
+- time4
+    - 00:00 - 23:59
+- time1_active
+    - true/false
+- time2_active
+    - true/false
+- time3_active
+    - true/false
+- time4_active
+    - true/false
+
+#### Beispiel:
+```JSON
+{  
+    "time1":"06:46",
+    "time2":"12:55",
+    "time3":"17:58",
+    "time4":"23:01",
+    "time1_active":false,
+    "time2_active":true,
+    "time3_active":true,
+    "time4_active":true
+}
+```
+
+### 2.2 Warnungen löschen
+
+|   id   |
+|--------|
+| number |
+
+#### Möglichkeitenbaum
+
+- id
+    - 1 - 65535
+
+#### Beispiel
+
+```JSON
+{
+    "id": 5618
+}
+```
+
+### 2.3 Errors löschen
+
+|   id   |
+|--------|
+| number |
+
+#### Möglichkeitenbaum
+
+- id
+    - 1 - 65535
+
+#### Beispiel
+
+```JSON
+{
+    "id": 51644
+}
+```
