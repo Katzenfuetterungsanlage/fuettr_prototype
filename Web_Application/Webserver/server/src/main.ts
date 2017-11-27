@@ -208,7 +208,7 @@ function shutdown() {
 }
 
 
-function getIp(res: express.Response) {
+function getIp(req: express.Request, res: express.Response, next: express.NextFunction) {
   http.get({ port: 80, host: 'api.ipify.org', path: '/?format=json' }, (resp) => {
     let data = '';
 
