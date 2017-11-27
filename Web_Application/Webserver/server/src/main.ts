@@ -18,28 +18,29 @@ let filelogger: debugsx.IHandler = debugsx.createFileHandler(
 
 debugsx.addHandler(consolelogger, filelogger);
 
-const serverApp = express();
-serverApp.use(bodyparser.json());
-serverApp.set('views', path.join(__dirname, '/views'));
-const pugEngine = serverApp.set('view engine', 'pug');
+const app = express();
+app.use(bodyparser.json());
+app.set('views', path.join(__dirname, '/views'));
+const pugEngine = app.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
 
-serverApp.use(logger);
-serverApp.use(express.static(path.join(__dirname, '../public')));
-serverApp.use(express.static(path.join(__dirname, '../../ng2/dist')));
-serverApp.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
-serverApp.put('/api/putMeHere', putMeHere);
-serverApp.get('/api/callMeMaybe', callMeMaybe);
-serverApp.get('/api/getUpdate', update);
-serverApp.get('/api/shutdown', shutdown);
-serverApp.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
-serverApp.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
-serverApp.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
-serverApp.use(error404Handler);
-serverApp.use(errorHandler);
+app.use(logger);
+app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../../ng2/dist')));
+app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
+app.put('/api/putMeHere', putMeHere);
+app.get('/api/callMeMaybe', callMeMaybe);
+app.get('/api/getUpdate', update);
+app.get('/api/shutdown', shutdown);
+app.get('/api/ip', getIp);
+app.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
+app.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
+app.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
+app.use(error404Handler);
+app.use(errorHandler);
 
 const port = 17325;
-const server = http.createServer(serverApp).listen(port);
+const server = http.createServer(app).listen(port);
 debug.info('Server running on port ' + port);
 
 
@@ -203,6 +204,28 @@ function update(req: express.Request, res: express.Response, next: express.NextF
 function shutdown() {
   child.exec('sudo poweroff', error => {
     debug.warn(error);
+  });
+}
+
+
+function getIp(res: express.Response) {
+  http.get({ port: 80, host: 'api.ipify.org', path: '/?format=json' }, (resp) => {
+    let data = '';
+
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    resp.on('end', () => {
+      try {
+        res.json(JSON.parse(data));
+      } catch (err) {
+        debug.severe(err);
+      }
+    });
+
+  }).on("error", (err) => {
+    debug.severe(err);
   });
 }
 
