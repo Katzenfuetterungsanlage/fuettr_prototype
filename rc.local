@@ -4,13 +4,13 @@
 
 sudo service cron start &
 
-echo "
+echo -e "\e[92m
 --> Starting server"
-su USER -c 'cd USERR/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &'
+su USER -c 'cd USERR/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &\e[0m'
 
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
-  echo -e "My IP address is \e[92m$_IP\e[0m"
+  echo -e "\e[92mMy IP address is \e[31m$_IP\e[0m"
 fi
 
 
