@@ -10,7 +10,8 @@ su USER -c 'cd USERR/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm s
 
 _IP=$(hostname -I) || true
 if [ "$_IP" ]; then
-  echo "\e[41mMy IP address is \e[30m$_IP\e[0m"
+  echo "
+ \e[41mMy IP address is \e[30m$_IP\e[0m\n"
 fi
 
 
