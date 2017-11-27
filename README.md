@@ -18,7 +18,7 @@ sudo apt install -y git
 ``` -->
 
 ```bash
-curl https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/install | bash
+curl -L https://goo.gl/8vdw15 | bash
 ```
 
 ## Übertragungsprotokoll
