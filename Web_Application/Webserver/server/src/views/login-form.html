@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Füttr</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="/ng2/src/styles.css">
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse text-nowrap" style="background-color: #191816;">
+        <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand logo"><img alt="Brand" class="logo-picture" src="../favicon.ico" width="48"> Füttr</a>
+
+
+        <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link"><img src="assets/home.png"> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><img src="assets/feed.png"> Fütterung</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"><img src="assets/control.png"> Positionen</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/settings.png"> Einstellungen</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown">
+                        <a class="nav-link dropdown-item"><img src="assets/info.png"> Geräteinfo</a>
+                        <a class="nav-link dropdown-item"><img src="assets/update.png"> Update</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <p><br><br><br></p>
+
+    <div class="container-fluid">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="usr">User:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="usr" placeholder="Enter username">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="pwd">Password:</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="pwd" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="pwd">Password:</label>
+                <div class="col-sm-10 has-error has-feedback">
+                    <input type="password" class="form-control" id="pwd2" placeholder="Password">
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>

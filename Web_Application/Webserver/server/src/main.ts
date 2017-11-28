@@ -12,9 +12,24 @@ process.env['DEBUG_COLORS'] = "true";
 process.env['DEBUG_STREAM'] = "stdout";
 let date = new Date();
 const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
-let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', "*");
+let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', "*", "-*", [
+  { level: /INFO*/, color: "cyan", inverse: true },
+  { level: /FINE*/, color: 'white', inverse: true },
+  { level: /SEVERE*/, color: 'red', inverse: true },
+  { level: "ERR", color: "red", inverse: true },
+  { level: 'WARN', color: 'magenta', inverse: true },
+]);
 let filelogger: debugsx.IHandler = debugsx.createFileHandler(
-  '/var/log/fuettr/' + date.getFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDay() + '_' + date.getUTCHours() + '-' + date.getUTCMinutes() + '-' + date.getUTCSeconds() + '.log', );
+  '/var/log/fuettr/' + date.getFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDay() + '_' + date.getUTCHours() + '-' + date.getUTCMinutes() + '-' + date.getUTCSeconds() + '.log',
+  "*",
+  "-*",
+  [
+    { level: /INFO*/, color: "cyan", inverse: true },
+    { level: /FINE*/, color: 'white', inverse: true },
+    { level: /SEVERE*/, color: 'red', inverse: true },
+    { level: "ERR", color: "red", inverse: true },
+    { level: 'WARN', color: 'magenta', inverse: true },
+  ]);
 
 debugsx.addHandler(consolelogger, filelogger);
 
@@ -27,7 +42,9 @@ pugEngine.locals.pretty = true;
 app.use(logger);
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../../ng2/dist')));
+app.use('/ng2', express.static(path.join(__dirname, '../../ng2')));
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
+// app.get('**', (req, res) => { res.sendFile(path.join(__dirname, 'views/login-form.html')); });
 app.put('/api/putMeHere', putMeHere);
 app.get('/api/callMeMaybe', callMeMaybe);
 app.get('/api/getUpdate', update);
@@ -42,7 +59,7 @@ app.use(errorHandler);
 const port = 17325;
 const server = http.createServer(app).listen(port);
 debug.info('Server running on port ' + port);
-
+const jsonToken = false;
 
 
 function error404Handler(req: express.Request, res: express.Response, next: express.NextFunction) {
