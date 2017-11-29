@@ -29,13 +29,13 @@ export interface AckErr {
 }
 
 export interface Times {
-  time1: string;
+  time1: number;
   time1_active: boolean;
-  time2: string;
+  time2: number;
   time2_active: boolean;
-  time3: string;
+  time3: number;
   time3_active: boolean;
-  time4: string;
+  time4: number;
   time4_active: boolean;
 }
 

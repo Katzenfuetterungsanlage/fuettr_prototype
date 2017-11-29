@@ -5,63 +5,65 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3">
-            <table class="table">
-                <thead>
+            <form (ngSubmit)="save()" #timeForm="ngForm">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">Zeiten</th>
+                            <th class="text-center" scope="col">Aktiv</th>
+                            <th class="text-center" scope="col">Uhrzeit</th>
+                        </tr>
+                    </thead>
                     <tr>
-                        <th class="text-center" scope="col">Zeiten</th>
-                        <th class="text-center" scope="col">Aktiv</th>
-                        <th class="text-center" scope="col">Uhrzeit</th>
+                        <td class="text-center">
+                            Zeit 1
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" id="check1" name="time1_active" #name="ngModel" [(ngModel)]="check1">
+                        </td>
+                        <td class="text-center">
+                            <input type="time" id="time1" name="time1" #name="ngModel" [(ngModel)]="time1">
+                        </td>
                     </tr>
-                </thead>
-                <tr>
-                    <td class="text-center">
-                        Zeit 1
-                    </td>
-                    <td class="text-center">
-                        <input type="checkbox" [(ngModel)]="check1">
-                    </td>
-                    <td class="text-center">
-                        <input type="time" [(ngModel)]="time1">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">
-                        Zeit 2
-                    </td>
-                    <td class="text-center">
-                        <input type="checkbox" [(ngModel)]="check2">
-                    </td>
-                    <td class="text-center">
-                        <input type="time" [(ngModel)]="time2">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">
-                        Zeit 3
-                    </td>
-                    <td class="text-center">
-                        <input type="checkbox" [(ngModel)]="check3">
-                    </td>
-                    <td class="text-center">
-                        <input type="time" [(ngModel)]="time3">
-                    </td>
-                </tr>
-                <tr>
-                    <td class="text-center">
-                        Zeit 4
-                    </td>
-                    <td class="text-center">
-                        <input type="checkbox" [(ngModel)]="check4">
-                    </td>
-                    <td class="text-center">
-                        <input type="time" [(ngModel)]="time4">
-                    </td>
-                </tr>
-            </table>
-            <div class="btn-group">
-                <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
-                <button type="submit" class="btn btn-success" (click)="save()">Speichern</button>
-            </div>
+                    <tr>
+                        <td class="text-center">
+                            Zeit 2
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" id="check2" name="time2_active" #name="ngModel" [(ngModel)]="check2">
+                        </td>
+                        <td class="text-center">
+                            <input type="time" id="time2" name="time2" #name="ngModel" [(ngModel)]="time2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            Zeit 3
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" id="check3" name="time3_active" #name="ngModel" [(ngModel)]="check3">
+                        </td>
+                        <td class="text-center">
+                            <input type="time" id="time3" name="time3" #name="ngModel" [(ngModel)]="time3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            Zeit 4
+                        </td>
+                        <td class="text-center">
+                            <input type="checkbox" id="check4" name="time4_active" #name="ngModel" [(ngModel)]="check4">
+                        </td>
+                        <td class="text-center">
+                            <input type="time" id="time4" name="time4" #name="ngModel" [(ngModel)]="time4">
+                        </td>
+                    </tr>
+                </table>
+                <div class="btn-group">
+                    <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+                    <button type="submit" class="btn btn-success">Speichern</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpgetService } from './httpget.service';
 import { HttpputService } from './httpput.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import * as itf from './interfaces';
 
@@ -10,10 +11,10 @@ import * as itf from './interfaces';
 })
 export class FeedComponent implements OnInit {
 
-  private time1: string;
-  private time2: string;
-  private time3: string;
-  private time4: string;
+  private time1: number;
+  private time2: number;
+  private time3: number;
+  private time4: number;
   private check1: boolean;
   private check2: boolean;
   private check3: boolean;

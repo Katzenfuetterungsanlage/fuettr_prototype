@@ -42,34 +42,41 @@ pugEngine.locals.pretty = true;
 
 app.use(logger);
 app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.static(path.join(__dirname, '../../ng2/dist')));
+app.use('/assets', express.static(path.join(__dirname, '../../ng2/dist/assets')));
 app.use('/ng2', express.static(path.join(__dirname, '../../ng2')));
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
+app.get('/inline.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/inline.bundle.js')); });
+app.get('/main.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/main.bundle.js')); });
+app.get('/polyfills.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/polyfills.bundle.js')); });
+app.get('/styles.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/styles.bundle.js')); });
+app.get('/vendor.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/vendor.bundle.js')); });
+app.get('/styles.css', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/src/styles.css')); });
+app.get('/bootstrap.css', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/src/bootstrap.css')); });
 app.put('/api/putMeHere', putMeHere);
 app.post('/login', login);
 app.get('/api/callMeMaybe', callMeMaybe);
 app.get('/api/getUpdate', update);
 app.get('/api/shutdown', shutdown);
 app.get('/api/ip', getIp);
+app.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
 app.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
+app.get('/api/face', (req, res) => { res.sendFile(path.join(__dirname, 'views/face.html')); });
 app.get('/login', isLoggedIn);
 app.get('**', (req, res) => { res.redirect('/login'); });
-app.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
-app.get('/', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
 app.use(error404Handler);
 app.use(errorHandler);
 
 const port = 17325;
 const server = http.createServer(app).listen(port);
 debug.info('Server running on port ' + port);
+const storedpass = '0812';
+const storeduser = 'mona';
 let jsonToken = false;
-const storedpass = 'enter';
-const storeduser = 'enter';
 
 
 function isLoggedIn(req: express.Request, res: express.Response, next: express.NextFunction) {
   if (jsonToken) {
-    res.redirect('/');
+    app.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
   }
   res.sendFile(path.join(__dirname, 'views/login-form.html'));
 }
@@ -81,9 +88,9 @@ function login(req: express.Request, res: express.Response, next: express.NextFu
   if (userpass === storedpass && username === storeduser) {
     jsonToken = true;
     setTimeout(() => { jsonToken = false; debug.fine('User logged out.') }, 60000);
-    res.redirect('/');
+    res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
   } else {
-    res.sendFile(path.join(__dirname, 'views/login-form-error.html'));
+    res.status(401).sendFile(path.join(__dirname, 'views/login-form-error.html'));
   }
 }
 
