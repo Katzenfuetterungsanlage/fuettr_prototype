@@ -46,15 +46,25 @@
     <p><br><br><br><br></p>
 
     <div class="container jumbotron align-middle">
-        <form class="form-horizontal" method="post" action="/login">
-            <div class="form-group">
-                <label for="usr">User:</label>
-                <input type="text" class="form-control" id="usr" placeholder="Enter username" name="user" required>
+        <p>
+            <form class="form-horizontal" method="post" action="/login">
+                <div class="form-group">
+                    <label for="usr">User:</label>
+                    <input type="text" class="form-control" id="usr" placeholder="Enter username" name="user" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </p>
+        <p>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Username or password incorrect!
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-success">Submit</button>
-        </form>
+        </p>
     </div>

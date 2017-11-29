@@ -35,6 +35,7 @@ debugsx.addHandler(consolelogger, filelogger);
 
 const app = express();
 app.use(bodyparser.json());
+app.use(bodyparser.urlencoded());
 app.set('views', path.join(__dirname, '/views'));
 const pugEngine = app.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
@@ -44,22 +45,47 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../../ng2/dist')));
 app.use('/ng2', express.static(path.join(__dirname, '../../ng2')));
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
-// app.get('**', (req, res) => { res.sendFile(path.join(__dirname, 'views/login-form.html')); });
 app.put('/api/putMeHere', putMeHere);
+app.post('/login', login);
 app.get('/api/callMeMaybe', callMeMaybe);
 app.get('/api/getUpdate', update);
 app.get('/api/shutdown', shutdown);
 app.get('/api/ip', getIp);
 app.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
+app.get('/login', isLoggedIn);
+app.get('**', (req, res) => { res.redirect('/login'); });
 app.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
-app.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
+app.get('/', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
 app.use(error404Handler);
 app.use(errorHandler);
 
 const port = 17325;
 const server = http.createServer(app).listen(port);
 debug.info('Server running on port ' + port);
-const jsonToken = false;
+let jsonToken = false;
+const storedpass = 'enter';
+const storeduser = 'enter';
+
+
+function isLoggedIn(req: express.Request, res: express.Response, next: express.NextFunction) {
+  if (jsonToken) {
+    res.redirect('/');
+  }
+  res.sendFile(path.join(__dirname, 'views/login-form.html'));
+}
+
+
+function login(req: express.Request, res: express.Response, next: express.NextFunction) {
+  const userpass = req.body.password;
+  const username = req.body.user;
+  if (userpass === storedpass && username === storeduser) {
+    jsonToken = true;
+    setTimeout(() => { jsonToken = false; debug.fine('User logged out.') }, 60000);
+    res.redirect('/');
+  } else {
+    res.sendFile(path.join(__dirname, 'views/login-form-error.html'));
+  }
+}
 
 
 function error404Handler(req: express.Request, res: express.Response, next: express.NextFunction) {
