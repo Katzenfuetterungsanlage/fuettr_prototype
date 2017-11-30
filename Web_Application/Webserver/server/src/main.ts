@@ -4,6 +4,7 @@ import * as bodyparser from 'body-parser';
 import * as debugsx from 'debug-sx';
 
 import * as http from 'http';
+import * as https from 'https';
 import * as child from 'child_process';
 import * as fs from 'fs';
 
@@ -50,6 +51,11 @@ app.get('/main.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '..
 app.get('/polyfills.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/polyfills.bundle.js')); });
 app.get('/styles.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/styles.bundle.js')); });
 app.get('/vendor.bundle.js', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/vendor.bundle.js')); });
+app.get('/inline.bundle.js.map', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/inline.bundle.js.map')); });
+app.get('/main.bundle.js.map', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/main.bundle.js.map')); });
+app.get('/polyfills.bundle.js.map', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/polyfills.bundle.js.map')); });
+app.get('/styles.bundle.js.map', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/styles.bundle.js.map')); });
+app.get('/vendor.bundle.js.map', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/vendor.bundle.js.map')); });
 app.get('/styles.css', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/src/styles.css')); });
 app.get('/bootstrap.css', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/src/bootstrap.css')); });
 app.put('/api/putMeHere', putMeHere);
@@ -62,15 +68,15 @@ app.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'vi
 app.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
 app.get('/api/face', (req, res) => { res.sendFile(path.join(__dirname, 'views/face.html')); });
 app.get('/login', isLoggedIn);
-app.get('**', (req, res) => { res.redirect('/login'); });
+app.get('**', isLoggedIn);
 app.use(error404Handler);
 app.use(errorHandler);
 
 const port = 17325;
 const server = http.createServer(app).listen(port);
 debug.info('Server running on port ' + port);
-const storedpass = '0812';
-const storeduser = 'mona';
+const storedpass = 'enter';
+const storeduser = 'enter';
 let jsonToken = false;
 
 

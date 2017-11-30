@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3">
-            <form (ngSubmit)="save()" #timeForm="ngForm">
+            <form #timeForm="ngForm" (ngSubmit)="save(timeForm.value)">
                 <table class="table">
                     <thead>
                         <tr>
@@ -19,10 +19,12 @@
                             Zeit 1
                         </td>
                         <td class="text-center">
-                            <input type="checkbox" id="check1" name="time1_active" #name="ngModel" [(ngModel)]="check1">
+                            <input type="checkbox" id="check1" name="time1_active" [(ngModel)]="check1">
                         </td>
                         <td class="text-center">
-                            <input type="time" id="time1" name="time1" #name="ngModel" [(ngModel)]="time1">
+                            <input type="time" id="time1" name="time1" [(ngModel)]="time1" #time1="ngModel" [min]="time4" [max]="time2">
+                            <p *ngIf="time1.errors?.min">error message</p>
+                            <p *ngIf="time1.errors?.max">error message</p>
                         </td>
                     </tr>
                     <tr>
@@ -30,10 +32,10 @@
                             Zeit 2
                         </td>
                         <td class="text-center">
-                            <input type="checkbox" id="check2" name="time2_active" #name="ngModel" [(ngModel)]="check2">
+                            <input type="checkbox" id="check2" name="time2_active" [(ngModel)]="check2">
                         </td>
                         <td class="text-center">
-                            <input type="time" id="time2" name="time2" #name="ngModel" [(ngModel)]="time2">
+                            <input type="time" id="time2" name="time2" [(ngModel)]="time2">
                         </td>
                     </tr>
                     <tr>
@@ -41,10 +43,10 @@
                             Zeit 3
                         </td>
                         <td class="text-center">
-                            <input type="checkbox" id="check3" name="time3_active" #name="ngModel" [(ngModel)]="check3">
+                            <input type="checkbox" id="check3" name="time3_active" [(ngModel)]="check3">
                         </td>
                         <td class="text-center">
-                            <input type="time" id="time3" name="time3" #name="ngModel" [(ngModel)]="time3">
+                            <input type="time" id="time3" name="time3" [(ngModel)]="time3">
                         </td>
                     </tr>
                     <tr>
@@ -52,10 +54,10 @@
                             Zeit 4
                         </td>
                         <td class="text-center">
-                            <input type="checkbox" id="check4" name="time4_active" #name="ngModel" [(ngModel)]="check4">
+                            <input type="checkbox" id="check4" name="time4_active" [(ngModel)]="check4">
                         </td>
                         <td class="text-center">
-                            <input type="time" id="time4" name="time4" #name="ngModel" [(ngModel)]="time4">
+                            <input type="time" id="time4" name="time4" [(ngModel)]="time4">
                         </td>
                     </tr>
                 </table>

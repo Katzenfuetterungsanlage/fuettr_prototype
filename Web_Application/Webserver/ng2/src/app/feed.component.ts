@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpgetService } from './httpget.service';
 import { HttpputService } from './httpput.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CustomFormsModule } from 'ng2-validation';
 
 import * as itf from './interfaces';
 
@@ -11,10 +12,10 @@ import * as itf from './interfaces';
 })
 export class FeedComponent implements OnInit {
 
-  private time1: number;
-  private time2: number;
-  private time3: number;
-  private time4: number;
+  private time1: string;
+  private time2: string;
+  private time3: string;
+  private time4: string;
   private check1: boolean;
   private check2: boolean;
   private check3: boolean;
@@ -48,21 +49,9 @@ export class FeedComponent implements OnInit {
     });
   }
 
-  save(): void {
-    const times: itf.Times = {
-      time1: this.time1,
-      time2: this.time2,
-      time3: this.time3,
-      time4: this.time4,
-
-      time1_active: this.check1,
-      time2_active: this.check2,
-      time3_active: this.check3,
-      time4_active: this.check4
-    };
-
-    this.httpputService.putTimes(times).subscribe();
-    console.log(times);
+  save(value): void {
+    this.httpputService.putTimes(value).subscribe();
+    console.log(value);
   }
 }
 
