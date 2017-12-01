@@ -77,10 +77,11 @@ const server = http.createServer(app).listen(port);
 debug.info('Server running on port ' + port);
 const storedpass = 'enter';
 const storeduser = 'enter';
-let jsonToken = false;
+let jsonToken = true;
 
 
 function isLoggedIn(req: express.Request, res: express.Response, next: express.NextFunction) {
+  jsonToken = true;
   if (jsonToken) {
     app.get('**', (req, res) => { res.sendFile(path.join(__dirname, '../../ng2/dist/index.html')); });
   }

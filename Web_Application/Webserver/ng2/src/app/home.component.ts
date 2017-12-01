@@ -15,10 +15,10 @@ export class HomeComponent implements OnInit {
   private next_time_in: string;
   private machine_state: string;
 
-  private time1: number;
-  private time2: number;
-  private time3: number;
-  private time4: number;
+  private time1: string;
+  private time2: string;
+  private time3: string;
+  private time4: string;
 
   private time1_show = false;
   private time2_show = false;
