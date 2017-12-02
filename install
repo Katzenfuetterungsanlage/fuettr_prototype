@@ -41,7 +41,7 @@ sudo rsync -aP $THISUSER/git/fuettr_prototype/rc.local /etc/rc.local
 echo -e "\e[92m
 --> editing rc.local...\e[0m"
 sudo rpl HOMEE $THISUSER /etc/rc.local
-sudo rpl USERRR $USER /etc/rc.local
+sudo rpl USERR $USER /etc/rc.local
 sudo chmod +x /etc/rc.local
 
 echo -e "\e[92m
