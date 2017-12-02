@@ -51,9 +51,9 @@
       <span class="input-group-addon" [hidden]="time4Valid" style="background-color: #d9534f">Muss gültige Zeit sein</span>
     </div>
     <br>
-    <div class="btn-group">
-      <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
-      <button type="submit" class="btn btn-success" [disabled]="!time.form.valid || !time1Valid || !time2ValidMin || !time2Valid || !time3ValidMin || !time3Valid || !time4ValidMin || !time4Valid">Speichern</button>
-    </div>
   </form>
+  <div class="btn-group">
+    <button type="cancel" class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+    <button type="submit" class="btn btn-success" (click)="save()" [disabled]="!time.form.valid || !time1Valid || !time2ValidMin || !time2Valid || !time3ValidMin || !time3Valid || !time4ValidMin || !time4Valid">Speichern</button>
+  </div>
 </div>

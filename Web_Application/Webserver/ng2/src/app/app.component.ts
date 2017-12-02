@@ -54,4 +54,9 @@ export class AppComponent implements OnInit {
   lic() {
     this.lick = 0;
   }
+
+  back() {
+    this.cat = false;
+    this.lick = 0;
+  }
 }

@@ -100,7 +100,17 @@ export class FeedComponent implements OnInit {
     });
   }
 
-  save(value: itf.Times): void {
+  save(): void {
+    const value = {
+      time1: this.time1,
+      time2: this.time2,
+      time3: this.time3,
+      time4: this.time4,
+      time1_active: this.check1,
+      time2_active: this.check2,
+      time3_active: this.check3,
+      time4_active: this.check4
+    };
     this.httpputService.putTimes(value).subscribe();
   }
 }
