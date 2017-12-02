@@ -16,6 +16,7 @@ import { UpdateService } from './update.service';
 import { HttpgetService } from './httpget.service';
 import { HttpputService } from './httpput.service';
 import { TimeCalculator } from './time.calculator.service';
+import { CatComponent } from './cat/cat.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import { TimeCalculator } from './time.calculator.service';
     FeedComponent,
     InfoComponent,
     UpdateComponent,
-    Error404Component
+    Error404Component,
+    CatComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpModule, FormsModule],
   providers: [UpdateService, HttpgetService, HttpputService, TimeCalculator],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

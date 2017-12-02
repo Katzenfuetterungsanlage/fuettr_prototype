@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UpdateService } from './update.service';
 import { HttpgetService } from './httpget.service';
+import { AppComponent } from './app.component';
 
 @Component({
   selector: 'app-info',
@@ -14,8 +15,11 @@ export class InfoComponent implements OnInit {
   ipadress: string;
   version: string;
 
-  constructor(private updateService: UpdateService, private httpgetService: HttpgetService) { }
-
+  constructor(
+    private updateService: UpdateService,
+    private httpgetService: HttpgetService,
+    private app: AppComponent
+  ) {}
 
   ngOnInit() {
     this.updateService.getVersion().then(lVersion => {
@@ -31,5 +35,6 @@ export class InfoComponent implements OnInit {
     this.httpgetService.getIp().then(res => {
       this.ipadress = res.ip;
     });
+    this.app.lic();
   }
 }

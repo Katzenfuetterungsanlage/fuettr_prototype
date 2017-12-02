@@ -3,15 +3,15 @@ import { HttpgetService } from './httpget.service';
 import { HttpputService } from './httpput.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TimeCalculator } from './time.calculator.service';
+import { AppComponent } from './app.component';
 
 import * as itf from './interfaces';
 
 @Component({
   selector: 'app-feed',
-  templateUrl: './feed.component.html',
+  templateUrl: './feed.component.html'
 })
 export class FeedComponent implements OnInit {
-
   private submit = false;
   private time1: string;
   private time2: string;
@@ -34,7 +34,12 @@ export class FeedComponent implements OnInit {
   private time4ValidMin = false;
   private time4Valid = false;
 
-  constructor(private httpgetService: HttpgetService, private httpputService: HttpputService, private timeCalculator: TimeCalculator) { }
+  constructor(
+    private httpgetService: HttpgetService,
+    private httpputService: HttpputService,
+    private timeCalculator: TimeCalculator,
+    private app: AppComponent
+  ) {}
 
   onKey() {
     this.time1Minutes = this.timeCalculator.toMinutes(this.time1);
@@ -44,17 +49,26 @@ export class FeedComponent implements OnInit {
 
     this.time1Valid = this.timeCalculator.isValid(this.time1);
 
-    this.time2ValidMin = this.time2Minutes > this.time1Minutes;
+    if (this.time1Minutes === null) {
+      this.time2ValidMin = true;
+    } else {
+      this.time2ValidMin = this.time2Minutes > this.time1Minutes;
+    }
     this.time2Valid = this.timeCalculator.isValid(this.time2);
 
-    this.time3ValidMin = this.time3Minutes > this.time2Minutes;
+    if (this.time2Minutes === null) {
+      this.time3ValidMin = true;
+    } else {
+      this.time3ValidMin = this.time3Minutes > this.time2Minutes;
+    }
     this.time3Valid = this.timeCalculator.isValid(this.time3);
 
-    this.time4ValidMin = this.time4Minutes > this.time3Minutes;
+    if (this.time3Minutes === null) {
+      this.time4ValidMin = true;
+    } else {
+      this.time4ValidMin = this.time4Minutes > this.time3Minutes;
+    }
     this.time4Valid = this.timeCalculator.isValid(this.time4);
-
-    console.log(this.time1Minutes + ' ' + this.time2Minutes + ' ' + this.time3Minutes + ' ' + this.time4Minutes);
-    console.log(this.time2ValidMin + ' ' + this.time3ValidMin + ' ' + this.time4ValidMin);
   }
 
   ngOnInit(): void {
@@ -69,6 +83,7 @@ export class FeedComponent implements OnInit {
       this.check4 = res.time4_active;
 
       this.onKey();
+      this.app.lic();
     });
   }
 
@@ -87,7 +102,5 @@ export class FeedComponent implements OnInit {
 
   save(value: itf.Times): void {
     this.httpputService.putTimes(value).subscribe();
-    console.log(value);
   }
 }
-

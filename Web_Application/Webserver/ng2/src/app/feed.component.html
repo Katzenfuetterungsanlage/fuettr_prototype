@@ -1,80 +1,59 @@
 <div class="container-fluid">
-    <h1>Fütterungszeiten</h1>
-    <br>
+  <h1 class="bigger-h1">Fütterungszeiten</h1>
+  <br>
 </div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3">
-            <form #time="ngForm" (ngSubmit)="save(time.value)">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="text-center" scope="col">Zeiten</th>
-                            <th class="text-center" scope="col">Aktiv</th>
-                            <th class="text-center" scope="col">Uhrzeit</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td class="text-center">
-                            Zeit 1
-                        </td>
-                        <td class="text-center">
-                            <input type="checkbox" id="check1" name="time1_active" [(ngModel)]="check1">
-                        </td>
-                        <td class="text-center">
-                            <input (keyup)="onKey()" type="text" id="time1" name="time1" [(ngModel)]="time1" pattern="\d{2}\:\d{2}" minlength="5" maxlength="5" #time1_="ngModel">
-                            <div [hidden]="time1_.pattern || time1_.pristine || time1_.valid" style="background-color: #d9534f">Format: HH:MM</div>
-                            <div [hidden]="time1Valid" style="background-color: #d9534f">Muss gültige Zeit sein</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">
-                            Zeit 2
-                        </td>
-                        <td class="text-center">
-                            <input type="checkbox" id="check2" name="time2_active" [(ngModel)]="check2">
-                        </td>
-                        <td class="text-center">
-                            <input (keyup)="onKey()" type="text" id="time2" name="time2" [(ngModel)]="time2" pattern="\d{2}\:\d{2}" minlength="5" maxlength="5" #time2_="ngModel">
-                            <div [hidden]="time2_.pattern || time2_.pristine || time2_.valid" style="background-color: #d9534f">Format: HH:MM</div>
-                            <div [hidden]="time2ValidMin || !time1Valid" style="background-color: #d9534f">Muss größer als {{time1}} sein</div>
-                            <div [hidden]="time2Valid" style="background-color: #d9534f">Muss gültige Zeit sein</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">
-                            Zeit 3
-                        </td>
-                        <td class="text-center">
-                            <input type="checkbox" id="check3" name="time3_active" [(ngModel)]="check3">
-                        </td>
-                        <td class="text-center">
-                            <input (keyup)="onKey()" type="text" id="time3" name="time3" [(ngModel)]="time3" pattern="\d{2}\:\d{2}" minlength="5" maxlength="5" #time3_="ngModel">
-                            <div [hidden]="time3_.pattern || time3_.pristine || time3_.valid" style="background-color: #d9534f">Format: HH:MM</div>
-                            <div [hidden]="time3ValidMin || !time2Valid" style="background-color: #d9534f">Muss größer als {{time2}} sein</div>
-                            <div [hidden]="time3Valid" style="background-color: #d9534f">Muss gültige Zeit sein</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">
-                            Zeit 4
-                        </td>
-                        <td class="text-center">
-                            <input type="checkbox" id="check4" name="time4_active" [(ngModel)]="check4">
-                        </td>
-                        <td class="text-center">
-                            <input (keyup)="onKey()" type="text" id="time4" name="time4" [(ngModel)]="time4" pattern="\d{2}\:\d{2}" minlength="5" maxlength="5" #time4_="ngModel">
-                            <div [hidden]="time4_.pattern || time4_.pristine || time4_.valid" style="background-color: #d9534f">Format: HH:MM</div>
-                            <div [hidden]="time4ValidMin || !time3Valid" style="background-color: #d9534f">Muss größer als {{time3}} sein</div>
-                            <div [hidden]="time4Valid" style="background-color: #d9534f">Muss gültige Zeit sein</div>
-                        </td>
-                    </tr>
-                </table>
-                <div class="btn-group">
-                    <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
-                    <button type="submit" class="btn btn-success" [disabled]="!time.form.valid || !time1ValidMin || !time1ValidMax || !time2ValidMin || !time2ValidMax || !time3ValidMin || !time3ValidMax || !time4ValidMin || !time4ValidMax">Speichern</button>
-                </div>
-            </form>
-        </div>
+<div class="container-fluid bigger">
+  <form #time="ngForm" (ngSubmit)="save(time.value)">
+    <h2>Zeit 1</h2>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon">
+        <input type="checkbox" id="check1" name="time1_active" [(ngModel)]="check1">
+      </span>
+      <input (keyup)="onKey()" type="text" id="time1" name="time1" [(ngModel)]="time1" pattern="(\d{2}|\-\-)\:(\d{2}|\-\-)" minlength="5"
+        maxlength="5" #time1_="ngModel">
+      <span class="input-group-addon" [hidden]="time1_.pattern || time1_.pristine || time1_.valid" style="background-color: #d9534f">Format: HH:MM</span>
+      <span class="input-group-addon" [hidden]="time1Valid" style="background-color: #d9534f">Muss gültige Zeit sein</span>
     </div>
+    <br>
+    <h2>Zeit 2</h2>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon">
+        <input type="checkbox" id="check2" name="time2_active" [(ngModel)]="check2">
+      </span>
+      <input (keyup)="onKey()" type="text" id="time2" name="time2" [(ngModel)]="time2" pattern="(\d{2}|\-\-)\:(\d{2}|\-\-)" minlength="5"
+        maxlength="5" #time2_="ngModel">
+      <span class="input-group-addon" [hidden]="time2_.pattern || time2_.pristine || time2_.valid" style="background-color: #d9534f">Format: HH:MM</span>
+      <span class="input-group-addon" [hidden]="time2ValidMin || !time1Valid" style="background-color: #d9534f">Muss größer als {{time1}} sein</span>
+      <span class="input-group-addon" [hidden]="time2Valid" style="background-color: #d9534f">Muss gültige Zeit sein</span>
+    </div>
+    <br>
+    <h2>Zeit 3</h2>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon">
+        <input type="checkbox" id="check3" name="time3_active" [(ngModel)]="check3">
+      </span>
+      <input (keyup)="onKey()" type="text" id="time3" name="time3" [(ngModel)]="time3" pattern="(\d{2}|\-\-)\:(\d{2}|\-\-)" minlength="5"
+        maxlength="5" #time3_="ngModel">
+      <span class="input-group-addon" [hidden]="time3_.pattern || time3_.pristine || time3_.valid" style="background-color: #d9534f">Format: HH:MM</span>
+      <span class="input-group-addon" [hidden]="time3ValidMin || !time2Valid" style="background-color: #d9534f">Muss größer als {{time2}} sein</span>
+      <span class="input-group-addon" [hidden]="time3Valid" style="background-color: #d9534f">Muss gültige Zeit sein</span>
+    </div>
+    <br>
+    <h2>Zeit 4</h2>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon">
+        <input type="checkbox" id="check4" name="time4_active" [(ngModel)]="check4">
+      </span>
+      <input (keyup)="onKey()" type="text" id="time4" name="time4" [(ngModel)]="time4" pattern="(\d{2}|\-\-)\:(\d{2}|\-\-)" minlength="5"
+        maxlength="5" #time4_="ngModel">
+      <span class="input-group-addon" [hidden]="time4_.pattern || time4_.pristine || time4_.valid" style="background-color: #d9534f">Format: HH:MM</span>
+      <span class="input-group-addon" [hidden]="time4ValidMin || !time3Valid" style="background-color: #d9534f">Muss größer als {{time3}} sein</span>
+      <span class="input-group-addon" [hidden]="time4Valid" style="background-color: #d9534f">Muss gültige Zeit sein</span>
+    </div>
+    <br>
+    <div class="btn-group">
+      <button class="btn btn-secondary" (click)="cancel()">Abbrechen</button>
+      <button type="submit" class="btn btn-success" [disabled]="!time.form.valid || !time1Valid || !time2ValidMin || !time2Valid || !time3ValidMin || !time3Valid || !time4ValidMin || !time4Valid">Speichern</button>
+    </div>
+  </form>
 </div>

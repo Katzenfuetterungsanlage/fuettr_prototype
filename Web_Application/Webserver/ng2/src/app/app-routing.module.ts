@@ -12,15 +12,31 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Füttr' } },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'login', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'position', component: PositionComponent, data: { title: 'Füttr - Positionen' } },
-  { path: 'feed', component: FeedComponent, data: { title: 'Füttr - Fütterung' } },
+  {
+    path: 'position',
+    component: PositionComponent,
+    data: { title: 'Füttr - Positionen' }
+  },
+  {
+    path: 'feed',
+    component: FeedComponent,
+    data: { title: 'Füttr - Fütterung' }
+  },
   { path: 'info', component: InfoComponent, data: { title: 'Füttr - Info' } },
-  { path: 'update', component: UpdateComponent, data: { title: 'Füttr - Update' } },
-  { path: '**', component: Error404Component, data: { title: 'Füttr - 404 (not found)' } }
+  {
+    path: 'update',
+    component: UpdateComponent,
+    data: { title: 'Füttr - Update' }
+  },
+  {
+    path: '**',
+    component: Error404Component,
+    data: { title: 'Füttr - 404 (not found)' }
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
