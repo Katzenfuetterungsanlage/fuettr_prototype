@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpgetService } from './httpget.service';
 import { HttpputService } from './httpput.service';
+import { AppComponent } from './app.component';
 import * as itf from './interfaces';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   private warning_messages: itf.Warning[];
@@ -25,13 +26,19 @@ export class HomeComponent implements OnInit {
   private time3_show = false;
   private time4_show = false;
 
-  public constructor(private httpgetService: HttpgetService, private httpputService: HttpputService) { }
+  public constructor(
+    private httpgetService: HttpgetService,
+    private httpputService: HttpputService,
+    private app: AppComponent
+  ) {}
 
   ngOnInit(): void {
-
     this.callMeMaybe();
 
-    setInterval(() => { this.callMeMaybe(); }, 30000);
+    setInterval(() => {
+      this.callMeMaybe();
+    }, 30000);
+    this.app.navShow = false;
   }
 
   callMeMaybe(): void {

@@ -36,5 +36,6 @@ export class InfoComponent implements OnInit {
       this.ipadress = res.ip;
     });
     this.app.lic();
+    this.app.navShow = false;
   }
 }

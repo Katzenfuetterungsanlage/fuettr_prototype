@@ -15,5 +15,6 @@ export class Error404Component {
   ) {
     this.url = this.document.location.href;
     app.lic();
+    this.app.navShow = false;
   }
 }

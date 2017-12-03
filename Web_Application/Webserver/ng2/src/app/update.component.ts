@@ -95,6 +95,7 @@ export class UpdateComponent implements OnInit {
     this.message = 'Checking for updates...';
     this.t1 = this.t1 = Date.now();
     this.app.lic();
+    this.app.navShow = false;
 
     this.updateService
       .checkUpdate()

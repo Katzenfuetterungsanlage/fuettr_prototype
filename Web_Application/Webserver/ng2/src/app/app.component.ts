@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   private promiseResult: string;
   private cat = false;
   private lick = 0;
+  public navShow = false;
 
   public constructor(
     private router: Router,
@@ -58,5 +59,10 @@ export class AppComponent implements OnInit {
   back() {
     this.cat = false;
     this.lick = 0;
+  }
+
+  toggleState() {
+    const bool = this.navShow;
+    this.navShow = bool === false ? true : false;
   }
 }

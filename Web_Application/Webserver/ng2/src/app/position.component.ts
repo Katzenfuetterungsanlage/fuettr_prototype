@@ -25,5 +25,6 @@ export class PositionComponent implements OnInit {
       this.sensor2 = res.sensor2;
     });
     this.app.lic();
+    this.app.navShow = false;
   }
 }

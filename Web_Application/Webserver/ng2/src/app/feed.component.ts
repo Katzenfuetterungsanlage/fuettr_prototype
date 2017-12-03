@@ -108,6 +108,7 @@ export class FeedComponent implements OnInit {
 
       this.onKey();
       this.app.lic();
+      this.app.navShow = false;
     });
   }
 
