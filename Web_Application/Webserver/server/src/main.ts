@@ -293,7 +293,7 @@ function putMeHere(
     case 'times': {
       getToJava('/putTimes', JSON.stringify(req.body));
 
-      fs.writeFileSync('testfiles/times.json', JSON.stringify(req.body));
+      fs.writeFileSync(path.join(__dirname, 'testfiles/times.json', JSON.stringify(req.body));
       break;
     }
 
