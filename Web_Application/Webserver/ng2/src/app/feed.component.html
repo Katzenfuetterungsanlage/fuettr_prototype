@@ -67,7 +67,7 @@
       <button type="submit" class="btn btn-success" (click)="save()" style="z-index: 1100 !important;" [disabled]="!time.form.valid || !time1Valid || !time2ValidMin || !time2Valid || !time3ValidMin || !time3Valid || !time4ValidMin || !time4Valid">Speichern</button>
       <button class="btn" style="background-color: #2B3E50; z-index: 1090 !important; margin-left: -126px !important; color: #2B3E50">Gespeichert.</button>
       <button *ngIf="saved" class="btn btn-success savedAnimate" [@SaveAnimation]="savedstate" disabled>Gespeichert.</button>
-      <button *ngIf="failed" class="btn btn-danger failedAnimate" disabled>Mislungen.</button>
+      <button *ngIf="failed" class="btn btn-danger failedAnimate" disabled>Misslungen.</button>
     </div>
   </div>
 </div>
