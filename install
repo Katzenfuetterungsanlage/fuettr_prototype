@@ -67,7 +67,7 @@ cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo gulp 
 
 echo -e "\e[92m
 --> starting server...\e[0m"
-cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && node main.js &
+cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server/dist && node main.js #&
 
 #echo -e "\e[92m
 #--> starting java application...\e[0m"
