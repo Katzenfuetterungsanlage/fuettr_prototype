@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  trigger,
+  state,
+  animate,
+  transition,
+  style
+} from '@angular/core';
 import { HttpgetService } from './httpget.service';
 import { HttpputService } from './httpput.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -9,10 +17,20 @@ import * as itf from './interfaces';
 
 @Component({
   selector: 'app-feed',
-  templateUrl: './feed.component.html'
+  templateUrl: './feed.component.html',
+  animations: [
+    trigger('SaveAnimation', [
+      state('false', style({ 'margin-left': '-126px' })),
+      state('true', style({ 'margin-left': '0' })),
+      transition('* => *', animate('300ms'))
+    ])
+  ]
 })
 export class FeedComponent implements OnInit {
   private submit = false;
+  private saved = true;
+  private failed = false;
+  private savedstate = false;
   private time1: string;
   private time2: string;
   private time3: string;
@@ -21,8 +39,10 @@ export class FeedComponent implements OnInit {
   private check2: boolean;
   private check3: boolean;
   private check4: boolean;
-  public saved = false;
-  public failed = false;
+  private doppelpoint1: boolean;
+  private doppelpoint2: boolean;
+  private doppelpoint3: boolean;
+  private doppelpoint4: boolean;
 
   private time1Minutes: number;
   private time1Valid = false;
@@ -41,9 +61,11 @@ export class FeedComponent implements OnInit {
     private httpputService: HttpputService,
     private timeCalculator: TimeCalculator,
     private app: AppComponent
-  ) { }
+  ) {}
 
-  onKey() {
+  onKey(): void {
+    this.doppelpoint();
+
     this.time1Minutes = this.timeCalculator.toMinutes(this.time1);
     this.time2Minutes = this.timeCalculator.toMinutes(this.time2);
     this.time3Minutes = this.timeCalculator.toMinutes(this.time3);
@@ -113,17 +135,79 @@ export class FeedComponent implements OnInit {
       time3_active: this.check3,
       time4_active: this.check4
     };
-    this.httpputService.putTimes(value)
-      .then(() => {
-        this.saved = true;
+
+    this.httpputService
+      .putTimes(value)
+      .then(res => {
+        this.time1 = res.time1;
+        this.time2 = res.time2;
+        this.time3 = res.time3;
+        this.time4 = res.time4;
+        this.check1 = res.time1_active;
+        this.check2 = res.time2_active;
+        this.check3 = res.time3_active;
+        this.check4 = res.time4_active;
+        this.savedstate = true;
         setTimeout(() => {
-          this.saved = false;
-        }, 1000);
-      }).catch(() => {
+          this.savedstate = false;
+        }, 1500);
+      })
+      .catch(() => {
         this.failed = true;
         setTimeout(() => {
           this.failed = false;
-        }, 1000);
+        }, 1500);
       });
+  }
+
+  doppelpoint(): void {
+    if (this.time1.length === 3) {
+      this.doppelpoint1 = true;
+    }
+    if (this.time1.length === 2) {
+      if (!this.doppelpoint1) {
+        this.time1 += ':';
+        this.doppelpoint1 = true;
+      }
+    }
+    if (this.time1.length === 1) {
+      this.doppelpoint1 = false;
+    }
+    if (this.time2.length === 3) {
+      this.doppelpoint2 = true;
+    }
+    if (this.time2.length === 2) {
+      if (!this.doppelpoint2) {
+        this.time2 += ':';
+        this.doppelpoint2 = true;
+      }
+    }
+    if (this.time2.length === 1) {
+      this.doppelpoint2 = false;
+    }
+    if (this.time3.length === 3) {
+      this.doppelpoint3 = true;
+    }
+    if (this.time3.length === 2) {
+      if (!this.doppelpoint3) {
+        this.time3 += ':';
+        this.doppelpoint3 = true;
+      }
+    }
+    if (this.time3.length === 1) {
+      this.doppelpoint3 = false;
+    }
+    if (this.time4.length === 3) {
+      this.doppelpoint4 = true;
+    }
+    if (this.time4.length === 2) {
+      if (!this.doppelpoint4) {
+        this.time4 += ':';
+        this.doppelpoint4 = true;
+      }
+    }
+    if (this.time4.length === 1) {
+      this.doppelpoint4 = false;
+    }
   }
 }

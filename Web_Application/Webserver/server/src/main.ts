@@ -27,18 +27,18 @@ let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler(
 );
 let filelogger: debugsx.IHandler = debugsx.createFileHandler(
   '/var/log/fuettr/' +
-  date.getFullYear() +
-  '-' +
-  date.getUTCMonth() +
-  '-' +
-  date.getUTCDay() +
-  '_' +
-  date.getUTCHours() +
-  '-' +
-  date.getUTCMinutes() +
-  '-' +
-  date.getUTCSeconds() +
-  '.log',
+    date.getFullYear() +
+    '-' +
+    date.getUTCMonth() +
+    '-' +
+    date.getUTCDay() +
+    '_' +
+    date.getUTCHours() +
+    '-' +
+    date.getUTCMinutes() +
+    '-' +
+    date.getUTCSeconds() +
+    '.log',
   '*',
   '-*',
   [
@@ -106,7 +106,7 @@ app.get('/styles.css', (req, res) => {
 app.get('/bootstrap.css', (req, res) => {
   res.sendFile(path.join(__dirname, '../../ng2/src/bootstrap.css'));
 });
-app.put('/api/putMeHere', putMeHere);
+app.post('/api/putMeHere', putMeHere);
 app.post('/login', login);
 app.get('/api/callMeMaybe', callMeMaybe);
 app.get('/api/getUpdate', update);
@@ -274,11 +274,13 @@ function getToJava(path: string, data: string): string {
 
   let back: string;
 
-  const req = http.request(options, (res) => {
-    res.on('data', (chunk) => { back += chunk });
+  const req = http.request(options, res => {
+    res.on('data', chunk => {
+      back += chunk;
+    });
   });
 
-  req.on('error', (error) => {
+  req.on('error', error => {
     debug.warn(error.message);
   });
 
@@ -292,12 +294,18 @@ function putMeHere(
   res: express.Response,
   next: express.NextFunction
 ) {
+  const OK = {
+    ok: 'ok'
+  };
   switch (req.query.q) {
     case 'times': {
       // getToJava('/putTimes', JSON.stringify(req.body));
 
-      fs.writeFileSync(path.join(__dirname, '../testfiles/times.json'), JSON.stringify(req.body));
-      res.write('Ok');
+      fs.writeFileSync(
+        path.join(__dirname, '../testfiles/times.json'),
+        JSON.stringify(req.body)
+      );
+      res.sendFile(path.join(__dirname, '../testfiles/times.json'));
       break;
     }
 

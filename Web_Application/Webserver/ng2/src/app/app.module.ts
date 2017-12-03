@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +30,13 @@ import { CatComponent } from './cat/cat.component';
     Error404Component,
     CatComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpModule,
+    FormsModule,
+    BrowserAnimationsModule
+  ],
   providers: [UpdateService, HttpgetService, HttpputService, TimeCalculator],
   bootstrap: [AppComponent]
 })

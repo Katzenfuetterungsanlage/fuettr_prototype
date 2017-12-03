@@ -80,3 +80,11 @@
   font-size: 32pt !important;
   border-bottom: 2px solid white;
 }
+
+.savedAnimate {
+  margin-left: -126px;
+}
+
+.failedAnimate {
+  margin-left: -113px;
+}
