@@ -21,6 +21,8 @@ export class FeedComponent implements OnInit {
   private check2: boolean;
   private check3: boolean;
   private check4: boolean;
+  public saved = false;
+  public failed = false;
 
   private time1Minutes: number;
   private time1Valid = false;
@@ -39,7 +41,7 @@ export class FeedComponent implements OnInit {
     private httpputService: HttpputService,
     private timeCalculator: TimeCalculator,
     private app: AppComponent
-  ) {}
+  ) { }
 
   onKey() {
     this.time1Minutes = this.timeCalculator.toMinutes(this.time1);
@@ -111,6 +113,17 @@ export class FeedComponent implements OnInit {
       time3_active: this.check3,
       time4_active: this.check4
     };
-    this.httpputService.putTimes(value).subscribe();
+    this.httpputService.putTimes(value)
+      .then(() => {
+        this.saved = true;
+        setTimeout(() => {
+          this.saved = false;
+        }, 1000);
+      }).catch(() => {
+        this.failed = true;
+        setTimeout(() => {
+          this.failed = false;
+        }, 1000);
+      });
   }
 }

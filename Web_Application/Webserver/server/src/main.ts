@@ -27,18 +27,18 @@ let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler(
 );
 let filelogger: debugsx.IHandler = debugsx.createFileHandler(
   '/var/log/fuettr/' +
-    date.getFullYear() +
-    '-' +
-    date.getUTCMonth() +
-    '-' +
-    date.getUTCDay() +
-    '_' +
-    date.getUTCHours() +
-    '-' +
-    date.getUTCMinutes() +
-    '-' +
-    date.getUTCSeconds() +
-    '.log',
+  date.getFullYear() +
+  '-' +
+  date.getUTCMonth() +
+  '-' +
+  date.getUTCDay() +
+  '_' +
+  date.getUTCHours() +
+  '-' +
+  date.getUTCMinutes() +
+  '-' +
+  date.getUTCSeconds() +
+  '.log',
   '*',
   '-*',
   [
@@ -264,7 +264,7 @@ function callMeMaybe(
   }
 }
 
-function getToJava(path: string, data: string) {
+function getToJava(path: string, data: string): string {
   const options = {
     host: 'localhost',
     port: 666,
@@ -272,16 +272,19 @@ function getToJava(path: string, data: string) {
     method: 'PUT'
   };
 
-  const req = http.request(options, function(res) {
-    res.on('data', function() {});
+  let back: string;
+
+  const req = http.request(options, (res) => {
+    res.on('data', (chunk) => { back += chunk });
   });
 
-  req.on('error', function(error) {
+  req.on('error', (error) => {
     debug.warn(error.message);
   });
 
   req.write(data);
   req.end();
+  return back;
 }
 
 function putMeHere(
@@ -291,9 +294,10 @@ function putMeHere(
 ) {
   switch (req.query.q) {
     case 'times': {
-      getToJava('/putTimes', JSON.stringify(req.body));
+      // getToJava('/putTimes', JSON.stringify(req.body));
 
       fs.writeFileSync(path.join(__dirname, '../testfiles/times.json'), JSON.stringify(req.body));
+      res.write('Ok');
       break;
     }
 

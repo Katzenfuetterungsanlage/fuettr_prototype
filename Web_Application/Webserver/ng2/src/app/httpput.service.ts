@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 
 import 'rxjs/Rx';
 
@@ -13,7 +13,10 @@ export class HttpputService {
   constructor(private http: Http) { }
 
   putTimes(times) {
-    return this.http.put(this.api + 'times', JSON.stringify(times), { headers: this.headers });
+    return this.http.put(this.api + 'times', JSON.stringify(times), { headers: this.headers })
+      .toPromise()
+      .then(res => res.text)
+      .catch();
   }
 
   ackErr(data) {

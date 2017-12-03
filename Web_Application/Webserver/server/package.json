@@ -6,7 +6,7 @@
     "scripts": {
         "prestart": "gulp cleanAndBuild",
         "restart": "gulp cleanAndBuild",
-        "start": "nodemon dist/main.js",
+        "start": "node dist/main.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Florian Greistorfer",
