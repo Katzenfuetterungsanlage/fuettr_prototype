@@ -54,7 +54,7 @@ debugsx.addHandler(consolelogger, filelogger);
 
 const app = express();
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded());
+app.use(bodyparser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, '/views'));
 const pugEngine = app.set('view engine', 'pug');
 pugEngine.locals.pretty = true;
