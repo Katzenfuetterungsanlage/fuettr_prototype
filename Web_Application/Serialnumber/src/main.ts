@@ -4,14 +4,15 @@ import * as path from 'path';
 import * as bodyparser from 'body-parser';
 import * as http from 'http';
 
-let serialnumber: number;
+let serialnumber = 0;
 const app = express();
 app.use(bodyparser.json());
 app.post('/serialnumber', (req, res) => {
   console.log(req.body.mac);
   let numbers = fs.readFileSync(path.join(__dirname, '../serialnumbers.num'));
   serialnumber++;
-  res.send(serialnumber);
+  console.log(serialnumber);
+  res.send(serialnumber.toString());
 });
 
 const port = 2525;

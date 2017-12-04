@@ -5,14 +5,15 @@ var fs = require("fs");
 var path = require("path");
 var bodyparser = require("body-parser");
 var http = require("http");
-var serialnumber;
+var serialnumber = 0;
 var app = express();
 app.use(bodyparser.json());
 app.post('/serialnumber', function (req, res) {
     console.log(req.body.mac);
     var numbers = fs.readFileSync(path.join(__dirname, '../serialnumbers.num'));
     serialnumber++;
-    res.send(serialnumber);
+    console.log(serialnumber);
+    res.send(serialnumber.toString());
 });
 var port = 2525;
 var server = http.createServer(app).listen(port, function () {
