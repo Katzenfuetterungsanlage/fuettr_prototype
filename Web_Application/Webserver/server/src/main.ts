@@ -13,10 +13,7 @@ process.env['DEBUG_COLORS'] = 'true';
 process.env['DEBUG_STREAM'] = 'stdout';
 let date = new Date();
 const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
-let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler(
-  'stdout',
-  '*',
-  '-*',
+let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', '*', '-*',
   [
     { level: /INFO*/, color: 'cyan', inverse: true },
     { level: /FINE*/, color: 'white', inverse: true },
@@ -25,22 +22,7 @@ let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler(
     { level: 'WARN', color: 'magenta', inverse: true }
   ]
 );
-let filelogger: debugsx.IHandler = debugsx.createFileHandler(
-  '/var/log/fuettr/' +
-  date.getFullYear() +
-  '-' +
-  date.getUTCMonth() +
-  '-' +
-  date.getUTCDay() +
-  '_' +
-  date.getUTCHours() +
-  '-' +
-  date.getUTCMinutes() +
-  '-' +
-  date.getUTCSeconds() +
-  '.log',
-  '*',
-  '-*',
+let filelogger: debugsx.IHandler = debugsx.createFileHandler('/var/log/fuettr/' + date.getFullYear() + '-' + date.getUTCMonth() + '-' + date.getUTCDay() + '_' + date.getUTCHours() + '-' + date.getUTCMinutes() + '-' + date.getUTCSeconds() + '.log', '*', '-*',
   [
     { level: /INFO*/, color: 'cyan', inverse: true },
     { level: /FINE*/, color: 'white', inverse: true },
@@ -91,17 +73,20 @@ app.use(error404Handler);
 app.use(errorHandler);
 
 const port = 17325;
-const server = http.createServer(app).listen(port);
-debug.info('Server running on port ' + port);
+const server = http.createServer(app).listen(port, () => {
+  debug.info('Server running on port ' + port);
+  server.on('close', () => {
+    debug.fine('Server stopped.');
+  });
+  server.on('err', err => {
+    debug.severe(err);
+  });
+});
 const storedpass = 'enter';
 const storeduser = 'enter';
 let jsonToken = false;
 
-function isLoggedIn(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function isLoggedIn(req: express.Request, res: express.Response, next: express.NextFunction) {
   // jsonToken = true;
   // if (jsonToken) {
   // app.get('**', (req, res) => {
@@ -111,11 +96,7 @@ function isLoggedIn(
   // res.sendFile(path.join(__dirname, 'views/login-form.html'));
 }
 
-function login(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function login(req: express.Request, res: express.Response, next: express.NextFunction) {
   const userpass = req.body.password;
   const username = req.body.user;
   if (userpass === storedpass && username === storeduser) {
@@ -132,22 +113,13 @@ function login(
   }
 }
 
-function error404Handler(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function error404Handler(req: express.Request, res: express.Response, next: express.NextFunction) {
   const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
   debug.warn('Error 404 for %s %s from %s', req.method, req.url, clientSocket);
   res.status(404).sendFile(path.join(__dirname, 'views/error404.html'));
 }
 
-function errorHandler(
-  err: express.Errback,
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function errorHandler(err: express.Errback, req: express.Request, res: express.Response, next: express.NextFunction) {
   const ts = new Date().toLocaleString();
   debug.severe('Error %s\n%e', ts, err);
   res.status(500).render('error500.pug', {
@@ -181,11 +153,7 @@ function getFromJava(res: express.Response, path: string) {
     });
 }
 
-function callMeMaybe(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function callMeMaybe(req: express.Request, res: express.Response, next: express.NextFunction) {
   switch (req.query.q) {
     case 'warnings': {
       res.sendFile(path.join(__dirname, '../testfiles/warnings.json'));
@@ -254,11 +222,7 @@ function getToJava(path: string, data: string): string {
   return back;
 }
 
-function putMeHere(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function putMeHere(req: express.Request, res: express.Response, next: express.NextFunction) {
   const OK = {
     ok: 'ok'
   };
@@ -290,11 +254,7 @@ function putMeHere(
   }
 }
 
-function update(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function update(req: express.Request, res: express.Response, next: express.NextFunction) {
   res.sendFile(path.join(__dirname, 'views/update.html'));
   child.exec(
     `cd .. && git reset --hard && git pull && sudo npm-install-missing`,
@@ -334,11 +294,7 @@ function shutdown() {
   });
 }
 
-function getIp(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function getIp(req: express.Request, res: express.Response, next: express.NextFunction) {
   http
     .get({ port: 80, host: 'api.ipify.org', path: '/?format=json' }, resp => {
       let data = '';
@@ -360,11 +316,7 @@ function getIp(
     });
 }
 
-function logger(
-  req: express.Request,
-  res: express.Response,
-  next: express.NextFunction
-) {
+function logger(req: express.Request, res: express.Response, next: express.NextFunction) {
   const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
   debug.info(req.method, req.url, clientSocket);
   next();
