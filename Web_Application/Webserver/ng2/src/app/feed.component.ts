@@ -61,10 +61,15 @@ export class FeedComponent implements OnInit {
     private httpputService: HttpputService,
     private timeCalculator: TimeCalculator,
     private app: AppComponent
-  ) {}
+  ) { }
 
   onKey(): void {
+    console.log('hallo');
     this.doppelpoint();
+    this.time1Valid = true;
+    this.time2Valid = true;
+    this.time3Valid = true;
+    this.time4Valid = true;
 
     this.time1Minutes = this.timeCalculator.toMinutes(this.time1);
     this.time2Minutes = this.timeCalculator.toMinutes(this.time2);
@@ -72,27 +77,62 @@ export class FeedComponent implements OnInit {
     this.time4Minutes = this.timeCalculator.toMinutes(this.time4);
 
     this.time1Valid = this.timeCalculator.isValid(this.time1);
-
-    if (this.time1Minutes === null) {
+    if (this.check1) {
+      if (this.time1Minutes === null) {
+        this.time2ValidMin = true;
+      } else {
+        this.time2ValidMin = this.time2Minutes > this.time1Minutes;
+      }
+    } else {
       this.time2ValidMin = true;
-    } else {
-      this.time2ValidMin = this.time2Minutes > this.time1Minutes;
     }
+
     this.time2Valid = this.timeCalculator.isValid(this.time2);
-
-    if (this.time2Minutes === null) {
-      this.time3ValidMin = true;
+    if (this.check2) {
+      if (this.time2Minutes === null && this.time1Minutes === null) {
+        this.time3ValidMin = true;
+      } else {
+        this.time3ValidMin = this.time3Minutes > this.time2Minutes;
+      }
     } else {
-      this.time3ValidMin = this.time3Minutes > this.time2Minutes;
+      if (this.check1) {
+        if (this.time1Minutes === null) {
+          this.time3ValidMin = true;
+        } else {
+          this.time3ValidMin = this.time3Minutes > this.time1Minutes;
+        }
+      } else {
+        this.time3ValidMin = true;
+      }
     }
+
     this.time3Valid = this.timeCalculator.isValid(this.time3);
-
-    if (this.time3Minutes === null) {
-      this.time4ValidMin = true;
+    if (this.check3) {
+      if (this.time3Minutes === null && this.time2Minutes === null && this.time1Minutes === null) {
+        this.time4ValidMin = true;
+      } else {
+        this.time4ValidMin = this.time4Minutes > this.time3Minutes;
+      }
+      this.time4Valid = this.timeCalculator.isValid(this.time4);
     } else {
-      this.time4ValidMin = this.time4Minutes > this.time3Minutes;
+      if (this.check2) {
+        if (this.time2Minutes === null && this.time1Minutes === null) {
+          this.time4ValidMin = true;
+        } else {
+          this.time4ValidMin = this.time4Minutes > this.time2Minutes;
+        }
+      } else {
+        if (this.check1) {
+          if (this.time1Minutes === null) {
+            this.time4ValidMin = true;
+          } else {
+            this.time4ValidMin = this.time4Minutes > this.time1Minutes;
+          }
+        } else {
+          this.time4ValidMin = true;
+        }
+      }
     }
-    this.time4Valid = this.timeCalculator.isValid(this.time4);
   }
 
   ngOnInit(): void {
@@ -122,6 +162,7 @@ export class FeedComponent implements OnInit {
       this.check2 = res.time2_active;
       this.check3 = res.time3_active;
       this.check4 = res.time4_active;
+      this.onKey();
     });
   }
 
