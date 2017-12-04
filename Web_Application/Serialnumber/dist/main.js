@@ -11,7 +11,8 @@ app.use(bodyparser.json());
 app.post('/serialnumber', function (req, res) {
     console.log(req.body.mac);
     var numbers = fs.readFileSync(path.join(__dirname, '../serialnumbers.num'));
-    var number = numbers.findIndex(req.body.mac);
+    serialnumber++;
+    res.send(serialnumber);
 });
 var port = 2525;
 var server = http.createServer(app).listen(port, function () {
