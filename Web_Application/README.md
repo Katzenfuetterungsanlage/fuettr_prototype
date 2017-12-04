@@ -15,7 +15,8 @@
 * [**npm Intellisense**][15] by Christian Kohler
 * [**Snippet for JSON**][13] by Wilson Montalvo
 * [**TSLint**][14] by egamma
-* [**VSCode Great Icons**][16] by Emmanuel Béziat
+* [**VSCode Great Icons**][16] by Emmanuel Béziat  
+editor.action.format
 
 [1]: https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2
 [2]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
