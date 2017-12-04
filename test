@@ -6,9 +6,8 @@ echo -e "\e[92m
 IFACE=$(ip route show default | awk '/default/ {print $5}' )
 read MAC </sys/class/net/$IFACE/address
 JSON={\"mac\":\"$MAC\"}
-echo $JSON
 
 curl -X POST \
 -H "Content-type: application/json" \
--d '$JSON' \
+-d $JSON \
 '100.0.0.1:2525/serialnumber'
