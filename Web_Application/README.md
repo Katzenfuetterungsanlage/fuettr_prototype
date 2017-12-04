@@ -1,4 +1,5 @@
 # VSCode Extensions
+
 * [**Angular v4 TypeScript Snippets**][1] by johnpapa
 * [**Auto-Open Markdown Preview**][2] by hnw
 * [**Beautify**][4] by HookyQR
@@ -15,8 +16,7 @@
 * [**npm Intellisense**][15] by Christian Kohler
 * [**Snippet for JSON**][13] by Wilson Montalvo
 * [**TSLint**][14] by egamma
-* [**VSCode Great Icons**][16] by Emmanuel Béziat  
-editor.action.format
+* [**VSCode Great Icons**][16] by Emmanuel Béziat
 
 [1]: https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2
 [2]: https://marketplace.visualstudio.com/items?itemName=hnw.vscode-auto-open-markdown-preview
