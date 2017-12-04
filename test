@@ -9,4 +9,4 @@ echo $IFACE $MAC
 curl -X POST \
 -H "Content-type: application/json" \
 -d '["mac":"$MAC"]' \
-'sorogon.duckdns.org/api/serialnumber'
+'100.0.0.1:2525/serialnumber'
