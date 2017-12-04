@@ -12,3 +12,14 @@ app.post('/serialnumber', (req, res) => {
   let numbers = fs.readFileSync(path.join(__dirname, '../serialnumbers.num'));
   let number = numbers.findIndex(req.body.mac);
 });
+
+const port = 2525;
+const server = http.createServer(app).listen(port, () => {
+  console.log('Server running on port ' + port);
+  server.on('close', () => {
+    console.log('Server stopped.');
+  });
+  server.on('err', err => {
+    console.log(err);
+  });
+});
