@@ -6,11 +6,13 @@ var path = require("path");
 var bodyparser = require("body-parser");
 var http = require("http");
 var serialnumber = 0;
+var serialnumbers;
 var app = express();
 app.use(bodyparser.json());
 app.post('/serialnumber', function (req, res) {
     console.log(req.body.mac);
-    var numbers = fs.readFileSync(path.join(__dirname, '../serialnumbers.num'));
+    var file = fs.readFileSync(path.join(__dirname, '../serialnumbers.json')).toJSON();
+    console.log(JSON.stringify(file));
     serialnumber++;
     console.log(serialnumber);
     res.send(serialnumber.toString());
