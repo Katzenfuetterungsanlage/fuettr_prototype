@@ -11,7 +11,7 @@ import * as fs from 'fs';
 process.env['DEBUG'] = '*';
 process.env['DEBUG_COLORS'] = 'true';
 process.env['DEBUG_STREAM'] = 'stdout';
-let date = new Date();
+let date = new Date().toISOString();
 const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
 let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', '*', '-*', [
   { level: /INFO*/, color: 'cyan', inverse: true },
@@ -21,19 +21,7 @@ let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', '*'
   { level: 'WARN', color: 'magenta', inverse: true }
 ]);
 let filelogger: debugsx.IHandler = debugsx.createFileHandler(
-  '/var/log/fuettr/' +
-    date.getFullYear() +
-    '-' +
-    date.getUTCMonth() +
-    '-' +
-    date.getUTCDay() +
-    '_' +
-    date.getUTCHours() +
-    '-' +
-    date.getUTCMinutes() +
-    '-' +
-    date.getUTCSeconds() +
-    '.log',
+  '/var/log/fuettr/' + date + '.log',
   '*',
   '-*',
   [
@@ -44,7 +32,6 @@ let filelogger: debugsx.IHandler = debugsx.createFileHandler(
     { level: 'WARN', color: 'magenta', inverse: true }
   ]
 );
-
 debugsx.addHandler(consolelogger, filelogger);
 
 const app = express();
