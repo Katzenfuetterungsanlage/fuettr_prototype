@@ -1,0 +1,57 @@
+<document type="ProfiCAD ppd" version="9.0" fG="f2791b69-cd7c-4508-a2fa-b851e1e7f041" lG="0d784f2d-8b98-46fe-94ed-0d3d53666691">
+<repo>
+<ppd name="Elektronik\Halbleiter und Röhren\Transistoren\NPN ohne Gehäuse.ppd" t="T" fG="797946f3-cd51-4db2-aa58-01be05513119" lG="01154102-bd7e-4dfb-97f5-026128a0ca6e">
+<layers current="0">
+<layer name="0" v="1">
+<polyline op-lw="4" pts="-18,-15,-18,15,"/>
+<polyline pts="-18,0,20,-30,"/>
+<polyline pts="-18,0,20,30,"/>
+<polyline pts="20,30,8,14,"/>
+<polyline pts="20,30,2,22,"/>
+<outlet x="-18" y="0"/>
+<outlet x="20" y="30"/>
+<outlet x="20" y="-30"/>
+</layer>
+</layers>
+</ppd>
+<ppd name="Elektronik\Halbleiter und Röhren\Dioden\Diode, Halbleiter-.ppd" t="D" v="1N4007" n="EN 60617: 05-03-01" fG="6087fe49-9c75-4d49-bbc1-f41506f9f45c" lG="c055f947-5818-45fe-af90-d406955cc387">
+<layers current="0">
+<layer name="0" v="1">
+<polyline pts="-20,0,20,0,"/>
+<polyline pts="-20,-20,-20,20,"/>
+<outlet x="-20" y="0"/>
+<outlet x="20" y="0"/>
+<polygon pts="-20,0,20,-20,20,20,"/>
+</layer>
+</layers>
+</ppd>
+<ppd name="elektrische Installation\Erzeugung elektrischer Energie\3-phasen\Dreieckschaltung, Dreiphasenwicklung.ppd" n="EN 60617: 06-02-05" fG="c535004a-25ea-4161-9a8f-a7a17628ffa8" lG="eca3e0f3-f8f0-4bf1-a7c6-74ee417111ca">
+<layers current="0">
+<layer name="0" v="1">
+<polyline pts="20,10,-20,10,"/>
+<polyline pts="-20,10,0,-25,"/>
+<polyline pts="0,-25,20,10,"/>
+</layer>
+</layers>
+</ppd>
+</repo>
+<layers current="0">
+<layer name="0" v="1">
+<elem lGuid="c055f947-5818-45fe-af90-d406955cc387" x="-80" y="0" a="900" op-fd="1" op-fc="0"/>
+<polyline pts="-80,20,-80,60,"/>
+<polyline pts="-80,-20,-80,-60,"/>
+<elem lGuid="01154102-bd7e-4dfb-97f5-026128a0ca6e" x="80" y="0"/>
+<polyline pts="100,-30,100,-60,"/>
+<polyline pts="100,30,100,60,"/>
+<polyline pts="-40,0,0,-20,"/>
+<polyline pts="0,-20,-10,20,"/>
+<polyline pts="-10,20,30,0,"/>
+<polygon op-fd="1" op-fc="0" pts="40,-10,20,0,30,10,30,10,30,10,30,10,30,10,30,10,"/>
+<rect left="-130" top="-60" right="130" bottom="60"/>
+<outlet x="-80" y="-60"/>
+<outlet x="100" y="-60"/>
+<outlet x="100" y="60"/>
+<outlet x="-80" y="60"/>
+</layer>
+</layers>
+</document>

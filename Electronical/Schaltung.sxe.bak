@@ -4,7 +4,7 @@
 <PrintReportSettings PaperSize="9" FormName="A4" SheetSizeX="203" SheetSizeY="283"/>
 <PrinterSettings PaperSizeX="2099" PaperSizeY="2969" PhysicalOffestTenthMm_X="29" PhysicalOffestTenthMm_Y="29"/>
 <tb use="1" name="C:\Users\Public\Documents\ProfiCAD Library\_TB\standard9.ptb"/>
-<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="100" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
+<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="75" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
 <RefGridSettings FieldSize="50"/>
 <NumberingWire Digits="3" TypeRenumbering="0" ShowWireName="0" WireLabelDist_a="4" WireLabelDist_b="7" WireLabelDist_c="7"/>
 <summary>
@@ -483,55 +483,55 @@
 </elem>
 <elem lGuid="b82d063c-cab8-4f92-90b9-192192d3daf9" x="1340" y="1000">
 <attributes>
-<attribute name="_ref" value="M2" v="1" custom="" al="6" x="1274" y="940"/>
+<attribute name="_ref" value="2" v="0" custom="" al="6" x="1254" y="980"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1254" y="1020"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="1080" y="1140">
 <attributes>
-<attribute name="_ref" value="T6" v="1" custom="" al="6" x="1004" y="1120"/>
-<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="1004" y="1160"/>
+<attribute name="_ref" value="T1" v="1" custom="" al="6" x="1004" y="1120"/>
+<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="1004" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="1600" y="1140" h="1" a="-1800">
 <attributes>
-<attribute name="_ref" value="T8" v="1" custom="" al="6" x="1564" y="1080"/>
-<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="1524" y="1160"/>
+<attribute name="_ref" value="T2" v="1" custom="" al="6" x="1524" y="1120"/>
+<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="1524" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="1080" y="880" h="1">
 <attributes>
-<attribute name="_ref" value="T5" v="1" custom="" al="6" x="1004" y="860"/>
+<attribute name="_ref" value="T3" v="0" custom="" al="6" x="1004" y="860"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1004" y="900"/>
 </attributes>
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="1600" y="880" a="-1800">
 <attributes>
-<attribute name="_ref" value="T7" v="1" custom="" al="6" x="1564" y="820"/>
+<attribute name="_ref" value="T4" v="0" custom="" al="6" x="1524" y="860"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1524" y="900"/>
 </attributes>
 </elem>
 <elem lGuid="b82d063c-cab8-4f92-90b9-192192d3daf9" x="480" y="1000">
 <attributes>
-<attribute name="_ref" value="M1" v="1" custom="" al="6" x="414" y="920"/>
+<attribute name="_ref" value="3" v="0" custom="" al="6" x="394" y="980"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="394" y="1020"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="220" y="1140">
 <attributes>
-<attribute name="_ref" value="T2" v="1" custom="" al="6" x="144" y="1120"/>
-<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="144" y="1160"/>
+<attribute name="_ref" value="T5" v="1" custom="" al="6" x="144" y="1120"/>
+<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="144" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="740" y="1140" h="1" a="-1800">
 <attributes>
-<attribute name="_ref" value="T4" v="1" custom="" al="6" x="704" y="1060"/>
-<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="664" y="1160"/>
+<attribute name="_ref" value="T6" v="1" custom="" al="6" x="664" y="1120"/>
+<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="664" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="220" y="880" h="1">
 <attributes>
-<attribute name="_ref" value="T1" v="1" custom="" al="6" x="144" y="860"/>
+<attribute name="_ref" value="T7" v="0" custom="" al="6" x="144" y="860"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="144" y="900"/>
 <attribute name="_o1" value="" v="1" custom="i" al="6" x="166" y="855"/>
 <attribute name="_o2" value="" v="1" custom="o" al="6" x="256" y="859"/>
@@ -541,7 +541,7 @@
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="740" y="880" a="-1800">
 <attributes>
-<attribute name="_ref" value="T3" v="1" custom="" al="6" x="704" y="820"/>
+<attribute name="_ref" value="T8" v="0" custom="" al="6" x="664" y="860"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="664" y="900"/>
 </attributes>
 </elem>
@@ -696,13 +696,13 @@
 </elem>
 <elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="660" y="1520">
 <attributes>
-<attribute name="_ref" value="Optischer Schalter 1" v="1" custom="" al="6" x="784" y="1380"/>
+<attribute name="_ref" value="5" v="0" custom="" al="6" x="504" y="1500"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="504" y="1540"/>
 </attributes>
 </elem>
 <elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="1160" y="1520">
 <attributes>
-<attribute name="_ref" value="Optischer Schalter 2" v="1" custom="" al="6" x="1284" y="1380"/>
+<attribute name="_ref" value="6" v="0" custom="" al="6" x="1004" y="1500"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1004" y="1540"/>
 </attributes>
 </elem>
