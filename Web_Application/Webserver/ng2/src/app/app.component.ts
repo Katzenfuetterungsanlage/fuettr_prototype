@@ -12,7 +12,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent implements OnInit {
   private Time: string;
-  private intervalID: any;
   private promise: Promise<number>;
   private promiseResult: string;
   private cat = false;
@@ -20,7 +19,10 @@ export class AppComponent implements OnInit {
   public navShow = false;
 
   public constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
-    this.intervalID = setInterval(this.refreshTime.bind(this), 100);
+    // setInterval(this.refreshTime.bind(this), 100);
+    setInterval(() => {
+      this.Time = Date.now().toString();
+    }, 1);
   }
 
   private refreshTime() {
