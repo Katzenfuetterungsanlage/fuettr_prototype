@@ -1,12 +1,4 @@
-import {
-  Component,
-  OnInit,
-  trigger,
-  state,
-  animate,
-  transition,
-  style
-} from '@angular/core';
+import { Component, OnInit, trigger, state, animate, transition, style } from '@angular/core';
 import { HttpgetService } from './httpget.service';
 import { HttpputService } from './httpput.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
