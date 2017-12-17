@@ -6,14 +6,17 @@
 package gui;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingWorker;
+import methods.StreamReader;
 import worker.UpdateWorker;
 
 
@@ -176,7 +179,17 @@ public class Update extends javax.swing.JDialog
 
     private void onUpdate(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUpdate
     {//GEN-HEADEREND:event_onUpdate
-            
+        System.out.println("Update starten");
+        
+        try 
+        {
+            Runtime.getRuntime().exec("sudo git reset --hard && git pull && sudo reboot");           
+        }
+        catch (IOException ex)
+        {
+            Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_onUpdate
 
     private void onUeberpruefen(java.awt.event.ActionEvent evt)//GEN-FIRST:event_onUeberpruefen
@@ -272,47 +285,49 @@ public class Update extends javax.swing.JDialog
 
 public class UpdateWorker extends SwingWorker
 {   
+    Boolean stringsSindNichtGleich = false;
+    
     @Override
     protected Object doInBackground() 
             throws Exception
     {
-        Socket socket = null; 
+        Socket socket = null;  
         
         try
         {
             URL url = new URL("https://raw.githubusercontent.com/Katzenfuetterungsanlage/fuettr_prototype/master/version.json");
 
             URLConnection con = url.openConnection();
-            //InputStream is = con.getInputStream();
             
             BufferedReader bReader = new BufferedReader(new InputStreamReader(con.getInputStream())); 
             
-            System.out.println(bReader.readLine()); //json Datei einlesen 
+            String versionInternet = bReader.readLine(); 
             
-//            Gson g = new Gson();
-//
-//            Person person = g.fromJson("{\"name\": \"John\"}", Person.class);
-//            System.out.println(person.name); //John
-//
-//            System.out.println(g.toJson(person)); // {"name":"John"}
+            System.out.println("Version Internet: " + versionInternet); //json Datei einlesen 
+            
+            StreamReader reader = new StreamReader();
+            String verisonLokal = reader.einlesen("D:\\Schule\\Diplomarbeit\\Git\\fuettr_prototype\\version.json", true);
+            
+            System.out.println("Version Lokal: " + verisonLokal);
+            
+            if (verisonLokal != versionInternet)
+                stringsSindNichtGleich = true; 
+            
+            publish(stringsSindNichtGleich);
         }
         catch (Exception ex)
         {
             Logger.getLogger(UpdateWorker.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        //TODO: lokale Versionsdatei einlesen und mit der online Version vergleichen
-        
         return null; 
-    }
+    }    
 
-    @Override
-    protected void done()
-    {
-        updateVerfuegbar = true;
+        @Override
+        protected void process(List chunks)
+        {
+            if (stringsSindNichtGleich == true)
+                updateVerfuegbar = true;
+        }
     }
-    
-    
-}
 
 }
