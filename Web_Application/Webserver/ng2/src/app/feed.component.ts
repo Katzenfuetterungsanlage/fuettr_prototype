@@ -19,34 +19,34 @@ import * as itf from './interfaces';
   ]
 })
 export class FeedComponent implements OnInit {
-  private submit = false;
-  private saved = true;
-  private failed = false;
-  private savedstate = false;
-  private time1: string;
-  private time2: string;
-  private time3: string;
-  private time4: string;
-  private check1: boolean;
-  private check2: boolean;
-  private check3: boolean;
-  private check4: boolean;
-  private doppelpoint1: boolean;
-  private doppelpoint2: boolean;
-  private doppelpoint3: boolean;
-  private doppelpoint4: boolean;
+  public submit = false;
+  public saved = true;
+  public failed = false;
+  public savedstate = false;
+  public time1: string;
+  public time2: string;
+  public time3: string;
+  public time4: string;
+  public check1: boolean;
+  public check2: boolean;
+  public check3: boolean;
+  public check4: boolean;
+  public doppelpoint1: boolean;
+  public doppelpoint2: boolean;
+  public doppelpoint3: boolean;
+  public doppelpoint4: boolean;
 
-  private time1Minutes: number;
-  private time1Valid = false;
-  private time2Minutes: number;
-  private time2ValidMin = false;
-  private time2Valid = false;
-  private time3Minutes: number;
-  private time3ValidMin = false;
-  private time3Valid = false;
-  private time4Minutes: number;
-  private time4ValidMin = false;
-  private time4Valid = false;
+  public time1Minutes: number;
+  public time1Valid = false;
+  public time2Minutes: number;
+  public time2ValidMin = false;
+  public time2Valid = false;
+  public time3Minutes: number;
+  public time3ValidMin = false;
+  public time3Valid = false;
+  public time4Minutes: number;
+  public time4ValidMin = false;
+  public time4Valid = false;
 
   constructor(
     private httpgetService: HttpgetService,
@@ -56,7 +56,6 @@ export class FeedComponent implements OnInit {
   ) { }
 
   onKey(): void {
-    console.log('hallo');
     this.doppelpoint();
     this.time1Valid = true;
     this.time2Valid = true;

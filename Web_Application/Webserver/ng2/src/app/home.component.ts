@@ -9,22 +9,22 @@ import * as itf from './interfaces';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  private warning_messages: itf.Warning[];
-  private error_messages: itf.Error[];
-  private last_time: string;
-  private next_time: string;
-  private next_time_in: string;
-  private machine_state: string;
+  public warning_messages: itf.Warning[];
+  public error_messages: itf.Error[];
+  public last_time: string;
+  public next_time: string;
+  public next_time_in: string;
+  public machine_state: string;
 
-  private time1: string;
-  private time2: string;
-  private time3: string;
-  private time4: string;
+  public time1: string;
+  public time2: string;
+  public time3: string;
+  public time4: string;
 
-  private time1_show = false;
-  private time2_show = false;
-  private time3_show = false;
-  private time4_show = false;
+  public time1_show = false;
+  public time2_show = false;
+  public time3_show = false;
+  public time4_show = false;
 
   public constructor(
     private httpgetService: HttpgetService,

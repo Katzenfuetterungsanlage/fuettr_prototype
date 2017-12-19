@@ -9,13 +9,13 @@ import { AppComponent } from './app.component';
   templateUrl: './update.component.html'
 })
 export class UpdateComponent implements OnInit {
-  private show = false;
-  private show2 = false;
-  private progress = false;
-  private updater: string;
-  private message: string;
-  private newVersion: string;
-  private prgbar: string;
+  public show = false;
+  public show2 = false;
+  public progress = false;
+  public updater: string;
+  public message: string;
+  public newVersion: string;
+  public prgbar: string;
   private version: Version;
   private lVersion: Version;
   private t1: number;

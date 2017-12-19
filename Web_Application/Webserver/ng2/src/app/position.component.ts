@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
   templateUrl: './position.component.html'
 })
 export class PositionComponent implements OnInit {
-  private motor1: string;
-  private motor2: string;
-  private sensor1: string;
-  private sensor2: string;
+  public motor1: string;
+  public motor2: string;
+  public sensor1: string;
+  public sensor2: string;
 
   constructor(
     private httpgetService: HttpgetService,

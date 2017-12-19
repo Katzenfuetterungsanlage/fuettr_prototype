@@ -9,11 +9,11 @@ import { AppComponent } from './app.component';
   templateUrl: './info.component.html'
 })
 export class InfoComponent implements OnInit {
-  serialnumber: string;
-  processor: string;
-  wlanstate: string;
-  ipadress: string;
-  version: string;
+  public serialnumber: string;
+  public processor: string;
+  public wlanstate: string;
+  public ipadress: string;
+  public version: string;
 
   constructor(
     private updateService: UpdateService,

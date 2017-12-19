@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  private Time: string;
+  public Time: string;
   private promise: Promise<number>;
   private promiseResult: string;
   private cat = false;

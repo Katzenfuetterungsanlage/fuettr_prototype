@@ -29,7 +29,7 @@ let filelogger: debugsx.IHandler = debugsx.createFileHandler(
 );
 
 export class Server {
-    private _express: express.Application;
+    private _express: express.Express;
     private _auth: Auth;
     private _router: express.Router;
     private storedpass = 'enter';
@@ -49,7 +49,7 @@ export class Server {
         this._router.get('/favicon.ico', express.static(path.join(__dirname, '../public')));
         this._router.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
         this._router.post('/login', this.login.bind(this));
-        this._router.get('/login', this.isLoggedIn.bind(this));
+        this._router.use('/login', this.isLoggedIn.bind(this));
         this._router.get('/api/ip', this.getIp.bind(this));
         this._router.get('/api/extensions', (req, res) => { res.sendFile(path.join(__dirname, 'views/README.html')); });
         this._router.get('/api/version', (req, res) => { res.sendFile(path.join(__dirname, '../../../../version.json')); });
