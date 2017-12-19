@@ -3,6 +3,7 @@ import { UpdateService } from './update.service';
 import { Http } from '@angular/http';
 import { Version } from './interfaces';
 import { AppComponent } from './app.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-update',
@@ -25,10 +26,7 @@ export class UpdateComponent implements OnInit {
   private get1;
   private interval;
 
-  constructor(
-    private updateService: UpdateService,
-    private app: AppComponent
-  ) {}
+  constructor(private updateService: UpdateService, private app: AppComponent, private modalService: NgbModal) { }
 
   update() {
     this.message = '';
@@ -57,6 +55,10 @@ export class UpdateComponent implements OnInit {
 
   shutdown() {
     this.updateService.shutdown();
+  }
+
+  open(content) {
+    this.modalService.open(content);
   }
 
   refresh() {

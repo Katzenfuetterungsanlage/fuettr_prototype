@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { CatComponent } from './cat/cat.component';
     CatComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     HttpModule,
@@ -40,4 +42,4 @@ import { CatComponent } from './cat/cat.component';
   providers: [UpdateService, HttpgetService, HttpputService, TimeCalculator],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

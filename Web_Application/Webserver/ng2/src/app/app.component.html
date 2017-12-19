@@ -21,10 +21,10 @@
         <a class="nav-link" routerLink="/position">
           <img src="assets/control.png"> Positionen</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li ngbDropdown class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" ngbDropdownToggle aria-haspopup="true" aria-expanded="false">
           <img src="assets/settings.png"> Einstellungen</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown">
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown">
           <a class="nav-link dropdown-item" routerLink="/info">
             <img src="assets/info.png"> Geräteinfo</a>
           <a class="nav-link dropdown-item" routerLink="/update">
