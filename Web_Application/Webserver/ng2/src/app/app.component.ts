@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   public Time: string;
   private promise: Promise<number>;
   private promiseResult: string;
-  private cat = false;
+  public cat = false;
   private lick = 0;
   public navShow = false;
 
