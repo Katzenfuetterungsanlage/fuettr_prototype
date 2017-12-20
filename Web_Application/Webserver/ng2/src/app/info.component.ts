@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UpdateService } from './update.service';
-import { HttpgetService } from './httpget.service';
+import { UpdateService } from './services/update.service';
+import { HttpgetService } from './services/httpget.service';
 import { AppComponent } from './app.component';
 
 @Component({
@@ -15,11 +15,7 @@ export class InfoComponent implements OnInit {
   public ipadress: string;
   public version: string;
 
-  constructor(
-    private updateService: UpdateService,
-    private httpgetService: HttpgetService,
-    private app: AppComponent
-  ) {}
+  constructor(private updateService: UpdateService, private httpgetService: HttpgetService, private app: AppComponent) {}
 
   ngOnInit() {
     this.updateService.getVersion().then(lVersion => {

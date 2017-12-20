@@ -1,8 +1,9 @@
 import { Component, OnInit, trigger, state, animate, transition, style } from '@angular/core';
-import { HttpgetService } from './httpget.service';
-import { HttpputService } from './httpput.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { TimeCalculator } from './time.calculator.service';
+
+import { HttpgetService } from './services/httpget.service';
+import { HttpputService } from './services/httpput.service';
+import { TimeCalculator } from './services/time.calculator.service';
 import { AppComponent } from './app.component';
 
 import * as itf from './interfaces';

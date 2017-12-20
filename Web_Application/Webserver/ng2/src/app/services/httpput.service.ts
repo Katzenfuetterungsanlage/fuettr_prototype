@@ -3,7 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 
 import 'rxjs/Rx';
 
-import * as itf from './interfaces';
+import * as itf from '../interfaces';
 
 @Injectable()
 export class HttpputService {

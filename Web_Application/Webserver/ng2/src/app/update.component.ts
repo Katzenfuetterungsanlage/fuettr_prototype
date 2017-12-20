@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdateService } from './update.service';
 import { Http } from '@angular/http';
 import { Version } from './interfaces';
 import { AppComponent } from './app.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
+import { UpdateService } from './services/update.service';
 
 @Component({
   selector: 'app-update',

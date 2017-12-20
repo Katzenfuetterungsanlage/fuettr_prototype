@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpgetService } from './httpget.service';
 import { AppComponent } from './app.component';
+
+import { HttpgetService } from './services/httpget.service';
 
 @Component({
   selector: 'app-position',

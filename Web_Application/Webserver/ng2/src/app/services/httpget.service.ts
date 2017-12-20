@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
-import * as itf from './interfaces';
+import * as itf from '../interfaces';
 
 import 'rxjs/add/operator/toPromise';
 

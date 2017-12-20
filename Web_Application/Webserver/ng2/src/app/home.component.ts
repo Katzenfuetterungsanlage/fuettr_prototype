@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpgetService } from './httpget.service';
-import { HttpputService } from './httpput.service';
+import { HttpgetService } from './services/httpget.service';
+import { HttpputService } from './services/httpput.service';
 import { AppComponent } from './app.component';
 import * as itf from './interfaces';
 

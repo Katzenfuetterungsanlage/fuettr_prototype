@@ -14,10 +14,10 @@ import { InfoComponent } from './info.component';
 import { UpdateComponent } from './update.component';
 import { Error404Component } from './error404.component';
 
-import { UpdateService } from './update.service';
-import { HttpgetService } from './httpget.service';
-import { HttpputService } from './httpput.service';
-import { TimeCalculator } from './time.calculator.service';
+import { UpdateService } from './services/update.service';
+import { HttpgetService } from './services/httpget.service';
+import { HttpputService } from './services/httpput.service';
+import { TimeCalculator } from './services/time.calculator.service';
 import { CatComponent } from './cat/cat.component';
 
 @NgModule({
