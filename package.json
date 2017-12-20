@@ -1,0 +1,26 @@
+{
+  "name": "fuettr_prototype",
+  "version": "1.0.0",
+  "description": "![Logo](https://github.com/Katzenfuetterungsanlage/fuettr_prototype/blob/master/Logo.png)",
+  "main": "Web_Application/Webserver/server/dist/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "cd Web_Application/Webserver/ng2 && ng build --watch &",
+    "start": "cd Web_Application/Webserver/server && npm start &",
+    "stop": "kill $(ps | grep \"node\" | awk '{ print $1 }') && kill $(ps | grep \"@angular/cli\" | awk '{ print $1 }')",
+    "restart": "npm stop && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Katzenfuetterungsanlage/fuettr_prototype.git"
+  },
+  "author": "Florian Greistorfer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Katzenfuetterungsanlage/fuettr_prototype/issues"
+  },
+  "homepage": "https://github.com/Katzenfuetterungsanlage/fuettr_prototype#readme"
+}

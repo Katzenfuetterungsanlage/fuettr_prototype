@@ -11,27 +11,22 @@ import * as fs from 'fs';
 process.env['DEBUG'] = '*';
 process.env['DEBUG_COLORS'] = 'true';
 process.env['DEBUG_STREAM'] = 'stdout';
-let date = new Date().toISOString();
+const date = new Date().toISOString();
 const debug: debugsx.IFullLogger = debugsx.createFullLogger('main');
-let consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', '*', '-*', [
+const consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', '*', '-*', [
   { level: /INFO*/, color: 'cyan', inverse: true },
   { level: /FINE*/, color: 'white', inverse: true },
   { level: /SEVERE*/, color: 'red', inverse: true },
   { level: 'ERR', color: 'red', inverse: true },
   { level: 'WARN', color: 'magenta', inverse: true }
 ]);
-let filelogger: debugsx.IHandler = debugsx.createFileHandler(
-  '/var/log/fuettr/' + date + '.log',
-  '*',
-  '-*',
-  [
-    { level: /INFO*/, color: 'cyan', inverse: true },
-    { level: /FINE*/, color: 'white', inverse: true },
-    { level: /SEVERE*/, color: 'red', inverse: true },
-    { level: 'ERR', color: 'red', inverse: true },
-    { level: 'WARN', color: 'magenta', inverse: true }
-  ]
-);
+const filelogger: debugsx.IHandler = debugsx.createFileHandler('/var/log/fuettr/' + date + '.log', '*', '-*', [
+  { level: /INFO*/, color: 'cyan', inverse: true },
+  { level: /FINE*/, color: 'white', inverse: true },
+  { level: /SEVERE*/, color: 'red', inverse: true },
+  { level: 'ERR', color: 'red', inverse: true },
+  { level: 'WARN', color: 'magenta', inverse: true }
+]);
 debugsx.addHandler(consolelogger, filelogger);
 
 const app = express();
@@ -46,28 +41,25 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use('/assets', express.static(path.join(__dirname, '../../ng2/dist/assets')));
 app.use('/ng2', express.static(path.join(__dirname, '../../ng2/dist')));
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
-app.get('/inline.bundle.js', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/inline.bundle.js'));});
-app.get('/main.bundle.js', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/main.bundle.js'));});
-app.get('/polyfills.bundle.js', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/polyfills.bundle.js'));});
-app.get('/styles.bundle.js', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/styles.bundle.js'));});
-app.get('/vendor.bundle.js', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/vendor.bundle.js'));});
-app.get('/inline.bundle.js.map', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/inline.bundle.js.map'));});
-app.get('/main.bundle.js.map', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/main.bundle.js.map'));});
-app.get('/polyfills.bundle.js.map', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/polyfills.bundle.js.map'));});
-app.get('/styles.bundle.js.map', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/styles.bundle.js.map'));});
-app.get('/vendor.bundle.js.map', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/vendor.bundle.js.map'));});
-app.get('/styles.css', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/src/styles.css'));});
-app.get('/bootstrap.css', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/src/bootstrap.css'));});
 app.post('/api/putMeHere', putMeHere);
 app.post('/login', login);
 app.get('/api/callMeMaybe', callMeMaybe);
 app.get('/api/getUpdate', update);
 app.get('/api/shutdown', shutdown);
 app.get('/api/ip', getIp);
-app.get('/api/extensions', (req, res) => {  res.sendFile(path.join(__dirname, 'views/README.html'));});
-app.get('/api/version', (req, res) => {  res.sendFile(path.join(__dirname, '../../../../version.json'));});
-app.get('/api/face', (req, res) => {  res.sendFile(path.join(__dirname, 'views/face.html'));});
-// app.get('/login', isLoggedIn);
+app.get('/api/extensions', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/README.html'));
+});
+app.get('/api/version', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../../../version.json'));
+});
+app.get('/api/face', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views/face.html'));
+});
+app.get('/bootstrap', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../ng2/src/bootstrap.css'));
+});
+app.get('/login', isLoggedIn);
 app.get('**', isLoggedIn);
 app.use(error404Handler);
 app.use(errorHandler);
@@ -84,14 +76,14 @@ const server = http.createServer(app).listen(port, () => {
 });
 const storedpass = 'enter';
 const storeduser = 'enter';
-let jsonToken = false;
+let jsonToken = true;
 
 function isLoggedIn(req: express.Request, res: express.Response, next: express.NextFunction) {
   // jsonToken = true;
   // if (jsonToken) {
-  // app.get('**', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
-  // });
+  //   app.get('**', (reqg, resg) => {
+      res.sendFile(path.join(__dirname, 'views/index.html'));
+  //   });
   // }
   // res.sendFile(path.join(__dirname, 'views/login-form.html'));
 }
@@ -105,7 +97,7 @@ function login(req: express.Request, res: express.Response, next: express.NextFu
       jsonToken = false;
       debug.fine('User logged out.');
     }, 60000);
-    res.sendFile(path.join(__dirname, '../../ng2/dist/index.html'));
+    res.sendFile(path.join(__dirname, 'views/index.html'));
   } else {
     res.status(401).sendFile(path.join(__dirname, 'views/login-form-error.html'));
   }
