@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PositionComponent } from './position.component';
-import { HomeComponent } from './home.component';
-import { FeedComponent } from './feed.component';
-import { InfoComponent } from './info.component';
-import { UpdateComponent } from './update.component';
-import { Error404Component } from './error404.component';
+import { PositionComponent } from './components/position.component';
+import { HomeComponent } from './components/home.component';
+import { FeedComponent } from './components/feed.component';
+import { InfoComponent } from './components/info.component';
+import { UpdateComponent } from './components/update.component';
+import { Error404Component } from './components/error404.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Füttr' } },

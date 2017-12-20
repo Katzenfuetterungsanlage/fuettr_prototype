@@ -1,12 +1,12 @@
 import { Component, OnInit, trigger, state, animate, transition, style } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { HttpgetService } from './services/httpget.service';
-import { HttpputService } from './services/httpput.service';
-import { TimeCalculator } from './services/time.calculator.service';
-import { AppComponent } from './app.component';
+import { HttpgetService } from '../services/httpget.service';
+import { HttpputService } from '../services/httpput.service';
+import { TimeCalculator } from '../services/time.calculator.service';
+import { AppComponent } from '../app.component';
 
-import * as itf from './interfaces';
+import * as itf from '../interfaces';
 
 @Component({
   selector: 'app-feed',
@@ -54,7 +54,7 @@ export class FeedComponent implements OnInit {
     private httpputService: HttpputService,
     private timeCalculator: TimeCalculator,
     private app: AppComponent
-  ) { }
+  ) {}
 
   onKey(): void {
     this.doppelpoint();
@@ -140,7 +140,9 @@ export class FeedComponent implements OnInit {
 
       this.onKey();
       this.app.lic();
-      this.app.navShow = false;
+      setTimeout(() => {
+        this.app.navShow = false;
+      }, 0);
     });
   }
 

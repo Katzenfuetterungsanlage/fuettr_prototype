@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UpdateService } from './services/update.service';
-import { HttpgetService } from './services/httpget.service';
-import { AppComponent } from './app.component';
+import { UpdateService } from '../services/update.service';
+import { HttpgetService } from '../services/httpget.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-info',
@@ -32,6 +32,8 @@ export class InfoComponent implements OnInit {
       this.ipadress = res.ip;
     });
     this.app.lic();
-    this.app.navShow = false;
+    setTimeout(() => {
+      this.app.navShow = false;
+    }, 0);
   }
 }

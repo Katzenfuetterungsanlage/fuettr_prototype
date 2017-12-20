@@ -7,12 +7,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PositionComponent } from './position.component';
-import { FeedComponent } from './feed.component';
-import { HomeComponent } from './home.component';
-import { InfoComponent } from './info.component';
-import { UpdateComponent } from './update.component';
-import { Error404Component } from './error404.component';
+import { PositionComponent } from './components/position.component';
+import { FeedComponent } from './components/feed.component';
+import { HomeComponent } from './components/home.component';
+import { InfoComponent } from './components/info.component';
+import { UpdateComponent } from './components/update.component';
+import { Error404Component } from './components/error404.component';
 
 import { UpdateService } from './services/update.service';
 import { HttpgetService } from './services/httpget.service';

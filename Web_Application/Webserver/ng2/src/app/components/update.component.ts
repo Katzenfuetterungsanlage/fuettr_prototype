@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Version } from './interfaces';
-import { AppComponent } from './app.component';
+import { Version } from '../interfaces';
+import { AppComponent } from '../app.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { UpdateService } from './services/update.service';
+import { UpdateService } from '../services/update.service';
 
 @Component({
   selector: 'app-update',
@@ -98,7 +98,9 @@ export class UpdateComponent implements OnInit {
     this.message = 'Checking for updates...';
     this.t1 = this.t1 = Date.now();
     this.app.lic();
-    this.app.navShow = false;
+    setTimeout(() => {
+      this.app.navShow = false;
+    }, 0);
 
     this.updateService
       .checkUpdate()

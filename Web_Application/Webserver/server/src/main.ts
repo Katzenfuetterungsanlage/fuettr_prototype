@@ -44,7 +44,7 @@ pugEngine.locals.pretty = true;
 app.use(logger);
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/assets', express.static(path.join(__dirname, '../../ng2/dist/assets')));
-app.use('/ng2', express.static(path.join(__dirname, '../../ng2')));
+app.use('/ng2', express.static(path.join(__dirname, '../../ng2/dist')));
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
 app.get('/inline.bundle.js', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/inline.bundle.js'));});
 app.get('/main.bundle.js', (req, res) => {  res.sendFile(path.join(__dirname, '../../ng2/dist/main.bundle.js'));});

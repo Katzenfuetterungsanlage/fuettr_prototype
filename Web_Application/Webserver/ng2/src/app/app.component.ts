@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
   public navShow = false;
 
   public constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
-    // setInterval(this.refreshTime.bind(this), 100);
-    setInterval(() => {
-      this.Time = Date.now().toString();
-    }, 1);
+    setInterval(this.refreshTime.bind(this), 100);
+    // setInterval(() => {
+    //   this.Time = Date.now().toString();
+    // }, 1);
   }
 
   private refreshTime() {

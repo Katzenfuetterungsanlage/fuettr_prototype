@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from './app.component';
+import { AppComponent } from '../app.component';
 
-import { HttpgetService } from './services/httpget.service';
+import { HttpgetService } from '../services/httpget.service';
 
 @Component({
   selector: 'app-position',
@@ -26,6 +26,8 @@ export class PositionComponent implements OnInit {
       this.sensor2 = res.sensor2;
     });
     this.app.lic();
-    this.app.navShow = false;
+    setTimeout(() => {
+      this.app.navShow = false;
+    }, 0);
   }
 }
