@@ -15,17 +15,17 @@ import { Server } from './server';
 
 const date = new Date();
 export const log: debugsx.IFullLogger = debugsx.createFullLogger('main');
-const consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', '*', '-*', [
-  { level: /INFO*/, color: 'cyan', inverse: true },
-  { level: /FINE*/, color: 'white', inverse: true },
-  { level: /SEVERE*/, color: 'red', inverse: true },
-  { level: /ERR*/, color: 'red', inverse: true },
-  { level: /WARN*/, color: 'magenta', inverse: true },
+const consolelogger: debugsx.IHandler = debugsx.createConsoleHandler('stdout', '*::INFO, *::FINE, *::SEVERE, *::ERR, *::WARN', '-*', [
+  { level: 'INFO', color: 'cyan', inverse: true },
+  { level: 'FINE', color: 'white', inverse: true },
+  { level: 'SEVERE', color: 'red', inverse: true },
+  { level: 'ERR', color: 'red', inverse: true },
+  { level: 'WARN', color: 'magenta', inverse: true },
 ]);
-const filelogger: debugsx.IHandler = debugsx.createFileHandler(path.join(__dirname, '../log/') + date.toLocaleDateString() + '_' + date.getHours() + '.' + date.getMinutes() + '.' + date.getSeconds() + '.log', '*', '-*', [
-  { level: /INFO*/, color: 'cyan', inverse: true },
-  { level: /FINE*/, color: 'white', inverse: true },
-  { level: /SEVERE*/, color: 'red', inverse: true },
+const filelogger: debugsx.IHandler = debugsx.createFileHandler('/var/log/' + date.toLocaleDateString() + '_' + date.getHours() + '.' + date.getMinutes() + '.' + date.getSeconds() + '.log', '*::INFO, *::FINE, *::SEVERE, *::ERR, *::WARN', '-*', [
+  { level: 'INFO', color: 'cyan', inverse: true },
+  { level: 'FINE', color: 'white', inverse: true },
+  { level: 'SEVERE', color: 'red', inverse: true },
   { level: 'ERR', color: 'red', inverse: true },
   { level: 'WARN', color: 'magenta', inverse: true }
 ]);

@@ -1,14 +1,13 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as bodyparser from 'body-parser';
-import * as debugsx from 'debug-sx';
 import * as http from 'http';
-import * as https from 'https';
-import * as child from 'child_process';
 import * as fs from 'fs';
+import * as ejwt from 'express-jwt';
 
 import { log } from './main';
 import { ApiRoutes } from './api-routes';
+import { AppRoutes } from './app-routes';
 
 
 export class Server {
@@ -25,25 +24,28 @@ export class Server {
     }
 
     _express = express();
-    _activeToken = true;
+    private _publkey: Buffer;
+    private _privkey: Buffer;
 
     constructor() {
+        this._publkey = fs.readFileSync(path.join(__dirname, '../keys/server-public.pem'));
+        this._privkey = fs.readFileSync(path.join(__dirname, '../keys/server-private.pem'));
+
         this._express.use(bodyparser.json());
         this._express.use(bodyparser.urlencoded({ extended: true }));
         this._express.set('views', path.join(__dirname, '/views'));
         const pugEngine = this._express.set('view engine', 'pug');
         pugEngine.locals.pretty = true;
         this._express.use(this.logger);
+        this._express.use(express.static(path.join(__dirname, '../public')));
+        this._express.use('/assets', express.static(path.join(__dirname, '../../ng2/dist/assets')));
+        this._express.use(ejwt({ secret: this._publkey }).unless({ path: ['/api/extensions', '/api/ip', '/api/login', '/api/version', '/api/bootstrap', '/api/node_modules'] }));
+        this._express.use((req, res, next) => { log.fine(req.user); next(); });
 
         this._express.use('/api', ApiRoutes.ApiRouter.Routes);
-        // this._express.use('/', ServerRoutes.ServerRouter.Routes);
-
-
-        this._express.get('**', (req, res, next) => {
-            res.sendFile(path.join(__dirname, 'views/index.html'));
-        });
+        this._express.use('/', AppRoutes.AppRouter.Routes);
     }
-    
+
     public logger(req: express.Request, res: express.Response, next: express.NextFunction) {
         const clientSocket = req.socket.remoteAddress + ':' + req.socket.remotePort;
         log.info(req.method, req.url, clientSocket);

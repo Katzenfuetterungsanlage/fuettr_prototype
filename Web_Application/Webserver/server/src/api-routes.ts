@@ -34,8 +34,6 @@ export class ApiRoutes {
     public constructor() {
         this._routes = express.Router();
 
-        this._routes.use(express.static(path.join(__dirname, '../public')));
-        this._routes.use('/assets', express.static(path.join(__dirname, '../../ng2/dist/assets')));
         this._routes.use('/ng2', express.static(path.join(__dirname, '../../ng2/dist')));
         this._routes.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
         this._routes.post('/putMeHere', (req, res, next) => this.putMeHere(req, res, next));
