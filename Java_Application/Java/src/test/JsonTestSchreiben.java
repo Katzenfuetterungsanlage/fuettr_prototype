@@ -15,7 +15,7 @@ import methods.StreamWriter;
  *
  * @author Florian
  */
-public class JsonTest
+public class JsonTestSchreiben
 {
     
             
@@ -24,9 +24,9 @@ public class JsonTest
              
         
         JsonObjectBuilder b = Json.createObjectBuilder();
-        b.add("serialnumber", "Hallo Flo");
-        b.add("internal", "Hallo");
-        b.add("wlanState", "Booo");
+        b.add("serialnumber", "0001 0002 0003 0004");
+        b.add("internal", "Raspberry Pi 3");
+        b.add("wlanState", "not implemented yet");
         JsonObject obj = b.build();
         
         JsonObjectBuilder x = Json.createObjectBuilder();
