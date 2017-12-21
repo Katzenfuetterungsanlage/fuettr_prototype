@@ -11,7 +11,7 @@ import { Error404Component } from './components/error404.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Füttr' } },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: 'login', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'api/login', pathMatch: 'full', redirectTo: 'home' },
   {
     path: 'position',
     component: PositionComponent,
