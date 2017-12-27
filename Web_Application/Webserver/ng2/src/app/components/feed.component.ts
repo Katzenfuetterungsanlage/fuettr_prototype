@@ -54,7 +54,7 @@ export class FeedComponent implements OnInit {
     private httpputService: HttpputService,
     private timeCalculator: TimeCalculator,
     private app: AppComponent
-  ) {}
+  ) { }
 
   onKey(): void {
     this.doppelpoint();
