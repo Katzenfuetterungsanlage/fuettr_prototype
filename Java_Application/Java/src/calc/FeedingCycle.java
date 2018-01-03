@@ -65,7 +65,7 @@ public class FeedingCycle
     
     // 7. move bowl to the feeding location
     
-    public void feed ()
+    public static void feed ()
     {
         // bowl  
         int bowlIndex = 1;
@@ -201,8 +201,8 @@ public class FeedingCycle
         gpio.shutdown();
         Logger.getLogger("shutdown GPIO controller").log(Level.FINE, "shutdown GPIO controller");
     }
-    
-    public FeedingCycle()
+
+    public static void main(String[] args)
     {
         feed();
     }
