@@ -38,9 +38,13 @@ public class Pi4Java_gpioListener
                 System.out.println("PinState: " + event.getPin() + "=" + event.getState());
             }
             
+            
         });
         
         System.out.println("Listerner working");
+        
+        // momentary state of the pin
+        System.out.println("PinState: " + pin.getPin() + "=" + pin.getState());
         
         //keep running until user aborts (CTRL-C)
 //        while (true)
