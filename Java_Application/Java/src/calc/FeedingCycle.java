@@ -103,7 +103,7 @@ public class FeedingCycle
         pin06.setShutdownOptions(true, PinState.LOW);
         
         // engine2: conveyor belt - feed bag -> Transistor_2.2 -> GPIO_07
-        final GpioPinDigitalOutput pin07 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_07  ,PinState.HIGH);
+        final GpioPinDigitalOutput pin07 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_10  ,PinState.HIGH); // use GPIO_10 instead of GPIO_7 because of error
         pin07.setShutdownOptions(true, PinState.LOW);
         
         // engine2: conveyor belt - feed bag -> Transistor_2.3 -> GPIO_08
