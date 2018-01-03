@@ -114,15 +114,19 @@ public class FeedingCycle
         final GpioPinDigitalOutput pin09 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_09  ,PinState.HIGH);
         pin09.setShutdownOptions(true, PinState.LOW);
         
+        Logger.getLogger("Start feeding").log(Level.INFO, "Start feeding");
         // 1. check if a feed bag is available
-        if (pin01.getState() == PinState.HIGH)
+        if (pin01.getState() == PinState.HIGH && bowlIndex <= 4)
         {
-            String str = pin01.getPin() + "=" + pin01.getState(); 
+            String str = "cehck feed bag" + pin01.getPin() + "=" + pin01.getState(); 
             Logger.getLogger(str).log(Level.FINE, str);
             
             // 2. check the position of the bowl
             if (pin00.getState() != PinState.HIGH)
-            {
+            {   
+                str = "check bowl position" + pin00.getPin() + "=" + pin00.getState(); 
+                Logger.getLogger(str).log(Level.FINE, str);
+                
                 // 3. move bowl to the filling location
                 pin02.high();
                 pin05.high();
@@ -132,12 +136,16 @@ public class FeedingCycle
                 {
                     pin02.low();
                     pin05.low();
-                }     
+                }
+                Logger.getLogger("bowl position adjusted").log(Level.FINE, "bowl position adjusted");
             }
             
             // 4. check the position of the bowl again
             if (pin00.getState() == PinState.HIGH)
             {
+                str = "check bowl position again" + pin00.getPin() + "=" + pin00.getState(); 
+                Logger.getLogger(str).log(Level.FINE, str);
+                
                 // 5. check position of the feed  bag -> wrong position -> move conveyor belt
                 // should be in position - according to the first check
                 
@@ -156,9 +164,11 @@ public class FeedingCycle
                     
                     // +1 to the number of usages
                     bowlUsageIndex++;
+                    Logger.getLogger("feeding successful").log(Level.INFO, "feeding successful");
                 }
                 else
                 {
+                    // 6. move conveyor belt until the next feed bag reaches the sensor = filling the bowl
                     pin06.high();
                     pin09.high();
                     
@@ -173,6 +183,8 @@ public class FeedingCycle
                     bowlIndex++;
                     // new bowl, number of usages = 0
                     bowlUsageIndex = 0;
+                    
+                    Logger.getLogger("feeding successful").log(Level.INFO, "feeding successful");
                 }
             }
             else
@@ -184,5 +196,15 @@ public class FeedingCycle
         {
             Logger.getLogger("No feeding bag left!").log(Level.SEVERE, "No feeding bag left!");
         }
+        
+        // shutdown gpio controller
+        gpio.shutdown();
+        Logger.getLogger("shutdown GPIO controller").log(Level.FINE, "shutdown GPIO controller");
     }
+    
+    public FeedingCycle()
+    {
+        feed();
+    }
+    
 }
