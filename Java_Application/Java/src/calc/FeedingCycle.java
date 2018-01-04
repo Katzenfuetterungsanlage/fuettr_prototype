@@ -38,7 +38,7 @@ import java.util.logging.Logger;
         Transistor_1.4 GPIO_05
     engine2: conveyor belt - feed bag
         Transistor_2.1 GPIO_06
-        Transistor_2.2 GPIO_07
+        Transistor_2.2 GPIO_10
         Transistor_2.3 GPIO_08
         Transistor_2.4 GPIO_09
 
@@ -67,10 +67,12 @@ public class FeedingCycle
     
     public static void feed ()
     {
-        // bowl  
-        int bowlIndex = 1;
+        // number of max usages 
+        int maxbowlUsageIndex = 4;
         // number of usages
         int bowlUsageIndex = 0;
+        
+        Boolean wait = false;
         
         final GpioController gpio = GpioFactory.getInstance();
         
@@ -116,7 +118,7 @@ public class FeedingCycle
         
         Logger.getLogger("Start feeding").log(Level.INFO, "Start feeding");
         // 1. check if a feed bag is available
-        if (pin01.getState() == PinState.HIGH && bowlIndex <= 4)
+        if (pin01.getState() == PinState.HIGH)
         {
             String str = "cehck feed bag" + pin01.getPin() + "=" + pin01.getState(); 
             Logger.getLogger(str).log(Level.FINE, str);
@@ -132,11 +134,18 @@ public class FeedingCycle
                 pin05.high();
                 
                 // position reached
-                if (pin00.getState() == PinState.HIGH)
+                while (wait != true)
                 {
-                    pin02.low();
-                    pin05.low();
+                    if (pin00.getState() == PinState.HIGH)
+                    {
+                        pin02.low();
+                        pin05.low();
+                        
+                        wait = true;
+                    }
                 }
+                wait = false;
+                
                 Logger.getLogger("bowl position adjusted").log(Level.FINE, "bowl position adjusted");
             }
             
@@ -149,18 +158,43 @@ public class FeedingCycle
                 // 5. check position of the feed  bag -> wrong position -> move conveyor belt
                 // should be in position - according to the first check
                 
-                if (bowlUsageIndex <= 4)
-                {
+                if (bowlUsageIndex < maxbowlUsageIndex)
+                {                  
+                    // move bowl back to the filling location
+                    pin03.high();
+                    pin04.high();
+                    
+                    //position reached
+                    while (wait != true)
+                    {
+                        if (pin01.getState() == PinState.HIGH)
+                        {
+                            pin06.low();
+                            pin09.low();
+                            
+                            wait = true;
+                        }  
+                    }
+                    wait = false;
+                    
+                    Logger.getLogger("bowl moved back to feeding location").log(Level.FINE, "bowl moved back to feeding location");
+                    
                     // 6. move conveyor belt until the next feed bag reaches the sensor = filling the bowl
                     pin06.high();
                     pin09.high();
-                    
+                                        
                     // position reached
-                    if (pin01.getState() == PinState.HIGH)
+                    while (wait != true)
                     {
-                        pin06.low();
-                        pin09.low();
-                    }  
+                        if (pin01.getState() == PinState.HIGH)
+                        {
+                            pin06.low();
+                            pin09.low();
+                            
+                            wait = true;
+                        }  
+                    }
+                    wait = false;
                     
                     // +1 to the number of usages
                     bowlUsageIndex++;
@@ -173,14 +207,18 @@ public class FeedingCycle
                     pin09.high();
                     
                     // position reached
-                    if (pin01.getState() == PinState.HIGH)
+                    while (wait != true)
                     {
-                        pin06.low();
-                        pin09.low();
+                        if (pin01.getState() == PinState.HIGH)
+                        {
+                            pin06.low();
+                            pin09.low();
+                            
+                            wait = true;
+                        }  
                     }
+                    wait = false;
                     
-                    // use the next bowl
-                    bowlIndex++;
                     // new bowl, number of usages = 0
                     bowlUsageIndex = 0;
                     
