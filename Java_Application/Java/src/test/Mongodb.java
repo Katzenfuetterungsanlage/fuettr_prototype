@@ -9,6 +9,7 @@ import com.mongodb.*;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import static com.mongodb.client.model.Filters.eq;
 import java.util.Arrays;
 import org.bson.Document;
 
@@ -47,21 +48,36 @@ public class Mongodb
                 .append("info", new Document("x", 203).append("y", 102));
 
             collection.insertOne(doc);
+            
+            Document timeDoc = new Document ("name", "Times")
+                    .append("time1", "12:20");
+            collection.insertOne(timeDoc);
 //==============================================================================
         
             System.out.println(collection.count()); //number of documents
 
             //Read from a Collection
 // =============================================================================
-            FindIterable<Document> cursor = collection.find();
+              // MongoDB Tutorial
+//            FindIterable<Document> cursor = collection.find();
+//            
+//            int i = 1;
+//            
+//            while(cursor.hasNext())
+//            {
+//                System.out.println(cursor.next());
+//                i++;
+//            }
+
+            // Stackoverflow: https://stackoverflow.com/questions/45333966/java-insert-value-to-array-in-mongodb 
+            // read one more time from MongoDB
+            doc = collection.find(eq("name", "MongoDB")).first();
             
-            int i = 1;
+            System.out.println(doc.toJson());
             
-            while(cursor.hasNext())
-            {
-                System.out.println(cursor.next());
-                i++;
-            }
+            Document timeDoc2 = new Document (collection.find(eq("name", "Times")).first());
+            
+            System.out.println(timeDoc2.toJson());
             
 // =============================================================================
 

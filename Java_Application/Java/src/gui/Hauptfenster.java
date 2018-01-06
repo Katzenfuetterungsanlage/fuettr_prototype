@@ -5,6 +5,7 @@
  */
 package gui;
 
+import calc.FeedingCycle;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.util.Date;
@@ -847,10 +848,71 @@ public class Hauptfenster extends javax.swing.JFrame
         }
     }
 
-    private class AutomatischeFuetterungAblaufWorker extends SwingWorker<Object, String>
+//    private class AutomatischeFuetterungAblaufWorker extends SwingWorker<Object, String>
+//    {
+//
+//        String letzteFuetterungHilfsstring;
+//
+//        @Override
+//        protected Object doInBackground() throws Exception
+//        {
+//            while (true)
+//            {
+//                if (zustand == true)
+//                {
+//                    if (zeit1.equals(uhrzeit) )
+//                    {
+//                        //TODO Fütterung
+//                        letzteFuetterung = 1;
+//                        letzteFuetterungHilfsstring = zeit1;
+//                        publish(letzteFuetterungHilfsstring);
+//                    } 
+//                    else 
+//                        if (zeit2.equals(uhrzeit) )
+//                         {
+//                            //TODO Fütterung
+//                            letzteFuetterung = 2;
+//                            letzteFuetterungHilfsstring = zeit2;
+//                            publish(letzteFuetterungHilfsstring);
+//                        }
+//                        else 
+//                            if (zeit3.equals(uhrzeit) )
+//                            {
+//                                //TODO Fütterung
+//                                letzteFuetterung = 3;
+//                                letzteFuetterungHilfsstring = zeit3;
+//                                publish(letzteFuetterungHilfsstring);
+//                            } 
+//                            else 
+//                                if (zeit4.equals(uhrzeit) )
+//                                {
+//                                    //TODO Fütterung
+//                                    letzteFuetterung = 4;
+//                                    letzteFuetterungHilfsstring = zeit4;
+//                                    publish(letzteFuetterungHilfsstring);
+//                                } 
+//                                else
+//                                {
+//                                    TimeUnit.SECONDS.sleep(1);
+//                                }
+//                }
+//            }
+//        }
+//
+//        @Override
+//        protected void process(List<String> chunks)
+//        {
+//            lbLetzteFuetterung.setText(letzteFuetterungHilfsstring);
+//        }
+//    }
+
+     private class AutomatischeFuetterungAblaufWorker extends SwingWorker<Object, String>
     {
 
-        String letzteFuetterungHilfsstring;
+        Boolean feedNow;
+        String lastFeeding;
+        
+        FeedingCycle feedingCycle = new FeedingCycle();
 
         @Override
         protected Object doInBackground() throws Exception
@@ -861,34 +923,26 @@ public class Hauptfenster extends javax.swing.JFrame
                 {
                     if (zeit1.equals(uhrzeit) )
                     {
-                        //TODO Fütterung
-                        letzteFuetterung = 1;
-                        letzteFuetterungHilfsstring = zeit1;
-                        publish(letzteFuetterungHilfsstring);
+                        feedingCycle.feed();
+                        lastFeeding = zeit1;
                     } 
                     else 
                         if (zeit2.equals(uhrzeit) )
-                         {
-                            //TODO Fütterung
-                            letzteFuetterung = 2;
-                            letzteFuetterungHilfsstring = zeit2;
-                            publish(letzteFuetterungHilfsstring);
+                        {
+                            feedingCycle.feed();
+                            lastFeeding = zeit2;
                         }
                         else 
                             if (zeit3.equals(uhrzeit) )
                             {
-                                //TODO Fütterung
-                                letzteFuetterung = 3;
-                                letzteFuetterungHilfsstring = zeit3;
-                                publish(letzteFuetterungHilfsstring);
+                                feedingCycle.feed();
+                                lastFeeding = zeit3;
                             } 
                             else 
                                 if (zeit4.equals(uhrzeit) )
                                 {
-                                    //TODO Fütterung
-                                    letzteFuetterung = 4;
-                                    letzteFuetterungHilfsstring = zeit4;
-                                    publish(letzteFuetterungHilfsstring);
+                                    feedingCycle.feed();
+                                    lastFeeding = zeit4;
                                 } 
                                 else
                                 {
@@ -901,10 +955,11 @@ public class Hauptfenster extends javax.swing.JFrame
         @Override
         protected void process(List<String> chunks)
         {
-            lbLetzteFuetterung.setText(letzteFuetterungHilfsstring);
+            lbLetzteFuetterung.setText(lastFeeding);
         }
+        
     }
-
+    
     private class NaechsteFuetterungWorker extends SwingWorker<Object, String>
     {
 
