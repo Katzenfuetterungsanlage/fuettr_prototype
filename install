@@ -20,7 +20,7 @@ curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.6.1.tgz
 tar -zxvf mongodb-linux-x86_64-3.6.1.tgz
 mkdir -p mongodb
 cp -R -n mongodb-linux-x86_64-3.6.1/ mongodb
-export PATH=<mongodb-install-directory>/bin:$PATH
+export PATH=mongodb/bin:$PATH
 mkdir -p /data/db
 mongod
 
