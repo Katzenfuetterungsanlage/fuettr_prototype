@@ -77,6 +77,7 @@ export class FeedComponent implements OnInit {
       }
     } else {
       this.time2ValidMin = true;
+      this.time1Valid = true;
     }
 
     this.time2Valid = this.timeCalculator.isValid(this.time2);
@@ -96,6 +97,7 @@ export class FeedComponent implements OnInit {
       } else {
         this.time3ValidMin = true;
       }
+      this.time2Valid = true;
     }
 
     this.time3Valid = this.timeCalculator.isValid(this.time3);
@@ -124,6 +126,12 @@ export class FeedComponent implements OnInit {
           this.time4ValidMin = true;
         }
       }
+      this.time3Valid = true;
+    }
+
+    if (!this.check4) {
+      this.time4Valid = true;
+      this.time4ValidMin = true;
     }
   }
 

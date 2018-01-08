@@ -23,7 +23,7 @@ export class FuettrDB {
 
   private _data: mongodb.Collection;
 
-  private constructor() {}
+  private constructor() { }
 
   public async getTimes(): Promise<string> {
     const Times = await this._data.find({ identifier: 'Times' }).toArray();
@@ -53,10 +53,23 @@ export class FuettrDB {
     const url = 'mongodb://localhost:27017/katzenfuetterungsanlage';
     try {
       const dbServer = await mongodb.MongoClient.connect(url);
-      log.info('Database connected.');
-      const dbFuettr = dbServer.db('katzenfuetterungsanlage');
+      const dbFuettr = await dbServer.db('katzenfuetterungsanlage');
       const collData = await dbFuettr.collection('data');
+
+      let size;
+      try {
+        size = await collData.count({});
+      } catch {
+        size = 0;
+      }
+
+      if (size === 0) {
+        const mockData = [{ identifier: 'Times', time1: '', time2: '', time3: '', time4: '', time1_active: false, time2_active: false, time3_active: false, time4_active: false }];
+        await collData.insertMany(mockData);
+      }
+
       this._data = collData;
+      log.info('Database connected.');
     } catch (err) {
       log.warn(err);
       throw err;
