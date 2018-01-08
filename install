@@ -12,17 +12,11 @@ echo -e "\e[92m
 --> downloading and installing git...\e[0m"
 sudo apt install -y git
 sudo apt install -y rpl
-sudo apt -y autoremove
 
 echo -e "\e[92m
 --> downloading and installing mongodb...\e[0m"
-curl -O https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.6.1.tgz
-tar -zxvf mongodb-linux-x86_64-3.6.1.tgz
-mkdir -p mongodb
-cp -R -n mongodb-linux-x86_64-3.6.1/ mongodb
-export PATH=mongodb/bin:$PATH
-sudo mkdir -p /data/db
-sudo mongod &
+sudo apt install -y mongodb
+sudo apt -y autoremove
 
 echo -e "\e[92m
 --> setting git credentials...\e[0m"
@@ -79,9 +73,9 @@ sudo npm i -g @angular/cli gulp npm-install-missing
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm i --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i
 
-#echo -e "\e[92m
-#--> initializing database...\e[0m"
-#sudo service mongod start
+echo -e "\e[92m
+--> initializing database...\e[0m"
+sudo systemctl start mongodb
 
 echo -e "\e[92m
 --> building server...\e[0m"
