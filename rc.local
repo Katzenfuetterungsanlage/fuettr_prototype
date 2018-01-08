@@ -7,6 +7,7 @@ sudo service cron start &
 echo "\e[92m
 --> Starting server\e[0m"
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 17325
+su USERR -c 'cd HOMEE && sudo mongod &'
 su USERR -c 'cd HOMEE/git/fuettr_prototype/Web_Application/Webserver/ng2 && npm start &'
 
 _IP=$(hostname -I) || true
