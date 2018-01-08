@@ -21,8 +21,8 @@ tar -zxvf mongodb-linux-x86_64-3.6.1.tgz
 mkdir -p mongodb
 cp -R -n mongodb-linux-x86_64-3.6.1/ mongodb
 export PATH=mongodb/bin:$PATH
-mkdir -p /data/db
-mongod
+sudo mkdir -p /data/db
+sudo mongod &
 
 echo -e "\e[92m
 --> setting git credentials...\e[0m"
