@@ -133,13 +133,11 @@ export class ApiRoutes {
   public async callMeMaybe(req: express.Request, res: express.Response, next: express.NextFunction) {
     switch (req.query.q) {
       case 'warnings': {
-        res.sendFile(path.join(__dirname, '../testfiles/warnings.json'));
         // getFromJava(res, 'warnings');
         break;
       }
 
       case 'errors': {
-        res.sendFile(path.join(__dirname, '../testfiles/errors.json'));
         // getFromJava(res, 'errors');
         break;
       }
@@ -206,7 +204,9 @@ export class ApiRoutes {
     switch (req.query.q) {
       case 'times': {
         await FuettrDB.Instance.putTimes(req.body);
+        await setTimeout(() => { }, 10)
         const Times = await FuettrDB.Instance.getTimes();
+        console.log(Times);
         res.send(Times);
         break;
       }

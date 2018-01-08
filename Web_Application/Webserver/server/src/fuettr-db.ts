@@ -1,5 +1,7 @@
 import { log } from './main';
 import * as mongodb from 'mongodb';
+import * as fs from 'fs';
+import * as path from 'path';
 
 export class FuettrDB {
   public static async createInstance(socket = 'localhost:27017'): Promise<FuettrDB> {
@@ -22,6 +24,7 @@ export class FuettrDB {
   }
 
   private _data: mongodb.Collection;
+  private _serialnumber = parseInt(fs.readFileSync(path.join(__dirname, '../../../../seriennummer')).toString());
 
   private constructor() { }
 
@@ -64,7 +67,12 @@ export class FuettrDB {
       }
 
       if (size === 0) {
-        const mockData = [{ identifier: 'Times', time1: '', time2: '', time3: '', time4: '', time1_active: false, time2_active: false, time3_active: false, time4_active: false }];
+        const mockData = [
+          { identifier: 'Times', time1: '', time2: '', time3: '', time4: '', time1_active: false, time2_active: false, time3_active: false, time4_active: false },
+          { identifier: 'Status', last_time: '', next_time: '', next_time_in: '', machine_state: '' },
+          { identifier: 'Info', serialnumber: this._serialnumber, internal: '', wlanState: '' },
+          { identifier: 'Hardware', motor1: '', motor2: '', sensor1: '', sensor2: '', }
+        ];
         await collData.insertMany(mockData);
       }
 

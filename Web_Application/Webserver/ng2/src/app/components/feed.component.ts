@@ -169,6 +169,12 @@ export class FeedComponent implements OnInit {
   }
 
   save(): void {
+
+    if (this.time1 === '' || this.time1 === null || this.time1 === undefined) { this.time1 = '--:--'; }
+    if (this.time2 === '' || this.time2 === null || this.time2 === undefined) { this.time2 = '--:--'; }
+    if (this.time3 === '' || this.time3 === null || this.time3 === undefined) { this.time3 = '--:--'; }
+    if (this.time4 === '' || this.time4 === null || this.time4 === undefined) { this.time4 = '--:--'; }
+
     const value = {
       identifier: 'Times',
       time1: this.time1,
