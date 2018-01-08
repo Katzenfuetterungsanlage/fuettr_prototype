@@ -15,7 +15,7 @@ sudo apt install -y rpl
 
 echo -e "\e[92m
 --> downloading and installing mongodb...\e[0m"
-sudo apt install -y mongodb-server
+sudo apt install -y mongodb
 sudo apt -y autoremove
 
 echo -e "\e[92m
