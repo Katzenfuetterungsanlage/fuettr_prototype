@@ -21,6 +21,7 @@ import java.io.StringReader;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import static methods.MongodbDocumentToJsonObject.DocToJsonObject;
 
 /**
  *
@@ -112,6 +113,12 @@ public class MongodbCreateDocument
             System.out.println("JsonObject: " + object);
             
             System.out.println("interner Prozessor  : " + object.getString("internal"));
+            
+            JsonObject object2 = DocToJsonObject(timeDoc);
+            
+            System.out.println("JsonObject: " + object2);
+            
+            System.out.println("time 1: " + object2.getString("time1"));
             
 // =============================================================================
             
