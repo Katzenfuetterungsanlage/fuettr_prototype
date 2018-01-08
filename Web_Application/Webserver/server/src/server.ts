@@ -39,6 +39,7 @@ export class Server {
     this._express.use(this.logger);
     this._express.use(express.static(path.join(__dirname, '../public')));
     this._express.use('/assets', express.static(path.join(__dirname, '../../ng2/dist/assets')));
+    // tslint:disable-next-line:max-line-length
     // this._express.use(ejwt({ secret: this._publkey }).unless({ path: ['/api/extensions', '/api/ip', '/api/login', '/api/version', '/api/bootstrap', '/api/node_modules'] }));
     this._express.use((req, res, next) => {
       log.fine(req.user);
