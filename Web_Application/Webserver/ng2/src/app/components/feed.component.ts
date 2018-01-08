@@ -162,6 +162,7 @@ export class FeedComponent implements OnInit {
 
   save(): void {
     const value = {
+      identifier: 'Times',
       time1: this.time1,
       time2: this.time2,
       time3: this.time3,
