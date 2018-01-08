@@ -4,24 +4,24 @@
 <PrintReportSettings PaperSize="9" FormName="A4" SheetSizeX="203" SheetSizeY="283"/>
 <PrinterSettings PaperSizeX="2099" PaperSizeY="2969" PhysicalOffestTenthMm_X="29" PhysicalOffestTenthMm_Y="29"/>
 <tb use="1" name="C:\Users\Public\Documents\ProfiCAD Library\_TB\standard9.ptb"/>
-<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="75" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
+<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="100" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
 <RefGridSettings FieldSize="50"/>
 <NumberingWire Digits="3" TypeRenumbering="0" ShowWireName="0" WireLabelDist_a="4" WireLabelDist_b="7" WireLabelDist_c="7"/>
 <summary>
 <field name="rev" value=""/>
-<field name="Titel" value=""/>
-<field name="Spr" value=""/>
-<field name="DokArt" value=""/>
 <field name="Genehmigt" value=""/>
+<field name="DokArt" value=""/>
+<field name="Spr" value=""/>
+<field name="Titel" value=""/>
 <field name="Abteilung" value=""/>
 <field name="_sc" value=""/>
 <field name="_pcs" value=""/>
-<field name="author" value=""/>
 <field name="Sachnummer" value=""/>
+<field name="author" value=""/>
 <field name="date" value="11.12.2017"/>
-<field name="TitelZusatz" value=""/>
-<field name="DocStatus" value=""/>
 <field name="techRef" value=""/>
+<field name="DocStatus" value=""/>
+<field name="TitelZusatz" value=""/>
 </summary>
 <repo>
 <ppd name="Elektronik\passive Komponenten\Lampen und Signaleinrichtungen\DC-Spannungsquelle, Gleichspannungsquelle.ppd" n="EN 60617: 08-12-15" fG="7bad9092-3f66-4762-912b-c16515d0a492" lG="1484af7a-a81b-49ab-a9a0-30289ebeec18">
@@ -96,6 +96,15 @@
 <attribute name="_o16" value="8" v="1" custom="o" x="130" y="-40" al="6"/>
 </attributes>
 </defaults>
+</ppd>
+<ppd name="Elektronik\passive Komponenten\Widerstände\Widerstand, Dämpfungsglied.ppd" t="R" v="10K" n="EN 60617: 04-01-01" fG="28c7548c-a963-45ba-b852-59afda220b0d" lG="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0">
+<layers current="0">
+<layer name="0" v="1">
+<rect left="-8" top="-25" right="8" bottom="25"/>
+<outlet x="0" y="-25"/>
+<outlet x="0" y="25"/>
+</layer>
+</layers>
 </ppd>
 <ppd name="Elektronik\Halbleiter und Röhren\Optokoppler\Optokoppler NPN.ppd" t="opto" fG="89b30fec-61ec-4c18-b7ae-bb0909475b45" lG="3bcbb213-9000-4422-9d99-d2fea239aa3d">
 <layers current="0">
@@ -483,55 +492,55 @@
 </elem>
 <elem lGuid="b82d063c-cab8-4f92-90b9-192192d3daf9" x="1340" y="1000">
 <attributes>
-<attribute name="_ref" value="2" v="0" custom="" al="6" x="1254" y="980"/>
+<attribute name="_ref" value="M2" v="1" custom="" al="6" x="1274" y="940"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1254" y="1020"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="1080" y="1140">
 <attributes>
-<attribute name="_ref" value="T1" v="1" custom="" al="6" x="1004" y="1120"/>
-<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="1004" y="1160"/>
+<attribute name="_ref" value="T6" v="1" custom="" al="6" x="1004" y="1120"/>
+<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="1004" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="1600" y="1140" h="1" a="-1800">
 <attributes>
-<attribute name="_ref" value="T2" v="1" custom="" al="6" x="1524" y="1120"/>
-<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="1524" y="1160"/>
+<attribute name="_ref" value="T8" v="1" custom="" al="6" x="1564" y="1080"/>
+<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="1524" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="1080" y="880" h="1">
 <attributes>
-<attribute name="_ref" value="T3" v="0" custom="" al="6" x="1004" y="860"/>
+<attribute name="_ref" value="T5" v="1" custom="" al="6" x="1004" y="860"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1004" y="900"/>
 </attributes>
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="1600" y="880" a="-1800">
 <attributes>
-<attribute name="_ref" value="T4" v="0" custom="" al="6" x="1524" y="860"/>
+<attribute name="_ref" value="T7" v="1" custom="" al="6" x="1564" y="820"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1524" y="900"/>
 </attributes>
 </elem>
 <elem lGuid="b82d063c-cab8-4f92-90b9-192192d3daf9" x="480" y="1000">
 <attributes>
-<attribute name="_ref" value="3" v="0" custom="" al="6" x="394" y="980"/>
+<attribute name="_ref" value="M1" v="1" custom="" al="6" x="414" y="920"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="394" y="1020"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="220" y="1140">
 <attributes>
-<attribute name="_ref" value="T5" v="1" custom="" al="6" x="144" y="1120"/>
-<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="144" y="1160"/>
+<attribute name="_ref" value="T2" v="1" custom="" al="6" x="144" y="1120"/>
+<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="144" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="7ea19633-cecd-472a-9e81-48d706f2fd83" x="740" y="1140" h="1" a="-1800">
 <attributes>
-<attribute name="_ref" value="T6" v="1" custom="" al="6" x="664" y="1120"/>
-<attribute name="_type" value="BUZ10" v="1" custom="" al="6" x="664" y="1160"/>
+<attribute name="_ref" value="T4" v="1" custom="" al="6" x="704" y="1060"/>
+<attribute name="_type" value="BUZ10" v="0" custom="" al="6" x="664" y="1160"/>
 </attributes>
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="220" y="880" h="1">
 <attributes>
-<attribute name="_ref" value="T7" v="0" custom="" al="6" x="144" y="860"/>
+<attribute name="_ref" value="T1" v="1" custom="" al="6" x="144" y="860"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="144" y="900"/>
 <attribute name="_o1" value="" v="1" custom="i" al="6" x="166" y="855"/>
 <attribute name="_o2" value="" v="1" custom="o" al="6" x="256" y="859"/>
@@ -541,14 +550,14 @@
 </elem>
 <elem lGuid="c3bbbf0a-5d18-4c0d-bd0f-a3bf21d95211" x="740" y="880" a="-1800">
 <attributes>
-<attribute name="_ref" value="T8" v="0" custom="" al="6" x="664" y="860"/>
+<attribute name="_ref" value="T3" v="1" custom="" al="6" x="704" y="820"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="664" y="900"/>
 </attributes>
 </elem>
-<elem lGuid="1484af7a-a81b-49ab-a9a0-30289ebeec18" x="1760" y="740">
+<elem lGuid="1484af7a-a81b-49ab-a9a0-30289ebeec18" x="1800" y="740">
 <attributes>
-<attribute name="_ref" value="4" v="0" custom="" al="6" x="1674" y="720"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1674" y="760"/>
+<attribute name="_ref" value="4" v="0" custom="" al="6" x="1714" y="720"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1714" y="760"/>
 </attributes>
 </elem>
 <wire pts="720,140,720,180,"/>
@@ -564,13 +573,6 @@
 <wire pts="960,140,960,220,1200,220,1200,320,"/>
 <wire pts="1000,140,1000,200,1380,200,1380,320,"/>
 <wire pts="880,140,880,260,840,260,840,320,"/>
-<wire pts="220,400,220,660,100,660,100,1165,176,1165,"/>
-<wire pts="400,400,400,780,176,780,176,855,"/>
-<wire pts="580,400,580,780,784,780,784,855,"/>
-<wire pts="760,400,760,660,840,660,840,1165,784,1165,"/>
-<wire pts="940,400,940,1165,1036,1165,"/>
-<wire pts="1120,400,1120,760,1036,760,1036,855,"/>
-<wire pts="1480,400,1480,740,1680,740,1680,1165,1644,1165,"/>
 <wire pts="420,1000,320,1000,320,901,266,901,"/>
 <wire pts="320,1000,320,1119,266,1119," drop1="1"/>
 <wire pts="540,1000,640,1000,640,901,694,901,"/>
@@ -579,24 +581,23 @@
 <wire pts="1280,1000,1180,1000," drop2="1"/>
 <wire pts="1554,901,1500,901,1500,1119,1554,1119,"/>
 <wire pts="1400,1000,1500,1000," drop2="1"/>
-<elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="1760" y="640" a="1799">
+<elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="1800" y="640" a="1799">
 <attributes>
-<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="1714" y="620"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1714" y="660"/>
+<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="1754" y="620"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1754" y="660"/>
 </attributes>
 </elem>
-<wire pts="1300,400,1300,560,1440,560,1440,800,1644,800,1644,855,"/>
-<wire pts="1760,660,1760,700,"/>
-<elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="500" y="680" a="1799">
+<wire pts="1800,660,1800,700,"/>
+<elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="500" y="720" a="1799">
 <attributes>
-<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="454" y="660"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="454" y="700"/>
+<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="454" y="700"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="454" y="740"/>
 </attributes>
 </elem>
-<elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="1340" y="680" a="1799">
+<elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="1340" y="720" a="1799">
 <attributes>
-<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="1294" y="660"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1294" y="700"/>
+<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="1294" y="700"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1294" y="740"/>
 </attributes>
 </elem>
 <elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="1540" y="200" a="1799">
@@ -605,12 +606,12 @@
 <attribute name="_type" value="" v="0" custom="" al="6" x="1494" y="220"/>
 </attributes>
 </elem>
-<wire pts="266,859,500,859,500,700,"/>
+<wire pts="266,859,500,859,500,740,"/>
 <wire pts="694,859,500,859," drop2="1"/>
 <wire pts="660,859,660,880,690,880," drop1="1"/>
 <wire pts="270,880,300,880,300,859," drop2="1"/>
 <wire pts="1126,859,1554,859,"/>
-<wire pts="1340,700,1340,859," drop2="1"/>
+<wire pts="1340,740,1340,859," drop2="1"/>
 <wire pts="1130,880,1160,880,1160,859," drop2="1"/>
 <wire pts="1550,880,1520,880,1520,859," drop2="1"/>
 <elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1560" y="440">
@@ -631,10 +632,10 @@
 <attribute name="_type" value="" v="0" custom="" al="6" x="1314" y="1280"/>
 </attributes>
 </elem>
-<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1760" y="860">
+<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1800" y="860">
 <attributes>
-<attribute name="_ref" value="zem4" v="0" custom="" al="6" x="1714" y="840"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1714" y="880"/>
+<attribute name="_ref" value="zem4" v="0" custom="" al="6" x="1754" y="840"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1754" y="880"/>
 </attributes>
 </elem>
 <wire pts="266,1161,694,1161,"/>
@@ -645,7 +646,7 @@
 <wire pts="1360,1240,1360,1161," drop2="1"/>
 <wire pts="1130,1140,1160,1140,1160,1161," drop2="1"/>
 <wire pts="1550,1140,1520,1140,1520,1161," drop2="1"/>
-<wire pts="1760,840,1760,780,"/>
+<wire pts="1800,840,1800,780,"/>
 <wire pts="120,400,120,420,1560,420,"/>
 <wire pts="1380,400,1380,420," drop2="1"/>
 <wire pts="1200,400,1200,420," drop2="1"/>
@@ -696,13 +697,13 @@
 </elem>
 <elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="660" y="1520">
 <attributes>
-<attribute name="_ref" value="5" v="0" custom="" al="6" x="504" y="1500"/>
+<attribute name="_ref" value="Optischer Schalter 1" v="1" custom="" al="6" x="784" y="1380"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="504" y="1540"/>
 </attributes>
 </elem>
 <elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="1160" y="1520">
 <attributes>
-<attribute name="_ref" value="6" v="0" custom="" al="6" x="1004" y="1500"/>
+<attribute name="_ref" value="Optischer Schalter 2" v="1" custom="" al="6" x="1284" y="1380"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1004" y="1540"/>
 </attributes>
 </elem>
@@ -720,6 +721,82 @@
 <wire pts="1260,1580,1260,1960,"/>
 <wire pts="760,2040,760,2140,1260,2140,1260,2040,"/>
 <wire pts="1260,2140,1500,2140,1500,1680," drop1="1" drop2="1"/>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="220" y="560">
+<attributes>
+<attribute name="_ref" value="R1" v="1" custom="" al="6" x="186" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="186" y="580"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="400" y="560">
+<attributes>
+<attribute name="_ref" value="R2" v="1" custom="" al="6" x="366" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="366" y="580"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="580" y="560">
+<attributes>
+<attribute name="_ref" value="R3" v="1" custom="" al="6" x="546" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="546" y="580"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="760" y="560">
+<attributes>
+<attribute name="_ref" value="R4" v="1" custom="" al="6" x="726" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="726" y="580"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="940" y="560">
+<attributes>
+<attribute name="_ref" value="R5" v="1" custom="" al="6" x="906" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="906" y="580"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="1120" y="560">
+<attributes>
+<attribute name="_ref" value="R6" v="1" custom="" al="6" x="1086" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="1086" y="580"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="1300" y="560">
+<attributes>
+<attribute name="_ref" value="R7" v="1" custom="" al="6" x="1266" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="1266" y="580"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="1480" y="560">
+<attributes>
+<attribute name="_ref" value="R8" v="1" custom="" al="6" x="1446" y="540"/>
+<attribute name="_type" value="100" v="1" custom="" al="6" x="1446" y="580"/>
+</attributes>
+</elem>
+<wire pts="220,400,220,535,"/>
+<wire pts="220,585,220,720,80,720,80,1165,176,1165,"/>
+<wire pts="400,585,400,780,176,780,176,855,"/>
+<wire pts="580,585,580,780,784,780,784,855,"/>
+<wire pts="760,585,760,720,860,720,860,1165,784,1165,"/>
+<wire pts="400,535,400,400,"/>
+<wire pts="580,535,580,400,"/>
+<wire pts="760,535,760,400,"/>
+<wire pts="940,535,940,400,"/>
+<wire pts="1120,535,1120,400,"/>
+<wire pts="1300,535,1300,400,"/>
+<wire pts="1480,535,1480,400,"/>
+<wire pts="940,585,940,1165,1036,1165,"/>
+<wire pts="1120,585,1120,780,1036,780,1036,855,"/>
+<wire pts="1300,585,1300,680,1644,680,1644,855,"/>
+<wire pts="1480,585,1480,640,1700,640,1700,1165,1644,1165,"/>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="580" y="1300">
+<attributes>
+<attribute name="_ref" value="R9" v="1" custom="" al="6" x="546" y="1280"/>
+<attribute name="_type" value="160" v="1" custom="" al="6" x="546" y="1320"/>
+</attributes>
+</elem>
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="1080" y="1280">
+<attributes>
+<attribute name="_ref" value="R10" v="1" custom="" al="6" x="1046" y="1260"/>
+<attribute name="_type" value="160" v="1" custom="" al="6" x="1046" y="1300"/>
+</attributes>
+</elem>
 </layer>
 </layers>
 </page>
