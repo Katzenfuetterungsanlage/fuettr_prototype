@@ -12,6 +12,10 @@ echo -e "\e[92m
 --> downloading and installing git...\e[0m"
 sudo apt install -y git
 sudo apt install -y rpl
+
+echo -e "\e[92m
+--> downloading and installing mongodb...\e[0m"
+sudo apt install -y mongodb-server
 sudo apt -y autoremove
 
 echo -e "\e[92m
@@ -62,13 +66,16 @@ curl -X POST \
 -d $JSON \
 'sorogon.duckdns.org:2525/serialnumber' < $THISUSER/git/fuettr_prototype/seriennummer.txt
 
-
 echo -e "\e[92m
 --> installing node dependencies...\e[0m"
 sudo npm i -g npm
 sudo npm i -g @angular/cli gulp npm-install-missing
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/ng2 && sudo npm i --unsafe-perm
 cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i
+
+echo -e "\e[92m
+--> initializing database...\e[0m"
+sudo service mongod start
 
 echo -e "\e[92m
 --> building server...\e[0m"
