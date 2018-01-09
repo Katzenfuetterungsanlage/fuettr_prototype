@@ -115,6 +115,7 @@ cd $THISUSER/git/fuettr_prototype/Web_Application/Webserver/server && sudo npm i
 echo -e "\e[92m
 --> initializing database...\e[0m"
 sudo systemctl start mongodb
+sudo mongod
 
 echo -e "\e[92m
 --> building server...\e[0m"
