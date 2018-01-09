@@ -39,15 +39,19 @@ export class FeedComponent implements OnInit {
 
   public time1Minutes: number;
   public time1Valid = false;
+  public time1notNull = false;
   public time2Minutes: number;
   public time2ValidMin = false;
   public time2Valid = false;
+  public time2notNull = false;
   public time3Minutes: number;
   public time3ValidMin = false;
   public time3Valid = false;
+  public time3notNull = false;
   public time4Minutes: number;
   public time4ValidMin = false;
   public time4Valid = false;
+  public time4notNull = false;
 
   constructor(
     private httpgetService: HttpgetService,
@@ -62,6 +66,10 @@ export class FeedComponent implements OnInit {
     this.time2Valid = true;
     this.time3Valid = true;
     this.time4Valid = true;
+    this.time1notNull = true;
+    this.time2notNull = true;
+    this.time3notNull = true;
+    this.time4notNull = true;
 
     this.time1Minutes = this.timeCalculator.toMinutes(this.time1);
     this.time2Minutes = this.timeCalculator.toMinutes(this.time2);
@@ -73,7 +81,15 @@ export class FeedComponent implements OnInit {
       if (this.time1Minutes === null) {
         this.time2ValidMin = true;
       } else {
-        this.time2ValidMin = this.time2Minutes > this.time1Minutes;
+        if (this.check2) {
+          this.time2ValidMin = this.time2Minutes > this.time1Minutes;
+        } else {
+          this.time2ValidMin = true;
+        }
+      }
+      // tslint:disable-next-line:max-line-length
+      if ((this.time1[0] === '-' && this.time1[1] === '-' && this.time1[3] === '-' && this.time1[4] === '-') || this.time1 === null || this.time1 === undefined) {
+        this.time1notNull = false;
       }
     } else {
       this.time2ValidMin = true;
@@ -85,14 +101,26 @@ export class FeedComponent implements OnInit {
       if (this.time2Minutes === null && this.time1Minutes === null) {
         this.time3ValidMin = true;
       } else {
-        this.time3ValidMin = this.time3Minutes > this.time2Minutes;
+        if (this.check3) {
+          this.time3ValidMin = this.time3Minutes > this.time2Minutes;
+        } else {
+          this.time3ValidMin = true;
+        }
+      }
+      // tslint:disable-next-line:max-line-length
+      if ((this.time2[0] === '-' && this.time2[1] === '-' && this.time2[3] === '-' && this.time2[4] === '-') || this.time2 === null || this.time2 === undefined) {
+        this.time2notNull = false;
       }
     } else {
       if (this.check1) {
         if (this.time1Minutes === null) {
           this.time3ValidMin = true;
         } else {
-          this.time3ValidMin = this.time3Minutes > this.time1Minutes;
+          if (this.check3) {
+            this.time3ValidMin = this.time3Minutes > this.time1Minutes;
+          } else {
+            this.time3ValidMin = true;
+          }
         }
       } else {
         this.time3ValidMin = true;
@@ -106,6 +134,10 @@ export class FeedComponent implements OnInit {
         this.time4ValidMin = true;
       } else {
         this.time4ValidMin = this.time4Minutes > this.time3Minutes;
+      }
+      // tslint:disable-next-line:max-line-length
+      if ((this.time3[0] === '-' && this.time3[1] === '-' && this.time3[3] === '-' && this.time3[4] === '-') || this.time3 === null || this.time3 === undefined) {
+        this.time3notNull = false;
       }
       this.time4Valid = this.timeCalculator.isValid(this.time4);
     } else {
@@ -132,6 +164,11 @@ export class FeedComponent implements OnInit {
     if (!this.check4) {
       this.time4Valid = true;
       this.time4ValidMin = true;
+    } else {
+      // tslint:disable-next-line:max-line-length
+      if ((this.time4[0] === '-' && this.time4[1] === '-' && this.time4[3] === '-' && this.time4[4] === '-') || this.time4 === null || this.time4 === undefined) {
+        this.time4notNull = false;
+      }
     }
   }
 
