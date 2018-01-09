@@ -15,7 +15,7 @@ import com.pi4j.io.gpio.RaspiPin;
  *
  * @author Florian
  */
-public class pi4j_test_controlle_uebergeben
+public class Pi4Java_test_hand_pin_over
 {
     private static void testCycle (GpioPinDigitalOutput pin01)
     {
