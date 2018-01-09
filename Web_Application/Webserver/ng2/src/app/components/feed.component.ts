@@ -77,6 +77,7 @@ export class FeedComponent implements OnInit {
       }
     } else {
       this.time2ValidMin = true;
+      this.time1Valid = true;
     }
 
     this.time2Valid = this.timeCalculator.isValid(this.time2);
@@ -96,6 +97,7 @@ export class FeedComponent implements OnInit {
       } else {
         this.time3ValidMin = true;
       }
+      this.time2Valid = true;
     }
 
     this.time3Valid = this.timeCalculator.isValid(this.time3);
@@ -124,6 +126,12 @@ export class FeedComponent implements OnInit {
           this.time4ValidMin = true;
         }
       }
+      this.time3Valid = true;
+    }
+
+    if (!this.check4) {
+      this.time4Valid = true;
+      this.time4ValidMin = true;
     }
   }
 
@@ -161,7 +169,14 @@ export class FeedComponent implements OnInit {
   }
 
   save(): void {
+
+    if (this.time1 === '' || this.time1 === null || this.time1 === undefined) { this.time1 = '--:--'; }
+    if (this.time2 === '' || this.time2 === null || this.time2 === undefined) { this.time2 = '--:--'; }
+    if (this.time3 === '' || this.time3 === null || this.time3 === undefined) { this.time3 = '--:--'; }
+    if (this.time4 === '' || this.time4 === null || this.time4 === undefined) { this.time4 = '--:--'; }
+
     const value = {
+      identifier: 'Times',
       time1: this.time1,
       time2: this.time2,
       time3: this.time3,

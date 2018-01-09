@@ -29,6 +29,8 @@ export interface AckErr {
 }
 
 export interface Times {
+  _id: string;
+  identifier: string;
   time1: string;
   time1_active: boolean;
   time2: string;
@@ -40,13 +42,17 @@ export interface Times {
 }
 
 export interface Status {
-  last_time: string;
-  next_time: string;
-  next_time_in: string;
-  machine_state: string;
+  _id: string;
+  identifier: string;
+  lastFeeding: string;
+  nextFeeding: string;
+  nextFeedingIn: string;
+  machineState: string;
 }
 
 export interface Info {
+  _id: string;
+  identifier: string;
   serialnumber: string;
   internal: string;
   wlanState: string;
@@ -57,9 +63,10 @@ export interface Ip {
 }
 
 export interface Positions {
+  _id: string;
+  identifier: string;
   motor1: string;
   motor2: string;
   sensor1: string;
   sensor2: string;
 }
-
