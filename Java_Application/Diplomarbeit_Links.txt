@@ -1,0 +1,29 @@
+https://www.youtube.com/watch?v=Uh77miF-YMY
+
+Seite für Icons: https://icons8.com/
+
+Date to String: https://stackoverflow.com/questions/5683728/convert-java-util-date-to-string
+
+String to Date: https://stackoverflow.com/questions/4216745/java-string-to-date-conversion
+
+Daten vergleichen: https://stackoverflow.com/questions/22039991/how-to-compare-two-dates-along-with-time-in-java
+
+Von Website lesen: https://stackoverflow.com/questions/6159118/using-java-to-pull-data-from-a-webpage
+
+json parser: https://stackoverflow.com/questions/2591098/how-to-parse-json
+
+json reader: https://stackoverflow.com/questions/39786643/how-can-i-read-from-a-json-file-using-the-javax-json-package
+
+mongodb: https://mongodb.github.io/mongo-java-driver/3.6/driver/getting-started/quick-start/
+         https://stackoverflow.com/questions/2665544/working-with-mongodb-from-java
+	 install: https://www.youtube.com/watch?v=ll2tY6KH8Tk
+	 GitHub: https://github.com/mongodb/mongo-java-driver
+	
+	funktioniert mit älterer Bibliothek: https://stackoverflow.com/questions/45333966/java-insert-value-to-array-in-mongodb 
+
+BSON: https://oss.sonatype.org/content/repositories/releases/org/mongodb/bson/3.6.1/
+
+String to JsonObject: https://stackoverflow.com/questions/25948000/how-to-convert-string-to-jsonobject
+
+wait: https://stackoverflow.com/questions/4691533/java-wait-for-thread-to-finish
+
