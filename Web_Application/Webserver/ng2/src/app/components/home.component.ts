@@ -60,10 +60,10 @@ export class HomeComponent implements OnInit {
     });
 
     this.httpgetService.getStatus().then(res => {
-      this.last_time = res.last_time;
-      this.next_time = res.next_time;
-      this.next_time_in = res.next_time_in;
-      this.machine_state = res.machine_state;
+      this.last_time = res.lastFeeding;
+      this.next_time = res.nextFeeding;
+      this.next_time_in = res.nextFeedingIn;
+      this.machine_state = res.machineState;
     });
   }
 
