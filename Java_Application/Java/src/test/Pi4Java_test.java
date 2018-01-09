@@ -26,6 +26,8 @@ public class Pi4Java_test
         final GpioPinDigitalOutput pin01_1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01,"myLED",PinState.HIGH);
         pin01_1.setShutdownOptions(true, PinState.LOW);
         
+        gpio.unprovisionPin(pin01_1);
+        
         System.out.println("gpio: Pin still HIGH");
         
         final GpioController gpio2 = GpioFactory.getInstance();
