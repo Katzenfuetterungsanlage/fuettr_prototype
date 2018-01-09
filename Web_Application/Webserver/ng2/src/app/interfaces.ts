@@ -44,10 +44,10 @@ export interface Times {
 export interface Status {
   _id: string;
   identifier: string;
-  last_time: string;
-  next_time: string;
-  next_time_in: string;
-  machine_state: string;
+  lastFeeding: string;
+  nextFeeding: string;
+  nextFeedingIn: string;
+  machineState: string;
 }
 
 export interface Info {

@@ -23,33 +23,35 @@ export class FuettrDB {
     return FuettrDB._instance;
   }
 
-  private _data: mongodb.Collection;
+  private _times: mongodb.Collection;
+  private _info: mongodb.Collection;
+  private _hardware: mongodb.Collection;
   private _serialnumber = parseInt(fs.readFileSync(path.join(__dirname, '../../../../seriennummer')).toString());
 
   private constructor() { }
 
   public async getTimes(): Promise<string> {
-    const Times = await this._data.find({ identifier: 'Times' }).toArray();
+    const Times = await this._times.find({ identifier: 'Times' }).toArray();
     return Times[0];
   }
 
   public async getStatus(): Promise<string> {
-    const Status = await this._data.find({ identifier: 'Status' }).toArray();
+    const Status = await this._info.find({ identifier: 'Status' }).toArray();
     return Status[0];
   }
 
   public async getInfo(): Promise<string> {
-    const Info = await this._data.find({ identifier: 'Info' }).toArray();
+    const Info = await this._info.find({ identifier: 'Info' }).toArray();
     return Info[0];
   }
 
   public async getPositions(): Promise<string> {
-    const Positions = await this._data.find({ identifier: 'Hardware' }).toArray();
+    const Positions = await this._hardware.find({ identifier: 'Hardware' }).toArray();
     return Positions[0];
   }
 
   public async putTimes(times: Object) {
-    this._data.updateOne({ identifier: 'Times' }, { $set: times });
+    this._times.updateOne({ identifier: 'Times' }, { $set: times });
   }
 
   private async start() {
@@ -57,26 +59,51 @@ export class FuettrDB {
     try {
       const dbServer = await mongodb.MongoClient.connect(url);
       const dbFuettr = await dbServer.db('katzenfuetterungsanlage');
-      const collData = await dbFuettr.collection('data');
+      const collTimes = await dbFuettr.collection('data_times');
+      const collUsers = await dbFuettr.collection('data_user');
+      const collInfo = await dbFuettr.collection('data_info');
+      const collHardware = await dbFuettr.collection('data_hardware');
 
-      let size;
+      let sizetimes, sizeinfo, sizehardware;
       try {
-        size = await collData.count({});
+        sizetimes = await collTimes.count({});
       } catch {
-        size = 0;
+        sizetimes = 0;
+      }
+      try {
+        sizeinfo = await collInfo.count({});
+      } catch {
+        sizeinfo = 0;
+      }
+      try {
+        sizehardware = await collHardware.count({});
+      } catch {
+        sizehardware = 0;
       }
 
-      if (size === 0) {
+      if (sizetimes === 0) {
         const mockData = [
-          { identifier: 'Times', time1: '', time2: '', time3: '', time4: '', time1_active: false, time2_active: false, time3_active: false, time4_active: false },
+          { identifier: 'Times', time1: '', time2: '', time3: '', time4: '', time1_active: false, time2_active: false, time3_active: false, time4_active: false }
+        ];
+        await collTimes.insertMany(mockData);
+      }
+      if (sizeinfo === 0) {
+        const mockData = [
           { identifier: 'Status', last_time: '', next_time: '', next_time_in: '', machine_state: '' },
-          { identifier: 'Info', serialnumber: this._serialnumber, internal: '', wlanState: '' },
+          { identifier: 'Info', serialnumber: this._serialnumber, internal: '', wlanState: '' }
+        ];
+        await collInfo.insertMany(mockData);
+      }
+      if (sizehardware === 0) {
+        const mockData = [
           { identifier: 'Hardware', motor1: '', motor2: '', sensor1: '', sensor2: '', }
         ];
-        await collData.insertMany(mockData);
+        await collHardware.insertMany(mockData);
       }
 
-      this._data = collData;
+      this._times = collTimes;
+      this._info = collInfo;
+      this._hardware = collHardware;
       log.info('Database connected.');
     } catch (err) {
       log.warn(err);
