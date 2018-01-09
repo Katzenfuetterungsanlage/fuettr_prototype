@@ -17,10 +17,8 @@ import com.pi4j.io.gpio.RaspiPin;
  */
 public class pi4j_test_controlle_uebergeben
 {
-    private static void testCycle (GpioController gpio)
+    private static void testCycle (GpioPinDigitalOutput pin01)
     {
-        final GpioPinDigitalOutput pin01 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01,"myLED",PinState.HIGH);
-        
         System.out.println("gpio2: " + pin01.getPin() + " is " + pin01.getState());
     }
     
@@ -33,7 +31,7 @@ public class pi4j_test_controlle_uebergeben
         
         pin01.high();
         
-        testCycle(gpio);
+        testCycle(pin01);
         
     }
         
