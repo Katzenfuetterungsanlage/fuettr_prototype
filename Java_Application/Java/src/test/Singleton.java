@@ -48,4 +48,9 @@ public class Singleton
   {
     System.out.println("PinState: " + pin01.getName() + "=" + pin01.getState());
   }
+  
+  public void ControllerShowdown ()
+  {
+    gpio.shutdown();
+  }
 }

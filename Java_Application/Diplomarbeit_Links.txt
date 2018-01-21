@@ -27,6 +27,7 @@ String to JsonObject: https://stackoverflow.com/questions/25948000/how-to-conver
 
 wait: https://stackoverflow.com/questions/4691533/java-wait-for-thread-to-finish
 
+Singleton: https://www.javaworld.com/article/2073352/core-java/simply-singleton.html
 
 
 Latex Download: https://miktex.org/portable
