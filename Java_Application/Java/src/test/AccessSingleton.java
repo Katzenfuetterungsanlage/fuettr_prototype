@@ -20,10 +20,10 @@ public class AccessSingleton
   public AccessSingleton()
   {
     instance = Singleton.getInstance();
-    Singleton anotherInstance = new Singleton();
+    //Singleton anotherInstance = new Singleton();
     
     instance.sout();
-    anotherInstance.sout();
+    //anotherInstance.sout();
     
     int i;
     
