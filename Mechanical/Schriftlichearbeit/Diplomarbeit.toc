@@ -1,0 +1,15 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {0.1}Teil 1 Mechanik}{4}
+\contentsline {subsection}{\numberline {0.1.1}Einleitung}{4}
+\contentsline {subsubsection}{\nonumberline Aufgabenstellung}{4}
+\contentsline {subsubsection}{\nonumberline Zielsetzung}{4}
+\contentsline {subsubsection}{\nonumberline Problematik}{4}
+\contentsline {subsection}{\numberline {0.1.2}Konzepte}{4}
+\contentsline {subsubsection}{\nonumberline Variante 1}{4}
+\contentsline {subsection}{\numberline {0.1.3}Aufbauten und Tests}{4}
+\contentsline {subsection}{\numberline {0.1.4}Vergleich der Varianten}{4}
+\contentsline {subsection}{\numberline {0.1.5}Konstruktion der Wahlvariante und Details}{4}
+\contentsline {subsection}{\numberline {0.1.6}Berechnung und Dimensionierung}{4}
+\contentsline {subsection}{\numberline {0.1.7}Simulation}{4}
+\contentsline {subsection}{\numberline {0.1.8}Bedienung und Wartung}{4}
+\contentsline {subsection}{\numberline {0.1.9}Selbstkritische Analyse und Ausblick}{4}
