@@ -33,6 +33,8 @@ check OS: https://stackoverflow.com/questions/228477/how-do-i-programmatically-d
 
 Java GUI Design change tutorial: https://www.youtube.com/watch?v=uZ4ufLRZNHo
 
+hash password: https://stackoverflow.com/questions/33085493/hash-a-password-with-sha-512-in-java
 
 Latex Download: https://miktex.org/portable
+		http://www.xm1math.net/texmaker/download.html
 

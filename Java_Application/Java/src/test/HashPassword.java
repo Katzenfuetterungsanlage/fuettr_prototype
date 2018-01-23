@@ -49,10 +49,10 @@ public class HashPassword
     
     public static void main(String[] args)
     {
-        String password = "geheim";
+        String password = "enter";
         System.out.println("Password: " + password);
         
-        String password_hash = get_SHA_512_SecurePassword(password, "##");
+        String password_hash = get_SHA_512_SecurePassword(password, "");
         
         System.out.println("hashed password: " + password_hash);
     }
