@@ -1,5 +1,9 @@
-19.01.2018 Sicherungsring Auspressrolle 		2x 		https://www.norelem.de/de/de/Produkte/Produkt%C3%BCbersicht/Flexibles-Normteilesystem/Verbindungselemente-Kugeldruckschrauben-Auflageplatten-Gewindestifte-Druckst%C3%BCcke-Drehmomentschrauben-Gewindeeins%C3%A4tze-Ringschrauben-Lastb%C3%BCgel-Tragbolzen/Verbindungselemente/Sicherungsringe-Wellen.html
+19.01.2018 Sicherungsring Auspressrolle 		14x 		https://www.norelem.de/de/de/Produkte/Produkt%C3%BCbersicht/Flexibles-Normteilesystem/Verbindungselemente-Kugeldruckschrauben-Auflageplatten-Gewindestifte-Druckst%C3%BCcke-Drehmomentschrauben-Gewindeeins%C3%A4tze-Ringschrauben-Lastb%C3%BCgel-Tragbolzen/Verbindungselemente/Sicherungsringe-Wellen.html
 19.01.2018 Schrauben auﬂen Sechskant Auspressrolle    	2x 		http://www.schrauben-lexikon.de/norm/ISO_8676.asp
 19.01.2018 Muttern Auspressrolle			2x		http://www.schrauben-lexikon.de/norm/ISO_4032.asp
 19.01.2018 Beillagsscheibe Auspressrolle		2x		http://www.schrauben-lexikon.de/norm/ISO_7090.asp
+<<<<<<< HEAD
 22.01.2018 Passfeder f¸r Zahnr‰der			4x		https://www.ganter-griff.de/de/produkte/3.2-Befestigen-Positionieren-Nivellieren-mit-Schraub-Klemm-und-Auflageelementen/DIN-6885-Passfedern-Stahl
+=======
+29.01.2018 Winkelprofil							8x	http://www.flutz.de/standard.php?text=15
+>>>>>>> 27a38976840a68b8a26a514b9dad9c47614ba8f7
