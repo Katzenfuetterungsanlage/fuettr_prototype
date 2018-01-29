@@ -72,6 +72,10 @@ INPUT Z:/Program Files/MiKTeX 2.9/tex/latex/tools/xspace.sty
 INPUT Z:/Program Files/MiKTeX 2.9/tex/latex/tools/xspace.sty
 INPUT C:/Users/User/AppData/Roaming/MiKTeX/2.9/tex/latex/footmisc/footmisc.sty
 INPUT C:/Users/User/AppData/Roaming/MiKTeX/2.9/tex/latex/footmisc/footmisc.sty
+INPUT Z:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT Z:/Program Files/MiKTeX 2.9/tex/latex/float/float.sty
+INPUT C:/Users/User/AppData/Roaming/MiKTeX/2.9/tex/latex/fancyhdr/fancyhdr.sty
+INPUT C:/Users/User/AppData/Roaming/MiKTeX/2.9/tex/latex/fancyhdr/fancyhdr.sty
 INPUT Dilomarbeit.aux
 INPUT Dilomarbeit.aux
 INPUT Greistorfer.aux
@@ -156,6 +160,7 @@ INPUT Greistorfer.tex
 INPUT Greistorfer.tex
 INPUT Z:/Program Files/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecsx1728.tfm
 INPUT Z:/Program Files/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecsx1440.tfm
+INPUT Z:/Program Files/MiKTeX 2.9/fonts/tfm/jknappen/ec/ecsl1200.tfm
 OUTPUT Harrer.aux
 INPUT Harrer.tex
 INPUT Harrer.tex
@@ -184,6 +189,8 @@ INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/
 INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1440.pk
 INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1728.pk
 INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1728.pk
+INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsl1200.pk
+INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecsl1200.pk
 INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1200.pk
 INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1200.pk
 INPUT C:/Users/User/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1728.pk

@@ -2,5 +2,4 @@
 \contentsline {section}{\numberline {0.1}Webserver und Client}{3}
 \contentsline {subsection}{\numberline {0.1.1}Webserver}{3}
 \contentsline {section}{\numberline {0.2}Java-Programm}{4}
-\contentsline {section}{\numberline {0.3}Konstruktion}{5}
-\contentsline {section}{\numberline {0.4}Elektronik und Mechianik}{6}
+\contentsline {section}{\numberline {0.3}Elektronik und Mechianik}{5}

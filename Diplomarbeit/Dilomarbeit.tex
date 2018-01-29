@@ -1,18 +1,22 @@
-\documentclass[12pt]{scrreprt}
+\documentclass[a4paper,12pt]{scrartcl}
 
-\usepackage{ucs}
-\usepackage[utf8x]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
-\usepackage{amsmath,amssymb,amstext}
 \usepackage{graphicx}
-\usepackage{blindtext}
-\usepackage[bottom]{footmisc}
+
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\setlength{\parindent}{0em} 
  
 \title{Diplomarbeit: Katzenfütterungsanlage}
 \author{Florian Greistorfer, Florian Harrer, Dominik Pichler, Julian Wolf}
 \date{\today{}, Arnfels}
 \begin{document}
+\setcounter{tocdepth}{3}
 \maketitle
 \tableofcontents
 \include{Greistorfer}
