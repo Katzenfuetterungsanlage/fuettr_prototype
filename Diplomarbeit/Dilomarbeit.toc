@@ -1,5 +1,18 @@
 \select@language {ngerman}
 \contentsline {section}{\numberline {0.1}Webserver und Client}{3}
-\contentsline {subsection}{\numberline {0.1.1}Webserver}{3}
 \contentsline {section}{\numberline {0.2}Java-Programm}{4}
-\contentsline {section}{\numberline {0.3}Elektronik und Mechianik}{5}
+\contentsline {section}{\numberline {0.3}Teil 1 Mechanik}{5}
+\contentsline {subsection}{\numberline {0.3.1}Einleitung}{5}
+\contentsline {subsection}{\numberline {0.3.2}Aufgabenstellung}{5}
+\contentsline {subsubsection}{\nonumberline Zielsetzung}{5}
+\contentsline {subsubsection}{\nonumberline Problematik}{5}
+\contentsline {subsection}{\numberline {0.3.3}Konzepte}{5}
+\contentsline {subsubsection}{\nonumberline Variante 1}{6}
+\contentsline {subsection}{\numberline {0.3.4}Aufbauten und Tests}{9}
+\contentsline {subsection}{\numberline {0.3.5}Vergleich der Varianten}{9}
+\contentsline {subsection}{\numberline {0.3.6}Konstruktion der Wahlvariante und Details}{9}
+\contentsline {subsection}{\numberline {0.3.7}Berechnung und Dimensionierung}{9}
+\contentsline {subsection}{\numberline {0.3.8}Simulation}{9}
+\contentsline {subsection}{\numberline {0.3.9}Bedienung und Wartung}{9}
+\contentsline {subsection}{\numberline {0.3.10}Selbstkritische Analyse und Ausblick}{9}
+\contentsline {section}{\numberline {0.4}Elektronik und Mechianik}{10}
