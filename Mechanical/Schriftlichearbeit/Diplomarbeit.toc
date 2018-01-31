@@ -17,8 +17,17 @@
 \contentsline {subsubsection}{\numberline {1.4.2}Schneideversuch 1.Art der 1.Variante}{15}
 \contentsline {subsubsection}{\numberline {1.4.3}Schneideversuch 2.Art der 1.Variante}{16}
 \contentsline {subsection}{\numberline {1.5}Vergleich der Varianten}{17}
-\contentsline {subsection}{\numberline {1.6}Konstruktion der Wahlvariante und Details}{17}
-\contentsline {subsection}{\numberline {1.7}Berechnung und Dimensionierung}{17}
-\contentsline {subsection}{\numberline {1.8}Simulation}{17}
-\contentsline {subsection}{\numberline {1.9}Bedienung und Wartung}{17}
-\contentsline {subsection}{\numberline {1.10}Selbstkritische Analyse und Ausblick}{17}
+\contentsline {subsubsection}{\numberline {1.5.1}Klemmen}{17}
+\contentsline {paragraph}{\numberline {1.5.1.1}Einfache Klemme}{17}
+\contentsline {paragraph}{\numberline {1.5.1.2}Hebel Klemme}{17}
+\contentsline {paragraph}{\numberline {1.5.1.3}Gummiband Klemme}{17}
+\contentsline {subsubsection}{\numberline {1.5.2}Futtersch\IeC {\"u}sseln}{19}
+\contentsline {paragraph}{\numberline {1.5.2.1}Drehfutterplatte}{19}
+\contentsline {paragraph}{\numberline {1.5.2.2}Futterplatte Zylinder}{19}
+\contentsline {subsubsection}{\numberline {1.5.3}Futtermagazine}{20}
+\contentsline {paragraph}{\numberline {1.5.3.1}Futtermagazin Horizontal}{20}
+\contentsline {subsection}{\numberline {1.6}Konstruktion der Wahlvariante und Details}{20}
+\contentsline {subsection}{\numberline {1.7}Berechnung und Dimensionierung}{20}
+\contentsline {subsection}{\numberline {1.8}Simulation}{20}
+\contentsline {subsection}{\numberline {1.9}Bedienung und Wartung}{20}
+\contentsline {subsection}{\numberline {1.10}Selbstkritische Analyse und Ausblick}{20}
