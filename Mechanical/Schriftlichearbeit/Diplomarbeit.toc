@@ -1,15 +1,24 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {1}Teil 1 Mechanik}{1}
-\contentsline {subsection}{\numberline {1.1}Einleitung}{1}
-\contentsline {subsection}{\numberline {1.2}Aufgabenstellung}{1}
-\contentsline {subsubsection}{\numberline {1.2.1}Zielsetzung}{1}
-\contentsline {subsubsection}{\numberline {1.2.2}Problematik}{1}
-\contentsline {subsection}{\numberline {1.3}Konzepte}{1}
-\contentsline {subsubsection}{\numberline {1.3.1}Variante 1}{2}
-\contentsline {subsection}{\numberline {1.4}Aufbauten und Tests}{16}
-\contentsline {subsection}{\numberline {1.5}Vergleich der Varianten}{16}
-\contentsline {subsection}{\numberline {1.6}Konstruktion der Wahlvariante und Details}{16}
-\contentsline {subsection}{\numberline {1.7}Berechnung und Dimensionierung}{16}
-\contentsline {subsection}{\numberline {1.8}Simulation}{16}
-\contentsline {subsection}{\numberline {1.9}Bedienung und Wartung}{16}
-\contentsline {subsection}{\numberline {1.10}Selbstkritische Analyse und Ausblick}{16}
+\contentsline {section}{\numberline {1}Teil 1 Mechanik}{2}
+\contentsline {subsection}{\numberline {1.1}Einleitung}{2}
+\contentsline {subsection}{\numberline {1.2}Aufgabenstellung}{2}
+\contentsline {subsubsection}{\numberline {1.2.1}Zielsetzung}{2}
+\contentsline {subsubsection}{\numberline {1.2.2}Problematik}{2}
+\contentsline {subsection}{\numberline {1.3}Konzepte}{3}
+\contentsline {subsubsection}{\numberline {1.3.1}Variante 1}{3}
+\contentsline {paragraph}{\numberline {1.3.1.1}F\IeC {\"u}llen des Futtermagazins}{3}
+\contentsline {paragraph}{\numberline {1.3.1.2}F\IeC {\"u}hren zur Schneidplatte}{5}
+\contentsline {paragraph}{\numberline {1.3.1.3}Schnitt}{7}
+\contentsline {paragraph}{\numberline {1.3.1.4}Pressen}{8}
+\contentsline {paragraph}{\numberline {1.3.1.5}Entsorgen}{10}
+\contentsline {paragraph}{\numberline {1.3.1.6}F\IeC {\"u}ttern}{12}
+\contentsline {subsection}{\numberline {1.4}Aufbauten und Tests}{13}
+\contentsline {subsubsection}{\numberline {1.4.1}F\IeC {\"u}tterungsexperiment}{13}
+\contentsline {subsubsection}{\numberline {1.4.2}Schneideversuch 1.Art der 1.Variante}{15}
+\contentsline {subsubsection}{\numberline {1.4.3}Schneideversuch 2.Art der 1.Variante}{16}
+\contentsline {subsection}{\numberline {1.5}Vergleich der Varianten}{17}
+\contentsline {subsection}{\numberline {1.6}Konstruktion der Wahlvariante und Details}{17}
+\contentsline {subsection}{\numberline {1.7}Berechnung und Dimensionierung}{17}
+\contentsline {subsection}{\numberline {1.8}Simulation}{17}
+\contentsline {subsection}{\numberline {1.9}Bedienung und Wartung}{17}
+\contentsline {subsection}{\numberline {1.10}Selbstkritische Analyse und Ausblick}{17}
