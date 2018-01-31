@@ -9,6 +9,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\usepackage{subfigure} 
 
 \lhead{1}
 \chead{2}
@@ -133,22 +134,20 @@ Anhand dieses Bildes wird gezeigt wie der Schnitt funktionieren kann.
 Schnitt anhand einer praxischen Anwendung dargestellt. Der Beutel wird mithilfe einer Papierschneidemaschine geschnitten.
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=5cm]{Bilder/Schneideversuch_1.Art/Einlegen}
-\caption{Einlegen}
-\end{center}
+   \begin{minipage}[hbt]{.3\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Schneideversuch_1.Art/Einlegen}
+      \caption{Einlegen}
+   \end{minipage}
+   \hspace{.2\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[hbt]{.5\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Schneideversuch_1.Art/Anfangsschnitt}
+      \caption{Anfangsschnitt}
+   \end{minipage}
 \end{figure}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=5cm]{Bilder/Schneideversuch_1.Art/Anfangsschnitt}
-\caption{Anfangsschnitt}
-\end{center}
-\end{figure}
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=5cm]{Bilder/Schneideversuch_1.Art/Endschnitt}
+\includegraphics[width=7cm]{Bilder/Schneideversuch_1.Art/Endschnitt}
 \caption{Endschnitt}
 \end{center}
 \end{figure}
@@ -157,39 +156,36 @@ Schnitt anhand einer praxischen Anwendung dargestellt. Der Beutel wird mithilfe 
 
 Mit einem Metallwerkzeug mit Wellenschliffartiger Kante wird der Futterbeutel entlang der Oberseite aufgeschnitten. Um die Packung vollständig geöffnet zu haben, mussten mehrere Schnitte verwendet werden
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=5cm]{Bilder/Schneideversuch_2.Art/Schneidemittel}
-\caption{Schneidemittel}
-\end{center}
-\end{figure}
-
-Nach 3 Schnitten
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=5cm]{Bilder/Schneideversuch_2.Art/Anfangsschnitt}
-\caption{Anfangsschnitt}
-\end{center}
+   \begin{minipage}[hbt]{.3\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Schneideversuch_2.Art/Schneidemittel}
+      \caption{Schneidemittel}
+   \end{minipage}
+   \hspace{.3\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Schneideversuch_2.Art/Anfangsschnitt}
+      \caption{Anfangsschnitt 2.Art}
+      \label{Nach 3 Schnitten}
+   \end{minipage}
 \end{figure}
 
 Nach 6 Schnitten
-
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=5cm]{Bilder/Schneideversuch_2.Art/Mittelschnitt}
-\caption{Mittelschnitt}
-\end{center}
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Schneideversuch_2.Art/Mittelschnitt}
+      \caption{Mittelschnitt 2.Art}
+      \label{Nach 6 Schnitten}
+   \end{minipage}
+   \hspace{.2\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Schneideversuch_2.Art/Endschnitt}
+      \caption{Endschnitt 2.Art}
+      \label{Nach 9 Schnitten}
+   \end{minipage}
 \end{figure}
 
-Nach 9 Schnitten
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=5cm]{Bilder/Schneideversuch_2.Art/Endschnitt}
-\caption{Endschnitt}
-\end{center}
-\end{figure}
 \newpage
 \textbf{4. Pressen:} \\
 
