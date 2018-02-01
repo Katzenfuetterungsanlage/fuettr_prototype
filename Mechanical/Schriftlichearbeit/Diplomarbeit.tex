@@ -10,6 +10,8 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \usepackage{subfigure} 
+\usepackage{floatflt}
+\usepackage{wrapfig}
 
 
 \lhead{1}
@@ -45,7 +47,7 @@
 
 
 \subsubsection{Variante 1} 
-\textbf{Übersicht der Prozessschritte:}
+\paragraph{Übersicht der Prozessschritte}$~~$\\
 \begin{itemize}
 \item[1] Füllen des Futtermagazins
 \item[2] Führen zur Schneidplatte
@@ -175,8 +177,10 @@ Hier im Bild sieht man den Stift der ein vorzeitiges nach Hinten klappen verhind
 \begin{center}
 \includegraphics[width=13cm]{Bilder/Ablauf_1_png/Auswurf_2}
 \caption{Bolzen drinnen}
+\label{sad}
 \end{center}
 \end{figure}
+
 
 Hier im Bild wurde der Stift entfernt 
 
@@ -237,12 +241,13 @@ In diesem Experiment wurde getestet wie lange es Dauert bis eine Packung nur mit
    \end{minipage}
    \hspace{.4\linewidth}% Abstand zwischen Bilder
    \begin{minipage}[hbt]{.3\linewidth} % [b] => Ausrichtung an \caption
-      \includegraphics[width=\linewidth]{Bilder/Fuetterungsexperiment/Fuetterungs_Ende}
+     \includegraphics[width=\linewidth]{Bilder/Fuetterungsexperiment/Fuetterungs_Ende}  
       \caption{Fütterungs Ende}
+     \label{Fütterungs_Ende}
    \end{minipage}
 \end{figure}
 
-In der Abbildung 20 Fütterungs Ende sieht man das nach 10 Minuten der Inhalte ganz in der Futterschüssel ist, dennoch Tropft es nach.
+In der Abbildung: \ref{Fütterungs_Ende} sieht man das nach 10 Minuten der Inhalte ganz in der Futterschüssel ist, dennoch Tropft es nach.
 \newpage
 \subsubsection{Schneideversuch 1.Art der 1.Variante}
 
@@ -284,7 +289,7 @@ Mit einem Metallwerkzeug mit Wellenschliffartiger Kante wird der Futterbeutel en
    \end{minipage}
 \end{figure}
 
-In der Abbildung 25: Anfangschnitt 2.Art erkennt man wie offen die Packung nach 3 Schnitten ist.
+In der Abbildung: \ref{Nach 3 Schnitten} erkennt man wie offen die Packung nach 3 Schnitten ist.
 
 \begin{figure}[H]
    \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
@@ -299,30 +304,45 @@ In der Abbildung 25: Anfangschnitt 2.Art erkennt man wie offen die Packung nach 
       \label{Nach 9 Schnitten}
    \end{minipage}
 \end{figure}
-In der Abbildung 26: Mittelschnitt 2.Art erkennt man wie offen die Packung nach 6 Schnitten ist.\\
+In der Abbildung: \ref{Nach 6 Schnitten} erkennt man wie offen die Packung nach 6 Schnitten ist.\\
 
-In der Abbildung 27: Endschnitt 2.Art wurde die Packung nach 9 Schnitten vollständig geöffnet.
+In der Abbildung: \ref{Nach 9 Schnitten} wurde die Packung nach 9 Schnitten vollständig geöffnet.
 
 \subsection{Vergleich der Varianten}
 \subsubsection{Klemmen}
 \paragraph{Einfache Klemme}$~~$\\ 
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=8cm]{Bilder/Powerpoint/Einfach_Klemme}
-\caption{Einfache Klemme}
-\end{center}
-\end{figure}
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{Bilder/Powerpoint/Einfach_Klemme}
+  \end{center}
+  \caption{Einfache Klemme}
+  \label{Einfache Klemme}
+  \vspace{-30pt}
+\end{wrapfigure}
+
+Die einfach Klemme ist für gewöhnliche Verpackungen gut zu nutzen jedoch ist sie für unsere Variante nicht zu gebrauchen durch ihr Plastikmaterial drück sie die Packung an manchen Stellen zu wenig zusammen und an diesen Stellen kann Flüssigkeit austreten. Außerdem hält sie bei Zugbelastung nur wenig stand. Siehe Abbildung: \ref{Einfache Klemme}
 
 \paragraph{Hebel Klemme}$~~$\\ 
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=8cm]{Bilder/Powerpoint/Hebel_Klemme}
-\caption{Hebel Klemme}
-\end{center}
-\end{figure}
-\newpage
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-30pt}
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{Bilder/Powerpoint/Hebel_Klemme}
+  \end{center}
+  \caption{Hebel Klemme}
+  \label{Hebel Klemme}
+  \vspace{-80pt}
+\end{wrapfigure}
+
+Die Hebel Klemme ist für diese Diplomarbeit die bevorzugte Methode sie kann viel Druck auf die Packung ausüben sodass keine Flüssigkeit entrinnen kann. Außerdem lässt sich durch den Hebel mit wenig Kraft die Klemme öffnen. Weiters können die Klemmen auf einer Stange aufgesammelt werden und liegen somit nicht irgendwo in der Maschine. Siehe Abbildung:    
+ \ref{Hebel Klemme}
+\vspace{+40pt}
+
+
+
+
 \paragraph{Gummiband Klemme}$~~$\\ 
 
 \begin{figure}[H]
@@ -336,35 +356,53 @@ In der Abbildung 27: Endschnitt 2.Art wurde die Packung nach 9 Schnitten vollst�
 
 \paragraph{Drehfutterplatte}$~~$\\ 
 
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-40pt}
+  \begin{center}
+    \includegraphics[width=0.25\textwidth]{Bilder/Powerpoint/Drehplatte}
+  \end{center}
+  \caption{Drehplatte}
+  \label{Drehplatte}
+  \vspace{-20pt}
+\end{wrapfigure}
 
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=4cm]{Bilder/Powerpoint/Drehplatte}
-\caption{Drehplatte}
-\end{center}
-\end{figure}
+Die Drehplatte besteht aus fünf Schüsseln man kann pro Schüssel die Katze 2-mal am Tag füttern abends und morgens. Dadurch hat die Katze jeden Tag einen neue Schüssel und falls sie nicht frisst muss sie nicht Hunger leiden. Auf einer Welle wird eine Platte befestigt 
+darin werden fünf Löcher geschnitten und die Schüssel hinein gelegt. Die Drehplatte wird mit einen Schneckengewinde in die gewünschten Position gebracht. Siehe Abbildung:  	
+ \ref{Drehplatte} \vspace{+80pt}
+ 
 
 \paragraph{Futterplatte Zylinder}$~~$\\ 
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=8cm]{Bilder/Powerpoint/Platte_Zylinder}
-\caption{Platte Zylinder}
-\end{center}
-\end{figure}
+\begin{wrapfigure}{}{0.5\textwidth}
+\vspace{-50pt}
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{Bilder/Powerpoint/Platte_Zylinder}
+  \end{center}
+  \caption{Platte Zylinder}
+  \label{Platte Zylinder}
+  \vspace{-20pt}
+\end{wrapfigure}
 
+Die Futterplatte mit Zylinder ist die umständlichste Variante. Es ist eine viereckige Platte auf der Schienen für das schieben der Futterschüsseln platziert sind. Diese werden von Magnetzylindern angeschoben. Der Nachteil hierbei ist, man benötigt viele Bauteile und alle Zylinder müssen zugleich arbeiten um die Futterschüssel zur richtigen Position zu führen. Siehe Abbildung: \ref{Platte Zylinder}
+
+
+
+\newpage
 \paragraph{Platte mit einer Schüssel}$~~$\\
 
-Die Platte mit nur einer Schüssel ist leicht zu realisieren da sie nur wenige Bauteile benötigt. Das wäre zum Einem die Platte auf der die Futterschüssel mit einer Schiene darauf platziert ist. Sowohl als auch die zwei Magnetzylinder die die Futterschüssel in die Anfangs und Endposition bringt.6
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-40pt}
+  \begin{center}
+    \includegraphics[width=0.17\textwidth]{Bilder/Powerpoint/Einschuessel_platte}
+  \end{center}
+  \caption{Drehplatte}
+  \label{Schüssel Eins}
+  \vspace{-20pt}
+\end{wrapfigure}
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=3cm]{Bilder/Powerpoint/Einschuessel_platte}
-\caption{Platte mit einer Schüssel}
-\end{center}
-\end{figure}
+Die Platte mit nur einer Schüssel ist leicht zu realisieren da sie nur wenige Bauteile benötigt. Das wäre zum Einem die Platte auf der die Futterschüssel mit einer Schiene darauf platziert ist. Sowohl als auch die zwei Magnetzylinder die die Futterschüssel in die Anfangs und Endposition bringt. Jedoch ein großer Nachteil weswegen diese Methode nicht in Frage kommt ist, wenn die Katze nach dem Füttern nicht frisst dann bleibt der Inhalt in der Schale und trocknet ein oder es kommt Ungeziefer hinein. Das hat zu Folge das die Schüssel jeden Tag befüllt wird und übergeht. Siehe Abbildung: \ref{Schüssel Eins}
 
+\newpage
 \subsubsection{Futtermagazine}
 
 \paragraph{Futtermagazin Horizontal}$~~$\\ 

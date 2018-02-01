@@ -6,12 +6,13 @@
 \contentsline {subsubsection}{\numberline {1.2.2}Problematik}{2}
 \contentsline {subsection}{\numberline {1.3}Konzepte}{3}
 \contentsline {subsubsection}{\numberline {1.3.1}Variante 1}{3}
-\contentsline {paragraph}{\numberline {1.3.1.1}F\IeC {\"u}llen des Futtermagazins}{3}
-\contentsline {paragraph}{\numberline {1.3.1.2}F\IeC {\"u}hren zur Schneidplatte}{5}
-\contentsline {paragraph}{\numberline {1.3.1.3}Schnitt}{7}
-\contentsline {paragraph}{\numberline {1.3.1.4}Pressen}{8}
-\contentsline {paragraph}{\numberline {1.3.1.5}Entsorgen}{10}
-\contentsline {paragraph}{\numberline {1.3.1.6}F\IeC {\"u}ttern}{12}
+\contentsline {paragraph}{\numberline {1.3.1.1}\IeC {\"U}bersicht der Prozessschritte}{3}
+\contentsline {paragraph}{\numberline {1.3.1.2}F\IeC {\"u}llen des Futtermagazins}{3}
+\contentsline {paragraph}{\numberline {1.3.1.3}F\IeC {\"u}hren zur Schneidplatte}{5}
+\contentsline {paragraph}{\numberline {1.3.1.4}Schnitt}{7}
+\contentsline {paragraph}{\numberline {1.3.1.5}Pressen}{8}
+\contentsline {paragraph}{\numberline {1.3.1.6}Entsorgen}{10}
+\contentsline {paragraph}{\numberline {1.3.1.7}F\IeC {\"u}ttern}{12}
 \contentsline {subsection}{\numberline {1.4}Aufbauten und Tests}{13}
 \contentsline {subsubsection}{\numberline {1.4.1}F\IeC {\"u}tterungsexperiment}{13}
 \contentsline {subsubsection}{\numberline {1.4.2}Schneideversuch 1.Art der 1.Variante}{15}
@@ -20,13 +21,13 @@
 \contentsline {subsubsection}{\numberline {1.5.1}Klemmen}{17}
 \contentsline {paragraph}{\numberline {1.5.1.1}Einfache Klemme}{17}
 \contentsline {paragraph}{\numberline {1.5.1.2}Hebel Klemme}{17}
-\contentsline {paragraph}{\numberline {1.5.1.3}Gummiband Klemme}{18}
+\contentsline {paragraph}{\numberline {1.5.1.3}Gummiband Klemme}{17}
 \contentsline {subsubsection}{\numberline {1.5.2}Futtersch\IeC {\"u}sseln}{19}
 \contentsline {paragraph}{\numberline {1.5.2.1}Drehfutterplatte}{19}
 \contentsline {paragraph}{\numberline {1.5.2.2}Futterplatte Zylinder}{19}
-\contentsline {paragraph}{\numberline {1.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{19}
-\contentsline {subsubsection}{\numberline {1.5.3}Futtermagazine}{20}
-\contentsline {paragraph}{\numberline {1.5.3.1}Futtermagazin Horizontal}{20}
+\contentsline {paragraph}{\numberline {1.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{20}
+\contentsline {subsubsection}{\numberline {1.5.3}Futtermagazine}{21}
+\contentsline {paragraph}{\numberline {1.5.3.1}Futtermagazin Horizontal}{21}
 \contentsline {subsection}{\numberline {1.6}Konstruktion der Wahlvariante und Details}{21}
 \contentsline {subsection}{\numberline {1.7}Berechnung und Dimensionierung}{21}
 \contentsline {subsection}{\numberline {1.8}Simulation}{21}
