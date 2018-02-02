@@ -6,8 +6,9 @@
 \usepackage[T1]{fontenc}
 \usepackage{float}
 \usepackage[utf8]{inputenc}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
+\usepackage{subfigure} 
+\usepackage{floatflt}
+\usepackage{wrapfig}
 
 \setlength{\parindent}{0em} 
  
@@ -15,8 +16,9 @@
 \author{Florian Greistorfer, Florian Harrer, Dominik Pichler, Julian Wolf}
 \date{Arnfels, \today{}}
 \begin{document}
-\setcounter{tocdepth}{3}
 \maketitle
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{4}
 \tableofcontents
 \include{Greistorfer}
 \include{Harrer}

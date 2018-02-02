@@ -1,18 +1,38 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {0.1}Webserver und Client}{3}
-\contentsline {section}{\numberline {0.2}Java-Programm}{4}
-\contentsline {section}{\numberline {0.3}Teil 1 Mechanik}{5}
-\contentsline {subsection}{\numberline {0.3.1}Einleitung}{5}
-\contentsline {subsection}{\numberline {0.3.2}Aufgabenstellung}{5}
-\contentsline {subsubsection}{\nonumberline Zielsetzung}{5}
-\contentsline {subsubsection}{\nonumberline Problematik}{5}
-\contentsline {subsection}{\numberline {0.3.3}Konzepte}{5}
-\contentsline {subsubsection}{\nonumberline Variante 1}{6}
-\contentsline {subsection}{\numberline {0.3.4}Aufbauten und Tests}{9}
-\contentsline {subsection}{\numberline {0.3.5}Vergleich der Varianten}{9}
-\contentsline {subsection}{\numberline {0.3.6}Konstruktion der Wahlvariante und Details}{9}
-\contentsline {subsection}{\numberline {0.3.7}Berechnung und Dimensionierung}{9}
-\contentsline {subsection}{\numberline {0.3.8}Simulation}{9}
-\contentsline {subsection}{\numberline {0.3.9}Bedienung und Wartung}{9}
-\contentsline {subsection}{\numberline {0.3.10}Selbstkritische Analyse und Ausblick}{9}
-\contentsline {section}{\numberline {0.4}Elektronik und Mechianik}{10}
+\contentsline {chapter}{\numberline {1}Webserver und Client}{4}
+\contentsline {chapter}{\numberline {2}Java-Programm}{5}
+\contentsline {chapter}{\numberline {3}Teil 1 Mechanik}{6}
+\contentsline {section}{\numberline {3.1}Einleitung}{6}
+\contentsline {section}{\numberline {3.2}Aufgabenstellung}{6}
+\contentsline {subsection}{\numberline {3.2.1}Zielsetzung}{6}
+\contentsline {subsection}{\numberline {3.2.2}Problematik}{6}
+\contentsline {section}{\numberline {3.3}Konzepte}{7}
+\contentsline {subsection}{\numberline {3.3.1}Variante 1}{7}
+\contentsline {subsubsection}{\numberline {3.3.1.1}\IeC {\"U}bersicht der Prozessschritte}{7}
+\contentsline {subsubsection}{\numberline {3.3.1.2}F\IeC {\"u}llen des Futtermagazins}{7}
+\contentsline {subsubsection}{\numberline {3.3.1.3}F\IeC {\"u}hren zur Schneidplatte}{9}
+\contentsline {subsubsection}{\numberline {3.3.1.4}Schnitt}{11}
+\contentsline {subsubsection}{\numberline {3.3.1.5}Pressen}{12}
+\contentsline {subsubsection}{\numberline {3.3.1.6}Entsorgen}{14}
+\contentsline {subsubsection}{\numberline {3.3.1.7}F\IeC {\"u}ttern}{16}
+\contentsline {section}{\numberline {3.4}Aufbauten und Tests}{17}
+\contentsline {subsection}{\numberline {3.4.1}F\IeC {\"u}tterungsexperiment}{17}
+\contentsline {subsection}{\numberline {3.4.2}Schneideversuch 1.Art der 1.Variante}{19}
+\contentsline {subsection}{\numberline {3.4.3}Schneideversuch 2.Art der 1.Variante}{20}
+\contentsline {section}{\numberline {3.5}Vergleich der Varianten}{21}
+\contentsline {subsection}{\numberline {3.5.1}Klemmen}{21}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Einfache Klemme}{21}
+\contentsline {subsubsection}{\numberline {3.5.1.2}Hebel Klemme}{21}
+\contentsline {subsubsection}{\numberline {3.5.1.3}Gummiband Klemme}{21}
+\contentsline {subsection}{\numberline {3.5.2}Futtersch\IeC {\"u}sseln}{21}
+\contentsline {subsubsection}{\numberline {3.5.2.1}Drehfutterplatte}{21}
+\contentsline {subsubsection}{\numberline {3.5.2.2}Futterplatte Zylinder}{22}
+\contentsline {subsubsection}{\numberline {3.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{23}
+\contentsline {subsection}{\numberline {3.5.3}Futtermagazine}{23}
+\contentsline {subsubsection}{\numberline {3.5.3.1}Futtermagazin Horizontal}{23}
+\contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{23}
+\contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{23}
+\contentsline {section}{\numberline {3.8}Simulation}{23}
+\contentsline {section}{\numberline {3.9}Bedienung und Wartung}{23}
+\contentsline {section}{\numberline {3.10}Selbstkritische Analyse und Ausblick}{23}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{24}

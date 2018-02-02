@@ -26,10 +26,10 @@
 \contentsline {paragraph}{\numberline {1.5.2.1}Drehfutterplatte}{18}
 \contentsline {paragraph}{\numberline {1.5.2.2}Futterplatte Zylinder}{18}
 \contentsline {paragraph}{\numberline {1.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{19}
-\contentsline {subsubsection}{\numberline {1.5.3}Futtermagazine}{20}
-\contentsline {paragraph}{\numberline {1.5.3.1}Futtermagazin Horizontal}{20}
-\contentsline {subsection}{\numberline {1.6}Konstruktion der Wahlvariante und Details}{20}
-\contentsline {subsection}{\numberline {1.7}Berechnung und Dimensionierung}{20}
-\contentsline {subsection}{\numberline {1.8}Simulation}{20}
-\contentsline {subsection}{\numberline {1.9}Bedienung und Wartung}{20}
-\contentsline {subsection}{\numberline {1.10}Selbstkritische Analyse und Ausblick}{20}
+\contentsline {subsubsection}{\numberline {1.5.3}Futtermagazine}{19}
+\contentsline {paragraph}{\numberline {1.5.3.1}Futtermagazin Horizontal}{19}
+\contentsline {subsection}{\numberline {1.6}Konstruktion der Wahlvariante und Details}{19}
+\contentsline {subsection}{\numberline {1.7}Berechnung und Dimensionierung}{19}
+\contentsline {subsection}{\numberline {1.8}Simulation}{19}
+\contentsline {subsection}{\numberline {1.9}Bedienung und Wartung}{19}
+\contentsline {subsection}{\numberline {1.10}Selbstkritische Analyse und Ausblick}{19}
