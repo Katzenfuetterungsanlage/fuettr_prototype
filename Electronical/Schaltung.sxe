@@ -4,24 +4,24 @@
 <PrintReportSettings PaperSize="9" FormName="A4" SheetSizeX="203" SheetSizeY="283"/>
 <PrinterSettings PaperSizeX="2099" PaperSizeY="2969" PhysicalOffestTenthMm_X="29" PhysicalOffestTenthMm_Y="29"/>
 <tb use="1" name="C:\Users\Public\Documents\ProfiCAD Library\_TB\standard9.ptb"/>
-<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="150" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
+<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="100" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
 <RefGridSettings FieldSize="50"/>
 <NumberingWire Digits="3" TypeRenumbering="0" ShowWireName="0" WireLabelDist_a="4" WireLabelDist_b="7" WireLabelDist_c="7"/>
 <summary>
 <field name="rev" value=""/>
-<field name="Genehmigt" value=""/>
-<field name="DokArt" value=""/>
-<field name="Spr" value=""/>
 <field name="Titel" value=""/>
+<field name="Spr" value=""/>
+<field name="DokArt" value=""/>
+<field name="Genehmigt" value=""/>
 <field name="Abteilung" value=""/>
 <field name="_sc" value=""/>
 <field name="_pcs" value=""/>
-<field name="Sachnummer" value=""/>
 <field name="author" value=""/>
+<field name="Sachnummer" value=""/>
 <field name="date" value="11.12.2017"/>
-<field name="techRef" value=""/>
-<field name="DocStatus" value=""/>
 <field name="TitelZusatz" value=""/>
+<field name="DocStatus" value=""/>
+<field name="techRef" value=""/>
 </summary>
 <repo>
 <ppd name="Elektronik\passive Komponenten\Lampen und Signaleinrichtungen\DC-Spannungsquelle, Gleichspannungsquelle.ppd" n="EN 60617: 08-12-15" fG="7bad9092-3f66-4762-912b-c16515d0a492" lG="1484af7a-a81b-49ab-a9a0-30289ebeec18">

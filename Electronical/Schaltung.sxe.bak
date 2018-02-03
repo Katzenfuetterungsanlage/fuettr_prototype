@@ -4,7 +4,7 @@
 <PrintReportSettings PaperSize="9" FormName="A4" SheetSizeX="203" SheetSizeY="283"/>
 <PrinterSettings PaperSizeX="2099" PaperSizeY="2969" PhysicalOffestTenthMm_X="29" PhysicalOffestTenthMm_Y="29"/>
 <tb use="1" name="C:\Users\Public\Documents\ProfiCAD Library\_TB\standard9.ptb"/>
-<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="100" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
+<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="150" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
 <RefGridSettings FieldSize="50"/>
 <NumberingWire Digits="3" TypeRenumbering="0" ShowWireName="0" WireLabelDist_a="4" WireLabelDist_b="7" WireLabelDist_c="7"/>
 <summary>
@@ -669,20 +669,20 @@
 <attribute name="_type" value="" v="0" custom="" al="6" x="334" y="1360"/>
 </attributes>
 </elem>
-<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1600" y="1700">
+<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1600" y="1760">
 <attributes>
-<attribute name="_ref" value="zem5" v="0" custom="" al="6" x="1554" y="1680"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1554" y="1720"/>
+<attribute name="_ref" value="zem5" v="0" custom="" al="6" x="1554" y="1740"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1554" y="1780"/>
 </attributes>
 </elem>
 <elem lGuid="6efafec6-069c-43c5-b162-54a51ac052f9" x="1060" y="1840">
 <attributes>
-<attribute name="_ref" value="Raspberry O-Pins" v="1" custom="" al="6" x="1173" y="1760"/>
+<attribute name="_ref" value="Raspberry O-Pins" v="1" custom="" al="6" x="1173" y="1780"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="993" y="1860"/>
 <attribute name="_o1" value="9" v="1" custom="i" al="6" x="1030" y="1880"/>
-<attribute name="_o2" value="9" v="1" custom="o" al="6" x="1030" y="1800"/>
+<attribute name="_o2" value="9" v="1" custom="o" al="6" x="1010" y="1820"/>
 <attribute name="_o3" value="10" v="1" custom="i" al="6" x="1130" y="1880"/>
-<attribute name="_o4" value="10" v="1" custom="o" al="6" x="1130" y="1800"/>
+<attribute name="_o4" value="10" v="1" custom="o" al="6" x="1150" y="1820"/>
 </attributes>
 </elem>
 <elem lGuid="6efafec6-069c-43c5-b162-54a51ac052f9" x="1060" y="2020">
@@ -695,32 +695,28 @@
 <attribute name="_o4" value="2" v="1" custom="o" al="6" x="1130" y="1980"/>
 </attributes>
 </elem>
-<elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="660" y="1520">
+<elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="660" y="1580">
 <attributes>
-<attribute name="_ref" value="Optischer Schalter 1" v="1" custom="" al="6" x="784" y="1380"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="504" y="1540"/>
+<attribute name="_ref" value="Optischer Schalter 1" v="1" custom="" al="6" x="504" y="1580"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="504" y="1600"/>
 </attributes>
 </elem>
-<elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="1160" y="1520">
+<elem lGuid="c047ad50-e4c9-4c6a-8661-fc5c58789089" x="1160" y="1580">
 <attributes>
-<attribute name="_ref" value="Optischer Schalter 2" v="1" custom="" al="6" x="1284" y="1380"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1004" y="1540"/>
+<attribute name="_ref" value="Optischer Schalter 2" v="1" custom="" al="6" x="1564" y="1580"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1004" y="1600"/>
 </attributes>
 </elem>
 <wire pts="1040,1860,1040,1900,860,1900,860,1960,"/>
 <wire pts="1080,1860,1080,1900,1360,1900,1360,1960,"/>
 <wire pts="860,2040,860,2080,1040,2080,1040,2040,"/>
 <wire pts="1360,2040,1360,2080,1080,2080,1080,2040,"/>
-<wire pts="380,1360,380,1420,580,1420,580,1460,"/>
-<wire pts="580,1420,1080,1420,1080,1460," drop1="1"/>
-<wire pts="580,1580,580,1680,1600,1680,"/>
-<wire pts="1080,1680,1080,1580," drop1="1"/>
-<wire pts="760,1420,760,1460," drop1="1"/>
-<wire pts="1080,1420,1260,1420,1260,1460," drop1="1"/>
-<wire pts="760,1580,760,1960,"/>
-<wire pts="1260,1580,1260,1960,"/>
+<wire pts="580,1640,580,1740,1600,1740,"/>
+<wire pts="1080,1740,1080,1640," drop1="1"/>
+<wire pts="760,1640,760,2020,"/>
+<wire pts="1260,1640,1260,2020,"/>
 <wire pts="760,2040,760,2140,1260,2140,1260,2040,"/>
-<wire pts="1260,2140,1500,2140,1500,1680," drop1="1" drop2="1"/>
+<wire pts="1260,2140,1500,2140,1500,1740," drop1="1" drop2="1"/>
 <elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="220" y="560">
 <attributes>
 <attribute name="_ref" value="R1" v="1" custom="" al="6" x="186" y="540"/>
@@ -785,18 +781,25 @@
 <wire pts="1120,585,1120,780,1036,780,1036,855,"/>
 <wire pts="1300,585,1300,680,1644,680,1644,855,"/>
 <wire pts="1480,585,1480,640,1700,640,1700,1165,1644,1165,"/>
-<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="580" y="1300">
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="580" y="1460">
 <attributes>
-<attribute name="_ref" value="R9" v="1" custom="" al="6" x="546" y="1280"/>
-<attribute name="_type" value="160" v="1" custom="" al="6" x="546" y="1320"/>
+<attribute name="_ref" value="R9" v="1" custom="" al="6" x="546" y="1440"/>
+<attribute name="_type" value="160" v="1" custom="" al="6" x="546" y="1480"/>
 </attributes>
 </elem>
-<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="1080" y="1280">
+<elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="1080" y="1460">
 <attributes>
-<attribute name="_ref" value="R10" v="1" custom="" al="6" x="1046" y="1260"/>
-<attribute name="_type" value="160" v="1" custom="" al="6" x="1046" y="1300"/>
+<attribute name="_ref" value="R10" v="1" custom="" al="6" x="1046" y="1440"/>
+<attribute name="_type" value="160" v="1" custom="" al="6" x="1046" y="1480"/>
 </attributes>
 </elem>
+<wire pts="380,1360,380,1400,760,1400," drop2="1"/>
+<wire pts="580,1435,580,1400," drop2="1"/>
+<wire pts="580,1485,580,1520,"/>
+<wire pts="760,1520,760,1400," drop2="1"/>
+<wire pts="1080,1520,1080,1485,"/>
+<wire pts="1260,1520,1260,1400,760,1400," drop2="1"/>
+<wire pts="1080,1435,1080,1400," drop2="1"/>
 </layer>
 </layers>
 </page>
