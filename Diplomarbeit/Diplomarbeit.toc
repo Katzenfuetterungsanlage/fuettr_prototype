@@ -30,6 +30,7 @@
 \contentsline {subsubsection}{\numberline {3.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{23}
 \contentsline {subsection}{\numberline {3.5.3}Futtermagazine}{23}
 \contentsline {subsubsection}{\numberline {3.5.3.1}Futtermagazin Horizontal}{23}
+\contentsline {subsubsection}{\numberline {3.5.3.2}Futtermagazin Vertikal}{23}
 \contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{24}
 \contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{24}
 \contentsline {section}{\numberline {3.8}Simulation}{24}
