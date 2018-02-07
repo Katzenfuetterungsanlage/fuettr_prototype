@@ -30,9 +30,9 @@
 \contentsline {subsubsection}{\numberline {3.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{23}
 \contentsline {subsection}{\numberline {3.5.3}Futtermagazine}{23}
 \contentsline {subsubsection}{\numberline {3.5.3.1}Futtermagazin Horizontal}{23}
-\contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{23}
-\contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{23}
-\contentsline {section}{\numberline {3.8}Simulation}{23}
-\contentsline {section}{\numberline {3.9}Bedienung und Wartung}{23}
-\contentsline {section}{\numberline {3.10}Selbstkritische Analyse und Ausblick}{23}
-\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{24}
+\contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{24}
+\contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{24}
+\contentsline {section}{\numberline {3.8}Simulation}{24}
+\contentsline {section}{\numberline {3.9}Bedienung und Wartung}{24}
+\contentsline {section}{\numberline {3.10}Selbstkritische Analyse und Ausblick}{24}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{25}
