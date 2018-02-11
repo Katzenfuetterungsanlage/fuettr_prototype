@@ -18,30 +18,30 @@
 \contentsline {subsection}{\numberline {3.3.2}Variante 2}{19}
 \contentsline {subsubsection}{\numberline {3.3.2.1}F\IeC {\"o}rderband und Kettenglieder}{19}
 \contentsline {subsubsection}{\numberline {3.3.2.2}Walze}{19}
-\contentsline {subsubsection}{\numberline {3.3.2.3}Futterplatte}{20}
-\contentsline {subsection}{\numberline {3.3.3}Variante 3}{20}
-\contentsline {section}{\numberline {3.4}Aufbauten und Tests}{21}
-\contentsline {subsection}{\numberline {3.4.1}F\IeC {\"u}tterungsexperiment}{21}
-\contentsline {subsection}{\numberline {3.4.2}Schneideversuch 1.Art der 1.Variante}{23}
-\contentsline {subsection}{\numberline {3.4.3}Schneideversuch 2.Art der 1.Variante}{24}
-\contentsline {section}{\numberline {3.5}Vergleich der Varianten}{25}
-\contentsline {subsection}{\numberline {3.5.1}Klemmen}{25}
-\contentsline {subsubsection}{\numberline {3.5.1.1}Einfache Klemme}{25}
-\contentsline {subsubsection}{\numberline {3.5.1.2}Hebel Klemme}{25}
-\contentsline {subsubsection}{\numberline {3.5.1.3}Gummiband Klemme}{25}
-\contentsline {subsection}{\numberline {3.5.2}Futtersch\IeC {\"u}sseln}{26}
-\contentsline {subsubsection}{\numberline {3.5.2.1}Drehfutterplatte}{26}
-\contentsline {subsubsection}{\numberline {3.5.2.2}Futterplatte Zylinder}{26}
-\contentsline {subsubsection}{\numberline {3.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{27}
-\contentsline {subsection}{\numberline {3.5.3}Futtermagazine}{27}
-\contentsline {subsubsection}{\numberline {3.5.3.1}Futtermagazin Horizontal}{27}
-\contentsline {subsubsection}{\numberline {3.5.3.2}Futtermagazin Vertikal}{28}
-\contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{28}
-\contentsline {subsection}{\numberline {3.6.1}Drehplatte}{28}
-\contentsline {subsection}{\numberline {3.6.2}F\IeC {\"o}rderband}{28}
-\contentsline {subsection}{\numberline {3.6.3}Walze}{28}
-\contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{28}
-\contentsline {section}{\numberline {3.8}Simulation}{28}
-\contentsline {section}{\numberline {3.9}Bedienung und Wartung}{28}
-\contentsline {section}{\numberline {3.10}Selbstkritische Analyse und Ausblick}{28}
-\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{29}
+\contentsline {subsubsection}{\numberline {3.3.2.3}Futterplatte}{21}
+\contentsline {subsection}{\numberline {3.3.3}Variante 3}{21}
+\contentsline {section}{\numberline {3.4}Aufbauten und Tests}{22}
+\contentsline {subsection}{\numberline {3.4.1}F\IeC {\"u}tterungsexperiment}{22}
+\contentsline {subsection}{\numberline {3.4.2}Schneideversuch 1.Art der 1.Variante}{24}
+\contentsline {subsection}{\numberline {3.4.3}Schneideversuch 2.Art der 1.Variante}{25}
+\contentsline {section}{\numberline {3.5}Vergleich der Varianten}{26}
+\contentsline {subsection}{\numberline {3.5.1}Klemmen}{26}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Einfache Klemme}{26}
+\contentsline {subsubsection}{\numberline {3.5.1.2}Hebel Klemme}{26}
+\contentsline {subsubsection}{\numberline {3.5.1.3}Gummiband Klemme}{26}
+\contentsline {subsection}{\numberline {3.5.2}Futtersch\IeC {\"u}sseln}{27}
+\contentsline {subsubsection}{\numberline {3.5.2.1}Drehfutterplatte}{27}
+\contentsline {subsubsection}{\numberline {3.5.2.2}Futterplatte Zylinder}{27}
+\contentsline {subsubsection}{\numberline {3.5.2.3}Platte mit einer Sch\IeC {\"u}ssel}{28}
+\contentsline {subsection}{\numberline {3.5.3}Futtermagazine}{28}
+\contentsline {subsubsection}{\numberline {3.5.3.1}Futtermagazin Horizontal}{28}
+\contentsline {subsubsection}{\numberline {3.5.3.2}Futtermagazin Vertikal}{29}
+\contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{29}
+\contentsline {subsection}{\numberline {3.6.1}Drehplatte}{29}
+\contentsline {subsection}{\numberline {3.6.2}F\IeC {\"o}rderband}{29}
+\contentsline {subsection}{\numberline {3.6.3}Walze}{29}
+\contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{29}
+\contentsline {section}{\numberline {3.8}Simulation}{29}
+\contentsline {section}{\numberline {3.9}Bedienung und Wartung}{29}
+\contentsline {section}{\numberline {3.10}Selbstkritische Analyse und Ausblick}{29}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{30}
