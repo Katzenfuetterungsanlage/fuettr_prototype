@@ -36,8 +36,8 @@
 \contentsline {subsection}{\numberline {3.5.3}Futtermagazine}{28}
 \contentsline {subsubsection}{\numberline {3.5.3.1}Futtermagazin Horizontal}{28}
 \contentsline {subsubsection}{\numberline {3.5.3.2}Futtermagazin Vertikal}{29}
-\contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{30}
-\contentsline {subsection}{\numberline {3.6.1}Drehplatte}{30}
+\contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{29}
+\contentsline {subsection}{\numberline {3.6.1}Drehplatte}{29}
 \contentsline {subsection}{\numberline {3.6.2}F\IeC {\"o}rderband}{30}
 \contentsline {subsection}{\numberline {3.6.3}Walze}{30}
 \contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{30}
