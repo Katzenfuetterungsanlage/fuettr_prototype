@@ -38,10 +38,10 @@
 \contentsline {subsubsection}{\numberline {3.5.3.2}Futtermagazin Vertikal}{29}
 \contentsline {section}{\numberline {3.6}Konstruktion der Wahlvariante und Details}{29}
 \contentsline {subsection}{\numberline {3.6.1}Drehplatte}{29}
-\contentsline {subsection}{\numberline {3.6.2}F\IeC {\"o}rderband}{30}
-\contentsline {subsection}{\numberline {3.6.3}Walze}{30}
-\contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{30}
-\contentsline {section}{\numberline {3.8}Simulation}{30}
-\contentsline {section}{\numberline {3.9}Bedienung und Wartung}{30}
-\contentsline {section}{\numberline {3.10}Selbstkritische Analyse und Ausblick}{30}
-\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{31}
+\contentsline {subsection}{\numberline {3.6.2}F\IeC {\"o}rderband und Kettenglied}{30}
+\contentsline {subsection}{\numberline {3.6.3}Walze}{31}
+\contentsline {section}{\numberline {3.7}Berechnung und Dimensionierung}{31}
+\contentsline {section}{\numberline {3.8}Simulation}{31}
+\contentsline {section}{\numberline {3.9}Bedienung und Wartung}{31}
+\contentsline {section}{\numberline {3.10}Selbstkritische Analyse und Ausblick}{31}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{32}
