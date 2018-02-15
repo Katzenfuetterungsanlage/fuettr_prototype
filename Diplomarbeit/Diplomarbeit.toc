@@ -10,44 +10,44 @@
 \contentsline {subsection}{\numberline {3.3.3}Problematik bei Entleerung der Verpackung}{7}
 \contentsline {subsection}{\numberline {3.3.4}Problematik vom Geruch}{7}
 \contentsline {subsection}{\numberline {3.3.5}Problematik von der Reinigung nach dem Urlaub}{7}
-\contentsline {subsection}{\numberline {3.3.6}Problematik bei einfrieren des Futters}{8}
+\contentsline {subsection}{\numberline {3.3.6}Problematik bei einfrieren des Futters}{7}
 \contentsline {section}{\numberline {3.4}Konzepte}{8}
 \contentsline {subsection}{\numberline {3.4.1}Variante 1: Automatisiertes Aufschneiden}{8}
 \contentsline {subsubsection}{\numberline {3.4.1.1}\IeC {\"U}bersicht der Prozessschritte}{8}
-\contentsline {subsubsection}{\numberline {3.4.1.2}F\IeC {\"u}llen des Futtermagazins}{8}
+\contentsline {subsubsection}{\numberline {3.4.1.2}F\IeC {\"u}llen des Futtermagazins}{9}
 \contentsline {subsubsection}{\numberline {3.4.1.3}F\IeC {\"u}hren zur Schneidplatte}{10}
 \contentsline {subsubsection}{\numberline {3.4.1.4}Schnitt}{12}
-\contentsline {subsubsection}{\numberline {3.4.1.5}Pressen}{13}
-\contentsline {subsubsection}{\numberline {3.4.1.6}Entsorgen}{16}
-\contentsline {subsubsection}{\numberline {3.4.1.7}F\IeC {\"u}ttern}{18}
-\contentsline {subsection}{\numberline {3.4.2}Variante 2: Vor aufgeschnittene Packung}{20}
-\contentsline {subsubsection}{\numberline {3.4.2.1}F\IeC {\"o}rderband und Kettenglieder}{20}
-\contentsline {subsubsection}{\numberline {3.4.2.2}Walze}{20}
-\contentsline {subsubsection}{\numberline {3.4.2.3}Futterplatte}{22}
-\contentsline {subsection}{\numberline {3.4.3}Variante 3: Gefrorenes Futter}{22}
-\contentsline {section}{\numberline {3.5}Aufbauten und Tests}{23}
-\contentsline {subsection}{\numberline {3.5.1}F\IeC {\"u}tterungsexperiment}{23}
-\contentsline {subsection}{\numberline {3.5.2}Schneideversuch 1.Art der 1.Variante}{25}
-\contentsline {subsection}{\numberline {3.5.3}Schneideversuch 2.Art der 1.Variante}{26}
-\contentsline {subsection}{\numberline {3.5.4}Dichtheitsexperiment der Hebelklemme}{27}
-\contentsline {section}{\numberline {3.6}Vergleich der Varianten}{27}
-\contentsline {subsection}{\numberline {3.6.1}Klemmen}{27}
-\contentsline {subsubsection}{\numberline {3.6.1.1}Einfache Klemme}{27}
-\contentsline {subsubsection}{\numberline {3.6.1.2}Hebel Klemme}{27}
-\contentsline {subsubsection}{\numberline {3.6.1.3}Gummiband Klemme}{27}
-\contentsline {subsection}{\numberline {3.6.2}Futtersch\IeC {\"u}sseln}{28}
-\contentsline {subsubsection}{\numberline {3.6.2.1}Drehfutterplatte}{28}
-\contentsline {subsubsection}{\numberline {3.6.2.2}Futterplatte Zylinder}{28}
-\contentsline {subsubsection}{\numberline {3.6.2.3}Platte mit einer Sch\IeC {\"u}ssel}{30}
-\contentsline {subsection}{\numberline {3.6.3}Futtermagazine}{30}
-\contentsline {subsubsection}{\numberline {3.6.3.1}Futtermagazin Horizontal}{30}
-\contentsline {subsubsection}{\numberline {3.6.3.2}Futtermagazin Vertikal}{31}
-\contentsline {section}{\numberline {3.7}Konstruktion der Wahlvariante und Details}{31}
-\contentsline {subsection}{\numberline {3.7.1}Drehplatte}{31}
-\contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband und Kettenglied}{32}
-\contentsline {subsection}{\numberline {3.7.3}Walze}{33}
-\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{33}
-\contentsline {section}{\numberline {3.9}Simulation}{33}
-\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{33}
-\contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{33}
-\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{34}
+\contentsline {subsubsection}{\numberline {3.4.1.5}Pressen}{12}
+\contentsline {subsubsection}{\numberline {3.4.1.6}Entsorgen}{13}
+\contentsline {subsubsection}{\numberline {3.4.1.7}F\IeC {\"u}ttern}{15}
+\contentsline {subsection}{\numberline {3.4.2}Variante 2: Vor aufgeschnittene Packung}{15}
+\contentsline {subsubsection}{\numberline {3.4.2.1}F\IeC {\"o}rderband und Kettenglieder}{15}
+\contentsline {subsubsection}{\numberline {3.4.2.2}Walze}{16}
+\contentsline {subsubsection}{\numberline {3.4.2.3}Futterplatte}{17}
+\contentsline {subsection}{\numberline {3.4.3}Variante 3: Gefrorenes Futter}{17}
+\contentsline {section}{\numberline {3.5}Aufbauten und Tests}{18}
+\contentsline {subsection}{\numberline {3.5.1}F\IeC {\"u}tterungsexperiment}{18}
+\contentsline {subsection}{\numberline {3.5.2}Schneideversuch 1.Art der 1.Variante}{20}
+\contentsline {subsection}{\numberline {3.5.3}Schneideversuch 2.Art der 1.Variante}{21}
+\contentsline {subsection}{\numberline {3.5.4}Dichtheitsexperiment der Hebelklemme}{22}
+\contentsline {section}{\numberline {3.6}Vergleich der Varianten}{22}
+\contentsline {subsection}{\numberline {3.6.1}Klemmen}{22}
+\contentsline {subsubsection}{\numberline {3.6.1.1}Einfache Klemme}{22}
+\contentsline {subsubsection}{\numberline {3.6.1.2}Hebel Klemme}{22}
+\contentsline {subsubsection}{\numberline {3.6.1.3}Gummiband Klemme}{22}
+\contentsline {subsection}{\numberline {3.6.2}Futtersch\IeC {\"u}sseln}{23}
+\contentsline {subsubsection}{\numberline {3.6.2.1}Drehfutterplatte}{23}
+\contentsline {subsubsection}{\numberline {3.6.2.2}Futterplatte Zylinder}{23}
+\contentsline {subsubsection}{\numberline {3.6.2.3}Platte mit einer Sch\IeC {\"u}ssel}{25}
+\contentsline {subsection}{\numberline {3.6.3}Futtermagazine}{25}
+\contentsline {subsubsection}{\numberline {3.6.3.1}Futtermagazin Horizontal}{25}
+\contentsline {subsubsection}{\numberline {3.6.3.2}Futtermagazin Vertikal}{26}
+\contentsline {section}{\numberline {3.7}Konstruktion der Wahlvariante und Details}{26}
+\contentsline {subsection}{\numberline {3.7.1}Drehplatte}{26}
+\contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband und Kettenglied}{27}
+\contentsline {subsection}{\numberline {3.7.3}Walze}{28}
+\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{28}
+\contentsline {section}{\numberline {3.9}Simulation}{28}
+\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{28}
+\contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{28}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{29}
