@@ -10,7 +10,8 @@
 \contentsline {subsection}{\numberline {3.3.3}Problematik bei Entleerung der Verpackung}{7}
 \contentsline {subsection}{\numberline {3.3.4}Problematik vom Geruch}{7}
 \contentsline {subsection}{\numberline {3.3.5}Problematik von der Reinigung nach dem Urlaub}{7}
-\contentsline {section}{\numberline {3.4}Konzepte}{7}
+\contentsline {subsection}{\numberline {3.3.6}Problematik bei einfrieren des Futters}{8}
+\contentsline {section}{\numberline {3.4}Konzepte}{8}
 \contentsline {subsection}{\numberline {3.4.1}Variante 1: Automatisiertes Aufschneiden}{8}
 \contentsline {subsubsection}{\numberline {3.4.1.1}\IeC {\"U}bersicht der Prozessschritte}{8}
 \contentsline {subsubsection}{\numberline {3.4.1.2}F\IeC {\"u}llen des Futtermagazins}{8}
