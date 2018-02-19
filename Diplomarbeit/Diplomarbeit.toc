@@ -23,25 +23,30 @@
 \contentsline {subsection}{\numberline {3.4.2}Variante 2: Vor aufgeschnittene Packung}{15}
 \contentsline {subsubsection}{\numberline {3.4.2.1}F\IeC {\"o}rderband und Kettenglieder}{15}
 \contentsline {subsubsection}{\numberline {3.4.2.2}Walze}{16}
-\contentsline {subsubsection}{\numberline {3.4.2.3}Futterplatte}{18}
-\contentsline {subsection}{\numberline {3.4.3}Variante 3: Gefrorenes Futter}{18}
-\contentsline {section}{\numberline {3.5}Aufbauten und Tests}{19}
-\contentsline {subsection}{\numberline {3.5.1}F\IeC {\"u}tterungsexperiment}{19}
-\contentsline {subsection}{\numberline {3.5.2}Schneideversuch 1.Art der 1.Variante}{21}
-\contentsline {subsection}{\numberline {3.5.3}Schneideversuch 2.Art der 1.Variante}{22}
+\contentsline {subsubsection}{\numberline {3.4.2.3}Futterplatte}{17}
+\contentsline {subsection}{\numberline {3.4.3}Variante 3: Gefrorenes Futter}{17}
+\contentsline {section}{\numberline {3.5}Aufbauten und Tests}{18}
+\contentsline {subsection}{\numberline {3.5.1}F\IeC {\"u}tterungsexperiment}{18}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Schlussfolgerung des F\IeC {\"u}tterungsexperimentes}{20}
+\contentsline {subsection}{\numberline {3.5.2}Schneideversuch 1.Art der 1.Variante}{20}
+\contentsline {subsubsection}{\numberline {3.5.2.1}Schlussfolgerung des Schneideversuchs 1.Art der 1.Variante}{21}
+\contentsline {subsection}{\numberline {3.5.3}Schneideversuch 2.Art der 1.Variante}{21}
+\contentsline {subsubsection}{\numberline {3.5.3.1}Schlussfolgerung des Schneideversuchs 2.Art der 1.Variante}{22}
 \contentsline {subsection}{\numberline {3.5.4}Dichtheitsexperiment der Hebelklemme}{23}
 \contentsline {section}{\numberline {3.6}Vergleich der Varianten}{23}
 \contentsline {subsection}{\numberline {3.6.1}Klemmen}{23}
 \contentsline {subsubsection}{\numberline {3.6.1.1}Einfache Klemme}{23}
 \contentsline {subsubsection}{\numberline {3.6.1.2}Hebel Klemme}{23}
-\contentsline {subsubsection}{\numberline {3.6.1.3}Gummiband Klemme}{23}
-\contentsline {subsection}{\numberline {3.6.2}Futtersch\IeC {\"u}sseln}{24}
-\contentsline {subsubsection}{\numberline {3.6.2.1}Drehfutterplatte}{24}
-\contentsline {subsubsection}{\numberline {3.6.2.2}Futterplatte Zylinder}{24}
-\contentsline {subsubsection}{\numberline {3.6.2.3}Platte mit einer Sch\IeC {\"u}ssel}{26}
-\contentsline {subsection}{\numberline {3.6.3}Futtermagazine}{26}
-\contentsline {subsubsection}{\numberline {3.6.3.1}Futtermagazin Horizontal}{26}
-\contentsline {subsubsection}{\numberline {3.6.3.2}Futtermagazin Vertikal}{27}
+\contentsline {subsubsection}{\numberline {3.6.1.3}Gummiband Klemme}{24}
+\contentsline {subsection}{\numberline {3.6.2}Klemmen Wahlvariante}{24}
+\contentsline {subsection}{\numberline {3.6.3}Futtersch\IeC {\"u}sseln}{24}
+\contentsline {subsubsection}{\numberline {3.6.3.1}Drehfutterplatte}{24}
+\contentsline {subsubsection}{\numberline {3.6.3.2}Futterplatte Zylinder}{25}
+\contentsline {subsubsection}{\numberline {3.6.3.3}Platte mit einer Sch\IeC {\"u}ssel}{25}
+\contentsline {subsection}{\numberline {3.6.4}Futtersch\IeC {\"u}ssel Wahlvariante}{26}
+\contentsline {subsection}{\numberline {3.6.5}Futtermagazine}{26}
+\contentsline {subsubsection}{\numberline {3.6.5.1}Futtermagazin Horizontal}{26}
+\contentsline {subsubsection}{\numberline {3.6.5.2}Futtermagazin Vertikal}{27}
 \contentsline {section}{\numberline {3.7}Konstruktion der Wahlvariante und Details}{27}
 \contentsline {subsection}{\numberline {3.7.1}Drehplatte}{27}
 \contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband und Kettenglied}{28}
