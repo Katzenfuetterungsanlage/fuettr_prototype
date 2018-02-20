@@ -15,9 +15,9 @@
 \contentsline {subsubsection}{\numberline {2.2.5.2}Vergleich mit anderen Datenbanken}{9}
 \contentsline {subsection}{\numberline {2.2.6}Kommunikation mit der Web-Applikation}{9}
 \contentsline {section}{\numberline {2.3}Umsetzung}{10}
-\contentsline {subsection}{\numberline {2.3.1}Mongodb}{11}
-\contentsline {subsubsection}{\numberline {2.3.1.1}Allgemeines}{11}
-\contentsline {subsubsection}{\numberline {2.3.1.2}Datenbankmanagementsystem DBS}{11}
+\contentsline {subsection}{\numberline {2.3.1}Mongodb}{10}
+\contentsline {subsubsection}{\numberline {2.3.1.1}Allgemeines}{10}
+\contentsline {subsubsection}{\numberline {2.3.1.2}Datenbankmanagementsystem DBS}{10}
 \contentsline {subsubsection}{\numberline {2.3.1.3}Code Beispiele}{11}
 \contentsline {subsection}{\numberline {2.3.2}pi4j}{11}
 \contentsline {subsubsection}{\numberline {2.3.2.1}Allgemeines}{11}
