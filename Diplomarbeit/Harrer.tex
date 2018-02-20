@@ -83,9 +83,31 @@ Mongodb is ein schemenlose Datenbank. Schemenlos bedeuted, dass die Daten keine 
 Bei einer schemenbehafteten Datenbank werden die Daten in Reihen und Spalten gegliedert. Um eine solche Datenbank effizient nutzen zu können wird auch ein einmaliger Indentifikator.
 \\ \\ 
 In Mongodb sind Zeilen Collections und Spalten Documents. 
+\\ \\
+Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werden. In unserem konkreten Fall am Raspberry startet die Datenbank beim Starten des Raspberry automatisch. Weiters kann in der Konsole mit dem Befehl \textbf{mongo}, sofern die Datenbank gestartet ist, die Mongo-Shell geöffnet werden. In der Shell können alle angelegten Datebanken verwaltet werden. Unter verwalten wird das Ändern, Hinzufügen und Löschen von Daten verstanden. Es können auch neue Datenbanken angelegt oder alte Datenbanken gelöscht werden. 
+\\ Befehle:
+\begin{itemize}
+\item[•] \textbf{show dbs} ... zeigt alle angelegten Datenbanken an
+\item[•] \textbf{show collections} ... zeigt alle collections in einer Datebank
+\item[•] \textbf{use} ... verwenden einer Datenbank, falls die Datenbank noch nicht existiert wird sie neu erstellt 
+\\     (Beispiel: use <Datenbankname>)
+\item[•] \textbf{drop()} ... löschen einer Datenbank
+\item[•] \textbf{find()} ... suchen nach bestimmten Daten 
+\\     (Beispiel: db.data.find() )
+\item[•] \textbf{count()} ... zählt die Dokumente in einer Collection
+\\     (Beispiel: db.<Collectionname>.count() )
+\item[•] \textbf{insert()} ... hinzufügen eines Dokumentes
+\\     (Beispiel: db.data.insert(\{"time1":"13:30"\})
+\item[•] \textbf{updateOne()} ... updaten von Daten
+\\     (Beispiel: db.data.updateOne(<DokumentID>, <Daten>) )
+\item[•] \textbf{deleteOne()} ... löschen eins Dokumentes
+\\     (Beispiel: db.data.deleteOne(<DokumentID>) )
+
+\end{itemize}
 
 \subsubsection{Datenbankmanagementsystem DBS}
 Ein Datenbankmanagementsystem verwaltet eine oder mehrere Datenbanken. Mehrer Datenbanken werden dabei benötigt, wenn mehrere Anwenugen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein DBS ist Mongodb.
+
 \subsubsection{Code Beispiele}
 \subsection{pi4j}
 \subsubsection{Allgemeines}
