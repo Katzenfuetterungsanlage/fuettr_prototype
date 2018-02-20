@@ -1,2 +1,49 @@
 \chapter{Java-Programm}
 \label{sec:java-programm}
+
+\section{Anforderungen}
+\subsection{Programm}
+Die Hauptaufgabe des Programms ist es dem Benutzer eine Möglichkeit zum Steuern der Katzenfütterungsanlage zu Verfügung zu stellen. Weiters soll das Programm die Motoren steuern und die Sensoren in der Anlage auswerten können. Für diese Aufgabe sollen die IO-Pins am Raspberry verwendet werden.
+\subsection{Design}
+Das Design der GUI-Fenster soll einfach und übersichtlich gestaltet werden. Auf der Hauptseite, also der Seite die immer zu sehen ist, sollen Informationen dargestellt werden, die dem Benutzer einen schnellen Überblick über den Zustand der Anlage geben. Alle anderen nicht direkt ersichtlichen Funktionen sollen über sinnvoll benamte Menüpunkte erreichbar sein.
+\subsection{Externe Steuerung}
+Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen mit welchem man anschließend über eine Webseite auf die Anlage zugreigen kann. 
+
+\section{Voruntersuchung}
+\subsection{Wieso Java und nicht C?}
+\subsection{Wieso ein Raspberry?}
+\subsection{Wieso pi4j?}
+\subsection{Wieso Mongodb?}
+\subsubsection{Vorteil gegenüber Daten in Datei speichern}
+\subsubsection{Vergleich mit anderen Datenbanken}
+\subsection{Kommunikation mit der Web-Applikation}
+
+\section{Umsetzung}
+\subsection{Mongodb}
+\subsubsection{Allgemeines}
+\subsubsection{Datenbankmanagementsystem DBS}
+\subsubsection{Code Beispiele}
+\subsection{pi4j}
+\subsubsection{Allgemeines}
+\subsubsection{Pin Numbering Sheme}
+\subsubsection{Gewählte Pin Belegung}
+\subsubsection{Wieso Sigleton?}
+\subsubsection{Code Beispiele}
+\subsection{Server-Client}
+\subsubsection{Übertragungsprotokoll}
+\subsubsection{Wie wird geantwortet?}
+\subsubsection{Was wird am Raspberry vom Java-Programm gemacht?}
+\subsection{GUI-Fenster}
+\subsubsection{MainWindow}
+\subsubsection{TimeManagement}
+\subsubsection{CreateUser}
+\subsubsection{ManualControl}
+\subsubsection{Positionsinformation}
+\subsubsection{SystemInfo}
+\subsubsection{Update}
+
+\section{Zusammenfassung/Verbesserungsmöglichkeiten}
+\subsubsection{Probleme mit Mongodb am Raspberry}
+\subsubsection{GUI auf "Touchscreen-Design" abändern}
+\subsubsection{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}
+\subsubsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
