@@ -16,32 +16,56 @@ Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Kat
 \subsection{Wieso Java und nicht C?}
 Zu Beginn musste entschieden werden mit welcher Programmiersprache gearbeitet werden soll. Zur Auswahl standen Java und C.
 Vorteile von C:
+\begin{itemize}
 \item[1] Echtzeitfähige Steuerung der Motoren und Senosren
 \item[2] Hardwarenahe Programmierung für die Pins
+\end{itemize}
 Vorteile von Java:
+\begin{itemize}
 \item[1] Erstellen einer GUI ist einfacher
 \item[2] Implementieren eines Servers ist einfacher
+\end{itemize}
 
 Nach dem Gegenüberstellen der Vorteile wurde Java als Programmiersprache gewählt.
 
 \subsection{Wieso das Raspberry Pi 3 Model B?}
 Schon zu Beginn der Diplomarbeit war klar, dass mit deinem Raspberry gearbeitet werden soll. Nun musste entschieden werden welches Model verwendet werden soll. Wir haben das Raspberry Pi 3 Model B aufgrund folgender technischer Daten gewählt:
+\begin{itemize}
 \item[1] Rechenleistung
 \item[2] Anzahl der GPIO-Pins
 \item[3] WLAN-Fähigkeit
+\end{itemize}
 
-\subsubsection{Auswahl eines Touchdisplays}
+\subsection{Auswahl eines Touchdisplays}
 Das Display muss folgendet Anforderungen erfüllen:
+\begin{itemize}
 \item[1] Es muss ein Touchscreen-Display sein
 \item[2] Es muss einfach an das Raspberry anschließbar sein
 \item[3] Es sollte nicht zu teuer sein
+\end{itemize}
 
 Aufgrund dieser Anforderungen wurde das Touchdisplay von Raspberry gewählt.
 
 \subsection{Wieso pi4j?}
+Da Java als Programmiersprache gewählt wurde, musste eine Möglichkeit die GPIO-Pins anzusteuern gefunden werden.
+Da bei der Recherche außer pi4j Java kaum etwas gefunden wurde, wurde pi4j gewählt. Weiters vorteilhaft ist, dass das Ansteuern der Pins via Code nicht sehr kopliziert ist. 
+
 \subsection{Wieso Mongodb?}
+Eine Datenbank wurde gewählt, weil es gegebüber des Speichers der Daten in eine Datei mehrere Vorteile aufweist. 
 \subsubsection{Vorteil gegenüber Daten in Datei speichern}
+Vorteile einer Datenbank:
+\begin{itemize}
+\item[1] Keine Probleme mit Pfaden
+\item[2] Daten sind alle in einem Punkt gespeichert und nicht im System verteilt
+\item[3] Der benötigte Code für die Datenbank macht das Programm übersichtlicher
+\end{itemize}
 \subsubsection{Vergleich mit anderen Datenbanken}
+Vorteile von Mongodb gegenüber anderen Datenbanken (zB mySQL):
+\begin{itemize}
+\item[1] Mongodb ist schemenlos (Daten benötigen keine bestimmte Struktur)
+\item[2] Mongodb ist kostenfrei
+\end{itemize}
+
 \subsection{Kommunikation mit der Web-Applikation}
 
 \section{Umsetzung}
