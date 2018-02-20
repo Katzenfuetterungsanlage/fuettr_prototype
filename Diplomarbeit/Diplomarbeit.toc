@@ -13,7 +13,7 @@
 \contentsline {subsection}{\numberline {2.2.5}Wieso Mongodb?}{9}
 \contentsline {subsubsection}{\numberline {2.2.5.1}Vorteil gegen\IeC {\"u}ber Daten in Datei speichern}{9}
 \contentsline {subsubsection}{\numberline {2.2.5.2}Vergleich mit anderen Datenbanken}{9}
-\contentsline {subsection}{\numberline {2.2.6}Kommunikation mit der Web-Applikation}{10}
+\contentsline {subsection}{\numberline {2.2.6}Kommunikation mit der Web-Applikation}{9}
 \contentsline {section}{\numberline {2.3}Umsetzung}{10}
 \contentsline {subsection}{\numberline {2.3.1}Mongodb}{10}
 \contentsline {subsubsection}{\numberline {2.3.1.1}Allgemeines}{10}
