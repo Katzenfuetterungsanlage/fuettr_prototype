@@ -109,6 +109,10 @@ Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werde
 \subsubsection{Datenbankmanagementsystem DBS}
 Ein Datenbankmanagementsystem verwaltet eine oder mehrere Datenbanken. Mehrer Datenbanken werden dabei benötigt, wenn mehrere Anwenugen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein DBS ist Mongodb.
 
+\subsubsection{Singleton}
+Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ein Objekt der Datenbank erzeugt. Das bedeutet, dass nur von dieser Klasse aus auf die Datenbank zugegriffen wird und nur eine Verbindung geöffnet wird.
+\\ Ein weiterer Vorteil davon ist, dass wenn einmal eine andere Datenbank verwendet werden sollte, nur diese eine Klasse geändert werden muss, weil nur in dieser Klasse der Code für die spezifische Datenbank enthalten ist.
+
 \subsubsection{Code Beispiele}
 \subsection{pi4j}
 \subsubsection{Allgemeines}
