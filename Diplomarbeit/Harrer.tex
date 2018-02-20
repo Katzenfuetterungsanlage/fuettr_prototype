@@ -4,14 +4,40 @@
 \section{Anforderungen}
 \subsection{Programm}
 Die Hauptaufgabe des Programms ist es dem Benutzer eine Möglichkeit zum Steuern der Katzenfütterungsanlage zu Verfügung zu stellen. Weiters soll das Programm die Motoren steuern und die Sensoren in der Anlage auswerten können. Für diese Aufgabe sollen die IO-Pins am Raspberry verwendet werden.
-\subsection{Design}
+\subsection{Design - Benutzerinterface}
 Das Design der GUI-Fenster soll einfach und übersichtlich gestaltet werden. Auf der Hauptseite, also der Seite die immer zu sehen ist, sollen Informationen dargestellt werden, die dem Benutzer einen schnellen Überblick über den Zustand der Anlage geben. Alle anderen nicht direkt ersichtlichen Funktionen sollen über sinnvoll benamte Menüpunkte erreichbar sein.
+Der Benutzer soll mit Hilfe eines kleinen Touchdisplays die Möglichkeit haben die Anlage zu steuern. Deswegen muss darauf geachtet werden, dass alle GUI-Fenster sinnvoll per Touch-Gesten verwenbar sind.
 \subsection{Externe Steuerung}
 Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen mit welchem man anschließend über eine Webseite auf die Anlage zugreigen kann. 
 
+\newpage
+
 \section{Voruntersuchung}
 \subsection{Wieso Java und nicht C?}
-\subsection{Wieso ein Raspberry?}
+Zu Beginn musste entschieden werden mit welcher Programmiersprache gearbeitet werden soll. Zur Auswahl standen Java und C.
+Vorteile von C:
+\item[1] Echtzeitfähige Steuerung der Motoren und Senosren
+\item[2] Hardwarenahe Programmierung für die Pins
+Vorteile von Java:
+\item[1] Erstellen einer GUI ist einfacher
+\item[2] Implementieren eines Servers ist einfacher
+
+Nach dem Gegenüberstellen der Vorteile wurde Java als Programmiersprache gewählt.
+
+\subsection{Wieso das Raspberry Pi 3 Model B?}
+Schon zu Beginn der Diplomarbeit war klar, dass mit deinem Raspberry gearbeitet werden soll. Nun musste entschieden werden welches Model verwendet werden soll. Wir haben das Raspberry Pi 3 Model B aufgrund folgender technischer Daten gewählt:
+\item[1] Rechenleistung
+\item[2] Anzahl der GPIO-Pins
+\item[3] WLAN-Fähigkeit
+
+\subsubsection{Auswahl eines Touchdisplays}
+Das Display muss folgendet Anforderungen erfüllen:
+\item[1] Es muss ein Touchscreen-Display sein
+\item[2] Es muss einfach an das Raspberry anschließbar sein
+\item[3] Es sollte nicht zu teuer sein
+
+Aufgrund dieser Anforderungen wurde das Touchdisplay von Raspberry gewählt.
+
 \subsection{Wieso pi4j?}
 \subsection{Wieso Mongodb?}
 \subsubsection{Vorteil gegenüber Daten in Datei speichern}
