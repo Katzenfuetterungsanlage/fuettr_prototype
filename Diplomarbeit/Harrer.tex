@@ -148,11 +148,15 @@ Anschließend kann mit der Datenbank gearbeitet werden.
 \end{lstlisting}
 \end{itemize}
 
-Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanlage sieht so aus. Diese Zeile Code sucht in der Collection \textbf{collUser} nach dem Dokument mit dem Identifikator \textbf{new BasicDBObject("identifier", "User")}. Das gefundene Dokument wird dann der Varibale \textbf{document} zugewiesen. 
+\newpage
+
+Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanlage sieht so aus:
 \begin{lstlisting}[style=JavaStyle]
 	DBObject document = collUser.find(
 			new BasicDBObject("identifier", "User")).next();
 \end{lstlisting}
+Diese Zeile Code sucht in der Collection \textbf{collUser} nach dem Dokument mit dem Identifikator \textbf{new BasicDBObject("identifier", "User")}. Das gefundene Dokument wird dann der Varibale \textbf{document} zugewiesen. 
+
 
 \subsection{pi4j}
 \subsubsection{Allgemeines}
