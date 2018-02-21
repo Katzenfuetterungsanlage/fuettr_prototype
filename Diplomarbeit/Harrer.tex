@@ -80,7 +80,7 @@ Nun folgen ausführlichere Beschreibungen über die oben angeführten Klassen.
 \subsubsection{Allgemeines}
 Mongodb is ein schemenlose Datenbank. Schemenlos bedeuted, dass die Daten keine besondere Formatierung brauchen um gespeichert zu werden. Zusätzlich wird jedem gespeichertem Datensatz automatisch ein einmaliger Indentifikator gegeben. Weiters ist es kostenfrei und man benötigt keine Lizenzen.
 \\
-Bei einer schemenbehafteten Datenbank werden die Daten in Reihen und Spalten gegliedert. Um eine solche Datenbank effizient nutzen zu können wird auch ein einmaliger Indentifikator.
+Bei einer schemenbehafteten Datenbank werden die Daten in Reihen und Spalten gegliedert. Um eine solche Datenbank effizient nutzen zu können wird auch ein einmaliger Identifikator.
 \\ \\ 
 In Mongodb sind Zeilen Collections und Spalten Documents. 
 \\ \\
@@ -117,16 +117,41 @@ Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ei
 Da am Raspberry die neueste Version von Mongodb nicht funktioniert, wird die Version 2.14.2 verwendet. Weitere Details zu diesem Thema sind unter Punkt 2.4.1 zu finden.
 \\ Aus diesem Grund sind auch die Methoden, die als Beispiele angeführt sind, von der älteren Version. 
 \\ \\ 
-Als erstes muss eine Verbindung mit der Datenbank aufgebaut werden.
+Als erstes muss eine Verbindung mit der Datenbank aufgebaut werden. Falls die Datenbank noch nicht existiert wird sie automatisch erstellt.
 Dies ist in Java mit folgenden Methoden möglich:
 \begin{lstlisting}[style=JavaStyle]
 	MongoClient mongodb = new MongoClient();
 	DB database = mongodb.getDB("<Datenbankname>");
 \end{lstlisting}
 
-Danach muss die Collection, in der gearbeitet werden soll, angelegt werden. Das ist mit der folgenden Methode möglich:
+Danach muss die Collection, in der gearbeitet werden soll, ausgewählt werden. Falls die Collection noch nicht existiert wird sie automatisch erstellt. Das ist mit der folgenden Methode möglich:
 \begin{lstlisting}[style=JavaStyle]
 	DBCollection coll = database.getCollection("<Collectionname>");
+\end{lstlisting}
+Anschließend kann mit der Datenbank gearbeitet werden. 
+\begin{itemize}
+\item[•] Die Dokumente in einer Collection zähle1n:
+\begin{lstlisting}[style=JavaStyle]
+	<Collectionname>.count();
+\end{lstlisting}
+\item[•] Ein Dokument aus der Datenbank lesen:
+\begin{lstlisting}[style=JavaStyle]
+	DBObject document = <Collectionname>.find(<Identifikator>).next();
+\end{lstlisting}
+\item[•] Ein Dokument zu einer Collection hinzufügen:
+\begin{lstlisting}[style=JavaStyle]
+	<Collectionname>.insert(document);
+\end{lstlisting}	
+\item[•] Ein Dokument in einer Collection updaten:
+\begin{lstlisting}[style=JavaStyle]
+	<Collectionname>.update(<Identifikator>, document);
+\end{lstlisting}
+\end{itemize}
+
+Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanlage sieht so aus. Diese Zeile Code sucht in der Collection \textbf{collUser} nach dem Dokument mit dem Identifikator \textbf{new BasicDBObject("identifier", "User")}. Das gefundene Dokument wird dann der Varibale \textbf{document} zugewiesen. 
+\begin{lstlisting}[style=JavaStyle]
+	DBObject document = collUser.find(
+			new BasicDBObject("identifier", "User")).next();
 \end{lstlisting}
 
 \subsection{pi4j}
