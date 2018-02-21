@@ -1,4 +1,4 @@
-\babel@toc {ngerman}{}
+\select@language {ngerman}
 \contentsline {chapter}{\numberline {1}Webserver und Client}{6}
 \contentsline {chapter}{\numberline {2}Java-Programm}{7}
 \contentsline {section}{\numberline {2.1}Anforderungen}{7}
@@ -94,8 +94,8 @@
 \contentsline {subsection}{\numberline {3.7.1}Drehplatte}{36}
 \contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband und Kettenglied}{37}
 \contentsline {subsection}{\numberline {3.7.3}Walze}{38}
-\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{39}
-\contentsline {section}{\numberline {3.9}Simulation}{39}
-\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{39}
+\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{38}
+\contentsline {section}{\numberline {3.9}Simulation}{38}
+\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{38}
 \contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{39}
 \contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{40}
