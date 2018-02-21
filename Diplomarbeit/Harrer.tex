@@ -114,6 +114,21 @@ Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ei
 \\ Ein weiterer Vorteil davon ist, dass wenn einmal eine andere Datenbank verwendet werden sollte, nur diese eine Klasse geändert werden muss, weil nur in dieser Klasse der Code für die spezifische Datenbank enthalten ist.
 
 \subsubsection{Code Beispiele}
+Da am Raspberry die neueste Version von Mongodb nicht funktioniert, wird die Version 2.14.2 verwendet. Weitere Details zu diesem Thema sind unter Punkt 2.4.1 zu finden.
+\\ Aus diesem Grund sind auch die Methoden, die als Beispiele angeführt sind, von der älteren Version. 
+\\ \\ 
+Als erstes muss eine Verbindung mit der Datenbank aufgebaut werden.
+Dies ist in Java mit folgenden Methoden möglich:
+\begin{lstlisting}[style=JavaStyle]
+	MongoClient mongodb = new MongoClient();
+	DB database = mongodb.getDB("<Datenbankname>");
+\end{lstlisting}
+
+Danach muss die Collection, in der gearbeitet werden soll, angelegt werden. Das ist mit der folgenden Methode möglich:
+\begin{lstlisting}[style=JavaStyle]
+	DBCollection coll = database.getCollection("<Collectionname>");
+\end{lstlisting}
+
 \subsection{pi4j}
 \subsubsection{Allgemeines}
 \subsubsection{Pin Numbering Sheme}
@@ -135,7 +150,7 @@ Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ei
 \subsection{Errors und Warnungsverarbeitung}
 
 \section{Zusammenfassung/Verbesserungsmöglichkeiten}
-\subsubsection{Probleme mit Mongodb am Raspberry}
-\subsubsection{GUI auf "Touchscreen-Design" abändern}
-\subsubsection{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}
-\subsubsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
+\subsection{Probleme mit Mongodb am Raspberry}
+\subsection{GUI auf "Touchscreen-Design" abändern}
+\subsection{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}
+\subsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}

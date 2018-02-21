@@ -20,82 +20,82 @@
 \contentsline {subsubsection}{\numberline {2.3.1.2}Datenbankmanagementsystem DBS}{11}
 \contentsline {subsubsection}{\numberline {2.3.1.3}Singleton}{11}
 \contentsline {subsubsection}{\numberline {2.3.1.4}Code Beispiele}{12}
-\contentsline {subsection}{\numberline {2.3.2}pi4j}{12}
-\contentsline {subsubsection}{\numberline {2.3.2.1}Allgemeines}{12}
-\contentsline {subsubsection}{\numberline {2.3.2.2}Pin Numbering Sheme}{12}
-\contentsline {subsubsection}{\numberline {2.3.2.3}Gew\IeC {\"a}hlte Pin Belegung}{12}
-\contentsline {subsubsection}{\numberline {2.3.2.4}Wieso Sigleton?}{12}
-\contentsline {subsubsection}{\numberline {2.3.2.5}Code Beispiele}{12}
-\contentsline {subsection}{\numberline {2.3.3}Server-Client}{12}
-\contentsline {subsubsection}{\numberline {2.3.3.1}\IeC {\"U}bertragungsprotokoll}{12}
-\contentsline {subsubsection}{\numberline {2.3.3.2}Wie wird geantwortet?}{12}
-\contentsline {subsubsection}{\numberline {2.3.3.3}Was wird am Raspberry vom Java-Programm gemacht?}{12}
-\contentsline {subsection}{\numberline {2.3.4}GUI-Fenster}{12}
-\contentsline {subsubsection}{\numberline {2.3.4.1}MainWindow}{12}
-\contentsline {subsubsection}{\numberline {2.3.4.2}TimeManagement}{12}
-\contentsline {subsubsection}{\numberline {2.3.4.3}CreateUser}{12}
-\contentsline {subsubsection}{\numberline {2.3.4.4}ManualControl}{12}
-\contentsline {subsubsection}{\numberline {2.3.4.5}Positionsinformation}{12}
-\contentsline {subsubsection}{\numberline {2.3.4.6}SystemInfo}{12}
-\contentsline {subsubsection}{\numberline {2.3.4.7}Update}{12}
-\contentsline {subsection}{\numberline {2.3.5}Errors und Warnungsverarbeitung}{12}
-\contentsline {section}{\numberline {2.4}Zusammenfassung/Verbesserungsm\IeC {\"o}glichkeiten}{12}
-\contentsline {subsubsection}{\numberline {2.4.0.1}Probleme mit Mongodb am Raspberry}{12}
-\contentsline {subsubsection}{\numberline {2.4.0.2}GUI auf "Touchscreen-Design" ab\IeC {\"a}ndern}{12}
-\contentsline {subsubsection}{\numberline {2.4.0.3}Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{12}
-\contentsline {subsubsection}{\numberline {2.4.0.4}Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{12}
-\contentsline {chapter}{\numberline {3}Teil 1 Mechanik}{13}
-\contentsline {section}{\numberline {3.1}Einleitung}{13}
-\contentsline {section}{\numberline {3.2}Aufgabenstellung und Zielsetzung}{13}
-\contentsline {section}{\numberline {3.3}Problematik}{13}
-\contentsline {subsection}{\numberline {3.3.1}Problematik des automatisierten Aufschneidens}{13}
-\contentsline {subsection}{\numberline {3.3.2}Problematik der Dichtheit bei Klemmen}{13}
-\contentsline {subsection}{\numberline {3.3.3}Problematik bei Entleerung der Verpackung}{14}
-\contentsline {subsection}{\numberline {3.3.4}Problematik vom Geruch}{14}
-\contentsline {subsection}{\numberline {3.3.5}Problematik von der Reinigung nach dem Urlaub}{14}
-\contentsline {subsection}{\numberline {3.3.6}Problematik bei einfrieren des Futters}{14}
-\contentsline {section}{\numberline {3.4}Konzepte}{15}
-\contentsline {subsection}{\numberline {3.4.1}Variante 1: Automatisiertes Aufschneiden}{15}
-\contentsline {subsubsection}{\numberline {3.4.1.1}\IeC {\"U}bersicht der Prozessschritte}{15}
-\contentsline {subsubsection}{\numberline {3.4.1.2}F\IeC {\"u}llen des Futtermagazins}{16}
-\contentsline {subsubsection}{\numberline {3.4.1.3}F\IeC {\"u}hren zur Schneidplatte}{17}
-\contentsline {subsubsection}{\numberline {3.4.1.4}Schnitt}{19}
-\contentsline {subsubsection}{\numberline {3.4.1.5}Pressen}{19}
-\contentsline {subsubsection}{\numberline {3.4.1.6}Entsorgen}{20}
-\contentsline {subsubsection}{\numberline {3.4.1.7}F\IeC {\"u}ttern}{22}
-\contentsline {subsection}{\numberline {3.4.2}Variante 2: Vor aufgeschnittene Packung}{22}
-\contentsline {subsubsection}{\numberline {3.4.2.1}F\IeC {\"o}rderband und Kettenglieder}{22}
-\contentsline {subsubsection}{\numberline {3.4.2.2}Walze}{23}
-\contentsline {subsubsection}{\numberline {3.4.2.3}Futterplatte}{24}
-\contentsline {subsection}{\numberline {3.4.3}Variante 3: Gefrorenes Futter}{24}
-\contentsline {section}{\numberline {3.5}Aufbauten und Tests}{25}
-\contentsline {subsection}{\numberline {3.5.1}F\IeC {\"u}tterungsexperiment}{25}
-\contentsline {subsubsection}{\numberline {3.5.1.1}Schlussfolgerung des F\IeC {\"u}tterungsexperimentes}{27}
-\contentsline {subsection}{\numberline {3.5.2}Schneideversuch 1.Art der 1.Variante}{27}
-\contentsline {subsubsection}{\numberline {3.5.2.1}Schlussfolgerung des Schneideversuchs 1.Art der 1.Variante}{28}
-\contentsline {subsection}{\numberline {3.5.3}Schneideversuch 2.Art der 1.Variante}{28}
-\contentsline {subsubsection}{\numberline {3.5.3.1}Schlussfolgerung des Schneideversuchs 2.Art der 1.Variante}{29}
-\contentsline {subsection}{\numberline {3.5.4}Dichtheitsexperiment der Hebelklemme}{30}
-\contentsline {section}{\numberline {3.6}Vergleich der Varianten}{30}
-\contentsline {subsection}{\numberline {3.6.1}Klemmen}{30}
-\contentsline {subsubsection}{\numberline {3.6.1.1}Einfache Klemme}{30}
-\contentsline {subsubsection}{\numberline {3.6.1.2}Hebel Klemme}{30}
-\contentsline {subsubsection}{\numberline {3.6.1.3}Gummiband Klemme}{31}
-\contentsline {subsection}{\numberline {3.6.2}Klemmen Wahlvariante}{31}
-\contentsline {subsection}{\numberline {3.6.3}Futtersch\IeC {\"u}sseln}{31}
-\contentsline {subsubsection}{\numberline {3.6.3.1}Drehfutterplatte}{31}
-\contentsline {subsubsection}{\numberline {3.6.3.2}Futterplatte Zylinder}{32}
-\contentsline {subsubsection}{\numberline {3.6.3.3}Platte mit einer Sch\IeC {\"u}ssel}{32}
-\contentsline {subsection}{\numberline {3.6.4}Futtersch\IeC {\"u}ssel Wahlvariante}{33}
-\contentsline {subsection}{\numberline {3.6.5}Futtermagazine}{33}
-\contentsline {subsubsection}{\numberline {3.6.5.1}Futtermagazin Horizontal}{33}
-\contentsline {subsubsection}{\numberline {3.6.5.2}Futtermagazin Vertikal}{34}
-\contentsline {section}{\numberline {3.7}Konstruktion der Wahlvariante und Details}{34}
-\contentsline {subsection}{\numberline {3.7.1}Drehplatte}{34}
-\contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband und Kettenglied}{35}
-\contentsline {subsection}{\numberline {3.7.3}Walze}{36}
-\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{37}
-\contentsline {section}{\numberline {3.9}Simulation}{37}
-\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{37}
-\contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{37}
-\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{38}
+\contentsline {subsection}{\numberline {2.3.2}pi4j}{13}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Allgemeines}{13}
+\contentsline {subsubsection}{\numberline {2.3.2.2}Pin Numbering Sheme}{13}
+\contentsline {subsubsection}{\numberline {2.3.2.3}Gew\IeC {\"a}hlte Pin Belegung}{13}
+\contentsline {subsubsection}{\numberline {2.3.2.4}Wieso Sigleton?}{13}
+\contentsline {subsubsection}{\numberline {2.3.2.5}Code Beispiele}{13}
+\contentsline {subsection}{\numberline {2.3.3}Server-Client}{13}
+\contentsline {subsubsection}{\numberline {2.3.3.1}\IeC {\"U}bertragungsprotokoll}{13}
+\contentsline {subsubsection}{\numberline {2.3.3.2}Wie wird geantwortet?}{13}
+\contentsline {subsubsection}{\numberline {2.3.3.3}Was wird am Raspberry vom Java-Programm gemacht?}{13}
+\contentsline {subsection}{\numberline {2.3.4}GUI-Fenster}{13}
+\contentsline {subsubsection}{\numberline {2.3.4.1}MainWindow}{13}
+\contentsline {subsubsection}{\numberline {2.3.4.2}TimeManagement}{13}
+\contentsline {subsubsection}{\numberline {2.3.4.3}CreateUser}{13}
+\contentsline {subsubsection}{\numberline {2.3.4.4}ManualControl}{13}
+\contentsline {subsubsection}{\numberline {2.3.4.5}Positionsinformation}{13}
+\contentsline {subsubsection}{\numberline {2.3.4.6}SystemInfo}{13}
+\contentsline {subsubsection}{\numberline {2.3.4.7}Update}{13}
+\contentsline {subsection}{\numberline {2.3.5}Errors und Warnungsverarbeitung}{13}
+\contentsline {section}{\numberline {2.4}Zusammenfassung/Verbesserungsm\IeC {\"o}glichkeiten}{13}
+\contentsline {subsection}{\numberline {2.4.1}Probleme mit Mongodb am Raspberry}{13}
+\contentsline {subsection}{\numberline {2.4.2}GUI auf "Touchscreen-Design" ab\IeC {\"a}ndern}{13}
+\contentsline {subsection}{\numberline {2.4.3}Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{13}
+\contentsline {subsection}{\numberline {2.4.4}Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{13}
+\contentsline {chapter}{\numberline {3}Teil 1 Mechanik}{14}
+\contentsline {section}{\numberline {3.1}Einleitung}{14}
+\contentsline {section}{\numberline {3.2}Aufgabenstellung und Zielsetzung}{14}
+\contentsline {section}{\numberline {3.3}Problematik}{14}
+\contentsline {subsection}{\numberline {3.3.1}Problematik des automatisierten Aufschneidens}{14}
+\contentsline {subsection}{\numberline {3.3.2}Problematik der Dichtheit bei Klemmen}{14}
+\contentsline {subsection}{\numberline {3.3.3}Problematik bei Entleerung der Verpackung}{15}
+\contentsline {subsection}{\numberline {3.3.4}Problematik vom Geruch}{15}
+\contentsline {subsection}{\numberline {3.3.5}Problematik von der Reinigung nach dem Urlaub}{15}
+\contentsline {subsection}{\numberline {3.3.6}Problematik bei einfrieren des Futters}{15}
+\contentsline {section}{\numberline {3.4}Konzepte}{16}
+\contentsline {subsection}{\numberline {3.4.1}Variante 1: Automatisiertes Aufschneiden}{16}
+\contentsline {subsubsection}{\numberline {3.4.1.1}\IeC {\"U}bersicht der Prozessschritte}{16}
+\contentsline {subsubsection}{\numberline {3.4.1.2}F\IeC {\"u}llen des Futtermagazins}{17}
+\contentsline {subsubsection}{\numberline {3.4.1.3}F\IeC {\"u}hren zur Schneidplatte}{18}
+\contentsline {subsubsection}{\numberline {3.4.1.4}Schnitt}{20}
+\contentsline {subsubsection}{\numberline {3.4.1.5}Pressen}{20}
+\contentsline {subsubsection}{\numberline {3.4.1.6}Entsorgen}{21}
+\contentsline {subsubsection}{\numberline {3.4.1.7}F\IeC {\"u}ttern}{23}
+\contentsline {subsection}{\numberline {3.4.2}Variante 2: Vor aufgeschnittene Packung}{23}
+\contentsline {subsubsection}{\numberline {3.4.2.1}F\IeC {\"o}rderband und Kettenglieder}{23}
+\contentsline {subsubsection}{\numberline {3.4.2.2}Walze}{24}
+\contentsline {subsubsection}{\numberline {3.4.2.3}Futterplatte}{25}
+\contentsline {subsection}{\numberline {3.4.3}Variante 3: Gefrorenes Futter}{25}
+\contentsline {section}{\numberline {3.5}Aufbauten und Tests}{26}
+\contentsline {subsection}{\numberline {3.5.1}F\IeC {\"u}tterungsexperiment}{26}
+\contentsline {subsubsection}{\numberline {3.5.1.1}Schlussfolgerung des F\IeC {\"u}tterungsexperimentes}{28}
+\contentsline {subsection}{\numberline {3.5.2}Schneideversuch 1.Art der 1.Variante}{28}
+\contentsline {subsubsection}{\numberline {3.5.2.1}Schlussfolgerung des Schneideversuchs 1.Art der 1.Variante}{29}
+\contentsline {subsection}{\numberline {3.5.3}Schneideversuch 2.Art der 1.Variante}{29}
+\contentsline {subsubsection}{\numberline {3.5.3.1}Schlussfolgerung des Schneideversuchs 2.Art der 1.Variante}{30}
+\contentsline {subsection}{\numberline {3.5.4}Dichtheitsexperiment der Hebelklemme}{31}
+\contentsline {section}{\numberline {3.6}Vergleich der Varianten}{31}
+\contentsline {subsection}{\numberline {3.6.1}Klemmen}{31}
+\contentsline {subsubsection}{\numberline {3.6.1.1}Einfache Klemme}{31}
+\contentsline {subsubsection}{\numberline {3.6.1.2}Hebel Klemme}{31}
+\contentsline {subsubsection}{\numberline {3.6.1.3}Gummiband Klemme}{32}
+\contentsline {subsection}{\numberline {3.6.2}Klemmen Wahlvariante}{32}
+\contentsline {subsection}{\numberline {3.6.3}Futtersch\IeC {\"u}sseln}{32}
+\contentsline {subsubsection}{\numberline {3.6.3.1}Drehfutterplatte}{32}
+\contentsline {subsubsection}{\numberline {3.6.3.2}Futterplatte Zylinder}{33}
+\contentsline {subsubsection}{\numberline {3.6.3.3}Platte mit einer Sch\IeC {\"u}ssel}{33}
+\contentsline {subsection}{\numberline {3.6.4}Futtersch\IeC {\"u}ssel Wahlvariante}{34}
+\contentsline {subsection}{\numberline {3.6.5}Futtermagazine}{34}
+\contentsline {subsubsection}{\numberline {3.6.5.1}Futtermagazin Horizontal}{34}
+\contentsline {subsubsection}{\numberline {3.6.5.2}Futtermagazin Vertikal}{35}
+\contentsline {section}{\numberline {3.7}Konstruktion der Wahlvariante und Details}{35}
+\contentsline {subsection}{\numberline {3.7.1}Drehplatte}{35}
+\contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband und Kettenglied}{36}
+\contentsline {subsection}{\numberline {3.7.3}Walze}{37}
+\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{38}
+\contentsline {section}{\numberline {3.9}Simulation}{38}
+\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{38}
+\contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{38}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{39}

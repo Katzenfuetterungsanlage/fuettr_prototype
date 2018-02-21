@@ -11,6 +11,7 @@
 \usepackage{wrapfig}
 \usepackage{setspace}
 \usepackage{listings}	
+\usepackage{beramono}
 
 \setlength{\parindent}{0em} 
 \bibliographystyle{plain}
@@ -23,6 +24,16 @@
 \maketitle
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{4}
+
+\lstdefinestyle{JavaStyle}{
+  language=Java,
+  columns=flexible,
+  frame=single,
+  frameround=tttt,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily
+}
+
 \tableofcontents
 \include{Greistorfer}
 \include{Harrer}
