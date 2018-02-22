@@ -625,19 +625,31 @@ Die Drehplatte besteht aus Aluminium und ist 10mm dick. Es werden 5 Löcher für
 
 Die Futterschüssel hat deshalb einen Rand damit sie in ein Loch gelegt werden kann ohne dass sie durchfliegt, dennoch lässt sie sich leicht raus nehmen und reinigen. Durch eine rutschfeste Unterlage verrutsch die Schüssel nicht, auch wenn die Katze daraus frisst und sie mit Kraft die Schüssel zu verschieben versucht. Siehe Abbildung: \ref{Futterschuessel_Inventor}.
 
-\subsection{Förderband und Kettenglied}
+\subsection{Förderband, Kettenglied und Kettenrad}
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-20pt}
-  \begin{center}
-    \includegraphics[width=0.26\textwidth]{Bilder/Inventor/Kette}
-  \end{center}
-  \caption{Kette Inventor}
-  \label{Kette_Inventor}
-  \vspace{-10pt}
-\end{wrapfigure}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=10cm]{Bilder/Inventor/Kette}
+\caption{Kette Inventor}
+\label{Kette_Inventor} 
+\end{center}
+\end{figure}
 
-Konstruktion der Kette.
+
+Das Förderband Abbildung: \ref{Kette_Inventor} wurde in folgenden Schritten konstruiert: 
+
+\begin{itemize}
+\item[1] Als erstes wurde die Sicht in Inventor nach Vorne gedreht um die Grundlage des Förderbandes zu zeichnen.
+\item[2] Zweitens wurde die Ebene YZ sichtbar gemacht und eine Ebene mit Versatz erstellt, die 234,95mm entfernt ist. In diesen beiden Ebenen kommen später die Kettenräder.
+\item[3] Drittens wird auf der XY Ebene einen Kreis mit einen Durchmesser von 53,068mm gezeichnet. Der zweite Kreis in der gleiche Größe wird auf der erstellten Ebene platziert(234,95mm von der ersten Ebene entfernt). 
+\item[4] Viertens werden die beiden Kreise an den obersten und untersten Punkten verbunden. Siehe gelber und roter Kreis.
+\item[5] Fünftens wird an den beiden untersten Positionen der Kreise ein Punkt platziert. In Inventor existiert eine Methode namens Muster. Diese Funktion wird auf den Punkten platziert und die Richtung des Pfeiles nach rechts gedreht. Nun wird die Anzahl der Kettenglieder angegeben in unseren Fall 50. Die werden gleichmäßig über die Skizze verteilt.
+\item[6] Sechstens wird eine neue Datei erstellt und das Kettenrad aus dem Inhaltscenter platziert. Siehe Abbildung \ref{Kettenrad_Inventor}.
+\item[7] Siebtens wird das Kettenglied konstruiert und alle 3 Komponenten in ein gemeinsames Projekt eingefügt. Siehe Abbildung: \ref{Kettenglied_Inventor}.
+\item[8] Achtens wird das Kettenglied am untersten Punkt des rechten Kreises abhängig gemacht.
+\item[9] Neuntens Durch kann durch die Funktion Muster das Kettenglied gleichmäßig auf der Zeichnung platziert werden und dadurch entsteht die fertige Kette.
+\item[10] Zehntens werden die Kettenräder auf den zuvor erstellten Ebenen abhängige gemacht. Danach ist die Kette fertig erstellt.\\
+\end{itemize} 
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-20pt}
@@ -646,10 +658,10 @@ Konstruktion der Kette.
   \end{center}
   \caption{Kettenglied Inventor}
   \label{Kettenglied_Inventor}
-  \vspace{-10pt}
+  \vspace{-20pt}
 \end{wrapfigure}
 
-Das Kettenglied ist im Handel erhältlich. Die Anfertigung hat auf der Seite einen rechten Winkel auf denen Aluminiumplatten platziert sind. Auf diese Aluminiumplatten wird der Futterbeutel platziert. 
+Das Kettenglied ist im Handel erhältlich. Die Anfertigung hat auf der Seite einen rechten Winkel auf denen Aluminiumplatten platziert sind. Auf diese Aluminiumplatten wird der Futterbeutel platziert. Siehe Abbildung: \ref{Kettenglied_Inventor}.\\
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-20pt}
@@ -658,9 +670,11 @@ Das Kettenglied ist im Handel erhältlich. Die Anfertigung hat auf der Seite ein
   \end{center}
   \caption{Kettenrad Inventor}
   \label{Kettenrad_Inventor}
-  \vspace{-10pt}
+  \vspace{-30pt}
 \end{wrapfigure}
 
+Das Kettenrad wurde aus dem Inhaltscenter platziert. Danach wurde eine Skizze angelegt und das Loch in der die Welle durch geht gezeichnet. Die Rundung für die Passfeder wurde darauf hin auch konstruiert damit das Kettenrad nicht auf der Welle durchrutscht und das Drehmoment übertragen kann. Siehe Abbildung: \ref{Kettenrad_Inventor}.
+\newpage
 
 \subsection{Walze}
 
@@ -671,8 +685,10 @@ Das Kettenglied ist im Handel erhältlich. Die Anfertigung hat auf der Seite ein
   \end{center}
   \caption{Walze Inventor}
   \label{Walze_Inventor}
-  \vspace{-10pt}
+  \vspace{-30pt}
 \end{wrapfigure}
+
+Die beiden Walzen sind aus Kunststoff innen hohl. Diese sind auch nicht auf der Welle befestigt sondern können sich frei drehen. Es ist nur auf jeder Seite ein Sicherungsring damit die beiden Walzen ihre Postion nicht verlassen.Siehe Abbildung: \ref{Walze_Inventor}. \\
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-20pt}
@@ -681,8 +697,26 @@ Das Kettenglied ist im Handel erhältlich. Die Anfertigung hat auf der Seite ein
   \end{center}
   \caption{Feder Inventor}
   \label{Feder_Inventor}
+  \vspace{-20pt}
+\end{wrapfigure}
+
+Die Feder drückt die beiden Walzen aneinander um die Futterpackung die durchgezogen wird auszuquetschen. Ohne die Feder und Walze könnte zu viele Reste in der Packung bleiben und so das ganze Futter verschwenden. Die Feder wurde von uns konstruiert und auf eine eigne Konstruktion gehängt die unabhängig von der Welle ist, damit die Feder nicht mitgedreht wird, sondern fix an einem Platz ist an den sie ihre Arbeit verrichtet. Siehe Abbildung: \ref{Feder_Inventor}.
+
+\subsection{Hebelklemme}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.40\textwidth]{Bilder/Inventor/Hebel_Klemme}
+  \end{center}
+  \caption{Hebelklemme Inventor}
+  \label{Hebel_Klemme_Inventor}
   \vspace{-10pt}
 \end{wrapfigure}
+
+Die Hebelklemme dient zum Optimalen klemmen der Verpackung.
+Es ähnelt einen Marmeladen Verschluss von früher. Die Packung wird zwischen den zwei Platte eingelegt, danach wird der Schließmechanismus auf der oberen Platte eingehakt, siehe roter Kreis. Daraufhin wird die Unterseite des Schließmechanismus nach unten gedrückt, siehe blauer Kreis.
+Der Hebel wird soweit nach unten gedrückt bis er beim Stopper auftrifft, siehe gelber Kreis. Der Stopper hat die Aufgabe, dass der Hebel nicht zu weit geschlossen werden kann. Das hat zufolge das die Klemme leichter aufspringt. Siehe Abbildung: \ref{Hebel_Klemme_Inventor}.
 
 \section{Berechnung und Dimensionierung}
 \section{Simulation}	
@@ -708,4 +742,9 @@ Weiter zu Wartung, nachdem der Benutzer aus dem Urlaub zurück ist sollte man fo
 
 \section{Selbstkritische Analyse und Ausblick}
 
-
+Das Hauptproblem von meiner konstruierten Variante war das dichthalten der Packung mit einer Klemme die automatisch wenn das Förderband in betrieb ist leicht zu öffnen geht. Darum wurde die von uns konstruierte Hebel Klemme genommen. Die beim Betrieb des Förderbandes mit dem Hebel in eine Vorrichtung einhakt und diese dann die Klemme öffnet. \\
+\\
+Für Nachfolgeprojekte wäre besonders darauf zu achten das die Maschine von automatische gereinigt wird und womöglich eine Schneidefunktion einbauen die den Benutzer mehr entlasten könnte.\\
+\\
+Wenn ich in Zukunft noch einmal eine Katzenfuttermaschine bauen würde, würde ich diese nicht aus Packungen, sondern aus den kleinen Metallfutterpackungen mit der Lasche als Deckel. Der Benutzer müsste dann nur die Laschen so weit nach oben biegen damit der Deckel nicht aufgeht und in das Magazin einlegen. Die Packung wird daraufhin in Bewegung gebracht und die Lasche durch einen Haken geleitet. Dann öffnet sich die Packung und die Katze kann daraus fressen. Hat den Vorteil immer eine frische Schüssel zu haben und es können theoretisch so viele Packungen wie der Benutzer will in die Maschine eingelegt werden. \\
+ 
