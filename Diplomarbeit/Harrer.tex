@@ -225,7 +225,7 @@ GPIO\_08     & Motor Förderband: Transistor 3     \\ \hline
 GPIO\_09     & Motor Förderband: Transistor 4     \\ \hline
 \end{tabular}
 \caption{Belegung der GPIO-Pins}
-\label{my-label}
+\label{Pinbelegung}
 \end{table}
 
 Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+5V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
@@ -301,11 +301,22 @@ GET                                   & /errors\_warnings                 & Der 
 PUT                                   & /ChangeMachineState               & Der Server ruft eine Methode auf um den Maschinenzustand zu ändern                               \\ \hline
 \end{tabular}
 \caption{Übertragungsprotokoll}
-\label{my-label}
+\label{Übertragungsprotokoll}
 \end{table}
 
-\subsubsection{Wie wird geantwortet?}
-\subsubsection{Was wird am Raspberry vom Java-Programm gemacht?}
+\newpage
+
+\subsubsection{Response-GET}
+Wenn der Server einen Request mit dem Beginn \textbf{GET} bekommt, muss er dem Client die Daten schicken. 
+\\ Bei der Katzenfütterungsanlage werden dem Client vom Server die ganzen auftretenten Errors und Warnungen geschickt. Die Errors und Warnungen werdem dem Client als Json-Array geschickt. Diese Json-Array wird in der Klasse, welche alle Errors and Warnungen verarbeitet, erstellt. Die Json-Array ist unter Punkt \ref{subsubsec:Array} dargestellt. 
+
+\subsubsection{Response-PUT}
+Wenn der Server einen Request mit dem Beginn \textbf{PUT} bekommt, muss er Daten vom Client entgegen nehmen.
+\\ Bei der Katzenfütterungsanlage bekommt der Server die Daten nicht direkt. Da der Maschinenzustand nur \textbf{Ein} oder \textbf{Aus} sein kann, wird dieser nicht übermittelt. Stattdessen wird, wenn der Maschinenzustand geändert wird, die Methode \textbf{machineStateChanger()} aufgerufen, welche ihn ändert. Diese Methode aktualisiert auch die GUI-Elemente am Raspberry, abhägig vom Maschinenzustand. 
+
+\subsection{Errors und Warnungsverarbeitung}
+\subsubsection{Json-Array} \label{subsubsec:Array}
+--Einfügen der Json-Array--
 
 \subsection{GUI-Fenster}
 \subsubsection{MainWindow}
@@ -315,7 +326,6 @@ PUT                                   & /ChangeMachineState               & Der 
 \subsubsection{Positionsinformation}
 \subsubsection{SystemInfo}
 \subsubsection{Update}
-\subsection{Errors und Warnungsverarbeitung}
 
 \section{Zusammenfassung/Verbesserungsmöglichkeiten}
 \subsection{Probleme mit Mongodb am Raspberry}
