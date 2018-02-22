@@ -160,7 +160,7 @@ Diese Zeile Code sucht in der Collection \textbf{collUser} nach dem Dokument mit
 
 \subsection{pi4j}
 \subsubsection{Allgemeines}
-Pi4j ist eine freie Software, welche Bibliotheken zur Verfügung stellt, mit denen es möglich ist, von einem Java Programm, auf die GPIO-Pins eines Raspberrys zuzugreifen. Dabei kann ein Pin als In- oder Ouput definiert werden. Wenn ein Pin als Output definiert wird, kann er den State High (+5V) oder Low (0V) haben. Mit einem Input Pin, können Signale gemessen werden. Das Ergebnis der Messung ist wieder High oder Low. Weiters ist es auch möglich einem Pin einen Listener zuzuweißen. Dieser Listener wartet bis auf diesem Pin ein Event auftritt und führt dann zum Beispiel eine Methode aus. 
+Pi4j ist eine freie Software, welche Bibliotheken zur Verfügung stellt, mit denen es möglich ist, von einem Java Programm, auf die IO-Pins eines Raspberrys zuzugreifen. Dabei kann ein GPIO-Pin als In- oder Ouput definiert werden. Wenn ein Pin als Output definiert wird, kann er den State High (+5V) oder Low (0V) haben. Mit einem Input Pin, können Signale gemessen werden. Das Ergebnis der Messung ist wieder High oder Low. Weiters ist es auch möglich einem Pin einen Listener zuzuweißen. Dieser Listener wartet bis auf diesem Pin ein Event auftritt und führt dann zum Beispiel eine Methode aus. 
 \\ \\
 Pi4j stellt eine Verbindung von der JVM (Java Virtuaul Machine) zu dem nativen System des Raspberys her. Dadurch wird es möglich von dem Programm auf die Pins zuzugreifen. Die folgende Grafik zeigt welche Bibliotheken dazu verwendetwerden.
 
@@ -180,24 +180,23 @@ Pi4j stellt eine Verbindung von der JVM (Java Virtuaul Machine) zu dem nativen S
 
 \subsubsection{Pin Numbering Sheme}
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-\vspace{-30pt}
+\begin{wrapfigure}{l}{0.5\textwidth}
+\vspace{-40pt}
   \begin{center}
     \includegraphics[width=0.50\textwidth]{Bilder/pi4j/PinNumberingSheme}
   \end{center}
   \caption{Pin Numbering Sheme}
   \label{Magazin Vorne}
-  \vspace{-10pt}
+  \vspace{-230pt}
 \end{wrapfigure}
 
-Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei Anderen kann der Programmierer selbst entscheiden, was der Pin sein soll.
+Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den GPIO-Pins kann der Programmierer selbst entscheiden, was der Pin sein soll.
 \\ \\
-In der folgenden Grafik ist zu sehen wie die Pins bei einem Raspberry Pi 3 \\ Model B belegt sind.
-
-
-
+In der Grafik ist zu sehen wie die Pins bei einem Raspberry Pi 3 \\ Model B belegt sind.
 
 \subsubsection{Gewählte Pin Belegung}
+Zum Ansteuern der Motoren und Auswerten der Sensoren wurden nur GPIO-Pins verwendet.
+
 \subsubsection{Wieso Sigleton?}
 \subsubsection{Code Beispiele}
 

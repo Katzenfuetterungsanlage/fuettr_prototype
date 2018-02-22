@@ -23,7 +23,7 @@
 \contentsline {subsection}{\numberline {2.3.2}pi4j}{13}
 \contentsline {subsubsection}{\numberline {2.3.2.1}Allgemeines}{13}
 \contentsline {subsubsection}{\numberline {2.3.2.2}Pin Numbering Sheme}{14}
-\contentsline {subsubsection}{\numberline {2.3.2.3}Gew\IeC {\"a}hlte Pin Belegung}{15}
+\contentsline {subsubsection}{\numberline {2.3.2.3}Gew\IeC {\"a}hlte Pin Belegung}{14}
 \contentsline {subsubsection}{\numberline {2.3.2.4}Wieso Sigleton?}{15}
 \contentsline {subsubsection}{\numberline {2.3.2.5}Code Beispiele}{15}
 \contentsline {subsection}{\numberline {2.3.3}Server-Client}{15}
