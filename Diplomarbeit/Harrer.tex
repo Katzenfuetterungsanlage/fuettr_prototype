@@ -315,8 +315,17 @@ Wenn der Server einen Request mit dem Beginn \textbf{PUT} bekommt, muss er Daten
 \\ Bei der Katzenfütterungsanlage bekommt der Server die Daten nicht direkt. Da der Maschinenzustand nur \textbf{Ein} oder \textbf{Aus} sein kann, wird dieser nicht übermittelt. Stattdessen wird, wenn der Maschinenzustand geändert wird, die Methode \textbf{machineStateChanger()} aufgerufen, welche ihn ändert. Diese Methode aktualisiert auch die GUI-Elemente am Raspberry, abhägig vom Maschinenzustand. 
 
 \subsection{Errors und Warnungsverarbeitung}
+\subsubsection{Allgemeines}
+Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. 
+\\ Dazu dient die \textbf{ErrorAndWarningHandler\_Singleton} Klasse. In dieser Klasse wird beim Auftreten eines Fehlers eine Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
+
 \subsubsection{Json-Array} \label{subsubsec:Array}
+Diese Klasse stellt auch die Json-Array zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird.
+\\ Die JsonArray sieht wie folgt aus:
+
 --Einfügen der Json-Array--
+
+\subsubsection{List und Listemodel}
 
 \subsection{GUI-Fenster}
 \subsubsection{MainWindow}

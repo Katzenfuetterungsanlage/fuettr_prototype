@@ -32,7 +32,9 @@
 \contentsline {subsubsection}{\numberline {2.3.3.3}Response-GET}{18}
 \contentsline {subsubsection}{\numberline {2.3.3.4}Response-PUT}{18}
 \contentsline {subsection}{\numberline {2.3.4}Errors und Warnungsverarbeitung}{18}
-\contentsline {subsubsection}{\numberline {2.3.4.1}Json-Array}{18}
+\contentsline {subsubsection}{\numberline {2.3.4.1}Allgemeines}{18}
+\contentsline {subsubsection}{\numberline {2.3.4.2}Json-Array}{18}
+\contentsline {subsubsection}{\numberline {2.3.4.3}List und Listemodel}{19}
 \contentsline {subsection}{\numberline {2.3.5}GUI-Fenster}{19}
 \contentsline {subsubsection}{\numberline {2.3.5.1}MainWindow}{19}
 \contentsline {subsubsection}{\numberline {2.3.5.2}TimeManagement}{19}
@@ -95,10 +97,11 @@
 \contentsline {subsubsection}{\numberline {3.6.5.2}Futtermagazin Vertikal}{41}
 \contentsline {section}{\numberline {3.7}Konstruktion der Wahlvariante und Details}{41}
 \contentsline {subsection}{\numberline {3.7.1}Drehplatte}{41}
-\contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband und Kettenglied}{42}
-\contentsline {subsection}{\numberline {3.7.3}Walze}{43}
-\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{43}
-\contentsline {section}{\numberline {3.9}Simulation}{43}
-\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{43}
-\contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{44}
-\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{45}
+\contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband, Kettenglied und Kettenrad}{43}
+\contentsline {subsection}{\numberline {3.7.3}Walze}{45}
+\contentsline {subsection}{\numberline {3.7.4}Hebelklemme}{45}
+\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{46}
+\contentsline {section}{\numberline {3.9}Simulation}{46}
+\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{46}
+\contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{47}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{48}
