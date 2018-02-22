@@ -247,10 +247,25 @@ Wenn der Controller erstellt ist kann auf die Pins, mit denen gearbeitet werden 
 	pin.setShutdownOptions(true, PinState.LOW);
 \end{lstlisting}
 \end{itemize}
+Wenn das erledigt ist kann mit dem Pin gearbeitet werden. Dies kann wie in den folgenden Beispielen erfolgen:
+\begin{itemize}
+\item[•] Zustand eines Input-Pins auswerten: 
+\begin{lstlisting}[style=JavaStyle]
+	pin.getState()
+\end{lstlisting}
+Diese Methode liefert den Zustand des Pins zurück. Dieser kann High oder Low sein.
+\item[•] Zustand eines Output-Pins setzen:
+\begin{lstlisting}[style=JavaStyle]
+	pin.low();	
+	pin.high();
+\end{lstlisting}
+Mit \textbf{pin.low()} kann der Zustand eines Pins auf Low (0V) und mit \textbf{pin.high()} auf High (+5V) gesetzt werden. 
+\end{itemize}
 
-Pin einen Zustand zuweisen:
-
-Controller am Ende des Programms beenden:
+Vor dem Beenden des Java Programmes sollte der Controller wie folgt heruntergefahren werden:
+\begin{lstlisting}[style=JavaStyle]
+	controller.shutdown();
+\end{lstlisting}
 
 \subsection{Server-Client}
 \subsubsection{Übertragungsprotokoll}
