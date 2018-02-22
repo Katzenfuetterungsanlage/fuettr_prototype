@@ -323,7 +323,18 @@ Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Pro
 Diese Klasse stellt auch die Json-Array zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird.
 \\ Die JsonArray sieht wie folgt aus:
 
---Einfügen der Json-Array--
+{
+	"Errors": 
+	[
+		{"message" : "Error1", "hidden" : false},
+		{"message" : "Error2", "hidden" : false}
+	]
+	"Warnings": 
+	[
+		{"message" : "Warning1", "hidden" : false},
+		{"message" : "Warnung2", "hidden" : false}
+	]
+}
 
 \subsubsection{List und Listemodel}
 
