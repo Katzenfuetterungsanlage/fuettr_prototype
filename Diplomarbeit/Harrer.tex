@@ -224,8 +224,33 @@ GPIO\_09     & Motor Förderband: Transistor 4     \\ \hline
 Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+5V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
 \\ Um einen Motor einzuschalten müssen jeweils zwei diagonal zueinander liegende Transitoren aktiviert werden. Der Motor dreht sich im Uhrzeigersinn, GPIO-Pins von Transistor 1 und Transistor 4 High sind. Gleichzeitig muss sicher gestellt werden, dass die GPIO-Pins der Transistoren 2 und 3 Low sind. Wenn das nicht sichergestellt ist kann es zu einem Kurzschluss zwischen der Spannungsversorgung und GND kommen. Um den Motor gegen den Uhrzeigersinn zu drehen müssen die GPIO-Pins der Transistoren 2 und 3 auf High sein. 
 
-\subsubsection{Wieso Sigleton?}
+\subsubsection{Sigleton}
+Die benötigten Methoden von pi4j wurden in einem Singleton implementiert. Es musste ein Singleton verwendet werden, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  ein Error geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann. Der Zugriff von mehreren Klassen ist ohne einen Singleton programmiertechnisch nicht lösbar.
+
 \subsubsection{Code Beispiele}
+Um mit den GPIO-Pins arbeiten zu können muss zu Beginn ein Controller erstellt werden. Dies ist wie folgt möglich:
+\begin{lstlisting}[style=JavaStyle]
+	GpioController controller = GpioFactory.getInstance();
+\end{lstlisting}
+Wenn der Controller erstellt ist kann auf die Pins, mit denen gearbeitet werden soll, zugegriffen werden. Bei einem Pin kann auch eine \textbf{ShutDownOption} angeben werden. Diese gibt an in welchen Zustand der Pin vor dem Herunterfahren gesetzt wird. Dieser Zugriff erfolgt wie folgt: 
+\begin{itemize}
+\item[•] Zugreigen auf einen Pin als digitalen Input-Pin:
+\begin{lstlisting}[style=JavaStyle]
+	GpioPinDigitalInput pin = controller.provisionDigitalInputPin(
+		RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);
+	pin.setShutdownOptions(true);
+\end{lstlisting}
+\item[•] Zugreigen auf einen Pin als digitalen Output-Pin:
+\begin{lstlisting}[style=JavaStyle]
+	GpioPinDigitalOutput pin = controller.provisionDigitalOutputPin(
+		RaspiPin.GPIO_02, PinState.LOW);
+	pin.setShutdownOptions(true, PinState.LOW);
+\end{lstlisting}
+\end{itemize}
+
+Pin einen Zustand zuweisen:
+
+Controller am Ende des Programms beenden:
 
 \subsection{Server-Client}
 \subsubsection{Übertragungsprotokoll}
@@ -244,6 +269,7 @@ Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+
 
 \section{Zusammenfassung/Verbesserungsmöglichkeiten}
 \subsection{Probleme mit Mongodb am Raspberry}
+\subsection{Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}
 \subsection{GUI auf "Touchscreen-Design" abändern}
 \subsection{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}
 \subsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
