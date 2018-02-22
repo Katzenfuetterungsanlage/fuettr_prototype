@@ -148,6 +148,11 @@ Anschließend kann mit der Datenbank gearbeitet werden.
 \end{lstlisting}
 \end{itemize}
 
+Bevor das Java Programm beendet wird sollte die Verbindung zur Datenbank wie folgt getrennt werden: 
+\begin{lstlisting}[style=JavaStyle]
+	mongodb.close();
+\end{lstlisting}
+
 \newpage
 
 Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanlage sieht so aus:
