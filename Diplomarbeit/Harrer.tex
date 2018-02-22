@@ -8,7 +8,7 @@ Die Hauptaufgabe des Programms ist es dem Benutzer eine Möglichkeit zum Steuern
 Das Design der GUI-Fenster soll einfach und übersichtlich gestaltet werden. Auf der Hauptseite, also der Seite die immer zu sehen ist, sollen Informationen dargestellt werden, die dem Benutzer einen schnellen Überblick über den Zustand der Anlage geben. Alle anderen nicht direkt ersichtlichen Funktionen sollen über sinnvoll benamte Menüpunkte erreichbar sein.
 Der Benutzer soll mit Hilfe eines kleinen Touchdisplays die Möglichkeit haben die Anlage zu steuern. Deswegen muss darauf geachtet werden, dass alle GUI-Fenster sinnvoll per Touch-Gesten verwenbar sind.
 \subsection{Externe Steuerung}
-Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen mit welchem man anschließend über eine Webseite auf die Anlage zugreigen kann. 
+Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen mit welchem man anschließend über eine Webseite auf die Anlage zugreifen kann. Weiters soll das Java Programm (Server) mit der Web-Applikation (Client) kommunizieren, also Daten austauschen, können.
 
 \newpage
 
@@ -202,14 +202,14 @@ In der Grafik ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt 
 \vspace{300pt}
 
 \subsubsection{Gewählte Pin Belegung}
-Zum Ansteuern der Motoren und Auswerten der Sensoren wurden nur GPIO-Pins verwendet. Die Motoren in der Anlage werden über jeweils eine H-Brücke angesteuert. Das bedeutet, dass jeder der zwei Motoren jeweils mit vier Transitoren angesteuert wird. Jeder Transitor wird von einem eigenen Pin angesteuert. Für die Sensoren wird jeweils ein Pin zum Auswerten benötigt. In Summe werden zehn GPIO-Pins benötigt. \\ \\ Diese GPIO-Pins werden, wie folgenden Tabelle 2.1 veranschaulicht, verwendet:
+Zum Ansteuern der Motoren und Auswerten der Sensoren wurden nur GPIO-Pins verwendet. Die Motoren in der Anlage werden über jeweils eine H-Brücke angesteuert. Das bedeutet, dass jeder der zwei Motoren jeweils mit vier Transitoren angesteuert wird. Jeder Transitor wird von einem eigenen Pin angesteuert. Für die Sensoren wird jeweils ein Pin zum Auswerten benötigt. In Summe werden zehn GPIO-Pins benötigt. 
 
 \newpage
 
-\begin{table}[]
+Diese GPIO-Pins werden, wie folgenden Tabelle 2.1 veranschaulicht, verwendet:
+
+\begin{table}[htb]
 \centering
-\caption{Belegung der GPIO-Pins}
-\label{my-label}
 \begin{tabular}{|l|l|}
 \hline
 \textbf{Pin} & \textbf{Verwendungszweck}          \\ \hline
@@ -224,6 +224,8 @@ GPIO\_10     & Motor Förderband: Transistor 2     \\ \hline
 GPIO\_08     & Motor Förderband: Transistor 3     \\ \hline
 GPIO\_09     & Motor Förderband: Transistor 4     \\ \hline
 \end{tabular}
+\caption{Belegung der GPIO-Pins}
+\label{my-label}
 \end{table}
 
 Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+5V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
@@ -231,6 +233,8 @@ Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+
 
 \subsubsection{Sigleton}
 Die benötigten Methoden von pi4j wurden in einem Singleton implementiert. Es musste ein Singleton verwendet werden, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  ein Error geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann. Der Zugriff von mehreren Klassen ist ohne einen Singleton programmiertechnisch nicht lösbar.
+
+\newpage
 
 \subsubsection{Code Beispiele}
 Um mit den GPIO-Pins arbeiten zu können muss zu Beginn ein Controller erstellt werden. Dies ist wie folgt möglich:
@@ -272,8 +276,34 @@ Vor dem Beenden des Java Programmes sollte der Controller wie folgt heruntergefa
 	controller.shutdown();
 \end{lstlisting}
 
-\subsection{Server-Client}
+\newpage
+
+\subsection{Server-Client-Kommunikation}
+\subsubsection{Server}
+Der Server wird beim Starten des Java Programmes in einem eigenen Thread gestartet. In diesem Thread wartet der Server bis ein Client versucht Kontakt mit ihm aufzunehmen. Wenn die Verbindung akzeptiert wird, wird ein neuer Thread geöffnet in dem die Kommunikation mit diesem Client abläuft. Sobald die Kommunikation beendet ist wird der Thread wieder geschlossen. 
+\\ Der Server wurde auch als Singleton implementiert damit von mehreren Klassen ausgehend auf ihn zugegriffen werden kann.
+
 \subsubsection{Übertragungsprotokoll}
+Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was ein gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. 
+\\ \\
+Wenn der Request des Clients mit einem \textbf{GET} beginnt, bedeutet dass, das der Client Daten vom Server fordert. Beginnt der Request mit einem \textbf{PUT}, bedeutet dass, das der Client dem Server Daten schicken will.
+\\ Nach jedem \textbf{GET} oder \textbf{PUT} folgt ein URL der angibt, welche Daten der Client fordert oder welche Daten der Client dem Server schicken will.
+\\ \\
+Die folgende Tabelle zeigt alle gültigen Requests und die jeweilige Response darauf:
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{|l|l|p{300pt}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Request}}                                    & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Response}}}                                          \\ \cline{1-2}
+\multicolumn{1}{|c|}{\textbf{Aktion}} & \multicolumn{1}{c|}{\textbf{URL}} & \multicolumn{1}{c|}{}                                                                            \\ \hline
+GET                                   & /errors\_warnings                 & Der Server schickt dem Client die aktuell anzuzeigenden Errors und Warnungen in einer Json-Array \\ \hline
+PUT                                   & /ChangeMachineState               & Der Server ruft eine Methode auf um den Maschinenzustand zu ändern                               \\ \hline
+\end{tabular}
+\caption{Übertragungsprotokoll}
+\label{my-label}
+\end{table}
+
 \subsubsection{Wie wird geantwortet?}
 \subsubsection{Was wird am Raspberry vom Java-Programm gemacht?}
 
