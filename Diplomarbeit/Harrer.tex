@@ -197,7 +197,32 @@ In der Grafik ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt 
 \vspace{300pt}
 
 \subsubsection{Gewählte Pin Belegung}
-Zum Ansteuern der Motoren und Auswerten der Sensoren wurden nur GPIO-Pins verwendet.
+Zum Ansteuern der Motoren und Auswerten der Sensoren wurden nur GPIO-Pins verwendet. Die Motoren in der Anlage werden über jeweils eine H-Brücke angesteuert. Das bedeutet, dass jeder der zwei Motoren jeweils mit vier Transitoren angesteuert wird. Jeder Transitor wird von einem eigenen Pin angesteuert. Für die Sensoren wird jeweils ein Pin zum Auswerten benötigt. In Summe werden zehn GPIO-Pins benötigt. \\ \\ Diese GPIO-Pins werden, wie folgenden Tabelle 2.1 veranschaulicht, verwendet:
+
+\newpage
+
+\begin{table}[]
+\centering
+\caption{Belegung der GPIO-Pins}
+\label{my-label}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Pin} & \textbf{Verwendungszweck}          \\ \hline
+GPIO\_00     & Sensor Schüsselplatte              \\ \hline
+GPIO\_01     & Sensor Förderband (Futtersackerl)  \\ \hline
+GPIO\_02     & Motor Schüsselplatte: Transistor 1 \\ \hline
+GPIO\_03     & Motor Schüsselplatte: Transistor 2 \\ \hline
+GPIO\_04     & Motor Schüsselplatte: Transistor 3 \\ \hline
+GPIO\_05     & Motor Schüsselplatte: Transistor 4 \\ \hline
+GPIO\_06     & Motor Förderband: Transistor 1     \\ \hline
+GPIO\_10     & Motor Förderband: Transistor 2     \\ \hline
+GPIO\_08     & Motor Förderband: Transistor 3     \\ \hline
+GPIO\_09     & Motor Förderband: Transistor 4     \\ \hline
+\end{tabular}
+\end{table}
+
+Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+5V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
+\\ Um einen Motor einzuschalten müssen jeweils zwei diagonal zueinander liegende Transitoren aktiviert werden. Der Motor dreht sich im Uhrzeigersinn, GPIO-Pins von Transistor 1 und Transistor 4 High sind. Gleichzeitig muss sicher gestellt werden, dass die GPIO-Pins der Transistoren 2 und 3 Low sind. Wenn das nicht sichergestellt ist kann es zu einem Kurzschluss zwischen der Spannungsversorgung und GND kommen. Um den Motor gegen den Uhrzeigersinn zu drehen müssen die GPIO-Pins der Transistoren 2 und 3 auf High sein. 
 
 \subsubsection{Wieso Sigleton?}
 \subsubsection{Code Beispiele}
