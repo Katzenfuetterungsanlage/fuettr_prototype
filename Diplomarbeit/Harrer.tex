@@ -321,20 +321,26 @@ Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Pro
 
 \subsubsection{Json-Array} \label{subsubsec:Array}
 Diese Klasse stellt auch die Json-Array zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird.
-\\ Die JsonArray sieht wie folgt aus:
 
-{
+\newpage
+
+Die JsonArray sieht wie folgt aus:
+
+\begin{lstlisting}[language=json,firstnumber=1]
+{ 
 	"Errors": 
-	[
-		{"message" : "Error1", "hidden" : false},
-		{"message" : "Error2", "hidden" : false}
-	]
+	[ 
+		{"message" : "Error1", "hidden" : false}, 
+		{"message" : "Error2", "hidden" : false} 
+	] 
 	"Warnings": 
-	[
-		{"message" : "Warning1", "hidden" : false},
-		{"message" : "Warnung2", "hidden" : false}
-	]
-}
+	[ 
+		{"message" : "Warning1", "hidden" : false}, 
+		{"message" : "Warnung2", "hidden" : false} 
+	] 
+} 
+\end{lstlisting}
+
 
 \subsubsection{List und Listemodel}
 
