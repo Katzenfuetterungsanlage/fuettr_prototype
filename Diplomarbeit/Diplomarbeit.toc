@@ -24,7 +24,7 @@
 \contentsline {subsubsection}{\numberline {2.3.2.1}Allgemeines}{13}
 \contentsline {subsubsection}{\numberline {2.3.2.2}Pin Numbering Sheme}{14}
 \contentsline {subsubsection}{\numberline {2.3.2.3}Gew\IeC {\"a}hlte Pin Belegung}{14}
-\contentsline {subsubsection}{\numberline {2.3.2.4}Sigleton}{15}
+\contentsline {subsubsection}{\numberline {2.3.2.4}Singleton}{15}
 \contentsline {subsubsection}{\numberline {2.3.2.5}Code Beispiele}{16}
 \contentsline {subsection}{\numberline {2.3.3}Server-Client-Kommunikation}{17}
 \contentsline {subsubsection}{\numberline {2.3.3.1}Server}{17}
@@ -33,8 +33,10 @@
 \contentsline {subsubsection}{\numberline {2.3.3.4}Response-PUT}{18}
 \contentsline {subsection}{\numberline {2.3.4}Errors und Warnungsverarbeitung}{18}
 \contentsline {subsubsection}{\numberline {2.3.4.1}Allgemeines}{18}
-\contentsline {subsubsection}{\numberline {2.3.4.2}Json-Array}{18}
-\contentsline {subsubsection}{\numberline {2.3.4.3}List und Listemodel}{20}
+\contentsline {subsubsection}{\numberline {2.3.4.2}Errors und Warnungen aktivieren/deaktivieren}{19}
+\contentsline {subsubsection}{\numberline {2.3.4.3}Json-Array}{19}
+\contentsline {subsubsection}{\numberline {2.3.4.4}Listenmodel}{19}
+\contentsline {subsubsection}{\numberline {2.3.4.5}Liste}{20}
 \contentsline {subsection}{\numberline {2.3.5}GUI-Fenster}{20}
 \contentsline {subsubsection}{\numberline {2.3.5.1}MainWindow}{20}
 \contentsline {subsubsection}{\numberline {2.3.5.2}TimeManagement}{20}

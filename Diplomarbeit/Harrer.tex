@@ -231,7 +231,7 @@ GPIO\_09     & Motor Förderband: Transistor 4     \\ \hline
 Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+5V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
 \\ Um einen Motor einzuschalten müssen jeweils zwei diagonal zueinander liegende Transitoren aktiviert werden. Der Motor dreht sich im Uhrzeigersinn, GPIO-Pins von Transistor 1 und Transistor 4 High sind. Gleichzeitig muss sicher gestellt werden, dass die GPIO-Pins der Transistoren 2 und 3 Low sind. Wenn das nicht sichergestellt ist kann es zu einem Kurzschluss zwischen der Spannungsversorgung und GND kommen. Um den Motor gegen den Uhrzeigersinn zu drehen müssen die GPIO-Pins der Transistoren 2 und 3 auf High sein. 
 
-\subsubsection{Sigleton}
+\subsubsection{Singleton}
 Die benötigten Methoden von pi4j wurden in einem Singleton implementiert. Es musste ein Singleton verwendet werden, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  ein Error geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann. Der Zugriff von mehreren Klassen ist ohne einen Singleton programmiertechnisch nicht lösbar.
 
 \newpage
@@ -319,10 +319,22 @@ Wenn der Server einen Request mit dem Beginn \textbf{PUT} bekommt, muss er Daten
 Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. 
 \\ Dazu dient die \textbf{ErrorAndWarningHandler\_Singleton} Klasse. In dieser Klasse wird beim Auftreten eines Fehlers eine Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
 
-\subsubsection{Json-Array} \label{subsubsec:Array}
-Diese Klasse stellt auch die Json-Array zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird.
-
 \newpage
+
+\subsubsection{Errors und Warnungen aktivieren/deaktivieren}
+Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
+\begin{lstlisting}[style=JavaStyle]
+public void setFeedingHasFailedError (Boolean errorOn, String errorTime)
+    {
+        error_hasFeedingFailed = errorOn;
+        failedFeedingTime = errorTime;
+    }
+\end{lstlisting}
+In diesem konkreten Beispiel wird der Error, der dem Benutzer mitteilt, dass eine Fütterung fehlgeschlagen hat, aktiviert. Mit dem Parameter \textbf{errorOn} kann bestimmt werden, ob der Error aktiv oder inaktiv sein soll. Wenn der Parameter \textbf{true} ist, ist der Error aktiv. Daraus folgt, dass der Error inaktiv ist, wenn \textbf{errorOn = false} ist. 
+\\ Mit dem zweiten Parameter \textbf{errorTime} wird die Zeit übergeben, zu der die Fütterung fehlgeschlagen ist. Diese Zeit wird dann in der Errormeldung ausgegeben. 
+
+\subsubsection{Json-Array} \label{subsubsec:Array}
+Diese Klasse stellt auch die Json-Array zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird. 
 
 Die JsonArray sieht wie folgt aus:
 
@@ -341,8 +353,24 @@ Die JsonArray sieht wie folgt aus:
 } 
 \end{lstlisting}
 
+\newpage
 
-\subsubsection{List und Listemodel}
+\subsubsection{Listenmodel}
+Die Zeile, in der die Klasse für das Listenmodel angelegt wird, sieht wie folgt aus:
+\begin{lstlisting}[style=JavaStyle]
+	public class ErrorAndWarningModel extends AbstractListModel
+\end{lstlisting}
+Nach dem Klassennamen muss \textbf{extends AbstractListModel} hinzugefügt werden. Dies bedeutet, dass das erstellte Listemodel eine Vererbung von \textbf{AbstractListModel} ist.
+\\ \\
+Das Listenmodel wird wie folgt angelegt:
+\begin{lstlisting}[style=JavaStyle]
+	private final List<String> errorAndWarning;
+\end{lstlisting}
+Damit ist nun festgelegt, dass die Elemente in der Liste Strings sind. 
+
+\subsubsection{Liste}
+
+
 
 \subsection{GUI-Fenster}
 \subsubsection{MainWindow}
