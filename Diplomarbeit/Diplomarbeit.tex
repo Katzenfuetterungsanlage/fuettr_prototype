@@ -1,8 +1,31 @@
-\documentclass[a4paper,12pt]{scrreprt}
-
+\documentclass
+[
+a4paper,
+11pt,
+twoside=true,
+openright,
+titlepage,
+headinclude,
+numbers=noenddot,
+liststotocnumbered,
+]
+{scrbook}
+\usepackage[bottom=1in,inner=1in,outer=20mm,top=20mm]{geometry}
+\usepackage{emptypage}
+\usepackage[headsepline]{scrlayer-scrpage}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\rehead{\headmark}
+\ohead[\pagemark]{\pagemark}
+\lohead{}
+\automark[chapter]{chapter}
+\renewcommand*{\chapterpagestyle}{scrheadings}
 \usepackage{graphicx}
-
+\usepackage[bottom,norule,hang]{footmisc}
+\usepackage{caption}
 \usepackage[ngerman]{babel}
+\addto\captionsgerman{\renewcommand{\refname}{\chapter{Literaturverzeichnis}}}
 \usepackage[T1]{fontenc}
 \usepackage{float}
 \usepackage[utf8]{inputenc}
@@ -14,26 +37,13 @@
 \usepackage{courier}
 \usepackage{multirow}
 \usepackage{xcolor}
+\usepackage{appendix}
+\usepackage{array,multirow}
+\usepackage{tabularx}
+\renewcommand{\bibname}{\chapter{Literaturverzeichnis}}
 
-\newcommand\digitstyle{\color{lightgreen}}
-\makeatletter
-\newcommand{\ProcessDigit}[1]
-{%
-  \ifnum\lst@mode=\lst@Pmode\relax%
-   {\digitstyle #1}%
-  \else
-    #1%
-  \fi
-}
-\makeatother
-
-\colorlet{punct}{red!60!black}
-\definecolor{background}{RGB}{255,255,255}
-\definecolor{delim}{RGB}{20,105,176}
-\definecolor{lightgreen}{HTML}{09885f}
-\definecolor{green}{HTML}{008000}
-\definecolor{red}{HTML}{a31515}
-\colorlet{numb}{magenta!60!black}
+\include{colors}
+\include{listings}
 
 \setlength{\parindent}{0em} 
 \bibliographystyle{plain}
@@ -47,93 +57,10 @@
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{4}
 
-\lstdefinestyle{JavaStyle}{
-  language=Java,
-  columns=flexible,
-  frame=single,
-  frameround=tttt,
-  showstringspaces=false,
-  basicstyle=\footnotesize\ttfamily
-}
-
-\lstdefinelanguage{json}{
-    basicstyle=\footnotesize\ttfamily,
-    showstringspaces=false,
-    breaklines=true,
-    frame=single,
-    frameround=tttt,
-    backgroundcolor=\color{background},
-    literate=
-     *{0}{{{\color{numb}0}}}{1}
-      {1}{{{\color{numb}1}}}{1}
-      {2}{{{\color{numb}2}}}{1}
-      {3}{{{\color{numb}3}}}{1}
-      {4}{{{\color{numb}4}}}{1}
-      {5}{{{\color{numb}5}}}{1}
-      {6}{{{\color{numb}6}}}{1}
-      {7}{{{\color{numb}7}}}{1}
-      {8}{{{\color{numb}8}}}{1}
-      {9}{{{\color{numb}9}}}{1}
-      {:}{{{\color{punct}{:}}}}{1}
-      {,}{{{\color{punct}{,}}}}{1}
-      {\{}{{{\color{delim}{\{}}}}{1}
-      {\}}{{{\color{delim}{\}}}}}{1}
-      {[}{{{\color{delim}{[}}}}{1}
-      {]}{{{\color{delim}{]}}}}{1},
-}
-
-\lstdefinelanguage{Typescript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, class, export, boolean, throw, implements, import, this, constructor, from, =>, public, private, string, new},
-  keywordstyle=\color{blue},
-  identifierstyle=\color{black},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  commentstyle=\color{green}\ttfamily,
-  stringstyle=\color{red}\ttfamily,
-  morestring=[b]',
-  morestring=[b]"
-}
-
-\lstdefinestyle{TypescriptStyle}{
-   language=Typescript,
-   backgroundcolor=\color{white},
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\footnotesize,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b,
-   literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-   {0}{{{\ProcessDigit{0}}}}1
-   {1}{{{\ProcessDigit{1}}}}1
-   {2}{{{\ProcessDigit{2}}}}1
-   {3}{{{\ProcessDigit{3}}}}1
-   {4}{{{\ProcessDigit{4}}}}1
-   {5}{{{\ProcessDigit{5}}}}1
-   {6}{{{\ProcessDigit{6}}}}1
-   {7}{{{\ProcessDigit{7}}}}1
-   {8}{{{\ProcessDigit{8}}}}1
-   {9}{{{\ProcessDigit{9}}}}1
-   {<=}{{\(\leq\)}}1,
-   morestring=[b]",
-   morestring=[b]',
-   morecomment=[l]//,
-}
-
 \tableofcontents
 \include{Greistorfer}
 \include{Harrer}
 \include{Pichler}
 \include{Wolf}
-\listoffigures
-\listoftables
-\lstlistoflistings
-\newpage
-\bibliography{Literaturverzeichnis}
+\include{appendix}
 \end{document}

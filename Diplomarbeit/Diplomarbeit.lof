@@ -1,62 +1,65 @@
-\select@language {ngerman}
+\babel@toc {ngerman}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Abh\IeC {\"a}ngigkeiten}}{13}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Pin Numbering Sheme}}{14}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Abh\IeC {\"a}ngigkeiten\relax }}{15}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Pin Numbering Sheme\relax }}{16}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Magazin Modellaufbau von Vorne}}{25}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Magazin Modellaufbau von der Seite}}{26}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Magazin Modellaufbau von Oben}}{26}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Magazin Auszug}}{27}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Magazin Auszug Mitte}}{27}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Schneidebereit}}{27}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Schnitt}}{28}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Ausquetschen Beginn}}{28}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Ausquetschen Mitte}}{29}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Ausquetschen Ende}}{29}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Auswurf Beginn}}{29}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Bolzen drinnen}}{30}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Bolzen entfernen}}{30}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Klappe \IeC {\"o}ffnen}}{30}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Fertiger Auswurf}}{30}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Loch Futtersch\IeC {\"u}ssel}}{31}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Foerderband}}{32}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Kettenglied}}{32}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Walze}}{33}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Scharnier}}{33}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Futterplatte}}{33}
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Halterung}}{35}
-\contentsline {figure}{\numberline {3.23}{\ignorespaces Entleerung Anfang}}{35}
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Entleerung nach 5min}}{35}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Entleerung nach 10min}}{35}
-\contentsline {figure}{\numberline {3.26}{\ignorespaces Einlegen}}{36}
-\contentsline {figure}{\numberline {3.27}{\ignorespaces Anfangsschnitt}}{36}
-\contentsline {figure}{\numberline {3.28}{\ignorespaces Endschnitt}}{37}
-\contentsline {figure}{\numberline {3.29}{\ignorespaces Schneidemittel}}{38}
-\contentsline {figure}{\numberline {3.30}{\ignorespaces Anfangsschnitt 2.Art}}{38}
-\contentsline {figure}{\numberline {3.31}{\ignorespaces Mittelschnitt 2.Art}}{38}
-\contentsline {figure}{\numberline {3.32}{\ignorespaces Endschnitt 2.Art}}{38}
-\contentsline {figure}{\numberline {3.33}{\ignorespaces 3D-Klemme}}{39}
-\contentsline {figure}{\numberline {3.34}{\ignorespaces Klemmen Probe}}{40}
-\contentsline {figure}{\numberline {3.35}{\ignorespaces Klemme Tag 1}}{40}
-\contentsline {figure}{\numberline {3.36}{\ignorespaces Klemme Tag 2}}{41}
-\contentsline {figure}{\numberline {3.37}{\ignorespaces Klemme Tag 3}}{41}
-\contentsline {figure}{\numberline {3.38}{\ignorespaces Klemme Tag 4}}{42}
-\contentsline {figure}{\numberline {3.39}{\ignorespaces Klemme Tag 5}}{42}
-\contentsline {figure}{\numberline {3.40}{\ignorespaces Einfache Klemme}}{42}
-\contentsline {figure}{\numberline {3.41}{\ignorespaces Hebel Klemme}}{43}
-\contentsline {figure}{\numberline {3.42}{\ignorespaces Gummiband Klemme}}{43}
-\contentsline {figure}{\numberline {3.43}{\ignorespaces Drehplatte}}{44}
-\contentsline {figure}{\numberline {3.44}{\ignorespaces Platte Zylinder}}{44}
-\contentsline {figure}{\numberline {3.45}{\ignorespaces Einsch\IeC {\"u}sselplatte}}{45}
-\contentsline {figure}{\numberline {3.46}{\ignorespaces Futtermagazin Horizontal}}{46}
-\contentsline {figure}{\numberline {3.47}{\ignorespaces Futtermagazin Vertikal}}{46}
-\contentsline {figure}{\numberline {3.48}{\ignorespaces Drehplatte Inventor}}{47}
-\contentsline {figure}{\numberline {3.49}{\ignorespaces Futtersch\IeC {\"u}ssel Inventor}}{47}
-\contentsline {figure}{\numberline {3.50}{\ignorespaces Kette Inventor}}{48}
-\contentsline {figure}{\numberline {3.51}{\ignorespaces Kettenglied Inventor}}{49}
-\contentsline {figure}{\numberline {3.52}{\ignorespaces Kettenrad Inventor}}{49}
-\contentsline {figure}{\numberline {3.53}{\ignorespaces Walze Inventor}}{50}
-\contentsline {figure}{\numberline {3.54}{\ignorespaces Feder Inventor}}{50}
-\contentsline {figure}{\numberline {3.55}{\ignorespaces Hebelklemme Inventor}}{50}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Magazin Modellaufbau von Vorne\relax }}{26}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Magazin Modellaufbau von der Seite\relax }}{26}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Magazin Modellaufbau von Oben\relax }}{26}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Magazin Auszug\relax }}{27}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Magazin Auszug Mitte\relax }}{27}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Schneidebereit\relax }}{27}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Schnitt\relax }}{28}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Ausquetschen Beginn\relax }}{28}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Ausquetschen Mitte\relax }}{29}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Ausquetschen Ende\relax }}{29}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Auswurf Beginn\relax }}{29}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Bolzen drinnen\relax }}{29}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Bolzen entfernen\relax }}{29}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Klappe \IeC {\"o}ffnen\relax }}{30}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Fertiger Auswurf\relax }}{30}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Loch Futtersch\IeC {\"u}ssel\relax }}{31}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Foerderband\relax }}{32}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Kettenglied\relax }}{32}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Walze\relax }}{32}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Scharnier\relax }}{32}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Futterplatte\relax }}{32}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Halterung\relax }}{34}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Entleerung Anfang\relax }}{34}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Entleerung nach 5min\relax }}{34}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Entleerung nach 10min\relax }}{34}
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Einlegen\relax }}{35}
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Anfangsschnitt\relax }}{35}
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Endschnitt\relax }}{35}
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Schneidemittel\relax }}{36}
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Anfangsschnitt 2.Art\relax }}{36}
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Mittelschnitt 2.Art\relax }}{37}
+\contentsline {figure}{\numberline {3.32}{\ignorespaces Endschnitt 2.Art\relax }}{37}
+\contentsline {figure}{\numberline {3.33}{\ignorespaces 3D-Klemme\relax }}{37}
+\contentsline {figure}{\numberline {3.34}{\ignorespaces Klemmen Probe\relax }}{38}
+\contentsline {figure}{\numberline {3.35}{\ignorespaces Klemme Tag 1\relax }}{38}
+\contentsline {figure}{\numberline {3.36}{\ignorespaces Klemme Tag 2\relax }}{39}
+\contentsline {figure}{\numberline {3.37}{\ignorespaces Klemme Tag 3\relax }}{39}
+\contentsline {figure}{\numberline {3.38}{\ignorespaces Klemme Tag 4\relax }}{39}
+\contentsline {figure}{\numberline {3.39}{\ignorespaces Klemme Tag 5\relax }}{39}
+\contentsline {figure}{\numberline {3.40}{\ignorespaces Einfache Klemme\relax }}{40}
+\contentsline {figure}{\numberline {3.41}{\ignorespaces Hebel Klemme\relax }}{40}
+\contentsline {figure}{\numberline {3.42}{\ignorespaces Gummiband Klemme\relax }}{40}
+\contentsline {figure}{\numberline {3.43}{\ignorespaces Drehplatte\relax }}{41}
+\contentsline {figure}{\numberline {3.44}{\ignorespaces Platte Zylinder\relax }}{41}
+\contentsline {figure}{\numberline {3.45}{\ignorespaces Einsch\IeC {\"u}sselplatte\relax }}{42}
+\contentsline {figure}{\numberline {3.46}{\ignorespaces Futtermagazin Horizontal\relax }}{42}
+\contentsline {figure}{\numberline {3.47}{\ignorespaces Futtermagazin Vertikal\relax }}{43}
+\contentsline {figure}{\numberline {3.48}{\ignorespaces Drehplatte Inventor\relax }}{43}
+\contentsline {figure}{\numberline {3.49}{\ignorespaces Futtersch\IeC {\"u}ssel Inventor\relax }}{43}
+\contentsline {figure}{\numberline {3.50}{\ignorespaces Kette Inventor\relax }}{44}
+\contentsline {figure}{\numberline {3.51}{\ignorespaces Kettenglied Inventor\relax }}{45}
+\contentsline {figure}{\numberline {3.52}{\ignorespaces Kettenrad Inventor\relax }}{45}
+\contentsline {figure}{\numberline {3.53}{\ignorespaces Walze Inventor\relax }}{46}
+\contentsline {figure}{\numberline {3.54}{\ignorespaces Feder Inventor\relax }}{46}
+\contentsline {figure}{\numberline {3.55}{\ignorespaces Hebelklemme Inventor\relax }}{46}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }
