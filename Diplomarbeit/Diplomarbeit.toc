@@ -106,7 +106,8 @@
 \contentsline {section}{\numberline {3.9}Simulation}{46}
 \contentsline {section}{\numberline {3.10}Bedienung und Wartung}{46}
 \contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{47}
-\contentsline {chapter}{\numberline {4}Elektronik und Mechianik}{49}
+\contentsline {chapter}{\numberline {4}Elektronik und Mechanik}{49}
 \contentsline {chapter}{\numberline {A}Abbildungsverzeichnis}{53}
 \contentsline {chapter}{\numberline {B}Tabellenverzeichnis}{55}
 \contentsline {chapter}{\numberline {C}Listings}{57}
+\contentsline {chapter}{\numberline {D}Literaturverzeichnis}{59}

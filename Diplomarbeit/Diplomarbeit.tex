@@ -8,8 +8,9 @@ titlepage,
 headinclude,
 numbers=noenddot,
 liststotocnumbered,
+bibtotocnumbered
 ]
-{scrbook}
+{scrreprt}
 \usepackage[bottom=1in,inner=1in,outer=20mm,top=20mm]{geometry}
 \usepackage{emptypage}
 \usepackage[headsepline]{scrlayer-scrpage}
@@ -25,7 +26,7 @@ liststotocnumbered,
 \usepackage[bottom,norule,hang]{footmisc}
 \usepackage{caption}
 \usepackage[ngerman]{babel}
-\addto\captionsgerman{\renewcommand{\refname}{\chapter{Literaturverzeichnis}}}
+%\addto\captionsgerman{\renewcommand{\refname}{\chapter{Literaturverzeichnis}}}
 \usepackage[T1]{fontenc}
 \usepackage{float}
 \usepackage[utf8]{inputenc}
@@ -40,7 +41,7 @@ liststotocnumbered,
 \usepackage{appendix}
 \usepackage{array,multirow}
 \usepackage{tabularx}
-\renewcommand{\bibname}{\chapter{Literaturverzeichnis}}
+%\renewcommand{\bibname}{\chapter{Literaturverzeichnis}}
 
 \include{colors}
 \include{listings}
