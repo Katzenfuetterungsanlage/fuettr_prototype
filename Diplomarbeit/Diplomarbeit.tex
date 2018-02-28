@@ -15,9 +15,24 @@
 \usepackage{multirow}
 \usepackage{xcolor}
 
+\newcommand\digitstyle{\color{lightgreen}}
+\makeatletter
+\newcommand{\ProcessDigit}[1]
+{%
+  \ifnum\lst@mode=\lst@Pmode\relax%
+   {\digitstyle #1}%
+  \else
+    #1%
+  \fi
+}
+\makeatother
+
 \colorlet{punct}{red!60!black}
 \definecolor{background}{RGB}{255,255,255}
 \definecolor{delim}{RGB}{20,105,176}
+\definecolor{lightgreen}{HTML}{09885f}
+\definecolor{green}{HTML}{008000}
+\definecolor{red}{HTML}{a31515}
 \colorlet{numb}{magenta!60!black}
 
 \setlength{\parindent}{0em} 
@@ -67,6 +82,50 @@
       {]}{{{\color{delim}{]}}}}{1},
 }
 
+\lstdefinelanguage{Typescript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, class, export, boolean, throw, implements, import, this, constructor, from, =>, public, private, string, new},
+  keywordstyle=\color{blue},
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{green}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinestyle{TypescriptStyle}{
+   language=Typescript,
+   backgroundcolor=\color{white},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b,
+   literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+   {0}{{{\ProcessDigit{0}}}}1
+   {1}{{{\ProcessDigit{1}}}}1
+   {2}{{{\ProcessDigit{2}}}}1
+   {3}{{{\ProcessDigit{3}}}}1
+   {4}{{{\ProcessDigit{4}}}}1
+   {5}{{{\ProcessDigit{5}}}}1
+   {6}{{{\ProcessDigit{6}}}}1
+   {7}{{{\ProcessDigit{7}}}}1
+   {8}{{{\ProcessDigit{8}}}}1
+   {9}{{{\ProcessDigit{9}}}}1
+   {<=}{{\(\leq\)}}1,
+   morestring=[b]",
+   morestring=[b]',
+   morecomment=[l]//,
+}
+
 \tableofcontents
 \include{Greistorfer}
 \include{Harrer}
@@ -74,6 +133,7 @@
 \include{Wolf}
 \listoffigures
 \listoftables
+\lstlistoflistings
 \newpage
 \bibliography{Literaturverzeichnis}
 \end{document}
