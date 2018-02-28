@@ -1,11 +1,10 @@
 % Encoding: UTF-8
 
 @Book{1,
-  title     = {<sdg},
-  publisher = {dsgsdg},
-  year      = {dsgsdg},
-  author    = {sdg},
-  editor    = {dsg},
+  title     = {Titel},
+  publisher = {Publisher},
+  year      = {1999},
+  author    = {Author},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -1,10 +1,8 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Diplomarbeit.aux
-The style file: plain.bst
 A level-1 auxiliary file: Greistorfer.aux
 A level-1 auxiliary file: Harrer.aux
 A level-1 auxiliary file: Pichler.aux
 A level-1 auxiliary file: Wolf.aux
 A level-1 auxiliary file: appendix.aux
-I found no \citation commands---while reading file Diplomarbeit.aux
+The style file: jurabib.bst
 Database file #1: Literaturverzeichnis.bib
-(There was 1 error message)

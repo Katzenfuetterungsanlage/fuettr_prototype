@@ -1,4 +1,4 @@
-\select@language {ngerman}
+\babel@toc {ngerman}{}
 \contentsline {chapter}{\numberline {1}Webserver und Client}{7}
 \contentsline {section}{\numberline {1.1}Anforderungen}{7}
 \contentsline {subsection}{\numberline {1.1.1}Server}{7}
