@@ -3,16 +3,4 @@
 %
 \begin{thebibliography}{}
 
-\backrefparscanfalse
-\bibitem[{Author\jbdy {1999}}%
-         {}%
-         {{0}{}{book}{1999}{}{}{}{}%
-          {Publisher\bibbdsep {} 1999}}%
-         {{Titel}%
-          {}{}{2}{}{}{}{}{}}%
-        ]{1}
- \jbbibargs {\bibnf {Author} {} {} {} {}} { Author} {au} {sexless} {\bibtfont
-  {Titel}\bibatsep {}  \apyformat {\jbpublisher{Publisher\bibbdsep {}} 1999}}
-  {\bibhowcited} \jbdoitem {{Author}{}{}{}{}} {} {} \bibAnnoteFile {1}
-
 \end{thebibliography}
