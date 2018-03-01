@@ -118,9 +118,9 @@
 \contentsline {subsection}{\numberline {3.7.2}F\IeC {\"o}rderband, Kettenglied und Kettenrad}{42}
 \contentsline {subsection}{\numberline {3.7.3}Walze}{44}
 \contentsline {subsection}{\numberline {3.7.4}Hebelklemme}{44}
-\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{45}
-\contentsline {section}{\numberline {3.9}Simulation}{45}
-\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{45}
+\contentsline {section}{\numberline {3.8}Berechnung und Dimensionierung}{44}
+\contentsline {section}{\numberline {3.9}Simulation}{44}
+\contentsline {section}{\numberline {3.10}Bedienung und Wartung}{44}
 \contentsline {section}{\numberline {3.11}Selbstkritische Analyse und Ausblick}{45}
 \contentsline {chapter}{\numberline {4}Elektronik und Mechanik}{47}
 \contentsline {chapter}{\numberline {A}Abbildungsverzeichnis}{51}
