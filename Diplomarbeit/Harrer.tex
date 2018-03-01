@@ -1,3 +1,5 @@
+\lohead{Florian Harrer}
+
 \chapter{Java-Programm}
 \label{sec:java-programm}
 
@@ -391,7 +393,7 @@ Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI
 Der SwingWorker in Java wird benötigt, wenn eine Anwendung mehr Zeit benötigt. Mithilfe des SwingWorkers kann diese Aktion im Hintergrund ausgeführt werden. Der Vorteil davon ist, dass die GUI verwendbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
 \\ \\ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werden:
 \begin{lstlisting}[style=JavaStyle]
-private class TimeOfDayAndDateWorker extends SwingWorker<Object, String>
+	private class Worker extends SwingWorker<Object, String>
 \end{lstlisting}
 Im Generic steht als erstes der Rückgabewert von \textbf{done()} und als zweites der Rückgabewert von \textbf{process()}.
 
@@ -406,7 +408,8 @@ Im Event Dispatch Thread (EDT) wird die GUI sequentiell abgearbeitet. Dies bedeu
 \end{itemize}
 
 \subsection{GUI-Fenster}
-\subsubsection{MainWindow} \caption{subsubsec:MainWindow}
+\subsubsection{MainWindow}\label{subsubsec:MainWindow}
+for the caption
 \subsubsection{TimeManagement}
 \subsubsection{CreateUser}
 \subsubsection{ManualControl}

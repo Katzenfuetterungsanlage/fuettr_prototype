@@ -35,24 +35,26 @@
 \contentsline {subsubsection}{\numberline {2.3.1.2}Datenbankmanagementsystem DBS}{13}
 \contentsline {subsubsection}{\numberline {2.3.1.3}Singleton}{13}
 \contentsline {subsubsection}{\numberline {2.3.1.4}Code Beispiele}{13}
-\contentsline {subsection}{\numberline {2.3.2}pi4j}{15}
-\contentsline {subsubsection}{\numberline {2.3.2.1}Allgemeines}{15}
-\contentsline {subsubsection}{\numberline {2.3.2.2}Pin Numbering Sheme}{16}
-\contentsline {subsubsection}{\numberline {2.3.2.3}Gew\IeC {\"a}hlte Pin Belegung}{16}
-\contentsline {subsubsection}{\numberline {2.3.2.4}Singleton}{17}
-\contentsline {subsubsection}{\numberline {2.3.2.5}Code Beispiele}{18}
-\contentsline {subsection}{\numberline {2.3.3}Server-Client-Kommunikation}{19}
-\contentsline {subsubsection}{\numberline {2.3.3.1}Server}{19}
-\contentsline {subsubsection}{\numberline {2.3.3.2}\IeC {\"U}bertragungsprotokoll}{19}
-\contentsline {subsubsection}{\numberline {2.3.3.3}Response-GET}{20}
-\contentsline {subsubsection}{\numberline {2.3.3.4}Response-PUT}{20}
-\contentsline {subsection}{\numberline {2.3.4}Errors und Warnungsverarbeitung}{20}
-\contentsline {subsubsection}{\numberline {2.3.4.1}Allgemeines}{20}
-\contentsline {subsubsection}{\numberline {2.3.4.2}Errors und Warnungen aktivieren/deaktivieren}{21}
-\contentsline {subsubsection}{\numberline {2.3.4.3}Json-Array}{21}
-\contentsline {subsubsection}{\numberline {2.3.4.4}Listenmodel}{22}
-\contentsline {subsubsection}{\numberline {2.3.4.5}Liste}{22}
-\contentsline {subsection}{\numberline {2.3.5}SwingWorker}{22}
+\contentsline {subsection}{\numberline {2.3.2}pi4j}{14}
+\contentsline {subsubsection}{\numberline {2.3.2.1}Allgemeines}{14}
+\contentsline {subsubsection}{\numberline {2.3.2.2}Pin Numbering Sheme}{15}
+\contentsline {subsubsection}{\numberline {2.3.2.3}Gew\IeC {\"a}hlte Pin Belegung}{15}
+\contentsline {subsubsection}{\numberline {2.3.2.4}Singleton}{16}
+\contentsline {subsubsection}{\numberline {2.3.2.5}Code Beispiele}{16}
+\contentsline {subsection}{\numberline {2.3.3}Server-Client-Kommunikation}{18}
+\contentsline {subsubsection}{\numberline {2.3.3.1}Server}{18}
+\contentsline {subsubsection}{\numberline {2.3.3.2}\IeC {\"U}bertragungsprotokoll}{18}
+\contentsline {subsubsection}{\numberline {2.3.3.3}Response-GET}{19}
+\contentsline {subsubsection}{\numberline {2.3.3.4}Response-PUT}{19}
+\contentsline {subsection}{\numberline {2.3.4}Errors und Warnungsverarbeitung}{19}
+\contentsline {subsubsection}{\numberline {2.3.4.1}Allgemeines}{19}
+\contentsline {subsubsection}{\numberline {2.3.4.2}Errors und Warnungen aktivieren/deaktivieren}{20}
+\contentsline {subsubsection}{\numberline {2.3.4.3}Json-Array}{20}
+\contentsline {subsubsection}{\numberline {2.3.4.4}Listenmodel}{21}
+\contentsline {subsubsection}{\numberline {2.3.4.5}Liste}{21}
+\contentsline {subsection}{\numberline {2.3.5}SwingWorker}{21}
+\contentsline {subsubsection}{\numberline {2.3.5.1}EDT}{22}
+\contentsline {subsubsection}{\numberline {2.3.5.2}Methoden des SwingWorkers}{22}
 \contentsline {subsection}{\numberline {2.3.6}GUI-Fenster}{22}
 \contentsline {subsubsection}{\numberline {2.3.6.1}MainWindow}{22}
 \contentsline {subsubsection}{\numberline {2.3.6.2}TimeManagement}{22}
