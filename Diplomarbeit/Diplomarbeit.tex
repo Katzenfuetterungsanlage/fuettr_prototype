@@ -10,7 +10,7 @@ numbers=noenddot,
 listof=numbered,
 bibliography=totocnumbered,
 ]
-{scrreprt}
+{scrbook}
 \usepackage[bottom=1in,inner=1in,outer=20mm,top=20mm]{geometry}
 \usepackage{emptypage}
 \usepackage[headsepline]{scrlayer-scrpage}
@@ -42,6 +42,7 @@ bibliography=totocnumbered,
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{jurabib}
+\usepackage[bookmarks]{hyperref}
 
 \include{colors}
 \include{listings}
@@ -59,8 +60,10 @@ bibliography=totocnumbered,
 \maketitle
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{4}
+\input{opening}
 
 \tableofcontents
+\mainmatter
 \include{Greistorfer}
 \include{Harrer}
 \include{Pichler}
