@@ -4,24 +4,24 @@
 <PrintReportSettings PaperSize="9" FormName="A4" SheetSizeX="203" SheetSizeY="283"/>
 <PrinterSettings PaperSizeX="2099" PaperSizeY="2969" PhysicalOffestTenthMm_X="29" PhysicalOffestTenthMm_Y="29"/>
 <tb use="1" name="C:\Users\Public\Documents\ProfiCAD Library\_TB\standard9.ptb"/>
-<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="100" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
+<PageSettings bgColor="FFFFFF" pgsHor="1" pgsVer="1" pgsMrgn="0, 0, 0, 0" pageMargins="10, 10, 10, 10" zoom="150" frame="YES" rastr="20" showT="YES" showV="YES" includeMargins="YES"/>
 <RefGridSettings FieldSize="50"/>
 <NumberingWire Digits="3" TypeRenumbering="0" ShowWireName="0" WireLabelDist_a="4" WireLabelDist_b="7" WireLabelDist_c="7"/>
 <summary>
 <field name="rev" value=""/>
-<field name="Titel" value=""/>
-<field name="Spr" value=""/>
-<field name="DokArt" value=""/>
 <field name="Genehmigt" value=""/>
+<field name="DokArt" value=""/>
+<field name="Spr" value=""/>
+<field name="Titel" value=""/>
 <field name="Abteilung" value=""/>
 <field name="_sc" value=""/>
 <field name="_pcs" value=""/>
-<field name="author" value=""/>
 <field name="Sachnummer" value=""/>
+<field name="author" value=""/>
 <field name="date" value="11.12.2017"/>
-<field name="TitelZusatz" value=""/>
-<field name="DocStatus" value=""/>
 <field name="techRef" value=""/>
+<field name="DocStatus" value=""/>
+<field name="TitelZusatz" value=""/>
 </summary>
 <repo>
 <ppd name="Elektronik\passive Komponenten\Lampen und Signaleinrichtungen\DC-Spannungsquelle, Gleichspannungsquelle.ppd" n="EN 60617: 08-12-15" fG="7bad9092-3f66-4762-912b-c16515d0a492" lG="1484af7a-a81b-49ab-a9a0-30289ebeec18">
@@ -245,6 +245,15 @@
 <outlet x="46" y="-21"/>
 <polyline pts="-14,-28,-14,-14,"/>
 <polyline pts="-14,14,-14,28,"/>
+</layer>
+</layers>
+</ppd>
+<ppd name="Elektronik\mechanische Teile\Konstruktionselemente\Chassis.ppd" t="zem" fG="ae48d23f-2481-410d-8879-a1de0dfcb003" lG="9c1a9f71-c558-414c-b132-8559704c288d">
+<layers current="0">
+<layer name="0" v="1">
+<polyline pts="0,-13,0,13,"/>
+<polyline op-lw="4" pts="-18,13,18,13,"/>
+<outlet x="0" y="-13"/>
 </layer>
 </layers>
 </ppd>
@@ -620,33 +629,15 @@
 <attribute name="_type" value="" v="0" custom="" al="6" x="1514" y="460"/>
 </attributes>
 </elem>
-<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="480" y="1260">
-<attributes>
-<attribute name="_ref" value="zem2" v="0" custom="" al="6" x="434" y="1240"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="434" y="1280"/>
-</attributes>
-</elem>
-<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1360" y="1260">
-<attributes>
-<attribute name="_ref" value="zem3" v="0" custom="" al="6" x="1314" y="1240"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1314" y="1280"/>
-</attributes>
-</elem>
-<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1800" y="860">
-<attributes>
-<attribute name="_ref" value="zem4" v="0" custom="" al="6" x="1754" y="840"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1754" y="880"/>
-</attributes>
-</elem>
 <wire pts="266,1161,694,1161,"/>
-<wire pts="480,1240,480,1161," drop2="1"/>
+<wire pts="480,1260,480,1161," drop2="1"/>
 <wire pts="270,1140,300,1140,300,1161," drop2="1"/>
 <wire pts="690,1140,660,1140,660,1161," drop2="1"/>
 <wire pts="1126,1161,1554,1161,"/>
-<wire pts="1360,1240,1360,1161," drop2="1"/>
+<wire pts="1360,1260,1360,1161," drop2="1"/>
 <wire pts="1130,1140,1160,1140,1160,1161," drop2="1"/>
 <wire pts="1550,1140,1520,1140,1520,1161," drop2="1"/>
-<wire pts="1800,840,1800,780,"/>
+<wire pts="1800,860,1800,780,"/>
 <wire pts="120,400,120,420,1560,420,"/>
 <wire pts="1380,400,1380,420," drop2="1"/>
 <wire pts="1200,400,1200,420," drop2="1"/>
@@ -667,12 +658,6 @@
 <attributes>
 <attribute name="_ref" value="+5V" v="1" custom="" al="6" x="334" y="1320"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="334" y="1360"/>
-</attributes>
-</elem>
-<elem lGuid="6bc1ed64-68b8-4f01-9546-108b4fd774c8" x="1600" y="1760">
-<attributes>
-<attribute name="_ref" value="zem5" v="0" custom="" al="6" x="1554" y="1740"/>
-<attribute name="_type" value="" v="0" custom="" al="6" x="1554" y="1780"/>
 </attributes>
 </elem>
 <elem lGuid="6efafec6-069c-43c5-b162-54a51ac052f9" x="1060" y="1840">
@@ -715,8 +700,8 @@
 <wire pts="1080,1740,1080,1640," drop1="1"/>
 <wire pts="760,1640,760,2020,"/>
 <wire pts="1260,1640,1260,2020,"/>
-<wire pts="760,2040,760,2140,1260,2140,1260,2040,"/>
-<wire pts="1260,2140,1500,2140,1500,1740," drop1="1" drop2="1"/>
+<wire pts="760,2040,760,2300,1260,2300,1260,2040,"/>
+<wire pts="1260,2300,1500,2300,1500,1740," drop1="1" drop2="1"/>
 <elem lGuid="2f9a12a0-0c17-4b74-aafe-7d8c4b646eb0" x="220" y="560">
 <attributes>
 <attribute name="_ref" value="R1" v="1" custom="" al="6" x="186" y="540"/>
@@ -800,6 +785,32 @@
 <wire pts="1080,1520,1080,1485,"/>
 <wire pts="1260,1520,1260,1400,760,1400," drop2="1"/>
 <wire pts="1080,1435,1080,1400," drop2="1"/>
+<elem lGuid="9c1a9f71-c558-414c-b132-8559704c288d" x="1600" y="1800">
+<attributes>
+<attribute name="_ref" value="zem9" v="0" custom="" al="6" x="1556" y="1780"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1556" y="1820"/>
+</attributes>
+</elem>
+<elem lGuid="9c1a9f71-c558-414c-b132-8559704c288d" x="1360" y="1260">
+<attributes>
+<attribute name="_ref" value="zem10" v="0" custom="" al="6" x="1316" y="1240"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1316" y="1280"/>
+</attributes>
+</elem>
+<elem lGuid="9c1a9f71-c558-414c-b132-8559704c288d" x="480" y="1260">
+<attributes>
+<attribute name="_ref" value="zem11" v="0" custom="" al="6" x="436" y="1240"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="436" y="1280"/>
+</attributes>
+</elem>
+<elem lGuid="9c1a9f71-c558-414c-b132-8559704c288d" x="1800" y="860">
+<attributes>
+<attribute name="_ref" value="zem12" v="0" custom="" al="6" x="1756" y="840"/>
+<attribute name="_type" value="" v="0" custom="" al="6" x="1756" y="880"/>
+</attributes>
+</elem>
+<polyline pts="1600,1780,1600,1740,"/>
+<polyline pts="1600,1780,1600,1800,"/>
 </layer>
 </layers>
 </page>
