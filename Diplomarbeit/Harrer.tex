@@ -153,8 +153,6 @@ Bevor das Java Programm beendet wird sollte die Verbindung zur Datenbank wie fol
 	mongodb.close();
 \end{lstlisting}
 
-\newpage
-
 Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanlage sieht so aus:
 \begin{lstlisting}[style=JavaStyle]
 	DBObject document = collUser.find(
@@ -233,8 +231,6 @@ Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+
 
 \subsubsection{Singleton}
 Die benötigten Methoden von pi4j wurden in einem Singleton implementiert. Es musste ein Singleton verwendet werden, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  ein Error geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann. Der Zugriff von mehreren Klassen ist ohne einen Singleton programmiertechnisch nicht lösbar.
-
-\newpage
 
 \subsubsection{Code Beispiele}
 Um mit den GPIO-Pins arbeiten zu können muss zu Beginn ein Controller erstellt werden. Dies ist wie folgt möglich:
@@ -369,14 +365,48 @@ Das Listenmodel wird wie folgt angelegt:
 Damit ist nun festgelegt, dass die Elemente in der Liste Strings sind. 
 
 \subsubsection{Liste}
-Eine Liste in Java wird dazu verwendet, um mehrere Daten in einem Objekt zu speichern. 
+Eine Liste in Java wird dazu verwendet, um mehrere Daten in einem Objekt zu speichern. Die Liste kann wie folgt erstellt werden:
+\begin{lstlisting}[style=JavaStyle]
+	List<String> list = new ArrayList();
+\end{lstlisting}
+Das Objekt der Liste verfügt über eigene Methoden. 
+\begin{itemize}
+\item[•] Anzahl der Elemente in der Liste zählen: 
+\begin{lstlisting}[style=JavaStyle]
+	list.size();
+\end{lstlisting}
+\item[•] Hinzufügen eines Elementes:
+\begin{lstlisting}[style=JavaStyle]
+	list.add("Das ist ein Element!");
+\end{lstlisting}
+\item[•] Leeren der Liste (Löschen aller Elemente)
+\begin{lstlisting}[style=JavaStyle]
+	list.clear();
+\end{lstlisting}
+\end{itemize}
 
-Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI in einer Liste (jList) dargestellt. 
+Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI in einer Liste (jList) dargestellt. Siehe Kapitel \ref{subsubsec:MainWindow}. 
 
 \subsection{SwingWorker}
+Der SwingWorker in Java wird benötigt, wenn eine Anwendung mehr Zeit benötigt. Mithilfe des SwingWorkers kann diese Aktion im Hintergrund ausgeführt werden. Der Vorteil davon ist, dass die GUI verwendbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
+\\ \\ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werden:
+\begin{lstlisting}[style=JavaStyle]
+private class TimeOfDayAndDateWorker extends SwingWorker<Object, String>
+\end{lstlisting}
+Im Generic steht als erstes der Rückgabewert von \textbf{done()} und als zweites der Rückgabewert von \textbf{process()}.
+
+\subsubsection{EDT}
+Im Event Dispatch Thread (EDT) wird die GUI sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. 
+
+\subsubsection{Methoden des SwingWorkers}
+\begin{itemize}
+\item[•] doInBackground()
+\item[•] done()
+\item[•] process()
+\end{itemize}
 
 \subsection{GUI-Fenster}
-\subsubsection{MainWindow}
+\subsubsection{MainWindow} \caption{subsubsec:MainWindow}
 \subsubsection{TimeManagement}
 \subsubsection{CreateUser}
 \subsubsection{ManualControl}
