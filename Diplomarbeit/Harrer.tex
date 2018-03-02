@@ -393,18 +393,77 @@ Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI
 Der SwingWorker in Java wird benötigt, wenn eine Anwendung mehr Zeit benötigt. Mithilfe des SwingWorkers kann diese Aktion im Hintergrund ausgeführt werden. Der Vorteil davon ist, dass die GUI verwendbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
 \\ \\ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werden:
 \begin{lstlisting}[style=JavaStyle]
-	private class Worker extends SwingWorker<Object, String>
+	private class Worker extends SwingWorker<Object, String> { } 
 \end{lstlisting}
 Im Generic steht als erstes der Rückgabewert von \textbf{done()} und als zweites der Rückgabewert von \textbf{process()}.
 
 \subsubsection{EDT}
 Im Event Dispatch Thread (EDT) wird die GUI sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. 
 
+\subsubsection{TimeUnit}
+Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird ein \textbf{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm, an der Stelle wo die Methode aufgerufen wird, für 500 Millisekunden. Dadurch wird der Prozessor nicht so stark ausgelastet. 
+
 \subsubsection{Methoden des SwingWorkers}
 \begin{itemize}
 \item[•] doInBackground()
+Mit \textbf{doInBackground()} kann ein neuer Hintergrund-Thread geöffnet werden. Dieser Thread läuft parallel zum EDT. Der Hintergrund-Thread wird geschlossen, wenn der Worker beendet wird oder sich der Worker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf GUI-Elemente zugegriffen werden. 
+\\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher nur durch das Beenden des Workers beendbar ist.
+\begin{lstlisting}[style=JavaStyle]
+	    @Override
+        protected Object doInBackground() throws Exception
+        {
+            while (!isCancelled())
+            {
+                timeOfDay = String.format("%1$tH:%1$tM", new
+                Date(System.currentTimeMillis()));
+
+                publish( timeOfDay);
+
+                TimeUnit.MILLISECONDS.sleep(500);
+            }
+            return 1;
+        }
+\end{lstlisting} 
+Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. beendet. 
+\begin{lstlisting}[style=JavaStyle]
+	    @Override
+        protected Object doInBackground() throws Exception
+        {
+            timeOfDay = String.format("%1$tH:%1$tM", new 
+            Date(System.currentTimeMillis()));
+
+            publish( timeOfDay);
+
+            TimeUnit.MILLISECONDS.sleep(500);
+            return 1;
+        }
+\end{lstlisting} 
+
 \item[•] done()
+Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im EDT aufgerufen. Im \textbf{done()} können dann GUI-Elemente bearbeitet werden.
+\begin{lstlisting}[style=JavaStyle]
+	    @Override
+        protected void done()
+        {
+             // TODO
+        }
+\end{lstlisting}
 \item[•] process()
+Wenn in einem Hintergrund-Thread \textbf{publish();} aufgerufen wird, wird im EDT \textbf{process()} aufgerufen. Hier können wieder GUI-Elemente bearbeitet werden.
+\begin{lstlisting}[style=JavaStyle]
+	    @Override
+        protected void process(List<String> chunks)
+        {
+        	(timeOfDay = chunks.get((chunks.size() - 1));
+            lbTimeOfDay.setText(timeOfDay);
+        }
+\end{lstlisting}
+\item[•] cancel()
+Mit \textbf{cancel} kann ein Worker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
+\begin{lstlisting}[style=JavaStyle]
+	    worker.cancel();
+\end{lstlisting}
+Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des Workers.
 \end{itemize}
 
 \subsection{GUI-Fenster}
