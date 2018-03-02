@@ -406,7 +406,7 @@ Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert is
 \subsubsection{Methoden des SwingWorkers}
 \begin{itemize}
 \item[•] doInBackground()
-Mit \textbf{doInBackground()} kann ein neuer Hintergrund-Thread geöffnet werden. Dieser Thread läuft parallel zum EDT. Der Hintergrund-Thread wird geschlossen, wenn der Worker beendet wird oder sich der Worker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf GUI-Elemente zugegriffen werden. 
+\\ Mit \textbf{doInBackground()} kann ein neuer Hintergrund-Thread geöffnet werden. Dieser Thread läuft parallel zum EDT. Der Hintergrund-Thread wird geschlossen, wenn der Worker beendet wird oder sich der Worker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf GUI-Elemente zugegriffen werden. 
 \\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher nur durch das Beenden des Workers beendbar ist.
 \begin{lstlisting}[style=JavaStyle]
 	    @Override
@@ -440,7 +440,7 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. 
 \end{lstlisting} 
 
 \item[•] done()
-Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im EDT aufgerufen. Im \textbf{done()} können dann GUI-Elemente bearbeitet werden.
+\\ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im EDT aufgerufen. Im \textbf{done()} können dann GUI-Elemente bearbeitet werden.
 \begin{lstlisting}[style=JavaStyle]
 	    @Override
         protected void done()
@@ -449,7 +449,7 @@ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im EDT aufgerufen
         }
 \end{lstlisting}
 \item[•] process()
-Wenn in einem Hintergrund-Thread \textbf{publish();} aufgerufen wird, wird im EDT \textbf{process()} aufgerufen. Hier können wieder GUI-Elemente bearbeitet werden.
+\\ Wenn in einem Hintergrund-Thread \textbf{publish();} aufgerufen wird, wird im EDT \textbf{process()} aufgerufen. Hier können wieder GUI-Elemente bearbeitet werden.
 \begin{lstlisting}[style=JavaStyle]
 	    @Override
         protected void process(List<String> chunks)
@@ -459,7 +459,7 @@ Wenn in einem Hintergrund-Thread \textbf{publish();} aufgerufen wird, wird im ED
         }
 \end{lstlisting}
 \item[•] cancel()
-Mit \textbf{cancel} kann ein Worker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
+\\ Mit \textbf{cancel} kann ein Worker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
 \begin{lstlisting}[style=JavaStyle]
 	    worker.cancel();
 \end{lstlisting}
@@ -467,8 +467,8 @@ Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des Workers.
 \end{itemize}
 
 \subsection{GUI-Fenster}
+Die GUI-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung.
 \subsubsection{MainWindow}\label{subsubsec:MainWindow}
-for the caption
 \subsubsection{TimeManagement}
 \subsubsection{CreateUser}
 \subsubsection{ManualControl}
