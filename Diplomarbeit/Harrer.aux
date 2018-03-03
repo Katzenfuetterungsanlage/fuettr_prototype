@@ -44,6 +44,7 @@
 \newlabel{\IeC {\"U}bertragungsprotokoll}{{\relax 2.2}{12}{Übertragungsprotokoll\relax }{table.caption.20}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.3}Response-GET}{13}{subsubsection.2.3.3.3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.4}Response-PUT}{13}{subsubsection.2.3.3.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3.5}Verarbeiten des Requests}{13}{subsubsection.2.3.3.5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Errors und Warnungsverarbeitung}{13}{subsection.2.3.4}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4.1}Allgemeines}{13}{subsubsection.2.3.4.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.4.2}Errors und Warnungen aktivieren/deaktivieren}{14}{subsubsection.2.3.4.2}}
@@ -56,22 +57,36 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.5.2}TimeUnit}{16}{subsubsection.2.3.5.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.5.3}Methoden des SwingWorkers}{16}{subsubsection.2.3.5.3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.6}GUI-Fenster}{17}{subsection.2.3.6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.1}MainWindow}{17}{subsubsection.2.3.6.1}}
-\newlabel{subsubsec:MainWindow}{{2.3.6.1}{17}{MainWindow}{subsubsection.2.3.6.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.2}TimeManagement}{18}{subsubsection.2.3.6.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.3}CreateUser}{18}{subsubsection.2.3.6.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.4}ManualControl}{18}{subsubsection.2.3.6.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.5}Positionsinformation}{18}{subsubsection.2.3.6.5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.6}SystemInfo}{18}{subsubsection.2.3.6.6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.7}Update}{18}{subsubsection.2.3.6.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Zusammenfassung/Verbesserungsm\IeC {\"o}glichkeiten}{18}{section.2.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Probleme mit Mongodb am Raspberry}{18}{subsection.2.4.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}{18}{subsection.2.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}GUI auf "Touchscreen-Design" ab\IeC {\"a}ndern}{18}{subsection.2.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{18}{subsection.2.4.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.5}Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{18}{subsection.2.4.5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.1}MainWindow}{18}{subsubsection.2.3.6.1}}
+\newlabel{subsubsec:MainWindow}{{2.3.6.1}{18}{MainWindow}{subsubsection.2.3.6.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 2.3}{\ignorespaces MainWindow\relax }}{18}{figure.caption.21}}
+\newlabel{MainWindow}{{\relax 2.3}{18}{MainWindow\relax }{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.2}TimeManagement}{19}{subsubsection.2.3.6.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.3}CreateUser}{19}{subsubsection.2.3.6.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 2.4}{\ignorespaces TimeManagement\relax }}{19}{figure.caption.22}}
+\newlabel{TimeManagement}{{\relax 2.4}{19}{TimeManagement\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.4}ManualControl}{20}{subsubsection.2.3.6.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 2.5}{\ignorespaces CreateUser\relax }}{20}{figure.caption.23}}
+\newlabel{CreateUser}{{\relax 2.5}{20}{CreateUser\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 2.6}{\ignorespaces ManualControl\relax }}{20}{figure.caption.24}}
+\newlabel{ManualControl}{{\relax 2.6}{20}{ManualControl\relax }{figure.caption.24}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.5}Positionsinformation}{20}{subsubsection.2.3.6.5}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.6}SystemInfo}{20}{subsubsection.2.3.6.6}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.6.7}Update}{21}{subsubsection.2.3.6.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 2.7}{\ignorespaces Positionsinformation\relax }}{21}{figure.caption.25}}
+\newlabel{Positionsinformation}{{\relax 2.7}{21}{Positionsinformation\relax }{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 2.8}{\ignorespaces Update1\relax }}{21}{figure.caption.26}}
+\newlabel{Update}{{\relax 2.8}{21}{Update1\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {\relax 2.9}{\ignorespaces Update1\relax }}{21}{figure.caption.27}}
+\newlabel{Update}{{\relax 2.9}{21}{Update1\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Zusammenfassung/Verbesserungsm\IeC {\"o}glichkeiten}{22}{section.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Probleme mit Mongodb am Raspberry}{22}{subsection.2.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}{22}{subsection.2.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}GUI auf "Touchscreen-Design" ab\IeC {\"a}ndern}{22}{subsection.2.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{22}{subsection.2.4.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.5}Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{22}{subsection.2.4.5}}
 \@setckpt{Harrer}{
-\setcounter{page}{19}
+\setcounter{page}{23}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -86,7 +101,7 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{2}
+\setcounter{figure}{9}
 \setcounter{table}{2}
 \setcounter{pp@next@reset}{0}
 \setcounter{ContinuedFloat}{0}
@@ -111,7 +126,7 @@
 \setcounter{jb@cites@in@footnote}{0}
 \setcounter{Item}{0}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{75}
+\setcounter{bookmark@seq@number}{76}
 \setcounter{lstlisting}{0}
 \setcounter{section@level}{2}
 }

@@ -312,6 +312,14 @@ Wenn der Server einen Request mit dem Beginn \textbf{GET} bekommt, muss er dem C
 Wenn der Server einen Request mit dem Beginn \textbf{PUT} bekommt, muss er Daten vom Client entgegen nehmen.
 \\ Bei der Katzenfütterungsanlage bekommt der Server die Daten nicht direkt. Da der Maschinenzustand nur \textbf{Ein} oder \textbf{Aus} sein kann, wird dieser nicht übermittelt. Stattdessen wird, wenn der Maschinenzustand geändert wird, die Methode \textbf{machineStateChanger()} aufgerufen, welche ihn ändert. Diese Methode aktualisiert auch die GUI-Elemente am Raspberry, abhägig vom Maschinenzustand. 
 
+\subsubsection{Verarbeiten des Requests}
+Um den Request zu verarbeiten wurde die Klasse \textbf{ConnectionThread} geschrieben. Der Request wird wie folgt verarbeitet:
+\begin{itemize}
+\item[1] Der Request wird eingelsen.
+\item[2] Danach wird überprüft ob der Request "GET\grqq{} oder "PUT\grqq{} enthält. Wenn keine dieser beiden Funktionen enthalen ist, wird eine Fehlermeldung gesendet.
+\item[3] Wenn dies überprüft wurde und kein Fehler aufgetreten ist, wird der URL überprüft. Im URL wird dem Server mitgeteil was er machen soll. Der Inhalt des URL ist ein String und wird im Übertragungsprotokoll festgelegt.
+\end{itemize}
+
 \subsection{Errors und Warnungsverarbeitung}
 \subsubsection{Allgemeines}
 Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. 
@@ -468,13 +476,100 @@ Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des Workers.
 
 \subsection{GUI-Fenster}
 Die GUI-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung.
+
+\newpage
+
 \subsubsection{MainWindow}\label{subsubsec:MainWindow}
+\begin{wrapfigure}{l}{0.6\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{Bilder/GUI/MainWindow}
+  \end{center}
+  \caption{MainWindow}
+  \label{MainWindow}
+  \vspace{-40pt}
+\end{wrapfigure}
+text
+
+\newpage
+
 \subsubsection{TimeManagement}
+\begin{wrapfigure}{l}{0.6\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{Bilder/GUI/TimeManagement}
+  \end{center}
+  \caption{TimeManagement}
+  \label{TimeManagement}
+  \vspace{-40pt}
+\end{wrapfigure}
+text
+
 \subsubsection{CreateUser}
+\begin{wrapfigure}{l}{0.6\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{Bilder/GUI/CreateUser}
+  \end{center}
+  \caption{CreateUser}
+  \label{CreateUser}
+  \vspace{-40pt}
+\end{wrapfigure}
+text
+
+\newpage
+
 \subsubsection{ManualControl}
+\begin{wrapfigure}{l}{0.6\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.60\textwidth]{Bilder/GUI/ManualControl}
+  \end{center}
+  \caption{ManualControl}
+  \label{ManualControl}
+  \vspace{-40pt}
+\end{wrapfigure}
+text
+
 \subsubsection{Positionsinformation}
+\begin{wrapfigure}{l}{0.3\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.30\textwidth]{Bilder/GUI/Positionsinformation}
+  \end{center}
+  \caption{Positionsinformation}
+  \label{Positionsinformation}
+  \vspace{-40pt}
+\end{wrapfigure}
+text
+
 \subsubsection{SystemInfo}
+bild fehlt weil server nicht gelaufen ist
+
+\newpage
+
 \subsubsection{Update}
+\begin{wrapfigure}{l}{0.4\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.40\textwidth]{Bilder/GUI/Update1}
+  \end{center}
+  \caption{Update1}
+  \label{Update}
+  \vspace{-40pt}
+\end{wrapfigure}
+text
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.40\textwidth]{Bilder/GUI/Update1}
+  \end{center}
+  \caption{Update1}
+  \label{Update}
+  \vspace{-40pt}
+\end{wrapfigure}
+text
 
 \section{Zusammenfassung/Verbesserungsmöglichkeiten}
 \subsection{Probleme mit Mongodb am Raspberry}
