@@ -476,9 +476,22 @@ Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des Workers.
 
 \subsection{GUI-Fenster}
 Die GUI-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich alle GUI-Fenster mittels Touch-Gesten zu bedienen. 
-\\ Beim Starten des Raspberrys wird das Programm automatisch gestartet. Dabei wird das MainWindow, also das Hauptfenster des Programms, als Vollbild am Display angezeigt. Somit ist es dem Benutzer nur möglich das Programm zu bedienen und nicht zur grafischen Oberfläche des Raspberrybetriebsystems zu gelangen.
+\\ Beim Starten des Raspberrys wird das Programm automatisch gestartet. Dabei wird das MainWindow, also das Hauptfenster des Programms, als Vollbild am Display angezeigt. Somit ist es dem Benutzer nur möglich das Programm zu bedienen und nicht zur grafischen Oberfläche des Raspberrybetriebsystems zu gelangen. Genauers zum Autostart unter Kapitel \ref{subsubsec:Autostart}.
 
-\subsubsection{Java-Programm im Autostart}
+\subsubsection{Java-Programm im Autostart}\label{subsubsec:Autostart}
+Um auf einem Bitriebssstem ,das auf Linux basierendem, ein Java-Programm zu starten gibt es zwei Möglichkeiten.
+\begin{itemize}
+\item[1] \textbf{rc.local}
+\\ Eine Möglichkeit ist die \textbf{rc.local}. Mit der \textbf{rc.local} können aber nur Programme ohne grafische Oberfläche gestartet werden. In diese muss foglender Befehl geschrieben werden: 
+\\ \textbf{java -jar /home/pi/main.jar \&}.
+\item[2] \textbf{autostart}
+\\ Dies zweite Möglichkeit ist \textbf{autostart}. Hier ist der X-Server, welcher für eine grafische Ausgabe benötigt wird, enthalten. Somit können nun Java-Programme mit einer grafischen Oberfläche gestartet werden. Die Datei \textbf{autostart} ist unter folgendem Pfad zu finden : 
+\\ \textbf{/home/<user/.config/lxsession/LXDE-<user>/autostart}. 
+\\ In die Datei muss dann noch folgender Befehel eingegeben werden: 
+\\ \textbf{@java -jar /home/pi/main.jar \&}.
+\end{itemize} 
+Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben. Dies stellt im Fall eines Programms mit GUI das Hauptfenser dar. Bei der Katzenfütterungsanlage ist es das \textbf{MainWindow}.
+\\ Die Abkürzung \textbf{.jar} steht für "Java Archive".
 
 \newpage
 

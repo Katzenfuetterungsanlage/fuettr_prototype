@@ -61,80 +61,81 @@
 \BOOKMARK [3][-]{subsubsection.2.3.5.2}{TimeUnit}{subsection.2.3.5}% 61
 \BOOKMARK [3][-]{subsubsection.2.3.5.3}{Methoden des SwingWorkers}{subsection.2.3.5}% 62
 \BOOKMARK [2][-]{subsection.2.3.6}{GUI-Fenster}{section.2.3}% 63
-\BOOKMARK [3][-]{subsubsection.2.3.6.1}{MainWindow}{subsection.2.3.6}% 64
-\BOOKMARK [3][-]{subsubsection.2.3.6.2}{TimeManagement}{subsection.2.3.6}% 65
-\BOOKMARK [3][-]{subsubsection.2.3.6.3}{CreateUser}{subsection.2.3.6}% 66
-\BOOKMARK [3][-]{subsubsection.2.3.6.4}{ManualControl}{subsection.2.3.6}% 67
-\BOOKMARK [3][-]{subsubsection.2.3.6.5}{Positionsinformation}{subsection.2.3.6}% 68
-\BOOKMARK [3][-]{subsubsection.2.3.6.6}{SystemInfo}{subsection.2.3.6}% 69
-\BOOKMARK [3][-]{subsubsection.2.3.6.7}{Update}{subsection.2.3.6}% 70
-\BOOKMARK [1][-]{section.2.4}{Zusammenfassung/Verbesserungsm\366glichkeiten}{chapter.2}% 71
-\BOOKMARK [2][-]{subsection.2.4.1}{Probleme mit Mongodb am Raspberry}{section.2.4}% 72
-\BOOKMARK [2][-]{subsection.2.4.2}{Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}{section.2.4}% 73
-\BOOKMARK [2][-]{subsection.2.4.3}{GUI auf "Touchscreen-Design\344b\344ndern}{section.2.4}% 74
-\BOOKMARK [2][-]{subsection.2.4.4}{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{section.2.4}% 75
-\BOOKMARK [2][-]{subsection.2.4.5}{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{section.2.4}% 76
-\BOOKMARK [0][-]{chapter.3}{Mechanik}{}% 77
-\BOOKMARK [1][-]{section.3.1}{Einleitung}{chapter.3}% 78
-\BOOKMARK [1][-]{section.3.2}{Aufgabenstellung und Zielsetzung}{chapter.3}% 79
-\BOOKMARK [1][-]{section.3.3}{Problematik}{chapter.3}% 80
-\BOOKMARK [2][-]{subsection.3.3.1}{Problematik des automatisierten Aufschneidens}{section.3.3}% 81
-\BOOKMARK [2][-]{subsection.3.3.2}{Problematik der Dichtheit bei Klemmen}{section.3.3}% 82
-\BOOKMARK [2][-]{subsection.3.3.3}{Problematik bei Entleerung der Verpackung}{section.3.3}% 83
-\BOOKMARK [2][-]{subsection.3.3.4}{Problematik vom Geruch}{section.3.3}% 84
-\BOOKMARK [2][-]{subsection.3.3.5}{Problematik von der Reinigung nach dem Urlaub}{section.3.3}% 85
-\BOOKMARK [2][-]{subsection.3.3.6}{Problematik bei einfrieren des Futters}{section.3.3}% 86
-\BOOKMARK [1][-]{section.3.4}{Konzepte}{chapter.3}% 87
-\BOOKMARK [2][-]{subsection.3.4.1}{Variante 1: Automatisiertes Aufschneiden}{section.3.4}% 88
-\BOOKMARK [3][-]{subsubsection.3.4.1.1}{\334bersicht der Prozessschritte}{subsection.3.4.1}% 89
-\BOOKMARK [3][-]{subsubsection.3.4.1.2}{F\374llen des Futtermagazins}{subsection.3.4.1}% 90
-\BOOKMARK [3][-]{subsubsection.3.4.1.3}{F\374hren zur Schneidplatte}{subsection.3.4.1}% 91
-\BOOKMARK [3][-]{subsubsection.3.4.1.4}{Schnitt}{subsection.3.4.1}% 92
-\BOOKMARK [3][-]{subsubsection.3.4.1.5}{Pressen}{subsection.3.4.1}% 93
-\BOOKMARK [3][-]{subsubsection.3.4.1.6}{Entsorgen}{subsection.3.4.1}% 94
-\BOOKMARK [3][-]{subsubsection.3.4.1.7}{F\374ttern}{subsection.3.4.1}% 95
-\BOOKMARK [2][-]{subsection.3.4.2}{Variante 2: Vor aufgeschnittene Packung}{section.3.4}% 96
-\BOOKMARK [3][-]{subsubsection.3.4.2.1}{F\366rderband und Kettenglieder}{subsection.3.4.2}% 97
-\BOOKMARK [3][-]{subsubsection.3.4.2.2}{Walze}{subsection.3.4.2}% 98
-\BOOKMARK [3][-]{subsubsection.3.4.2.3}{Futterplatte}{subsection.3.4.2}% 99
-\BOOKMARK [2][-]{subsection.3.4.3}{Variante 3: Gefrorenes Futter}{section.3.4}% 100
-\BOOKMARK [1][-]{section.3.5}{Aufbauten und Tests}{chapter.3}% 101
-\BOOKMARK [2][-]{subsection.3.5.1}{F\374tterungsexperiment}{section.3.5}% 102
-\BOOKMARK [3][-]{subsubsection.3.5.1.1}{Schlussfolgerung des F\374tterungsexperimentes}{subsection.3.5.1}% 103
-\BOOKMARK [2][-]{subsection.3.5.2}{Schneideversuch 1.Art der 1.Variante}{section.3.5}% 104
-\BOOKMARK [3][-]{subsubsection.3.5.2.1}{Schlussfolgerung des Schneideversuchs 1.Art der 1.Variante}{subsection.3.5.2}% 105
-\BOOKMARK [2][-]{subsection.3.5.3}{Schneideversuch 2.Art der 1.Variante}{section.3.5}% 106
-\BOOKMARK [3][-]{subsubsection.3.5.3.1}{Schlussfolgerung des Schneideversuchs 2.Art der 1.Variante}{subsection.3.5.3}% 107
-\BOOKMARK [2][-]{subsection.3.5.4}{Dichtheitsexperiment der Hebelklemme}{section.3.5}% 108
-\BOOKMARK [1][-]{section.3.6}{Vergleich der Varianten}{chapter.3}% 109
-\BOOKMARK [2][-]{subsection.3.6.1}{Klemmen}{section.3.6}% 110
-\BOOKMARK [3][-]{subsubsection.3.6.1.1}{Einfache Klemme}{subsection.3.6.1}% 111
-\BOOKMARK [3][-]{subsubsection.3.6.1.2}{Hebel Klemme}{subsection.3.6.1}% 112
-\BOOKMARK [3][-]{subsubsection.3.6.1.3}{Gummiband Klemme}{subsection.3.6.1}% 113
-\BOOKMARK [2][-]{subsection.3.6.2}{Klemmen Wahlvariante}{section.3.6}% 114
-\BOOKMARK [2][-]{subsection.3.6.3}{Futtersch\374sseln}{section.3.6}% 115
-\BOOKMARK [3][-]{subsubsection.3.6.3.1}{Drehfutterplatte}{subsection.3.6.3}% 116
-\BOOKMARK [3][-]{subsubsection.3.6.3.2}{Futterplatte Zylinder}{subsection.3.6.3}% 117
-\BOOKMARK [3][-]{subsubsection.3.6.3.3}{Platte mit einer Sch\374ssel}{subsection.3.6.3}% 118
-\BOOKMARK [2][-]{subsection.3.6.4}{Futtersch\374ssel Wahlvariante}{section.3.6}% 119
-\BOOKMARK [2][-]{subsection.3.6.5}{Futtermagazine}{section.3.6}% 120
-\BOOKMARK [3][-]{subsubsection.3.6.5.1}{Futtermagazin Horizontal}{subsection.3.6.5}% 121
-\BOOKMARK [3][-]{subsubsection.3.6.5.2}{Futtermagazin Vertikal}{subsection.3.6.5}% 122
-\BOOKMARK [1][-]{section.3.7}{Konstruktion der Wahlvariante und Details}{chapter.3}% 123
-\BOOKMARK [2][-]{subsection.3.7.1}{Drehplatte}{section.3.7}% 124
-\BOOKMARK [2][-]{subsection.3.7.2}{F\366rderband, Kettenglied und Kettenrad}{section.3.7}% 125
-\BOOKMARK [2][-]{subsection.3.7.3}{Walze}{section.3.7}% 126
-\BOOKMARK [2][-]{subsection.3.7.4}{Hebelklemme}{section.3.7}% 127
-\BOOKMARK [1][-]{section.3.8}{Berechnung und Dimensionierung}{chapter.3}% 128
-\BOOKMARK [1][-]{section.3.9}{Simulation}{chapter.3}% 129
-\BOOKMARK [1][-]{section.3.10}{Bedienung und Wartung}{chapter.3}% 130
-\BOOKMARK [1][-]{section.3.11}{Selbstkritische Analyse und Ausblick}{chapter.3}% 131
-\BOOKMARK [0][-]{chapter.4}{Elektronik und Mechanik}{}% 132
-\BOOKMARK [1][-]{section.4.1}{Anforderung Elektronik}{chapter.4}% 133
-\BOOKMARK [2][-]{subsection.4.1.1}{Aktoren}{section.4.1}% 134
-\BOOKMARK [2][-]{subsection.4.1.2}{Sensoren}{section.4.1}% 135
-\BOOKMARK [2][-]{subsection.4.1.3}{Ansteuerungen}{section.4.1}% 136
-\BOOKMARK [0][-]{appendix.A}{Abbildungsverzeichnis}{}% 137
-\BOOKMARK [0][-]{appendix.B}{Tabellenverzeichnis}{}% 138
-\BOOKMARK [0][-]{appendix.C}{Listings}{}% 139
-\BOOKMARK [0][-]{appendix.D}{Literaturverzeichnis}{}% 140
+\BOOKMARK [3][-]{subsubsection.2.3.6.1}{Java-Programm im Autostart}{subsection.2.3.6}% 64
+\BOOKMARK [3][-]{subsubsection.2.3.6.2}{MainWindow}{subsection.2.3.6}% 65
+\BOOKMARK [3][-]{subsubsection.2.3.6.3}{TimeManagement}{subsection.2.3.6}% 66
+\BOOKMARK [3][-]{subsubsection.2.3.6.4}{CreateUser}{subsection.2.3.6}% 67
+\BOOKMARK [3][-]{subsubsection.2.3.6.5}{ManualControl}{subsection.2.3.6}% 68
+\BOOKMARK [3][-]{subsubsection.2.3.6.6}{Positionsinformation}{subsection.2.3.6}% 69
+\BOOKMARK [3][-]{subsubsection.2.3.6.7}{SystemInfo}{subsection.2.3.6}% 70
+\BOOKMARK [3][-]{subsubsection.2.3.6.8}{Update}{subsection.2.3.6}% 71
+\BOOKMARK [1][-]{section.2.4}{Zusammenfassung/Verbesserungsm\366glichkeiten}{chapter.2}% 72
+\BOOKMARK [2][-]{subsection.2.4.1}{Probleme mit Mongodb am Raspberry}{section.2.4}% 73
+\BOOKMARK [2][-]{subsection.2.4.2}{Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}{section.2.4}% 74
+\BOOKMARK [2][-]{subsection.2.4.3}{GUI auf "Touchscreen-Design\344b\344ndern}{section.2.4}% 75
+\BOOKMARK [2][-]{subsection.2.4.4}{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{section.2.4}% 76
+\BOOKMARK [2][-]{subsection.2.4.5}{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{section.2.4}% 77
+\BOOKMARK [0][-]{chapter.3}{Mechanik}{}% 78
+\BOOKMARK [1][-]{section.3.1}{Einleitung}{chapter.3}% 79
+\BOOKMARK [1][-]{section.3.2}{Aufgabenstellung und Zielsetzung}{chapter.3}% 80
+\BOOKMARK [1][-]{section.3.3}{Problematik}{chapter.3}% 81
+\BOOKMARK [2][-]{subsection.3.3.1}{Problematik des automatisierten Aufschneidens}{section.3.3}% 82
+\BOOKMARK [2][-]{subsection.3.3.2}{Problematik der Dichtheit bei Klemmen}{section.3.3}% 83
+\BOOKMARK [2][-]{subsection.3.3.3}{Problematik bei Entleerung der Verpackung}{section.3.3}% 84
+\BOOKMARK [2][-]{subsection.3.3.4}{Problematik vom Geruch}{section.3.3}% 85
+\BOOKMARK [2][-]{subsection.3.3.5}{Problematik von der Reinigung nach dem Urlaub}{section.3.3}% 86
+\BOOKMARK [2][-]{subsection.3.3.6}{Problematik bei einfrieren des Futters}{section.3.3}% 87
+\BOOKMARK [1][-]{section.3.4}{Konzepte}{chapter.3}% 88
+\BOOKMARK [2][-]{subsection.3.4.1}{Variante 1: Automatisiertes Aufschneiden}{section.3.4}% 89
+\BOOKMARK [3][-]{subsubsection.3.4.1.1}{\334bersicht der Prozessschritte}{subsection.3.4.1}% 90
+\BOOKMARK [3][-]{subsubsection.3.4.1.2}{F\374llen des Futtermagazins}{subsection.3.4.1}% 91
+\BOOKMARK [3][-]{subsubsection.3.4.1.3}{F\374hren zur Schneidplatte}{subsection.3.4.1}% 92
+\BOOKMARK [3][-]{subsubsection.3.4.1.4}{Schnitt}{subsection.3.4.1}% 93
+\BOOKMARK [3][-]{subsubsection.3.4.1.5}{Pressen}{subsection.3.4.1}% 94
+\BOOKMARK [3][-]{subsubsection.3.4.1.6}{Entsorgen}{subsection.3.4.1}% 95
+\BOOKMARK [3][-]{subsubsection.3.4.1.7}{F\374ttern}{subsection.3.4.1}% 96
+\BOOKMARK [2][-]{subsection.3.4.2}{Variante 2: Vor aufgeschnittene Packung}{section.3.4}% 97
+\BOOKMARK [3][-]{subsubsection.3.4.2.1}{F\366rderband und Kettenglieder}{subsection.3.4.2}% 98
+\BOOKMARK [3][-]{subsubsection.3.4.2.2}{Walze}{subsection.3.4.2}% 99
+\BOOKMARK [3][-]{subsubsection.3.4.2.3}{Futterplatte}{subsection.3.4.2}% 100
+\BOOKMARK [2][-]{subsection.3.4.3}{Variante 3: Gefrorenes Futter}{section.3.4}% 101
+\BOOKMARK [1][-]{section.3.5}{Aufbauten und Tests}{chapter.3}% 102
+\BOOKMARK [2][-]{subsection.3.5.1}{F\374tterungsexperiment}{section.3.5}% 103
+\BOOKMARK [3][-]{subsubsection.3.5.1.1}{Schlussfolgerung des F\374tterungsexperimentes}{subsection.3.5.1}% 104
+\BOOKMARK [2][-]{subsection.3.5.2}{Schneideversuch 1.Art der 1.Variante}{section.3.5}% 105
+\BOOKMARK [3][-]{subsubsection.3.5.2.1}{Schlussfolgerung des Schneideversuchs 1.Art der 1.Variante}{subsection.3.5.2}% 106
+\BOOKMARK [2][-]{subsection.3.5.3}{Schneideversuch 2.Art der 1.Variante}{section.3.5}% 107
+\BOOKMARK [3][-]{subsubsection.3.5.3.1}{Schlussfolgerung des Schneideversuchs 2.Art der 1.Variante}{subsection.3.5.3}% 108
+\BOOKMARK [2][-]{subsection.3.5.4}{Dichtheitsexperiment der Hebelklemme}{section.3.5}% 109
+\BOOKMARK [1][-]{section.3.6}{Vergleich der Varianten}{chapter.3}% 110
+\BOOKMARK [2][-]{subsection.3.6.1}{Klemmen}{section.3.6}% 111
+\BOOKMARK [3][-]{subsubsection.3.6.1.1}{Einfache Klemme}{subsection.3.6.1}% 112
+\BOOKMARK [3][-]{subsubsection.3.6.1.2}{Hebel Klemme}{subsection.3.6.1}% 113
+\BOOKMARK [3][-]{subsubsection.3.6.1.3}{Gummiband Klemme}{subsection.3.6.1}% 114
+\BOOKMARK [2][-]{subsection.3.6.2}{Klemmen Wahlvariante}{section.3.6}% 115
+\BOOKMARK [2][-]{subsection.3.6.3}{Futtersch\374sseln}{section.3.6}% 116
+\BOOKMARK [3][-]{subsubsection.3.6.3.1}{Drehfutterplatte}{subsection.3.6.3}% 117
+\BOOKMARK [3][-]{subsubsection.3.6.3.2}{Futterplatte Zylinder}{subsection.3.6.3}% 118
+\BOOKMARK [3][-]{subsubsection.3.6.3.3}{Platte mit einer Sch\374ssel}{subsection.3.6.3}% 119
+\BOOKMARK [2][-]{subsection.3.6.4}{Futtersch\374ssel Wahlvariante}{section.3.6}% 120
+\BOOKMARK [2][-]{subsection.3.6.5}{Futtermagazine}{section.3.6}% 121
+\BOOKMARK [3][-]{subsubsection.3.6.5.1}{Futtermagazin Horizontal}{subsection.3.6.5}% 122
+\BOOKMARK [3][-]{subsubsection.3.6.5.2}{Futtermagazin Vertikal}{subsection.3.6.5}% 123
+\BOOKMARK [1][-]{section.3.7}{Konstruktion der Wahlvariante und Details}{chapter.3}% 124
+\BOOKMARK [2][-]{subsection.3.7.1}{Drehplatte}{section.3.7}% 125
+\BOOKMARK [2][-]{subsection.3.7.2}{F\366rderband, Kettenglied und Kettenrad}{section.3.7}% 126
+\BOOKMARK [2][-]{subsection.3.7.3}{Walze}{section.3.7}% 127
+\BOOKMARK [2][-]{subsection.3.7.4}{Hebelklemme}{section.3.7}% 128
+\BOOKMARK [1][-]{section.3.8}{Berechnung und Dimensionierung}{chapter.3}% 129
+\BOOKMARK [1][-]{section.3.9}{Simulation}{chapter.3}% 130
+\BOOKMARK [1][-]{section.3.10}{Bedienung und Wartung}{chapter.3}% 131
+\BOOKMARK [1][-]{section.3.11}{Selbstkritische Analyse und Ausblick}{chapter.3}% 132
+\BOOKMARK [0][-]{chapter.4}{Elektronik und Mechanik}{}% 133
+\BOOKMARK [1][-]{section.4.1}{Anforderung Elektronik}{chapter.4}% 134
+\BOOKMARK [2][-]{subsection.4.1.1}{Aktoren}{section.4.1}% 135
+\BOOKMARK [2][-]{subsection.4.1.2}{Sensoren}{section.4.1}% 136
+\BOOKMARK [2][-]{subsection.4.1.3}{Ansteuerungen}{section.4.1}% 137
+\BOOKMARK [0][-]{appendix.A}{Abbildungsverzeichnis}{}% 138
+\BOOKMARK [0][-]{appendix.B}{Tabellenverzeichnis}{}% 139
+\BOOKMARK [0][-]{appendix.C}{Listings}{}% 140
+\BOOKMARK [0][-]{appendix.D}{Literaturverzeichnis}{}% 141
