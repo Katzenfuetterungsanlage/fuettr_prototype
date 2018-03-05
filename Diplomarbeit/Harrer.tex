@@ -597,9 +597,9 @@ In der Klasse \textbf{TimeManagement} ist es dem Benutzer möglich alle Zeiten z
 
 \newpage
 
-Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss im Designmodus der GUI Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: 
+Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss im Designmodus der GUI Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: \\
 \begin{wrapfigure}{l}{0.7\textwidth}
-\vspace{-10pt}
+\vspace{-20pt}
   \begin{center}
     \includegraphics[width=0.70\textwidth]{Bilder/Java_Programm/SpinnerConfiguration}
   \end{center}
@@ -613,7 +613,47 @@ Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfigurier
 
 \vspace{60pt}
 
-TODO
+Zusätlich muss noch für jeden Spinner folgende Methode, im Constructor nach \textbf{initComponents();}, aufgerufen werden:
+\begin{lstlisting}[style=Javastyle, caption=Spinner Zeitzone]
+	JSpinner.DateEditor at1 = new JSpinner.DateEditor(spTime1, "HH:mm");
+        	spTime1.setEditor(at1);
+\end{lstlisting}
+
+\vspace{10pt}
+
+Im \textbf{Constructor} der \textbf{TimeManagement} Klasse werden, wenn das Fenster geöffnet wird, alle Spinner mit den momentanen Zeiten gefüllt. Zusätzlich werden noch die Häkchen, die festelegen ob eine Zeit aktiv ist, gesetzt.
+
+\vspace{10pt}
+
+Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird überprüft, ob sich die Inhalte der Spinner veränder haben. Um dies zu überprüfen werden Events verwendet. Dafür wird für jeden Spinner das folgende Event verwendet:
+\begin{lstlisting}[style=JavaStyle, caption=Spinner Event]
+    private void spTime1StateChanged(javax.swing.event.ChangeEvent evt)                                     
+    {                                         
+        saved = false;
+    }   
+\end{lstlisting} 
+Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Zusätlich kann dann ausgwählt werden, ob wirklich ohne zu speichern beendet werden soll.
+\\ \\ Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und Comboxen werden anschließen in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
+\begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
+// ... Code ...
+
+newTimeDoc = new BasicDBObject("identifier", "Times")
+                        .append("time1", time1)
+                        .append("time1_active", time1_active)
+                        .append("time2", time2)
+                        .append("time2_active", time2_active)
+                        .append("time3", time3)
+                        .append("time3_active", time3_active)
+                        .append("time4", time4)
+                        .append("time4_active", time4_active);
+\end{lstlisting}
+Dieses Dokument wird anschließen mit folgender \textbf{Getter-Methode} geworfen damit sie in im \textbf{MainWindow} zugänglich ist:
+\begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
+public BasicDBObject getNewTimeDoc()
+    {
+        return newTimeDoc;
+    }
+\end{lstlisting}
 
 \newpage
 
