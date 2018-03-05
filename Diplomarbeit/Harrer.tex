@@ -564,8 +564,6 @@ Diese Methode kann nur im EDT aufgerufen werden. Wenn diese Methode nicht im EDT
         });
 \end{lstlisting}
 
-\newpage
-
 Bis jetzt wurde der Singleton nur implementiert. Nun muss noch eine Methode implementiert werden um die \textbf{Instance} des Objekts abfragen zu können. Diese Methode sieht wie folgt aus:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow.getInstance()]
 public static MainWindow getInstance()
@@ -578,6 +576,12 @@ public static MainWindow getInstance()
         return instance;
     }
 \end{lstlisting}
+
+\vspace{10pt}
+
+GUI Elemente je nach Maschinenstatus !!!! TODO !!!
+
+\newpage
 
 \subsubsection{TimeManagement}\label{subsubsec:TimeManagement}
 \begin{wrapfigure}{l}{0.65\textwidth}
@@ -738,16 +742,18 @@ public BasicDBObject getNewUserDoc()
 \newpage
 
 \subsubsection{ManualControl}
-\begin{wrapfigure}{l}{0.6\textwidth}
-\vspace{-20pt}
-  \begin{center}
-    \includegraphics[width=0.60\textwidth]{Bilder/GUI/ManualControl}
-  \end{center}
-  \caption{ManualControl}
+  \begin{figure}[H]
+    \includegraphics[width=0.90\textwidth]{Bilder/GUI/ManualControl}
+    \caption{ManualControl}
   \label{ManualControl}
-  \vspace{-10pt}
-\end{wrapfigure}
-text
+  \end{figure}
+In der Klasse \textbf{ManualControl} wird eine manuelle Steuerung für die Methoden implementiert.
+
+\vspace{10pt}
+
+Benutzer wird vor dem öffnen gewarnt
+
+\newpage
 
 \subsubsection{Positionsinformation}
 \begin{wrapfigure}{l}{0.3\textwidth}
@@ -760,6 +766,8 @@ text
   \vspace{-10pt}
 \end{wrapfigure}
 text
+
+\newpage
 
 \subsubsection{SystemInfo}
 bild fehlt weil server nicht gelaufen ist

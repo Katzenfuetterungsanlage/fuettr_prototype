@@ -30,7 +30,7 @@
 \contentsline {lstlisting}{\numberline {2.28}SwingWorker abbrechen}{17}{lstlisting.2.28}
 \contentsline {lstlisting}{\numberline {2.29}MainWindow createInstance()}{19}{lstlisting.2.29}
 \contentsline {lstlisting}{\numberline {2.30}MainWindow createInstance() Aufruf}{20}{lstlisting.2.30}
-\contentsline {lstlisting}{\numberline {2.31}MainWindow.getInstance()}{21}{lstlisting.2.31}
+\contentsline {lstlisting}{\numberline {2.31}MainWindow.getInstance()}{20}{lstlisting.2.31}
 \contentsline {lstlisting}{\numberline {2.32}Spinner Zeitzone}{22}{lstlisting.2.32}
 \contentsline {lstlisting}{\numberline {2.33}Spinner Event}{22}{lstlisting.2.33}
 \contentsline {lstlisting}{\numberline {2.34}Zeitendokument Getter-Methode}{23}{lstlisting.2.34}
