@@ -531,22 +531,72 @@ Das \textbf{MainWindow} besteht aus einer \textbf{Java JFrame Form}. In diesem F
 \end{itemize}
 
 \vspace{10pt}
-Quelltext beschreiben
 
+Das \textbf{MainWindow} ist als Singleton implementiert. Somit wird ein nur Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
+\begin{lstlisting}[style=JavaStyle]
+public static MainWindow createInstance()
+    {
+        if (instance != null)
+        {
+            throw new RuntimeException("intance already created");
+        }
+
+        if (!SwingUtilities.isEventDispatchThread())
+        {
+            throw new RuntimeException("not in EDT");
+        }
+        instance = new MainWindow();
+
+        return instance;
+    }
+\end{lstlisting}
+Diese Methode kann nur im EDT aufgerufen werden. Wenn diese Methode nicht im EDT aufgerufen wird oder das Objekt bereits besteht, wird ein jeweils eigener Error geworfen.
+\\ \\ Diese Methode wird in der \textbf{main} Methode der Klasse wie folgt aufgerufen:
+\begin{lstlisting}[style=JavaStyle]
+	java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                MainWindow frame = MainWindow.createInstance();
+
+            }
+        });
+\end{lstlisting}
 
 \newpage
 
+Bis jetzt wurde der Singleton nur implementiert. Nun muss noch eine Methode implementiert werden um die \textbf{Instance} des Objekts abfragen zu können. Diese Methode sieht wie folgt aus:
+\begin{lstlisting}[style=JavaStyle]
+public static MainWindow getInstance()
+    {
+        if (instance == null)
+        {
+            throw new RuntimeException("instance not created");
+        }
+
+        return instance;
+    }
+\end{lstlisting}
+
 \subsubsection{TimeManagement}\label{subsubsec:TimeManagement}
-\begin{wrapfigure}{l}{0.6\textwidth}
+\begin{wrapfigure}{l}{0.65\textwidth}
 \vspace{-20pt}
   \begin{center}
-    \includegraphics[width=0.60\textwidth]{Bilder/GUI/TimeManagement}
+    \includegraphics[width=0.65\textwidth]{Bilder/GUI/TimeManagement}
   \end{center}
   \caption{TimeManagement}
   \label{TimeManagement}
-  \vspace{-40pt}
+  \vspace{0pt}
 \end{wrapfigure}
-text
+In der Klasse \textbf{TimeManagement} ist es dem Benutzer möglich alle Zeiten zu verwalten. Das GUI-Fenster dieser Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
+\\ \\ Es können bis zu vier verschiedene Zeiten gewählt werden. Dabei müssen die Zeiten, bei Zeit 1 beginnend, aufsteigen angeordnet werden. Zusätzlich können Zeiten auch deaktiviert werden. Um eine Zeit zu deaktivieren muss das Häkchen vor der Zeit weggenommen werden.
+\\ Wenn die Zeiten ausgewählt wurden, kann mit \textbf{Ok} bestätigt werden. Somit werden die Daten in das Programm übernommen und in die Datenbank gespeichert. Weiters schließt sich noch das Fenster.
+\\ Falls\textbf{Abbrechen} gedrückt wird, werden die Änderungen nicht übernommen und das Fenster schließt sich.
+\\ \\ Wenn das Dialogfenster im EDT aufgerufen wird, blockiert der EDT an dieser Stelle so lange, bis das Dialogfenster wieder geschlossen wird.
+\\ \\ TODO
+
+\newpage
 
 \subsubsection{CreateUser}
 \begin{wrapfigure}{l}{0.6\textwidth}
@@ -556,7 +606,7 @@ text
   \end{center}
   \caption{CreateUser}
   \label{CreateUser}
-  \vspace{-40pt}
+  \vspace{-10pt}
 \end{wrapfigure}
 text
 
@@ -570,7 +620,7 @@ text
   \end{center}
   \caption{ManualControl}
   \label{ManualControl}
-  \vspace{-40pt}
+  \vspace{-10pt}
 \end{wrapfigure}
 text
 
@@ -582,7 +632,7 @@ text
   \end{center}
   \caption{Positionsinformation}
   \label{Positionsinformation}
-  \vspace{-40pt}
+  \vspace{-10pt}
 \end{wrapfigure}
 text
 
@@ -599,7 +649,7 @@ bild fehlt weil server nicht gelaufen ist
   \end{center}
   \caption{Update1}
   \label{Update}
-  \vspace{-40pt}
+  \vspace{-10pt}
 \end{wrapfigure}
 text
 
@@ -610,7 +660,7 @@ text
   \end{center}
   \caption{Update1}
   \label{Update}
-  \vspace{-40pt}
+  \vspace{-10pt}
 \end{wrapfigure}
 text
 
