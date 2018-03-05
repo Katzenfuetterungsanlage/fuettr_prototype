@@ -121,42 +121,42 @@ Da am Raspberry die neueste Version von Mongodb nicht funktioniert, wird die Ver
 \\ \\ 
 Als erstes muss eine Verbindung mit der Datenbank aufgebaut werden. Falls die Datenbank noch nicht existiert wird sie automatisch erstellt.
 Dies ist in Java mit folgenden Methoden möglich:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Mit Mongodb verbinden]
 	MongoClient mongodb = new MongoClient();
 	DB database = mongodb.getDB("<Datenbankname>");
 \end{lstlisting}
 
 Danach muss die Collection, in der gearbeitet werden soll, ausgewählt werden. Falls die Collection noch nicht existiert wird sie automatisch erstellt. Das ist mit der folgenden Methode möglich:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Collection auswählen]
 	DBCollection coll = database.getCollection("<Collectionname>");
 \end{lstlisting}
 Anschließend kann mit der Datenbank gearbeitet werden. 
 \begin{itemize}
 \item[•] Die Dokumente in einer Collection zähle1n:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Anzahl der Collections zählen]
 	<Collectionname>.count();
 \end{lstlisting}
 \item[•] Ein Dokument aus der Datenbank lesen:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Nach Dokument suchen]
 	DBObject document = <Collectionname>.find(<Identifikator>).next();
 \end{lstlisting}
 \item[•] Ein Dokument zu einer Collection hinzufügen:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Ein Dokument hinzufügen]
 	<Collectionname>.insert(document);
 \end{lstlisting}	
 \item[•] Ein Dokument in einer Collection updaten:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Ein Dokument updaten]
 	<Collectionname>.update(<Identifikator>, document);
 \end{lstlisting}
 \end{itemize}
 
 Bevor das Java Programm beendet wird sollte die Verbindung zur Datenbank wie folgt getrennt werden: 
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Verbindung zur Datenbank trennen]
 	mongodb.close();
 \end{lstlisting}
 
 Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanlage sieht so aus:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Konkretes Beispiel: Dokument suchen]
 	DBObject document = collUser.find(
 			new BasicDBObject("identifier", "User")).next();
 \end{lstlisting}
@@ -236,19 +236,19 @@ Die benötigten Methoden von pi4j wurden in einem Singleton implementiert. Es mu
 
 \subsubsection{Code Beispiele}
 Um mit den GPIO-Pins arbeiten zu können muss zu Beginn ein Controller erstellt werden. Dies ist wie folgt möglich:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=GPIO-Controller erstellen]
 	GpioController controller = GpioFactory.getInstance();
 \end{lstlisting}
 Wenn der Controller erstellt ist kann auf die Pins, mit denen gearbeitet werden soll, zugegriffen werden. Bei einem Pin kann auch eine \textbf{ShutDownOption} angeben werden. Diese gibt an in welchen Zustand der Pin vor dem Herunterfahren gesetzt wird. Dieser Zugriff erfolgt wie folgt: 
 \begin{itemize}
 \item[•] Zugreigen auf einen Pin als digitalen Input-Pin:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Zugriff auf einen Pin als Inpput]
 	GpioPinDigitalInput pin = controller.provisionDigitalInputPin(
 		RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);
 	pin.setShutdownOptions(true);
 \end{lstlisting}
 \item[•] Zugreigen auf einen Pin als digitalen Output-Pin:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Zugriff auf einen Pin als Output]
 	GpioPinDigitalOutput pin = controller.provisionDigitalOutputPin(
 		RaspiPin.GPIO_02, PinState.LOW);
 	pin.setShutdownOptions(true, PinState.LOW);
@@ -257,12 +257,12 @@ Wenn der Controller erstellt ist kann auf die Pins, mit denen gearbeitet werden 
 Wenn das erledigt ist kann mit dem Pin gearbeitet werden. Dies kann wie in den folgenden Beispielen erfolgen:
 \begin{itemize}
 \item[•] Zustand eines Input-Pins auswerten: 
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Pinzustand abfragen]
 	pin.getState()
 \end{lstlisting}
 Diese Methode liefert den Zustand des Pins zurück. Dieser kann High oder Low sein.
 \item[•] Zustand eines Output-Pins setzen:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Pinzustand verändern]
 	pin.low();	
 	pin.high();
 \end{lstlisting}
@@ -270,7 +270,7 @@ Mit \textbf{pin.low()} kann der Zustand eines Pins auf Low (0V) und mit \textbf{
 \end{itemize}
 
 Vor dem Beenden des Java Programmes sollte der Controller wie folgt heruntergefahren werden:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Controller herunterfahren]
 	controller.shutdown();
 \end{lstlisting}
 
@@ -329,7 +329,7 @@ Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Pro
 
 \subsubsection{Errors und Warnungen aktivieren/deaktivieren}
 Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Error setzen]
 public void setFeedingHasFailedError (Boolean errorOn, String errorTime)
     {
         error_hasFeedingFailed = errorOn;
@@ -344,7 +344,7 @@ Diese Klasse stellt auch die Json-Array zur Verfügung, welche dann dem Client (
 
 Die JsonArray sieht wie folgt aus:
 
-\begin{lstlisting}[language=json,firstnumber=1]
+\begin{lstlisting}[language=json,firstnumber=1, caption=Json-Objekt mit Errors und Warnungen]
 { 
 	"Errors": 
 	[ 
@@ -363,34 +363,34 @@ Die JsonArray sieht wie folgt aus:
 
 \subsubsection{Listenmodel}
 Die Zeile, in der die Klasse für das Listenmodel angelegt wird, sieht wie folgt aus:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Listenmodel-Klasse erstellen]
 	public class ErrorAndWarningModel extends AbstractListModel
 \end{lstlisting}
 Nach dem Klassennamen muss \textbf{extends AbstractListModel} hinzugefügt werden. Dies bedeutet, dass das erstellte Listemodel eine Vererbung von \textbf{AbstractListModel} ist.
 \\ \\
 Das Listenmodel wird wie folgt angelegt:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Liste erstellen im Model]
 	private final List<String> errorAndWarning;
 \end{lstlisting}
 Damit ist nun festgelegt, dass die Elemente in der Liste Strings sind. 
 
 \subsubsection{Liste}
 Eine Liste in Java wird dazu verwendet, um mehrere Daten in einem Objekt zu speichern. Die Liste kann wie folgt erstellt werden:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Liste erstellen]
 	List<String> list = new ArrayList();
 \end{lstlisting}
 Das Objekt der Liste verfügt über eigene Methoden. 
 \begin{itemize}
 \item[•] Anzahl der Elemente in der Liste zählen: 
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Anzahl der Elemente abfragen]
 	list.size();
 \end{lstlisting}
 \item[•] Hinzufügen eines Elementes:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Element hinzufügen]
 	list.add("Das ist ein Element!");
 \end{lstlisting}
 \item[•] Leeren der Liste (Löschen aller Elemente)
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=Liste leeren]
 	list.clear();
 \end{lstlisting}
 \end{itemize}
@@ -400,7 +400,7 @@ Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI
 \subsection{SwingWorker}
 Der SwingWorker in Java wird benötigt, wenn eine Anwendung mehr Zeit benötigt. Mithilfe des SwingWorkers kann diese Aktion im Hintergrund ausgeführt werden. Der Vorteil davon ist, dass die GUI verwendbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
 \\ \\ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werden:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker Klasse erstellen]
 	private class Worker extends SwingWorker<Object, String> { } 
 \end{lstlisting}
 Im Generic steht als erstes der Rückgabewert von \textbf{done()} und als zweites der Rückgabewert von \textbf{process()}.
@@ -416,7 +416,7 @@ Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert is
 \item[•] doInBackground()
 \\ Mit \textbf{doInBackground()} kann ein neuer Hintergrund-Thread geöffnet werden. Dieser Thread läuft parallel zum EDT. Der Hintergrund-Thread wird geschlossen, wenn der Worker beendet wird oder sich der Worker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf GUI-Elemente zugegriffen werden. 
 \\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher nur durch das Beenden des Workers beendbar ist.
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker doInBackground() mit while Schleife]
 	    @Override
         protected Object doInBackground() throws Exception
         {
@@ -433,7 +433,7 @@ Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert is
         }
 \end{lstlisting} 
 Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. beendet. 
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker doInBackground() ohne while Schleife]
 	    @Override
         protected Object doInBackground() throws Exception
         {
@@ -449,7 +449,7 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. 
 
 \item[•] done()
 \\ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im EDT aufgerufen. Im \textbf{done()} können dann GUI-Elemente bearbeitet werden.
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker done()]
 	    @Override
         protected void done()
         {
@@ -458,7 +458,7 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. 
 \end{lstlisting}
 \item[•] process()
 \\ Wenn in einem Hintergrund-Thread \textbf{publish();} aufgerufen wird, wird im EDT \textbf{process()} aufgerufen. Hier können wieder GUI-Elemente bearbeitet werden.
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker process()]
 	    @Override
         protected void process(List<String> chunks)
         {
@@ -468,7 +468,7 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. 
 \end{lstlisting}
 \item[•] cancel()
 \\ Mit \textbf{cancel} kann ein Worker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker abbrechen]
 	    worker.cancel();
 \end{lstlisting}
 Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des Workers.
@@ -533,7 +533,7 @@ Das \textbf{MainWindow} besteht aus einer \textbf{Java JFrame Form}. In diesem F
 \vspace{10pt}
 
 Das \textbf{MainWindow} ist als Singleton implementiert. Somit wird ein nur Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=MainWindow createInstance()]
 public static MainWindow createInstance()
     {
         if (instance != null)
@@ -552,7 +552,7 @@ public static MainWindow createInstance()
 \end{lstlisting}
 Diese Methode kann nur im EDT aufgerufen werden. Wenn diese Methode nicht im EDT aufgerufen wird oder das Objekt bereits besteht, wird ein jeweils eigener Error geworfen.
 \\ \\ Diese Methode wird in der \textbf{main} Methode der Klasse wie folgt aufgerufen:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=MainWindow createInstance() Aufruf]
 	java.awt.EventQueue.invokeLater(new Runnable()
         {
             @Override
@@ -563,8 +563,6 @@ Diese Methode kann nur im EDT aufgerufen werden. Wenn diese Methode nicht im EDT
             }
         });
 \end{lstlisting}
-
-\newpage
 
 Bis jetzt wurde der Singleton nur implementiert. Nun muss noch eine Methode implementiert werden um die \textbf{Instance} des Objekts abfragen zu können. Diese Methode sieht wie folgt aus:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow.getInstance()]
@@ -578,6 +576,12 @@ public static MainWindow getInstance()
         return instance;
     }
 \end{lstlisting}
+
+\vspace{10pt}
+
+GUI Elemente je nach Maschinenstatus !!!! TODO !!!
+
+\newpage
 
 \subsubsection{TimeManagement}\label{subsubsec:TimeManagement}
 \begin{wrapfigure}{l}{0.65\textwidth}
@@ -634,7 +638,7 @@ Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird
 \end{lstlisting} 
 Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Zusätlich kann dann ausgwählt werden, ob wirklich ohne zu speichern beendet werden soll.
 \\ \\ Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und Comboxen werden anschließen in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
-\begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
+\begin{lstlisting}[style=Javastyle, caption=Zeitendokument Getter-Methode]
 // ... Code ...
 
 newTimeDoc = new BasicDBObject("identifier", "Times")
@@ -667,21 +671,89 @@ public BasicDBObject getNewTimeDoc()
   \label{CreateUser}
   \vspace{-10pt}
 \end{wrapfigure}
-text
+Die Klasse \textbf{CreateUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Mit dem angelegten Benutzer ist es möglich sich auf der Webseite der Anlage anzumelden. Die GUI ist in Abbildung \ref{CreateUser} zu sehen.
+\\ Die GUI der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
+\\ \\ Es ist möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein Neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch wird der Benutzer in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
+\\ \\ Während das Dialogfenster geöffnet ist blockiert der ETD Thread an der Stelle, an der das Dialogfenster geöffnet wurde.
+
+\vspace{10pt}
+
+Um das Passwort einzugeben wird ein \textbf{PasswordField} verwendet. Diese Eingabefeld wird speziell dazu verwendet Passwörter einzugeben. Eine Besonderheit davon ist, dass die Passwörter nicht als Text sonder als Sternchen dargestellt werden. Eine weitere ist, dass der Inhalt eine Zeichenkette ist, also ein Feld von Characters: \textbf{char[]}. Weiters unterscheided sich auch das Abfragen des Inhaltes im Vergleich mit eienm normalen Textfeld. Beim \textbf{PasswordField} kann der Inhalt mit \textbf{passwordField.getPassword()} abgefragt werden.
+\\ \\ Um das Password im Programm besser verarbeiten zu können wird es wie folgt in einen String umformatiert:
+\begin{lstlisting}[style=Javastyle, caption=char zu String]
+	String string_password = valueOf(char_password);
+\end{lstlisting}
+
+\vspace{10pt}
+
+Um eine gewisse Sicherheit zu gewährleisten wird das Password, bevor es in der Datenbank gespeichert wird, gehasht. Um das Password zu hashen wird der \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
+\\ Das Password wurde wie folgt gehasht:
+\begin{lstlisting}[style=Javastyle, caption=Hash Passwort]
+	public static String hash(String passwordToHash, String salt)
+    {
+        String generatedPassword = null;
+        try
+        {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(salt.getBytes("UTF-8"));
+            byte[] bytes = md.digest(passwordToHash.getBytes(StandardCharsets.UTF_8));
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0;
+                    i < bytes.length;
+                    i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        catch (UnsupportedEncodingException ex)
+        {
+            Logger.getLogger(HashPassword.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return generatedPassword;
+    }
+\end{lstlisting}
+Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden welcher vor dem Hashen des Passworts am Passwort angehänt wird. Somit wird die Entschlüsselung des Passwort nochmals erschwert und die Sicherheit erhöht sich.
+
+\vspace{10pt}
+
+Event: Inhalt verändert
+
+\vspace{10pt}
+
+Wenn das Dialogfenster mit \textbf{Ok} bestätigt wird, wird das Benutzername und das Passwort in ein Dokument, welches für die Datenbank verständlich ist, gespeichert. Dieses Dokument sieht wie folgt aus:
+\begin{lstlisting}[style=Javastyle, caption=Benutzerdokument]
+newUserDoc = new BasicDBObject("identifier", "User").append("user_name", 
+	user_name).append("user_password", hashedPassword);
+\end{lstlisting}
+
+Dieses Dokument wird anschließend noch mit einer \textbf{Getter-Methode} geworfen damit es im \textbf{MainWindow} zugägnlich ist:
+\begin{lstlisting}[style=Javastyle, caption=Benutzerdokument Getter-Methode]
+public BasicDBObject getNewUserDoc()
+    {
+        return newUserDoc;
+    }
+\end{lstlisting}
 
 \newpage
 
 \subsubsection{ManualControl}
-\begin{wrapfigure}{l}{0.6\textwidth}
-\vspace{-20pt}
-  \begin{center}
-    \includegraphics[width=0.60\textwidth]{Bilder/GUI/ManualControl}
-  \end{center}
-  \caption{ManualControl}
+  \begin{figure}[H]
+    \includegraphics[width=0.90\textwidth]{Bilder/GUI/ManualControl}
+    \caption{ManualControl}
   \label{ManualControl}
-  \vspace{-10pt}
-\end{wrapfigure}
-text
+  \end{figure}
+In der Klasse \textbf{ManualControl} wird eine manuelle Steuerung für die Methoden implementiert.
+
+\vspace{10pt}
+
+Benutzer wird vor dem öffnen gewarnt
+
+\newpage
 
 \subsubsection{Positionsinformation}
 \begin{wrapfigure}{l}{0.3\textwidth}
@@ -694,6 +766,8 @@ text
   \vspace{-10pt}
 \end{wrapfigure}
 text
+
+\newpage
 
 \subsubsection{SystemInfo}
 bild fehlt weil server nicht gelaufen ist
