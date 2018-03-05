@@ -567,7 +567,7 @@ Diese Methode kann nur im EDT aufgerufen werden. Wenn diese Methode nicht im EDT
 \newpage
 
 Bis jetzt wurde der Singleton nur implementiert. Nun muss noch eine Methode implementiert werden um die \textbf{Instance} des Objekts abfragen zu können. Diese Methode sieht wie folgt aus:
-\begin{lstlisting}[style=JavaStyle]
+\begin{lstlisting}[style=JavaStyle, caption=MainWindow.getInstance()]
 public static MainWindow getInstance()
     {
         if (instance == null)
@@ -594,7 +594,26 @@ In der Klasse \textbf{TimeManagement} ist es dem Benutzer möglich alle Zeiten z
 \\ Wenn die Zeiten ausgewählt wurden, kann mit \textbf{Ok} bestätigt werden. Somit werden die Daten in das Programm übernommen und in die Datenbank gespeichert. Weiters schließt sich noch das Fenster.
 \\ Falls\textbf{Abbrechen} gedrückt wird, werden die Änderungen nicht übernommen und das Fenster schließt sich.
 \\ \\ Wenn das Dialogfenster im EDT aufgerufen wird, blockiert der EDT an dieser Stelle so lange, bis das Dialogfenster wieder geschlossen wird.
-\\ \\ TODO
+
+\newpage
+
+Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss im Designmodus der GUI Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: 
+\begin{wrapfigure}{l}{0.7\textwidth}
+\vspace{-10pt}
+  \begin{center}
+    \includegraphics[width=0.70\textwidth]{Bilder/Java_Programm/SpinnerConfiguration}
+  \end{center}
+  \caption{Spinner Konfiguration}
+  \label{SpinnerKonfiguration}
+  \vspace{-70pt}
+\end{wrapfigure}
+\\ \\ In diesem Fenster ist der Code, welcher in den ersten vier Zeilen steht, hinzuzufügen. 
+\\ Hier wird das Model für den Spinner gesetzt. Dieses Model gibt an, dass der Spinner ein Datum darstellen soll. Weiters wird nicht festgelegt was vom Datum angezeigt werden soll. Hier wird die Uhrzeit dargestellt. 
+\\ \\ Diese Schritte sind für alle der vier verwendeten Spinner verwendet werden.
+
+\vspace{60pt}
+
+TODO
 
 \newpage
 
