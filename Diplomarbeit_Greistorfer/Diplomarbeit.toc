@@ -1,4 +1,4 @@
-\select@language {ngerman}
+\babel@toc {ngerman}{}
 \contentsline {chapter}{\numberline {1}Webserver und Client}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Begriffserkl\IeC {\"a}rungen}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Server}{1}{subsection.1.1.1}
