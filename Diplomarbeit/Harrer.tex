@@ -354,7 +354,7 @@ Die JsonArray sieht wie folgt aus:
 	"Warnings": 
 	[ 
 		{"message" : "Warning1", "hidden" : false}, 
-		{"message" : "Warnung2", "hidden" : false} 
+		{"message" : "Warning2", "hidden" : false} 
 	] 
 } 
 \end{lstlisting}
@@ -493,6 +493,8 @@ Um auf einem Bitriebssstem ,das auf Linux basierendem, ein Java-Programm zu star
 Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben. Dies stellt im Fall eines Programms mit GUI das Hauptfenser dar. Bei der Katzenfütterungsanlage ist es das \textbf{MainWindow}.
 \\ \\ Die Abkürzung \textbf{.jar} steht für "Java Archive".
 
+\newpage
+
 \subsubsection{MainWindow}\label{subsubsec:MainWindow}
 \begin{wrapfigure}{l}{0.6\textwidth}
 \vspace{-20pt}
@@ -579,7 +581,29 @@ public static MainWindow getInstance()
 
 \vspace{10pt}
 
-GUI Elemente je nach Maschinenstatus !!!! TODO !!!
+In der GUI werden je nach Maschinenstatus gewisse Funktionen blockiert. Folgende Funktionen sind blockiert, wenn die Fütterung aktiviert ist:
+\begin{itemize}
+\item[1] manuelle Steuerung
+\item[2] Update
+\end{itemize}
+Das Blockieren das Funktionen wird mit folgender Methode gemacht:
+\begin{lstlisting}[style=JavaStyle, caption=GUI Elemente blockieren]
+private void updateGUIElements()
+    {
+        // control GUI elements depending on the machine state
+        // update and manualControl not available while machine state = on 
+        if (machineStateOn == true)
+        {
+            menu_update.setEnabled(false);
+            menu_manualControl.setEnabled(false);
+        }
+        else
+        {
+            menu_update.setEnabled(true);
+            menu_manualControl.setEnabled(true);
+        }
+    }
+\end{lstlisting}
 
 \newpage
 
@@ -721,7 +745,14 @@ Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden we
 
 \vspace{10pt}
 
-Event: Inhalt verändert
+Bevor das Fenster geschlossen wird, wenn \textbf{Update} gedrückt wird, wird überprüft, ob sich die Inhalte der Text- und Passwortfelder verändert haben. Dabei wird vom Event überwacht, ob in dem Feld ein neues Zeichen eingegeben wird. Danach wird eine Boolean-Variable, die angibt ob gespeichert wurde, auf \textbf{false} gesetzt. Das Event für das Textfeld sieht wie folgt aus:
+\begin{lstlisting}[style=Javastyle, caption=Textfeld Event]
+private void tfUser_nameKeyPressed(java.awt.event.KeyEvent evt)                                       
+    {                                           
+        saved = false;
+    }
+\end{lstlisting}
+Wenn die Variable \textbf{false} ist, also noch nicht gespeichert wurde, wird dem Benutzer die Warnung ausgegeben werden, dass die veränderten Daten noch nicht gespeichert sind.
 
 \vspace{10pt}
 
