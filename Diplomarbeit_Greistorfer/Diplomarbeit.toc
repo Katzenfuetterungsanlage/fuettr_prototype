@@ -1,4 +1,4 @@
-\babel@toc {ngerman}{}
+\select@language {ngerman}
 \contentsline {chapter}{\numberline {1}Webserver und Client}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Begriffserkl\IeC {\"a}rungen}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Server}{1}{subsection.1.1.1}
@@ -19,12 +19,12 @@
 \contentsline {section}{\numberline {1.4}Umsetzung}{3}{section.1.4}
 \contentsline {subsection}{\numberline {1.4.1}Client}{3}{subsection.1.4.1}
 \contentsline {subsubsection}{\numberline {1.4.1.1}Design}{3}{subsubsection.1.4.1.1}
-\contentsline {subsubsection}{\numberline {1.4.1.2}Funktion}{5}{subsubsection.1.4.1.2}
-\contentsline {subsection}{\numberline {1.4.2}Server}{5}{subsection.1.4.2}
-\contentsline {subsubsection}{\numberline {1.4.2.1}Funktion}{5}{subsubsection.1.4.2.1}
-\contentsline {subsubsection}{\numberline {1.4.2.2}Mongodb}{5}{subsubsection.1.4.2.2}
-\contentsline {subsubsection}{\numberline {1.4.2.3}Kommunikation mit dem Java Programm}{5}{subsubsection.1.4.2.3}
-\contentsline {section}{\numberline {1.5}Zusammenfassung und Verbesserungsm\IeC {\"o}glichkeiten}{5}{section.1.5}
-\contentsline {chapter}{\numberline {A}Abbildungsverzeichnis}{9}{appendix.A}
-\contentsline {chapter}{\numberline {B}Tabellenverzeichnis}{11}{appendix.B}
-\contentsline {chapter}{\numberline {C}Listings}{13}{appendix.C}
+\contentsline {subsubsection}{\numberline {1.4.1.2}Funktion}{4}{subsubsection.1.4.1.2}
+\contentsline {subsection}{\numberline {1.4.2}Server}{4}{subsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.2.1}Funktion}{4}{subsubsection.1.4.2.1}
+\contentsline {subsubsection}{\numberline {1.4.2.2}Mongodb}{4}{subsubsection.1.4.2.2}
+\contentsline {subsubsection}{\numberline {1.4.2.3}Kommunikation mit dem Java Programm}{4}{subsubsection.1.4.2.3}
+\contentsline {section}{\numberline {1.5}Zusammenfassung und Verbesserungsm\IeC {\"o}glichkeiten}{4}{section.1.5}
+\contentsline {chapter}{\numberline {A}Abbildungsverzeichnis}{7}{appendix.A}
+\contentsline {chapter}{\numberline {B}Tabellenverzeichnis}{9}{appendix.B}
+\contentsline {chapter}{\numberline {C}Listings}{11}{appendix.C}
