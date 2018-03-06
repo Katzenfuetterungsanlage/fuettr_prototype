@@ -163,7 +163,7 @@ Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanla
 Diese Zeile Code sucht in der Collection \textbf{collUser} nach dem Dokument mit dem Identifikator \textbf{new BasicDBObject(\grqq{}identifier\grqq{}, \grqq{}User\grqq{})}. Das gefundene Dokument wird dann der Varibale \textbf{document} zugewiesen. 
 
 
-\subsection{pi4j}
+\subsection{pi4j} \label{subsec:pi4j}
 \subsubsection{Allgemeines}
 Pi4j ist eine freie Software, welche Bibliotheken zur Verfügung stellt, mit denen es möglich ist, von einem Java Programm, auf die IO-Pins eines Raspberrys zuzugreifen. Dabei kann ein GPIO-Pin als In- oder Ouput definiert werden. Wenn ein Pin als Output definiert wird, kann er den State High (+5V) oder Low (0V) haben. Mit einem Input Pin, können Signale gemessen werden. Das Ergebnis der Messung ist wieder High oder Low. Weiters ist es auch möglich einem Pin einen Listener zuzuweißen. Dieser Listener wartet bis auf diesem Pin ein Event auftritt und führt dann zum Beispiel eine Methode aus. 
 \\ \\
@@ -697,7 +697,7 @@ public BasicDBObject getNewTimeDoc()
 \end{wrapfigure}
 Die Klasse \textbf{CreateUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Mit dem angelegten Benutzer ist es möglich sich auf der Webseite der Anlage anzumelden. Die GUI ist in Abbildung \ref{CreateUser} zu sehen.
 \\ Die GUI der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
-\\ \\ Es ist möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein Neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch wird der Benutzer in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
+\\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein Neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch wird der Benutzer in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
 \\ \\ Während das Dialogfenster geöffnet ist blockiert der ETD Thread an der Stelle, an der das Dialogfenster geöffnet wurde.
 
 \vspace{10pt}
@@ -776,15 +776,54 @@ public BasicDBObject getNewUserDoc()
     \caption{ManualControl}
   \label{ManualControl}
   \end{figure}
-In der Klasse \textbf{ManualControl} wird eine manuelle Steuerung für die Motoren implementiert.
+In der Klasse \textbf{ManualControl} wird eine manuelle Steuerung für die Motoren implementiert. Dies erleichtert dem Benutzer das Reinigen der Anlage, weil er zum Beispiel die Drehplatte, mit den Futterschüsseln, immer nachdrehen kann. Das gleiche gilt für das Förderband.
+\\ Die GUI ist in Abbildung \ref{ManualControl} zu sehen.
+\\ Die GUI der Klasse ist ein Steuerfenster. Da dieses Fenster ein Steuer- und kein Dialogfenster ist, werden kein \textbf{Ok} und \textbf{Abbrechen} benötigt. Aus diesem Grund ist nur ein Knopf \textbf{Schließen} vorhanden.
 
 \vspace{10pt}
 
-Benutzer wird vor dem öffnen gewarnt
+Wie beim Dialogfenster blockiert das Steuerfenster den EDT der Stelle wo es geöffnet wurde bis es wieder geschlossen wurde.
+
+\vspace{10pt}
+
+Dieses Fenster ist aus Sicherheitsgründen nur dann aufrufbar, wenn der Maschinenzustand auf Aus ist. Der Grund dafür ist, dass es zu Fehlern kommen kann, wenn während einer Fütterung ein Motor ein oder aus geschalten wird.
+\\ Weiters wird der Benutzer bevor er dieses Steuerfenster öffnet darüber infomiert, dass er nun direkt die Motoren steurt. Zusätlich wird der Benutzer gefragt ob er die Steuerung wirklick öffnen will.
+\\ Der Benutzer kann nun beide Motoren unabhäging voneinander steuern. Er kann die Motoren in und gegen den Uhrzeigersinn drehen. Dazu muss er den Knopf mit der jeweiligen Drehrichtung im Steuerungsfenster klicken. Die Motoren sind mit dem jeweiligen Stop-Knopf wieder stopbar.
+\\ Falls die Motoren vom Benutzer vor dem Schließen des Fensters nicht gestoppt werden, werden diese automatisch vom Programm gestopt. Dies dient dazu, dass sichergestellt ist, dass die Motoren immer gestopt werden.
+\\ Die Methode zum Schließen des Fensters, welche auch die Motoren stopt, sieht wie folgt aus:
+\begin{lstlisting}[style=JavaStyle, caption=Motoren stoppen und Fenster schließen]
+	private void onSchließen(java.awt.event.ActionEvent evt)                                
+    	{                                 
+       		// stop engines when closing the conrtol dialog - security measurement
+        	pi4j_instance.stopEngine1();
+        	pi4j_instance.stopEngine2();
+        
+        	dispose();
+    	} 
+\end{lstlisting}
+
+\vspace{10pt}
+
+Neben dem Bereich für die Steuerung befindet sich noch ein Bereich in dem die Echtzeit-Zustände aller Motoren und Sensoren angezeigt werden. So kann der Benutzer ohne in die Anlage zu sehen feststellen, ob sich ein Motor dreht oder ein Sensor betätigt ist.
+
+\vspace{10pt}
+
+Die Motoren werden gesteuert, indem beim Drücken eines Knopfes, eine Methode aus dem \textbf{pi4j Singleton} (Kaptiel \ref{subsec:pi4j}) aufgerufen wird. Aus dieser Klasse ausgehend werden die Output-Pins und in weiterer Folge die Motoren gesteuert.
+\\ Wenn ein Knopf gedrückt wird, wird die jeweilige zum Knopf gehörente Methode aufgerufen. Dies kann wie folt aussehen:
+\begin{lstlisting}[style=JavaStyle, caption=Motoren drehen] 
+	private void onMoveEngine1Counterclockwise(java.awt.event.ActionEvent evt)                                               
+    	{                                                   
+        	pi4j_instance.moveEngine1Counterclockwise();
+    	}  
+\end{lstlisting}
+
+\vspace{10pt}
+
+Um die aktuellen Positionen der Motoren und Zustände der Sensoren zu ermitteln und ausgeben wird ein SwingWorker verwendet. Dies ist unter Kapitel \ref{subsubsec:Positionsinformation} genauer beschrieben
 
 \newpage
 
-\subsubsection{Positionsinformation}
+\subsubsection{Positionsinformation} \label{subsubsec:Positionsinformation}
 \begin{wrapfigure}{l}{0.3\textwidth}
 \vspace{-20pt}
   \begin{center}

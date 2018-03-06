@@ -42,6 +42,8 @@
 \contentsline {lstlisting}{\numberline {2.39}Textfeld Event}{30}{lstlisting.2.39}
 \contentsline {lstlisting}{\numberline {2.40}Benutzerdokument}{30}{lstlisting.2.40}
 \contentsline {lstlisting}{\numberline {2.41}Benutzerdokument Getter-Methode}{31}{lstlisting.2.41}
+\contentsline {lstlisting}{\numberline {2.42}Motoren stoppen und Fenster schlie\IeC {\ss }en}{32}{lstlisting.2.42}
+\contentsline {lstlisting}{\numberline {2.43}Motoren drehen}{32}{lstlisting.2.43}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

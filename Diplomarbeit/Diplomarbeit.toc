@@ -1,4 +1,4 @@
-\select@language {ngerman}
+\babel@toc {ngerman}{}
 \contentsline {chapter}{\numberline {1}Webserver und Client}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Begriffserkl\IeC {\"a}rungen}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Server}{1}{subsection.1.1.1}
@@ -72,7 +72,7 @@
 \contentsline {subsubsection}{\numberline {2.3.6.2}MainWindow}{23}{subsubsection.2.3.6.2}
 \contentsline {subsubsection}{\numberline {2.3.6.3}TimeManagement}{26}{subsubsection.2.3.6.3}
 \contentsline {subsubsection}{\numberline {2.3.6.4}CreateUser}{29}{subsubsection.2.3.6.4}
-\contentsline {subsubsection}{\numberline {2.3.6.5}ManualControl}{32}{subsubsection.2.3.6.5}
+\contentsline {subsubsection}{\numberline {2.3.6.5}ManualControl}{31}{subsubsection.2.3.6.5}
 \contentsline {subsubsection}{\numberline {2.3.6.6}Positionsinformation}{33}{subsubsection.2.3.6.6}
 \contentsline {subsubsection}{\numberline {2.3.6.7}SystemInfo}{34}{subsubsection.2.3.6.7}
 \contentsline {subsubsection}{\numberline {2.3.6.8}Update}{35}{subsubsection.2.3.6.8}
