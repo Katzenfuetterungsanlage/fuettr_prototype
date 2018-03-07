@@ -938,14 +938,40 @@ Wenn das Fenster aufgerufen wird, hat es das Aussehen aus der Abbildung \ref{Upd
 
 \vspace{10pt}
 
-2 Stufen:
-	Auf updated prüfen (versionsnummer wird verglichen)
-	Wenn verhanden dann update starten möglich
+Beim Überprüfen auf Updates wird die lokale Versionsnummer am Raspberry und die Versionsnummer am Repository überprüft. Wenn die Versionen nicht übereinstimmen ist ein Update verfügbar. Obwohl die Versionsnummer immer chronologisch nach oben gezählt wird, wird auch ein Update gemacht wenn die Versionsnummer niedriger wird. Der Grund dafür ist, wenn eine Version einmal einen schwerwiegenden Fehler beinhaltet, ist es ohne Probleme möglich auf die voherige Version zurück zu gehen. 
 
-Die Updates werden mit git pull geholt
+\vspace{10pt}
 
-nach update wird der raspberry neu gestartet
+Die Daten für das Update werden von einem Git-Repository herunter geladen. Dies wird mit einem \textbf{git pull} Befehlt gemacht. Anschließend wird am Raspberry eine Datei bearbeitet, welche dem Raspberry beim Startet mitteilt, dass die Programme neu zu bauen sind. Nach jedem Update wird das Raspberry automatisch neu gestartet.
 
+\vspace{10pt}
+
+Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Funktion aufgerufen:
+\begin{lstlisting}[style=JavaStyle, caption= Update]
+    private void onUpdate(java.awt.event.ActionEvent evt)                          
+    {                              
+        try
+        {
+            Process process = Runtime.getRuntime().exec("git pull");
+            process.waitFor();
+            
+            write("/home/pi/updatefile/build.txt");
+            
+            pTextUpdateErfolgreich.setVisible(true);
+            
+            Runtime.getRuntime().exec("sudo reboot");
+        }
+        catch (IOException ex)
+        {
+            Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (InterruptedException ex)
+        {
+            Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, 
+            "WaitFor ist interrupted");
+        }        
+    }
+\end{lstlisting}
 
 
 \newpage

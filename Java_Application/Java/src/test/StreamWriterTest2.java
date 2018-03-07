@@ -15,7 +15,7 @@ public class StreamWriterTest2
 {
     public static void main(String[] args)
     {
-        String pfad = "D:\\\\Schule\\\\Diplomarbeit\\\\Git\\\\fuettr_prototype\\\\Java_Application\\\\Java\\\\src\\\\data\\\\test.txt"; 
+        String pfad = "test.txt"; 
         String string, zeit1 = "zeit1", zeit2 = "zeit2", zeit3 = "zeit3", zeit4 = "zeit4";
         
         int zahl = 100000;

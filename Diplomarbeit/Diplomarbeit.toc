@@ -76,12 +76,12 @@
 \contentsline {subsubsection}{\numberline {2.3.6.6}Positionsinformation}{33}{subsubsection.2.3.6.6}
 \contentsline {subsubsection}{\numberline {2.3.6.7}SystemInfo}{35}{subsubsection.2.3.6.7}
 \contentsline {subsubsection}{\numberline {2.3.6.8}Update}{36}{subsubsection.2.3.6.8}
-\contentsline {section}{\numberline {2.4}Zusammenfassung/Verbesserungsm\IeC {\"o}glichkeiten}{37}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Probleme mit Mongodb am Raspberry}{37}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}{37}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}GUI auf "Touchscreen-Design" ab\IeC {\"a}ndern}{37}{subsection.2.4.3}
-\contentsline {subsection}{\numberline {2.4.4}Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{37}{subsection.2.4.4}
-\contentsline {subsection}{\numberline {2.4.5}Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{37}{subsection.2.4.5}
+\contentsline {section}{\numberline {2.4}Zusammenfassung/Verbesserungsm\IeC {\"o}glichkeiten}{38}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Probleme mit Mongodb am Raspberry}{38}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}{38}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}GUI auf "Touchscreen-Design" ab\IeC {\"a}ndern}{38}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Besser Benutzerverwaltung - Mehrere Benutzer anlegen}{38}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.5}Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}{38}{subsection.2.4.5}
 \contentsline {chapter}{\numberline {3}Mechanik}{39}{chapter.3}
 \contentsline {section}{\numberline {3.1}Einleitung}{39}{section.3.1}
 \contentsline {section}{\numberline {3.2}Aufgabenstellung und Zielsetzung}{39}{section.3.2}
