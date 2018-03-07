@@ -72,9 +72,9 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, fals welche auftreten sollten, angezeigt. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet.
+Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, fals welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet.
 
-\begin{lstlisting}[style=HtmlStyle,caption=Errors and Warnings in einem *Ngfor]
+\begin{lstlisting}[style=HtmlStyle,caption=Errors and Warnings in einem *ngFor]
 <ul style="list-style-type: none; margin-left: -40px;">
 	<li *ngFor="let warning_message of ErrorsAndWarnings.Warnings">
     	<div class="alert alert-warning alert-dismissable fade show" [hidden]="warning_message.hidden">
@@ -104,6 +104,8 @@ Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. 
   \label{Fütterungszeiten}
   \vspace{-10pt}
 \end{wrapfigure}
+
+Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten, außerdem
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-30pt}
