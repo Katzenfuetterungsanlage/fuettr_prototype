@@ -1,5 +1,5 @@
 \addvspace {10\p@ }
-\contentsline {lstlisting}{\numberline {1.1}Errors and Warnings in einem *Ngfor}{3}{lstlisting.1.1}
+\contentsline {lstlisting}{\numberline {1.1}*ngFor Beispiel}{3}{lstlisting.1.1}
 \addvspace {10\p@ }
 \contentsline {lstlisting}{\numberline {2.1}Mit Mongodb verbinden}{11}{lstlisting.2.1}
 \contentsline {lstlisting}{\numberline {2.2}Collection ausw\IeC {\"a}hlen}{11}{lstlisting.2.2}
@@ -46,6 +46,7 @@
 \contentsline {lstlisting}{\numberline {2.43}Motoren drehen}{32}{lstlisting.2.43}
 \contentsline {lstlisting}{\numberline {2.44}Label aktualisieren}{33}{lstlisting.2.44}
 \contentsline {lstlisting}{\numberline {2.45}Motor- und Sensorzust\IeC {\"a}nde}{34}{lstlisting.2.45}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

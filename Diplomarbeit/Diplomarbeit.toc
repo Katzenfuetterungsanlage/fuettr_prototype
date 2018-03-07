@@ -1,4 +1,4 @@
-\babel@toc {ngerman}{}
+\select@language {ngerman}
 \contentsline {chapter}{\numberline {1}Webserver und Client}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Begriffserkl\IeC {\"a}rungen}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Server}{1}{subsection.1.1.1}
@@ -11,20 +11,20 @@
 \contentsline {subsection}{\numberline {1.3.2}Node.js}{2}{subsection.1.3.2}
 \contentsline {subsection}{\numberline {1.3.3}Angular 2/4}{2}{subsection.1.3.3}
 \contentsline {subsubsection}{\numberline {1.3.3.1}Modules}{2}{subsubsection.1.3.3.1}
-\contentsline {subsubsection}{\numberline {1.3.3.2}Components}{2}{subsubsection.1.3.3.2}
-\contentsline {subsubsection}{\numberline {1.3.3.3}Templates}{2}{subsubsection.1.3.3.3}
-\contentsline {subsubsection}{\numberline {1.3.3.4}Data binding}{2}{subsubsection.1.3.3.4}
-\contentsline {subsubsection}{\numberline {1.3.3.5}Services}{2}{subsubsection.1.3.3.5}
-\contentsline {subsection}{\numberline {1.3.4}Bootstrap}{2}{subsection.1.3.4}
-\contentsline {section}{\numberline {1.4}Umsetzung}{3}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Client}{3}{subsection.1.4.1}
-\contentsline {subsubsection}{\numberline {1.4.1.1}Design}{3}{subsubsection.1.4.1.1}
-\contentsline {subsubsection}{\numberline {1.4.1.2}Funktion}{6}{subsubsection.1.4.1.2}
-\contentsline {subsection}{\numberline {1.4.2}Server}{6}{subsection.1.4.2}
-\contentsline {subsubsection}{\numberline {1.4.2.1}Funktion}{6}{subsubsection.1.4.2.1}
-\contentsline {subsubsection}{\numberline {1.4.2.2}Mongodb}{6}{subsubsection.1.4.2.2}
-\contentsline {subsubsection}{\numberline {1.4.2.3}Kommunikation mit dem Java Programm}{6}{subsubsection.1.4.2.3}
-\contentsline {section}{\numberline {1.5}Zusammenfassung und Verbesserungsm\IeC {\"o}glichkeiten}{6}{section.1.5}
+\contentsline {subsubsection}{\numberline {1.3.3.2}Components}{3}{subsubsection.1.3.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3.3}Templates}{3}{subsubsection.1.3.3.3}
+\contentsline {subsubsection}{\numberline {1.3.3.4}Data binding}{3}{subsubsection.1.3.3.4}
+\contentsline {subsubsection}{\numberline {1.3.3.5}Services}{3}{subsubsection.1.3.3.5}
+\contentsline {subsection}{\numberline {1.3.4}Bootstrap}{3}{subsection.1.3.4}
+\contentsline {section}{\numberline {1.4}Umsetzung}{4}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Client}{4}{subsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.1.1}Design}{4}{subsubsection.1.4.1.1}
+\contentsline {subsubsection}{\numberline {1.4.1.2}Funktion}{5}{subsubsection.1.4.1.2}
+\contentsline {subsection}{\numberline {1.4.2}Server}{5}{subsection.1.4.2}
+\contentsline {subsubsection}{\numberline {1.4.2.1}Funktion}{5}{subsubsection.1.4.2.1}
+\contentsline {subsubsection}{\numberline {1.4.2.2}Mongodb}{5}{subsubsection.1.4.2.2}
+\contentsline {subsubsection}{\numberline {1.4.2.3}Kommunikation mit dem Java Programm}{5}{subsubsection.1.4.2.3}
+\contentsline {section}{\numberline {1.5}Zusammenfassung und Verbesserungsm\IeC {\"o}glichkeiten}{5}{section.1.5}
 \contentsline {chapter}{\numberline {2}Java-Programm}{7}{chapter.2}
 \contentsline {section}{\numberline {2.1}Anforderungen}{7}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Programm}{7}{subsection.2.1.1}
@@ -145,4 +145,5 @@
 \contentsline {chapter}{\numberline {A}Abbildungsverzeichnis}{67}{appendix.A}
 \contentsline {chapter}{\numberline {B}Tabellenverzeichnis}{69}{appendix.B}
 \contentsline {chapter}{\numberline {C}Listings}{71}{appendix.C}
-\contentsline {chapter}{\numberline {D}Literaturverzeichnis}{73}{appendix.D}
+\contentsline {chapter}{\numberline {D}Abk\IeC {\"u}rzungsverzeichnis}{73}{appendix.D}
+\contentsline {chapter}{\numberline {E}Literaturverzeichnis}{75}{appendix.E}
