@@ -44,6 +44,8 @@
 \contentsline {lstlisting}{\numberline {2.41}Benutzerdokument Getter-Methode}{31}{lstlisting.2.41}
 \contentsline {lstlisting}{\numberline {2.42}Motoren stoppen und Fenster schlie\IeC {\ss }en}{32}{lstlisting.2.42}
 \contentsline {lstlisting}{\numberline {2.43}Motoren drehen}{32}{lstlisting.2.43}
+\contentsline {lstlisting}{\numberline {2.44}Label aktualisieren}{33}{lstlisting.2.44}
+\contentsline {lstlisting}{\numberline {2.45}Motor- und Sensorzust\IeC {\"a}nde}{34}{lstlisting.2.45}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

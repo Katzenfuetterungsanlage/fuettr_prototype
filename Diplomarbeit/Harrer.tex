@@ -698,7 +698,7 @@ public BasicDBObject getNewTimeDoc()
 Die Klasse \textbf{CreateUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Mit dem angelegten Benutzer ist es möglich sich auf der Webseite der Anlage anzumelden. Die GUI ist in Abbildung \ref{CreateUser} zu sehen.
 \\ Die GUI der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
 \\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein Neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch wird der Benutzer in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
-\\ \\ Während das Dialogfenster geöffnet ist blockiert der ETD Thread an der Stelle, an der das Dialogfenster geöffnet wurde.
+\\ \\ Während das Dialogfenster geöffnet ist blockiert der EDT an der Stelle, an der das Dialogfenster geöffnet wurde.
 
 \vspace{10pt}
 
@@ -782,7 +782,7 @@ In der Klasse \textbf{ManualControl} wird eine manuelle Steuerung für die Motor
 
 \vspace{10pt}
 
-Wie beim Dialogfenster blockiert das Steuerfenster den EDT der Stelle wo es geöffnet wurde bis es wieder geschlossen wurde.
+Wie beim Dialogfenster blockiert das Steuerfenster den EDT der Stelle wo es geöffnet wurde bis es wieder geschlossen wird.
 
 \vspace{10pt}
 
@@ -824,16 +824,85 @@ Um die aktuellen Positionen der Motoren und Zustände der Sensoren zu ermitteln 
 \newpage
 
 \subsubsection{Positionsinformation} \label{subsubsec:Positionsinformation}
-\begin{wrapfigure}{l}{0.3\textwidth}
+\begin{wrapfigure}{l}{0.25\textwidth}
 \vspace{-20pt}
   \begin{center}
-    \includegraphics[width=0.30\textwidth]{Bilder/GUI/Positionsinformation}
+    \includegraphics[width=0.25\textwidth]{Bilder/GUI/Positionsinformation}
   \end{center}
   \caption{Positionsinformation}
   \label{Positionsinformation}
   \vspace{-10pt}
 \end{wrapfigure}
-text
+In der Klasse \textbf{Postionsinformation} wir dem Benutzer eine Übersicht über die Zustände der Motoren und Sensoren geboten. So kann er ohne direkt in die Anlage zu sehen festelleben, ob sich ein Motor dreht oder ein Sensor betätigt ist.
+\\ Die GUI ist in Abbildung \ref{Positionsinformation} zu sehen.
+\\ Die GUI der Klasse ist ein Informationsfenster. Da dieses Fenster kein Dialogfenster ist, werden \textbf{Ok} und \textbf{Abbrechen} nicht benötigt. Aus diesem Grund reicht ein Knopf \textbf{Schließen} aus.
+
+\vspace{10pt}
+
+Wie beim Dialogfenster blockiert das Informationsfenster den EDT an der Stelle wo es geöffnet wurde bis es wieder geschlossen wird.
+
+\vspace{10pt}
+
+Dieses Fenster ist, im Gegensatz zu \textbf{ManualControl}, auch aufrufbar, wenn die Fütterung aktiviert, also der Maschinenzustand auf \textbf{Ein}, ist.
+\\ Bei der Anzeige für Drehrichtung der Motoren und die Zustände der Sensoren kann folgendes angezeigt werden:
+\begin{itemize}
+\item[1] Motoren
+  \begin{itemize}
+    \item[•] Motor steht still
+    \item[•] Motor dreht links
+    \item[•] Motor dreht rechts
+  \end{itemize}
+\item[2] Sensoren
+  \begin{itemize}
+    \item[•] Unbetätigt 
+    \item[•] Betätigt 
+  \end{itemize}
+\end{itemize}
+
+\vspace{10pt}
+
+Die Drehrichtungen und die Zustände werden mithilfe des \textbf{pi4j Singleton} (Kapitel \ref{subsec:pi4j}) erfasst. In dieser Klasse sind Methoden implementiert, die diese Messungen durchführen können.
+\\ Um dies annähernd echtzeitfähig zu realisieren wird ein SwingWorker verwendet. Im \textbf{doInBackground()} dieses SwingWorkers werden in einer Dauerschleife die Zuständer der Motoren und Sensoren abgefraft. Diese Zustände werden mit einem \textbf{publish()} an ein \textbf{process()} übergeben. Im \textbf{process()} werden die Zustände in die Label der GUI geschrieben.
+\\ Das \textbf{process()} sieht wie folgt aus:
+\begin{lstlisting}[style=JavaStyle, caption= Label aktualisieren]
+	@Override
+    protected void process(List<String[]> chunks)
+    {
+         String state[] = chunks.get((chunks.size() - 1));
+            
+         lbSensor1.setText(state[0]);
+         lbSensor2.setText(state[1]);
+         lbEngine1.setText(state[2]);
+         lbEngine2.setText(state[3]);
+    } 
+\end{lstlisting}
+Das \textbf{doInBackground()} ist wie folgt implementiert:
+\begin{lstlisting}[style=JavaStyle, caption= Motor- und Sensorzustände ]
+	@Override
+        protected Object doInBackground() throws Exception
+        {                        
+            while (!isCancelled())
+            {
+                strSensor1 = pi4j_instance.statusSensor1();
+                strSensor2 = pi4j_instance.statusSensor2();
+                strEngine1 = pi4j_instance.statusEngine1();
+                strEngine2 = pi4j_instance.statusEngine2();
+                
+                String state[] = null;
+                state[0] = strSensor1;
+                state[1] = strSensor2;
+                state[2] = strEngine1;
+                state[3] = strEngine2;
+                
+                publish(state);
+                
+                TimeUnit.MILLISECONDS.sleep(100);
+            } 
+            return 1;            
+        }
+
+\end{lstlisting}
+In diesem \textbf{doInBackground()} werder  alle 100 Millisekunden die Motordrehrichtungen und die Sensorzustände abgefragt.
 
 \newpage
 
@@ -855,9 +924,31 @@ bild fehlt weil server nicht gelaufen ist
   	\caption{Update verfügbar}
   	\label{Update2}
   \end{minipage}
-  \vspace{-10pt}
+  \vspace{0pt}
 \end{figure}
-text
+Mit der \textbf{Update} Klasse ist es dem Benutzer möglich die Software seiner Anlage aktuell zu halten. Die GUI der Klasse ist auch ein Steuerfenster. Deswegen werden kein \textbf{Ok} und \textbf{Abbrechen} benötigt und es kann ein Knopf \textbf{Schließen} verwendet werden.
+
+\vspace{10pt}
+
+Wie beim Dialogfenster blockiert das Steuerfenster den EDT an der Stelle wo es geöffnet wurde bis es wieder geschlossen wird.
+
+\vspace{10pt}
+
+Wenn das Fenster aufgerufen wird, hat es das Aussehen aus der Abbildung \ref{Update}. Nun kann der Benutzer das Fenster schließen oder den Knopf \textbf{Auf Updates überprüfen} drücken. Sofern ein Update gefunden wird, wird der Knopf \textbf{Update starten} aktiviert und das Label ändert sich von \textbf{-} auf \textbf{Verfügbar}. Also sieht das Fenster aus wie in Abbildung \ref{Update2}.
+
+\vspace{10pt}
+
+2 Stufen:
+	Auf updated prüfen (versionsnummer wird verglichen)
+	Wenn verhanden dann update starten möglich
+
+Die Updates werden mit git pull geholt
+
+nach update wird der raspberry neu gestartet
+
+
+
+\newpage
 
 \section{Zusammenfassung/Verbesserungsmöglichkeiten}
 \subsection{Probleme mit Mongodb am Raspberry}
