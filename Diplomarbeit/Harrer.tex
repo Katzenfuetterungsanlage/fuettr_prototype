@@ -916,7 +916,27 @@ In diesem \textbf{doInBackground()} werder  alle 100 Millisekunden die Motordreh
   \label{SystemInfo}
   \vspace{-10pt}
 \end{wrapfigure}   
-  text
+In der Klasse \textbf{SystemInfo} werden dem Benutzer wichtige Informationen über seine Anlage angezeigt. Das GUI Fenster ist ein Informationsfenster. Das Fenster blockiert den EDT, an der Stelle an der es geöffnet wird, bis es geschlossen wird.
+
+\vspace{10pt}
+
+seriennummer vom server holen
+
+\vspace{10pt}
+
+ip adresse von server holen
+
+\vspace{10pt}
+
+version von datenbank
+
+\vspace{10pt}
+
+interner rechner vorgegeben - datenbank
+
+\vspace{10pt}
+
+wlan status - datenbank
 
 \newpage
 
@@ -964,7 +984,8 @@ Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Funktio
             Process process = Runtime.getRuntime().exec("git pull");
             process.waitFor();
             
-            write("/home/"+System.getProperty("user.name")+"/git/fuettr/build");
+			write(String.format(
+			"/home/"+System.getProperty("user.name")+"/git/fuettr/build"));
             
             pTextUpdateErfolgreich.setVisible(true);
             
@@ -981,7 +1002,7 @@ Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Funktio
         }        
     }
 \end{lstlisting}
-Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des Raspberrys. Deswegen wird die Methode \textbf{System.getProperty("user.name")} verwendet, um den aktuellen Benutzernamen herauszufinden.
+Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des Raspberrys. Deswegen wird die Methode \textbf{System.getProperty(\grqq{}user.name")} verwendet, um den aktuellen Benutzernamen herauszufinden.
 
 \newpage
 
