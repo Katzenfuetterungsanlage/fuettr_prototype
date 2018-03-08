@@ -964,7 +964,7 @@ Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Funktio
             Process process = Runtime.getRuntime().exec("git pull");
             process.waitFor();
             
-            write("/home/pi/updatefile/build.txt");
+            write("/home/"+System.getProperty("user.name")+"/git/fuettr/build");
             
             pTextUpdateErfolgreich.setVisible(true);
             
@@ -981,7 +981,7 @@ Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Funktio
         }        
     }
 \end{lstlisting}
-
+Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des Raspberrys. Deswegen wird die Methode \textbf{System.getProperty("user.name")} verwendet, um den aktuellen Benutzernamen herauszufinden.
 
 \newpage
 
