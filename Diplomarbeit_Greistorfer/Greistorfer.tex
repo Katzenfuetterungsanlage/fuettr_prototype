@@ -7,7 +7,7 @@
 Ein Computer oder Programm, der oder das Zugriff auf eine Resource oder einen Dienst in einem Netzwerk ermöglicht
 
 \subsection{Client}
-Ein Computer oder Programm, der oder das auf einen Server Zugreift
+Ein Computer oder Programm, der oder das auf einen Server zugreift
 
 \section{Anforderungen}
 
@@ -24,17 +24,16 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 \item[•]Update
 \end{itemize}
 
-
-
 \section{Voruntersuchung}
 
 \subsection{Typescript}
 Typescript ist eine Weiterentwicklung der Sprache Javascript, die strenge Datentypen hat. Typescript muss von einem Transpiler (=Übersetzer) in Javascript übersetzt werden. Javascript kann direkt von jedem herkömmlichen Browser ausgeführt werden.
+
 \subsection{Node.js}
-Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. 
+Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mit kopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
 
 \subsection{Angular 2/4}
-Angular ist ein Typescript Framework, das aus dem Javascript-Framework AngularJS weiterentwickelt wurde. Es wird von Google entwickelt. Angular ist gegliedert in Komponenten. Die grobe Struktur wird in der Abbildung \ref{Angular Struktur} dargestellt.
+Angular ist ein Typescript Framework, das aus dem Javascript-Framework AngularJS weiterentwickelt wurde. Es wird von Google entwickelt. Angular ist gegliedert in Module. Die grobe Struktur wird in der Abbildung \ref{Angular Struktur} dargestellt.
 
 \begin{figure}[H]
       \includegraphics[width=1\textwidth]{Bilder/Greistorfer/Angular}
@@ -48,9 +47,11 @@ Jede Angular App ist in \textit{Module}s gegliedert. \textit{Module}s fassen mei
 \begin{itemize}
 \item[•]Components
 \item[•]Services
+\item[•]
 \end{itemize}
 
-Angular selbst besteht ebenfalls aus \textit{Module}s, den sogenannten Libraries. Der Name jedes \textit{Module}s beginnt mit \textit{@angular} z.B. \textit{@angular/core}.
+\subsubsection{Libraries}
+Eine Angular Library ist ein Modul, das \textit{decorator} und \textit{Modules} exportiert. Diese können von \textit{Components} und \textit{Modules} importiert werden. Der Name jeder Angular library beginnt mit \textit{@angular}. Angular libraries können mit dem \ac{npm} installiert werden.
 
 \subsubsection{Components}
 Ein \textit{Component} kontrolliert einen Teil des Bildschirms, den sogenannten \textit{view}. Die Logik des \textit{Component}s wird in einer Klasse definiert. Die Klasse interagiert mit dem \textit{view} durch eine \ac{API} von Eigenschaften und Methoden.
@@ -80,6 +81,31 @@ Stellt ein \ac{HTML} Element so oft dar, wie Elemente in einem Array vorhanden s
 
 \subsection{Bootstrap}
 Bootstrap 
+
+\subsection{express}
+
+\subsection{MongoDB}
+MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
+
+\begin{lstlisting}[caption=Verbinden mit dem \ac{DBS},style=TypescriptStyle]
+const dbServer = await mongodb.MongoClient.connect(url);
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Auswählen der Datenbank,style=TypescriptStyle]
+const dbFuettr = await dbServer.db('fuettr');
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Auswählen der Collection,style=TypescriptStyle]
+const collTimes = await dbFuettr.collection('data_times');
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Auslesen aller Datensätze mit einem Identifier,style=TypescriptStyle]
+const Times = await this._times.find({ identifier: 'Times' }).toArray();
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Überschreiben eines Datensatzes mit einem Identifier,style=TypescriptStyle]
+this._times.updateOne({ identifier: 'Times' }, { $set: times });
+\end{lstlisting}
 
 \section{Umsetzung}
 
