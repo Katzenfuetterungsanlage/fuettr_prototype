@@ -61,7 +61,7 @@ Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \
 
 \paragraph*{*ngFor} \mbox{} \\
 Stellt ein \ac{HTML} Element so oft dar, wie Elemente in einem Array vorhanden sind.
-\begin{lstlisting}[style=HtmlStyle,caption=*ngFor Beispiel]
+\begin{lstlisting}[style=HTML,caption=*ngFor Beispiel]
 <a *ngFor="let lang of languages" href="{{lang.href}}">{{lang.text}}</a>
 \end{lstlisting}
 
@@ -86,7 +86,37 @@ Bootstrap
 Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. Express ist ein Webserver. Das \textit{http} Modul kann bereits alles, das für einen Webserver nötigt ist. Express macht es allerdings leichter, diesen zu programmieren.
 
 \subsection{JSON}
-\ac{JSON} ist die Textrepresentation eines JavaScript Objekts. 
+\ac{JSON} ist die Textrepresentation eines JavaScript Objekts. Die möglichen Datentypen sind:
+
+\begin{itemize}
+\item[•] string: 0 oder mehrere unicode Zeichen innerhalb Doppelhochkommas
+\item[•] boolean: true oder false
+\item[•] number: Eine vorzeichenbehaftete Zahl, die auch die E Notation unterstützt z.B. 0.2E4 (=2000)
+\item[•] Array: Eine geordnete Liste von 0 oder mehreren Werten innerhalb viereckigen Klammern, Elemente sind getrennt durch Kommas.
+\item[•] Object: Eine ungeordnete Sammlung von Name-Wert-Paaren, wo die Namen, die auch Keys genannt werden, Strings sind; Jeder Key sollte eindeutig sein; Innerhalb geschwungener Klammern; Paare sind durch Komma getrennt
+\item[•] null: Ein leerer Wert
+\end{itemize}
+
+\begin{lstlisting}[style=JSON,caption=\ac{JSON} Beispiel]
+{
+	"Object": {	
+		"string": "name",
+		"number": 10E5,
+		"boolean": true,
+		"Array":
+			[
+				{
+					"string": "wert",
+					"number": 1
+				},
+				{
+					"string": "wert",
+					"number": 2
+				}
+			]
+	]
+}
+\end{lstlisting}
 
 \subsection{JSON Web Token}
 
@@ -94,23 +124,23 @@ Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \
 \subsection{MongoDB}
 MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
 
-\begin{lstlisting}[caption=Verbinden mit dem \ac{DBS},style=TypescriptStyle]
+\begin{lstlisting}[caption=Verbinden mit dem \ac{DBS},style=TS]
 const dbServer = await mongodb.MongoClient.connect(url);
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Auswählen der Datenbank,style=TypescriptStyle]
+\begin{lstlisting}[caption=Auswählen der Datenbank,style=TS]
 const dbFuettr = await dbServer.db('fuettr');
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Auswählen der Collection,style=TypescriptStyle]
+\begin{lstlisting}[caption=Auswählen der Collection,style=TS]
 const collTimes = await dbFuettr.collection('data_times');
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Auslesen aller Datensätze mit einem Identifier,style=TypescriptStyle]
+\begin{lstlisting}[caption=Auslesen aller Datensätze mit einem Identifier,style=TS]
 const Times = await this._times.find({ identifier: 'Times' }).toArray();
 \end{lstlisting}
 
-\begin{lstlisting}[caption=Überschreiben eines Datensatzes mit einem Identifier,style=TypescriptStyle]
+\begin{lstlisting}[caption=Überschreiben eines Datensatzes mit einem Identifier,style=TS]
 this._times.updateOne({ identifier: 'Times' }, { $set: times });
 \end{lstlisting}
 
