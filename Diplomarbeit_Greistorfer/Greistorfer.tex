@@ -83,6 +83,13 @@ Stellt ein \ac{HTML} Element so oft dar, wie Elemente in einem Array vorhanden s
 Bootstrap 
 
 \subsection{express}
+Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. Express ist ein Webserver. Das \textit{http} Modul kann bereits alles, das für einen Webserver nötigt ist. Express macht es allerdings leichter, diesen zu programmieren.
+
+\subsection{JSON}
+\ac{JSON} ist die Textrepresentation eines JavaScript Objekts. 
+
+\subsection{JSON Web Token}
+
 
 \subsection{MongoDB}
 MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:

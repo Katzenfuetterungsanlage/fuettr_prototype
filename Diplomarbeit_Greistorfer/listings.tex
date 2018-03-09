@@ -4,7 +4,15 @@
   frame=single,
   frameround=tttt,
   showstringspaces=false,
-  basicstyle=\footnotesize\ttfamily
+  basicstyle=\footnotesize\ttfamily,
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1	
 }
 
 \lstdefinelanguage{json}{
@@ -60,7 +68,14 @@
    breaklines=true,
    showtabs=false,
    captionpos=b,
-   literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+   literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1	
    {0}{{{\ProcessDigit{0}}}}1
    {1}{{{\ProcessDigit{1}}}}1
    {2}{{{\ProcessDigit{2}}}}1
@@ -345,7 +360,14 @@
     showstringspaces=false,
     extendedchars=true,
     breaklines=true,
-	literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {ß}{{\ss}}1,        
+	literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1	        
     }
 
 \newcommand\digitstyle{\color{lightgreen}}
