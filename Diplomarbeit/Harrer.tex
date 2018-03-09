@@ -914,29 +914,62 @@ In diesem \textbf{doInBackground()} werder  alle 100 Millisekunden die Motordreh
   \end{center}
   \caption{SystemInfo}
   \label{SystemInfo}
-  \vspace{-10pt}
-\end{wrapfigure}   
-In der Klasse \textbf{SystemInfo} werden dem Benutzer wichtige Informationen über seine Anlage angezeigt. Das GUI Fenster ist ein Informationsfenster. Das Fenster blockiert den EDT, an der Stelle an der es geöffnet wird, bis es geschlossen wird.
+  \vspace{-70pt}
+\end{wrapfigure}
+   
+In der Klasse \textbf{SystemInfo} werden dem Benutzer wichtige Informationen über seine Anlage angezeigt. Das GUI Fenster ist ein Informationsfenster. Das Fenster blockiert den EDT, an der Stelle an der es geöffnet wird, bis es geschlossen wird. Da dies nur ein Informationsfenster ist reicht ein Knopf \textbf{Schließen} für die Bedinung aus.
 
 \vspace{10pt}
 
-seriennummer vom server holen
+Die Seriennummer dient dazu eine Anlage eindeutig zu identifizieren. Die Seriennummer wird jeder Anlage durch einen Server gegeben. Dieser Server enthält einen Zähler, welcher nach jeder vergebenen Nummer \textbf{+1} nach oben zählt. Die Seriennummer wird snschließend in der Datenbank am Raspberry gepeichert. Das abfragen der Seriennummer aus der Datenbank erfolgt wie folgt:
+\vspace{40pt}
+\begin{lstlisting}[style=JavaStyle, caption=Abfragen der Seriennummer]
+	infoDoc = MainWindow.getInstance().getInfoDoc();
+	strInfo = JSON.serialize(infoDoc);
+
+	JsonReader jsonReader = Json.createReader(new StringReader(strInfo));
+	JsonObject obj = jsonReader.readObject();
+	jsonReader.close();
+        
+	serialnumberInt = obj.getInt("serialnumber");
+	serialnumber = String.format("%d", serialnumberInt);        
+\end{lstlisting}
+Bei diesem Code-Beispiel wird zu Beginn, die Collection in der die benötigten Informationen gespeichert sind, aus der Datenbank geladen. Anschließend werden die Daten in einen \textbf{String} und dann weiter in ein \textbf{JsonObject} umgewandelt. Danach kann die Seriennummer als \textbf{Integer-Zahl} aus dem \textbf{JsonObject} gelesen werden. Diese Zahl wird dann in einen \textbf{String} umgewandelt um in der GUI ausgegeben werden zu können.
 
 \vspace{10pt}
 
-ip adresse von server holen
+Der Name, des in der Anlage verbaute Rechners, wird ebenfalls aus der Datenbank eingelesen. Dies funktioniert wie im Beispiel mit der Seriennummer, nur mit dem Unterschied, dass der Name direkt als \textbf{String} aus dem \textbf{JsonObject} gelesen wird. 
 
 \vspace{10pt}
 
-version von datenbank
+Der WLAN-Status wird wie der Name des internen Rechners aus der Datenbank eingelesen. Der WLAN-Status wird in die Datenbank geschrieben, wenn sich der Raspberry mit einem WLAN verbindet. \textbf{(ref zu Greisls schriftlichen Teil sobald es geschrieben} wurde)
 
 \vspace{10pt}
 
-interner rechner vorgegeben - datenbank
+Die IP-Adresse der Anlage wird vom Web-Server geholt, welcher diese ermittelt. Die IP-Adresse wird wie folgt, im \textbf{MainWindow}, abgefragt:
+\begin{lstlisting}[style=JavaStyle, caption=Abfragen der IP-Adresse]
+	URL urlIp = new URL("http://localhost:17325/api/ip");
+	
+	URLConnection conIp = urlIp.openConnection();
+	
+	BufferedReader bReaderIp = new BufferedReader(
+	new InputStreamReader(conIp.getInputStream()));    
+	
+	final StringBuilder sbIp = new StringBuilder();
+	
+	while ((line = bReaderIp.readLine()) != null)
+    {
+        sbIp.append(line);
+    }
+            
+    ip = sbIp.toString();    
+\end{lstlisting}
+In diesem Code-Beispiel wird zuerst die URL, unter der der Server zu erreichen ist, festgelegt. Anschließend wird eine Verbingung mit der Server aufgebaut. Wenn die Verbindung besteht wird ein \textbf{BufferdReader} und ein \textbf{StringBuilder} erstellt. Der \textbf{BufferdReader} dient dazu, um die IP-Adresse vom Server zu lesen. Der \textbf{StringBuilder} wird benötigt um den String zusammenzufügen, wenn mehrere Zeilen eingelesen werden müssen. Zum Schluss wird mit \textbf{sbIp.toString()} der String erstellt welcher mit einer GETTER-Methode geworfen und in der Klasse \textbf{SystemInfo} gefangen wird.
 
 \vspace{10pt}
 
-wlan status - datenbank
+Die Version wir sowie die IP-Adresse von einem Server abgefragt. Das Abfragen wird nach dem gleichen Schema wie bei der IP-Adresse im \textbf{MainWindow} gemacht. Der erstellte String wird auch hier mit einer GETTER-Methode geworfen.
+
 
 \newpage
 
