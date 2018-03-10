@@ -26,14 +26,93 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 
 \section{Voruntersuchung}
 
-\subsection{Typescript}
-Typescript ist eine Weiterentwicklung der Sprache Javascript, die strenge Datentypen hat. Typescript muss von einem Transpiler (=Übersetzer) in Javascript übersetzt werden. Javascript kann direkt von jedem herkömmlichen Browser ausgeführt werden.
+\subsection{JavaScript}
+JavaScript ist die Sprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. Javascript ist eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vorallem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}.
 
 \subsection{Node.js}
 Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mit kopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
 
+\subsection{TypeScript}
+TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript. Das bedeutet, jeder gültige JavaScript Code ist auch ein gültiger TypeScript Code. TypeScript wird vom TypeScript Compiler in sauberes JavaScript übersetzt. TypeScript ist sehr gut für größere Anwendungen geeignet. Typescript hat strenge Datentypen, Klassen und Vererbung. Die Datentypen von TypeScript sind:
+
+\begin{itemize}
+\item[•] \textbf{String}: eine Unicode codierte Zeichenkette
+\item[•] \textbf{Number}: eine vorzeichenbehaftete Gleitkommazahl, kann auch hexadezimal, octal oder binär sein
+\item[•] \textbf{Boolean}: true oder false
+\item[•] \textbf{Array}: eine Liste von Elementen des gleichen Datentyps
+\item[•] \textbf{Tuple}: eine Liste von Elementen unterschiedlichen Datentyps deren Anzahl bekannt ist
+\item[•] \textbf{Enum}: eine Möglichkeit, numerischen Werten Namen zu geben
+\item[•] \textbf{Any}: Datentyp unbekannt, wird behandelt wie in JavaScript
+\item[•] \textbf{Void}: kein Datentyp, meist Rückgabewert bei Funktionen
+\item[•] \textbf{Null}: leerer Wert, kann allen anderen zugewiesen werden
+\item[•] \textbf{Undefined}: kein Wert, kann allen anderen zugewiesen werden
+\item[•] \textbf{Never}: wenn ein Wert niemals auftreten kann z.B. eine Funktion die immer einen Fehler produziert
+\end{itemize}
+
+\subsection{express}
+Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. In diesen Modulen ist bereits alles enthalten, dass benötigt wird, um einen Webserver zu programmieren. Express nimmt uns die meiste Arbeit ab und bietet viele weitere Möglichkeiten.
+
+\subsection{JSON}
+\ac{JSON} ist die Textrepresentation eines JavaScript Objekts. Die möglichen Datentypen sind:
+
+\begin{itemize}
+\item[•] \textbf{string}: 0 oder mehrere unicode Zeichen innerhalb Doppelhochkommas
+\item[•] \textbf{boolean}: true oder false
+\item[•] \textbf{number}: Eine vorzeichenbehaftete Zahl, die auch die E Notation unterstützt z.B. 0.2E4 (=2000)
+\item[•] \textbf{Array}: Eine geordnete Liste von 0 oder mehreren Werten innerhalb viereckigen Klammern, Elemente sind getrennt durch Kommas.
+\item[•] \textbf{Object}: Eine ungeordnete Sammlung von Name-Wert-Paaren, wo die Namen, die auch Keys genannt werden, Strings sind; Jeder Key sollte eindeutig sein; Innerhalb geschwungener Klammern; Paare sind durch Komma getrennt
+\item[•] \textbf{null}: Ein leerer Wert
+\end{itemize}
+
+\begin{lstlisting}[style=JSON,caption=\ac{JSON} Beispiel]
+{
+	"Object": {	
+		"string": "name",
+		"number": 10E5,
+		"boolean": true,
+		"Array": [
+			{
+				"string": "wert",
+				"number": 1
+			},
+			{
+				"string": "wert",
+				"number": 2
+			}
+		]
+	}
+}
+\end{lstlisting}
+
+\subsection{JSON Web Token}
+Ein \ac{JWT}
+
+
+\subsection{MongoDB}
+MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
+
+\begin{lstlisting}[caption=Verbinden mit dem \ac{DBS},style=TS]
+const dbServer = await mongodb.MongoClient.connect(url);
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Auswählen der Datenbank,style=TS]
+const dbFuettr = await dbServer.db('fuettr');
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Auswählen der Collection,style=TS]
+const collTimes = await dbFuettr.collection('data_times');
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Auslesen aller Datensätze mit einem Identifier,style=TS]
+const Times = await this._times.find({ identifier: 'Times' }).toArray();
+\end{lstlisting}
+
+\begin{lstlisting}[caption=Überschreiben eines Datensatzes mit einem Identifier,style=TS]
+this._times.updateOne({ identifier: 'Times' }, { $set: times });
+\end{lstlisting}
+
 \subsection{Angular 2/4}
-Angular ist ein Typescript Framework, das aus dem Javascript-Framework AngularJS weiterentwickelt wurde. Es wird von Google entwickelt. Angular ist gegliedert in Module. Die grobe Struktur wird in der Abbildung \ref{Angular Struktur} dargestellt.
+Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS weiterentwickelt wurde. Es wird von Google entwickelt. Angular ist gegliedert in Module. Die grobe Struktur wird in der Abbildung \ref{Angular Struktur} dargestellt.
 
 \begin{figure}[H]
       \includegraphics[width=1\textwidth]{Bilder/Greistorfer/Angular}
@@ -82,69 +161,31 @@ Stellt ein \ac{HTML} Element so oft dar, wie Elemente in einem Array vorhanden s
 \subsection{Bootstrap}
 Bootstrap 
 
-\subsection{express}
-Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. Express ist ein Webserver. Das \textit{http} Modul kann bereits alles, das für einen Webserver nötigt ist. Express macht es allerdings leichter, diesen zu programmieren.
-
-\subsection{JSON}
-\ac{JSON} ist die Textrepresentation eines JavaScript Objekts. Die möglichen Datentypen sind:
-
-\begin{itemize}
-\item[•] string: 0 oder mehrere unicode Zeichen innerhalb Doppelhochkommas
-\item[•] boolean: true oder false
-\item[•] number: Eine vorzeichenbehaftete Zahl, die auch die E Notation unterstützt z.B. 0.2E4 (=2000)
-\item[•] Array: Eine geordnete Liste von 0 oder mehreren Werten innerhalb viereckigen Klammern, Elemente sind getrennt durch Kommas.
-\item[•] Object: Eine ungeordnete Sammlung von Name-Wert-Paaren, wo die Namen, die auch Keys genannt werden, Strings sind; Jeder Key sollte eindeutig sein; Innerhalb geschwungener Klammern; Paare sind durch Komma getrennt
-\item[•] null: Ein leerer Wert
-\end{itemize}
-
-\begin{lstlisting}[style=JSON,caption=\ac{JSON} Beispiel]
-{
-	"Object": {	
-		"string": "name",
-		"number": 10E5,
-		"boolean": true,
-		"Array":
-			[
-				{
-					"string": "wert",
-					"number": 1
-				},
-				{
-					"string": "wert",
-					"number": 2
-				}
-			]
-	]
-}
-\end{lstlisting}
-
-\subsection{JSON Web Token}
-
-
-\subsection{MongoDB}
-MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
-
-\begin{lstlisting}[caption=Verbinden mit dem \ac{DBS},style=TS]
-const dbServer = await mongodb.MongoClient.connect(url);
-\end{lstlisting}
-
-\begin{lstlisting}[caption=Auswählen der Datenbank,style=TS]
-const dbFuettr = await dbServer.db('fuettr');
-\end{lstlisting}
-
-\begin{lstlisting}[caption=Auswählen der Collection,style=TS]
-const collTimes = await dbFuettr.collection('data_times');
-\end{lstlisting}
-
-\begin{lstlisting}[caption=Auslesen aller Datensätze mit einem Identifier,style=TS]
-const Times = await this._times.find({ identifier: 'Times' }).toArray();
-\end{lstlisting}
-
-\begin{lstlisting}[caption=Überschreiben eines Datensatzes mit einem Identifier,style=TS]
-this._times.updateOne({ identifier: 'Times' }, { $set: times });
-\end{lstlisting}
-
 \section{Umsetzung}
+
+\subsection{Projektstruktur}
+\dirtree{%
+.1 Webserver.
+.2 server.
+.3 dist.
+.3 keys.
+.3 node\_modules.
+.3 public.
+.3 src.
+.4 views.
+.2 ngx.
+.3 dist.
+.3 e2e.
+.3 node\_modules.
+.3 src.
+.4 app.
+.5 components.
+.5 services.
+.4 assets.
+.4 environments.
+.4 i18n.
+}
+
 
 \subsection{Client}
 
