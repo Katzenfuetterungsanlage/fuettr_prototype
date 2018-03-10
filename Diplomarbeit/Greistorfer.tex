@@ -27,7 +27,7 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 \section{Voruntersuchung}
 
 \subsection{HTTP/HTTPS}
-
+Das \ac{HTTP} 
 
 \subsection{JavaScript}
 JavaScript ist die Sprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vorallem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}.
@@ -51,6 +51,8 @@ TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript
 \item[•] \textbf{Undefined}: kein Wert, kann allen anderen zugewiesen werden
 \item[•] \textbf{Never}: wenn ein Wert niemals auftreten kann z.B. eine Funktion die immer einen Fehler produziert
 \end{itemize}
+
+Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie sogenannte Type Annotations. Diese können bei den meisten bekannteren Modulen über den \ac{npm} installiert werden. Diese Pakete haben den Namenspräfix \textit{@types/}, das bedeutet, dass zum Beispiel die Type Annotations des Express Moduls über \inlinecode{bash}{npm install --save-dev @types/express} installiert werden können. Sollten keine Type Annotations für ein Modul vorhanden sein, muss man diese selbst erstellen.
 
 \subsection{express}
 Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. In diesen Modulen ist bereits alles enthalten, dass benötigt wird, um einen Webserver zu programmieren. Express nimmt uns die meiste Arbeit ab und bietet viele weitere Möglichkeiten.
