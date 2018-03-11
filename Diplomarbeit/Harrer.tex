@@ -1039,21 +1039,27 @@ Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des
 
 \newpage
 
-\section{Zusammenfassung/Verbesserungsmöglichkeiten}
-\subsection{Probleme mit Mongodb am Raspberry}
-neueste version nicht untersützt
-\\ ältere version verwendet 2.14.2
-\subsection{Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}
-snpashot wird verwendet
-sonst werden pins nicht gefunden
-\\ eventuell überprüfen ob die beta verwendet werden kann
-\subsection{GUI auf "Touchscreen-Design" abändern}
-jetzige gui nicht optimal für touch
-\\ abändern für leichtere Bedienung
-\subsection{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}
-möglichkeit implementieren mehr als einen benutzer anzulegen
-\\ benutzer wird mit profil auf einem server gespeichert
-\\ auf mehreren anlagen verwendbar
-\subsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
-profil mit zeiten erstellbar
-\\ zb auf neuer anlage verwendbar wenn der gleiche benutzer verwendet wird
+\section{Zusammenfassung - Verbesserungsmöglichkeiten - Probleme}
+
+\subsection{Probleme}
+\subsubsection{Problem mit Mongodb am Raspberry}
+Mit Mongodb gab es ein Problem am Raspberry. Die neueren Versionen werden nämlich nicht unterstützt. Aus diesem Grund musste auf die älteste erhältliche Version 2.14.2 zurückgegriffen werden.
+\\ Es gibt auch Möglichkeiten die neuen Versionen am Raspberry verwenden zu können. Diese Lösungen sind im Rahmen einer Diplomarbeit zu zeitintensiv.
+\\ Wenn das Projekt weiter geführt werden sollte, sollte überprüft werden, ob die neueste Version von Mongodb mit dem Raspberry kompatibel ist.
+\subsubsection{Probleme mit pi4j}
+Mit der pi4j Version 1.1 ist das Problem aufgetreten, dass am Raspberry Pi 3 die IO-Pins nicht gefunden wurden. Um sicherzugehen, dass der Fehler nicht im Programm liegt wurde das Code-Beispiel von pi4j verwendet. Auch beim Testen mit diesem Code trat der Error, dass die IO-Pins nicht gefunden werden können, auf.
+\\ Dieses Problem wurde mit dem verwenden von der pi4j Version 1.2 Snapshot gelöst. Mit der Snapshotversion werden nun alle Pins gefunden
+\\ Wenn dieses Projekt weiter fortgeführt wird, sollte überprüft werden, ob von der Snapshotversion auf eine Betaversion gewechselt werden kann.
+
+\subsection{Verbesserungsmöglichkeiten}
+\subsubsection{GUI auf "Touchscreen-Design\grqq{} abändern}
+Die GUI, die momentan bei der Anlage in Verwendung ist, ist nicht optimal um über einen Touchscreen-Display bedient zu werden.
+\\ Dabei sollte vor allem die Navigation überarbeitet werden: 
+\\Für die Navigation sollte keine Menüleiste verwendet werden. Es wäre besser, wenn Pfeile verwendet werden, um zwischen den Fenstern zu wechseln. Eine andere Möglichkeit wäre, wenn die Fenster über eigene Icons im Hauptfenster aufrufbar wären.
+\subsubsection{Bessere Benutzerverwaltung - Mehrere Benutzer anlegen}
+Es könnte eine Möglichkeit geschaffen werden, mehrere Benutzer anzulegen. Dadurch wäre es möglich, Benutzer zu speichern, obwohl momentan ein anderer Benutzer eingeloggt ist. Dazu muss die GUI zum verwalten der Benutzer auch abgeändert werden. Zuerst muss unterschieden werden, ob ein Benutzer angelegt werden soll oder ob man sich mit einem Benutzer auf der Anlage anmelden will. Weiters könnte noch eine Übersicht über alle, an der Anlage angelegten Benutzer, hinzugefügt werden.
+\subsubsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
+Die Bedienung könnte dem Benutzer erleichtert werden, wenn er bereits bestehende oder selbst erstellte Vorlagen verwenden könnte. In diesen Vorlagen könnten die Fütterungszeiten und ob diese aktiv sind gespeichert werden. Diese Profile werden zusammen mit dem Benutzernamen auf einem Server abgespeichert. Daraus folgt, dass dem Benutzer, wenn er die Anlage wechselt und er sich erneut anmeldet, wieder alle Vorlagen zur Verfügung stehen. Dann kann er eine Vorlage auswählen und muss nicht alle Zeiten manuell einstellen.
+
+\subsection{Zusammenfassung}
+Bei der Umsetzung hat es, abgesehen von den oben angeführten, keine weiteren Probleme gegeben. Der Zeitplan wurde nicht ganz eingehalten. Dabei wurden öfters die Reihenfolge der Arbeitschritte verändert. Terminlich gibt es keine große Verzögerung.
