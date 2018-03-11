@@ -27,7 +27,14 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 \section{Voruntersuchung}
 
 \subsection{HTTP/HTTPS}
-Das \ac{HTTP} 
+Das \ac{HTTP} ist der Kommunikationsstandart auf dem das Internet basiert. Eine HTTP Session wird über eine Anfrage über das \ac{TCP} an einen Server auf den Port 80 initiiert. Der Server, der auf diesem Port auf eine Anfrage wartet sendet eine Statusmeldung wie z.B. \inlinecode{bash}{HTTP/1.1 200 OK} und eine eigene Nachricht zurück. Diese Nachricht ist meist die angeforderte Resource oder eine Fehlermeldung. \ac{HTTPS} ist die Verschlüsselte Version von \ac{HTTP}. Die meist gebrauchten Anfragen sind:
+
+\begin{itemize}
+\item[•] \textbf{GET}:
+\item[•] \textbf{PUT}:
+\item[•] \textbf{POST}:
+\item[•] \textbf{DELETE}:
+\end{itemize}
 
 \subsection{JavaScript}
 JavaScript ist die Sprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vorallem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}.
@@ -143,28 +150,21 @@ Ein \textit{Component} kontrolliert einen Teil des Bildschirms, den sogenannten 
 \subsubsection{Templates}
 Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \textit{Template} ist eine \ac{HTML} Datei, mit Angular's Template Syntax. Das bedeutet, dass einige Zusatzbefehle vorkommen können. Beispiele hierfür sind:
 
-\paragraph*{*ngFor} \mbox{} \\
-Stellt ein \ac{HTML} Element so oft dar, wie Elemente in einem Array vorhanden sind.
-\begin{lstlisting}[style=HTML,caption=*ngFor Beispiel]
-<a *ngFor="let lang of languages" href="{{lang.href}}">{{lang.text}}</a>
-\end{lstlisting}
-
-\paragraph*{*ngIf} \mbox{} \\
-
-\paragraph*{\{\{variable\}\}} \mbox{} \\
-
-\paragraph*{(click)} \mbox{} \\
-
-\paragraph*{[variable]} \mbox{} \\
-
-\paragraph*{<app-route>} \mbox{} \\
+\begin{itemize}
+\item[•]*ngFor
+\item[•]*ngIf
+\item[•]\{\{variable\}\}
+\item[•](click)
+\item[•][variable]
+\item[•]<app-route>
+\end{itemize}
 
 \subsubsection{Data binding}
 
 \subsubsection{Services}
 
 \subsection{Bootstrap}
-Bootstrap 
+Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefertigte Komponenten auf unserer Website zu verwenden. An erster Stelle stehen bei Bootstrap responsive Design und Mobilgeräte. Responsive bedeutet, dass die Elemente sich an die breite des Bildschirms anpassen. Dadurch erspart man sich als nicht sehr designaffiner Programmierer viel Arbeit. Auf der offiziellen Bootstrap Website kann man außerdem verschiedene Themes auswählen. Bootstrap wurde von Twitter entwickelt und ist entweder über den \ac{npm} oder über Bootstraps eigenes \ac{CDN} erhältlich.
 
 \section{Umsetzung}
 
