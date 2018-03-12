@@ -409,7 +409,7 @@ Im Generic steht als erstes der Rückgabewert von \textbf{done()} und als zweite
 Im \ac{EDT} wird die GUI sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. 
 
 \subsubsection{TimeUnit}
-Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird ein \inlinecode{Java}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm, an der Stelle wo die Methode aufgerufen wird, für 500 Millisekunden. Dadurch wird der Prozessor nicht so stark ausgelastet. 
+Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird ein \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm, an der Stelle wo die Methode aufgerufen wird, für 500 Millisekunden. Dadurch wird der Prozessor nicht so stark ausgelastet. 
 
 \subsubsection{Methoden des SwingWorkers}
 \begin{itemize}

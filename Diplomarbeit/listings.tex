@@ -15,10 +15,31 @@
   {ö}{{\"o}}1	
 }
 
+\lstdefinestyle{bash}{
+	language=bash,
+ 	backgroundcolor=\color{editorGray},
+   	extendedchars=true,
+   	basicstyle=\footnotesize\ttfamily,
+   	framexleftmargin=8mm,
+  	numbers=left,
+  	numbersep=8pt,
+   	showstringspaces=false,
+   	showspaces=false,
+   	numbers=left,
+   	numberstyle=\footnotesize,
+   	numbersep=9pt,
+   	tabsize=2,
+   	breaklines=true,
+   	showtabs=false,
+   	captionpos=b,
+    }
+
 \lstdefinelanguage{json}{
     basicstyle=\footnotesize\ttfamily,
     showstringspaces=false,
     breaklines=true,
+    keywords={true, false},
+  	keywordstyle=\color{blue},
     frameround=tttt,
     backgroundcolor=\color{background},
     literate=
@@ -32,12 +53,15 @@
       {7}{{{\color{numb}7}}}{1}
       {8}{{{\color{numb}8}}}{1}
       {9}{{{\color{numb}9}}}{1}
+      {E}{{{\color{numb}E}}}{1}
       {:}{{{\color{punct}{:}}}}{1}
       {,}{{{\color{punct}{,}}}}{1}
       {\{}{{{\color{delim}{\{}}}}{1}
       {\}}{{{\color{delim}{\}}}}}{1}
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
+      morestring=[b]",
+      morestring=[d]'
 }
 
 \lstdefinestyle{JSON}{
@@ -68,6 +92,7 @@
       {7}{{{\color{numb}7}}}{1}
       {8}{{{\color{numb}8}}}{1}
       {9}{{{\color{numb}9}}}{1}
+      {E}{{{\color{numb}E}}}{1}
       {:}{{{\color{punct}{:}}}}{1}
       {,}{{{\color{punct}{,}}}}{1}
       {\{}{{{\color{delim}{\{}}}}{1}
@@ -429,4 +454,4 @@
 }
 \makeatother
 
-\newcommand{\inlinecode}[2]{\colorbox{editorGray}{\lstinline[language=#1]$#2$}}
+\newcommand{\inlinecode}[2]{\colorbox{editorGray}{\lstinline[style=#1]$#2$}}

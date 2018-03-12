@@ -97,8 +97,7 @@ Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \
 \end{lstlisting}
 
 \subsection{JSON Web Token}
-\ac{JWT} ist ein JSON-basierter, offener Standart für das erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client beide überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen. Dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorythmus z.B: \inlinecode{JSON}{\{"alg":"HS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user":"cat","iat":"1422778684"\} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature steht der key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur.
-
+\ac{JWT} ist ein JSON-basierter, offener Standart für das erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client beide überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen. Dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorythmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature steht der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
 
 \subsection{MongoDB}
 MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
@@ -136,9 +135,14 @@ Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS
 Jede Angular App ist in \textit{Module}s gegliedert. \textit{Module}s fassen meist ähnliche Funktionen zusammen. Jede App muss mindestens ein \textit{Module} enthalten. Dies heißt standartmäßig \textit{AppModule}. Ein \textit{Module} ist die größte Einheit einer Angular App.  Ein \textit{Module} kann folgende Komponenten beinhalten:
 
 \begin{itemize}
-\item[•]Components
 \item[•]Services
-\item[•]
+\item[•]Andere Module
+\item[•]View Classes
+\begin{itemize}
+\item[-]Components
+\item[-]Directives
+\item[-]Pipes
+\end{itemize}
 \end{itemize}
 
 \subsubsection{Libraries}
@@ -160,6 +164,17 @@ Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \
 \end{itemize}
 
 \subsubsection{Data binding}
+\begin{wrapfigure}{l}{0.5\textwidth}
+\vspace{-30pt}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{Bilder/Greistorfer/databinding}
+  \end{center}
+  \caption{Angular Databinding}
+  \label{Angular Databinding}
+  \vspace{-10pt}
+\end{wrapfigure}
+
+
 
 \subsubsection{Services}
 
