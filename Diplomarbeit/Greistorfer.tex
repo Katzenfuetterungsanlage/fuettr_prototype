@@ -4,10 +4,10 @@
 \section{Begriffserklärungen}
 
 \subsection{Server}
-Ein Computer oder Programm, der oder das Zugriff auf eine Resource oder einen Dienst in einem Netzwerk ermöglicht
+Ein Programm, der oder das Zugriff auf eine Resource oder einen Dienst in einem Netzwerk ermöglicht
 
 \subsection{Client}
-Ein Computer oder Programm, der oder das auf einen Server zugreift
+Ein Programm, der oder das auf einen Server zugreift
 
 \section{Anforderungen}
 
@@ -30,10 +30,10 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 Das \ac{HTTP} ist der Kommunikationsstandart auf dem das Internet basiert. Eine HTTP Session wird über eine Anfrage über das \ac{TCP} an einen Server auf den Port 80 initiiert. Der Server, der auf diesem Port auf eine Anfrage wartet sendet eine Statusmeldung wie z.B. \inlinecode{bash}{HTTP/1.1 200 OK} und eine eigene Nachricht zurück. Diese Nachricht ist meist die angeforderte Resource oder eine Fehlermeldung. \ac{HTTPS} ist die Verschlüsselte Version von \ac{HTTP}. Die meist gebrauchten Anfragen sind:
 
 \begin{itemize}
-\item[•] \textbf{GET}:
-\item[•] \textbf{PUT}:
-\item[•] \textbf{POST}:
-\item[•] \textbf{DELETE}:
+\item[•] \textbf{GET}: Fordert eine Representation der Resource an. Ein GET Request darf nur Daten abfragen und darf keinen anderen Einfluss haben.
+\item[•] \textbf{PUT}: Fordert das speicher der Daten, die sich im Request-Body befinden, an. Wenn bereits eine Resource an der angegebenen \ac{URI} existiert, so wird diese geupdatet, sonst wir die Resource erstellt.
+\item[•] \textbf{POST}: Fordert das speichern der Daten, die sich im Request-Body befinden, unter der angegebenen \ac{URI} an. 
+\item[•] \textbf{DELETE}: Fordert das Löschen der Resource unter der angegebenen \ac{URI} an.
 \end{itemize}
 
 \subsection{JavaScript}
@@ -97,7 +97,7 @@ Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \
 \end{lstlisting}
 
 \subsection{JSON Web Token}
-Ein \ac{JWT} 
+\ac{JWT} ist ein JSON-basierter, offener Standart für das erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client beide überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen. Dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorythmus z.B: \inlinecode{JSON}{\{"alg":"HS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user":"cat","iat":"1422778684"\} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature steht der key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur.
 
 
 \subsection{MongoDB}
