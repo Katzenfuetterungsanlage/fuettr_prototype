@@ -406,15 +406,15 @@ Der SwingWorker in Java wird benötigt, wenn eine Anwendung mehr Zeit benötigt.
 Im Generic steht als erstes der Rückgabewert von \textbf{done()} und als zweites der Rückgabewert von \textbf{process()}.
 
 \subsubsection{EDT}
-Im Event Dispatch Thread (EDT) wird die GUI sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. 
+Im \ac{EDT} wird die GUI sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. 
 
 \subsubsection{TimeUnit}
-Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird ein \textbf{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm, an der Stelle wo die Methode aufgerufen wird, für 500 Millisekunden. Dadurch wird der Prozessor nicht so stark ausgelastet. 
+Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird ein \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm, an der Stelle wo die Methode aufgerufen wird, für 500 Millisekunden. Dadurch wird der Prozessor nicht so stark ausgelastet. 
 
 \subsubsection{Methoden des SwingWorkers}
 \begin{itemize}
 \item[•] doInBackground()
-\\ Mit \textbf{doInBackground()} kann ein neuer Hintergrund-Thread geöffnet werden. Dieser Thread läuft parallel zum EDT. Der Hintergrund-Thread wird geschlossen, wenn der Worker beendet wird oder sich der Worker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf GUI-Elemente zugegriffen werden. 
+\\ Mit \textbf{doInBackground()} kann ein neuer Hintergrund-Thread geöffnet werden. Dieser Thread läuft parallel zum \ac{EDT}. Der Hintergrund-Thread wird geschlossen, wenn der Worker beendet wird oder sich der Worker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf GUI-Elemente zugegriffen werden. 
 \\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher nur durch das Beenden des Workers beendbar ist.
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker doInBackground() mit while Schleife]
 	    @Override
@@ -914,29 +914,62 @@ In diesem \textbf{doInBackground()} werder  alle 100 Millisekunden die Motordreh
   \end{center}
   \caption{SystemInfo}
   \label{SystemInfo}
-  \vspace{-10pt}
-\end{wrapfigure}   
-In der Klasse \textbf{SystemInfo} werden dem Benutzer wichtige Informationen über seine Anlage angezeigt. Das GUI Fenster ist ein Informationsfenster. Das Fenster blockiert den EDT, an der Stelle an der es geöffnet wird, bis es geschlossen wird.
+  \vspace{-70pt}
+\end{wrapfigure}
+   
+In der Klasse \textbf{SystemInfo} werden dem Benutzer wichtige Informationen über seine Anlage angezeigt. Das GUI Fenster ist ein Informationsfenster. Das Fenster blockiert den EDT, an der Stelle an der es geöffnet wird, bis es geschlossen wird. Da dies nur ein Informationsfenster ist reicht ein Knopf \textbf{Schließen} für die Bedinung aus.
 
 \vspace{10pt}
 
-seriennummer vom server holen
+Die Seriennummer dient dazu eine Anlage eindeutig zu identifizieren. Die Seriennummer wird jeder Anlage durch einen Server gegeben. Dieser Server enthält einen Zähler, welcher nach jeder vergebenen Nummer \textbf{+1} nach oben zählt. Die Seriennummer wird snschließend in der Datenbank am Raspberry gepeichert. Das abfragen der Seriennummer aus der Datenbank erfolgt wie folgt:
+\vspace{40pt}
+\begin{lstlisting}[style=JavaStyle, caption=Abfragen der Seriennummer]
+	infoDoc = MainWindow.getInstance().getInfoDoc();
+	strInfo = JSON.serialize(infoDoc);
+
+	JsonReader jsonReader = Json.createReader(new StringReader(strInfo));
+	JsonObject obj = jsonReader.readObject();
+	jsonReader.close();
+        
+	serialnumberInt = obj.getInt("serialnumber");
+	serialnumber = String.format("%d", serialnumberInt);        
+\end{lstlisting}
+Bei diesem Code-Beispiel wird zu Beginn, die Collection in der die benötigten Informationen gespeichert sind, aus der Datenbank geladen. Anschließend werden die Daten in einen \textbf{String} und dann weiter in ein \textbf{JsonObject} umgewandelt. Danach kann die Seriennummer als \textbf{Integer-Zahl} aus dem \textbf{JsonObject} gelesen werden. Diese Zahl wird dann in einen \textbf{String} umgewandelt um in der GUI ausgegeben werden zu können.
 
 \vspace{10pt}
 
-ip adresse von server holen
+Der Name, des in der Anlage verbaute Rechners, wird ebenfalls aus der Datenbank eingelesen. Dies funktioniert wie im Beispiel mit der Seriennummer, nur mit dem Unterschied, dass der Name direkt als \textbf{String} aus dem \textbf{JsonObject} gelesen wird. 
 
 \vspace{10pt}
 
-version von datenbank
+Der WLAN-Status wird wie der Name des internen Rechners aus der Datenbank eingelesen. Der WLAN-Status wird in die Datenbank geschrieben, wenn sich der Raspberry mit einem WLAN verbindet. \textbf{(ref zu Greisls schriftlichen Teil sobald es geschrieben} wurde)
 
 \vspace{10pt}
 
-interner rechner vorgegeben - datenbank
+Die IP-Adresse der Anlage wird vom Web-Server geholt, welcher diese ermittelt. Die IP-Adresse wird wie folgt, im \textbf{MainWindow}, abgefragt:
+\begin{lstlisting}[style=JavaStyle, caption=Abfragen der IP-Adresse]
+	URL urlIp = new URL("http://localhost:17325/api/ip");
+	
+	URLConnection conIp = urlIp.openConnection();
+	
+	BufferedReader bReaderIp = new BufferedReader(
+	new InputStreamReader(conIp.getInputStream()));    
+	
+	final StringBuilder sbIp = new StringBuilder();
+	
+	while ((line = bReaderIp.readLine()) != null)
+    {
+        sbIp.append(line);
+    }
+            
+    ip = sbIp.toString();    
+\end{lstlisting}
+In diesem Code-Beispiel wird zuerst die URL, unter der der Server zu erreichen ist, festgelegt. Anschließend wird eine Verbingung mit der Server aufgebaut. Wenn die Verbindung besteht wird ein \textbf{BufferdReader} und ein \textbf{StringBuilder} erstellt. Der \textbf{BufferdReader} dient dazu, um die IP-Adresse vom Server zu lesen. Der \textbf{StringBuilder} wird benötigt um den String zusammenzufügen, wenn mehrere Zeilen eingelesen werden müssen. Zum Schluss wird mit \textbf{sbIp.toString()} der String erstellt welcher mit einer GETTER-Methode geworfen und in der Klasse \textbf{SystemInfo} gefangen wird.
 
 \vspace{10pt}
 
-wlan status - datenbank
+Die Version wir sowie die IP-Adresse von einem Server abgefragt. Das Abfragen wird nach dem gleichen Schema wie bei der IP-Adresse im \textbf{MainWindow} gemacht. Der erstellte String wird auch hier mit einer GETTER-Methode geworfen.
+
 
 \newpage
 
@@ -1006,9 +1039,27 @@ Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des
 
 \newpage
 
-\section{Zusammenfassung/Verbesserungsmöglichkeiten}
-\subsection{Probleme mit Mongodb am Raspberry}
-\subsection{Probleme mit pi4j -> Snapshotversion verwendet - ansonsten werden pins nicht erkannt}
-\subsection{GUI auf "Touchscreen-Design" abändern}
-\subsection{Besser Benutzerverwaltung - Mehrere Benutzer anlegen}
-\subsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
+\section{Zusammenfassung - Verbesserungsmöglichkeiten - Probleme}
+
+\subsection{Probleme}
+\subsubsection{Problem mit Mongodb am Raspberry}
+Mit Mongodb gab es ein Problem am Raspberry. Die neueren Versionen werden nämlich nicht unterstützt. Aus diesem Grund musste auf die älteste erhältliche Version 2.14.2 zurückgegriffen werden.
+\\ Es gibt auch Möglichkeiten die neuen Versionen am Raspberry verwenden zu können. Diese Lösungen sind im Rahmen einer Diplomarbeit zu zeitintensiv.
+\\ Wenn das Projekt weiter geführt werden sollte, sollte überprüft werden, ob die neueste Version von Mongodb mit dem Raspberry kompatibel ist.
+\subsubsection{Probleme mit pi4j}
+Mit der pi4j Version 1.1 ist das Problem aufgetreten, dass am Raspberry Pi 3 die IO-Pins nicht gefunden wurden. Um sicherzugehen, dass der Fehler nicht im Programm liegt wurde das Code-Beispiel von pi4j verwendet. Auch beim Testen mit diesem Code trat der Error, dass die IO-Pins nicht gefunden werden können, auf.
+\\ Dieses Problem wurde mit dem verwenden von der pi4j Version 1.2 Snapshot gelöst. Mit der Snapshotversion werden nun alle Pins gefunden
+\\ Wenn dieses Projekt weiter fortgeführt wird, sollte überprüft werden, ob von der Snapshotversion auf eine Betaversion gewechselt werden kann.
+
+\subsection{Verbesserungsmöglichkeiten}
+\subsubsection{GUI auf "Touchscreen-Design\grqq{} abändern}
+Die GUI, die momentan bei der Anlage in Verwendung ist, ist nicht optimal um über einen Touchscreen-Display bedient zu werden.
+\\ Dabei sollte vor allem die Navigation überarbeitet werden: 
+\\Für die Navigation sollte keine Menüleiste verwendet werden. Es wäre besser, wenn Pfeile verwendet werden, um zwischen den Fenstern zu wechseln. Eine andere Möglichkeit wäre, wenn die Fenster über eigene Icons im Hauptfenster aufrufbar wären.
+\subsubsection{Bessere Benutzerverwaltung - Mehrere Benutzer anlegen}
+Es könnte eine Möglichkeit geschaffen werden, mehrere Benutzer anzulegen. Dadurch wäre es möglich, Benutzer zu speichern, obwohl momentan ein anderer Benutzer eingeloggt ist. Dazu muss die GUI zum verwalten der Benutzer auch abgeändert werden. Zuerst muss unterschieden werden, ob ein Benutzer angelegt werden soll oder ob man sich mit einem Benutzer auf der Anlage anmelden will. Weiters könnte noch eine Übersicht über alle, an der Anlage angelegten Benutzer, hinzugefügt werden.
+\subsubsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
+Die Bedienung könnte dem Benutzer erleichtert werden, wenn er bereits bestehende oder selbst erstellte Vorlagen verwenden könnte. In diesen Vorlagen könnten die Fütterungszeiten und ob diese aktiv sind gespeichert werden. Diese Profile werden zusammen mit dem Benutzernamen auf einem Server abgespeichert. Daraus folgt, dass dem Benutzer, wenn er die Anlage wechselt und er sich erneut anmeldet, wieder alle Vorlagen zur Verfügung stehen. Dann kann er eine Vorlage auswählen und muss nicht alle Zeiten manuell einstellen.
+
+\subsection{Zusammenfassung}
+Bei der Umsetzung hat es, abgesehen von den oben angeführten, keine weiteren Probleme gegeben. Der Zeitplan wurde nicht ganz eingehalten. Dabei wurden öfters die Reihenfolge der Arbeitschritte verändert. Terminlich gibt es keine große Verzögerung.
