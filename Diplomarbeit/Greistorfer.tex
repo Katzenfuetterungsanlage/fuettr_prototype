@@ -166,20 +166,32 @@ Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \
 \item[•]<app-route>
 \end{itemize}
 
-\subsubsection{Data binding}
+Die meisten Zusatzbefehle werden für \textit{Data Binding} verwendet. 
+
+\mbox{}
 \begin{wrapfigure}{l}{0.5\textwidth}
-\vspace{-30pt}
+\vspace{20pt}
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{Bilder/Greistorfer/databinding}
+    \includegraphics[width=0.4\textwidth]{Bilder/Greistorfer/databinding}
   \end{center}
   \caption{Angular Databinding}
   \label{Angular Databinding}
-  \vspace{-10pt}
+  \vspace{-40pt}
 \end{wrapfigure}
 
+\subsubsection{Data binding}
 
+Ohne Framework wäre der Programmierer dafür verantwortlich, sicherzustellen, dass Daten in \ac{HTML} Elemente geschrieben werden und dass auf Benutzerinteraktionen reagiert wird. Das ist aufwendig, Fehleranfällig und schwer zu lesen. Angulars Lösung dafür nennt sich \textit{data binding}. Der Programmierer muss nur mehr im \ac{HTML} Template Angular mitteilen, wie die beiden Seiten verbunden werden sollen. In der Abbilung \ref{Angular Databinding} sind die vier möglichen Arten von \textit{data binding} dargestellt. Jede Art hat eine Richtung, vom \ac{DOM} zum \ac{DOM} oder in beide Richtungen.
+
+\begin{itemize}
+\item[•] \inlinecode{Html}{<span>\{\{variable\}\}</span>} Der Wert der Variable in den Klammern wird anstelle des Klammerausdrucks dargestellt. Wenn sich der Wert ändert, ändert sich auch der Wert im \ac{DOM}
+\item[•] \inlinecode{Html}{<span [hidden]="hide"></span>} übergibt den Wert in der angegebenen Variable in das angegebene Attribut
+\item[•] \inlinecode{Html}{<span (click)="clicked(\$event)"></span>} ruft die angegebene Methode auf, wenn das angegebene Event auftritt.
+\item[•] \inlinecode{Html}{<input [(ngModel)]="variable">} der Wert im Eingabefeld und in der Variable sind voneinander abhängig, ändert sich der eine, so ändert sich der andere zum gleichen
+\end{itemize}
 
 \subsubsection{Services}
+Services sind Klassen, die eine Aufgabe erfüllen, unabängig von allem anderen. Sie werden vorallem verwendet, wenn eine Aufgabe etwas Zeit erfordert, wie z.B. eine Serveranfrage. Services müssen vom \textit{Dependency Injector} injeziert werden. Der \textit{Dependency Injector} indiziert alle Abhängigkeiten in eine \textit{Component}.
 
 \subsection{Bootstrap}
 Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefertigte Komponenten auf unserer Website zu verwenden. An erster Stelle stehen bei Bootstrap responsive Design und Mobilgeräte. Responsive bedeutet, dass die Elemente sich an die breite des Bildschirms anpassen. Dadurch erspart man sich als nicht sehr designaffiner Programmierer viel Arbeit. Auf der offiziellen Bootstrap Website kann man außerdem verschiedene Themes auswählen. Bootstrap wurde von Twitter entwickelt und ist entweder über den \ac{npm} oder über Bootstraps eigenes \ac{CDN} erhältlich.
