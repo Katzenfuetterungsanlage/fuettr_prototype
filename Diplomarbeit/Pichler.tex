@@ -893,10 +893,46 @@ Es wird die erforderliche Umfangskraft $F_U$ berechnet. Als Sicherheit wird 2N a
 F_Q= F_U=\mu_Q*F_N = 0.3*0.4kg*9.81 = 1.17N
 \end{align*}
 
-Das erforderlich Moment des Motors wird mit dieser Formel errechnet:
+Das erforderliche Moment des Motors wird mit dieser Formel errechnet:
 
 \begin{align*}
 M_erf=F_U*r=2N*31.35=62.7mm=M_Motorerf
+\end{align*}
+
+\subsection{Berechnung der Federkonstante}
+
+Hier findet die Berechnung der Federkonstante statt, sowohl als auch die Dimensionierung der Feder.
+
+\begin{figure}[H]
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Powerpoint/Feder}
+      \caption{Skizze von der Feder}
+      \label{SkizzeFeder} 
+   \end{minipage}
+   \hspace{.1\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Powerpoint/Federkonstante}
+      \caption{Skizze zur Berechnung der Federkonstante}
+      \label{SkizzeFederkonstante}
+   \end{minipage}
+\end{figure}
+
+Berechnung der Federkonstante bei nicht ausquetschen der Packung $l_0$=50mm mit 0N und $l_1$=62.7mm mit 9.324N. Siehe Abbildung: \ref{SkizzeFederkonstante}.
+
+\begin{align*}
+k = \frac{0.400}{12.7} = 0.314\frac{N}{mm}
+\end{align*}
+
+Bei dieser Rechnung wir die vorherige Annahme überprüft und mithand des Deckers die Federkonstante nachgerechnet. D ist der Durchmesser der Feder und beträgt 9mm. Das kleine d ist die Dicke des Drahtes und beträgt 1mm. Für die Anzahl der Wicklungen steht n mit 50 Umwicklungen. G ist das Schubmodul mit 80000$\frac{N}{mm^{2}}$. Siehe Abbildung: \ref{SkizzeFeder}
+
+\begin{align*}
+k=\frac{G*d^{4}}{8*D^{3}*n}=\frac{80000*1^{4}}{8*9^{3}*50} = 0.27\frac{N}{mm}
+\end{align*}
+
+Berechnung der Kraft der Feder bei ausquetschen der Packung samt Aluminium Halterung. Mit $l_0$=50mm und $l_1$=70.7mm.
+
+\begin{align*}
+F=c*l=0.27*20.7=5.58N
 \end{align*}
 
 \section{Simulation}
