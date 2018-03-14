@@ -2,19 +2,25 @@
 \chapter{Webserver und Client}
 
 \section{Begriffserklärungen}
+\label{sec:begriffserklaerung}
 
 \subsection{Server}
+\label{sec:begrr-server}
 Ein Programm, der oder das Zugriff auf eine Resource oder einen Dienst in einem Netzwerk ermöglicht
 
 \subsection{Client}
+\label{sec:begrr-client}
 Ein Programm, der oder das auf einen Server zugreift
 
 \section{Anforderungen}
+\label{sec:anforderungen}
 
 \subsection{Webserver}
+\label{sec:anf-server}
 Auf der Katzenfütterungsanlage läuft ein Webserver, der es ermöglicht, dass der Benutzer das Gerät über das Internet erreichen kann. Hauptaufgaben des Servers sind dabei, Daten bereitzustellen, zu verabeiten und zu speichern und den Webclient zur Verfügung zu stellen.
 
 \subsection{Client}
+\label{sec:anf-client}
 Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über einen Webbrowser zu steuern. Ein Benutzername und ein Passwort sind erforderlich, damit man das Gerät bedienen kann. Das Design soll eindeutig und übersichtlich gehalten sein. Auf der Startseite sollen die eingestellten Fütterungszeiten zu sehen sein und eine allgemeine Übersicht. Über eine Navigationsleiste sollen die weiteren Seiten erreichbar sein:
 
 \begin{itemize}
@@ -25,8 +31,10 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 \end{itemize}
 
 \section{Voruntersuchung}
+\label{sec:voruntersuchung}
 
 \subsection{HTTP/HTTPS}
+\label{sec:vor-http}
 Das \ac{HTTP} ist der Kommunikationsstandart auf dem das Internet basiert. Eine HTTP Session wird über eine Anfrage über das \ac{TCP} an einen Server auf den Port 80 initiiert. Der Server, der auf diesem Port auf eine Anfrage wartet sendet eine Statusmeldung wie z.B. \inlinecode{bash}{HTTP/1.1 200 OK} und eine eigene Nachricht zurück. Diese Nachricht ist meist die angeforderte Resource oder eine Fehlermeldung. \ac{HTTPS} ist die Verschlüsselte Version von \ac{HTTP}. Die meist gebrauchten Anfragen sind:
 
 \begin{itemize}
@@ -37,12 +45,15 @@ Das \ac{HTTP} ist der Kommunikationsstandart auf dem das Internet basiert. Eine 
 \end{itemize}
 
 \subsection{JavaScript}
+\label{sec:vor-js}
 JavaScript ist die Sprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vorallem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}.
 
 \subsection{Node.js}
+\label{sec:vor-node}
 Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mit kopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
 
 \subsection{TypeScript}
+\label{sec:vor-ts}
 TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript. Das bedeutet, jeder gültige JavaScript Code ist auch ein gültiger TypeScript Code. TypeScript wird vom TypeScript Compiler in sauberes JavaScript übersetzt. TypeScript ist sehr gut für größere Anwendungen geeignet. Typescript hat strenge Datentypen, Klassen und Vererbung. Die Datentypen von TypeScript sind:
 
 \begin{itemize}
@@ -62,9 +73,11 @@ TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript
 Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie sogenannte Type Annotations. Diese können bei den meisten bekannteren Modulen über den \ac{npm} installiert werden. Diese Pakete haben den Namenspräfix \textit{@types/}, das bedeutet, dass zum Beispiel die Type Annotations des Express Moduls über \inlinecode{bash}{npm install --save-dev @types/express} installiert werden können. Sollten keine Type Annotations für ein Modul vorhanden sein, muss man diese selbst erstellen.
 
 \subsection{express}
+\label{sec:vor-express}
 Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. In diesen Modulen ist bereits alles enthalten, dass benötigt wird, um einen Webserver zu programmieren. Express nimmt uns die meiste Arbeit ab und bietet viele weitere Möglichkeiten.
 
 \subsection{JSON}
+\label{sec:vor-json}
 \ac{JSON} ist die Textrepresentation eines JavaScript Objekts. Die möglichen Datentypen sind:
 
 \begin{itemize}
@@ -97,9 +110,11 @@ Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \
 \end{lstlisting}
 
 \subsection{JSON Web Token}
+\label{sec:vor-jwt}
 \ac{JWT} ist ein JSON-basierter, offener Standart für das erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client beide überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen. Dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorythmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature steht der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
 
 \subsection{MongoDB}
+\label{sec:vor-mongo}
 MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im Vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
 
 \begin{lstlisting}[caption=Verbinden mit dem \ac{DBS},style=TS]
@@ -123,9 +138,11 @@ this._times.updateOne({ identifier: 'Times' }, { $set: times });
 \end{lstlisting}
 
 \subsection{DOM}
+\label{sec:vor-dom}
 Das \ac{DOM} ist die Objektrepresentation des \ac{HTML} Dokuments. Durch das \ac{DOM} kann eine JavaScript Anwendung \ac{HTML} Elemente ändern, entfernen, und hinzufügen, \ac{HTML} Attribute ändern, entfernen und hinzufügen und \ac{CSS} Styles ändern. Das \ac{DOM} wird vom Browser beim Laden der Website erstellt. 
 
 \subsection{Angular 2/4}
+\label{sec:vor-angular}
 Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS weiterentwickelt wurde. Es wird von Google entwickelt. Angular ist gegliedert in Module. Die grobe Struktur wird in der Abbildung \ref{Angular Struktur} dargestellt.
 
 \begin{figure}[H]
@@ -135,6 +152,7 @@ Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS
 \end{figure}
 
 \subsubsection{Modules}
+\label{sec:ang-modules}
 Jede Angular App ist in \textit{Module}s gegliedert. \textit{Module}s fassen meist ähnliche Funktionen zusammen. Jede App muss mindestens ein \textit{Module} enthalten. Dies heißt standartmäßig \textit{AppModule}. Ein \textit{Module} ist die größte Einheit einer Angular App.  Ein \textit{Module} kann folgende Komponenten beinhalten:
 
 \begin{itemize}
@@ -149,12 +167,15 @@ Jede Angular App ist in \textit{Module}s gegliedert. \textit{Module}s fassen mei
 \end{itemize}
 
 \subsubsection{Libraries}
+\label{sec:ang-libraries}
 Eine Angular Library ist ein Modul, das \textit{decorator} und \textit{Modules} exportiert. Diese können von \textit{Components} und \textit{Modules} importiert werden. Der Name jeder Angular library beginnt mit \textit{@angular}. Angular libraries können mit dem \ac{npm} installiert werden.
 
 \subsubsection{Components}
+\label{sec:ang-components}
 Ein \textit{Component} kontrolliert einen Teil des Bildschirms, den sogenannten \textit{view}. Die Logik des \textit{Component}s wird in einer Klasse definiert. Die Klasse interagiert mit dem \textit{view} durch eine \ac{API} von Eigenschaften und Methoden.
 
 \subsubsection{Templates}
+\label{sec:ang-templates}
 Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \textit{Template} ist eine \ac{HTML} Datei, mit Angular's Template Syntax. Das bedeutet, dass einige Zusatzbefehle vorkommen können. Beispiele hierfür sind:
 
 \begin{itemize}
@@ -166,27 +187,47 @@ Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \
 \item[•]<app-route>
 \end{itemize}
 
-\subsubsection{Data binding}
+Die meisten Zusatzbefehle werden für \textit{Data Binding} verwendet. 
+
+\mbox{}
 \begin{wrapfigure}{l}{0.5\textwidth}
-\vspace{-30pt}
+\vspace{20pt}
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{Bilder/Greistorfer/databinding}
+    \includegraphics[width=0.4\textwidth]{Bilder/Greistorfer/databinding}
   \end{center}
   \caption{Angular Databinding}
   \label{Angular Databinding}
-  \vspace{-10pt}
+  \vspace{-40pt}
 \end{wrapfigure}
 
+\subsubsection{Data binding}
+\label{sec:ang-data-binding}
+Ohne Framework wäre der Programmierer dafür verantwortlich, sicherzustellen, dass Daten in \ac{HTML} Elemente geschrieben werden und dass auf Benutzerinteraktionen reagiert wird. Das ist aufwendig, Fehleranfällig und schwer zu lesen. Angulars Lösung dafür nennt sich \textit{data binding}. Der Programmierer muss nur mehr im \ac{HTML} Template Angular mitteilen, wie die beiden Seiten verbunden werden sollen. In der Abbilung \ref{Angular Databinding} sind die vier möglichen Arten von \textit{data binding} dargestellt. Jede Art hat eine Richtung, vom \ac{DOM} zum \ac{DOM} oder in beide Richtungen.
 
+\begin{itemize}
+\item[•] \inlinecode{Html}{<span>\{\{variable\}\}</span>} Der Wert der Variable in den Klammern wird anstelle des Klammerausdrucks dargestellt. Wenn sich der Wert ändert, ändert sich auch der Wert im \ac{DOM}
+\item[•] \inlinecode{Html}{<span [hidden]="hide"></span>} übergibt den Wert in der angegebenen Variable in das angegebene Attribut
+\item[•] \inlinecode{Html}{<span (click)="clicked(\$event)"></span>} ruft die angegebene Methode auf, wenn das angegebene Event auftritt.
+\item[•] \inlinecode{Html}{<input [(ngModel)]="variable">} der Wert im Eingabefeld und in der Variable sind voneinander abhängig, ändert sich der eine, so ändert sich der andere zum gleichen
+\end{itemize}
 
 \subsubsection{Services}
+\label{sec:ang-services}
+Services sind Klassen, die eine Aufgabe erfüllen, unabängig von allem anderen. Sie werden vorallem verwendet, wenn eine Aufgabe etwas Zeit erfordert, wie z.B. eine Serveranfrage. Services bieten auch die Möglichkeit, dass \textit{Components} Zugriff auf eine gemensame Variable haben, da Angular keine globalen Variablen hat. Services müssen vom \textit{Dependency Injector} injeziert werden. Der \textit{Dependency Injector} indiziert alle Abhängigkeiten in eine \textit{Component}.
+
+\subsection{Angular CLI}
+\label{sec:vor-angular-cli}
+Das Angular \ac{CLI} ist ein JavaScript Modul, das über den \ac{npm} installiert werden kann. Mithilfe des \ac{CLI} ist das erstellen und übersetzen von Angular Anwendungen um vieles erleichtert. Ein neues Projekt erstellt man mit \inlinecode{bash}{ng new <projektname>} und übersetzt wird mit \inlinecode{bash}{ng build}. Mit der Option \inlinecode{bash}{--prod} wird die Anwendung kompakter und für den Einsatz übersetzt.
 
 \subsection{Bootstrap}
+\label{sec:vor-bootstrap}
 Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefertigte Komponenten auf unserer Website zu verwenden. An erster Stelle stehen bei Bootstrap responsive Design und Mobilgeräte. Responsive bedeutet, dass die Elemente sich an die breite des Bildschirms anpassen. Dadurch erspart man sich als nicht sehr designaffiner Programmierer viel Arbeit. Auf der offiziellen Bootstrap Website kann man außerdem verschiedene Themes auswählen. Bootstrap wurde von Twitter entwickelt und ist entweder über den \ac{npm} oder über Bootstraps eigenes \ac{CDN} erhältlich.
 
 \section{Umsetzung}
+\label{sec:umsetzung}
 
 \subsection{Projektstruktur}
+\label{sec:ums-projektstruktur}
 \dirtree{%
 .1 Webserver.
 .2 server.
@@ -209,10 +250,15 @@ Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefer
 .4 i18n.
 }
 
+Das Projekt ist so strukturiert, dass eine klare Trennung zwischen Client und Server herrscht.
+\paragraph*{Server} Im \textit{keys} Ordner befinden sich der öffentliche und private Schlüssel, die vom install Script erstellt werden. Im \textit{public} Ordner befinden sich die Resourcen, die direkt vom Server gesendet werden, z.B. Fehlermeldungsseiten. Im \textit{src} Ordner sind die TypeScript Arbeitsdateien. Diese werden in den \textit{dist} Ordner übersetzt.
+\paragraph*{Client} Der Client Ordner hat den Namen \textit{ngx}, dass sagt aus, es ist ein Angular Projekt, die Angular Version ist aber egal. Im \textit{src} Ordner befinden sich alle Dateien, die das Angular \ac{CLI} benötigt, um die Anwendung zu bauen. Im \textit{assets} Ordner befinden sich alle Resourcen, die die Anwendung benötigt, wie z.B. Bilder. Im Ordner \textit{i18n} befinden sich die Dateien, die das \ac{CLI} braucht, um die Anwendung in mehrere Sprachen zu übersetzen. Im \textit{app} Ordner befindet sich die eigentlich Anwendung. Die Anwendung ist klar getrennt in den Ordner \textit{components} und \textit{services}.
 
 \subsection{Client}
+\label{sec:ums-client}
 
 \subsubsection{Design}
+\label{sec:ums-client-design}
 Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll auf den ersten Blick die wichtigsten Funktionen und Informationen erkennen können. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
@@ -272,13 +318,19 @@ Die Seriennummer ist eindeutig und wird von einem Server zugeteilt. Die IP-Adres
 Auf der Update-Seite kann der Benutzer nach Updates suchen, Updates starten oder die Maschine herunterfahren. Wenn der Benutzer auf den Herunterfahren-Button klickt, der sich auf der linken Seite ganz unten befindet, wird er gewarnt, dass die Maschine nur mehr über das Aus- und wieder Einstecken des Netzteils startbar ist.\\
 
 \subsubsection{Funktion}
+\label{sec:ums-client-funktion}
 
 \subsection{Server}
+\label{sec:ums-server}
 
 \subsubsection{Funktion}
+\label{sec:ums-server-funktion}
 
 \subsubsection{Mongodb}
+\label{sec:ums-server-mongo}
 
 \subsubsection{Kommunikation mit dem Java Programm}
+\label{sec:ums-server-java}
 
 \section{Zusammenfassung und Verbesserungsmöglichkeiten}
+\label{sec:zusammenfassung}
