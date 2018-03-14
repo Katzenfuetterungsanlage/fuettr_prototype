@@ -786,15 +786,122 @@ Der Hebel wird soweit nach unten gedrückt bis er beim Stopper auftrifft, siehe 
 
 \section{Berechnung und Dimensionierung}
 
-In diesen Teil meiner Diplomarbeit werden Berechnung von wichtigen bzw. Problemstellen durchgeführt:
+In diesen Teil meiner Diplomarbeit werden Berechnung von wichtigen Teilen bzw. Problemstellen durchgeführt. Es wird bei jeder Berechnung der Schlimmst möglich Fall angenommen.
 
 \subsection{Berechnung der Klemme}
 
-Gewählte Presskraft = 10N \\
-Die Maße der Fläche auf den die Klemme drückt = 4mm x 20mm x 100mm
-Diese Kraft wurde so hoch dimensioniert weil sie beim Klemmen der Verpackung Fleischstücken dazwischen befinden können. 
+Gewählte Presskraft F = 10N. Die Maße der Fläche auf den die Kraft drückt = 4mm x 20mm x 100mm. Elastizitätsmodul von Aluminium = 0.6*$10^{5}\frac{N}{mm^{2}}$.
+Diese Kraft wurde so hoch dimensioniert weil sich beim Klemmen der Verpackung Fleischstücken dazwischen befinden könnten und somit und somit die Flächen auseinander drücken. Siehe Abbildung: \ref{SkizzeKlemme}.
 
-\section{Simulation}	
+\begin{figure}[H]
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Powerpoint/Flaechenkraft}
+      \caption{Skizze der Klemme}
+      \label{SkizzeKlemme} 
+   \end{minipage}
+   \hspace{.2\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[hbt]{.3\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Powerpoint/IBerechnung}
+      \caption{I-Skizze}
+      \label{I_Skizze}
+   \end{minipage}
+\end{figure}
+
+Formeln zur Berechnung der Durchbiegung in der Mitte der Klemme: \\
+
+Die Skizze zeigt welche Seite h und welche Seite b in der benutzten Formel ist. Siehe Abbildung: \ref{I_Skizze}.
+\begin{align*}
+I = \frac{b*h^{3}}{12} = \frac{20*4^{3}}{12} = 106.66mm^{4} 
+\end{align*}
+
+\begin{align*}
+f=\frac{ F*l^{ 3 } }{ 48*E*I} = \frac{10N*100^{3}mm}{48*0.6*10^{5}\frac{N}{mm^{2}}*106.66mm^{4}} = 0.0325mm
+\end{align*}
+\newpage
+\subsection{Berechnung der Welle von der Drehplatte}
+
+\begin{wrapfigure}[10]{r}{0.5\textwidth}
+\vspace{-80pt}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{Bilder/Powerpoint/Torsionsmoment}
+  \end{center}
+  \caption{Kritischer Punkt an der Welle}
+  \label{Torsionsmoment}
+  \vspace{-20pt}
+\end{wrapfigure}
+
+Bei dieser Berechnung wird überprüft ob der Vierkant auf der Welle mit den Maßen 4mm x 4mm x 20mm ein Drehmoment von maximal 18Ncm vom Motor standhält. Die Platte auf der Welle hat einen Durchmesser von 400mm. Es wir der S235 Stahl verwendet mit einem $\tau_z=165\frac{N}{mm^{2}}$. Siehe Abbildung: \ref{Torsionsmoment}.\\
+
+Hier wird die zurückgelegte Strecke eines Kreisbogens pro Sekunde berechnet, um ungefähr die Drehgeschwindigkeit der Futterplatte abschätzen zu können.
+
+\begin{align*}
+I & = I_{ AP }*\rho*l\frac{ \pi*400^{4}mm }{32}*800\frac{ kg }{ m^{3} }*(\frac{ 1 }{ 1000}\frac{ mm }{ m })^{3}*10mm  = 0.0201\frac{kg}{m^{2}}
+\end{align*}
+
+\begin{align*}
+\alpha = \frac{ M }{ I }=\frac{ 0.180Nm }{ 0.0201\frac{kg}{m^{2}} } = 8.9 \frac{ rad }{ s^{2} }
+\end{align*}
+
+Berechnung der Torsionsspannung:
+
+\begin{align*}
+\tau_{ vor } = \frac{ M_{ t } }{W_{ t } } = \frac{ 180 Nmm }{ 10.66 mm^{3} } = 16.87\frac{ N }{mm^{2}}
+\end{align*}
+
+Wird eine 2-fache Sicherheit angenommen:
+
+\begin{align*}
+\tau_z=\frac{165}{2}=82.5\frac{N}{mm^{2}}
+\end{align*}
+
+Zum Schluss wird noch kontrolliert ob $\tau_v$ kleiner als $\tau_z$ ist.
+Damit wird überprüft ob der Vierkant die Belastung standhält.
+
+\begin{align*}
+\tau_v < \tau_z  ->  16.87 \frac{N}{mm^{2}} < 82.5\frac{N}{mm^{2}}
+\end{align*}
+
+Fazit der Vierkant hält die Belastung mit Leichtigkeit stand.
+
+\subsection{Berechnung der Umfangskraft der Förderbandes}
+
+Es soll mit einer Presskraft von 400g die Packung durch die Walze ausgequetscht werden. Der Durchmesser der Walze ist 62.7mm.
+
+
+\begin{figure}[H]
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Powerpoint/Foerderband_Skizze}
+      \caption{Skizze des Förderbandes}
+      \label{SkizzeFoerderband} 
+   \end{minipage}
+   \hspace{.2\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[hbt]{.4\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Powerpoint/Reibung}
+      \caption{Skizze für Reibung}
+      \label{SkizzeReibung}
+   \end{minipage}
+\end{figure}
+
+Mit dieser Formel wird ungefähr das $\mu$ berechnet. Mit f=10mm und den Radius der Walze = 31.35. Entspricht ein Auto im Sand. Siehe Abbildung: \ref{SkizzeReibung}
+
+\begin{align*}
+\mu = \frac{10}{31.35} = 0.315
+\end{align*}
+
+Es wird die erforderliche Umfangskraft $F_U$ berechnet. Als Sicherheit wird 2N angenommen. Siehe Abbildung: \ref{SkizzeFoerderband}
+\begin{align*}
+F_Q= F_U=\mu_Q*F_N = 0.3*0.4kg*9.81 = 1.17N
+\end{align*}
+
+Das erforderlich Moment des Motors wird mit dieser Formel errechnet:
+
+\begin{align*}
+M_erf=F_U*r=2N*31.35=62.7mm=M_Motorerf
+\end{align*}
+
+\section{Simulation}
+
+	
 \section{Bedienung und Wartung}
 
 Bei der Entwicklung der Maschine wurde darauf geachtet, diese Benutzerfreundlich als nur möglich zu gestalten. Darum lässt sich das Gehäuse der Maschine bis zur Hälfte Aufklappen um den Benutzer einen leichten Zugang zu verschaffen. Es mussten auch keine speziellen Vorkehrungen getroffen werden um den Benutzer zu schützen da es keine gefährlichen Stellen in der Maschine befinden die Personen schaden bzw. verletzen könnten. Die Befestigung der Futterpackungen ist auch ein leichtes durch den großen Platz der zur Verfügung steht und wenn man sich an folgende Schritte hält: 
