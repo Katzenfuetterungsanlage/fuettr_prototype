@@ -354,10 +354,25 @@ Jede Route bekommt ein data Objekt übergeben, dass bei Aufruf der \textit{Compo
 Da alle \textit{Components} Daten vom Server holen und manche auch Daten zum Server schicken, war es die logische Schlussfolgerung, ein Service zu erstellen, das egal welche Art von \ac{HTTP} Anfrage verarbeiten kann. Dieses Service ist \textit{http.service}. Alle Anfragen, egal ob \textit{GET} oder \textit{PUT} werden von diesem Service getätigt. Das Service importiert Angular's \textit{HttpClient}, mit dem es sehr einfach ist, Anfragen zu erstellen und die Antworten zu verarbeiten. Die Antworten vom Server sind vom Typ \textit{application/json}, das bedeutet, sie sind \ac{JSON}-Dateien, die der \textit{HttpClient} dann in Objekte umwandelt. Diese Objekte werden dem \textit{Component} übergeben, sobald die Anfrage abgeschlossen wurde.
 
 \paragraph*{Fütterungszeiten}\mbox{}\\
-Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook, siehe \ref{sec:ang-components}. Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten. Dies ist realisiert durch eine Checkbox, die mit \ac{CSS} wie ein Schalter gestyled wurde.
+Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook (siehe \ref{sec:ang-components}). Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten. Dies ist realisiert durch eine Checkbox, die mit \ac{CSS} wie ein Schalter gestyled wurde.
+
+\begin{lstlisting}[caption=Zeiten Parser,style=TS]
+toMinutes(time: string): number {
+  let timeHours: number;
+  let timeMinutes: number;
+  if (time[0] === '-' && time[1] === '-' && time[3] === '-' && time[4] === '-') {
+    return null;
+  }
+  timeHours = parseInt(time[0], 10) * 10;
+  timeHours = timeHours + parseInt(time[1], 10);
+  timeMinutes = parseInt(time[3], 10) * 10;
+  timeMinutes = timeMinutes + parseInt(time[4], 10);
+  return timeHours * 60 + timeMinutes;
+}
+\end{lstlisting}
 
 \paragraph*{Updates}\mbox{}\\
-
+Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird geupdated, so wird eine anfrage an den Server gesendet, der alles weitere erledigt. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht indiziert dem Benutzer, dass das System updated. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
 
 \subsection{Server}
 \label{sec:ums-server}
