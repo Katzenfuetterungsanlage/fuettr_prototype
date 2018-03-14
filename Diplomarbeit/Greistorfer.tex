@@ -264,7 +264,7 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
   \begin{center}
-    \includegraphics[width=0.7\textwidth]{Bilder/Greistorfer/Home}
+    \includegraphics[width=0.65\textwidth]{Bilder/Greistorfer/Home}
   \end{center}
   \caption{Startseite}
   \label{Startseite}
@@ -276,7 +276,7 @@ Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
   \begin{center}
-    \includegraphics[width=0.7\textwidth]{Bilder/Greistorfer/Fuetterungszeiten}
+    \includegraphics[width=0.65\textwidth]{Bilder/Greistorfer/Fuetterungszeiten}
   \end{center}
   \caption{Fütterungszeiten}
   \label{Fütterungszeiten}
@@ -288,7 +288,7 @@ Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ei
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
   \begin{center}
-    \includegraphics[width=0.7\textwidth]{Bilder/Greistorfer/Gerateinformation}
+    \includegraphics[width=0.65\textwidth]{Bilder/Greistorfer/Gerateinformation}
   \end{center}
   \caption{Geräteinformationen}
   \label{Geräteinformationen}
@@ -308,7 +308,7 @@ Die Seriennummer ist eindeutig und wird von einem Server zugeteilt. Die IP-Adres
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
   \begin{center}
-    \includegraphics[width=0.7\textwidth]{Bilder/Greistorfer/Update}
+    \includegraphics[width=0.65\textwidth]{Bilder/Greistorfer/Update}
   \end{center}
   \caption{Update}
   \label{Update}
@@ -320,6 +320,27 @@ Auf der Update-Seite kann der Benutzer nach Updates suchen, Updates starten oder
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
 
+\paragraph*{Struktur} \mbox {}\\
+Der Haupt-\textit{Component}, der geladen wird, wenn die Seite aufgerufen wird, ist \textit{app.component}. In seinem Template ist die Navigationsleiste, die sich alle Seiten teilen. Alle weiteren Seiten werden im \inlinecode{html}{<router-outlet></router-outlet>} angezeigt. Das ist ein \ac{HTML}-Tag der von Angulars Router zur Verfügung gestellt wird. Ein Router ist ein Service, dass das Navigieren der Seite ermöglicht. Damit das funktioniert, muss dem Router mitgeteilt werden, wie die Seite aufgebaut ist. Dies geschieht im \textit{router.module}:
+
+\begin{lstlisting}[caption=Routes Definition,style=TS]
+const routes: Routes = [
+  { path: 'home', component: HomeComponent, data: { title: 'Füttr' }, canActivate: [AuthGuard] },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: 'login', component: LoginComponent, data: { title: 'Füttr - Login' } },
+  { path: 'position', component: PositionComponent, data: { title: 'Füttr - Positions' }, canActivate: [AuthGuard] },
+  { path: 'feed', component: FeedComponent, data: { title: 'Füttr - Feeding-Cycle' }, canActivate: [AuthGuard] },
+  { path: 'info', component: InfoComponent, data: { title: 'Füttr - Info' }, canActivate: [AuthGuard] },
+  { path: 'update', component: UpdateComponent, data: { title: 'Füttr - Update' }, canActivate: [AuthGuard] },
+  { path: '**', component: Error404Component, data: { title: 'Füttr - 404 (not found)' }
+  }
+];
+\end{lstlisting}
+
+Jede Route bekommt ein data Objekt übergeben, dass bei Aufruf der \textit{Component} dem @Input Decorator injiziert wird. Der jeweilige \textit{Component} ändert damit den Titel der Seite. Alle Routes, bis auf \textit{login} und \textit{404} sind von einem AuthGuard geschützt, dass bedeutet, nur authorisierte Benutzer können diese Routes aufrufen. Der Request auf \textit{root} \inlinecode{TS}{path: ''} wird umgeleitet auf \textit{login}. Für jeden Request, dessen Route nicht definiert ist, wird der 404 Component geladen: \inlinecode{TS}{path: '**'}.
+
+\paragraph*{\ac{HTTP} Service}\mbox{}\\
+Da alle \textit{Components} Daten vom Server holen und manche auch Daten zum Server schicken, war es die logische Schlussfolgerung, ein Service zu erstellen, das egal welche Art von \ac{HTTP} Anfrage verarbeiten kann. Dieses Service ist \textit{http.service}. Alle Anfragen, egal ob \textit{GET} oder \textit{PUT} werden von diesem Service getätigt. Das Service importiert Angular's \textit{HttpClient}, mit dem es sehr einfach ist, Anfragen zu erstellen und die Antworten zu verarbeiten. Die Antworten vom Server sind im Format \textit{application/json}, das bedeutet, sie sind \ac{JSON}-Dateien
 
 \subsection{Server}
 \label{sec:ums-server}
