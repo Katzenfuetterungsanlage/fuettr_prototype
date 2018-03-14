@@ -193,6 +193,9 @@ Ohne Framework wäre der Programmierer dafür verantwortlich, sicherzustellen, d
 \subsubsection{Services}
 Services sind Klassen, die eine Aufgabe erfüllen, unabängig von allem anderen. Sie werden vorallem verwendet, wenn eine Aufgabe etwas Zeit erfordert, wie z.B. eine Serveranfrage. Services müssen vom \textit{Dependency Injector} injeziert werden. Der \textit{Dependency Injector} indiziert alle Abhängigkeiten in eine \textit{Component}.
 
+\subsection{Angular CLI}
+Das Angular \ac{CLI} ist ein JavaScript Modul, das über den \ac{npm} installiert werden kann. Mithilfe des \ac{CLI} ist das erstellen und übersetzen von Angular Anwendungen um vieles erleichtert. Ein neues Projekt erstellt man mit \inlinecode{bash}{ng new <projektname>} und übersetzt wird mit \inlinecode{bash}{ng build}. Mit der Option \inlinecode{bash}{--prod} wird die Anwendung kompakter und für den Einsatz übersetzt.
+
 \subsection{Bootstrap}
 Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefertigte Komponenten auf unserer Website zu verwenden. An erster Stelle stehen bei Bootstrap responsive Design und Mobilgeräte. Responsive bedeutet, dass die Elemente sich an die breite des Bildschirms anpassen. Dadurch erspart man sich als nicht sehr designaffiner Programmierer viel Arbeit. Auf der offiziellen Bootstrap Website kann man außerdem verschiedene Themes auswählen. Bootstrap wurde von Twitter entwickelt und ist entweder über den \ac{npm} oder über Bootstraps eigenes \ac{CDN} erhältlich.
 
@@ -221,6 +224,9 @@ Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefer
 .4 i18n.
 }
 
+Das Projekt ist so strukturiert, dass eine klare Trennung zwischen Client und Server herrscht.
+\paragraph*{Server} Im \textit{keys} Ordner befinden sich der öffentliche und private Schlüssel, die vom install Script erstellt werden. Im \textit{public} Ordner befinden sich die Resourcen, die direkt vom Server gesendet werden, z.B. Fehlermeldungsseiten. Im \textit{src} Ordner sind die TypeScript Arbeitsdateien. Diese werden in den \textit{dist} Ordner übersetzt.
+\paragraph*{Client} Der Client Ordner hat den Namen \textit{ngx}, dass sagt aus, es ist ein Angular Projekt, die Angular Version ist aber egal. Im \textit{src} Ordner befinden sich alle Dateien, die das Angular \ac{CLI} benötigt, um die Anwendung zu bauen. Im \textit{assets} Ordner befinden sich alle Resourcen, die die Anwendung benötigt, wie z.B. Bilder. Im Ordner \textit{i18n} befinden sich die Dateien, die das \ac{CLI} braucht, um die Anwendung in mehrere Sprachen zu übersetzen. Im \textit{app} Ordner befindet sich die eigentlich Anwendung. Die Anwendung ist klar getrennt in den Ordner \textit{components} und \textit{services}.
 
 \subsection{Client}
 
