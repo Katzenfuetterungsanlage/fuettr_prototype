@@ -174,6 +174,17 @@ Eine Angular Library ist ein Modul, das \textit{decorator} und \textit{Modules} 
 \label{sec:ang-components}
 Ein \textit{Component} kontrolliert einen Teil des Bildschirms, den sogenannten \textit{view}. Die Logik des \textit{Component}s wird in einer Klasse definiert. Die Klasse interagiert mit dem \textit{view} durch eine \ac{API} von Eigenschaften und Methoden.
 
+\paragraph*{Lifecycle Hooks}\mbox{}\\
+Ein Lebnszyklus in Angular ist immer der Lebenszyklus des jeweiligen \textit{Components}. Ein \textit{Component} kann erstellt, verändert und zerstört werden. Zu jedem Stadium gibt es eine Methode, die automatisch je nach Stadium von Angular aufgerufen werden. Die am häufigsten verwendeten sind:
+
+\begin{itemize}
+\item[•] \textbf{OnInit()}: Wird aufgerufen, wenn der \textit{Component} erstellt wird. Die dazugehörige Methode ist \inlinecode{TS}{ngOnInit()}. Zeitaufwendige Operationen sollten hier aufgerufen werden, anstatt im constructor, da das den Erzeugungsvorgang verlangsamen würden.
+\item[•] \textbf{OnDestroy()}: Wird aufgerufen, wenn der \textit{Component} zerstört wird. Die dazugehörige Methode ist \inlinecode{TS}{ngOnDestroy()}. Hier sollten alle laufenden Prozesse, wie Intervals und Callbacks beendet werden.
+\item[•] \textbf{OnChanges()/DoCheck()}: Werden aufgerufen, wenn sich irgentetwas an der \textit{Component} ändert. Die dazugehörige Methoden sind \inlinecode{TS}{ngOnChanges()} und \inlinecode{TS}{ngDoCheck()}.
+\end{itemize}
+
+Alle Lifecycle Hooks müssen von der Klasse mit \inlinecode{TS}{implements} implementiert und von \textit{@angular/core} importiert werden.
+
 \subsubsection{Templates}
 \label{sec:ang-templates}
 Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \textit{Template} ist eine \ac{HTML} Datei, mit Angular's Template Syntax. Das bedeutet, dass einige Zusatzbefehle vorkommen können. Beispiele hierfür sind:
@@ -253,7 +264,7 @@ Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefer
 Das Projekt ist so strukturiert, dass eine klare Trennung zwischen Client und Server herrscht.
 \paragraph*{Server} Im \textit{keys} Ordner befinden sich der öffentliche und private Schlüssel, die vom install Script erstellt werden. Im \textit{public} Ordner befinden sich die Resourcen, die direkt vom Server gesendet werden, z.B. Fehlermeldungsseiten. Im \textit{src} Ordner sind die TypeScript Arbeitsdateien. Diese werden in den \textit{dist} Ordner übersetzt.
 \paragraph*{Client} Der Client Ordner hat den Namen \textit{ngx}, dass sagt aus, es ist ein Angular Projekt, die Angular Version ist aber egal. Im \textit{src} Ordner befinden sich alle Dateien, die das Angular \ac{CLI} benötigt, um die Anwendung zu bauen. Im \textit{assets} Ordner befinden sich alle Resourcen, die die Anwendung benötigt, wie z.B. Bilder. Im Ordner \textit{i18n} befinden sich die Dateien, die das \ac{CLI} braucht, um die Anwendung in mehrere Sprachen zu übersetzen. Im \textit{app} Ordner befindet sich die eigentlich Anwendung. Die Anwendung ist klar getrennt in den Ordner \textit{components} und \textit{services}.
-\newpage
+
 \subsection{Client}
 \label{sec:ums-client}
 
@@ -271,7 +282,7 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, fals welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \\
+Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, fals welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -283,7 +294,7 @@ Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. 
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde, oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \newpage
+Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde, oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -303,7 +314,7 @@ Auf der Geräteinformations-Seite werden die wichtigsten Daten über das Gerät 
 \item[•]IP Adresse
 \item[•]Softwareversion
 \end{itemize}
-Die Seriennummer ist eindeutig und wird von einem Server zugeteilt. Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \\
+Die Seriennummer ist eindeutig und wird von einem Server zugeteilt. Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -343,7 +354,10 @@ Jede Route bekommt ein data Objekt übergeben, dass bei Aufruf der \textit{Compo
 Da alle \textit{Components} Daten vom Server holen und manche auch Daten zum Server schicken, war es die logische Schlussfolgerung, ein Service zu erstellen, das egal welche Art von \ac{HTTP} Anfrage verarbeiten kann. Dieses Service ist \textit{http.service}. Alle Anfragen, egal ob \textit{GET} oder \textit{PUT} werden von diesem Service getätigt. Das Service importiert Angular's \textit{HttpClient}, mit dem es sehr einfach ist, Anfragen zu erstellen und die Antworten zu verarbeiten. Die Antworten vom Server sind vom Typ \textit{application/json}, das bedeutet, sie sind \ac{JSON}-Dateien, die der \textit{HttpClient} dann in Objekte umwandelt. Diese Objekte werden dem \textit{Component} übergeben, sobald die Anfrage abgeschlossen wurde.
 
 \paragraph*{Fütterungszeiten}\mbox{}\\
-Die Eingabe wurde gelöst durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert.
+Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook, siehe \ref{sec:ang-components}. Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten. Dies ist realisiert durch eine Checkbox, die mit \ac{CSS} wie ein Schalter gestyled wurde.
+
+\paragraph*{Updates}\mbox{}\\
+
 
 \subsection{Server}
 \label{sec:ums-server}
