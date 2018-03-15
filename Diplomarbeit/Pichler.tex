@@ -659,14 +659,14 @@ Das Futtermagazin Horizontal wäre für die erste Variante optimal. Da man den g
 \begin{wrapfigure}{r}{0.5\textwidth}
 \vspace{-40pt}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{Bilder/Powerpoint/Futtermagazin_vertikal}
+    \includegraphics[width=0.36\textwidth]{Bilder/Powerpoint/Futtermagazin_vertikal}
   \end{center}
   \caption{Futtermagazin Vertikal}
   \label{Magazin Vertikal}
   \vspace{-10pt}
 \end{wrapfigure}
 
-Das Futtermagazin Vertikal ist ein rechteckiges Gehäuse an denen 4 Magnetzylinder platziert werden. In diese Box kommen die 10 Futterpackungen. Der Ablauf funktioniert in folgenden Reihenfolge. Zuerst öffnet sich der erste linke Magnetzylinder danach der gegenüberliegende zweite Magnetzylinder. Daraufhin gelangt die erste Futterpackung auf die unteren Zylinder. Nach diesem Schritt schließen sich die beiden Magnetzylinder wieder, damit die anderen Packungen nach dem Öffnen der unteren Magnetzylinder nicht durch die Maschine fallen. Daraufhin wenn der Fütterungsbefehl kommt öffnen sich die unteren Zylinder und die Packung gleitet über ein Blech zur Schnittfläche. Der große Nachteil dieser Methode ist, dass immer wieder Fehler auftreten können. Die Futterpackung kann falsch an der Schneidfläche ankommen bzw. sich an einem bestimmten Ort verkeilen. Siehe Abbildung: \ref{Magazin Vertikal}
+Das Futtermagazin Vertikal ist ein rechteckiges Gehäuse an denen 4 Magnetzylinder platziert werden(Die mit Kreise versehrten Blöcke). In diese Box kommen die 10 Futterpackungen. Der Ablauf funktioniert in folgenden Reihenfolge. Zuerst öffnet sich der erste linke Magnetzylinder(roter Kreis) danach der gegenüberliegende zweite Magnetzylinder(gelber Kreis). Daraufhin gelangt die erste Futterpackung auf die unteren Zylinder(beiden grünen Kreise). Nach diesem Schritt schließen sich die beiden Magnetzylinder wieder, damit die anderen Packungen nach dem Öffnen der unteren Magnetzylinder nicht durch die Maschine fallen. Daraufhin wenn der Fütterungsbefehl kommt öffnen sich die unteren Zylinder (beiden grünen Kreise)und die Packung gleitet über ein Blech zur Schnittfläche. Der große Nachteil dieser Methode ist, dass immer wieder Fehler auftreten können. Die Futterpackung kann falsch an der Schneidfläche ankommen bzw. sich an einem bestimmten Ort verkeilen. Siehe Abbildung: \ref{Magazin Vertikal}
 
 
 \section{Konstruktion der Wahlvariante und Details}
@@ -896,9 +896,9 @@ F_Q= F_U=\mu_Q*F_N = 0.3*0.4kg*9.81 = 1.17N
 Das erforderliche Moment des Motors wird mit dieser Formel errechnet:
 
 \begin{align*}
-M_erf=F_U*r=2N*31.35=62.7mm=M_Motorerf
+M_erf=F_U*r=2N*31.35=62.7mm
 \end{align*}
-
+\newpage
 \subsection{Berechnung der Federkonstante}
 
 Hier findet die Berechnung der Federkonstante statt, sowohl als auch die Dimensionierung der Feder.
@@ -917,22 +917,22 @@ Hier findet die Berechnung der Federkonstante statt, sowohl als auch die Dimensi
    \end{minipage}
 \end{figure}
 
-Berechnung der Federkonstante bei nicht ausquetschen der Packung $l_0$=50mm mit 0N und $l_1$=62.7mm mit 9.324N. Siehe Abbildung: \ref{SkizzeFederkonstante}.
+Berechnung der Federkonstante bei nicht ausquetschen der Packung $l_0$=50mm mit 0N und $l_1$=62.7mm mit 1.962N. Siehe Abbildung: \ref{SkizzeFederkonstante}.
 
 \begin{align*}
-k = \frac{0.400}{12.7} = 0.314\frac{N}{mm}
+k =\frac{m*g}{l_d} = \frac{0.2*9.81}{12.7} = 0.154\frac{N}{mm}
 \end{align*}
 
-Bei dieser Rechnung wir die vorherige Annahme überprüft und mithand des Deckers die Federkonstante nachgerechnet. D ist der Durchmesser der Feder und beträgt 9mm. Das kleine d ist die Dicke des Drahtes und beträgt 1mm. Für die Anzahl der Wicklungen steht n mit 50 Umwicklungen. G ist das Schubmodul mit 80000$\frac{N}{mm^{2}}$. Siehe Abbildung: \ref{SkizzeFeder}
+Bei dieser Rechnung wir die vorherige Annahme überprüft und mithand des Deckers die Federkonstante nachgerechnet. D ist der Durchmesser der Feder und beträgt 11mm. Das kleine d ist die Dicke des Drahtes und beträgt 1mm. Für die Anzahl der Wicklungen steht n mit 50 Umwicklungen. G ist das Schubmodul mit 80000$\frac{N}{mm^{2}}$. Siehe Abbildung: \ref{SkizzeFeder}
 
 \begin{align*}
-k=\frac{G*d^{4}}{8*D^{3}*n}=\frac{80000*1^{4}}{8*9^{3}*50} = 0.27\frac{N}{mm}
+k=\frac{G*d^{4}}{8*D^{3}*n}=\frac{80000*1^{4}}{8*11^{3}*50} = 0.150\frac{N}{mm}
 \end{align*}
 
 Berechnung der Kraft der Feder bei ausquetschen der Packung samt Aluminium Halterung. Mit $l_0$=50mm und $l_1$=70.7mm.
 
 \begin{align*}
-F=c*l=0.27*20.7=5.58N
+F=c*l_d=0.150*20.7 = 3.11N
 \end{align*}
 
 \section{Simulation}
