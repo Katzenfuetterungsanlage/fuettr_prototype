@@ -35,18 +35,18 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 
 \subsection{HTTP/HTTPS}
 \label{sec:vor-http}
-Das \ac{HTTP} ist der Kommunikationsstandart auf dem das Internet basiert. Eine HTTP Session wird über eine Anfrage über das \ac{TCP} an einen Server auf den Port 80 initiiert. Der Server, der auf diesem Port auf eine Anfrage wartet sendet eine Statusmeldung wie z.B. \inlinecode{bash}{HTTP/1.1 200 OK} und eine eigene Nachricht zurück. Diese Nachricht ist meist die angeforderte Resource oder eine Fehlermeldung. \ac{HTTPS} ist die Verschlüsselte Version von \ac{HTTP}. Die meist gebrauchten Anfragen sind:
+Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://developer.mozilla.org/de/docs/Web/HTTP}} ist der Kommunikationsstandart auf dem das Internet basiert. Eine HTTP Session wird über eine Anfrage über das \ac{TCP} an einen Server auf den Port 80 initiiert. Der Server, der auf diesem Port auf eine Anfrage wartet sendet eine Statusmeldung wie z.B. \inlinecode{bash}{HTTP/1.1 200 OK} und eventuell eine eigene Nachricht zurück. Diese Nachricht ist meist die angeforderte Resource oder eine Fehlermeldung. \ac{HTTPS} ist die verschlüsselte Version von \ac{HTTP}. Die meist gebrauchten Anfragen sind:
 
 \begin{itemize}
-\item[•] \textbf{GET}: Fordert eine Representation der Resource an. Ein GET Request darf nur Daten abfragen und darf keinen anderen Einfluss haben.
-\item[•] \textbf{PUT}: Fordert das speicher der Daten, die sich im Request-Body befinden, an. Wenn bereits eine Resource an der angegebenen \ac{URI} existiert, so wird diese geupdatet, sonst wir die Resource erstellt.
-\item[•] \textbf{POST}: Fordert das speichern der Daten, die sich im Request-Body befinden, unter der angegebenen \ac{URI} an. 
-\item[•] \textbf{DELETE}: Fordert das Löschen der Resource unter der angegebenen \ac{URI} an.
+\item[•] \textbf{GET}: Fordert eine Repräsentation der Ressource an. Ein GET Request darf nur Daten abfragen und darf keinen anderen Einfluss haben.
+\item[•] \textbf{PUT}: Fordert das Speichern der Daten, die sich im Request-Body befinden, an. Wenn bereits eine Ressource an der angegebenen \ac{URI} existiert, so wird diese aktualisiert, sonst wird die Resource erstellt.
+\item[•] \textbf{POST}: Fordert das Speichern der Daten, die sich im Request-Body befinden, unter der angegebenen \ac{URI} an. 
+\item[•] \textbf{DELETE}: Fordert das Löschen der Ressource unter der angegebenen \ac{URI} an.
 \end{itemize}
 
 \subsection{JavaScript}
 \label{sec:vor-js}
-JavaScript ist die Sprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vorallem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}.
+JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}.
 
 \subsection{Node.js}
 \label{sec:vor-node}
@@ -57,17 +57,17 @@ Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt au
 TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript. Das bedeutet, jeder gültige JavaScript Code ist auch ein gültiger TypeScript Code. TypeScript wird vom TypeScript Compiler in sauberes JavaScript übersetzt. TypeScript ist sehr gut für größere Anwendungen geeignet. Typescript hat strenge Datentypen, Klassen und Vererbung. Die Datentypen von TypeScript sind:
 
 \begin{itemize}
-\item[•] \textbf{String}: eine Unicode codierte Zeichenkette
-\item[•] \textbf{Number}: eine vorzeichenbehaftete Gleitkommazahl, kann auch hexadezimal, octal oder binär sein
-\item[•] \textbf{Boolean}: true oder false
-\item[•] \textbf{Array}: eine Liste von Elementen des gleichen Datentyps
-\item[•] \textbf{Tuple}: eine Liste von Elementen unterschiedlichen Datentyps deren Anzahl bekannt ist
-\item[•] \textbf{Enum}: eine Möglichkeit, numerischen Werten Namen zu geben
-\item[•] \textbf{Any}: Datentyp unbekannt, wird behandelt wie in JavaScript
-\item[•] \textbf{Void}: kein Datentyp, meist Rückgabewert bei Funktionen
-\item[•] \textbf{Null}: leerer Wert, kann allen anderen zugewiesen werden
-\item[•] \textbf{Undefined}: kein Wert, kann allen anderen zugewiesen werden
-\item[•] \textbf{Never}: wenn ein Wert niemals auftreten kann z.B. eine Funktion die immer einen Fehler produziert
+\item[•] \textbf{string}: eine Unicode codierte Zeichenkette
+\item[•] \textbf{number}: eine vorzeichenbehaftete Gleitkommazahl, kann auch hexadezimal, octal oder binär sein
+\item[•] \textbf{boolean}: true oder false
+\item[•] \textbf{array}: eine Liste von Elementen des gleichen Datentyps
+\item[•] \textbf{tuple}: eine Liste von Elementen unterschiedlichen Datentyps deren Anzahl bekannt ist
+\item[•] \textbf{enum}: eine Möglichkeit, numerischen Werten Namen zu geben
+\item[•] \textbf{any}: Datentyp unbekannt, wird behandelt wie in JavaScript
+\item[•] \textbf{void}: kein Datentyp, meist Rückgabewert bei Funktionen
+\item[•] \textbf{null}: leerer Wert, kann allen anderen zugewiesen werden
+\item[•] \textbf{undefined}: kein Wert, kann allen anderen zugewiesen werden
+\item[•] \textbf{never}: wenn ein Wert niemals auftreten kann z.B. eine Funktion die immer einen Fehler produziert
 \end{itemize}
 
 Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie sogenannte Type Annotations. Diese können bei den meisten bekannteren Modulen über den \ac{npm} installiert werden. Diese Pakete haben den Namenspräfix \textit{@types/}, das bedeutet, dass zum Beispiel die Type Annotations des Express Moduls über \inlinecode{bash}{npm install --save-dev @types/express} installiert werden können. Sollten keine Type Annotations für ein Modul vorhanden sein, muss man diese selbst erstellen.
@@ -78,14 +78,14 @@ Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \
 
 \subsection{JSON}
 \label{sec:vor-json}
-\ac{JSON} ist die Textrepresentation eines JavaScript Objekts. Die möglichen Datentypen sind:
+\ac{JSON} ist die Textrepräsentation eines JavaScript Objekts\footnote{Weiter Informationen zu \ac{JSON} unter \url{https://www.json.org/}}. Die möglichen Datentypen sind:
 
 \begin{itemize}
 \item[•] \textbf{string}: 0 oder mehrere unicode Zeichen innerhalb Doppelhochkommas
 \item[•] \textbf{boolean}: true oder false
 \item[•] \textbf{number}: Eine vorzeichenbehaftete Zahl, die auch die E Notation unterstützt z.B. 0.2E4 (=2000)
-\item[•] \textbf{Array}: Eine geordnete Liste von 0 oder mehreren Werten innerhalb viereckigen Klammern, Elemente sind getrennt durch Kommas.
-\item[•] \textbf{Object}: Eine ungeordnete Sammlung von Name-Wert-Paaren, wo die Namen, die auch Keys genannt werden, Strings sind; Jeder Key sollte eindeutig sein; Innerhalb geschwungener Klammern; Paare sind durch Komma getrennt
+\item[•] \textbf{Array}: Eine geordnete Liste von 0 oder mehreren Werten innerhalb eckiger Klammern, Elemente sind getrennt durch Kommas.
+\item[•] \textbf{Object}: Eine ungeordnete Sammlung von Name-Wert-Paaren, wo die Namen, die auch Keys genannt werden, Strings sind. Jeder Key sollte eindeutig sein. Innerhalb geschwungener Klammern. Paare sind durch Komma getrennt
 \item[•] \textbf{null}: Ein leerer Wert
 \end{itemize}
 
@@ -111,13 +111,13 @@ Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \
 
 \subsection{JSON Web Token}
 \label{sec:vor-jwt}
-\ac{JWT} ist ein JSON-basierter, offener Standart für das erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client beide überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen. Dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorythmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature steht der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
+\ac{JWT} ist ein JSON-basierter, offener Standard für das erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client beide überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen. Dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorithmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature steht der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
 
 \subsection{MongoDB}
 \label{sec:vor-mongo}
-MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im Vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
+MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im Vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBMS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
 
-\begin{lstlisting}[caption=Verbinden mit dem \ac{DBS},style=TS]
+\begin{lstlisting}[caption=Verbinden mit dem \ac{DBMS},style=TS]
 const dbServer = await mongodb.MongoClient.connect(url);
 \end{lstlisting}
 
@@ -139,7 +139,7 @@ this._times.updateOne({ identifier: 'Times' }, { $set: times });
 
 \subsection{DOM}
 \label{sec:vor-dom}
-Das \ac{DOM} ist die Objektrepresentation des \ac{HTML} Dokuments. Durch das \ac{DOM} kann eine JavaScript Anwendung \ac{HTML} Elemente ändern, entfernen, und hinzufügen, \ac{HTML} Attribute ändern, entfernen und hinzufügen und \ac{CSS} Styles ändern. Das \ac{DOM} wird vom Browser beim Laden der Website erstellt. 
+Das \ac{DOM} ist die Objektrepräsentation des \ac{HTML} Dokuments. Durch das \ac{DOM} kann eine JavaScript Anwendung \ac{HTML} Elemente ändern, entfernen, und hinzufügen, \ac{HTML} Attribute ändern, entfernen und hinzufügen und \ac{CSS} Styles ändern. Das \ac{DOM} wird vom Browser beim Laden der Website erstellt. 
 
 \subsection{Angular 2/4}
 \label{sec:vor-angular}
@@ -153,7 +153,7 @@ Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS
 
 \subsubsection{Modules}
 \label{sec:ang-modules}
-Jede Angular App ist in \textit{Module}s gegliedert. \textit{Module}s fassen meist ähnliche Funktionen zusammen. Jede App muss mindestens ein \textit{Module} enthalten. Dies heißt standartmäßig \textit{AppModule}. Ein \textit{Module} ist die größte Einheit einer Angular App.  Ein \textit{Module} kann folgende Komponenten beinhalten:
+Jede Angular App ist in \textit{Module}s gegliedert. \textit{Module}s fassen meist ähnliche Funktionen zusammen. Jede App muss mindestens ein \textit{Module} enthalten. Dies heißt standardmäßig \textit{AppModule}. Ein \textit{Module} ist die größte Einheit einer Angular App.  Ein \textit{Module} kann folgende Komponenten beinhalten:
 
 \begin{itemize}
 \item[•]Services
@@ -175,7 +175,7 @@ Eine Angular Library ist ein Modul, das \textit{decorator} und \textit{Modules} 
 Ein \textit{Component} kontrolliert einen Teil des Bildschirms, den sogenannten \textit{view}. Die Logik des \textit{Component}s wird in einer Klasse definiert. Die Klasse interagiert mit dem \textit{view} durch eine \ac{API} von Eigenschaften und Methoden.
 
 \paragraph*{Lifecycle Hooks}\mbox{}\\
-Ein Lebnszyklus in Angular ist immer der Lebenszyklus des jeweiligen \textit{Components}. Ein \textit{Component} kann erstellt, verändert und zerstört werden. Zu jedem Stadium gibt es eine Methode, die automatisch je nach Stadium von Angular aufgerufen werden. Die am häufigsten verwendeten sind:
+Ein Lebenszyklus in Angular ist immer der Lebenszyklus des jeweiligen \textit{Components}. Ein \textit{Component} kann erstellt, verändert und zerstört werden. Zu jedem Stadium gibt es eine Methode, die automatisch je nach Stadium von Angular aufgerufen werden. Die am häufigsten verwendeten sind:
 
 \begin{itemize}
 \item[•] \textbf{OnInit()}: Wird aufgerufen, wenn der \textit{Component} erstellt wird. Die dazugehörige Methode ist \inlinecode{TS}{ngOnInit()}. Zeitaufwendige Operationen sollten hier aufgerufen werden, anstatt im constructor, da das den Erzeugungsvorgang verlangsamen würden.
@@ -224,11 +224,11 @@ Ohne Framework wäre der Programmierer dafür verantwortlich, sicherzustellen, d
 
 \subsubsection{Services}
 \label{sec:ang-services}
-Services sind Klassen, die eine Aufgabe erfüllen, unabängig von allem anderen. Sie werden vorallem verwendet, wenn eine Aufgabe etwas Zeit erfordert, wie z.B. eine Serveranfrage. Services bieten auch die Möglichkeit, dass \textit{Components} Zugriff auf eine gemensame Variable haben, da Angular keine globalen Variablen hat. Services müssen vom \textit{Dependency Injector} injeziert werden. Der \textit{Dependency Injector} indiziert alle Abhängigkeiten in eine \textit{Component}.
+Services sind Klassen, die eine Aufgabe erfüllen, unabhängig von allem anderen. Sie werden vor allem verwendet, wenn eine Aufgabe etwas Zeit erfordert, wie z.B. eine Serveranfrage. Services bieten auch die Möglichkeit, dass \textit{Components} Zugriff auf eine gemensame Variable haben, da Angular keine globalen Variablen hat. Services müssen vom \textit{Dependency Injector} injiziert werden. Der \textit{Dependency Injector} indiziert alle Abhängigkeiten in eine \textit{Component}.
 
 \subsection{Angular CLI}
 \label{sec:vor-angular-cli}
-Das Angular \ac{CLI} ist ein JavaScript Modul, das über den \ac{npm} installiert werden kann. Mithilfe des \ac{CLI} ist das erstellen und übersetzen von Angular Anwendungen um vieles erleichtert. Ein neues Projekt erstellt man mit \inlinecode{bash}{ng new <projektname>} und übersetzt wird mit \inlinecode{bash}{ng build}. Mit der Option \inlinecode{bash}{--prod} wird die Anwendung kompakter und für den Einsatz übersetzt.
+Das Angular \ac{CLI} ist ein JavaScript Modul, das über den \ac{npm} installiert werden kann. Mithilfe des \ac{CLI} ist das erstellen und übersetzen von Angular Anwendungen um vieles erleichtert. Ein neues Projekt erstellt man mit \inlinecode{bash}{ng new <projektname>} und übersetzt wird mit \inlinecode{bash}{ng build}. Mit der Option \inlinecode{bash}{--prod} wird die Anwendung kompakter und für den Einsatz im produktiven Umfeld übersetzt.
 
 \subsection{Bootstrap}
 \label{sec:vor-bootstrap}
@@ -262,8 +262,8 @@ Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefer
 }
 
 Das Projekt ist so strukturiert, dass eine klare Trennung zwischen Client und Server herrscht.
-\paragraph*{Server} Im \textit{keys} Ordner befinden sich der öffentliche und private Schlüssel, die vom install Script erstellt werden. Im \textit{public} Ordner befinden sich die Resourcen, die direkt vom Server gesendet werden, z.B. Fehlermeldungsseiten. Im \textit{src} Ordner sind die TypeScript Arbeitsdateien. Diese werden in den \textit{dist} Ordner übersetzt.
-\paragraph*{Client} Der Client Ordner hat den Namen \textit{ngx}, dass sagt aus, es ist ein Angular Projekt, die Angular Version ist aber egal. Im \textit{src} Ordner befinden sich alle Dateien, die das Angular \ac{CLI} benötigt, um die Anwendung zu bauen. Im \textit{assets} Ordner befinden sich alle Resourcen, die die Anwendung benötigt, wie z.B. Bilder. Im Ordner \textit{i18n} befinden sich die Dateien, die das \ac{CLI} braucht, um die Anwendung in mehrere Sprachen zu übersetzen. Im \textit{app} Ordner befindet sich die eigentlich Anwendung. Die Anwendung ist klar getrennt in den Ordner \textit{components} und \textit{services}.
+\paragraph*{Server} Im \textit{keys} Ordner befinden sich der öffentliche und private Schlüssel, die vom install Script erstellt werden. Im \textit{public} Ordner befinden sich die Ressourcen, die direkt vom Server gesendet werden, z.B. Fehlermeldungsseiten. Im \textit{src} Ordner sind die TypeScript Arbeitsdateien. Diese werden in den \textit{dist} Ordner übersetzt.
+\paragraph*{Client} Der Client Ordner hat den Namen \textit{ngx}, dass sagt aus, es ist ein Angular Projekt, die Angular Version ist aber egal. Im \textit{src} Ordner befinden sich alle Dateien, die das Angular \ac{CLI} benötigt, um die Anwendung zu bauen. Im \textit{assets} Ordner befinden sich alle Ressourcen, die die Anwendung benötigt, wie z.B. Bilder. Im Ordner \textit{i18n} befinden sich die Dateien, die das \ac{CLI} braucht, um die Anwendung in mehrere Sprachen zu übersetzen. Im \textit{app} Ordner befindet sich die eigentlich Anwendung. Die Anwendung ist klar getrennt in den Ordner \textit{components} und \textit{services}.
 
 \subsection{Client}
 \label{sec:ums-client}
@@ -282,7 +282,7 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Starseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, fals welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \newpage
+Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -314,7 +314,7 @@ Auf der Geräteinformations-Seite werden die wichtigsten Daten über das Gerät 
 \item[•]IP Adresse
 \item[•]Softwareversion
 \end{itemize}
-Die Seriennummer ist eindeutig und wird von einem Server zugeteilt. Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \newpage
+Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -326,7 +326,7 @@ Die Seriennummer ist eindeutig und wird von einem Server zugeteilt. Die IP-Adres
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Update-Seite kann der Benutzer nach Updates suchen, Updates starten oder die Maschine herunterfahren. Wenn der Benutzer auf den Herunterfahren-Button klickt, der sich auf der linken Seite ganz unten befindet, wird er gewarnt, dass die Maschine nur mehr über das Aus- und wieder Einstecken des Netzteils startbar ist.\\
+Auf der Update-Seite kann der Benutzer nach Updates suchen, Updates starten oder die Maschine herunterfahren. Wenn der Benutzer auf den Herunterfahren-Button klickt, der sich auf der linken Seite ganz unten befindet, wird er gewarnt, dass die Maschine nur mehr über das Aus- und wieder Einstecken des Netzteils Startbar ist.\\
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
@@ -379,10 +379,39 @@ toMinutes(time: string): number {
 \end{lstlisting}
 
 \paragraph*{Updates}\mbox{}\\
-Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird geupdated, so wird eine anfrage an den Server gesendet, der alles weitere erledigt. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht indiziert dem Benutzer, dass das System updated. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
+Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird aktualisiert, so wird eine Anfrage an den Server gesendet siehe \ref{sec:ums-server-funktion}. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht teilt dem Benutzer mit, dass das System aktualisiert. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
 
 \subsection{Server}
 \label{sec:ums-server}
+
+\subsubsection{Serverpfade}
+\label{sec:ums-server-pfade}
+
+\paragraph*{GET}\mbox{}\\
+\begin{forest}
+	[/
+		[/api
+			[/version]
+			[/callMeMaybe]
+			[/getUpdate]
+			[/shutdown]
+			[/ip]		
+		]
+		[/de]
+		[/en]
+	]
+\end{forest}
+
+\paragraph*{POST}\mbox{}\\
+\begin{forest}
+	[/
+		[/api
+			[/putMeHere]	
+		]
+		[/login]
+		[/logout]	
+	]
+\end{forest}
 
 
 \subsubsection{Funktion}
