@@ -208,7 +208,7 @@ Die meisten Zusatzbefehle werden für \textit{Data Binding} verwendet.
   \end{center}
   \caption{Angular Databinding}
   \label{Angular Databinding}
-  \vspace{-60pt}
+  \vspace{0pt}
 \end{wrapfigure}
 \vspace{-40pt}
 \subsubsection{Data binding}
@@ -336,15 +336,21 @@ Der Haupt-\textit{Component}, der geladen wird, wenn die Seite aufgerufen wird, 
 
 \begin{lstlisting}[caption=Routes Definition,style=TS]
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, data: { title: 'Füttr' }, canActivate: [AuthGuard] },
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent, data: { title: 'Füttr - Login' } },
-  { path: 'position', component: PositionComponent, data: { title: 'Füttr - Positions' }, canActivate: [AuthGuard] },
-  { path: 'feed', component: FeedComponent, data: { title: 'Füttr - Feeding-Cycle' }, canActivate: [AuthGuard] },
-  { path: 'info', component: InfoComponent, data: { title: 'Füttr - Info' }, canActivate: [AuthGuard] },
-  { path: 'update', component: UpdateComponent, data: { title: 'Füttr - Update' }, canActivate: [AuthGuard] },
-  { path: '**', component: Error404Component, data: { title: 'Füttr - 404 (not found)' }
-  }
+  { path: 'home', component: HomeComponent, 
+  		data: { title: 'Füttr' }, canActivate: [AuthGuard]},
+  { path: '', pathMatch: 'full', redirectTo: 'login'},
+  { path: 'login', component: LoginComponent,
+  		data: { title: 'Füttr - Login' }},
+  { path: 'position', component: PositionComponent, 
+  		data: { title: 'Füttr - Positions' }, canActivate: [AuthGuard]},
+  { path: 'feed', component: FeedComponent, 
+  		data: { title: 'Füttr - Feeding-Cycle' }, canActivate: [AuthGuard},
+  { path: 'info', component: InfoComponent, 
+  		data: { title: 'Füttr - Info' }, canActivate: [AuthGuard]},
+  { path: 'update', component: UpdateComponent, 
+  		data: { title: 'Füttr - Update' }, canActivate: [AuthGuard]},
+  { path: '**', component: Error404Component, 
+  		data: { title: 'Füttr - 404 (not found)'}}
 ];
 \end{lstlisting}
 
@@ -356,11 +362,12 @@ Da alle \textit{Components} Daten vom Server holen und manche auch Daten zum Ser
 \paragraph*{Fütterungszeiten}\mbox{}\\
 Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook (siehe \ref{sec:ang-components}). Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten. Dies ist realisiert durch eine Checkbox, die mit \ac{CSS} wie ein Schalter gestyled wurde.
 
-\begin{lstlisting}[caption=Zeiten Parser,style=TS]
+\begin{lstlisting}[caption=Zeiten Parser,style=TS,label=zeiten_parser,captionpos=t]
 toMinutes(time: string): number {
   let timeHours: number;
   let timeMinutes: number;
-  if (time[0] === '-' && time[1] === '-' && time[3] === '-' && time[4] === '-') {
+  if (time[0] === '-' && time[1] === '-' 
+      && time[3] === '-' && time[4] === '-') {
     return null;
   }
   timeHours = parseInt(time[0], 10) * 10;
