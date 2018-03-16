@@ -43,7 +43,7 @@
   	keywordstyle=\color{blue},
     frameround=tttt,
     backgroundcolor=\color{background},
-    literate=
+    literate=%
      *{0}{{{\color{numb}0}}}{1}
       {1}{{{\color{numb}1}}}{1}
       {2}{{{\color{numb}2}}}{1}
@@ -225,7 +225,9 @@
 }
 \lstdefinelanguage{HTML5}{
   language=html,
-  sensitive=true, 
+  sensitive=true,
+  morestring=[b]",
+  morestring=[d]',
   alsoletter={<>=-},
   otherkeywords={
             % HTML tags
