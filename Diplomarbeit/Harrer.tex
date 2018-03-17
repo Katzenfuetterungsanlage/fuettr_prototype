@@ -104,52 +104,51 @@ Der Server mit dem die Web-Applikation kommunizieren kann, wird aufgrund der gew
 \newpage
 
 \section{Umsetzung}
-Bei der Umsetzung, also beim Schreiben des Programms, wurde wie folgt vorgegangen. Zuerst wurden alle GUI-Fenster per Hand grob designed. Anschließend wurden diese im Netbeans als JFrame Form erstellt. Genaueres über die GUI-Fenster folgt uner Punkt 2.3.4. Danach wurden grundlegende Funktionen die das Programm zu erfüllen hat implementiert. Weiters wurden noch: Mongodb, pi4j, der Server und der ErrorAndWarningHandler als Singleton implementiert. 
+Bei der Umsetzung, also beim Schreiben des Programms, wurde wie folgt vorgegangen. Zuerst wurden alle GUI-Fenster per Hand grob entworfen. Anschließend wurden diese im Netbeans als javax.swing.JFrame Form erstellt. Genaueres über die GUI-Fenster folgt unter Punkt 2.3.4. Danach wurden grundlegende Funktionen die das Programm zu erfüllen hat implementiert. Weiters wurden noch die Klassen: Mongodb, pi4j, der Server und der ErrorAndWarningHandler als Singleton implementiert. 
 \\ \\ 
 Nun folgen ausführlichere Beschreibungen über die oben angeführten Klassen.
 
 \subsection{Mongodb}
 \subsubsection{Allgemeines}
-Mongodb is ein schemenlose Datenbank. Schemenlos bedeuted, dass die Daten keine besondere Formatierung brauchen um gespeichert zu werden. Zusätzlich wird jedem gespeichertem Datensatz automatisch ein einmaliger Indentifikator gegeben. Weiters ist es kostenfrei und man benötigt keine Lizenzen.
+Mongodb ist ein schemenlose Datenbank. Schemenlos bedeuted, dass die Daten keine besondere Formatierung brauchen um gespeichert zu werden. Zusätzlich wird jedem gespeichertem Datensatz automatisch ein einmaliger Indentifikator gegeben. Weiters ist Mongodb open source, das bedeutet, dass es kostenfrei ist.
 \\
-Bei einer schemenbehafteten Datenbank werden die Daten in Reihen und Spalten gegliedert. Um eine solche Datenbank effizient nutzen zu können wird auch ein einmaliger Identifikator.
+Bei einer schemenbehafteten Datenbank werden die Daten, in einer Tabelle, in Reihen und Spalten gegliedert. Um eine solche Datenbank effizient nutzen zu können wird ein einmaliger Identifikator verwendet. Dieser verkürzt das Suchen eines Datensatzes.
 \\ \\ 
-In Mongodb sind Zeilen Collections und Spalten Documents. 
+In Mongodb werden die Daten in Collections gespeichert. Die in den Collections gepseicherten Datensätze werden Documents genannt. 
 \\ \\
 Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werden. In unserem konkreten Fall am Raspberry startet die Datenbank beim Starten des Raspberry automatisch. Weiters kann in der Konsole mit dem Befehl \textbf{mongo}, sofern die Datenbank gestartet ist, die Mongo-Shell geöffnet werden. In der Shell können alle angelegten Datebanken verwaltet werden. Unter verwalten wird das Ändern, Hinzufügen und Löschen von Daten verstanden. Es können auch neue Datenbanken angelegt oder alte Datenbanken gelöscht werden. 
 \\ Befehle:
-\begin{itemize}
-\item[•] \textbf{show dbs} ... zeigt alle angelegten Datenbanken an
-\item[•] \textbf{show collections} ... zeigt alle collections in einer Datebank
-\item[•] \textbf{use} ... verwenden einer Datenbank, falls die Datenbank noch nicht existiert wird sie neu erstellt 
-\\     (Beispiel: use <Datenbankname>)
-\item[•] \textbf{drop()} ... löschen einer Datenbank
-\\     (Beispiel: <Datenbankname>.drop() )
-\item[•] \textbf{find()} ... suchen nach bestimmten Daten 
-\\     (Beispiel: db.data.find() )
-\item[•] \textbf{count()} ... zählt die Dokumente in einer Collection
-\\     (Beispiel: db.<Collectionname>.count() )
-\item[•] \textbf{insert()} ... hinzufügen eines Dokumentes
-\\     (Beispiel: db.data.insert(\{"time1":"13:30"\})
-\item[•] \textbf{updateOne()} ... updaten von Daten
-\\     (Beispiel: db.data.updateOne(<DokumentID>, <Daten>) )
-\item[•] \textbf{deleteOne()} ... löschen eins Dokumentes
-\\     (Beispiel: db.data.deleteOne(<DokumentID>) )
-
+\begin{itemize} 
+\item[•] \textbf{\inlinecode{JavaStyle}{show dbs}} ... zeigt alle angelegten Datenbanken an
+\item[•] \textbf{\inlinecode{JavaStyle}{show collections}} ... zeigt alle collections in einer Datebank
+\item[•] \textbf{\inlinecode{JavaStyle}{use}} ... verwenden einer Datenbank, falls die Datenbank noch nicht existiert wird sie neu erstellt 
+\\     (Beispiel: \inlinecode{JavaStyle}{use <Datenbankname>} )
+\item[•] \textbf{\inlinecode{JavaStyle}{drop()}} ... löschen einer Datenbank
+\\     (Beispiel: \inlinecode{JavaStyle}{<Datenbankname>.drop()} )
+\item[•] \textbf{\inlinecode{JavaStyle}{find()}} ... suchen nach bestimmten Daten 
+\\     (Beispiel: \inlinecode{JavaStyle}{db.data.find()} )
+\item[•] \textbf{\inlinecode{JavaStyle}{count()}} ... zählt die Dokumente in einer Collection
+\\     (Beispiel: \inlinecode{JavaStyle}{db.<Collectionname>.count()} )
+\item[•] \textbf{\inlinecode{JavaStyle}{insert()}} ... hinzufügen eines Dokumentes
+\\     (Beispiel: \inlinecode{JavaStyle}{db.data.insert(\{"time1":"13:30"\}} )
+\item[•] \textbf{\inlinecode{JavaStyle}{updateOne()}} ... updaten von Daten
+\\     (Beispiel: \inlinecode{JavaStyle}{db.data.updateOne(<DokumentID>, <Daten>)} )
+\item[•] \textbf{\inlinecode{JavaStyle}{deleteOne()}} ... löschen eins Dokumentes
+\\     (Beispiel: \inlinecode{JavaStyle}{db.data.deleteOne(<DokumentID>)} )
 \end{itemize}
 
-\subsubsection{Datenbankmanagementsystem DBS}
-Ein Datenbankmanagementsystem verwaltet eine oder mehrere Datenbanken. Mehrer Datenbanken werden dabei benötigt, wenn mehrere Anwenugen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein DBS ist Mongodb.
+\subsubsection{Datenbankmanagementsystem DBMS}
+Ein Datenbankmanagementsystem verwaltet eine oder mehrere Datenbanken. Mehrer Datenbanken werden dabei benötigt, wenn mehrere Anwendugen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein DBMS ist Mongodb.
 
 \subsubsection{Singleton}
-Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ein Objekt der Datenbank erzeugt. Das bedeutet, dass nur von dieser Klasse aus auf die Datenbank zugegriffen wird und nur eine Verbindung geöffnet wird.
-\\ Ein weiterer Vorteil davon ist, dass wenn einmal eine andere Datenbank verwendet werden sollte, nur diese eine Klasse geändert werden muss, weil nur in dieser Klasse der Code für die spezifische Datenbank enthalten ist.
+Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ein Objekt der Datenbank erzeugt. Das bedeutet, dass nur von diesem Objekt aus auf die Datenbank zugegriffen wird und nur eine Verbindung geöffnet wird.
+\\ Ein weiterer Vorteil davon ist, dass wenn einmal eine andere Datenbank verwendet werden sollte, nur diese eine Klasse geändert werden muss, weil nur in dieser Klasse der Code für die spezifische Datenbank enthalten ist. Diese Art von Klasse nennt man Wrapper-Klasse. Das bedeutet, dass diese Klasse einen Teil des Codes des Programms beinhaltet, welcher nur in dieser Klasse vorkommt.
 
 \subsubsection{Code Beispiele}
 Da am Raspberry die neueste Version von Mongodb nicht funktioniert, wird die Version 2.14.2 verwendet. Weitere Details zu diesem Thema sind unter Punkt 2.4.1 zu finden.
 \\ Aus diesem Grund sind auch die Methoden, die als Beispiele angeführt sind, von der älteren Version. 
 \\ \\ 
-Als erstes muss eine Verbindung mit der Datenbank aufgebaut werden. Falls die Datenbank noch nicht existiert wird sie automatisch erstellt.
+Als Erstes muss eine Verbindung mit der Datenbank aufgebaut werden. Falls die Datenbank noch nicht existiert wird sie automatisch erstellt.
 Dies ist in Java mit folgenden Methoden möglich:
 \begin{lstlisting}[style=JavaStyle, caption=Mit Mongodb verbinden]
 	MongoClient mongodb = new MongoClient();
@@ -186,18 +185,17 @@ Bevor das Java Programm beendet wird sollte die Verbindung zur Datenbank wie fol
 \end{lstlisting}
 
 Ein konkretes Beispiel des Codes aus dem Programm für die Katzenfütterungsanlage sieht so aus:
-\begin{lstlisting}[style=JavaStyle, caption=Konkretes Beispiel: Dokument suchen]
+\begin{lstlisting}[style=JavaStyle, caption=Konkretes Beispiel: Dokument suchen, label=BspDokumentSuchen]
 	DBObject document = collUser.find(
 			new BasicDBObject("identifier", "User")).next();
 \end{lstlisting}
-Diese Zeile Code sucht in der Collection \textbf{collUser} nach dem Dokument mit dem Identifikator \textbf{new BasicDBObject(\grqq{}identifier\grqq{}, \grqq{}User\grqq{})}. Das gefundene Dokument wird dann der Varibale \textbf{document} zugewiesen. 
+Im Code-Beispiel \ref{BspDokumentSuchen} wird in der Collection \textbf{collUser} nach dem Dokument mit dem Identifikator \textbf{\inlinecode{JavaStyle}{new BasicDBObject("identifier", "User")}} gesucht. Das gefundene Dokument wird dann dem \textbf{DBObject document} zugewiesen. 
 
 
 \subsection{pi4j} \label{subsec:pi4j}
 \subsubsection{Allgemeines}
-Pi4j ist eine freie Software, welche Bibliotheken zur Verfügung stellt, mit denen es möglich ist, von einem Java Programm, auf die IO-Pins eines Raspberrys zuzugreifen. Dabei kann ein GPIO-Pin als In- oder Ouput definiert werden. Wenn ein Pin als Output definiert wird, kann er den State High (+5V) oder Low (0V) haben. Mit einem Input Pin, können Signale gemessen werden. Das Ergebnis der Messung ist wieder High oder Low. Weiters ist es auch möglich einem Pin einen Listener zuzuweißen. Dieser Listener wartet bis auf diesem Pin ein Event auftritt und führt dann zum Beispiel eine Methode aus. 
+Pi4j ist eine open source Software, welche Bibliotheken zur Verfügung stellt, mit denen es möglich ist, von einem Java Programm, wenn es auf einem Raspberry ausgeführt wird, auf die IO-Pins dess Raspberrys zuzugreifen. Dabei kann ein GPIO-Pin als In- oder Ouput definiert werden. Wenn ein Pin als Output definiert wird, kann er den State High (+3,3V) oder Low (0V) haben. Mit einem Input Pin, können digitale Signale gemessen werden. Das Ergebnis der Messung ist wieder High oder Low. Weiters ist es auch möglich einem Pin einen Listener zuzuweißen. Dieser Listener wartet bis auf diesem Pin ein Event auftritt und führt dann zum Beispiel eine Methode aus. 
 \\ \\
-Pi4j stellt eine Verbindung von der JVM (Java Virtuaul Machine) zu dem nativen System des Raspberys her. Dadurch wird es möglich von dem Programm auf die Pins zuzugreifen. Die folgende Grafik zeigt welche Bibliotheken dazu verwendetwerden.
 
 \begin{wrapfigure}{l}{0.5\textwidth}
 \vspace{-35pt}
@@ -205,31 +203,40 @@ Pi4j stellt eine Verbindung von der JVM (Java Virtuaul Machine) zu dem nativen S
     \includegraphics[width=0.45\textwidth]{Bilder/pi4j/dependencies}
   \end{center}
   \caption{Abhängigkeiten}
-  \label{Magazin Vorne}
-  \vspace{-170pt}
+  \label{Abhaegigkeiten}
+  \vspace{-160pt}
 \end{wrapfigure}
 
-Pi4j stellt eine Verbindung von der JVM (Java Virtuaul Machine) zu dem nativen System des Raspberys her. Dadurch wird es möglich von dem Programm auf die Pins zuzugreifen. Die folgende Grafik zeigt welche Bibliotheken dazu verwendetwerden.
+Pi4j stellt mithilfe des JNI (Java Native Interface) eine Verbindung von der JVM (Java Virtual Machine) zu dem nativen System des Raspberys her. Dadurch wird es möglich ist zu sehen, wie vom Java-Programm auf die Pins zugefriffen wird.
+\\ Der konkrete Zugriff überfolgt über die Bibliothek \textbf{libwiringPi}.
+
 
 \newpage
 
 \subsubsection{Pin Numbering Sheme}
 
 \begin{wrapfigure}{l}{0.5\textwidth}
-\vspace{-40pt}
+\vspace{-35pt}
   \begin{center}
     \includegraphics[width=0.50\textwidth]{Bilder/pi4j/PinNumberingSheme}
   \end{center}
   \caption{Pin Numbering Sheme}
-  \label{Magazin Vorne}
-  \vspace{-320pt}
+  \label{Pin Numbering Sheme}
+  \vspace{-180pt}
 \end{wrapfigure}
 
-Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den GPIO-Pins kann der Programmierer selbst entscheiden, was der Pin sein soll.
+In der Abbildung \ref{Pin Numbering Sheme} ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt sind.
 \\ \\
-In der Grafik ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt sind.
+Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den 29 GPIO-Pins kann der Programmierer selbst entscheiden, was der Pin sein soll.
+\\Pins auf die über die mit pi4j nicht zugegriffen werden kann sind:
+\begin{itemize}
+\item[•] Power mit 3,3V oder 5V
+\item[•] Ground
+\end{itemize}
+\vspace{10pt}
+Auch unter den GPIO-Pins gibt es Pins mit einer zusätzlichen Funktion. Zum Beispiel können der GPIO-Pin 15 und 16 für eine UART-Übertragung genutzt werden. Die GPIO-Pins 12, 13 und 14 dienen als SPI Schnittstelle.
 
-\vspace{300pt}
+\vspace{120pt}
 
 \subsubsection{Gewählte Pin Belegung}
 Zum Ansteuern der Motoren und Auswerten der Sensoren wurden nur GPIO-Pins verwendet. Die Motoren in der Anlage werden über jeweils eine H-Brücke angesteuert. Das bedeutet, dass jeder der zwei Motoren jeweils mit vier Transitoren angesteuert wird. Jeder Transitor wird von einem eigenen Pin angesteuert. Für die Sensoren wird jeweils ein Pin zum Auswerten benötigt. In Summe werden zehn GPIO-Pins benötigt. 
@@ -245,29 +252,46 @@ Diese GPIO-Pins werden, wie folgenden Tabelle 2.1 veranschaulicht, verwendet:
 \textbf{Pin} & \textbf{Verwendungszweck}          \\ \hline
 GPIO\_00     & Sensor Schüsselplatte              \\ \hline
 GPIO\_01     & Sensor Förderband (Futtersackerl)  \\ \hline
-GPIO\_02     & Motor Schüsselplatte: Transistor 1 \\ \hline
-GPIO\_03     & Motor Schüsselplatte: Transistor 2 \\ \hline
-GPIO\_04     & Motor Schüsselplatte: Transistor 3 \\ \hline
-GPIO\_05     & Motor Schüsselplatte: Transistor 4 \\ \hline
-GPIO\_06     & Motor Förderband: Transistor 1     \\ \hline
-GPIO\_10     & Motor Förderband: Transistor 2     \\ \hline
-GPIO\_08     & Motor Förderband: Transistor 3     \\ \hline
-GPIO\_09     & Motor Förderband: Transistor 4     \\ \hline
+GPIO\_02     & Motor Schüsselplatte: Aktivieren \\ \hline
+GPIO\_03     & Motor Schüsselplatte: Drehen im Uhrzeigersinn \\ \hline
+GPIO\_04     & Motor Schüsselplatte: Drehen gegen den Uhrzeigersinn \\ \hline
+GPIO\_06     & Motor Förderband: Aktivieren     \\ \hline
+GPIO\_10     & Motor Förderband: Drehen im Uhrzeigersinn     \\ \hline
+GPIO\_08     & Motor Förderband: Drehen gegen den Uhrzeigersinn     \\ \hline
 \end{tabular}
 \caption{Belegung der GPIO-Pins}
 \label{Pinbelegung}
 \end{table}
 
-Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+5V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
-\\ Um einen Motor einzuschalten müssen jeweils zwei diagonal zueinander liegende Transitoren aktiviert werden. Der Motor dreht sich im Uhrzeigersinn, GPIO-Pins von Transistor 1 und Transistor 4 High sind. Gleichzeitig muss sicher gestellt werden, dass die GPIO-Pins der Transistoren 2 und 3 Low sind. Wenn das nicht sichergestellt ist kann es zu einem Kurzschluss zwischen der Spannungsversorgung und GND kommen. Um den Motor gegen den Uhrzeigersinn zu drehen müssen die GPIO-Pins der Transistoren 2 und 3 auf High sein. 
+Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+3,3V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
+\\ Um einen Motor einzuschalten müssen jeweils zwei GPIO-Pins auf High geschalten werden. Zuerst muss der Motor aktiviert werden. Wenn der Motor nicht aktiviert ist, ist er ausgeschalten und vom Stromnetz getrennt. Weiters muss dann noch ein weiterer GPIO-Pin auf High geschalten werden. Dieser weitere Pin gibt die Drehrichtung des Motors an.
+\\ Diese vom Raspberry kommenden Singale werden von einer Treiberstufe verarbeitet. Die Treiberstufe steuert anschließend die Motoren an. 
+
+\vspace{10pt}
+
+Die GPIO-Pins des Raspberrys sind wie in den folgenden Abbildungen \ref{Verkabelung Motoren} und \ref{Verkabelung Sensoren} zu sehen mit der Treiberstufe und den Sensoren verbunden.
+\begin{figure}[H]
+  \begin{minipage}[hbt]{0.5\textwidth}
+    \includegraphics[width=1\textwidth]{Bilder/RaspberryPinVerkabelung/Motoransteuerung}
+ 	\caption{Verkabelung Motoren}
+  	\label{Verkabelung Motoren}
+  \end{minipage}
+\hspace{.03\linewidth}
+  \begin{minipage}[hbt]{0.5\textwidth}
+    \includegraphics[width=1\textwidth]{Bilder/RaspberryPinVerkabelung/Sensoransteuerung}
+  	\caption{Verkabelung Sensoren}
+  	\label{Verkabelung Sensoren}
+  \end{minipage}
+  \vspace{0pt}
+\end{figure}
 
 \subsubsection{Singleton}
-Die benötigten Methoden von pi4j wurden in einem Singleton implementiert. Es musste ein Singleton verwendet werden, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  ein Error geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann. Der Zugriff von mehreren Klassen ist ohne einen Singleton programmiertechnisch nicht lösbar.
+Die benötigten Methoden von pi4j wurden in einer Wrapper-Klasse als Singleton implementiert. Es wird ein Singleton verwendet, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  eine Exception geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann.
 
 \subsubsection{Code Beispiele}
 Um mit den GPIO-Pins arbeiten zu können muss zu Beginn ein Controller erstellt werden. Dies ist wie folgt möglich:
 \begin{lstlisting}[style=JavaStyle, caption=GPIO-Controller erstellen]
-	GpioController controller = GpioFactory.getInstance();
+	GpioController controller = com.pi4j.io.gpio.GpioFactory.getInstance();
 \end{lstlisting}
 Wenn der Controller erstellt ist kann auf die Pins, mit denen gearbeitet werden soll, zugegriffen werden. Bei einem Pin kann auch eine \textbf{ShutDownOption} angeben werden. Diese gibt an in welchen Zustand der Pin vor dem Herunterfahren gesetzt wird. Dieser Zugriff erfolgt wie folgt: 
 \begin{itemize}
@@ -308,14 +332,17 @@ Vor dem Beenden des Java Programmes sollte der Controller wie folgt heruntergefa
 
 \subsection{Server-Client-Kommunikation}
 \subsubsection{Server}
-Der Server wird beim Starten des Java Programmes in einem eigenen Thread gestartet. In diesem Thread wartet der Server bis ein Client versucht Kontakt mit ihm aufzunehmen. Wenn die Verbindung akzeptiert wird, wird ein neuer Thread geöffnet in dem die Kommunikation mit diesem Client abläuft. Sobald die Kommunikation beendet ist wird der Thread wieder geschlossen. 
-\\ Der Server wurde auch als Singleton implementiert damit von mehreren Klassen ausgehend auf ihn zugegriffen werden kann.
+Der Server wird beim Starten des Java Programmes mithilfe des SwingWorkers in einem eigenen Hintergrund-Thread gestartet. In diesem Hintergrund-Thread wartet der Server bis ein Client versucht Kontakt mit ihm aufzunehmen. Wenn die Verbindung akzeptiert wird, wird ein neuer Thread geöffnet in dem die Kommunikation mit diesem Client abläuft. Sobald die Kommunikation beendet ist wird der zuvor geöffnete Thread wieder geschlossen. 
+\\ Der Server wurde auch als Singleton implementiert damit von anderen Klassen einfach auf ihn zugegriffen werden kann.
 
 \subsubsection{Übertragungsprotokoll}
-Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was ein gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. 
+Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was ein gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. Weiters wird festgelegt auf welchen Protokoll die Kommunikation basiert. Zusätzlich wird noch der Verbindungsaufbau sowie der Abbau beschrieben.
 \\ \\
-Wenn der Request des Clients mit einem \textbf{GET} beginnt, bedeutet dass, das der Client Daten vom Server fordert. Beginnt der Request mit einem \textbf{PUT}, bedeutet dass, das der Client dem Server Daten schicken will.
-\\ Nach jedem \textbf{GET} oder \textbf{PUT} folgt ein URL der angibt, welche Daten der Client fordert oder welche Daten der Client dem Server schicken will.
+Die Kommunikation zwischen Server und Client basiert bei der Katzenfütterungsanlage auf dem TCP/IP-Protokoll. Dies ist ein verbindungsorientiertes Protokoll. Das bedeutet, dass Pakete automatisch erneut geschickt werden, wenn bei der Übertragung ein Fehlter passiert ist oder das Paket verloren gegangen ist. Der Verbingungsaufbau und Abbau erfolgt bei diesem Protokoll über das IDLE-RQ Verfahren.
+\\ Als Timeout wurden 10 Sekunden gewählt, weil das sinnvoll zu sein scheint.
+\\ \\
+Wenn der Request des Clients mit einem \textbf{GET} beginnt, bedeutet das, dass der Client Daten vom Server fordert. Beginnt der Request mit einem \textbf{PUT}, bedeutet das, dass der Client dem Server Daten schicken will.
+\\ Nach jedem \textbf{GET} oder \textbf{PUT} folgt ein Befehl der angibt, welche Daten der Client fordert oder welche Daten der Client dem Server schicken will.
 \\ \\
 Die folgende Tabelle zeigt alle gültigen Requests und die jeweilige Response darauf:
 
@@ -324,7 +351,7 @@ Die folgende Tabelle zeigt alle gültigen Requests und die jeweilige Response da
 \begin{tabular}{|l|l|p{300pt}|}
 \hline
 \multicolumn{2}{|c|}{\textbf{Request}}                                    & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Response}}}                                          \\ \cline{1-2}
-\multicolumn{1}{|c|}{\textbf{Aktion}} & \multicolumn{1}{c|}{\textbf{URL}} & \multicolumn{1}{c|}{}                                                                            \\ \hline
+\multicolumn{1}{|c|}{\textbf{Aktion}} & \multicolumn{1}{c|}{\textbf{Befehl}} & \multicolumn{1}{c|}{}                                                                            \\ \hline
 GET                                   & /errors\_warnings                 & Der Server schickt dem Client die aktuell anzuzeigenden Errors und Warnungen in einer Json-Array \\ \hline
 PUT                                   & /ChangeMachineState               & Der Server ruft eine Methode auf um den Maschinenzustand zu ändern                               \\ \hline
 \end{tabular}
@@ -340,39 +367,43 @@ Wenn der Server einen Request mit dem Beginn \textbf{GET} bekommt, muss er dem C
 
 \subsubsection{Response-PUT}
 Wenn der Server einen Request mit dem Beginn \textbf{PUT} bekommt, muss er Daten vom Client entgegen nehmen.
-\\ Bei der Katzenfütterungsanlage bekommt der Server die Daten nicht direkt. Da der Maschinenzustand nur \textbf{Ein} oder \textbf{Aus} sein kann, wird dieser nicht übermittelt. Stattdessen wird, wenn der Maschinenzustand geändert wird, die Methode \textbf{machineStateChanger()} aufgerufen, welche ihn ändert. Diese Methode aktualisiert auch die GUI-Elemente am Raspberry, abhägig vom Maschinenzustand. 
+\\ Bei der Katzenfütterungsanlage bekommt der Server die Daten nicht direkt. Da der Maschinenzustand nur \textbf{Ein} oder \textbf{Aus} sein kann, wird dieser nicht übermittelt. Stattdessen wird, wenn der Request zum Ändern des Maschinenzustands erhalten wird, die Methode \textbf{machineStateChanger()} aufgerufen, welche den Maschinenzustand ändert. Diese Methode aktualisiert auch die GUI-Elemente am Raspberry, abhängig vom Maschinenzustand. 
 
 \subsubsection{Verarbeiten des Requests}
 Um den Request zu verarbeiten wurde die Klasse \textbf{ConnectionThread} geschrieben. Der Request wird wie folgt verarbeitet:
 \begin{itemize}
-\item[1] Der Request wird eingelsen.
-\item[2] Danach wird überprüft ob der Request "GET\grqq{} oder "PUT\grqq{} enthält. Wenn keine dieser beiden Funktionen enthalen ist, wird eine Fehlermeldung gesendet.
-\item[3] Wenn dies überprüft wurde und kein Fehler aufgetreten ist, wird der URL überprüft. Im URL wird dem Server mitgeteil was er machen soll. Der Inhalt des URL ist ein String und wird im Übertragungsprotokoll festgelegt.
+\item[1] Der Request wird eingelesen.
+\item[2] Danach wird überprüft, ob der Request "GET\grqq{} oder "PUT\grqq{} enthält. Wenn keine dieser beiden Funktionen enthalten ist, wird eine Fehlermeldung gesendet.
+\item[3] Wenn dies überprüft wurde und kein Fehler aufgetreten ist, wird der Befehl überprüft. Über den Befehl erfährt der Server was er machen soll. Der Inhalt des Befehls ist ein String und wird im Übertragungsprotokoll festgelegt.
 \end{itemize}
 
 \subsection{Errors und Warnungsverarbeitung}
 \subsubsection{Allgemeines}
 Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. 
-\\ Dazu dient die \textbf{ErrorAndWarningHandler\_Singleton} Klasse. In dieser Klasse wird beim Auftreten eines Fehlers eine Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
+\\ Dazu dient die \textbf{ErrorAndWarningHandler} welcher in einer Wrapper-Klasse als Singleton implementiert wurde. In dieser Klasse ist für jeden möglichen Fehler eine Boolean Variable angelegt. Beim Auftreten eines Fehlers wird die zum Fehler gehörende Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
 
 \newpage
 
 \subsubsection{Errors und Warnungen aktivieren/deaktivieren}
 Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
 \begin{lstlisting}[style=JavaStyle, caption=Error setzen]
-public void setFeedingHasFailedError (Boolean errorOn, String errorTime)
+public void setFeedingHasFailedError (Boolean errorOn)
     {
         error_hasFeedingFailed = errorOn;
-        failedFeedingTime = errorTime;
+        if (errorOn == true)
+        {
+            failedFeedingTime = String.format("%1$tH:%1$tM", 
+            	new Date(System.currentTimeMillis()));
+        }   
     }
 \end{lstlisting}
 In diesem konkreten Beispiel wird der Error, der dem Benutzer mitteilt, dass eine Fütterung fehlgeschlagen hat, aktiviert. Mit dem Parameter \textbf{errorOn} kann bestimmt werden, ob der Error aktiv oder inaktiv sein soll. Wenn der Parameter \textbf{true} ist, ist der Error aktiv. Daraus folgt, dass der Error inaktiv ist, wenn \textbf{errorOn = false} ist. 
-\\ Mit dem zweiten Parameter \textbf{errorTime} wird die Zeit übergeben, zu der die Fütterung fehlgeschlagen ist. Diese Zeit wird dann in der Errormeldung ausgegeben. 
+\\ In dieser Methode wird zusätzlich ein Zeitstempel erstellt. Dieser Zeitstempel wird nur erstellt, wenn der Error aktiviert wird. 
 
 \subsubsection{Json-Array} \label{subsubsec:Array}
 Diese Klasse stellt auch die Json-Array zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird. 
 
-Die JsonArray sieht wie folgt aus:
+Die JsonArray kann wie folgt aussehen, wenn Errors sowie auch Warnungen enthalten sind:
 
 \begin{lstlisting}[language=json,firstnumber=1, caption=Json-Objekt mit Errors und Warnungen]
 { 
@@ -391,12 +422,13 @@ Die JsonArray sieht wie folgt aus:
 
 \newpage
 
+\begin{comment} % auskommentiert, weil es wahrschienlich weggenommen wird
 \subsubsection{Listenmodel}
 Die Zeile, in der die Klasse für das Listenmodel angelegt wird, sieht wie folgt aus:
 \begin{lstlisting}[style=JavaStyle, caption=Listenmodel-Klasse erstellen]
-	public class ErrorAndWarningModel extends AbstractListModel
+	public class ErrorAndWarningModel extends AbstractListModel<String>
 \end{lstlisting}
-Nach dem Klassennamen muss \textbf{extends AbstractListModel} hinzugefügt werden. Dies bedeutet, dass das erstellte Listemodel eine Vererbung von \textbf{AbstractListModel} ist.
+Nach dem Klassennamen muss \textbf{extends AbstractListModel} hinzugefügt werden. Dies bedeutet, dass das erstellte Listemodel von \textbf{AbstractListModel} abgeleitet ist.
 \\ \\
 Das Listenmodel wird wie folgt angelegt:
 \begin{lstlisting}[style=JavaStyle, caption=Liste erstellen im Model]
@@ -407,7 +439,7 @@ Damit ist nun festgelegt, dass die Elemente in der Liste Strings sind.
 \subsubsection{Liste}
 Eine Liste in Java wird dazu verwendet, um mehrere Daten in einem Objekt zu speichern. Die Liste kann wie folgt erstellt werden:
 \begin{lstlisting}[style=JavaStyle, caption=Liste erstellen]
-	List<String> list = new ArrayList();
+	List<String> list = new ArrayList<>();
 \end{lstlisting}
 Das Objekt der Liste verfügt über eigene Methoden. 
 \begin{itemize}
@@ -426,27 +458,31 @@ Das Objekt der Liste verfügt über eigene Methoden.
 \end{itemize}
 
 Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI in einer Liste (jList) dargestellt. Siehe Kapitel \ref{subsubsec:MainWindow}. 
+\end{comment}  % kommentar ende
 
 \subsection{SwingWorker}
-Der SwingWorker in Java wird benötigt, wenn eine Anwendung mehr Zeit benötigt. Mithilfe des SwingWorkers kann diese Aktion im Hintergrund ausgeführt werden. Der Vorteil davon ist, dass die GUI verwendbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
-\\ \\ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werden:
+Der SwingWorker in Java wird benötigt, wenn eine Methode mehr Zeit benötigt und somit die GUI blockieren würde. Mithilfe des SwingWorkers, aus der Klasse javax.swing, kann diese Aktion in einem Hintergrund-Thread ausgeführt werden. Der Vorteil davon ist, dass die GUI bedienbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
+\\ \\
+Das oben geführte Beispiel könnte auch mit der Klasse Thread gelöst werden. Der Hauptgrund für die Verwendung von SwingWorker ist, dass der SwingWorker für die Verwenung in Applikationen mit GUI optimiert ist. Der SwingWorker verfügt über Methoden mit denen nach oder während des Ablaufens des Hintergrundproesses auf die GUI-Elemente zugegriffen werden kann.
+\\ \\ 
+Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werden:
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker Klasse erstellen]
 	private class Worker extends SwingWorker<Object, String> { } 
 \end{lstlisting}
-Im Generic steht als erstes der Rückgabewert von \textbf{done()} und als zweites der Rückgabewert von \textbf{process()}.
+Im Generic steht als Erstes der Rückgabewert von \textbf{get()} und als Zweites der Datentyp des Übergabewertes von \textbf{publish()}.
 
 \subsubsection{EDT}
-Im \ac{EDT} wird die GUI sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. 
+Im \ac{EDT} wird der Quellcode sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. In der Regel wird gesagt, dass dann ein SwingWorker verwendet werden soll, wenn die Möglichkeit besteht, dass die GUI für 100 Millisekunden oder mehr blockiert.
 
 \subsubsection{TimeUnit}
-Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird ein \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm, an der Stelle wo die Methode aufgerufen wird, für 500 Millisekunden. Dadurch wird der Prozessor nicht so stark ausgelastet. 
+Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird die Methode \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm für 500 Millisekunden, ohne Rechenleistung zu konsumieren. Dadurch wird der Prozessor nicht so stark ausgelastet. 
 
 \subsubsection{Methoden des SwingWorkers}
 \begin{itemize}
 \item[•] doInBackground()
-\\ Mit \textbf{doInBackground()} kann ein neuer Hintergrund-Thread geöffnet werden. Dieser Thread läuft parallel zum \ac{EDT}. Der Hintergrund-Thread wird geschlossen, wenn der Worker beendet wird oder sich der Worker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf GUI-Elemente zugegriffen werden. 
-\\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher nur durch das Beenden des Workers beendbar ist.
-\begin{lstlisting}[style=JavaStyle, caption=SwingWorker doInBackground() mit while Schleife]
+\\ Mit \textbf{doInBackground()} wird ein neuer Hintergrund-Thread erstellt. Dieser Thread läuft parallel zum \ac{EDT}. Der Hintergrund-Thread wird geschlossen, wenn der SwingWorker mit \inlinecode{JavaStyle}{.cancel()} beendet wird oder sich der SwingWorker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf die GUI-Elemente von javax.swing.JFrame zugegriffen werden. 
+\\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher durch das Beenden des SwingWorkers mit \inlinecode{JavaStyle}{.cancel()} beendbar ist.
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker \inlinecode{JavaStyle}{doInBackground()} mit while Schleife]
 	    @Override
         protected Object doInBackground() throws Exception
         {
@@ -462,28 +498,29 @@ Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert is
             return 1;
         }
 \end{lstlisting} 
-Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. beendet. 
-\begin{lstlisting}[style=JavaStyle, caption=SwingWorker doInBackground() ohne while Schleife]
+Wenn der SwingWorker beendet wird, während wegen der Methode \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} gewartet wird, wird eine \textbf{InterruptedException geworfen};
+
+\vspace{10pt}
+
+Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann beendet. 
+\begin{lstlisting}[style=JavaStyle, caption=SwingWorker \inlinecode{JavaStyle}{doInBackground()} ohne while Schleife, label=SwingWorkerOhneWhileSchleife]
 	    @Override
-        protected Object doInBackground() throws Exception
+        protected String doInBackground() throws Exception
         {
-            timeOfDay = String.format("%1$tH:%1$tM", new 
+            String timeOfDay = String.format("%1$tH:%1$tM", new 
             Date(System.currentTimeMillis()));
-
-            publish( timeOfDay);
-
-            TimeUnit.MILLISECONDS.sleep(500);
-            return 1;
+            
+            return timeOfDay;
         }
 \end{lstlisting} 
 
 \item[•] done()
-\\ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im EDT aufgerufen. Im \textbf{done()} können dann GUI-Elemente bearbeitet werden.
+\\ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im EDT aufgerufen. Im \textbf{done()} können dann GUI-Elemente bearbeitet werden. Wenn das Code-Beispiel \ref{SwingWorkerOhneWhileSchleife} als Beispiel herangezogen wird könnte die \textbf{done()} wie folgt aussehen:
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker done()]
 	    @Override
         protected void done()
         {
-             // TODO
+             String time = get();
         }
 \end{lstlisting}
 \item[•] process()
@@ -492,16 +529,16 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann. 
 	    @Override
         protected void process(List<String> chunks)
         {
-        	(timeOfDay = chunks.get((chunks.size() - 1));
-            lbTimeOfDay.setText(timeOfDay);
+			(timeOfDay = chunks.get((chunks.size() - 1));
+			lbTimeOfDay.setText(timeOfDay);
         }
 \end{lstlisting}
 \item[•] cancel()
-\\ Mit \textbf{cancel} kann ein Worker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
+\\ Mit \inlinecode{JavaStyle}{.cancel()} kann ein SwingWorker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker abbrechen]
 	    worker.cancel();
 \end{lstlisting}
-Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des Workers.
+Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des SwingWorkers.
 \end{itemize}
 
 \subsection{GUI-Fenster}
