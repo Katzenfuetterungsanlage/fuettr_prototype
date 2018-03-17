@@ -908,13 +908,13 @@ I = \frac{b*h^{3}}{12} = \frac{20*4^{3}}{12} = 106.66mm^{4}
 \end{align*}
 
 \begin{align*}
-f=\frac{ F*l^{ 3 } }{ 48*E*I} = \frac{10N*100^{3}mm}{48*0.6*10^{5}\frac{N}{mm^{2}}*106.66mm^{4}} = 0.0325mm
+f=\frac{ F*l^{ 3 } }{ 48*E*I} = \frac{10N*100^{3}mm^{3}}{48*0.6*10^{5}\frac{N}{mm^{2}}*106.66mm^{4}} = 0.0325mm
 \end{align*}
-
+\newpage
 \subsection{Berechnung der Welle von der Drehplatte}
 
 \begin{wrapfigure}[10]{r}{0.5\textwidth}
-\vspace{-80pt}
+\vspace{-20pt}
   \begin{center}
     \includegraphics[width=0.3\textwidth]{Bilder/Powerpoint/Torsionsmoment}
   \end{center}
@@ -923,16 +923,16 @@ f=\frac{ F*l^{ 3 } }{ 48*E*I} = \frac{10N*100^{3}mm}{48*0.6*10^{5}\frac{N}{mm^{2
   \vspace{-20pt}
 \end{wrapfigure}
 
-Bei dieser Berechnung wird überprüft ob der Vierkant auf der Welle mit den Maßen 4mm x 4mm x 20mm ein Drehmoment von maximal 18Ncm vom Motor standhält. Die Platte auf der Welle hat einen Durchmesser von 400mm. Es wir der S235 Stahl verwendet mit einem $\tau_z=165\frac{N}{mm^{2}}$. Siehe Abbildung: \ref{Torsionsmoment}.\\
+Bei dieser Berechnung wird überprüft ob der Vierkant auf der Welle mit den Maßen 4mm x 4mm x 20mm ein Drehmoment von maximal 18Ncm vom Motor standhält. Die Platte auf der Welle hat einen Durchmesser von 400mm und einer Höhe von 10mm. Es wird der S235 Stahl verwendet mit einem $\tau_z=165\frac{N}{mm^{2}}$. Siehe Abbildung: \ref{Torsionsmoment}.\\
 
 Hier wird die zurückgelegte Strecke eines Kreisbogens pro Sekunde berechnet, um ungefähr die Drehgeschwindigkeit der Futterplatte abschätzen zu können.
 
 \begin{align*}
-I & = I_{ AP }*\rho*l\frac{ \pi*400^{4}mm }{32}*800\frac{ kg }{ m^{3} }*(\frac{ 1 }{ 1000}\frac{ mm }{ m })^{3}*10mm  = 0.0201\frac{kg}{m^{2}}
+J = \frac{1}{2}*r^{2}*A_{ P }*\rho*h=\frac{1}{2}*\frac{ \pi*400^{4}mm^{4} }{16}*800*10^{-9}\frac{ kg }{ mm^{3} }*10mm= 20106kg mm^{2} = 0.020kg m^{2}
 \end{align*}
 
 \begin{align*}
-\alpha = \frac{ M }{ I }=\frac{ 0.180Nm }{ 0.0201\frac{kg}{m^{2}} } = 8.9 \frac{ rad }{ s^{2} }
+\alpha = \frac{ M }{ J }=\frac{ 0.180Nm }{ 0.0201kgm^{2} } = 8.9 \frac{ rad }{ s^{2} }
 \end{align*}
 
 Berechnung der Torsionsspannung:
@@ -981,18 +981,19 @@ Mit dieser Formel wird ungefähr das $\mu$ berechnet. Mit f=10mm und den Radius 
 \mu = \frac{10}{31.35} = 0.315
 \end{align*}
 
-Es wird die erforderliche Umfangskraft $F_U$ berechnet. Als Sicherheit wird 2N angenommen. Siehe Abbildung: \ref{SkizzeFoerderband}
+Es wird die erforderliche Umfangskraft $F_U$ berechnet. Die Normalkraft $F_N$ ergibt sich aus der Zugkraft beider Federn, welche im Punkt \ref{Berechnung_Feder} ausgerechnet wurde. Siehe Abbildung: \ref{SkizzeFoerderband}
 \begin{align*}
-F_Q= F_U=\mu_Q*F_N = 0.3*0.4kg*9.81 = 1.17N
+F_Q= F_U=\mu_Q*F_N = \mu*2*F_{F} = 0.3*2*3.11N = 1.866N
 \end{align*}
 
 Das erforderliche Moment des Motors wird mit dieser Formel errechnet:
 
 \begin{align*}
-M_erf=F_U*r=2N*31.35=62.7mm
+M_{erf}=F_U*r=2N*31.35mm=62.7Nmm
 \end{align*}
 \newpage
 \subsection{Berechnung der Federkonstante}
+\label{Berechnung_Feder}
 
 Hier findet die Berechnung der Federkonstante statt, sowohl als auch die Dimensionierung der Feder.
 
@@ -1025,7 +1026,7 @@ k=\frac{G*d^{4}}{8*D^{3}*n}=\frac{80000*1^{4}}{8*11^{3}*50} = 0.150\frac{N}{mm}
 Berechnung der Kraft der Feder bei ausquetschen der Packung samt Aluminium Halterung. Mit $l_0$=50mm und $l_1$=70.7mm.
 
 \begin{align*}
-F=c*l_d=0.150*20.7 = 3.11N
+F=k*l_d=0.150*20.7mm = 3.11N
 \end{align*}
 
 \section{Simulation}
