@@ -1,6 +1,9 @@
 \lohead{Dominik Pichler}
 \chapter{Mechanik}
 \section{Einleitung}
+
+Aufgabe dieses Teiles war die Umsetzung des mechanischen Aspekts der Arbeit. Des Weiteren galt es den effizientesten Weg des Fütterungsprozesses zu ermitteln.
+
 \section{Aufgabenstellung und Zielsetzung}
 
 Ziel ist es, eine Katzenfütterungsanlage zu entwickeln. Ausgangslage sind Katzenfutterbeutel aus Aluminium-Kunststoff-Folie. Die Fütterung mit Dosen wird hier betrachtet. Das Futter soll zeitlich gesteuert in den Behälter gefüllt werden und so der Katze zugänglich gemacht werden und die leeren Beutel geruchsisoliert entsorgt werden. Die Anlage soll zum Beispiel während Kurzurlauben oder zum normalen Füttern der Katze oder des Hundes verwendet werden. Nach Aktivieren der Anlage wird in davor gewählten definierten Zeitpunkten die Katze gefüttert. 
@@ -512,6 +515,40 @@ Tag 5: Der Beweiß ist vollbracht. Die ganzen fünf Tage die der Benutzer im Url
    \end{minipage}
 \end{figure}
 
+\subsection{Zustand der Futterpackung nach dem Urlaub}
+
+Es wurde die Beschaffenheit und die Konsistenz des Futters nach fünf Tagen getestet. Dazu wurde eine Verpackung mit der Hebel-Klemme versehrt und hängend in einen Raum platziert. Um eine Sicherheit einzuplanen hing der Futterbeutel 3 Wochen. Nach Ablauf dieser Zeit sind wir diesen Schlussfolgerungen gekommen: 
+
+\begin{itemize}
+\item Aus der Futterpackung ist keine Flüssigkeit ausgetreten. Dies erkennt man daran, dass der Rand nicht verschmutzt bzw. verkrustet  und die weiße Unterfächer Fleckenfrei war. Siehe Abbildung: \ref{Fütterungsexperiment_Ende}.
+\item Des Weiteren war das Futter weder von Schimmel befallen noch roch es schlecht. Siehe Abbildung: \ref{Futter_Ende_1}.
+\item Zu guter Letzt die Geschmacksprobe. Dies wurde bewiesen indem die Katze die ganze Schüssel fraß. Siehe Abbildung: \ref{Futter_Ende_2}.
+
+\end{itemize} 
+
+\begin{figure}[H]
+   \begin{minipage}[hbt]{.3\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Futterungsexperiment_Ende/Futter_Ende}
+      \caption{Fütterungsexperiment Ende}
+      \label{Fütterungsexperiment_Ende} 
+   \end{minipage}
+   \hspace{.2\linewidth}% Abstand zwischen Bilder
+   \begin{minipage}[hbt]{.2\linewidth} % [b] => Ausrichtung an \caption
+      \includegraphics[width=\linewidth]{Bilder/Futterungsexperiment_Ende/Futter_Ende_1}
+      \caption{Futterkonsistenz}
+      \label{Futter_Ende_1}
+   \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=8cm]{Bilder/Futterungsexperiment_Ende/Futter_Ende_2}
+\caption{Futter in der Schüssel}
+\label{Ansicht_von_der_Futterschüssel} 
+\end{center}
+\end{figure}
+
+
 \section{Vergleich der Varianten}
 
 In diesem Kapitel der Diplomarbeit werden sämtliche Ideen Schemenhaft gezeichnet und erklärt.
@@ -881,8 +918,8 @@ Hier wird die gesamte Konstruktion gezeigt. Das Förderband wurde aus Darstellun
 
 In diesen Teil meiner Diplomarbeit werden Berechnung von wichtigen Teilen bzw. Problemstellen durchgeführt. Es wird bei jeder Berechnung der Schlimmst möglich Fall angenommen.
 
-\subsection{Berechnung der Klemme}
-
+\subsection{Berechnung der Hebel-Klemme}
+\label{Berechnung_der_Hebel-Klemme}
 Gewählte Presskraft F = 10N. Die Maße der Fläche auf den die Kraft drückt = 4mm x 20mm x 100mm. Elastizitätsmodul von Aluminium = 0.6*$10^{5}\frac{N}{mm^{2}}$.
 Diese Kraft wurde so hoch dimensioniert weil sich beim Klemmen der Verpackung Fleischstücken dazwischen befinden könnten und somit und somit die Flächen auseinander drücken. Siehe Abbildung: \ref{SkizzeKlemme}.
 
@@ -981,7 +1018,7 @@ Mit dieser Formel wird ungefähr das $\mu$ berechnet. Mit f=10mm und den Radius 
 \mu = \frac{10}{31.35} = 0.315
 \end{align*}
 
-Es wird die erforderliche Umfangskraft $F_U$ berechnet. Die Normalkraft $F_N$ ergibt sich aus der Zugkraft beider Federn, welche im Punkt \ref{Berechnung_Feder} ausgerechnet wurde. Siehe Abbildung: \ref{SkizzeFoerderband}
+Es wird die erforderliche Umfangskraft $F_U$ berechnet. Die Normalkraft $F_N$ ergibt sich aus der Zugkraft beider Federn, welche im Kapitel \ref{Berechnung_Feder} ausgerechnet wurde. Siehe Abbildung: \ref{SkizzeFoerderband}
 \begin{align*}
 F_Q= F_U=\mu_Q*F_N = \mu*2*F_{F} = 0.3*2*3.11N = 1.866N
 \end{align*}
@@ -1030,8 +1067,36 @@ F=k*l_d=0.150*20.7mm = 3.11N
 \end{align*}
 
 \section{Simulation}
+Es werden verschiedene Simulationen erstellt, um die Richtigkeit der Rechnungen zu überprüfen.
 
-	
+\subsection{Simulation der Klemme}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{Bilder/Simulation/Hebel}
+  \end{center}
+  \caption{Hebel-Klemme Simulation}
+  \label{Hebel-Klemme_Simulation}
+  \vspace{-20pt}
+\end{wrapfigure}
+
+Anhand der Simulation erkennt man, die Biegung der Fläche bei einer einwirkenden Kraft von 10N. Der simulierte Wert siehe Abbildung: \ref{Hebel-Klemme_Simulation} und der berechnete Wert siehe Kapitel \ref{Berechnung_der_Hebel-Klemme} sind nahezu gleich.\\
+
+\subsection{Simulation der Feder}
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\vspace{-20pt}
+  \begin{center}
+    \includegraphics[width=0.3\textwidth]{Bilder/Simulation/Federauslenkung_Simulation}
+  \end{center}
+  \caption{Federauslenkungs Simulation}
+  \label{Federauslenkung_Simulation_Simulation}
+  \vspace{-20pt}
+\end{wrapfigure}
+
+Die Simulation zeigt, die Federauslenkung ,welche die Feder bei einer Kraft von 3,11N auseinander drückt siehe Abbildung: \ref{Federauslenkung_Simulation_Simulation}. Der ausgerechnete Federweg beträgt 20,7mm siehe Kapitel \ref{Berechnung_Feder}. \\
+
 \section{Bedienung und Wartung}
 
 Bei der Entwicklung der Maschine wurde darauf geachtet, diese Benutzerfreundlich als nur möglich zu gestalten. Darum lässt sich das Gehäuse der Maschine bis zur Hälfte Aufklappen um den Benutzer einen leichten Zugang zu verschaffen. Es mussten auch keine speziellen Vorkehrungen getroffen werden um den Benutzer zu schützen da es keine gefährlichen Stellen in der Maschine befinden die Personen schaden bzw. verletzen könnten. Die Befestigung der Futterpackungen ist auch ein leichtes durch den großen Platz der zur Verfügung steht und wenn man sich an folgende Schritte hält: 
