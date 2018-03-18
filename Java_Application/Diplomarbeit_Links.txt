@@ -2,6 +2,8 @@ https://www.youtube.com/watch?v=Uh77miF-YMY
 
 Seite für Icons: https://icons8.com/
 
+Java-Programm Autostart: https://developer.toradex.com/knowledge-base/how-to-autorun-application-at-the-start-up-in-linux
+
 Date to String: https://stackoverflow.com/questions/5683728/convert-java-util-date-to-string
 
 String to Date: https://stackoverflow.com/questions/4216745/java-string-to-date-conversion

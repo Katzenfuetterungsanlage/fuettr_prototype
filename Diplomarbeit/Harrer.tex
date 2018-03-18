@@ -542,20 +542,21 @@ Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des SwingWorker
 \end{itemize}
 
 \subsection{GUI-Fenster}
-Die GUI-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich alle GUI-Fenster mittels Touch-Gesten zu bedienen. 
+Die GUI-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich alle GUI-Fenster mit berühren des Touchscreens, mit einem Finger, zu bedienen. 
 \\ Beim Starten des Raspberrys wird das Programm automatisch gestartet. Dabei wird das MainWindow, also das Hauptfenster des Programms, als Vollbild am Display angezeigt. Somit ist es dem Benutzer nur möglich das Programm zu bedienen und nicht zur grafischen Oberfläche des Raspberrybetriebsystems zu gelangen. Genauers zum Autostart unter Kapitel \ref{subsubsec:Autostart}.
 
 \subsubsection{Java-Programm im Autostart}\label{subsubsec:Autostart}
-Um auf einem Bitriebssstem ,das auf Linux basierendem, ein Java-Programm zu starten gibt es zwei Möglichkeiten.
+Um auf einem Bietriebssystem, dass auf Linux basiert, ein Java-Programm zu starten gibt es zwei Möglichkeiten.
 \begin{itemize}
 \item[1] \textbf{rc.local}
 \\ Eine Möglichkeit ist die \textbf{rc.local}. Mit der \textbf{rc.local} können aber nur Programme ohne grafische Oberfläche gestartet werden. In diese muss foglender Befehl geschrieben werden: 
 \\ \textbf{java -jar /home/pi/main.jar \&}.
 \item[2] \textbf{autostart}
-\\ Dies zweite Möglichkeit ist \textbf{autostart}. Hier ist der X-Server, welcher für eine grafische Ausgabe benötigt wird, enthalten. Somit können nun Java-Programme mit einer grafischen Oberfläche gestartet werden. Die Datei \textbf{autostart} ist unter folgendem Pfad zu finden : 
+\\ Dies zweite Möglichkeit ist \textbf{autostart}. Hier ist der X-Server, welcher für eine grafische Ausgabe benötigt wird, bereits aktiv. Somit können nun Java-Programme mit einer grafischen Oberfläche gestartet werden. Die Datei \textbf{autostart} ist unter folgendem Pfad zu finden : 
 \\ \textbf{/home/<user/.config/lxsession/LXDE-<user>/autostart}. 
-\\ In die Datei muss dann noch folgender Befehel eingegeben werden: 
+\\ In die Datei muss dann noch folgender Befehl eingegeben werden: 
 \\ \textbf{@java -jar /home/pi/main.jar \&}.
+\\Das \textbf{@} am Beginn der Zeile sagt aus, dass das Programm, wenn es nicht ordnungsgemäß geschlossen wird, automatisch neu geöffnet wird.
 \end{itemize} 
 Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben. Dies stellt im Fall eines Programms mit GUI das Hauptfenser dar. Bei der Katzenfütterungsanlage ist es das \textbf{MainWindow}.
 \\ \\ Die Abkürzung \textbf{.jar} steht für "Java Archive".
@@ -572,7 +573,7 @@ Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben.
   \label{MainWindow}
   \vspace{-10pt}
 \end{wrapfigure}
-Das \textbf{MainWindow} besteht aus einer \textbf{Java JFrame Form}. In diesem Fenster wird dem Benutzer ein allgemeiner Überblick über die Anlage zur Verfügung gestellt. Somit können alle wichtigen Informationen schnell und leicht ersichtlich. Weiters ist das \textbf{MainWindow} das Hauptfenster des Programms. Über diese sind alle Dialog-,Steuerungs- und Informationsfenster erreichbar. Diese Fenster werden von Kapitel\ref{TimeManagement} bis Kapitel \ref{Update} genauer beschrieben. Das Aufrufen von anderen Fenseren ist über die Menüleiste, welche sich oben in der GUI befindet, möglich. 
+Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In diesem Fenster wird dem Benutzer ein allgemeiner Überblick über die Anlage zur Verfügung gestellt. Somit können alle wichtigen Informationen schnell und leicht ersichtlich. Weiters ist das \textbf{MainWindow} das Hauptfenster des Programms. Über diese sind alle Dialog-,Steuerungs- und Informationsfenster erreichbar. Diese Fenster werden von Kapitel\ref{TimeManagement} bis Kapitel \ref{Update} genauer beschrieben. Das Aufrufen von anderen Fenstern ist über die Menüleiste, welche sich oben in der GUI befindet, möglich. 
 \\ \\ Unter den Menüs der Menüleiste sind folgende Menüpunkte zu finden:
 \begin{itemize}
 \item[1] Raspberry
@@ -601,7 +602,7 @@ Das \textbf{MainWindow} besteht aus einer \textbf{Java JFrame Form}. In diesem F
 
 \vspace{10pt}
 
-Das \textbf{MainWindow} ist als Singleton implementiert. Somit wird ein nur Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
+Das \textbf{MainWindow} ist als Singleton implementiert, weil dadurch nicht jedesmal, wenn eine andere Klasse auf ein Datenelement des \textbf{MainWindow} zugreift, ein neues Objekt von \textbf{MainWindow} erzeugt wird. Somit wird ein nur Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow createInstance()]
 public static MainWindow createInstance()
     {
@@ -661,13 +662,13 @@ private void updateGUIElements()
         // update and manualControl not available while machine state = on 
         if (machineStateOn == true)
         {
-            menu_update.setEnabled(false);
-            menu_manualControl.setEnabled(false);
+            menuUpdate.setEnabled(false);
+            menuManualControl.setEnabled(false);
         }
         else
         {
-            menu_update.setEnabled(true);
-            menu_manualControl.setEnabled(true);
+            menuUpdate.setEnabled(true);
+            menuManualControl.setEnabled(true);
         }
     }
 \end{lstlisting}
@@ -685,14 +686,19 @@ private void updateGUIElements()
   \vspace{0pt}
 \end{wrapfigure}
 In der Klasse \textbf{TimeManagement} ist es dem Benutzer möglich alle Zeiten zu verwalten. Das GUI-Fenster dieser Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
-\\ \\ Es können bis zu vier verschiedene Zeiten gewählt werden. Dabei müssen die Zeiten, bei Zeit 1 beginnend, aufsteigen angeordnet werden. Zusätzlich können Zeiten auch deaktiviert werden. Um eine Zeit zu deaktivieren muss das Häkchen vor der Zeit weggenommen werden.
+\\ \\ Es können bis zu vier verschiedene Zeiten gewählt werden. Dabei müssen die Zeiten, bei Zeit 1 beginnend, aufsteigend angeordnet werden. Zusätzlich können Zeiten auch deaktiviert werden. Um eine Zeit zu deaktivieren muss das Häkchen vor der Zeit weggenommen werden.
 \\ Wenn die Zeiten ausgewählt wurden, kann mit \textbf{Ok} bestätigt werden. Somit werden die Daten in das Programm übernommen und in die Datenbank gespeichert. Weiters schließt sich noch das Fenster.
-\\ Falls\textbf{Abbrechen} gedrückt wird, werden die Änderungen nicht übernommen und das Fenster schließt sich.
+\\ Falls \textbf{Abbrechen} gedrückt wird, werden die Änderungen nicht übernommen und das Fenster schließt sich.
 \\ \\ Wenn das Dialogfenster im EDT aufgerufen wird, blockiert der EDT an dieser Stelle so lange, bis das Dialogfenster wieder geschlossen wird.
+
+\vspace{10pt}
+
+Es sind nur vier Fütterungen pro Tag möglich, weil die Katzenfütterungsanlage ein kleines Futtermagazin hat. Aus diesem Grund würde das Magazin bei mehreren Fütterungen sehr schnell leeren. Wenn das nun passiert erfüllt die Katzenfütterungsanlage ihren Zweck nicht mehr, weil die Maschine fast täglich nachgefüllt werden muss.
+\\ Da die Fütterungen am Tag begrenzt sind wurden die Anzahl der Zeiten nicht varibel sondern mit einem Maximum realisiert.
 
 \newpage
 
-Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss im Designmodus der GUI Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: \\
+Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss in Netbeans, im Designmodus der GUI, Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: \\
 \begin{wrapfigure}{l}{0.7\textwidth}
 \vspace{-20pt}
   \begin{center}
@@ -729,7 +735,7 @@ Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird
 \end{lstlisting} 
 Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Zusätlich kann dann ausgwählt werden, ob wirklich ohne zu speichern beendet werden soll.
 \\ \\ Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und Comboxen werden anschließen in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
-\begin{lstlisting}[style=Javastyle, caption=Zeitendokument Getter-Methode]
+\begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
 // ... Code ...
 
 newTimeDoc = new BasicDBObject("identifier", "Times")
@@ -742,8 +748,8 @@ newTimeDoc = new BasicDBObject("identifier", "Times")
                         .append("time4", time4)
                         .append("time4_active", time4_active);
 \end{lstlisting}
-Dieses Dokument wird anschließen mit folgender \textbf{Getter-Methode} geworfen damit sie in im \textbf{MainWindow} zugänglich ist:
-\begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
+Dieses Dokument wird anschließen mit folgender \textbf{Getter-Methode} für andere Klassen, konkret für das \textbf{MainWindow}, zugänglich gemacht:
+\begin{lstlisting}[style=Javastyle, caption=Zeitendokument Getter-Methode]
 public BasicDBObject getNewTimeDoc()
     {
         return newTimeDoc;
