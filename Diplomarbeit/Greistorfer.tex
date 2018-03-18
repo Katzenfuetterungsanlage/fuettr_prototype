@@ -57,16 +57,16 @@ Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt au
 TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript. Das bedeutet, jeder gültige JavaScript Code ist auch ein gültiger TypeScript Code. TypeScript wird vom TypeScript Compiler in sauberes JavaScript übersetzt. TypeScript ist sehr gut für größere Anwendungen geeignet. Typescript hat strenge Datentypen, Klassen und Vererbung. Die Datentypen von TypeScript sind:
 
 \begin{itemize}
-\item[•] \textbf{string}: eine Unicode codierte Zeichenkette
-\item[•] \textbf{number}: eine vorzeichenbehaftete Gleitkommazahl, kann auch hexadezimal, octal oder binär sein
-\item[•] \textbf{boolean}: true oder false
-\item[•] \textbf{array}: eine Liste von Elementen des gleichen Datentyps
+\item[•] \textbf{string}: eine Unicode codierte Zeichenkette, von JavaScript übernommen
+\item[•] \textbf{number}: eine vorzeichenbehaftete Gleitkommazahl, kann auch hexadezimal, octal oder binär sein, von JavaScript übernommen
+\item[•] \textbf{boolean}: true oder false, von JavaScript übernommen
+\item[•] \textbf{array}: eine Liste von Elementen des gleichen Datentyps, von JavaScript übernommen
 \item[•] \textbf{tuple}: eine Liste von Elementen unterschiedlichen Datentyps deren Anzahl bekannt ist
 \item[•] \textbf{enum}: eine Möglichkeit, numerischen Werten Namen zu geben
 \item[•] \textbf{any}: Datentyp unbekannt, wird behandelt wie in JavaScript
 \item[•] \textbf{void}: kein Datentyp, meist Rückgabewert bei Funktionen
-\item[•] \textbf{null}: leerer Wert, kann allen anderen zugewiesen werden
-\item[•] \textbf{undefined}: kein Wert, kann allen anderen zugewiesen werden
+\item[•] \textbf{null}: leerer Wert, kann allen anderen zugewiesen werden, von JavaScript übernommen
+\item[•] \textbf{undefined}: kein Wert, kann allen anderen zugewiesen werden, von JavaScript übernommen
 \item[•] \textbf{never}: wenn ein Wert niemals auftreten kann z.B. eine Funktion die immer einen Fehler produziert
 \end{itemize}
 
@@ -168,7 +168,7 @@ Jede Angular App ist in \textit{Module}s gegliedert. \textit{Module}s fassen mei
 
 \subsubsection{Libraries}
 \label{sec:ang-libraries}
-Eine Angular Library ist ein Modul, das \textit{decorator} und \textit{Modules} exportiert. Diese können von \textit{Components} und \textit{Modules} importiert werden. Der Name jeder Angular library beginnt mit \textit{@angular}. Angular libraries können mit dem \ac{npm} installiert werden.
+Eine Angular Library ist ein Modul, das \textit{Modules} exportiert. Diese können von \textit{Components} und \textit{Modules} importiert werden. Der Name jeder Angular library beginnt mit \textit{@angular}. Angular libraries können mit dem \ac{npm} installiert werden.
 
 \subsubsection{Components}
 \label{sec:ang-components}
@@ -381,6 +381,33 @@ toMinutes(time: string): number {
 \paragraph*{Updates}\mbox{}\\
 Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird aktualisiert, so wird eine Anfrage an den Server gesendet siehe \ref{sec:ums-server-funktion}. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht teilt dem Benutzer mit, dass das System aktualisiert. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
 
+\subsubsection{Kommunikation mit dem Server}
+\label{sec:ums-client-kommunikation}
+Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das Übertragungsprotokoll gibt klare Auskunft über alle mögliche Anfragen und Antworten.
+\begin{landscape}
+\begin{table}[]
+\begin{tabular}{@{}llll@{}}
+\toprule
+\ac{HTTP} Request Typ      & \ac{URI}                                                 & Server Response                          & Beispiel                                                                                                                                                                                                                                                             \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/ip}                             & \multicolumn{1}{l|}{IP}                  & \multicolumn{1}{l|}{\{''ip":"62.116.40.166"\}}                                                                                                                                                                                                                       \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/version}                        & \multicolumn{1}{l|}{Version}             & \multicolumn{1}{l|}{\{"version": "beta@1.0.0"\}}                                                                                                                                                                                                                     \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/getUpdate}                      & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/shutdown}                       & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=times}            & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,"time2":"13:20",\\ "time2\_active":true,"time3":"14:20","time3\_active":true,\\ "time4":"15:20","time4\_active":true\}\end{tabular}}                                           \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=status}           & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"nextFeeding":"-","lastFeeding":''ausstehend","nextFeedingIn":''-'',\\ "machineState":false\}\end{tabular}}                                                                                                            \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=info}             & \multicolumn{1}{l|}{Info}                & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{''serialnumber":"17",''internal":"Raspberry Pi 3 Model B",\\ "wlanState":"not connected"\}\end{tabular}}                                                                                                            \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=positions}        & \multicolumn{1}{l|}{Positionen}          & \multicolumn{1}{l|}{\{"motor1":''-'',"motor2":''-'',''sensor1":''-'',''sensor2":''-''\}}                                                                                                                                                                                         \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=errors\_warnings} & \multicolumn{1}{l|}{Errors und Warnings} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{''Errors":{[}\{"message":''Error","hidden":false\},\\ \{"message":''Error2","hidden":false\}{]},\\ "Warnings":{[}\{"message":"Warning","hidden":false\},\\ "message":"Warning2","hidden":false\}{]}\}\end{tabular}} \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere?q=times}              & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,"time2":"13:20",\\ "time2\_active":true,"time3":"14:20","time3\_active":true,\\ "time4":"15:20","time4\_active":true\}\end{tabular}}                                           \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere?q=changeState}        & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\{''state":"true"\}}                                                                                                                                                                                                                             \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/login}                              & \multicolumn{1}{l|}{\ac{JWT}}          & \multicolumn{1}{l|}{\{"token":"...",''isLoggedIn":true\}}                                                                                                                                                                                                             \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/logout}                             & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \bottomrule
+\end{tabular}
+\caption{Übertragungsprotokoll Webserver - Webclient}
+\label{webserver-client-uebertragung}
+\end{table}
+\end{landscape}
+
 \subsection{Server}
 \label{sec:ums-server}
 
@@ -416,7 +443,7 @@ Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät
 
 \subsubsection{Funktion}
 \label{sec:ums-server-funktion}
-Ich Spasst schreibe hiermit meine blumenhafte Diplomarbeit. Viel Hass steht dahinter und auch keine Liebe. In Liebe, Spasst.
+
 
 
 \subsubsection{Mongodb}
@@ -425,6 +452,17 @@ Ich Spasst schreibe hiermit meine blumenhafte Diplomarbeit. Viel Hass steht dahi
 
 \subsubsection{Kommunikation mit dem Java Programm}
 \label{sec:ums-server-java}
+Da der Server und das Java-Programm miteinander kommunizieren müssen, war es notwendig, ein Kommunikationsprotokoll zu erstellen. Alle Daten werden im \ac{JSON} Format ausgetauscht. Das Protokoll sieht wie folgt aus:
+\begin{table}[H]
+\begin{tabular}{|l|l|l|}
+\hline
+\ac{HTTP} Request Typ   & \ac{URI}            & Server Response                                                                                \\ \hline
+PUT                     & /ChangeMachineState & neuer Maschinenstatus                                                                          \\ \hline
+GET                     & /errors\_warnings   & \begin{tabular}[c]{@{}l@{}}JSON Objekt mit einem Error und einem \\ Warning Array\end{tabular} \\ \hline
+\end{tabular}
+\caption{Übertragungsprotokoll Webserver - Java}
+\label{uebertragungsprotokoll}
+\end{table}
 
 
 \section{Zusammenfassung und Verbesserungsmöglichkeiten}
