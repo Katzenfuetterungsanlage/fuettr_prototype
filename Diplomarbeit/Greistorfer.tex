@@ -46,7 +46,7 @@ Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://dev
 
 \subsection{JavaScript}
 \label{sec:vor-js}
-JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}.
+JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
 
 \subsection{Node.js}
 \label{sec:vor-node}
@@ -394,7 +394,7 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/getUpdate}                      & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/shutdown}                       & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=times}            & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,"time2":"13:20",\\ "time2\_active":true,"time3":"14:20","time3\_active":true,\\ "time4":"15:20","time4\_active":true\}\end{tabular}}                                           \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=status}           & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"nextFeeding":"-","lastFeeding":''ausstehend","nextFeedingIn":''-'',\\ "machineState":false\}\end{tabular}}                                                                                                            \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=status}           & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"nextFeeding":"-","lastFeeding":''ausstehend",\\"nextFeedingIn":''-'',"machineState":false\}\end{tabular}}                                                                                                            \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=info}             & \multicolumn{1}{l|}{Info}                & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{''serialnumber":"17",''internal":"Raspberry Pi 3 Model B",\\ "wlanState":"not connected"\}\end{tabular}}                                                                                                            \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=positions}        & \multicolumn{1}{l|}{Positionen}          & \multicolumn{1}{l|}{\{"motor1":''-'',"motor2":''-'',''sensor1":''-'',''sensor2":''-''\}}                                                                                                                                                                                         \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=errors\_warnings} & \multicolumn{1}{l|}{Errors und Warnings} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{''Errors":{[}\{"message":''Error","hidden":false\},\\ \{"message":''Error2","hidden":false\}{]},\\ "Warnings":{[}\{"message":"Warning","hidden":false\},\\ "message":"Warning2","hidden":false\}{]}\}\end{tabular}} \\ \midrule
@@ -419,7 +419,13 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 	[\textit{root}
 		[api
 			[version]
-			[callMeMaybe]
+			[callMeMaybe
+				[?q{=}times]
+				[?q{=}status]
+				[?q{=}info]
+				[?q{=}positions]
+				[?q{=}errors\_warnings]			
+			]
 			[getUpdate]
 			[shutdown]
 			[ip]		
@@ -433,7 +439,10 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 \begin{forest}
 	[\textit{root}
 		[api
-			[putMeHere]	
+			[putMeHere
+				[?q{=}times]
+				[?q{=}changeState]			
+			]	
 		]
 		[login]
 		[logout]	
@@ -454,12 +463,68 @@ public static get Instance(): Server {
 }
 \end{lstlisting}
 
-Der Server wurde mit dem JavaScript Modul \textit{express} 
+Der Server wurde mit dem JavaScript Modul \textit{express} programmiert. Express ist aufgebaut mit sogenannten Middlewares. Diese werden bei eintreffen einer Anfrage der Reihe nach durchgegangen, bis eine Middleware der Anfrage entspricht. Wenn z.B. die Anfrage \inlinecode{bash}{HTTP/1.1 GET /api/version} eintrifft, werden die Middlewares nach der Reihe durchgegangen. Jede Middleware mit \inlinecode{TS}{use}, solange kein Pfad mit angegeben wurde, wird ausgeführt, alle anderen werden übersprungen. Die nächste Middleware, die ausgeführt wird, ist \inlinecode{TS}{get('/api/version', ...)}. Wird in dieser Middleware \inlinecode{TS}{next()} aufgerufen, so werden alle weiteren Middlewares durchgegangen. Sollte \inlinecode{TS}{next()} nicht aufgerufen werden, so werden keine weiteren Middlewares durchgegangen.
+
+\begin{lstlisting}[style=TS,caption=Middlewares,label=middlewares]
+this._express.use(bodyparser.json());
+this._express.use(bodyparser.urlencoded({ extended: true }));
+this._express.use(
+  requestLanguage({
+    languages: ['en-GB', 'de-DE', 'de-AT']
+  })
+);
+this._express.set('views', path.join(__dirname, '/views'));
+const pugEngine = this._express.set('view engine', 'pug');
+pugEngine.locals.pretty = true;
+this._express.use(this.logger);
+this._express.use(express.static(path.join(__dirname, '../public')));
+this._express.use('/assets', express.static(path.join(__dirname, '../../ngx/dist/assets')));
+this._express.post('/login', (req, res, next) => this.login(req, res, next));
+this._express.post('/logout', (req, res, next) => this.logout(req, res, next));
+this._express.use('/api', ApiRoutes.ApiRouter.Routes);
+this._express.use('/', AppRoutes.AppRouter.Routes);
+\end{lstlisting}
+
+Die beiden Middlewares \inlinecode{TS}{bodyparser.json()} und \inlinecode{TS}{bodypareser.urlencoded()} bereiten den Request so auf, dass er vom Rest der Middlewares verstanden werden kann. Die Middleware \inlinecode{TS}{requestLanguage()} ist ein JavaScript Modul, dass aus dem Request-Header den Header \inlinecode{bash}{Accept-Language} ausliest und für die weitere Verarbeitung in \inlinecode{TS}{req.language} speichert. Pug Engine ist eine rendering Engine, das bedeutet, damit können \ac{HTML} Seiten während der Serverlaufzeit generiert werden, somit können Variablen eingefügt werden. \inlinecode{TS}{express.static()} stellt ein Verzeichnis mit allen Unterverzeichnissen zur Verfügung. Das gleiche Prinzip wie bei einem Apache Webserver. Die beiden Seiten des Servers, die Client Seite, und die \ac{API} sind in eigene Dateien ausgelagert. Somit herrscht ein klare Trennung zwischen dem, was der Benutzer zu sehen bekommt und dem, das nur die JavaScript Applikation sieht. Alle \textit{get} und \textit{post} Middlewares haben eine Callback Methode. In dieses bearbeiten wir alle Anfragen und beantworten sie. In der Login Methode, werden alle Benutzer aus der Datenbank mit dem Benutzer im Request verglichen. 
+
+\begin{lstlisting}[style=TS,caption=Login Methode,label=login]
+public async login(req: express.Request, res: express.Response, next: express.NextFunction) {
+    let User: Login = { token: '', isLoggedIn: false };
+    let done = false;
+    const username = req.body.user;
+    // const userpass = req.body.password;
+    const userpass = SHA512(req.body.password).toString();
+    const Users = await FuettrDB.Instance.getUsers();
+    for (let i = 0; i < Users.length; i++) {
+      // let UserDb = JSON.parse(JSON.stringify(Users[i]));
+      let name = JSON.parse(JSON.stringify(Users[i])).user_name;
+      let pass = JSON.parse(JSON.stringify(Users[i])).user_password;
+      if (userpass === pass && username === name) {
+        jwt.sign({ user: username }, this._privkey, { expiresIn: '10h', algorithm: 'RS256' }, (err, token) => {
+          if (err != undefined) {
+            log.warn(err);
+          }
+          if (token != undefined) {
+            User.token = token;
+            User.isLoggedIn = true;
+            res.send(JSON.stringify(User));
+            done = true;
+          }
+        });
+      }
+    }
+    setTimeout(() => {
+      if (!done) {
+        res.status(401).send(JSON.stringify(User));
+      }
+    }, 2000);
+  }
+\end{lstlisting}
 
 
 \subsubsection{MongoDB}
 \label{sec:ums-server-mongo}
-Alle Daten, die nicht direkt vom Java-Programm benötigt werden, werden in eine Datenbank gespeichert. Über diese Datenbank haben sowohl das Java-Programm als auch der Webserver Zugriff auf die gemeinsamen Daten wie die Fütterungszeiten und Geräteinformationen. Da MongoDB eine Schemenlose Datenbank ist, können wir die Daten einfach dem \ac{DBMS} übergeben und sie werden gespeichert. //
+Alle Daten, die nicht direkt vom Java-Programm benötigt werden, werden in eine Datenbank gespeichert. Über diese Datenbank haben sowohl das Java-Programm als auch der Webserver Zugriff auf die gemeinsamen Daten wie die Fütterungszeiten und Geräteinformationen. Da MongoDB eine Schemenlose Datenbank ist, können wir die Daten einfach dem \ac{DBMS} übergeben und sie werden gespeichert. \\
 %Singleton
 
 
