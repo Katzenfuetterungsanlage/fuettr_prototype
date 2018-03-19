@@ -498,7 +498,7 @@ Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert is
             return 1;
         }
 \end{lstlisting} 
-Wenn der SwingWorker beendet wird, während wegen der Methode \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} gewartet wird, wird eine \textbf{InterruptedException geworfen};
+Wenn der SwingWorker beendet wird, während wegen der Methode \\ \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} gewartet wird, wird eine \textbf{InterruptedException} geworfen.
 
 \vspace{10pt}
 
@@ -526,11 +526,13 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann b
 \item[•] process()
 \\ Wenn in einem Hintergrund-Thread \textbf{publish();} aufgerufen wird, wird im EDT \textbf{process()} aufgerufen. Hier können wieder GUI-Elemente bearbeitet werden.
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker process()]
-	    @Override
-        protected void process(List<String> chunks)
+        @Override
+        protected void process(List<String[]> chunks)
         {
-			(timeOfDay = chunks.get((chunks.size() - 1));
-			lbTimeOfDay.setText(timeOfDay);
+            String[] chunk = chunks.get((chunks.size() - 1));
+            
+            lbTimeOfDay.setText(chunk[0]);
+            lbDate.setText(chunk[2]);
         }
 \end{lstlisting}
 \item[•] cancel()
