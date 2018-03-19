@@ -74,11 +74,11 @@ Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie 
 
 \subsection{express}
 \label{sec:vor-express}
-Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. In diesen Modulen ist bereits alles enthalten, dass benötigt wird, um einen Webserver zu programmieren. Express nimmt uns die meiste Arbeit ab und bietet viele weitere Möglichkeiten.
+Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. In diesen Modulen ist bereits alles enthalten, dass benötigt wird, um einen Webserver zu programmieren. Express nimmt uns die meiste Arbeit ab und bietet viele weitere Möglichkeiten\footnote{Weitere Information zu express unter \url{https://expressjs.com/}}.
 
 \subsection{JSON}
 \label{sec:vor-json}
-\ac{JSON} ist die Textrepräsentation eines JavaScript Objekts\footnote{Weiter Informationen zu \ac{JSON} unter \url{https://www.json.org/}}. Die möglichen Datentypen sind:
+\ac{JSON} ist die Textrepräsentation eines JavaScript Objekts\footnote{Weitere Informationen zu \ac{JSON} unter \url{https://www.json.org/}}. Die möglichen Datentypen sind:
 
 \begin{itemize}
 \item[•] \textbf{string}: 0 oder mehrere unicode Zeichen innerhalb Doppelhochkommas
@@ -143,7 +143,7 @@ Das \ac{DOM} ist die Objektrepräsentation des \ac{HTML} Dokuments. Durch das \a
 
 \subsection{Angular 2/4}
 \label{sec:vor-angular}
-Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS weiterentwickelt wurde. Es wird von Google entwickelt. Angular ist gegliedert in Module. Die grobe Struktur wird in der Abbildung \ref{Angular Struktur} dargestellt.
+Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS weiterentwickelt wurde. Es wird von Google entwickelt. Angular ist gegliedert in Module. Die grobe Struktur wird in der Abbildung \ref{Angular Struktur} dargestellt\footnote{Genauere Informationen und Tutorials unter \url{https://angular.io/}}.
 
 \begin{figure}[H]
       \includegraphics[width=1\textwidth]{Bilder/Greistorfer/Angular}
@@ -443,11 +443,24 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 
 \subsubsection{Funktion}
 \label{sec:ums-server-funktion}
+Da auf einem Port nur ein Programm auf Anfragen warten kann und sichergestellt sein soll, dass der Server nur einmal gestartet wird, wird der Server als Singleton ausgeführt. Das bedeutet, der Konstruktor der Klasse ist nicht öffentlich. Stattdessen gibt es einen Getter, der überprüft, ob ein Objekt der Klasse bereits existiert. Sollte ein Objekt bereits erstell sein, so wird dieses zurückgegeben. Existiert noch kein Objekt, so wird eines erstellt und danach zurückgegeben.
+
+\begin{lstlisting}[caption=Server Singleton,label=server_singleton,style=TS]
+public static get Instance(): Server {
+  if (Server._instance === undefined) {
+    Server._instance = new Server();
+  }
+  return Server._instance;
+}
+\end{lstlisting}
+
+Der Server wurde mit dem JavaScript Modul \textit{express} 
 
 
-
-\subsubsection{Mongodb}
+\subsubsection{MongoDB}
 \label{sec:ums-server-mongo}
+Alle Daten, die nicht direkt vom Java-Programm benötigt werden, werden in eine Datenbank gespeichert. Über diese Datenbank haben sowohl das Java-Programm als auch der Webserver Zugriff auf die gemeinsamen Daten wie die Fütterungszeiten und Geräteinformationen. Da MongoDB eine Schemenlose Datenbank ist, können wir die Daten einfach dem \ac{DBMS} übergeben und sie werden gespeichert. //
+%Singleton
 
 
 \subsubsection{Kommunikation mit dem Java Programm}
