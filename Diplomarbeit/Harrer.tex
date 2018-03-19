@@ -733,8 +733,33 @@ Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird
         saved = false;
     }   
 \end{lstlisting} 
-Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Zusätlich kann dann ausgwählt werden, ob wirklich ohne zu speichern beendet werden soll.
-\\ \\ Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und Comboxen werden anschließen in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
+Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Siehe Code-Beispiel \ref Zusätlich kann dann ausgwählt werden, ob wirklich ohne zu speichern beendet werden soll.
+
+\begin{lstlisting}[style=Javastyle, caption=TimeManagement Fenster schließen]
+ private void onCancel(java.awt.event.ActionEvent evt)                          
+    {                              
+       if (saved == false)
+        {
+            if (JOptionPane.showConfirmDialog(this, "Nicht gespeicherte Inhalte 
+            	gehen verloren! Wollen Sie speichern bevor Sie das 
+            	Fenster schießen?", "Hinweis", 
+            	JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+            {
+                getValues();
+                
+                dispose();
+            }
+        }
+        else
+        {
+            dispose();
+        }
+    }
+\end{lstlisting}
+
+\vspace{10pt}
+
+Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und Comboxen werden anschließen in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
 \begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
 // ... Code ...
 
@@ -758,48 +783,52 @@ public BasicDBObject getNewTimeDoc()
 
 \newpage
 
-\subsubsection{CreateUser}
+\subsubsection{CreateAndRegisterUser}
 \begin{wrapfigure}{l}{0.6\textwidth}
 \vspace{-20pt}
   \begin{center}
     \includegraphics[width=0.60\textwidth]{Bilder/GUI/CreateUser}
   \end{center}
-  \caption{CreateUser}
-  \label{CreateUser}
+  \caption{CreateAndRegisterUser}
+  \label{CreateAndRegisterUser}
   \vspace{-10pt}
 \end{wrapfigure}
-Die Klasse \textbf{CreateUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Mit dem angelegten Benutzer ist es möglich sich auf der Webseite der Anlage anzumelden. Die GUI ist in Abbildung \ref{CreateUser} zu sehen.
+Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen.Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Nutzen hätte mehrere Benutzer zu haben. Da der angelegte Benutzer nur benötigt wird sich auf der Webseite der Anlage anzumelden, ist es aurechend nur einen Benutzer anlegen zu können. Die GUI ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
 \\ Die GUI der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
-\\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein Neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch wird der Benutzer in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
+\\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch werden der Benutzer und das Passwort in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
 \\ \\ Während das Dialogfenster geöffnet ist blockiert der EDT an der Stelle, an der das Dialogfenster geöffnet wurde.
 
 \vspace{10pt}
 
 Um das Passwort einzugeben wird ein \textbf{PasswordField} verwendet. Diese Eingabefeld wird speziell dazu verwendet Passwörter einzugeben. Eine Besonderheit davon ist, dass die Passwörter nicht als Text sonder als Sternchen dargestellt werden. Eine weitere ist, dass der Inhalt eine Zeichenkette ist, also ein Feld von Characters: \textbf{char[]}. Weiters unterscheided sich auch das Abfragen des Inhaltes im Vergleich mit eienm normalen Textfeld. Beim \textbf{PasswordField} kann der Inhalt mit \textbf{passwordField.getPassword()} abgefragt werden.
-\\ \\ Um das Password im Programm besser verarbeiten zu können wird es wie folgt in einen String umformatiert:
+\\ \\ Um das Passwort im Programm besser verarbeiten zu können wird es wie folgt in einen String umformatiert:
 \begin{lstlisting}[style=Javastyle, caption=char zu String]
 	String string_password = valueOf(char_password);
 \end{lstlisting}
+Beim Umformatieren des Passworts in einen String könnte ein Fehler auftreten wenn Sonderzeichen verwendet werden. Deshalb sollte verhindert werden, dass der Benutzer Sonderzeichen eingibt oder das Programm anpassen, so dass Sonderzeichen verwendet werden können.
 
 \vspace{10pt}
 
-Um eine gewisse Sicherheit zu gewährleisten wird das Password, bevor es in der Datenbank gespeichert wird, gehasht. Um das Password zu hashen wird der \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
+Um dem Benutzer Sicherheit zu gewährleisten wird das Passwort, bevor es in der Datenbank gespeichert wird, gehasht. Um das Password zu hashen wird der \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
+\\ Die Quelle für das Hashen des Passworts ist Stackoverflow (https://stackoverflow.com/questions/33085493/hash-a-password-with-sha-512-in-java).
 \\ Das Password wurde wie folgt gehasht:
 \begin{lstlisting}[style=Javastyle, caption=Hash Passwort]
-	public static String hash(String passwordToHash, String salt)
+    public static String hash(String passwordToHash, String salt)
     {
         String generatedPassword = null;
         try
         {
             MessageDigest md = MessageDigest.getInstance("SHA-512");
             md.update(salt.getBytes("UTF-8"));
-            byte[] bytes = md.digest(passwordToHash.getBytes(StandardCharsets.UTF_8));
+            byte[] bytes = md.digest(passwordToHash.getBytes(
+            StandardCharsets.UTF_8));
             StringBuilder sb = new StringBuilder();
             for (int i = 0;
                     i < bytes.length;
                     i++)
             {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+                sb.append(Integer.toString(
+                (bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             generatedPassword = sb.toString();
         }
@@ -809,21 +838,22 @@ Um eine gewisse Sicherheit zu gewährleisten wird das Password, bevor es in der 
         }
         catch (UnsupportedEncodingException ex)
         {
-            Logger.getLogger(HashPassword.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HashPassword.class.getName()).log(
+            Level.SEVERE, null, ex);
         }
         return generatedPassword;
     }
 \end{lstlisting}
-Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden welcher vor dem Hashen des Passworts am Passwort angehänt wird. Somit wird die Entschlüsselung des Passwort nochmals erschwert und die Sicherheit erhöht sich.
+Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden welcher vor dem Hashen des Passworts am Passwort angehängt wird. Somit wird die Entschlüsselung des Passwort nochmals erschwert. Der  \textbf{salt} wird normalerweise als Byte-Array und nicht als String deklariert.
 
 \vspace{10pt}
 
 Bevor das Fenster geschlossen wird, wenn \textbf{Update} gedrückt wird, wird überprüft, ob sich die Inhalte der Text- und Passwortfelder verändert haben. Dabei wird vom Event überwacht, ob in dem Feld ein neues Zeichen eingegeben wird. Danach wird eine Boolean-Variable, die angibt ob gespeichert wurde, auf \textbf{false} gesetzt. Das Event für das Textfeld sieht wie folgt aus:
 \begin{lstlisting}[style=Javastyle, caption=Textfeld Event]
-private void tfUser_nameKeyPressed(java.awt.event.KeyEvent evt)                                       
-    {                                           
-        saved = false;
-    }
+	private void tfUserNameKeyPressed(java.awt.event.KeyEvent evt)                                       
+	{                                           
+		saved = false;
+	}
 \end{lstlisting}
 Wenn die Variable \textbf{false} ist, also noch nicht gespeichert wurde, wird dem Benutzer die Warnung ausgegeben werden, dass die veränderten Daten noch nicht gespeichert sind.
 
@@ -835,12 +865,12 @@ newUserDoc = new BasicDBObject("identifier", "User").append("user_name",
 	user_name).append("user_password", hashedPassword);
 \end{lstlisting}
 
-Dieses Dokument wird anschließend noch mit einer \textbf{Getter-Methode} geworfen damit es im \textbf{MainWindow} zugägnlich ist:
+Dieses Dokument wird anschließend noch mit einer \textbf{Getter-Methode} gfür das  \textbf{MainWindow} zugänglich gemacht:
 \begin{lstlisting}[style=Javastyle, caption=Benutzerdokument Getter-Methode]
-public BasicDBObject getNewUserDoc()
-    {
-        return newUserDoc;
-    }
+	public BasicDBObject getNewUserDoc()
+	{
+		return newUserDoc;
+	}
 \end{lstlisting}
 
 \subsubsection{ManualControl}
@@ -850,7 +880,7 @@ public BasicDBObject getNewUserDoc()
   \label{ManualControl}
   \end{figure}
 In der Klasse \textbf{ManualControl} wird eine manuelle Steuerung für die Motoren implementiert. Dies erleichtert dem Benutzer das Reinigen der Anlage, weil er zum Beispiel die Drehplatte, mit den Futterschüsseln, immer nachdrehen kann. Das gleiche gilt für das Förderband.
-\\ Die GUI ist in Abbildung \ref{ManualControl} zu sehen.
+\\ Das GUI Fenster ist in Abbildung \ref{ManualControl} zu sehen.
 \\ Die GUI der Klasse ist ein Steuerfenster. Da dieses Fenster ein Steuer- und kein Dialogfenster ist, werden kein \textbf{Ok} und \textbf{Abbrechen} benötigt. Aus diesem Grund ist nur ein Knopf \textbf{Schließen} vorhanden.
 
 \vspace{10pt}
@@ -860,16 +890,18 @@ Wie beim Dialogfenster blockiert das Steuerfenster den EDT der Stelle wo es geö
 \vspace{10pt}
 
 Dieses Fenster ist aus Sicherheitsgründen nur dann aufrufbar, wenn der Maschinenzustand auf Aus ist. Der Grund dafür ist, dass es zu Fehlern kommen kann, wenn während einer Fütterung ein Motor ein oder aus geschalten wird.
-\\ Weiters wird der Benutzer bevor er dieses Steuerfenster öffnet darüber infomiert, dass er nun direkt die Motoren steurt. Zusätlich wird der Benutzer gefragt ob er die Steuerung wirklick öffnen will.
-\\ Der Benutzer kann nun beide Motoren unabhäging voneinander steuern. Er kann die Motoren in und gegen den Uhrzeigersinn drehen. Dazu muss er den Knopf mit der jeweiligen Drehrichtung im Steuerungsfenster klicken. Die Motoren sind mit dem jeweiligen Stop-Knopf wieder stopbar.
-\\ Falls die Motoren vom Benutzer vor dem Schließen des Fensters nicht gestoppt werden, werden diese automatisch vom Programm gestopt. Dies dient dazu, dass sichergestellt ist, dass die Motoren immer gestopt werden.
-\\ Die Methode zum Schließen des Fensters, welche auch die Motoren stopt, sieht wie folgt aus:
+\\ Weiters wird der Benutzer bevor er dieses Steuerfenster öffnet darüber infomiert, dass er nun direkt die Motoren steurt. Zusätzlich wird der Benutzer gefragt, ob er die Steuerung wirklich öffnen will.
+\\ Der Benutzer kann nun beide Motoren unabhänging voneinander steuern. Er kann die Motoren in und gegen den Uhrzeigersinn drehen. Dazu muss er den Knopf mit der jeweiligen Drehrichtung im Steuerungsfenster klicken. Die Motoren sind mit dem jeweiligen Stop-Knopf wieder stopbar.
+\\ Falls die Motoren vom Benutzer vor dem Schließen des Fensters nicht gestoppt werden, werden diese automatisch vom Programm gestopt. Dies dient dazu, dass sichergestellt ist, dass die Motoren immer gestoppt werden.
+\\ Die Methode zum Schließen des Fensters, welche auch die Motoren stoppt, sieht wie folgt aus:
 \begin{lstlisting}[style=JavaStyle, caption=Motoren stoppen und Fenster schließen]
-	private void onSchließen(java.awt.event.ActionEvent evt)                                
+	private void onClose(java.awt.event.ActionEvent evt)                                
     	{                                 
-       		// stop engines when closing the conrtol dialog - security measurement
-        	pi4j_instance.stopEngine1();
-        	pi4j_instance.stopEngine2();
+       		// stop engines when closing the conrtol dialog
+       		// security measurement
+       		
+        	pi4jInstance.stopEngine1();
+        	pi4jInstance.stopEngine2();
         
         	dispose();
     	} 
@@ -877,22 +909,22 @@ Dieses Fenster ist aus Sicherheitsgründen nur dann aufrufbar, wenn der Maschine
 
 \vspace{10pt}
 
-Neben dem Bereich für die Steuerung befindet sich noch ein Bereich in dem die Echtzeit-Zustände aller Motoren und Sensoren angezeigt werden. So kann der Benutzer ohne in die Anlage zu sehen feststellen, ob sich ein Motor dreht oder ein Sensor betätigt ist.
+Neben dem Bereich für die Steuerung befindet sich noch ein Bereich in dem die Echtzeit-Zustände aller Motoren und Sensoren angezeigt werden. So kann der Benutzer, ohne direkt in die Anlage sehen zu müssen, feststellen, ob sich ein Motor dreht oder ein Sensor betätigt ist.
 
 \vspace{10pt}
 
-Die Motoren werden gesteuert, indem beim Drücken eines Knopfes, eine Methode aus dem \textbf{pi4j Singleton} (Kaptiel \ref{subsec:pi4j}) aufgerufen wird. Aus dieser Klasse ausgehend werden die Output-Pins und in weiterer Folge die Motoren gesteuert.
+Die Motoren werden gesteuert, indem beim Drücken eines Knopfes, eine Methode aus dem \textbf{pi4j Singleton} (Kaptiel \ref{subsec:pi4j}) aufgerufen wird. Das Singleton-Objekt steuert in weiterer Folge die Output-Pins.
 \\ Wenn ein Knopf gedrückt wird, wird die jeweilige zum Knopf gehörente Methode aufgerufen. Dies kann wie folt aussehen:
 \begin{lstlisting}[style=JavaStyle, caption=Motoren drehen] 
 	private void onMoveEngine1Counterclockwise(java.awt.event.ActionEvent evt)                                               
     	{                                                   
-        	pi4j_instance.moveEngine1Counterclockwise();
+        	pi4jInstance.moveEngine1Counterclockwise();
     	}  
 \end{lstlisting}
 
 \vspace{10pt}
 
-Um die aktuellen Positionen der Motoren und Zustände der Sensoren zu ermitteln und ausgeben wird ein SwingWorker verwendet. Dies ist unter Kapitel \ref{subsubsec:Positionsinformation} genauer beschrieben
+Um die aktuellen Positionen der Motoren und Zustände der Sensoren zu ermitteln und auszugeben wird ein SwingWorker verwendet. Dies ist unter Kapitel \ref{subsubsec:Positionsinformation} genauer beschrieben.
 
 \newpage
 
@@ -906,13 +938,13 @@ Um die aktuellen Positionen der Motoren und Zustände der Sensoren zu ermitteln 
   \label{Positionsinformation}
   \vspace{-10pt}
 \end{wrapfigure}
-In der Klasse \textbf{Postionsinformation} wir dem Benutzer eine Übersicht über die Zustände der Motoren und Sensoren geboten. So kann er ohne direkt in die Anlage zu sehen festelleben, ob sich ein Motor dreht oder ein Sensor betätigt ist.
+In der Klasse \textbf{Positionsinformation} wird dem Benutzer eine Übersicht über die Zustände der Motoren und Sensoren geboten. So kann er ohne, direkt in die Anlage zu sehen, festellen, ob sich ein Motor dreht oder ein Sensor betätigt ist.
 \\ Die GUI ist in Abbildung \ref{Positionsinformation} zu sehen.
 \\ Die GUI der Klasse ist ein Informationsfenster. Da dieses Fenster kein Dialogfenster ist, werden \textbf{Ok} und \textbf{Abbrechen} nicht benötigt. Aus diesem Grund reicht ein Knopf \textbf{Schließen} aus.
 
 \vspace{10pt}
 
-Wie beim Dialogfenster blockiert das Informationsfenster den EDT an der Stelle wo es geöffnet wurde bis es wieder geschlossen wird.
+Wie beim Dialogfenster blockiert das Informationsfenster den EDT, an der Stelle wo es geöffnet wurde, bis es wieder geschlossen wird.
 
 \vspace{10pt}
 
@@ -935,7 +967,7 @@ Dieses Fenster ist, im Gegensatz zu \textbf{ManualControl}, auch aufrufbar, wenn
 \vspace{10pt}
 
 Die Drehrichtungen und die Zustände werden mithilfe des \textbf{pi4j Singleton} (Kapitel \ref{subsec:pi4j}) erfasst. In dieser Klasse sind Methoden implementiert, die diese Messungen durchführen können.
-\\ Um dies annähernd echtzeitfähig zu realisieren wird ein SwingWorker verwendet. Im \textbf{doInBackground()} dieses SwingWorkers werden in einer Dauerschleife die Zuständer der Motoren und Sensoren abgefraft. Diese Zustände werden mit einem \textbf{publish()} an ein \textbf{process()} übergeben. Im \textbf{process()} werden die Zustände in die Label der GUI geschrieben.
+\\ Um dies annähernd echtzeitfähig zu realisieren wird ein SwingWorker verwendet. Im \textbf{doInBackground()} dieses SwingWorkers, siehe Code-Beispiel \ref{SwingWorker_MotorSensorStatus}, werden die Zuständer der Motoren und Sensoren abgefraft. Diese Zustände werden mit einem \textbf{publish()} an ein \textbf{process()} übergeben. Im \textbf{process()} werden die Zustände in die Label der GUI geschrieben.
 \\ Das \textbf{process()} sieht wie folgt aus:
 \begin{lstlisting}[style=JavaStyle, caption= Label aktualisieren]
 	@Override
@@ -950,7 +982,7 @@ Die Drehrichtungen und die Zustände werden mithilfe des \textbf{pi4j Singleton}
     } 
 \end{lstlisting}
 Das \textbf{doInBackground()} ist wie folgt implementiert:
-\begin{lstlisting}[style=JavaStyle, caption= Motor- und Sensorzustände ]
+\begin{lstlisting}[style=JavaStyle, caption= Motor- und Sensorzustände, label=SwingWorker_MotorSensorStatus]
 	@Override
         protected Object doInBackground() throws Exception
         {                        
@@ -975,7 +1007,7 @@ Das \textbf{doInBackground()} ist wie folgt implementiert:
         }
 
 \end{lstlisting}
-In diesem \textbf{doInBackground()} werder  alle 100 Millisekunden die Motordrehrichtungen und die Sensorzustände abgefragt.
+In diesem \textbf{doInBackground()} werder  alle 100 Millisekunden die Motordrehrichtungen und die Sensorzustände abgefragt. Somit ist das nur eine annäherd echzeitfähige Abfrage der Zustände. Dies wird so realisiert um die Prozessorauslastung zu verringern.
 
 \newpage
 
@@ -994,32 +1026,34 @@ In der Klasse \textbf{SystemInfo} werden dem Benutzer wichtige Informationen üb
 
 \vspace{10pt}
 
+\begin{comment}
 Die Seriennummer dient dazu eine Anlage eindeutig zu identifizieren. Die Seriennummer wird jeder Anlage durch einen Server gegeben. Dieser Server enthält einen Zähler, welcher nach jeder vergebenen Nummer \textbf{+1} nach oben zählt. Die Seriennummer wird snschließend in der Datenbank am Raspberry gepeichert. Das abfragen der Seriennummer aus der Datenbank erfolgt wie folgt:
+
 \vspace{40pt}
 \begin{lstlisting}[style=JavaStyle, caption=Abfragen der Seriennummer]
 	infoDoc = MainWindow.getInstance().getInfoDoc();
 	strInfo = JSON.serialize(infoDoc);
 
-	JsonReader jsonReader = Json.createReader(new StringReader(strInfo));
-	JsonObject obj = jsonReader.readObject();
-	jsonReader.close();
+	jsonReader = Json.createReader(new StringReader(ipJson));
+    JsonObject ipObj = jsonReader.readObject();
+    jsonReader.close();
         
-	serialnumberInt = obj.getInt("serialnumber");
-	serialnumber = String.format("%d", serialnumberInt);        
+    ip = ipObj.getString("ip");        
 \end{lstlisting}
 Bei diesem Code-Beispiel wird zu Beginn, die Collection in der die benötigten Informationen gespeichert sind, aus der Datenbank geladen. Anschließend werden die Daten in einen \textbf{String} und dann weiter in ein \textbf{JsonObject} umgewandelt. Danach kann die Seriennummer als \textbf{Integer-Zahl} aus dem \textbf{JsonObject} gelesen werden. Diese Zahl wird dann in einen \textbf{String} umgewandelt um in der GUI ausgegeben werden zu können.
+\end{comment}
 
 \vspace{10pt}
 
-Der Name, des in der Anlage verbaute Rechners, wird ebenfalls aus der Datenbank eingelesen. Dies funktioniert wie im Beispiel mit der Seriennummer, nur mit dem Unterschied, dass der Name direkt als \textbf{String} aus dem \textbf{JsonObject} gelesen wird. 
+Der Name, des in der Anlage verbaute Rechners, wird us der Datenbank eingelesen. Dies funktioniert indem die aus der Datenbank gelesenen Dateien von einem String in ein JsonObject umgewandelt werden. Anschließend kann aus dem JsonObject dar Name des verbauten Rechners ausgelesen werden.
 
-\vspace{10pt}
+\vspace{50pt}
 
 Der WLAN-Status wird wie der Name des internen Rechners aus der Datenbank eingelesen. Der WLAN-Status wird in die Datenbank geschrieben, wenn sich der Raspberry mit einem WLAN verbindet. \textbf{(ref zu Greisls schriftlichen Teil sobald es geschrieben} wurde)
 
 \vspace{10pt}
 
-Die IP-Adresse der Anlage wird vom Web-Server geholt, welcher diese ermittelt. Die IP-Adresse wird wie folgt, im \textbf{MainWindow}, abgefragt:
+Die IP-Adresse der Anlage wird vom Web-Server geholt, welcher diese ermittelt. Dieser Server läuft ebenfalls am Raspberry und ist immer unter einem festgelegtem Port aktiv. Die IP-Adresse wird wie folgt, im \textbf{MainWindow}, abgefragt:
 \begin{lstlisting}[style=JavaStyle, caption=Abfragen der IP-Adresse]
 	URL urlIp = new URL("http://localhost:17325/api/ip");
 	
@@ -1031,17 +1065,17 @@ Die IP-Adresse der Anlage wird vom Web-Server geholt, welcher diese ermittelt. D
 	final StringBuilder sbIp = new StringBuilder();
 	
 	while ((line = bReaderIp.readLine()) != null)
-    {
-        sbIp.append(line);
-    }
+	{
+		sbIp.append(line);
+	}
             
-    ip = sbIp.toString();    
+	ip = sbIp.toString();    
 \end{lstlisting}
-In diesem Code-Beispiel wird zuerst die URL, unter der der Server zu erreichen ist, festgelegt. Anschließend wird eine Verbingung mit der Server aufgebaut. Wenn die Verbindung besteht wird ein \textbf{BufferdReader} und ein \textbf{StringBuilder} erstellt. Der \textbf{BufferdReader} dient dazu, um die IP-Adresse vom Server zu lesen. Der \textbf{StringBuilder} wird benötigt um den String zusammenzufügen, wenn mehrere Zeilen eingelesen werden müssen. Zum Schluss wird mit \textbf{sbIp.toString()} der String erstellt welcher mit einer GETTER-Methode geworfen und in der Klasse \textbf{SystemInfo} gefangen wird.
+In diesem Code-Beispiel wird zuerst die URL, unter der der Server zu erreichen ist, festgelegt. Anschließend wird eine Verbingung mit der Server aufgebaut. Wenn die Verbindung besteht wird ein \textbf{BufferdReader} und ein \textbf{StringBuilder} erstellt. Der \textbf{BufferdReader} dient dazu, um die IP-Adresse vom Server zu lesen. Der \textbf{StringBuilder} wird benötigt um den String zusammenzufügen, wenn mehrere Zeilen eingelesen werden müssen. Zum Schluss wird mit \textbf{sbIp.toString()} der String erstellt, welcher mit einer GETTER-Methode für die Klasse \textbf{SystemInfo} zugänglich gemacht wird.
 
 \vspace{10pt}
 
-Die Version wir sowie die IP-Adresse von einem Server abgefragt. Das Abfragen wird nach dem gleichen Schema wie bei der IP-Adresse im \textbf{MainWindow} gemacht. Der erstellte String wird auch hier mit einer GETTER-Methode geworfen.
+Die Version wird sowie die IP-Adresse von einem Server abgefragt. Das Abfragen wird nach dem gleichen Schema wie bei der IP-Adresse im \textbf{MainWindow} gemacht. Der erstellte String wird auch hier mit einer GETTER-Methode für die Klasse \textbf{SystemInfo} zugänglich gemacht.
 
 
 \newpage
@@ -1061,7 +1095,7 @@ Die Version wir sowie die IP-Adresse von einem Server abgefragt. Das Abfragen wi
   \end{minipage}
   \vspace{0pt}
 \end{figure}
-Mit der \textbf{Update} Klasse ist es dem Benutzer möglich die Software seiner Anlage aktuell zu halten. Die GUI der Klasse ist auch ein Steuerfenster. Deswegen werden kein \textbf{Ok} und \textbf{Abbrechen} benötigt und es kann ein Knopf \textbf{Schließen} verwendet werden.
+Mit der \textbf{Update} Klasse ist es dem Benutzer möglich die Software seiner Anlage aktuell zu halten. Die GUI der Klasse ist auch ein Steuerfenster. Deswegen werden kein \textbf{Ok} und \textbf{Abbrechen} benötigt und es kann ein Knopf \textbf{Schließen} verwendet werden. Während einem Update ist der \textbf{Schließen} Knopf nicht verfügbar.
 
 \vspace{10pt}
 
@@ -1073,29 +1107,32 @@ Wenn das Fenster aufgerufen wird, hat es das Aussehen aus der Abbildung \ref{Upd
 
 \vspace{10pt}
 
-Beim Überprüfen auf Updates wird die lokale Versionsnummer am Raspberry und die Versionsnummer am Repository überprüft. Wenn die Versionen nicht übereinstimmen ist ein Update verfügbar. Obwohl die Versionsnummer immer chronologisch nach oben gezählt wird, wird auch ein Update gemacht wenn die Versionsnummer niedriger wird. Der Grund dafür ist, wenn eine Version einmal einen schwerwiegenden Fehler beinhaltet, ist es ohne Probleme möglich auf die voherige Version zurück zu gehen. 
+Beim Überprüfen auf Updates wird die lokale Versionsnummer am Raspberry mit der globalen Versionsnummer am Git-Repository verglichen. Wenn die Versionen nicht übereinstimmen ist ein Update verfügbar. Obwohl die Versionsnummer immer chronologisch nach oben gezählt wird, wird auch ein Update gemacht wenn die Versionsnummer niedriger wird. Der Grund dafür ist, wenn eine Version einmal einen schwerwiegenden Fehler beinhaltet, ist es ohne Probleme möglich auf die voherige Version zurück zu gehen. 
 
 \vspace{10pt}
 
-Die Daten für das Update werden von einem Git-Repository herunter geladen. Dies wird mit einem \textbf{git pull} Befehlt gemacht. Anschließend wird am Raspberry eine Datei bearbeitet, welche dem Raspberry beim Startet mitteilt, dass die Programme neu zu bauen sind. Nach jedem Update wird das Raspberry automatisch neu gestartet.
+Die Daten für das Update werden von einem Git-Repository herunter geladen. Dies wird mit einem \textbf{git pull} Befehl gemacht. Anschließend wird am Raspberry eine Datei bearbeitet, welche dem Raspberry beim Startet mitteilt, dass die Programme neu zu bauen sind. Nach jedem Update wird das Raspberry automatisch neu gestartet.
 
 \vspace{10pt}
 
-Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Funktion aufgerufen:
+Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Methode aufgerufen:
 \begin{lstlisting}[style=JavaStyle, caption= Update]
     private void onUpdate(java.awt.event.ActionEvent evt)                          
     {                              
         try
         {
+            btClose.setEnabled(false);
+            
             Process process = Runtime.getRuntime().exec("git pull");
             process.waitFor();
-            
-			write(String.format(
-			"/home/"+System.getProperty("user.name")+"/git/fuettr/build"));
-            
+
+            write();
+
             pTextUpdateErfolgreich.setVisible(true);
-            
+            btClose.setEnabled(true);
+
             Runtime.getRuntime().exec("sudo reboot");
+
         }
         catch (IOException ex)
         {
@@ -1108,7 +1145,31 @@ Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Funktio
         }        
     }
 \end{lstlisting}
-Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des Raspberrys. Deswegen wird die Methode \textbf{System.getProperty(\grqq{}user.name")} verwendet, um den aktuellen Benutzernamen herauszufinden.
+
+\begin{lstlisting}[style=JavaStyle, caption= Writer]
+    private void write()
+    {
+        String path = String.format(
+        "/home/" + System.getProperty("user.name") + "/git/fuettr/build");
+
+        try (final BufferedWriter writer
+                = new BufferedWriter(
+                        new OutputStreamWriter(
+                                new FileOutputStream(path), "utf8"));)
+        {
+            writer.write(String.format("true"));
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+\end{lstlisting}
+Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des Raspberrys. Deswegen wird die Methode \textbf{\inlinecode{JavaStyle}{System.getProperty("user.name")}} verwendet, um den aktuellen Benutzernamen herauszufinden.
+
+\vspace{10pt}
+
+Wenn das Update, zum Beispiel durch einen Stromausfall, unterbrochen wird, sollte das kein Problem darstellen. Sofern der Stromausfall während dem Downloaden eintritt, wird am Raspberry nichts verändert, weil das neubauen der Propgramme erst beim Neustarten des Raspberrys gemacht wird. Wenn nun der Download unterbrochen wird, wird die Datei, die dem Raspberry mitteilt, dass die Programme neu zu bauen sind, nicht bearbeitet. Nach dem Stromausfall kann das Raspberry normal gestartet werden und das Update kann neu gestartet werden.
 
 \newpage
 
