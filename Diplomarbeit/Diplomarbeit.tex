@@ -1,3 +1,4 @@
+%Optionen -> Texmaker konfigurieren ->  Bei Bib(la)tex im Reiter Befehler das reinschreiben: biber %
 \documentclass
 [
 a4paper,															% Papierformat
@@ -36,7 +37,6 @@ bibliography=totocnumbered,											% Literaturverzeichnis
 \usepackage{array}													% Bessere Tabellenformatierung
 \usepackage{xcolor}													% Farben für Codehighlighting oder ähnliches
 \usepackage{appendix}												% Anhang Titelseite
-%\usepackage{jurabib}												% Zitierung
 \usepackage[bookmarks]{hyperref}									% Automatische Lesezeichen
 \usepackage[printonlyused,withpage]{acronym}						% Für die Verwendung von Akronymen + Verzeichnis - printonlyused: Abkürzung nur im Verzeichnis wenn auch benutzt; withpage: Seite der 1. Verwendung im Verzeichnis anzeigen
 \usepackage{dirtree}												% Verzeichnisbaum
@@ -46,8 +46,6 @@ bibliography=totocnumbered,											% Literaturverzeichnis
 \usepackage{booktabs}												% bessere tabellen
 \usepackage{lscape}													% landscape
 \usepackage[autostyle]{csquotes}
-
-%Optionen -> Texmaker konfigurieren ->  Bei Bib(la)tex im Reiter Befehler das reinschreiben: biber %
 
 \input{biber}
 \include{chapter_style}
@@ -72,8 +70,9 @@ bibliography=totocnumbered,											% Literaturverzeichnis
 \tableofcontents
 \mainmatter
 \include{Greistorfer}
+\footcite{angular-changelog}
 \include{Harrer}
 \include{Pichler}
-\include{Wolf}
+%\include{Wolf}
 \include{appendix}
 \end{document}
