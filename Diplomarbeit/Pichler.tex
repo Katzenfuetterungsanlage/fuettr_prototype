@@ -746,6 +746,7 @@ Die Futterschüssel hat deshalb einen Rand damit sie in ein Loch gelegt werden k
 Die Welle wird aus Stahl konstruiert damit der Vierkant (grüner Kreis) durch das Drehmoment des Motors nicht abreißt. Die Welle wird senkrecht auf die Grundplatte montiert. Ein Lager wird in den Boden gefräst und die Welle auf dem Lager platziert. Auf der oberen Seite der Welle wird der Motor angesteckt. \\ Siehe Abbildung: \ref{Drehplatte_Welle_Inventor} 
 
 \subsection{Förderband, Kettenglied, Kettenrad und Welle}
+\footfullcite{Kettenrad}
 
 \begin{figure}[H]
 \begin{center}
@@ -941,6 +942,7 @@ Die Skizze zeigt welche Seite h und welche Seite b in der benutzten Formel ist. 
 \begin{align*}
 I = \frac{b*h^{3}}{12} = \frac{20*4^{3}}{12} = 106.66mm^{4} 
 \end{align*}
+\footfullcite{Vergleichsspannung}
 
 \begin{align*}
 f=\frac{ F*l^{ 3 } }{ 48*E*I} = \frac{10N*100^{3}mm^{3}}{48*0.6*10^{5}\frac{N}{mm^{2}}*106.66mm^{4}} = 0.0325mm
@@ -949,7 +951,7 @@ f=\frac{ F*l^{ 3 } }{ 48*E*I} = \frac{10N*100^{3}mm^{3}}{48*0.6*10^{5}\frac{N}{m
 \subsection{Berechnung der Welle von der Drehplatte}
 
 \begin{wrapfigure}[12]{r}{0.5\textwidth}
-\vspace{-55pt}
+\vspace{-40pt}
   \begin{center}
     \includegraphics[width=0.3\textwidth]{Bilder/Powerpoint/Torsionsmoment}
   \end{center}
@@ -957,7 +959,7 @@ f=\frac{ F*l^{ 3 } }{ 48*E*I} = \frac{10N*100^{3}mm^{3}}{48*0.6*10^{5}\frac{N}{m
   \label{Torsionsmoment}
 \end{wrapfigure}
 
-Bei dieser Berechnung wird überprüft ob der Vierkant auf der Welle mit den Maßen 4mm x 4mm x 20mm ein Drehmoment von maximal 18Ncm vom Motor standhält. Die Platte auf der Welle hat einen Durchmesser von 400mm und einer Höhe von 10mm. Es wird der S235 Stahl verwendet mit einem $\tau_z=165\frac{N}{mm^{2}}$. Siehe Abbildung: \ref{Torsionsmoment}.\\
+Bei dieser Berechnung wird überprüft ob der Vierkant auf der Welle mit den Maßen 4mm x 4mm x 20mm ein Drehmoment von maximal 18Ncm vom Motor standhält. Die Platte auf der Welle hat einen Durchmesser von 400mm und einer Höhe von 10mm. Es wird der S235 Stahl verwendet mit einem $\tau_z=165\frac{N}{mm^{2}}$.\footfullcite[111]{Anhang} Siehe Abbildung: \ref{Torsionsmoment}.\\
 \\
 \\
 
@@ -1057,7 +1059,7 @@ Bei dieser Rechnung wir die vorherige Annahme überprüft und mithand des Decker
 
 \begin{align*}
 k=\frac{G*d^{4}}{8*D^{3}*n}=\frac{80000*1^{4}}{8*11^{3}*50} = 0.150\frac{N}{mm}
-\end{align*}
+\end{align*} \footfullcite[295]{Decker}
 
 Berechnung der Kraft der Feder bei ausquetschen der Packung samt Aluminium Halterung. Mit $l_0$=50mm und $l_1$=70.7mm.
 
