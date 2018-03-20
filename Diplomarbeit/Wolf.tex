@@ -22,12 +22,24 @@ Die Aufgabe der Ansteuerung ist es, möglichst einfach, günstig und sicher die 
 \section{Variante 1}
 \subsection{Aktoren}
 \subsubsection{Hubmagnete}
+\begin{figure}[H] 
+\begin{center}
+
+\includegraphics[width=10cm]{Bilder/Bauteile/Hubmagnet}
+\caption{Hubmagnet}
+\label{Hubmagnet}
 Zylinderhubmagnete bestehen aus einem zylindrischen Dauermagnetkerns. Umgeben ist dieser Magnetkern von einer Spule und einem Gehäuse, welches das ganze Konstrukt vor Festkörpern schützt. Wird an die Spule eine Spannung angelegt, fließt ein Strom durch die Spule. Dieser Strom erzeugt ein Magnetfeld was den Magnetkern anzieht oder abstößt. Durch eine gezielte übersteuerung des Magnetzylinders, kann die Kraft des Magnetfeldes kurzzeitig verstärkt werden, jedoch verhindert die erhöhte Hitzeentwicklung einen dauerhaften Betrieb im übersteuerten Zustand. Der übersteuerte Zustand wird mit einer gerngeren relativen Einschaltdauer gegenüber der Zykluszeit bewirkt. Der Strom der durch die Spule fließt kann sich durch die kurze Einschaltdauer nicht einpendeln, was der Spule erlaubt mit einem durchschnittlich höheren Strom betrieben zu werden, was zu einem stärkeren Magnetfeld und somit zu einer stärkeren Kraft führt. Die genauen Werte der Kraft zur relativen Einschaltdauer lassen sich dem Datenblatt jedes einzelnen Hubmagnetens entnehmen. Ein Vorteil von Hubmagneten ist es, dass sie in allen möglichen Formen, Hublängen, Hubkräften und Wechsel- oder Gleichspannungsbereichen verfügbar sind. Hubmagnete können auch mit 3 verschiedenen Hubzuständen erworben werden. Monostabile Hubmagnete halten sich, mithilfe einer Feder, bei stromlosen Zustand immer an der Anfangs oder Endposition. Bistabile Hubmagnete verweilen im stromlosen Zustand an ihrer aktuellen Position, also entweder im eingefahrenen oder ausgefahrenen Zustand. Tristabile Hubmagnete bleiben, wie bistabile Hubmagnete, stromlos an ihrer aktuellen Postition. Jedoch kann diese Hubmagnetart auch an einer vorgegebenen Mittelposition verweilen.
 
 \subsubsection{Motoren}
 Nach einigen Problemen und Variantenänderungen in der Mechanik, wurde die Motorenauswahl erst in Variante 2 vorgenommen, da die Auswahl für Variante 1 sinnfrei wäre.
 
 \subsection{Sensoren}
+\begin{figure}[H] 
+\begin{center}
+
+\includegraphics[width=10cm]{Bilder/Bauteile/Sensor}
+\caption{Sensor}
+\label{Sensor}
 Die Auswahl des Sensor für unsere Anwendung wurden von folgenden Kriterian beeinflusst: Befestingungsmöglichkeiten, Preis und zusätzlich benötigte Ansteuerungen.
 Kapazitive und Induktive Näherungsschalter lassen sich einfach befestigen, sind jedoch nicht sehr günstig. Auch ist die Reichweite der Sensoren nicht sehr groß, was aber in unserer Anwendung unwichtig ist. Für diese Arten von Sensoren werden zusätzliche Ansteuerungen benötigt. Diese Ansteuerungen sind meistens teuer und benötigen zur Kommunikation mit einem Raspberry eine Schnittstelle.
 Wir haben uns in diesem Anwendungsbereich für einen Optischen Näherungsschalter entschieden. Dieser beinhaltet ein fertiges Modul bestehend aus einer Infrarot LED und einem Infrarot Fototransistor. Diese Modul ist günstig und auch leicht zu befestigen. Dadurch, dass unsere Anwendung keine genaue Abstandsmessung benötigt, wird keine zusätzliche Ansteuerung benötigt. Zur Stromversorgung reichen 5V Gleichspannung mit einem laut Datenblatt berechneten Vorwiderstand. Die Auswertung erfolgt durch einen digitalen Input-Pins des Raspberrys. Sobald sich eine Reflektorfläche vor den Sensor bewegt, wird der Fototransistor niederohmig und ermöglicht somit einen Stromfluss. Dadurch liegt eine Spannung von 3,3V am Input-Pin an und wird vom Raspberry als High-Zustand angesehen. Wenn die Reflektorfläche vom Modul nicht mehr erfasst wird, sperrt der Fototransistor, der Stromfluss wird unterbunden und am Input-Pin liegen nurmehr 0V an, was als Low-Zustand angesehen wird.
@@ -41,10 +53,22 @@ Da Variante 1 Nur kurze Zeit verfolgt wurde, wurden genaue Ansteuerungen für Mo
 Für die zweite Variante werden keine Hubmagnete benötigt, da alle Befestigungen rein mechanisch erfolgen.
 
 \subsubsection{Motoren}
+\begin{figure}[H] 
+\begin{center}
+
+\includegraphics[width=10cm]{Bilder/Bauteile/Motor}
+\caption{Motor}
+\label{Motor}
 Die Motoren wurden mithilfe folgender Kriterien ausgesucht: Preis, Drehzahl, Kraft, stromloses Verhalten, Spannung.
-In unserer Elektronik soll nur mit sicherer niedrieger Gleichspannung gearbeitet werden. Daher kommen nur Motoren mit einem Spannungsbereich von 0-24V in frage. Aus diesem Grund wird die Auswahl eines Asynchronmotors ausgeschlossen. Die Anwendung fordert, dass sich die Motoren im Stromlosen zustand nicht bewegen lassen. Dadurch können folgende Motorarten ausgeschlossen werden: Synchronmotoren, reine Gleichstrommotren, Schrittmotoren und Servomotoren, falls diese Motoren nicht über eine aktive Bremse verfügen. Ideal für unsere Anwendungen sind Gleichstrom-Schneckengetriebe-Motoren. Diese Motoren lassen sich aufgrund des mechanischen Auifbaus im stromlosen Zustand nicht drehen. Diese Motoren verfügen meistens auch über eine Getriebe was eine Übersetzung in eine niedrigere Drehzahl zur folge hat. Gleichzeitg wird mit diesem Getriebe auch das Drehmoment erhöht, weshalb der Motor eine höhere Kraft aufbringen kann. Zusätzlich werden Schneckengetriebemotoren in der Automobil Industrie la Scheibenwischermotoren verwendet. Daher sind diese Motoren sehr Preisgünstig zu erwerben.
+In unserer Elektronik soll nur mit sicherer niedrieger Gleichspannung gearbeitet werden. Daher kommen nur Motoren mit einem Spannungsbereich von 0-24V in frage. Aus diesem Grund wird die Auswahl eines Asynchronmotors ausgeschlossen. Die Anwendung fordert, dass sich die Motoren im Stromlosen zustand nicht bewegen lassen. Dadurch können folgende Motorarten ausgeschlossen werden: Synchronmotoren, reine Gleichstrommotren, Schrittmotoren und Servomotoren, falls diese Motoren nicht über eine aktive Bremse verfügen. Ideal für unsere Anwendungen sind Gleichstrom-Schneckengetriebe-Motoren. Diese Motoren lassen sich aufgrund des mechanischen Auifbaus im stromlosen Zustand nicht drehen. Diese Motoren verfügen meistens auch über eine Getriebe was eine Übersetzung in eine niedrigere Drehzahl zur folge hat. Gleichzeitg wird mit diesem Getriebe auch das Drehmoment erhöht, weshalb der Motor eine höhere Kraft aufbringen kann. Zusätzlich werden Schneckengetriebemotoren in der Automobil Industrie als Scheibenwischermotoren verwendet. Daher sind diese Motoren sehr Preisgünstig zu erwerben.
 
 \subsubsection{Lüfter}
+\begin{figure}[H] 
+\begin{center}
+
+\includegraphics[width=10cm]{Bilder/Bauteile/Lüfter}
+\caption{Lüfter}
+\label{Lüfter}
 Zur Kühlung des Raspberrys, wird ein externen 12V-Lüfter hergenommen, welcher einen Luftstrom um den Raspberry und den $\mu$Controller erzeugt.
 \subsection{Sensoren}
 Der ausgewählte Optische Sensor wurde in Variante 1 bereits beschrieben. Für genauere Informationen lesen Sie bitte in Punkt 1.3.2 nach.
@@ -55,6 +79,12 @@ Für ein einfacheres Verständnis wird der Gesamtschaltplan in kleinere Elemente
 \subsubsection{Motoransteuerung Variante 1}
 Gleichstrom Schneckengetriebemotoren haben die Fähigkeit sich in beide Richtungen zu drehen, je nach polarität der Anschlüsse. Um eine Softwaretechnische einfache Ansteuerung ermöglichen zu können, wird oft eine H-Brücke zur ansteuerung der Motoren verwendet. Diese H-Brücke besteht aus vier Transistoren. Für Motoren mit höheren Stromanforderungen werden MOSFET-Transistoren verwendet. Die Schaltung besteht aus zwei P-Kanal MOSFET T1, T2 beziehungsweise T5, T7 und aus zwei N-Kanal MOSFET T2, T4 beziehungsweise T6, T8. Die MOSFET und die Grundlegende Schaltung wurde von HIER ZITAT EINFÜGEN übernommen. Die P-Kanal 
 \subsubsection{Motoransteuerung Variante 2}
+\begin{figure}[H] 
+\begin{center}
+
+\includegraphics[width=10cm]{Bilder/Bauteile/Motorsteuerung}
+\caption{Motorsteuerung}
+\label{Motoransteuerung}
 Aus Sicherheits- und Kostentechnischen Gründen, wurde von einer manuell gesteuerten H-Brücke auf ein fertiges Motorsteuerungsmodul umgestiegen. Der Vorteil dieser Ansteuerung besteht darin, dass ein Kurzschluss der H-Brücke Hardwaretechnisch ausgeschlossen werden kann und damit nicht vond er Software abgesichert werden muss. Das Motormodul verfügt außerdem über eine Interne Strommessung für jeden der 2 unterstützten Motoren. Diese Messung kan bei bedarf abgefragt werden. Für unsere Anwendung ist dies jedoch nicht erforderlich. Der Mototreiber unterstützt 2 Motoren, welche mit bis zu 30 Ampere bei 16V betrieben werden können, bevor der IC überhitzt oder andere Bauteile zerstört werden. Die Ansteuerung jedes Motors erfolgt über ein Digitales Signal. Motor 1 kann über den Pin AI0 aktiviert(enabled) werden. Dies dient zur Sicherung das der Motor nicht ausversehen betätigt werden kann, solange der AI0 Pin nicht auf HIGH ist. Der enable Pin für Motor 2 ist AI1. Um Motor 1 in Uhrzeigersinn drehen zu lassen, muss der Pin D7 mit einem HIGH Signal und der Pin D8 mit einem LOW SIgnal angesteuert werden. Um Motor 2 gegen den Uhrzeigersinn drehen zu lassen, muss der Pin D8 mit einem HIGH Signal und der Pin D7 mit einem LOW Signal angesteuert werden. Um den Motor 1 bremsen zu können, muss Pin D8 und D7 mit entweder einem HIGH oder einem LOW Signal angesteuert werden. Für Motor 2 ist die Funktionsweise gleich jedoch muss der Pin D7 mit Pin D4 und Pin D8 mit Pin D9 ersetzt werden. Die externe Stromversorgung für den IC von 5V erfolgt über den VCC Pin. Die externe Stromversorgung für die Motoren erfolgt über den PWR Pin. Weiters muss der GND Pin noch mit einem der beiden Ground Anschlüsse der externen Stromversorgungen verbunden werden. Motor 1 wird über die Outputs A1 und B1 versorgt. Motor 2 wird über die Outputs A2 und B2 versorgt. Beim Anschluss der Motoren muss auf die Polung geachtet werdne und gegebenenfalls auch getestet werden, ob sich die Motoren auch wirklich beim Ansteuern der D7 oder D4 Pins in Uhrzeigersinn drehen und nicht gegen der Uhrzeigersinn. Falls beim Motor gekennzeichnet, sollte der Pluspol des Motors mit dem A1 beziehungsweise dem A2 Pin verbunden werden. Der Motortreiber verfügt auch über eine interne Drehzahlregelung, welche extra für beide Motoren über zwei PWM Input Pins gesteuert werden können. Die Drehzahl kann über den Duty Cycle des PWM Signals geregelt werden.
 \subsubsection{PWM-Signal erzeugung für Motoransteuerung}
 Ein PWM Signal ist ein periodisches Rechteck Signal. Eine Periode wird als Duty Cycle bezeichnet. Dieser Duty Cycle enthält eine Prozentangabe. Diese Prozentangabe sagt aus, wie viel Prozent des Duty Cycles HIGH und wie viel Prozent LOW sind. Ein Signal mit einem Duty Cycle von 100\% sagt aus, das eine Periodendauer zu 100\% aus einem HIGH Signal und zu 0\% aus einem LOW Signal besteht. Ein Duty Cycle von 25\% sagt aus, Das eine Periode zu 25\% aus einem HIGH Signal und zu 75\% aus einem LOW Signal besteht. Das PWM Signal kann von manchen ICs intern aufgenommen und der Duty Cycle ausgemessen werden. Dabei muss jedoch beachtet werden, dass die Frequenz des PWM Signals nicht die maximale Lesefrequenz des ICs übersteigt. Meistens wird diese Frequenz, wie bei unserem Motortreiber, im Datenblatt angegeben. Das PWM kann entweder über eigene ICs mit PWM Generatoren oder $\mu$Cs mit internen PWM Generatoren erzeugt werden. Das System muss nur über eine echtzeitfähigkeit besitzen, damit der Duty Cycle keine takte beim Zählen überspringen und damit nicht die frequenz fehlerhaft werden kann. 
@@ -111,8 +141,15 @@ void app_main (void)
 \item OCR2A: Im OCR2A Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% \\
 \item OCR2B: Im OCR2B Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% \\
 \end{itemize}
-
 \end{itemize}
+
+Ein PWM-Signal das mit diesem Programm generiert wird schaut  wie in \label{PWM} aus. Der Duty Cycle variiert jedoch je nach Motor und muss noch in der Praxis angepasst werden
+\begin{figure}[H] 
+\begin{center}
+
+\includegraphics[width=15cm]{Bilder/PWM/pwm}
+\caption{PWM}
+\label{PWM}
 \newpage
 \subsubsection{Gesamtschaltplan}
 \begin{figure}[H] 
@@ -248,21 +285,25 @@ Diese Widerstandswerte werden mit 22k$\Omega$ angenommen.
 \subsection{Sensorhalterung Förderband}
 \subsection{Halterung Raspberry und $\mu$C}
 \subsection{Lüfterhalterung für Raspberry}
+\newpage
 \section{Stückliste}
+\begin{tiny}
 \begin{center}
-\begin{tabular}{|c|c|c|c|c|} \hline
-Name & ID & Stückzahl & Anmerkung & Link \hline
-Optek Optischer Näherungsschalter & OPB732WZ & 2 & - & \url{https://at.rs-online.com/web/p/products/9087113/?gclid=Cj0KCQjw6NjNBRDKARIsAFn3NMq0RvGj3r_5q7xtFIs2eGGmyLAENp-a446vhWDjUIsFB9L3bRjBDXUaAqj1EALw_wcB&cm_mmc=AT-PLA-DS3A-_-google-_-PLA_AT_DE_Automation-_-Sensoren_Und_Messwandler-_-PRODUCT+GROUP&matchtype=&grossPrice=Y&gclsrc=aw.ds} \hline 
-Optokoppler & SFH6916 & 2 & 4 Optokoppler pro Bauteil & \url{https://www.neuhold-elektronik.at/catshop/product_info.php?products_id=4181} \hline
-Motorsteuerung & VNH2SP30 & 1 & Fertiges Modul aus 2 ICs und zusätzlicher Beschaltung & \url{https://www.ebay.at/itm/30A-VNH2SP30-Dual-Stepper-Motor-Driver-Monster-Moto-Shield-Module-Motortreiber/122543212784?hash=item1c882508f0:g:QGkAAOSwsy9amWPw} \hline
-Gleichstrom Motor & FD MY2007 U222 60x & 2 & Schneckengetriebe & \url{https://www.neuhold-elektronik.at/catshop/product_info.php?cPath=96_99&products_id=5522} \hline
-Schaltnetzteil 5V & ASTEC LPS42 & 1 & 11A & \url{https://www.neuhold-elektronik.at/catshop/product_info.php?cPath=114_118&products_id=6596} \hline
-Schaltnetzteil 12V & - & 1 & 30A & \url{https://www.optonicaled.at/netzeil-metal-360w?gclid=Cj0KCQjwv73VBRCdARIsAOnG8u3XQ-am7_9sgk8srkL6hS7SgxZRm4DZmOgQmx8V2TWz59MP70Hgx7QaAjuqEALw_wcB} \hline
-Lüfter 12V & EE80251S2-0000-999 & 1 & 80x80x25mm & \url{https://www.conrad.at/de/axialluefter-12-vdc-6286-mh-l-x-b-x-h-80-x-80-x-25-mm-sunon-ee80251s2-0000-999-323905.html} \hline
-Widerstand & - & 6 & Kohleschicht 390$\Omgea$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-390-axial-bedrahtet-0204-01-w-5-tru-components-1-st-1557169.html} \hline
-Widerstand & - & 2 & Kohleschicht 150$\Omgea$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-150-axial-bedrahtet-0204-01-w-5-1-st-400157.html} \hline
-Widerstand & - & 2 & Kohleschicht 10$\Omgea$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-10-axial-bedrahtet-0207-025-w-5-yageo-cfr-25jt-52-10r-1-st-1417641.html} \hline
-Widerstand & - & 2 & Kohleschicht 680$\Omgea$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-680-axial-bedrahtet-0207-025-w-5-yageo-cfr-25jt-52-680r-1-st-1417677.html} \hline
-Widerstand & - & 8 & Kohleschicht 22k$\Omgea$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-22-k-axial-bedrahtet-0207-025-w-5-yageo-cfr-25jt-52-22k-1-st-1417666.html} \hline
+\begin{tabular}{|p{2cm}|c|c|p{3cm}|p{7cm}|} \hline
+Name & ID & Stückzahl & Anmerkung & Link \\ \hline
+Optek Optischer Näherungsschalter & OPB732WZ & 2 & - & \url{https://at.rs-online.com/web/p/products/9087113/?gclid=Cj0KCQjw6NjNBRDKARIsAFn3NMq0RvGj3r_5q7xtFIs2eGGmyLAENp-a446vhWDjUIsFB9L3bRjBDXUaAqj1EALw_wcB&cm_mmc=AT-PLA-DS3A-_-google-_-PLA_AT_DE_Automation-_-Sensoren_Und_Messwandler-_-PRODUCT+GROUP&matchtype=&grossPrice=Y&gclsrc=aw.ds} \\ \hline 
+Optokoppler & SFH6916 & 2 & 4 Optokoppler pro Bauteil & \url{https://www.neuhold-elektronik.at/catshop/product_info.php?products_id=4181} \\ \hline
+Motorsteuerung & VNH2SP30 & 1 & Fertiges Modul aus 2 ICs und zusätzlicher Beschaltung & \url{https://www.ebay.at/itm/30A-VNH2SP30-Dual-Stepper-Motor-Driver-Monster-Moto-Shield-Module-Motortreiber/122543212784?hash=item1c882508f0:g:QGkAAOSwsy9amWPw} \\ \hline
+Gleichstrom Motor & FD MY2007 U222 60x & 2 & Schneckengetriebe & \url{https://www.neuhold-elektronik.at/catshop/product_info.php?cPath=96_99&products_id=5522} \\ \hline
+Schaltnetzteil 5V & ASTEC LPS42 & 1 & 11A & \url{https://www.neuhold-elektronik.at/catshop/product_info.php?cPath=114_118&products_id=6596} \\ \hline
+Schaltnetzteil 12V & - & 1 & 30A & \url{https://www.optonicaled.at/netzeil-metal-360w?gclid=Cj0KCQjwv73VBRCdARIsAOnG8u3XQ-am7_9sgk8srkL6hS7SgxZRm4DZmOgQmx8V2TWz59MP70Hgx7QaAjuqEALw_wcB} \\ \hline
+Lüfter 12V & EE80251S2-0000-999 & 1 & 80x80x25mm & \url{https://www.conrad.at/de/axialluefter-12-vdc-6286-mh-l-x-b-x-h-80-x-80-x-25-mm-sunon-ee80251s2-0000-999-323905.html} \\ \hline
+Widerstand & - & 6 & Kohleschicht 390$\Omega$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-390-axial-bedrahtet-0204-01-w-5-tru-components-1-st-1557169.html} \\ \hline
+Widerstand & - & 2 & Kohleschicht 150$\Omega$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-150-axial-bedrahtet-0204-01-w-5-1-st-400157.html} \\ \hline
+Widerstand & - & 2 & Kohleschicht 10$\Omega$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-10-axial-bedrahtet-0207-025-w-5-yageo-cfr-25jt-52-10r-1-st-1417641.html} \\ \hline
+Widerstand & - & 2 & Kohleschicht 680$\Omega$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-680-axial-bedrahtet-0207-025-w-5-yageo-cfr-25jt-52-680r-1-st-1417677.html} \\ \hline
+Widerstand & - & 8 & Kohleschicht 22k$\Omega$ & \url{https://www.conrad.at/de/kohleschicht-widerstand-22-k-axial-bedrahtet-0207-025-w-5-yageo-cfr-25jt-52-22k-1-st-1417666.html} \\ \hline
+Arduino Nano & - & 1 & Atmega328P zur PWM generierung & \url{https://www.amazon.de/AptoFun-Org-ATmega328P-FT232RL-Development-kompatibel/dp/B014TE52RS/ref=sr_1_1_sspa?ie=UTF8&qid=1521579402&sr=8-1-spons&keywords=arduino+nano&psc=1} \\ \hline
 \end{tabular}
 \end{center}
+\end{tiny}
