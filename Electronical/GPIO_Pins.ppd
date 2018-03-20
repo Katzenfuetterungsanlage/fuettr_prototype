@@ -1,0 +1,48 @@
+<document type="ProfiCAD ppd" version="9.0" t="X" fG="10f832d5-850e-472a-a284-ce02b1e5f888" lG="ffc30f53-ec3e-4fdd-bc4b-daa7cbc03cf1" function="1">
+<layers current="0">
+<layer name="0" v="1">
+<rect left="-120" top="-20" right="-80" bottom="20"/>
+<outlet x="-100" y="20"/>
+<outlet x="-100" y="-20"/>
+<text x="-100" y="0" f="80,0,0,0,Lucida Sans Unicode,000000" l="1" tws="0" al="9">1</text>
+<rect left="-80" top="-20" right="-40" bottom="20"/>
+<outlet x="-60" y="20"/>
+<outlet x="-60" y="-20"/>
+<text x="-60" y="0" f="80,0,0,0,Lucida Sans Unicode,000000" l="1" tws="0" al="9">2</text>
+<rect left="-40" top="-20" right="0" bottom="20"/>
+<outlet x="-20" y="20"/>
+<outlet x="-20" y="-20"/>
+<text x="-20" y="0" f="80,0,0,0,Lucida Sans Unicode,000000" l="1" tws="0" al="9">3</text>
+<rect left="0" top="-20" right="40" bottom="20"/>
+<outlet x="20" y="20"/>
+<outlet x="20" y="-20"/>
+<text x="20" y="0" f="80,0,0,0,Lucida Sans Unicode,000000" l="1" tws="0" al="9">4</text>
+<rect left="40" top="-20" right="80" bottom="20"/>
+<outlet x="60" y="20"/>
+<outlet x="60" y="-20"/>
+<text x="60" y="0" f="80,0,0,0,Lucida Sans Unicode,000000" l="1" tws="0" al="9">5</text>
+<rect left="80" top="-20" right="120" bottom="20"/>
+<outlet x="100" y="20"/>
+<outlet x="100" y="-20"/>
+<text x="100" y="0" f="80,0,0,0,Lucida Sans Unicode,000000" l="1" tws="0" al="9">6</text>
+</layer>
+</layers>
+<defaults>
+<attributes>
+<attribute name="_ref" value="X7" x="-147" y="-20" al="6"/>
+<attribute name="_type" value="" x="-147" y="20" al="6"/>
+<attribute name="_o1" value="1" v="1" custom="i" x="-110" y="40" al="6"/>
+<attribute name="_o2" value="1" v="1" custom="o" x="-110" y="-40" al="6"/>
+<attribute name="_o3" value="2" v="1" custom="i" x="-70" y="40" al="6"/>
+<attribute name="_o4" value="2" v="1" custom="o" x="-70" y="-40" al="6"/>
+<attribute name="_o5" value="3" v="1" custom="i" x="-30" y="40" al="6"/>
+<attribute name="_o6" value="3" v="1" custom="o" x="-30" y="-40" al="6"/>
+<attribute name="_o7" value="4" v="1" custom="i" x="10" y="40" al="6"/>
+<attribute name="_o8" value="4" v="1" custom="o" x="10" y="-40" al="6"/>
+<attribute name="_o9" value="5" v="1" custom="i" x="50" y="40" al="6"/>
+<attribute name="_o10" value="5" v="1" custom="o" x="50" y="-40" al="6"/>
+<attribute name="_o11" value="6" v="1" custom="i" x="90" y="40" al="6"/>
+<attribute name="_o12" value="6" v="1" custom="o" x="90" y="-40" al="6"/>
+</attributes>
+</defaults>
+</document>
