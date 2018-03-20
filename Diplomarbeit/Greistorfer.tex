@@ -44,9 +44,19 @@ Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://dev
 \item[•] \textbf{DELETE}: Fordert das Löschen der Ressource unter der angegebenen \ac{URI} an.
 \end{itemize}
 
+\subsubsection{HTTP Status Codes}
+\label{sec:http-status-codes}
+\begin{itemize}
+\item[•] \textbf{1xx}: Information
+\item[•] \textbf{2xx}: Erfolg
+\item[•] \textbf{3xx}: Umleitung
+\item[•] \textbf{4xx}: Client Fehler
+\item[•] \textbf{5xx}: Server Fehler
+\end{itemize}
+
 \subsection{JavaScript}
 \label{sec:vor-js}
-JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
+JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas Ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
 
 \subsection{Node.js}
 \label{sec:vor-node}
@@ -199,7 +209,7 @@ Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \
 \end{itemize}
 
 Die meisten Zusatzbefehle werden für \textit{Data Binding} verwendet.
-
+\newpage
 \mbox{}
 \begin{wrapfigure}{l}{0.5\textwidth}
 \vspace{-50pt}
@@ -282,7 +292,7 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \newpage
+Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -294,7 +304,7 @@ Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt.
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde, oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \\
+Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde, oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -314,7 +324,7 @@ Auf der Geräteinformations-Seite werden die wichtigsten Daten über das Gerät 
 \item[•]IP Adresse
 \item[•]Softwareversion
 \end{itemize}
-Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \newpage
+Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -381,9 +391,16 @@ toMinutes(time: string): number {
 \paragraph*{Updates}\mbox{}\\
 Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird aktualisiert, so wird eine Anfrage an den Server gesendet siehe \ref{sec:ums-server-funktion}. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht teilt dem Benutzer mit, dass das System aktualisiert. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
 
+\paragraph*{Login}\mbox{}\\
+Das Login funktioniert auf der Basis des Angular Auth Guards. Dieser schützt gewisse Routes gegen unbefugte Benutzer. Im Login bekommen wir, bei erfolgreicher Authentifikation einen \ac{JWT} vom Server, den wir in einer Variable speichern und dann im \inlinecode{bash}{Authorization} Header bei Bedarf mitschicken. Dies geschieht durch einen sogenannten \textit{Interceptor}, der den \ac{HTTP} Request nimmt und ihn klont, da \ac{HTTP} Requests in Angular nicht veränderbar sind, und dann darauf den \inlinecode{bash}{Authorization} Header gibt.
+
+\subsubsection{Internationalization}
+\label{sec:ums-client-i18n}
+Um die Webseite in mehreren Sprache anzeigen zu können, muss sie in allen Sprachen extra übersetzt sein. Das würde bedeuten, für jede Sprache wird ein eigenes Angular Projekt benötigt. Das wäre sehr viel Speicherplatz und Rechenleistung. Glücklicherweise bietet Angular eine Möglichkeit, die App in mehrere Sprachen zu übersetzen, ohne die ganze App neu zu schreiben. Diese Möglichkeit nennt sich Internationalization oder kurz i18n. Angluar muss nur wissen, welche Teile wie übersetzt werden sollen. Dafür schreiben wir bei allen \ac{HTML} Elementen, deren Text wir übersetzen wollen i18n zu den Attributen. \inlinecode{Html}{<h4 i18n>Zeit 1:</h4>}. Mit dem Kommando \inlinecode{bash}{ng xi18n --output-path src/i18n} werden alle Texte in eine Datei namens messages.xlf extrahiert. Diese Datei kann dan kopiert werden und einem Übersetzer gegeben. Im Falle dieser Arbeit wurden die Texte alle in Deutsch und Englisch übersetzt. Zum bauen des mehrsprachigen Projekts muss Angular mitgeteilt werden, welche Sprachen und welche Dateien es verwenden soll. Unter Linux geht das mit dem Kommando \inlinecode{bash}{for lang in en de; do ng build --output-path}\\\inlinecode{bash}{=dist/\$lang --aot --prod --bh \$lang/ --i18n-file=src/i18n/messages.\$lang.xlf}\\\inlinecode{bash}{--i18n-format=xlf --locale=\$lang; done}
+
 \subsubsection{Kommunikation mit dem Server}
 \label{sec:ums-client-kommunikation}
-Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das Übertragungsprotokoll gibt klare Auskunft über alle mögliche Anfragen und Antworten.
+Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das Übertragungsprotokoll, Tabelle \ref{webserver-client-uebertragung}, gibt klare Auskunft über alle mögliche Anfragen und Antworten.
 \begin{landscape}
 \begin{table}[]
 \begin{tabular}{@{}llll@{}}
@@ -452,7 +469,7 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 
 \subsubsection{Funktion}
 \label{sec:ums-server-funktion}
-Da auf einem Port nur ein Programm auf Anfragen warten kann und sichergestellt sein soll, dass der Server nur einmal gestartet wird, wird der Server als Singleton ausgeführt. Das bedeutet, der Konstruktor der Klasse ist nicht öffentlich. Stattdessen gibt es einen Getter, der überprüft, ob ein Objekt der Klasse bereits existiert. Sollte ein Objekt bereits erstell sein, so wird dieses zurückgegeben. Existiert noch kein Objekt, so wird eines erstellt und danach zurückgegeben.
+Da auf einem Port nur ein Programm auf Anfragen warten kann und sichergestellt sein soll, dass der Server nur einmal gestartet wird, wird der Server als Singleton ausgeführt. Das bedeutet, der Konstruktor der Klasse ist nicht öffentlich. Stattdessen gibt es einen Getter, der überprüft, ob ein Objekt der Klasse bereits existiert. Sollte ein Objekt bereits erstell sein, so wird dieses zurückgegeben. Existiert noch kein Objekt, so wird eines erstellt und danach zurückgegeben. Der Server wir gestartet, indem dem Node.js Modul \textit{http} das Server Objekt übergeben wird: \inlinecode{TS}{const server = http.createServer(this._express).listen(port)}
 
 \begin{lstlisting}[caption=Server Singleton,label=server_singleton,style=TS]
 public static get Instance(): Server {
@@ -485,47 +502,88 @@ this._express.use('/api', ApiRoutes.ApiRouter.Routes);
 this._express.use('/', AppRoutes.AppRouter.Routes);
 \end{lstlisting}
 
-Die beiden Middlewares \inlinecode{TS}{bodyparser.json()} und \inlinecode{TS}{bodypareser.urlencoded()} bereiten den Request so auf, dass er vom Rest der Middlewares verstanden werden kann. Die Middleware \inlinecode{TS}{requestLanguage()} ist ein JavaScript Modul, dass aus dem Request-Header den Header \inlinecode{bash}{Accept-Language} ausliest und für die weitere Verarbeitung in \inlinecode{TS}{req.language} speichert. Pug Engine ist eine rendering Engine, das bedeutet, damit können \ac{HTML} Seiten während der Serverlaufzeit generiert werden, somit können Variablen eingefügt werden. \inlinecode{TS}{express.static()} stellt ein Verzeichnis mit allen Unterverzeichnissen zur Verfügung. Das gleiche Prinzip wie bei einem Apache Webserver. Die beiden Seiten des Servers, die Client Seite, und die \ac{API} sind in eigene Dateien ausgelagert. Somit herrscht ein klare Trennung zwischen dem, was der Benutzer zu sehen bekommt und dem, das nur die JavaScript Applikation sieht. Alle \textit{get} und \textit{post} Middlewares haben eine Callback Methode. In dieses bearbeiten wir alle Anfragen und beantworten sie. In der Login Methode, werden alle Benutzer aus der Datenbank mit dem Benutzer im Request verglichen. 
+Die beiden Middlewares \inlinecode{TS}{bodyparser.json()} und \inlinecode{TS}{bodypareser.urlencoded()} bereiten den Request so auf, dass er vom Rest der Middlewares verstanden werden kann. Die Middleware \inlinecode{TS}{requestLanguage()} ist ein JavaScript Modul, dass aus dem Request-Header den Header \inlinecode{bash}{Accept-Language} ausliest und für die weitere Verarbeitung in \inlinecode{TS}{req.language} speichert. Pug Engine ist eine rendering Engine, das bedeutet, damit können \ac{HTML} Seiten während der Serverlaufzeit generiert werden, somit können Variablen eingefügt werden. \inlinecode{TS}{express.static()} stellt ein Verzeichnis mit allen Unterverzeichnissen zur Verfügung. Das gleiche Prinzip wie bei einem Apache Webserver. Die beiden Seiten des Servers, die Client Seite, und die \ac{API} sind in eigene Dateien ausgelagert. Somit herrscht ein klare Trennung zwischen dem, was der Benutzer zu sehen bekommt und dem, das nur die JavaScript Applikation sieht. Alle \textit{get} und \textit{post} Middlewares haben eine Callback Methode. In dieses bearbeiten wir alle Anfragen und beantworten sie.
+
+\begin{lstlisting}[caption=Sprachenauswahl,style=TS,label=sprachenauswahl]
+public languageselector(req: express.Request, res: express.Response, next: express.NextFunction) {
+  if (req.language === 'de-DE' || req.language === 'de-AT') {
+    res.redirect('/de');
+    return;
+  } else {
+    res.redirect('/en');
+    return;
+  }
+}
+\end{lstlisting}
+
+Wenn eine Anfrage auf \textit{root} (/) eintrifft, entscheidet der Server, ausgehend von dem Wert, der in \inlinecode{TS}{req.language} steht, in welcher Sprache der Benutzer die Webseite zu sehen bekommt. Ist der Wert entweder \textit{de-De} oder \textit{de-AT}, so wird die deutsche Seite angezeigt, bei allen anderen Werten, wird die englische Seite angezeigt. Dies geschieht durch weiterleiten des Requests auf entweder \textit{/de} oder \textit{/en}. 
 
 \begin{lstlisting}[style=TS,caption=Login Methode,label=login]
 public async login(req: express.Request, res: express.Response, next: express.NextFunction) {
-    let User: Login = { token: '', isLoggedIn: false };
-    let done = false;
-    const username = req.body.user;
-    // const userpass = req.body.password;
-    const userpass = SHA512(req.body.password).toString();
-    const Users = await FuettrDB.Instance.getUsers();
-    for (let i = 0; i < Users.length; i++) {
-      // let UserDb = JSON.parse(JSON.stringify(Users[i]));
-      let name = JSON.parse(JSON.stringify(Users[i])).user_name;
-      let pass = JSON.parse(JSON.stringify(Users[i])).user_password;
-      if (userpass === pass && username === name) {
-        jwt.sign({ user: username }, this._privkey, { expiresIn: '10h', algorithm: 'RS256' }, (err, token) => {
-          if (err != undefined) {
-            log.warn(err);
-          }
-          if (token != undefined) {
-            User.token = token;
-            User.isLoggedIn = true;
-            res.send(JSON.stringify(User));
-            done = true;
-          }
-        });
-      }
+  let User: Login = { token: '', isLoggedIn: false };
+  let done = false;
+  const username = req.body.user;
+  const userpass = SHA512(req.body.password).toString();
+  const Users = await FuettrDB.Instance.getUsers();
+  for (let i = 0; i < Users.length; i++) {
+    let name = JSON.parse(JSON.stringify(Users[i])).user_name;
+    let pass = JSON.parse(JSON.stringify(Users[i])).user_password;
+    if (userpass === pass && username === name) {
+      jwt.sign({ user: username }, this._privkey, { expiresIn: '10h', algorithm: 'RS256' }, (err, token) => {
+        if (err != undefined) {
+          log.warn(err);
+        }
+        if (token != undefined) {
+          User.token = token;
+          User.isLoggedIn = true;
+          res.send(JSON.stringify(User));
+          done = true;
+        }
+      });
     }
-    setTimeout(() => {
-      if (!done) {
-        res.status(401).send(JSON.stringify(User));
-      }
-    }, 2000);
   }
+  setTimeout(() => {
+    if (!done) {
+      res.status(401).send(JSON.stringify(User));
+    }
+  }, 2000);
+}
 \end{lstlisting}
+
+In der Login Methode wird zuerst das im Request befindliche Passwort gehashed. Dann werden alle Benutzer aus der Datenbank ausgelesen und mit dem Benutzer im Request verglichen. Sind Benutzername und Passworthash gleich, so wird mit der Methode \inlinecode{TS}{jwt.sign()} ein \ac{JWT} erstellt und signiert. Dieser Token wird in ein Objekt gepackt und dem Client als Antwort gesendet. Wird innerhalb einer Zeitspanne von zwei Sekunden keine Übereinstimmung gefunden, so sendet der Server den Status 401 (Unauthorized). 
+
+
 
 
 \subsubsection{MongoDB}
 \label{sec:ums-server-mongo}
-Alle Daten, die nicht direkt vom Java-Programm benötigt werden, werden in eine Datenbank gespeichert. Über diese Datenbank haben sowohl das Java-Programm als auch der Webserver Zugriff auf die gemeinsamen Daten wie die Fütterungszeiten und Geräteinformationen. Da MongoDB eine Schemenlose Datenbank ist, können wir die Daten einfach dem \ac{DBMS} übergeben und sie werden gespeichert. \\
-%Singleton
+Alle Daten, die nicht direkt vom Java-Programm benötigt werden, werden in eine Datenbank gespeichert. Über diese Datenbank haben sowohl das Java-Programm als auch der Webserver Zugriff auf die gemeinsamen Daten wie die Fütterungszeiten und Geräteinformationen. Da MongoDB eine Schemenlose Datenbank ist, können wir die Daten einfach dem \ac{DBMS} übergeben und sie werden gespeichert. Da Zugriff auf die Datenbank ebenfalls nur einmal erfolgen sollte, wurde die Klasse ebenfalls als Singleton ausgeführt. 
+
+\begin{lstlisting}[caption=Verbindung mit der Datenbank,style=TS,label=database-connection]
+const url = 'mongodb://localhost:27017/fuettr';
+try {
+  const dbServer = await mongodb.MongoClient.connect(url);
+  const dbFuettr = await dbServer.db('fuettr');
+  const collTimes = await dbFuettr.collection('data_times');
+  const collUsers = await dbFuettr.collection('data_user');
+  const collInfo = await dbFuettr.collection('data_info');
+  const collHardware = await dbFuettr.collection('data_hardware');
+  .
+  .
+  .
+  this._times = collTimes;
+  this._info = collInfo;
+  this._hardware = collHardware;
+  this._users = collUsers;
+  log.info('Database connected.');
+} catch (err) {
+  throw err;
+}
+\end{lstlisting}
+
+Die Verbindung mit dem \ac{DBMS} geschieht über die Methode \inlinecode{TS}{MongoClient.connect()}. Da wir uns dazu entschieden haben, jeden Datensatz in eine eigene Collection zu speichern, müssen Anfangs alle Collections den verschiedenen Variablen zugewiesen werden. Beim Verbinden wird außerdem überprüft, ob die Collections leer sind. Ist dies der Fall, so werden Standardwerte in die Collections geschrieben. \\\\
+
+Beim Request auf \textit{/api/getUpdates} soll die Software aktualisiert und das Raspberry neu gestartet werden. Dafür wurde Node.Js' \textit{child\_process} Modul verwendet. Dieses Modul gibt uns die Möglichkeit, Konsolenbefehle innerhalb unserer Serverseitigen JavaScript Anwendung auszuführen. Zuerst wird das Repository aktualisiert mit \inlinecode{bash}{git pull}. Danach wird das System neugestartet mit \inlinecode{bash}{sudo reboot}. Vorher wird in eine Datei, die vom Raspberry Startup Script rc.local überprüft wird, true geschrieben. Wenn in dieser Date true steht, werden beim starten des Raspberry alle Komponenten der Software neu gebaut.
 
 
 \subsubsection{Kommunikation mit dem Java Programm}
@@ -542,6 +600,11 @@ GET                     & /errors\_warnings   & \begin{tabular}[c]{@{}l@{}}JSON 
 \label{uebertragungsprotokoll}
 \end{table}
 
+Die Kommunikation mit dem Java-Programm erfolgt über Node.js' eigenes \textit{http} Modul. Das Modul hat Methoden, mit denen Server und Clients erstellt werden können. Die Kommunikation erfolgt über den lokalen Port 666. Auf diesem Port wartet der Server vom Java-Programm auf Anfragen. Der Webserver, der in diesem Falle zum Client wird, sendet einfache \ac{HTTP} \textit{GET} und \textit{POST} Anfragen an den Java-Server. Dieser antwortet dann mit der gewünschten Resource.
 
 \section{Zusammenfassung und Verbesserungsmöglichkeiten}
 \label{sec:zusammenfassung}
+
+\subsubsection{Verbesserungsmöglichkeiten}
+\label{sec:verbesserung}
+Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst, wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. Im Client Design kann die Seite für Mobilgeräte optimiert werden.
