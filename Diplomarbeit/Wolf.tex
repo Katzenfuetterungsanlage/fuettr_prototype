@@ -25,9 +25,12 @@ Die Aufgabe der Ansteuerung ist es, möglichst einfach, günstig und sicher die 
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=10cm]{Bilder/Bauteile/Hubmagnet}
+\includegraphics[width=5cm]{Bilder/Bauteile/Hubmagnet}
 \caption{Hubmagnet}
 \label{Hubmagnet}
+
+\end{center}
+\end{figure}
 Zylinderhubmagnete bestehen aus einem zylindrischen Dauermagnetkerns. Umgeben ist dieser Magnetkern von einer Spule und einem Gehäuse, welches das ganze Konstrukt vor Festkörpern schützt. Wird an die Spule eine Spannung angelegt, fließt ein Strom durch die Spule. Dieser Strom erzeugt ein Magnetfeld was den Magnetkern anzieht oder abstößt. Durch eine gezielte übersteuerung des Magnetzylinders, kann die Kraft des Magnetfeldes kurzzeitig verstärkt werden, jedoch verhindert die erhöhte Hitzeentwicklung einen dauerhaften Betrieb im übersteuerten Zustand. Der übersteuerte Zustand wird mit einer gerngeren relativen Einschaltdauer gegenüber der Zykluszeit bewirkt. Der Strom der durch die Spule fließt kann sich durch die kurze Einschaltdauer nicht einpendeln, was der Spule erlaubt mit einem durchschnittlich höheren Strom betrieben zu werden, was zu einem stärkeren Magnetfeld und somit zu einer stärkeren Kraft führt. Die genauen Werte der Kraft zur relativen Einschaltdauer lassen sich dem Datenblatt jedes einzelnen Hubmagnetens entnehmen. Ein Vorteil von Hubmagneten ist es, dass sie in allen möglichen Formen, Hublängen, Hubkräften und Wechsel- oder Gleichspannungsbereichen verfügbar sind. Hubmagnete können auch mit 3 verschiedenen Hubzuständen erworben werden. Monostabile Hubmagnete halten sich, mithilfe einer Feder, bei stromlosen Zustand immer an der Anfangs oder Endposition. Bistabile Hubmagnete verweilen im stromlosen Zustand an ihrer aktuellen Position, also entweder im eingefahrenen oder ausgefahrenen Zustand. Tristabile Hubmagnete bleiben, wie bistabile Hubmagnete, stromlos an ihrer aktuellen Postition. Jedoch kann diese Hubmagnetart auch an einer vorgegebenen Mittelposition verweilen.
 
 \subsubsection{Motoren}
@@ -37,9 +40,12 @@ Nach einigen Problemen und Variantenänderungen in der Mechanik, wurde die Motor
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=10cm]{Bilder/Bauteile/Sensor}
+\includegraphics[width=5cm]{Bilder/Bauteile/Sensor}
 \caption{Sensor}
 \label{Sensor}
+
+\end{center}
+\end{figure}
 Die Auswahl des Sensor für unsere Anwendung wurden von folgenden Kriterian beeinflusst: Befestingungsmöglichkeiten, Preis und zusätzlich benötigte Ansteuerungen.
 Kapazitive und Induktive Näherungsschalter lassen sich einfach befestigen, sind jedoch nicht sehr günstig. Auch ist die Reichweite der Sensoren nicht sehr groß, was aber in unserer Anwendung unwichtig ist. Für diese Arten von Sensoren werden zusätzliche Ansteuerungen benötigt. Diese Ansteuerungen sind meistens teuer und benötigen zur Kommunikation mit einem Raspberry eine Schnittstelle.
 Wir haben uns in diesem Anwendungsbereich für einen Optischen Näherungsschalter entschieden. Dieser beinhaltet ein fertiges Modul bestehend aus einer Infrarot LED und einem Infrarot Fototransistor. Diese Modul ist günstig und auch leicht zu befestigen. Dadurch, dass unsere Anwendung keine genaue Abstandsmessung benötigt, wird keine zusätzliche Ansteuerung benötigt. Zur Stromversorgung reichen 5V Gleichspannung mit einem laut Datenblatt berechneten Vorwiderstand. Die Auswertung erfolgt durch einen digitalen Input-Pins des Raspberrys. Sobald sich eine Reflektorfläche vor den Sensor bewegt, wird der Fototransistor niederohmig und ermöglicht somit einen Stromfluss. Dadurch liegt eine Spannung von 3,3V am Input-Pin an und wird vom Raspberry als High-Zustand angesehen. Wenn die Reflektorfläche vom Modul nicht mehr erfasst wird, sperrt der Fototransistor, der Stromfluss wird unterbunden und am Input-Pin liegen nurmehr 0V an, was als Low-Zustand angesehen wird.
@@ -56,9 +62,12 @@ Für die zweite Variante werden keine Hubmagnete benötigt, da alle Befestigunge
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=10cm]{Bilder/Bauteile/Motor}
+\includegraphics[width=8cm]{Bilder/Bauteile/Motor}
 \caption{Motor}
 \label{Motor}
+
+\end{center}
+\end{figure}
 Die Motoren wurden mithilfe folgender Kriterien ausgesucht: Preis, Drehzahl, Kraft, stromloses Verhalten, Spannung.
 In unserer Elektronik soll nur mit sicherer niedrieger Gleichspannung gearbeitet werden. Daher kommen nur Motoren mit einem Spannungsbereich von 0-24V in frage. Aus diesem Grund wird die Auswahl eines Asynchronmotors ausgeschlossen. Die Anwendung fordert, dass sich die Motoren im Stromlosen zustand nicht bewegen lassen. Dadurch können folgende Motorarten ausgeschlossen werden: Synchronmotoren, reine Gleichstrommotren, Schrittmotoren und Servomotoren, falls diese Motoren nicht über eine aktive Bremse verfügen. Ideal für unsere Anwendungen sind Gleichstrom-Schneckengetriebe-Motoren. Diese Motoren lassen sich aufgrund des mechanischen Auifbaus im stromlosen Zustand nicht drehen. Diese Motoren verfügen meistens auch über eine Getriebe was eine Übersetzung in eine niedrigere Drehzahl zur folge hat. Gleichzeitg wird mit diesem Getriebe auch das Drehmoment erhöht, weshalb der Motor eine höhere Kraft aufbringen kann. Zusätzlich werden Schneckengetriebemotoren in der Automobil Industrie als Scheibenwischermotoren verwendet. Daher sind diese Motoren sehr Preisgünstig zu erwerben.
 
@@ -66,9 +75,12 @@ In unserer Elektronik soll nur mit sicherer niedrieger Gleichspannung gearbeitet
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=10cm]{Bilder/Bauteile/Lüfter}
-\caption{Lüfter}
-\label{Lüfter}
+\includegraphics[width=5cm]{Bilder/Bauteile/Luefter}
+\caption{Luefter}
+\label{Luefter}
+
+\end{center}
+\end{figure}
 Zur Kühlung des Raspberrys, wird ein externen 12V-Lüfter hergenommen, welcher einen Luftstrom um den Raspberry und den $\mu$Controller erzeugt.
 \subsection{Sensoren}
 Der ausgewählte Optische Sensor wurde in Variante 1 bereits beschrieben. Für genauere Informationen lesen Sie bitte in Punkt 1.3.2 nach.
@@ -82,9 +94,12 @@ Gleichstrom Schneckengetriebemotoren haben die Fähigkeit sich in beide Richtung
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=10cm]{Bilder/Bauteile/Motorsteuerung}
+\includegraphics[width=7cm]{Bilder/Bauteile/Motorsteuerung}
 \caption{Motorsteuerung}
 \label{Motoransteuerung}
+
+\end{center}
+\end{figure}
 Aus Sicherheits- und Kostentechnischen Gründen, wurde von einer manuell gesteuerten H-Brücke auf ein fertiges Motorsteuerungsmodul umgestiegen. Der Vorteil dieser Ansteuerung besteht darin, dass ein Kurzschluss der H-Brücke Hardwaretechnisch ausgeschlossen werden kann und damit nicht vond er Software abgesichert werden muss. Das Motormodul verfügt außerdem über eine Interne Strommessung für jeden der 2 unterstützten Motoren. Diese Messung kan bei bedarf abgefragt werden. Für unsere Anwendung ist dies jedoch nicht erforderlich. Der Mototreiber unterstützt 2 Motoren, welche mit bis zu 30 Ampere bei 16V betrieben werden können, bevor der IC überhitzt oder andere Bauteile zerstört werden. Die Ansteuerung jedes Motors erfolgt über ein Digitales Signal. Motor 1 kann über den Pin AI0 aktiviert(enabled) werden. Dies dient zur Sicherung das der Motor nicht ausversehen betätigt werden kann, solange der AI0 Pin nicht auf HIGH ist. Der enable Pin für Motor 2 ist AI1. Um Motor 1 in Uhrzeigersinn drehen zu lassen, muss der Pin D7 mit einem HIGH Signal und der Pin D8 mit einem LOW SIgnal angesteuert werden. Um Motor 2 gegen den Uhrzeigersinn drehen zu lassen, muss der Pin D8 mit einem HIGH Signal und der Pin D7 mit einem LOW Signal angesteuert werden. Um den Motor 1 bremsen zu können, muss Pin D8 und D7 mit entweder einem HIGH oder einem LOW Signal angesteuert werden. Für Motor 2 ist die Funktionsweise gleich jedoch muss der Pin D7 mit Pin D4 und Pin D8 mit Pin D9 ersetzt werden. Die externe Stromversorgung für den IC von 5V erfolgt über den VCC Pin. Die externe Stromversorgung für die Motoren erfolgt über den PWR Pin. Weiters muss der GND Pin noch mit einem der beiden Ground Anschlüsse der externen Stromversorgungen verbunden werden. Motor 1 wird über die Outputs A1 und B1 versorgt. Motor 2 wird über die Outputs A2 und B2 versorgt. Beim Anschluss der Motoren muss auf die Polung geachtet werdne und gegebenenfalls auch getestet werden, ob sich die Motoren auch wirklich beim Ansteuern der D7 oder D4 Pins in Uhrzeigersinn drehen und nicht gegen der Uhrzeigersinn. Falls beim Motor gekennzeichnet, sollte der Pluspol des Motors mit dem A1 beziehungsweise dem A2 Pin verbunden werden. Der Motortreiber verfügt auch über eine interne Drehzahlregelung, welche extra für beide Motoren über zwei PWM Input Pins gesteuert werden können. Die Drehzahl kann über den Duty Cycle des PWM Signals geregelt werden.
 \subsubsection{PWM-Signal erzeugung für Motoransteuerung}
 Ein PWM Signal ist ein periodisches Rechteck Signal. Eine Periode wird als Duty Cycle bezeichnet. Dieser Duty Cycle enthält eine Prozentangabe. Diese Prozentangabe sagt aus, wie viel Prozent des Duty Cycles HIGH und wie viel Prozent LOW sind. Ein Signal mit einem Duty Cycle von 100\% sagt aus, das eine Periodendauer zu 100\% aus einem HIGH Signal und zu 0\% aus einem LOW Signal besteht. Ein Duty Cycle von 25\% sagt aus, Das eine Periode zu 25\% aus einem HIGH Signal und zu 75\% aus einem LOW Signal besteht. Das PWM Signal kann von manchen ICs intern aufgenommen und der Duty Cycle ausgemessen werden. Dabei muss jedoch beachtet werden, dass die Frequenz des PWM Signals nicht die maximale Lesefrequenz des ICs übersteigt. Meistens wird diese Frequenz, wie bei unserem Motortreiber, im Datenblatt angegeben. Das PWM kann entweder über eigene ICs mit PWM Generatoren oder $\mu$Cs mit internen PWM Generatoren erzeugt werden. Das System muss nur über eine echtzeitfähigkeit besitzen, damit der Duty Cycle keine takte beim Zählen überspringen und damit nicht die frequenz fehlerhaft werden kann. 
@@ -134,22 +149,25 @@ void app_main (void)
 \end{lstlisting}
 
 \begin{itemize}
-\item DDRD: Im DDRD Register wird der PD3 Pin auf Output geschaltet.\\
-\item DDRB: Im DDRB Register wird der PB3 Pin auf Output geschaltet.\\
-\item TCCR2A: Im TCCR2A Register wird der non-Inverting Fast-PWM Modus eingestellt für OC2A und OC2B. \\
-\item TCCR2B: Im TCCR2B Register wird der Prescaler festgelegt. \\
-\item OCR2A: Im OCR2A Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% \\
-\item OCR2B: Im OCR2B Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% \\
+\item DDRD: Im DDRD Register wird der PD3 Pin auf Output geschaltet.
+\item DDRB: Im DDRB Register wird der PB3 Pin auf Output geschaltet.
+\item TCCR2A: Im TCCR2A Register wird der non-Inverting Fast-PWM Modus eingestellt für OC2A und OC2B. 
+\item TCCR2B: Im TCCR2B Register wird der Prescaler festgelegt. 
+\item OCR2A: Im OCR2A Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% 
+\item OCR2B: Im OCR2B Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% 
 \end{itemize}
 \end{itemize}
 
-Ein PWM-Signal das mit diesem Programm generiert wird schaut  wie in \label{PWM} aus. Der Duty Cycle variiert jedoch je nach Motor und muss noch in der Praxis angepasst werden
+Ein Signal das nach dem oben angeführten Programm generiert wird sieht wie in \ref{PWM} aus.
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=15cm]{Bilder/PWM/pwm}
+\includegraphics[width=13cm]{Bilder/PWM/pwm}
 \caption{PWM}
 \label{PWM}
+
+\end{center}
+\end{figure}
 \newpage
 \subsubsection{Gesamtschaltplan}
 \begin{figure}[H] 

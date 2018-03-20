@@ -4,17 +4,47 @@
   frame=single,
   frameround=tttt,
   showstringspaces=false,
-  basicstyle=\footnotesize\ttfamily
+  basicstyle=\footnotesize\ttfamily,
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1	
 }
+
+\lstdefinestyle{bash}{
+	language=bash,
+ 	backgroundcolor=\color{editorGray},
+   	extendedchars=true,
+   	basicstyle=\footnotesize\ttfamily,
+  	keywordstyle=\color{blue},
+   	framexleftmargin=8mm,
+  	numbers=left,
+  	xleftmargin={0.75cm},
+  	numbersep=8pt,
+   	showstringspaces=false,
+   	showspaces=false,
+   	numbers=left,
+   	numberstyle=\footnotesize,
+   	numbersep=9pt,
+   	tabsize=2,
+   	breaklines=true,
+   	showtabs=false,
+   	captionpos=b,
+    }
 
 \lstdefinelanguage{json}{
     basicstyle=\footnotesize\ttfamily,
     showstringspaces=false,
     breaklines=true,
-    frame=single,
+    keywords={true, false},
+  	keywordstyle=\color{blue},
     frameround=tttt,
     backgroundcolor=\color{background},
-    literate=
+    literate=%
      *{0}{{{\color{numb}0}}}{1}
       {1}{{{\color{numb}1}}}{1}
       {2}{{{\color{numb}2}}}{1}
@@ -25,16 +55,64 @@
       {7}{{{\color{numb}7}}}{1}
       {8}{{{\color{numb}8}}}{1}
       {9}{{{\color{numb}9}}}{1}
+      {E}{{{\color{numb}E}}}{1}
       {:}{{{\color{punct}{:}}}}{1}
       {,}{{{\color{punct}{,}}}}{1}
       {\{}{{{\color{delim}{\{}}}}{1}
       {\}}{{{\color{delim}{\}}}}}{1}
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
+      morestring=[b]",
+      morestring=[d]'
+}
+
+\lstdefinestyle{JSON}{
+	language=json,
+ 	backgroundcolor=\color{editorGray},
+   	extendedchars=true,
+   	basicstyle=\footnotesize\ttfamily,
+   	framexleftmargin=8mm,
+  	numbers=left,
+  	numbersep=8pt,
+   	showstringspaces=false,
+   	showspaces=false,
+   	numbers=left,
+   	xleftmargin={0.75cm},
+   	numberstyle=\footnotesize,
+   	numbersep=9pt,
+   	tabsize=2,
+   	breaklines=true,
+   	showtabs=false,
+   	captionpos=b,
+   	literate=%
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {E}{{{\color{numb}E}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1}
+  	{Ö}{{\"O}}1
+  	{Ä}{{\"A}}1
+  	{Ü}{{\"U}}1
+  	{ß}{{\ss}}1
+  	{ü}{{\"u}}1
+  	{ä}{{\"a}}1
+  	{ö}{{\"o}}1,
 }
 
 \lstdefinelanguage{Typescript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, for, in, while, do, else, case, break, class, export, boolean, throw, implements, import, this, constructor, from, =>, public, private, string, new},
+  keywords={typeof, new, true, false, catch, function, return, null, try, catch, switch, var, if, for, in, while, do, else, case, break, class, export, boolean, throw, implements, import, this, constructor, from, =>, public, private, string, new, const, let, async, await, get},
   keywordstyle=\color{blue},
   identifierstyle=\color{black},
   sensitive=false,
@@ -46,35 +124,46 @@
   morestring=[b]"
 }
 
-\lstdefinestyle{TypescriptStyle}{
-   language=Typescript,
-   backgroundcolor=\color{white},
-   extendedchars=true,
-   basicstyle=\footnotesize\ttfamily,
-   showstringspaces=false,
-   showspaces=false,
-   numbers=left,
-   numberstyle=\footnotesize,
-   numbersep=9pt,
-   tabsize=2,
-   breaklines=true,
-   showtabs=false,
-   captionpos=b,
-   literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-   {0}{{{\ProcessDigit{0}}}}1
-   {1}{{{\ProcessDigit{1}}}}1
-   {2}{{{\ProcessDigit{2}}}}1
-   {3}{{{\ProcessDigit{3}}}}1
-   {4}{{{\ProcessDigit{4}}}}1
-   {5}{{{\ProcessDigit{5}}}}1
-   {6}{{{\ProcessDigit{6}}}}1
-   {7}{{{\ProcessDigit{7}}}}1
-   {8}{{{\ProcessDigit{8}}}}1
-   {9}{{{\ProcessDigit{9}}}}1
-   {<=}{{\(\leq\)}}1,
-   morestring=[b]",
-   morestring=[b]',
-   morecomment=[l]//,
+\lstdefinestyle{TS}{
+   	language=Typescript,
+ 	backgroundcolor=\color{editorGray},
+   	extendedchars=true,
+   	basicstyle=\footnotesize\ttfamily,
+   	showstringspaces=false,
+   	framexleftmargin=8mm,
+  	numbers=left,
+  	xleftmargin={0.75cm},
+  	numbersep=8pt,
+   	showspaces=false,
+   	numbers=left,
+   	numberstyle=\footnotesize,
+   	numbersep=9pt,
+   	tabsize=2,
+   	breaklines=true,
+   	showtabs=false,
+   	captionpos=b,
+   	literate=%
+  	{Ö}{{\"O}}1
+  	{Ä}{{\"A}}1
+  	{Ü}{{\"U}}1
+  	{ß}{{\ss}}1
+  	{ü}{{\"u}}1
+  	{ä}{{\"a}}1
+  	{ö}{{\"o}}1	
+   	{0}{{{\ProcessDigit{0}}}}1
+   	{1}{{{\ProcessDigit{1}}}}1
+   	{2}{{{\ProcessDigit{2}}}}1
+   	{3}{{{\ProcessDigit{3}}}}1
+   	{4}{{{\ProcessDigit{4}}}}1
+   	{5}{{{\ProcessDigit{5}}}}1
+   	{6}{{{\ProcessDigit{6}}}}1
+   	{7}{{{\ProcessDigit{7}}}}1
+   	{8}{{{\ProcessDigit{8}}}}1
+   	{9}{{{\ProcessDigit{9}}}}1
+   	{<=}{{\(\leq\)}}1,
+   	morestring=[b]",
+   	morestring=[b]',
+   	morecomment=[l]//,
 }
 
 
@@ -137,7 +226,9 @@
 }
 \lstdefinelanguage{HTML5}{
   language=html,
-  sensitive=true, 
+  sensitive=true,
+  morestring=[b]",
+  morestring=[d]',
   alsoletter={<>=-},
   otherkeywords={
             % HTML tags
@@ -323,20 +414,22 @@
   tag=[s]
 }
 
-\lstdefinestyle{HtmlStyle}{%
+\lstdefinestyle{HTML}{%
 	% Basic design
  	backgroundcolor=\color{editorGray},
- 	basicstyle={\small\ttfamily},   
- 	frame=l,
-    numbers=left,
+ 	basicstyle={\small\ttfamily},
+   	framexleftmargin=8mm,
+  	numbers=left,
+  	numbersep=8pt,
     stepnumber=1,
     firstnumber=1,
     numberfirstline=true,
+    xleftmargin={0.75cm},
     % Code design   
-    keywordstyle=\color{blue}\bfseries,
-    commentstyle=\color{darkgray}\ttfamily,
-    ndkeywordstyle=\color{editorGreen}\bfseries,
-    stringstyle=\color{editorOcher},
+    keywordstyle=\color{htmltags}\ttfamily,
+    commentstyle=\color{htmlcomments}\ttfamily,
+    ndkeywordstyle=\color{htmlattributes}\ttfamily,
+    stringstyle=\color{htmlstrings},
     % Code
     language=HTML5,
     alsodigit={.:;},
@@ -346,7 +439,14 @@
     showstringspaces=false,
     extendedchars=true,
     breaklines=true,
-	literate={ä}{{\"a}}1 {ö}{{\"o}}1 {ü}{{\"u}}1 {ß}{{\ss}}1,        
+	literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1	        
     }
 
 \newcommand\digitstyle{\color{lightgreen}}
@@ -360,3 +460,5 @@
   \fi
 }
 \makeatother
+
+\newcommand{\inlinecode}[2]{\colorbox{editorGray}{\lstinline[style=#1]$#2$}}
