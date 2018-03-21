@@ -18,7 +18,7 @@ Die Anforderungen der Aktoren im Elektrischen Teil, bestehen darin ein Förderba
 Die Anforderung der Sensoren im Elektrischen Teil, bestehen darin erkennen zu können, ob ein Objekt vor ihnen steht. Dadurch kann überprüft werden, ob Futterschüsseln und Futterbeutel and der richtigen Stelle stehen, mögliche Fehler erkannt werdn und Zählungen der Futterschüsseln durchgeführt werden, damit erfasst werden kann, welche der fünf Futterschüsseln an welcher Position steht.
 \subsection{Ansteuerungen}
 Die Aufgabe der Ansteuerung ist es, möglichst einfach, günstig und sicher die Aktoren und Sensoren ansteuern zu können.
-
+\newpage
 \section{Variante 1}
 \subsection{Aktoren}
 \subsubsection{Hubmagnete}
@@ -88,9 +88,31 @@ Es werden zwei dieser Sensoren zur Positionierung verwendet. Der Sensor muss nur
 \subsection{Ansteuerung}
 Der Gesamtschaltplan wurde in ProfiCad realisiert. Der Schaltplan beinhaltet die Ansteuerung der Motoren und Sensoren, sowie die Visualisierung der Verkabelung der einzelnen Elemente.
 Für ein einfacheres Verständnis wird der Gesamtschaltplan in kleinere Elemente aufgeteilt und in Unterpunkten beschrieben
+\newpage
 \subsubsection{Motoransteuerung Variante 1}
-\footfullcite{HBridge}
-Gleichstrom Schneckengetriebemotoren haben die Fähigkeit sich in beide Richtungen zu drehen, je nach polarität der Anschlüsse. Um eine Softwaretechnische einfache Ansteuerung ermöglichen zu können, wird oft eine H-Brücke zur ansteuerung der Motoren verwendet. Diese H-Brücke besteht aus vier Transistoren. Für Motoren mit höheren Stromanforderungen werden MOSFET-Transistoren verwendet. Die Schaltung besteht aus zwei P-Kanal MOSFET T1, T2 beziehungsweise T5, T7 und aus zwei N-Kanal MOSFET T2, T4 beziehungsweise T6, T8. Die MOSFET und die Grundlegende Schaltung wurde von HIER ZITAT EINFÜGEN übernommen. Die P-Kanal 
+Gleichstrom Schneckengetriebemotoren haben die Fähigkeit sich in beide Richtungen zu drehen, je nach polarität der Anschlüsse. Um eine Softwaretechnische einfache Ansteuerung ermöglichen zu können, wird oft eine H-Brücke zur ansteuerung der Motoren verwendet. Diese H-Brücke besteht aus vier Transistoren. Für Motoren mit höheren Stromanforderungen werden MOSFET-Transistoren verwendet. Die Schaltung besteht aus zwei P-Kanal MOSFET T1, T3 und aus zwei N-Kanal MOSFET T2, T4. Die Schaltung laut Abbildung \ref{HBridge} wurde von einer H-Brücke von einer Website \footfullcite{HBridge} inspiriert. Dabei wurden die Beuteilwerte der MOSFETs und Teile der Schaltung übernommen. Der Raspberry steuert über Optokoppler die MOSFETs. Dabei wird über eine entsprechende Vorschaltung entweder das Gate vom MOSFET auf Ground- oder 5V-Potenzial gezogen. Zur veranschaulichung, wurden in Abbildung \ref{HBridge} die Raspberry Pins mit einer Klemme ersetzt, wobie die Klemme 1, T1, Klemme 2, T2, Klemme 3, T3 und Klemme 4, T4 steuert. 
+
+Es gibt bei dieser Ansteuerungs Art folgende erwünschte Zustände der Klemmen: \\
+\begin{tabular}{|c|c|c|c|c|c|}\hline
+Klemme & Uhrzeigersinn & gegen Uhrzeigersinn & Auslaufen & Bremsen & Bremsen \\ \hline
+1 & HIGH & LOW & LOW & HIGH & LOW  \\ \hline
+2 & LOW & HIGH & LOW & LOW & HIGH \\ \hline
+3 & LOW & HIGH & LOW & HIGH & LOW \\ \hline
+4 & HIGH & LOW & LOW & LOW & HIGH \\ \hline
+
+\end{tabular}
+
+Jede Unterschiedliche Beschaltungsart als die oben angeführten würden zu einem Kurzschluss führen und müssen softwaretechnisch verhindert werden.
+
+\begin{figure}[H] 
+\begin{center}
+
+\includegraphics[width=15cm]{Bilder/Schaltplan/Schaltplan_HBridge}
+\caption{H-Bridge}
+\label{HBridge}
+
+\end{center}
+\end{figure}
 \subsubsection{Motoransteuerung Variante 2}
 \begin{figure}[H] 
 \begin{center}
