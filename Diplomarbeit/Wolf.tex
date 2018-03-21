@@ -89,6 +89,7 @@ Es werden zwei dieser Sensoren zur Positionierung verwendet. Der Sensor muss nur
 Der Gesamtschaltplan wurde in ProfiCad realisiert. Der Schaltplan beinhaltet die Ansteuerung der Motoren und Sensoren, sowie die Visualisierung der Verkabelung der einzelnen Elemente.
 Für ein einfacheres Verständnis wird der Gesamtschaltplan in kleinere Elemente aufgeteilt und in Unterpunkten beschrieben
 \subsubsection{Motoransteuerung Variante 1}
+\footfullcite{HBridge}
 Gleichstrom Schneckengetriebemotoren haben die Fähigkeit sich in beide Richtungen zu drehen, je nach polarität der Anschlüsse. Um eine Softwaretechnische einfache Ansteuerung ermöglichen zu können, wird oft eine H-Brücke zur ansteuerung der Motoren verwendet. Diese H-Brücke besteht aus vier Transistoren. Für Motoren mit höheren Stromanforderungen werden MOSFET-Transistoren verwendet. Die Schaltung besteht aus zwei P-Kanal MOSFET T1, T2 beziehungsweise T5, T7 und aus zwei N-Kanal MOSFET T2, T4 beziehungsweise T6, T8. Die MOSFET und die Grundlegende Schaltung wurde von HIER ZITAT EINFÜGEN übernommen. Die P-Kanal 
 \subsubsection{Motoransteuerung Variante 2}
 \begin{figure}[H] 
@@ -135,7 +136,7 @@ N ist der Wert des Prescalers, welcher im TCCR2B Register festgelegt wird. \\
 \textbf{Frequenz berechnung:}\\
 $f_{OC2xPWM}$=$\frac{f_{clk\_I/O}}{N*256}$ = $\frac{16000000}{8 \cdot 256}$ = $\underline{7812,5Hz}$
 \item Programm für Atmega328P: \\
-\begin{lstlisting}[caption=$\mu$C-Programm,language=c]
+\begin{lstlisting}[caption=$\mu$C-Programm,style=C]
 void app_main (void)
 {
   DDRD = (1<<PD3);
@@ -158,7 +159,7 @@ void app_main (void)
 \end{itemize}
 \end{itemize}
 
-Ein Signal das nach dem oben angeführten Programm generiert wird sieht wie in \ref{PWM} aus.
+Ein Signal das nach dem oben angeführten Programm generiert wird sieht wie in Abbildung \ref{PWM} aus.
 \begin{figure}[H] 
 \begin{center}
 
