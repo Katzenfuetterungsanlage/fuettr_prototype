@@ -1,16 +1,22 @@
 \lohead{Florian Greistorfer}
 \chapter{Webserver und Client}
 
+%\begin{figure}[H]
+%	\includegraphics[width=1\textwidth]{Bilder/SVGS/Communication}
+%	\caption{Kommunikationen innerhalb des Projekts}
+%	\label{kommunikation}
+%\end{figure}
+
 \section{Begriffserklärungen}
 \label{sec:begriffserklaerung}
 
 \subsection{Server}
 \label{sec:begrr-server}
-Ein Programm, der oder das Zugriff auf eine Resource oder einen Dienst in einem Netzwerk ermöglicht
+Ein Programm, das Zugriff auf eine Resource oder einen Dienst in einem Netzwerk ermöglicht
 
 \subsection{Client}
 \label{sec:begrr-client}
-Ein Programm, der oder das auf einen Server zugreift
+Ein Programm das auf einen Server zugreift
 
 \section{Anforderungen}
 \label{sec:anforderungen}
@@ -157,9 +163,11 @@ Angular ist ein TypeScript Framework, das aus dem Javascript-Framework AngularJS
 
 \begin{figure}[H]
       \includegraphics[width=1\textwidth]{Bilder/Greistorfer/Angular}
-      \caption{Angular Struktur}
+      \caption[Angular Struktur]{Angular Struktur\protect\footnotemark}
       \label{Angular Struktur}
 \end{figure}
+
+\footnotetext{\autoref{Angular Struktur} Quelle: \url{https://angular.io/guide/architecture\#whats-next} (besucht am 10.3.2018)}
 
 \subsubsection{Modules}
 \label{sec:ang-modules}
@@ -216,11 +224,14 @@ Die meisten Zusatzbefehle werden für \textit{Data Binding} verwendet.
   \begin{center}
     \includegraphics[width=0.4\textwidth]{Bilder/Greistorfer/databinding}
   \end{center}
-  \caption{Angular Databinding}
+  \caption[Angular Databinding]{Angular Databinding\protect\footnotemark}
   \label{Angular Databinding}
   \vspace{0pt}
 \end{wrapfigure}
 \vspace{-40pt}
+
+\footnotetext{\autoref{Angular Databinding} Quelle: \url{https://angular.io/guide/architecture-components\#data-binding} (besucht am 10.3.2018)}
+
 \subsubsection{Data binding}
 \label{sec:ang-data-binding}
 Ohne Framework wäre der Programmierer dafür verantwortlich, sicherzustellen, dass Daten in \ac{HTML} Elemente geschrieben werden und dass auf Benutzerinteraktionen reagiert wird. Das ist aufwendig, Fehleranfällig und schwer zu lesen. Angulars Lösung dafür nennt sich \textit{data binding}. Der Programmierer muss nur mehr im \ac{HTML} Template Angular mitteilen, wie die beiden Seiten verbunden werden sollen. In der Abbilung \ref{Angular Databinding} sind die vier möglichen Arten von \textit{data binding} dargestellt. Jede Art hat eine Richtung, vom \ac{DOM} zum \ac{DOM} oder in beide Richtungen.
@@ -405,7 +416,7 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 \begin{table}[]
 \begin{tabular}{@{}llll@{}}
 \toprule
-\ac{HTTP} Request Typ      & \ac{URI}                                                 & Server Response                          & Beispiel                                                                                                                                                                                                                                                             \\ \midrule
+\multicolumn{1}{|l|}{\textbf{\ac{HTTP} Request Typ}} & \multicolumn{1}{l|}{\textbf{\ac{URI}}} & \multicolumn{1}{l|}{\textbf{Server Response}} & \multicolumn{1}{l|}{\textbf{Beispiel}}                                                                                                          \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/ip}                             & \multicolumn{1}{l|}{IP}                  & \multicolumn{1}{l|}{\{''ip":"62.116.40.166"\}}                                                                                                                                                                                                                       \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/version}                        & \multicolumn{1}{l|}{Version}             & \multicolumn{1}{l|}{\{"version": "beta@1.0.0"\}}                                                                                                                                                                                                                     \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/getUpdate}                      & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \midrule
