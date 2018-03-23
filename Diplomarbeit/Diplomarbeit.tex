@@ -18,7 +18,7 @@ bibliography=totocnumbered,											% Literaturverzeichnis
 \usepackage[headsepline]{scrlayer-scrpage}							% Kopf und Fußzeile
 \pagestyle{scrheadings}												% Nummerierung in der Kopfzeile
 \clearscrheadfoot													% Kopf und Fußzeile löschen
-\rehead{\headmark}													% Kapitelname auf der geraden Seite innen
+\rehead{}															% Kapitelname auf der geraden Seite innen
 \ohead[\pagemark]{\pagemark}										% Seitennummerierung
 \lohead{}															% Name auf der ungeraden Seite innen
 \renewcommand*{\chapterpagestyle}{scrheadings}						% Kopf und Fußzeile auf Seiten mit Überschriften anders
@@ -67,12 +67,13 @@ bibliography=totocnumbered,											% Literaturverzeichnis
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{4}
 \input{opening}
+\rehead{\headmark}
 
 \tableofcontents
 \mainmatter
 \include{Greistorfer}
-%\include{Harrer}
-%\include{Pichler}
-%\include{Wolf}
+\include{Harrer}
+\include{Pichler}
+\include{Wolf}
 \include{appendix}
 \end{document}
