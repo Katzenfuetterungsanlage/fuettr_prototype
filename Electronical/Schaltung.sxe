@@ -9,19 +9,19 @@
 <NumberingWire Digits="3" TypeRenumbering="0" ShowWireName="0" WireLabelDist_a="4" WireLabelDist_b="7" WireLabelDist_c="7"/>
 <summary>
 <field name="rev" value=""/>
-<field name="Titel" value=""/>
-<field name="Spr" value=""/>
-<field name="DokArt" value=""/>
 <field name="Genehmigt" value=""/>
+<field name="DokArt" value=""/>
+<field name="Spr" value=""/>
+<field name="Titel" value=""/>
 <field name="Abteilung" value=""/>
 <field name="_sc" value=""/>
 <field name="_pcs" value=""/>
-<field name="author" value=""/>
 <field name="Sachnummer" value=""/>
+<field name="author" value=""/>
 <field name="date" value="11.12.2017"/>
-<field name="TitelZusatz" value=""/>
-<field name="DocStatus" value=""/>
 <field name="techRef" value=""/>
+<field name="DocStatus" value=""/>
+<field name="TitelZusatz" value=""/>
 </summary>
 <repo>
 <ppd name="Elektronik\passive Komponenten\Lampen und Signaleinrichtungen\DC-Spannungsquelle, Gleichspannungsquelle.ppd" n="EN 60617: 08-12-15" fG="7bad9092-3f66-4762-912b-c16515d0a492" lG="1484af7a-a81b-49ab-a9a0-30289ebeec18">
@@ -523,14 +523,14 @@
 <wire pts="1034,1119,980,1119,980,1000," drop2="1"/>
 <elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="1800" y="640" a="1799">
 <attributes>
-<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="1754" y="620"/>
+<attribute name="_ref" value="+12V" v="1" custom="" al="6" x="1754" y="620"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="1754" y="660"/>
 </attributes>
 </elem>
 <wire pts="1800,660,1800,700,"/>
 <elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="840" y="720" a="1799">
 <attributes>
-<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="794" y="700"/>
+<attribute name="_ref" value="+12V" v="1" custom="" al="6" x="794" y="700"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="794" y="740"/>
 </attributes>
 </elem>
@@ -590,7 +590,7 @@
 <wire pts="1160,1265,1160,1300,820,1300," drop2="1"/>
 <elem lGuid="d395322c-4cef-4c0a-a26b-eed2532e4699" x="840" y="480" a="1799">
 <attributes>
-<attribute name="_ref" value="+5V" v="1" custom="" al="6" x="794" y="460"/>
+<attribute name="_ref" value="+12V" v="1" custom="" al="6" x="794" y="460"/>
 <attribute name="_type" value="" v="0" custom="" al="6" x="794" y="500"/>
 </attributes>
 </elem>
