@@ -202,10 +202,12 @@ Pi4j ist eine open source Software, welche Bibliotheken zur Verfügung stellt, m
   \begin{center}
     \includegraphics[width=0.45\textwidth]{Bilder/pi4j/dependencies}
   \end{center}
-  \caption{Abhängigkeiten}
+  \caption[Abhängigkeiten]{Abhängigkeiten\protect\footnotemark}
   \label{Abhaegigkeiten}
   \vspace{-160pt}
 \end{wrapfigure}
+
+\footnotetext{\autoref{Abhaegigkeiten} Quelle: \url{http://pi4j.com/dependency.html} (besucht am: 02/03/2018)}
 
 Pi4j stellt mithilfe des JNI (Java Native Interface) eine Verbindung von der JVM (Java Virtual Machine) zu dem nativen System des Raspberys her. Dadurch wird es möglich ist zu sehen, wie vom Java-Programm auf die Pins zugefriffen wird.
 \\ Der konkrete Zugriff überfolgt über die Bibliothek \textbf{libwiringPi}.
@@ -220,10 +222,12 @@ Pi4j stellt mithilfe des JNI (Java Native Interface) eine Verbindung von der JVM
   \begin{center}
     \includegraphics[width=0.50\textwidth]{Bilder/pi4j/PinNumberingSheme}
   \end{center}
-  \caption{Pin Numbering Sheme}
+  \caption[Pin Numbering Sheme]{Pin Numbering Sheme\protect\footnotemark}
   \label{Pin Numbering Sheme}
   \vspace{-180pt}
 \end{wrapfigure}
+
+\footnotetext{\autoref{Pin Numbering Sheme} Quelle: \url{http://pi4j.com/pins/model-3b-rev1.html} (besucht am: 02/03/2018)}
 
 In der Abbildung \ref{Pin Numbering Sheme} ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt sind.
 \\ \\
@@ -573,7 +577,7 @@ Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben.
   \end{center}
   \caption{MainWindow}
   \label{MainWindow}
-  \vspace{-10pt}
+  \vspace{20pt}
 \end{wrapfigure}
 Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In diesem Fenster wird dem Benutzer ein allgemeiner Überblick über die Anlage zur Verfügung gestellt. Somit können alle wichtigen Informationen schnell und leicht ersichtlich. Weiters ist das \textbf{MainWindow} das Hauptfenster des Programms. Über diese sind alle Dialog-,Steuerungs- und Informationsfenster erreichbar. Diese Fenster werden von Kapitel\ref{TimeManagement} bis Kapitel \ref{Update} genauer beschrieben. Das Aufrufen von anderen Fenstern ist über die Menüleiste, welche sich oben in der GUI befindet, möglich. 
 \\ \\ Unter den Menüs der Menüleiste sind folgende Menüpunkte zu finden:
@@ -696,7 +700,7 @@ In der Klasse \textbf{TimeManagement} ist es dem Benutzer möglich alle Zeiten z
 \vspace{10pt}
 
 Es sind nur vier Fütterungen pro Tag möglich, weil die Katzenfütterungsanlage ein kleines Futtermagazin hat. Aus diesem Grund würde das Magazin bei mehreren Fütterungen sehr schnell leeren. Wenn das nun passiert erfüllt die Katzenfütterungsanlage ihren Zweck nicht mehr, weil die Maschine fast täglich nachgefüllt werden muss.
-\\ Da die Fütterungen am Tag begrenzt sind wurden die Anzahl der Zeiten nicht varibel sondern mit einem Maximum realisiert.
+\\ Da die Fütterungen am Tag begrenzt sind wurden die Anzahl der Zeiten nicht variabel sondern mit einem Maximum realisiert.
 
 \newpage
 
@@ -708,13 +712,13 @@ Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfigurier
   \end{center}
   \caption{Spinner Konfiguration}
   \label{SpinnerKonfiguration}
-  \vspace{-70pt}
+  \vspace{-20pt}
 \end{wrapfigure}
 \\ \\ In diesem Fenster ist der Code, welcher in den ersten vier Zeilen steht, hinzuzufügen. 
 \\ Hier wird das Model für den Spinner gesetzt. Dieses Model gibt an, dass der Spinner ein Datum darstellen soll. Weiters wird nicht festgelegt was vom Datum angezeigt werden soll. Hier wird die Uhrzeit dargestellt. 
 \\ \\ Diese Schritte sind für alle der vier verwendeten Spinner verwendet werden.
 
-\vspace{60pt}
+\vspace{30pt}
 
 Zusätlich muss noch für jeden Spinner folgende Methode, im Constructor nach \textbf{initComponents();}, aufgerufen werden:
 \begin{lstlisting}[style=Javastyle, caption=Spinner Zeitzone]
@@ -735,9 +739,9 @@ Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird
         saved = false;
     }   
 \end{lstlisting} 
-Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Siehe Code-Beispiel \ref Zusätlich kann dann ausgwählt werden, ob wirklich ohne zu speichern beendet werden soll.
+Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Siehe Code-Beispiel \ref{TimeManagementSpeichern} Zusätlich kann dann ausgwählt werden, ob wirklich ohne zu speichern beendet werden soll.
 
-\begin{lstlisting}[style=Javastyle, caption=TimeManagement Fenster schließen]
+\begin{lstlisting}[style=Javastyle, caption=TimeManagement Fenster schließen, label=TimeManagementSpeichern]
  private void onCancel(java.awt.event.ActionEvent evt)                          
     {                              
        if (saved == false)
@@ -812,7 +816,7 @@ Beim Umformatieren des Passworts in einen String könnte ein Fehler auftreten we
 \vspace{10pt}
 
 Um dem Benutzer Sicherheit zu gewährleisten wird das Passwort, bevor es in der Datenbank gespeichert wird, gehasht. Um das Password zu hashen wird der \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
-\\ Die Quelle für das Hashen des Passworts ist Stackoverflow (https://stackoverflow.com/questions/33085493/hash-a-password-with-sha-512-in-java).
+\\ Für das Hashen des Passworts wurde auf Stackoverflow \footfullcite{Stackoverflow_Hashen} recherchiert.
 \\ Das Password wurde wie folgt gehasht:
 \begin{lstlisting}[style=Javastyle, caption=Hash Passwort]
     public static String hash(String passwordToHash, String salt)
@@ -1021,7 +1025,7 @@ In diesem \textbf{doInBackground()} werder  alle 100 Millisekunden die Motordreh
   \end{center}
   \caption{SystemInfo}
   \label{SystemInfo}
-  \vspace{-70pt}
+  \vspace{-60pt}
 \end{wrapfigure}
    
 In der Klasse \textbf{SystemInfo} werden dem Benutzer wichtige Informationen über seine Anlage angezeigt. Das GUI Fenster ist ein Informationsfenster. Das Fenster blockiert den EDT, an der Stelle an der es geöffnet wird, bis es geschlossen wird. Da dies nur ein Informationsfenster ist reicht ein Knopf \textbf{Schließen} für die Bedienung aus.
