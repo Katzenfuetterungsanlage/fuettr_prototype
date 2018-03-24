@@ -1,0 +1,9 @@
+<document type="ProfiCAD picd" version="9.0">
+<picd outlets_hor="0" outlets_ver="6" name="">
+<out_n>3.3VDC, 5VDC/VCC, GPIO_08, GROUND, GPIO_00, GPIO_01, GPIO_02, GPIO_03, GPIO_04, 3.3VDC, GPIO_06, GPIO_10</out_n>
+<out_n_inv/>
+<desc>Raspberry Pi 3</desc>
+<out_d> 1, 2, 3, 6,11,12, 13, 15, 16, 17, 22, 24</out_d>
+<pos_hor/>
+</picd>
+</document>

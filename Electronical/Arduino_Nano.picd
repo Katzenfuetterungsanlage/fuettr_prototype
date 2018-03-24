@@ -1,0 +1,9 @@
+<document type="ProfiCAD picd" version="9.0">
+<picd outlets_hor="0" outlets_ver="2" name="">
+<out_n>PD3, PB3, VCC, GND</out_n>
+<out_n_inv/>
+<desc>Arduino Nano</desc>
+<out_d>D3,D11, 5V, GND</out_d>
+<pos_hor/>
+</picd>
+</document>
