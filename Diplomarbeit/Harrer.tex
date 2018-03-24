@@ -231,7 +231,7 @@ Pi4j stellt mithilfe des JNI (Java Native Interface) eine Verbindung von der JVM
 
 In der Abbildung \ref{Pin Numbering Sheme} ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt sind.
 \\ \\
-Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den 29 GPIO-Pins kann der Programmierer selbst entscheiden, was der Pin sein soll.
+Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den 29 GPIO-Pins kann der Programmierer selbst entscheiden, welche Funktion der Pin wahrnehmen soll.
 \\Pins auf die über die mit pi4j nicht zugegriffen werden kann sind:
 \begin{itemize}
 \item[•] Power mit 3,3V oder 5V
@@ -268,26 +268,36 @@ GPIO\_08     & Motor Förderband: Drehen gegen den Uhrzeigersinn     \\ \hline
 \end{table}
 
 Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+3,3V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
-\\ Um einen Motor einzuschalten müssen jeweils zwei GPIO-Pins auf High geschalten werden. Zuerst muss der Motor aktiviert werden. Wenn der Motor nicht aktiviert ist, ist er ausgeschalten und vom Stromnetz getrennt. Weiters muss dann noch ein weiterer GPIO-Pin auf High geschalten werden. Dieser weitere Pin gibt die Drehrichtung des Motors an.
-\\ Diese vom Raspberry kommenden Signale werden von einer Treiberstufe verarbeitet. Die Treiberstufe steuert anschließend die Motoren an. 
+\\ Um einen Motor einzuschalten müssen jeweils zwei GPIO-Pins auf High geschalten werden. Zuerst muss der Motor aktiviert werden. Wenn der Motor nicht aktiviert ist, ist er ausgeschalten und vom Stromnetz getrennt. Weiters muss dann noch ein weiterer GPIO-Pin auf High geschalten werden. Dieser weitere Pin gibt die Drehrichtung des Motors an. 
 
 \vspace{10pt}
 
-Die GPIO-Pins des Raspberrys sind wie in den folgenden Abbildungen \ref{Verkabelung Motoren} und \ref{Verkabelung Sensoren} zu sehen mit der Treiberstufe und den Sensoren verbunden.
-\begin{figure}[H]
-  \begin{minipage}[hbt]{0.5\textwidth}
-    \includegraphics[width=1\textwidth]{Bilder/RaspberryPinVerkabelung/Motoransteuerung}
- 	\caption{Verkabelung Motoren}
-  	\label{Verkabelung Motoren}
-  \end{minipage}
-\hspace{.03\linewidth}
-  \begin{minipage}[hbt]{0.5\textwidth}
-    \includegraphics[width=1\textwidth]{Bilder/RaspberryPinVerkabelung/Sensoransteuerung}
-  	\caption{Verkabelung Sensoren}
-  	\label{Verkabelung Sensoren}
-  \end{minipage}
-  \vspace{0pt}
-\end{figure}
+\begin{table}[htb]
+\scriptsize
+\centering
+\caption{Signalverlauf}
+\label{Signalverlauf}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Motor/Sensor                           & Signal am Motor/Sensor & Zustand des Motors/Sensors              & GPIO-Pin Nummer                                                        & Signal am GPIO-Pin                                        \\ \hline
+\multirow{2}{*}{Sensor Schüsselplatte} & High                   & betätigt                                & GPIO\_00                                                               & High                                                      \\ \cline{2-5} 
+                                       & Low                    & nicht betätigt                          & GPIO\_00                                                               & Low                                                       \\ \hline
+\multirow{2}{*}{Sensor Förderband}     & High                   & betätigt                                & GPIO\_01                                                               & High                                                      \\ \cline{2-5} 
+                                       & Low                    & nicht betätigt                          & GPIO\_01                                                               & Low                                                       \\ \hline
+\multirow{4}{*}{Motor Schüsselplatte}  & Low                    & steht still, Stromversorung deaktiviert & \begin{tabular}[c]{@{}c@{}}GPIO\_02\\ GPIO\_03\\ GPIO\_04\end{tabular} & \begin{tabular}[c]{@{}c@{}}Low\\ Low\\ Low\end{tabular}   \\ \cline{2-5} 
+                                       & Low                    & steht still, Stromversorung aktiviert   & \begin{tabular}[c]{@{}c@{}}GPIO\_02\\ GPIO\_03\\ GPIO\_04\end{tabular} & \begin{tabular}[c]{@{}c@{}}High\\ Low\\ Low\end{tabular}  \\ \cline{2-5} 
+                                       & High                   & Motor dreht im Uhrzeigersinn            & \begin{tabular}[c]{@{}c@{}}GPIO\_02\\ GPIO\_03\\ GPIO\_04\end{tabular} & \begin{tabular}[c]{@{}c@{}}High\\ High\\ Low\end{tabular} \\ \cline{2-5} 
+                                       & High                   & Motor dreht gegen Uhrzeigersinm         & \begin{tabular}[c]{@{}c@{}}GPIO\_02\\ GPIO\_03\\ GPIO\_04\end{tabular} & \begin{tabular}[c]{@{}c@{}}High\\ Low\\ High\end{tabular} \\ \hline
+\multirow{4}{*}{Motor Förderband}      & Low                    & steht still, Stromversorung deaktiviert & \begin{tabular}[c]{@{}c@{}}GPIO\_06\\ GPIO\_10\\ GPIO\_08\end{tabular} & \begin{tabular}[c]{@{}c@{}}Low\\ Low\\ Low\end{tabular}   \\ \cline{2-5} 
+                                       & Low                    & steht still, Stromversorung aktiviert   & \begin{tabular}[c]{@{}c@{}}GPIO\_06\\ GPIO\_10\\ GPIO\_08\end{tabular} & \begin{tabular}[c]{@{}c@{}}High\\ Low\\ Low\end{tabular}  \\ \cline{2-5} 
+                                       & High                   & Motor dreht im Uhrzeigersinm            & \begin{tabular}[c]{@{}c@{}}GPIO\_06\\ GPIO\_10\\ GPIO\_08\end{tabular} & \begin{tabular}[c]{@{}c@{}}High\\ High\\ Low\end{tabular} \\ \cline{2-5} 
+                                       & High                   & Motor dreht gegen Uhrzeigersinm         & \begin{tabular}[c]{@{}c@{}}GPIO\_06\\ GPIO\_10\\ GPIO\_08\end{tabular} & \begin{tabular}[c]{@{}c@{}}High\\ Low\\ High\end{tabular} \\ \hline
+\end{tabular}
+\end{table}
+
+\vspace{10pt}
+
+Die GPIO-Pins des Raspberrys werden nicht direkt mit den Motoren und Sensoren verbunden. Die GPIO-Pins werden mit einer Treiberstufe verbunden. Diese Treiberstufe steuert direkt die Motoren und holt die Signale von den Sensoren und gibt sie an den Raspberry weiter.
 
 \subsubsection{Singleton}
 Die benötigten Methoden von pi4j wurden in einer Wrapper-Klasse als Singleton implementiert. Es wird ein Singleton verwendet, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  eine Exception geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann.
@@ -340,9 +350,9 @@ Der Server wird beim Starten des Java Programmes mithilfe des SwingWorkers in ei
 \\ Der Server wurde auch als Singleton implementiert damit von anderen Klassen einfach auf ihn zugegriffen werden kann.
 
 \subsubsection{Übertragungsprotokoll}
-Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was ein gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. Weiters wird festgelegt auf welchen Protokoll die Kommunikation basiert. Zusätzlich wird noch der Verbindungsaufbau sowie der Abbau beschrieben.
+Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was ein gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. Weiters wird festgelegt auf welchen Technologien die Kommunikation basiert. Zusätzlich wird noch der Verbindungsaufbau sowie der Abbau beschrieben.
 \\ \\
-Die Kommunikation zwischen Server und Client basiert bei der Katzenfütterungsanlage auf dem TCP/IP-Protokoll. Dies ist ein verbindungsorientiertes Protokoll. Das bedeutet, dass Pakete automatisch erneut geschickt werden, wenn bei der Übertragung ein Fehler passiert ist oder das Paket verloren gegangen ist. Der Verbingungsaufbau und Abbau erfolgt bei diesem Protokoll über das IDLE-RQ Verfahren.
+Die Kommunikation zwischen Server und Client basiert bei der Katzenfütterungsanlage auf Sockets. Diese Sockets basieren auf TCP. Dies ist ein verbindungsorientiertes Protokoll. Das bedeutet, dass Pakete automatisch erneut geschickt werden, wenn bei der Übertragung ein Fehler passiert ist oder das Paket verloren gegangen ist. Der Verbingungsaufbau und Abbau erfolgt bei diesem Protokoll über das IDLE-RQ Verfahren.
 \\ Als Timeout wurden 10 Sekunden gewählt, weil das sinnvoll zu sein scheint.
 \\ \\
 Wenn der Request des Clients mit einem \textbf{GET} beginnt, bedeutet das, dass der Client Daten vom Server fordert. Beginnt der Request mit einem \textbf{PUT}, bedeutet das, dass der Client dem Server Daten schicken will.
