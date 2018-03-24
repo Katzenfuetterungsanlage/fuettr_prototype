@@ -12,7 +12,7 @@
 
 \subsection{Server}
 \label{sec:begrr-server}
-Ein Programm, das Zugriff auf eine Resource oder einen Dienst in einem Netzwerk ermöglicht
+Ein Programm, das Zugriff auf eine Ressource oder einen Dienst in einem Netzwerk ermöglicht
 
 \subsection{Client}
 \label{sec:begrr-client}
@@ -23,7 +23,7 @@ Ein Programm das auf einen Server zugreift
 
 \subsection{Webserver}
 \label{sec:anf-server}
-Auf der Katzenfütterungsanlage läuft ein Webserver, der es ermöglicht, dass der Benutzer das Gerät über das Internet erreichen kann. Hauptaufgaben des Servers sind dabei, Daten bereitzustellen, zu verabeiten und zu speichern und den Webclient zur Verfügung zu stellen.
+Auf der Katzenfütterungsanlage läuft ein Webserver, der es ermöglicht, dass der Benutzer das Gerät über das Internet erreichen kann. Hauptaufgaben des Servers sind dabei, Daten bereitzustellen, zu verarbeiten und zu speichern und den Webclient zur Verfügung zu stellen.
 
 \subsection{Client}
 \label{sec:anf-client}
@@ -64,10 +64,6 @@ Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://dev
 \label{sec:vor-js}
 JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas Ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
 
-\subsection{Node.js}
-\label{sec:vor-node}
-Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mit kopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
-
 \subsection{TypeScript}
 \label{sec:vor-ts}
 TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript. Das bedeutet, jeder gültige JavaScript Code ist auch ein gültiger TypeScript Code. TypeScript wird vom TypeScript Compiler in sauberes JavaScript übersetzt. TypeScript ist sehr gut für größere Anwendungen geeignet. Typescript hat strenge Datentypen, Klassen und Vererbung. Die Datentypen von TypeScript sind:
@@ -87,6 +83,20 @@ TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript
 \end{itemize}
 
 Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie sogenannte Type Annotations. Diese können bei den meisten bekannteren Modulen über den \ac{npm} installiert werden. Diese Pakete haben den Namenspräfix \textit{@types/}, das bedeutet, dass zum Beispiel die Type Annotations des Express Moduls über \inlinecode{bash}{npm install --save-dev @types/express} installiert werden können. Sollten keine Type Annotations für ein Modul vorhanden sein, muss man diese selbst erstellen.
+
+\subsection{HTML}
+\label{sec:vor-html}
+\ac{HTML} ist eine Markup Language, zu Deutsch Auszeichnungssprache, das bedeutet, es ist keine Programmiersprache, sondern beinhaltet Informationen, wie etwas dargestellt werden soll. Eine \ac{HTML} Datei ist rein textuell und erst durch ein Programm, z.B. einen Browser, wird die Datei formatiert dargestellt. \ac{HTML} ist der Standard für alle Websites im Internet.
+
+\subsection{CSS}
+
+\subsection{DOM}
+\label{sec:vor-dom}
+Das \ac{DOM} ist die Objektrepräsentation des \ac{HTML} Dokuments. Durch das \ac{DOM} kann eine JavaScript Anwendung \ac{HTML} Elemente ändern, entfernen, und hinzufügen, \ac{HTML} Attribute ändern, entfernen und hinzufügen und \ac{CSS} Styles ändern. Das \ac{DOM} wird vom Browser beim Laden der Website erstellt. 
+
+\subsection{Node.js}
+\label{sec:vor-node}
+Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mit kopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
 
 \subsection{express}
 \label{sec:vor-express}
@@ -152,10 +162,6 @@ const Times = await this._times.find({ identifier: 'Times' }).toArray();
 \begin{lstlisting}[caption=Überschreiben eines Datensatzes mit einem Identifier,style=TS]
 this._times.updateOne({ identifier: 'Times' }, { $set: times });
 \end{lstlisting}
-
-\subsection{DOM}
-\label{sec:vor-dom}
-Das \ac{DOM} ist die Objektrepräsentation des \ac{HTML} Dokuments. Durch das \ac{DOM} kann eine JavaScript Anwendung \ac{HTML} Elemente ändern, entfernen, und hinzufügen, \ac{HTML} Attribute ändern, entfernen und hinzufügen und \ac{CSS} Styles ändern. Das \ac{DOM} wird vom Browser beim Laden der Website erstellt. 
 
 \subsection{Angular 2/4}
 \label{sec:vor-angular}
@@ -407,7 +413,7 @@ Das Login funktioniert auf der Basis des Angular Auth Guards. Dieser schützt ge
 
 \subsubsection{Internationalization}
 \label{sec:ums-client-i18n}
-Um die Webseite in mehreren Sprache anzeigen zu können, muss sie in allen Sprachen extra übersetzt sein. Das würde bedeuten, für jede Sprache wird ein eigenes Angular Projekt benötigt. Das wäre sehr viel Speicherplatz und Rechenleistung. Glücklicherweise bietet Angular eine Möglichkeit, die App in mehrere Sprachen zu übersetzen, ohne die ganze App neu zu schreiben. Diese Möglichkeit nennt sich Internationalization oder kurz i18n. Angluar muss nur wissen, welche Teile wie übersetzt werden sollen. Dafür schreiben wir bei allen \ac{HTML} Elementen, deren Text wir übersetzen wollen i18n zu den Attributen. \inlinecode{Html}{<h4 i18n>Zeit 1:</h4>}. Mit dem Kommando \inlinecode{bash}{ng xi18n --output-path src/i18n} werden alle Texte in eine Datei namens messages.xlf extrahiert. Diese Datei kann dan kopiert werden und einem Übersetzer gegeben. Im Falle dieser Arbeit wurden die Texte alle in Deutsch und Englisch übersetzt. Zum bauen des mehrsprachigen Projekts muss Angular mitgeteilt werden, welche Sprachen und welche Dateien es verwenden soll. Unter Linux geht das mit dem Kommando \inlinecode{bash}{for lang in en de; do ng build --output-path}\\\inlinecode{bash}{=dist/\$lang --aot --prod --bh \$lang/ --i18n-file=src/i18n/messages.\$lang.xlf}\\\inlinecode{bash}{--i18n-format=xlf --locale=\$lang; done}
+Um die Webseite in mehreren Sprache anzeigen zu können, muss sie in allen Sprachen extra übersetzt sein. Das würde bedeuten, für jede Sprache wird ein eigenes Angular Projekt benötigt. Das wäre sehr viel Speicherplatz und Rechenleistung. Glücklicherweise bietet Angular eine Möglichkeit, die App in mehrere Sprachen zu übersetzen, ohne die ganze App neu zu schreiben. Diese Möglichkeit nennt sich Internationalization oder kurz i18n. Angluar muss nur wissen, welche Teile wie übersetzt werden sollen. Dafür schreiben wir bei allen \ac{HTML} Elementen, deren Text wir übersetzen wollen i18n zu den Attributen. \inlinecode{Html}{<h4 i18n>Zeit 1:</h4>}. Mit dem Kommando \inlinecode{bash}{ng xi18n --output-path src/i18n} werden alle Texte in eine Datei namens messages.xlf extrahiert. Diese Datei kann dann kopiert werden und einem Übersetzer gegeben. Im Falle dieser Arbeit wurden die Texte alle in Deutsch und Englisch übersetzt. Zum bauen des mehrsprachigen Projekts muss Angular mitgeteilt werden, welche Sprachen und welche Dateien es verwenden soll. Unter Linux geht das mit dem Kommando \inlinecode{bash}{for lang in en de; do ng build --output-path}\\\inlinecode{bash}{=dist/\$lang --aot --prod --bh \$lang/ --i18n-file=src/i18n/messages.\$lang.xlf}\\\inlinecode{bash}{--i18n-format=xlf --locale=\$lang; done}
 
 \subsubsection{Kommunikation mit dem Server}
 \label{sec:ums-client-kommunikation}
