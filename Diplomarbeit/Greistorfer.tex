@@ -1,4 +1,4 @@
-\lohead{Florian Greistorfer}
+\ihead{Florian Greistorfer}
 \chapter{Webserver und Client}
 
 \begin{figure}[H]
@@ -62,7 +62,7 @@ Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://dev
 
 \subsection{JavaScript}
 \label{sec:vor-js}
-JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas Ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
+JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas Ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr Information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
 
 \subsection{TypeScript}
 \label{sec:vor-ts}
@@ -86,9 +86,11 @@ Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie 
 
 \subsection{HTML}
 \label{sec:vor-html}
-\ac{HTML} ist eine Markup Language, zu Deutsch Auszeichnungssprache, das bedeutet, es ist keine Programmiersprache, sondern beinhaltet Informationen, wie etwas dargestellt werden soll. Eine \ac{HTML} Datei ist rein textuell und erst durch ein Programm, z.B. einen Browser, wird die Datei formatiert dargestellt. \ac{HTML} ist der Standard für alle Websites im Internet.
+\ac{HTML} ist eine Markup Language, zu Deutsch Auszeichnungssprache, das bedeutet, es ist keine Programmiersprache, sondern beinhaltet Informationen, wie etwas dargestellt werden soll. Eine \ac{HTML} Datei ist rein textuell und erst durch ein Programm, z.B. einen Browser, wird die Datei formatiert dargestellt. \ac{HTML} ist der Standard für alle Websites im Internet. Eine \ac{HTML} Datei kann aus drei Teilen bestehen. Dem eigentlichem \ac{HTML}, JavaScript und Styles. JavaScript und Styles können, zur besseren Übersicht, in eigenen Dateien ausgelagert werden.
 
 \subsection{CSS}
+\ac{CSS} sind die Style Dateien einer Website. In einer \ac{CSS} Datei steht, wie ein \ac{HTML} Element aussieht. Mithilfe von Styles kann z.B. Die Farbe, Größe, Platzierung, Schriftart und vieles mehr eines Elementes bestimmt werden.
+
 
 \subsection{DOM}
 \label{sec:vor-dom}
