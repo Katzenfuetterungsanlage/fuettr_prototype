@@ -239,7 +239,7 @@ Das Aussehen des \textit{view}s wird in einem \textit{Template} definiert. Ein \
 \end{itemize}
 
 Die meisten Zusatzbefehle werden für \textit{Data Binding} verwendet.
-\newpage
+
 \mbox{}
 \begin{wrapfigure}{l}{0.5\textwidth}
 \vspace{-50pt}
@@ -311,8 +311,8 @@ Das Projekt ist so strukturiert, dass eine klare Trennung zwischen Client und Se
 \subsection{Client}
 \label{sec:ums-client}
 
-\subsubsection{Design}
-\label{sec:ums-client-design}
+\subsubsection{Übersicht}
+\label{sec:ums-client-ubersicht}
 Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll auf den ersten Blick die wichtigsten Funktionen und Informationen erkennen können. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
@@ -325,7 +325,7 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \\
+Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -337,7 +337,7 @@ Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt.
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde, oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \newpage
+Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde, oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -357,7 +357,7 @@ Auf der Geräteinformations-Seite werden die wichtigsten Daten über das Gerät 
 \item[•]IP Adresse
 \item[•]Softwareversion
 \end{itemize}
-Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \\
+Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -370,6 +370,19 @@ Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \\
 \end{wrapfigure}
 
 Auf der Update-Seite kann der Benutzer nach Updates suchen, Updates starten oder die Maschine herunterfahren. Wenn der Benutzer auf den Herunterfahren-Button klickt, der sich auf der linken Seite ganz unten befindet, wird er gewarnt, dass die Maschine nur mehr über das Aus- und wieder Einstecken des Netzteils Startbar ist.\\
+
+\subsubsection{Design}
+\label{sec:ums-client-design}
+Für das Design der Website wurde Bootstrap ausgewählt, da es bereits viele Positionierungsmöglichkeiten bietet und ohne viel Aufwand im Client verwendet werden kann. Bootstrap ist außerdem für Mobilgeräte und alle Bildschirmgrößen optimiert. Es bietet die Möglichkeit für Dropdownmenüs, Menüleisten und Popups. Diese Funktionen werden bei Bootstrap im Normalfall über JQuery\footnote{Mehr zu JQuery unter \url{https://jquery.com/}} gesteuert, aber da JQuery eine weitere externe JavaScript Bibliothek ist, wurde stattdessen das JavaScript Modul \textit{ng-bootstrap} verwendet. Dieses Ist eine Erweiterung für Angular, mit dem sich die Bootstrap Komponenten steuern lassen. Damit dies funktioniert muss \textit{ng-bootstrap} im \textit{Module} unserer Applikation eingebunden werden.
+
+\begin{lstlisting}[caption=app.module (Auszug) Importieren von ng-bootstrap,label=import-ng-bootstrap,style=TS]
+...
+import { NgbModule, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
+...
+imports: [NgbModule.forRoot(), ...]
+...
+\end{lstlisting}
+
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
@@ -429,7 +442,7 @@ Das Login funktioniert auf der Basis des Angular Auth Guards. Dieser schützt ge
 
 \subsubsection{Internationalization}
 \label{sec:ums-client-i18n}
-Um die Webseite in mehreren Sprache anzeigen zu können, muss sie in allen Sprachen extra übersetzt sein. Das würde bedeuten, für jede Sprache wird ein eigenes Angular Projekt benötigt. Das wäre sehr viel Speicherplatz und Rechenleistung. Glücklicherweise bietet Angular eine Möglichkeit, die App in mehrere Sprachen zu übersetzen, ohne die ganze App neu zu schreiben. Diese Möglichkeit nennt sich Internationalization oder kurz i18n. Angluar muss nur wissen, welche Teile wie übersetzt werden sollen. Dafür schreiben wir bei allen \ac{HTML} Elementen, deren Text wir übersetzen wollen i18n zu den Attributen. \inlinecode{Html}{<h4 i18n>Zeit 1:</h4>}. Mit dem Kommando \inlinecode{bash}{ng xi18n --output-path src/i18n} werden alle Texte in eine Datei namens messages.xlf extrahiert. Diese Datei kann dann kopiert werden und einem Übersetzer gegeben. Im Falle dieser Arbeit wurden die Texte alle in Deutsch und Englisch übersetzt. Zum bauen des mehrsprachigen Projekts muss Angular mitgeteilt werden, welche Sprachen und welche Dateien es verwenden soll. Unter Linux geht das mit dem Kommando \inlinecode{bash}{for lang in en de; do ng build --output-path}\\\inlinecode{bash}{=dist/\$lang --aot --prod --bh \$lang/ --i18n-file=src/i18n/messages.\$lang.xlf}\\\inlinecode{bash}{--i18n-format=xlf --locale=\$lang; done}
+Um die Webseite in mehreren Sprache anzeigen zu können, muss sie in allen Sprachen extra übersetzt sein. Das würde bedeuten, für jede Sprache wird ein eigenes Angular Projekt benötigt. Das wäre sehr viel Speicherplatz und Rechenleistung. Glücklicherweise bietet Angular eine Möglichkeit, die App in mehrere Sprachen zu übersetzen, ohne die ganze App neu zu schreiben. Diese Möglichkeit nennt sich Internationalization oder kurz i18n. Angluar muss nur wissen, welche Teile wie übersetzt werden sollen. Dafür schreiben wir bei allen \ac{HTML} Elementen, deren Text wir übersetzen wollen i18n zu den Attributen. \inlinecode{Html}{<h4 i18n>Zeit 1:</h4>}. Mit dem Kommando \inlinecode{bash}{ng xi18n --output-path src/i18n} werden alle Texte in eine Datei namens \textit{messages.xlf} extrahiert. Diese Datei wird dann kopiert, für jede Sprache eine neue Datei. Jede Datei wird entsprechend des Sprachencodes umbenannt, für Deutsch wäre das \textit{messages.de.xlf}. In dieser Datei steht jeder Text in einem \inlinecode{bash}{<source>} Tag. Diese Texte werden übersetzt und unterhalb in einen \inlinecode{bash}{<target>} Tag geschrieben. Im Falle dieser Arbeit wurden die Texte alle in Deutsch und Englisch übersetzt. Zum bauen des mehrsprachigen Projekts muss Angular mitgeteilt werden, welche Sprachen und welche Dateien es verwenden soll. Unter Linux geht das mit dem Kommando \inlinecode{bash}{for lang in en de; do ng build --output-path}\\\inlinecode{bash}{=dist/\$lang --aot --prod --bh \$lang/ --i18n-file=src/i18n/messages.\$lang.xlf}\\\inlinecode{bash}{--i18n-format=xlf --locale=\$lang; done}. Dieses Kommando baut unsere Applikation in den \textit{dist} Ordner, jede Sprache bekommt dabei ihren eigenen Unterordner, der Dem Sprachencode entspricht.
 
 \subsubsection{Kommunikation mit dem Server}
 \label{sec:ums-client-kommunikation}
@@ -450,7 +463,7 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=errors\_warnings} & \multicolumn{1}{l|}{Errors und Warnings} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{''Errors":{[}\{"message":''Error","hidden":false\},\\ \{"message":''Error2","hidden":false\}{]},\\ "Warnings":{[}\{"message":"Warning","hidden":false\},\\ "message":"Warning2","hidden":false\}{]}\}\end{tabular}} \\ \midrule
 \multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere?q=times}              & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,"time2":"13:20",\\ "time2\_active":true,"time3":"14:20","time3\_active":true,\\ "time4":"15:20","time4\_active":true\}\end{tabular}}                                           \\ \midrule
 \multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere?q=changeState}        & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\{''state":"true"\}}                                                                                                                                                                                                                             \\ \midrule
-\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/login}                              & \multicolumn{1}{l|}{\ac{JWT}}          & \multicolumn{1}{l|}{\{"token":"...",''isLoggedIn":true\}}                                                                                                                                                                                                             \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/login}                              & \multicolumn{1}{l|}{\ac{JWT}}          & \multicolumn{1}{l|}{\ttfamily{\{"token":"...",''isLoggedIn":true\}}}                                                                                                                                                                                                             \\ \midrule
 \multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/logout}                             & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \bottomrule
 \end{tabular}
 \caption{Übertragungsprotokoll Webserver - Webclient}
@@ -535,7 +548,7 @@ this._express.use('/api', ApiRoutes.ApiRouter.Routes);
 this._express.use('/', AppRoutes.AppRouter.Routes);
 \end{lstlisting}
 
-Die beiden Middlewares \inlinecode{TS}{bodyparser.json()} und \inlinecode{TS}{bodypareser.urlencoded()} bereiten den Request so auf, dass er vom Rest der Middlewares verstanden werden kann. Die Middleware \inlinecode{TS}{requestLanguage()} ist ein JavaScript Modul, dass aus dem Request-Header den Header \inlinecode{bash}{Accept-Language} ausliest und für die weitere Verarbeitung in \inlinecode{TS}{req.language} speichert. Pug Engine ist eine rendering Engine, das bedeutet, damit können \ac{HTML} Seiten während der Serverlaufzeit generiert werden, somit können Variablen eingefügt werden. \inlinecode{TS}{express.static()} stellt ein Verzeichnis mit allen Unterverzeichnissen zur Verfügung. Das gleiche Prinzip wie bei einem Apache Webserver. Die beiden Seiten des Servers, die Client Seite, und die \ac{API} sind in eigene Dateien ausgelagert. Somit herrscht ein klare Trennung zwischen dem, was der Benutzer zu sehen bekommt und dem, das nur die JavaScript Applikation sieht. Alle \textit{get} und \textit{post} Middlewares haben eine Callback Methode. In dieses bearbeiten wir alle Anfragen und beantworten sie.
+Die beiden Middlewares \inlinecode{TS}{bodyparser.json()} und \inlinecode{TS}{bodyparser.urlencoded()} bereiten den Request so auf, dass er vom Rest der Middlewares verstanden werden kann. Diese Middlewares kommen vom JavaScript Modul \textit{body-parser}. Die Middleware \inlinecode{TS}{requestLanguage()} ist ein JavaScript Modul, dass aus dem Request-Header den Header \inlinecode{bash}{Accept-Language} ausliest und für die weitere Verarbeitung in \inlinecode{TS}{req.language} speichert. Pug Engine ist eine rendering Engine, das bedeutet, damit können \ac{HTML} Seiten während der Serverlaufzeit generiert werden, somit können Variablen eingefügt werden. \inlinecode{TS}{express.static()} stellt ein Verzeichnis mit allen Unterverzeichnissen zur Verfügung. Das gleiche Prinzip wie bei einem Apache Webserver. Die beiden Seiten des Servers, die Client Seite, und die \ac{API} sind in eigene Dateien ausgelagert. Somit herrscht ein klare Trennung zwischen dem, was der Benutzer zu sehen bekommt und dem, das nur die JavaScript Applikation sieht. Alle \textit{get} und \textit{post} Middlewares haben eine Callback Methode. In dieses bearbeiten wir alle Anfragen und beantworten sie.
 
 \begin{lstlisting}[caption=Sprachenauswahl,style=TS,label=sprachenauswahl]
 public languageselector(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -585,8 +598,29 @@ public async login(req: express.Request, res: express.Response, next: express.Ne
 
 In der Login Methode wird zuerst das im Request befindliche Passwort gehashed. Dann werden alle Benutzer aus der Datenbank ausgelesen und mit dem Benutzer im Request verglichen. Sind Benutzername und Passworthash gleich, so wird mit der Methode \inlinecode{TS}{jwt.sign()} ein \ac{JWT} erstellt und signiert. Dieser Token wird in ein Objekt gepackt und dem Client als Antwort gesendet. Wird innerhalb einer Zeitspanne von zwei Sekunden keine Übereinstimmung gefunden, so sendet der Server den Status 401 (Unauthorized). 
 
+\begin{lstlisting}[caption=Update Methode,label=update methode,style=TS]
+public update(req: express.Request, res: express.Response, next: express.NextFunction) {
+  fs.writeFileSync(path.join(__dirname, '../../../build'), 'true');
+  child.exec(`git pull`, (error, stdout, stderr) => {
+    if (stdout !== '') {
+      log.info(stdout);
+    }
+    if (error !== null) {
+      log.warn(error);
+    }
+    child.exec(`sudo reboot`, (error, stdout, stderr) => {
+      if (stdout !== '') {
+        log.info(stdout);
+      }
+      if (error !== null) {
+        log.warn(error);
+      }
+    });
+  });
+}
+\end{lstlisting}
 
-
+Beim Request auf \textit{/api/getUpdates} soll die Software aktualisiert und das Raspberry neu gestartet werden. Dafür wurde Node.Js' \textit{child\_process} Modul verwendet. Dieses Modul gibt uns die Möglichkeit, shells zu starten, in der wir dann Konsolenbefehle ausführen können. Zuerst wird das Repository aktualisiert mit \inlinecode{bash}{git pull}. Danach wird das System neugestartet mit \inlinecode{bash}{sudo reboot}. Vorher wird in eine Datei, die vom Raspberry Startup Script rc.local überprüft wird, true geschrieben. Wenn in dieser Datei true steht, werden beim starten des Raspberry alle Komponenten der Software neu gebaut.
 
 \subsubsection{MongoDB}
 \label{sec:ums-server-mongo}
@@ -616,9 +650,6 @@ try {
 
 Die Verbindung mit dem \ac{DBMS} geschieht über die Methode \inlinecode{TS}{MongoClient.connect()}. Da wir uns dazu entschieden haben, jeden Datensatz in eine eigene Collection zu speichern, müssen Anfangs alle Collections den verschiedenen Variablen zugewiesen werden. Beim Verbinden wird außerdem überprüft, ob die Collections leer sind. Ist dies der Fall, so werden Standardwerte in die Collections geschrieben. \\\\
 
-Beim Request auf \textit{/api/getUpdates} soll die Software aktualisiert und das Raspberry neu gestartet werden. Dafür wurde Node.Js' \textit{child\_process} Modul verwendet. Dieses Modul gibt uns die Möglichkeit, Konsolenbefehle innerhalb unserer Serverseitigen JavaScript Anwendung auszuführen. Zuerst wird das Repository aktualisiert mit \inlinecode{bash}{git pull}. Danach wird das System neugestartet mit \inlinecode{bash}{sudo reboot}. Vorher wird in eine Datei, die vom Raspberry Startup Script rc.local überprüft wird, true geschrieben. Wenn in dieser Date true steht, werden beim starten des Raspberry alle Komponenten der Software neu gebaut.
-
-
 \subsubsection{Kommunikation mit dem Java Programm}
 \label{sec:ums-server-java}
 Da der Server und das Java-Programm miteinander kommunizieren müssen, war es notwendig, ein Kommunikationsprotokoll zu erstellen. Alle Daten werden im \ac{JSON} Format ausgetauscht. Das Protokoll sieht wie folgt aus:
@@ -640,4 +671,4 @@ Die Kommunikation mit dem Java-Programm erfolgt über Node.js' eigenes \textit{h
 
 \subsubsection{Verbesserungsmöglichkeiten}
 \label{sec:verbesserung}
-Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst, wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. Im Client Design kann die Seite für Mobilgeräte optimiert werden.
+Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst, wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, dass ist für Angular optimiert. Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen, dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
