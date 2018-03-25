@@ -261,7 +261,7 @@ Ohne Framework wäre der Programmierer dafür verantwortlich, sicherzustellen, d
 \begin{itemize}
 \item[•] \inlinecode{Html}{<span>\{\{variable\}\}</span>} Der Wert der Variable in den Klammern wird anstelle des Klammerausdrucks dargestellt. Wenn sich der Wert ändert, ändert sich auch der Wert im \ac{DOM}
 \item[•] \inlinecode{Html}{<span [hidden]="hide"></span>} übergibt den Wert in der angegebenen Variable in das angegebene Attribut
-\item[•] \inlinecode{Html}{<span (click)="clicked(\$event)"></span>} ruft die angegebene Methode auf, wenn das angegebene Event auftritt.
+\item[•] \inlinecode{Html}{<span (click)="clicked(\$event)"></span>} ruft die angegebene Methode auf, wenn das angegebene Event auftritt, in diesem Fall ein click-Event
 \item[•] \inlinecode{Html}{<input [(ngModel)]="variable">} der Wert im Eingabefeld und in der Variable sind voneinander abhängig, ändert sich der eine, so ändert sich der andere zum gleichen
 \end{itemize}
 
