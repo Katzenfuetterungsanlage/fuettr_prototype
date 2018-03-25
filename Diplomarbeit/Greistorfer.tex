@@ -91,7 +91,7 @@ Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie 
 \subsection{CSS}
 \ac{CSS} sind die Style Dateien einer Website. In einer \ac{CSS} Datei steht, wie ein \ac{HTML} Element aussieht. Mithilfe von Styles kann z.B. Die Farbe, Größe, Platzierung, Schriftart und vieles mehr eines Elementes bestimmt werden. Da das Design in eine eigene Datei ausgelagert wurde, muss es eine Zuweisung zwischen \ac{CSS} und \ac{HTML} geben. Dafür gibt es drei Arten. Entweder man weist es jedem Element diesen Typs zu, nur einem Element mit einer bestimmten ID oder jedem Element einer bestimmten Klasse.
 
-\begin{lstlisting}[caption=Zuweisen von Design an HTML,language=CSS,label=CSS-Beispiel]
+\begin{lstlisting}[caption=Zuweisen von Design an HTML,style=css,label=CSS-Beispiel]
 body { // Zuweisung an alle Elemente eines Typs
 	background-color: cyan;
 }
@@ -383,7 +383,46 @@ imports: [NgbModule.forRoot(), ...]
 ...
 \end{lstlisting}
 
+Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich mich für das \textit{Superhero} Thema von der Seite \url{https://bootswatch.com/superhero/}. Da mir die orange Farbe nicht gefiel, änderte ich sie auf einen dunkleren Grauton, den ich aus einem Bild einer süßen Babykatze genommen habe. Bootstrap hat außerdem eine Standartschriftart, die ich geändert habe. Alle Schriftarten sind von der Seite \url{https://fonts.google.com/} genommen worden, da diese in Google's \ac{CDN} sind und somit ziemlich sicher die meiste Zeit verfügbar sind. Gewählt wurden die Schriftarten Ubuntu für alle Knöpfe und die Navigationsleiste, Allerta für alle Texte und Concert One für das Logo. Damit die Schrift auf allen Geräten gut lesbar ist und nicht zu groß wird, mussten die Schriftgrößen entsprechen der Bildschirmbreite angepasst werden.
 
+\begin{lstlisting}[caption=Schriftgrößen entsprechend der Bildschirmbreite,label=css-font-sizes,style=css]
+@media only screen and (max-width: 576px) {
+  body {
+    font-size: 0.5rem !important;
+  }
+  .bigger-h1 {
+    font-size: 1.4rem !important;
+    border-bottom: 2px solid white;
+  }
+}
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 0.7rem !important;
+  }
+  .bigger-h1 {
+    font-size: 1.6rem !important;
+    border-bottom: 2px solid white;
+  }
+}
+@media only screen and (max-width: 992px) {
+  body {
+    font-size: 0.9rem !important;
+  }
+  .bigger-h1 {
+    font-size: 1.8rem !important;
+    border-bottom: 2px solid white;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: 1.1rem !important;
+  }
+  .bigger-h1 {
+    font-size: 2rem !important;
+    border-bottom: 2px solid white;
+  }
+}
+\end{lstlisting}
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
