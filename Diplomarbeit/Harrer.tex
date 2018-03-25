@@ -329,6 +329,9 @@ Wenn das erledigt ist kann mit dem Pin gearbeitet werden. Dies kann wie in den f
 	pin.getState()
 \end{lstlisting}
 Diese Methode liefert den Zustand des Pins zurück. Dieser kann High oder Low sein.
+
+\newpage
+
 \item[•] Zustand eines Output-Pins setzen:
 \begin{lstlisting}[style=JavaStyle, caption=Pinzustand verändern]
 	pin.low();	
@@ -341,8 +344,6 @@ Vor dem Beenden des Java Programmes sollte der Controller wie folgt heruntergefa
 \begin{lstlisting}[style=JavaStyle, caption=Controller herunterfahren]
 	controller.shutdown();
 \end{lstlisting}
-
-\newpage
 
 \subsection{Server-Client-Kommunikation}
 \subsubsection{Server}
@@ -373,8 +374,6 @@ PUT                                   & /ChangeMachineState               & Der 
 \label{Übertragungsprotokoll}
 \end{table}
 
-\newpage
-
 \subsubsection{Response-GET}
 Wenn der Server einen Request mit dem Beginn \textbf{GET} bekommt, muss er dem Client die Daten schicken. 
 \\ Bei der Katzenfütterungsanlage werden dem Client vom Server die ganzen auftretenten Errors und Warnungen geschickt. Die Errors und Warnungen werdem dem Client als Json-Array geschickt. Diese Json-Array wird in der Klasse, welche alle Errors and Warnungen verarbeitet, erstellt. Die Json-Array ist unter Punkt \ref{subsubsec:Array} dargestellt. 
@@ -395,8 +394,6 @@ Um den Request zu verarbeiten wurde die Klasse \textbf{ConnectionThread} geschri
 \subsubsection{Allgemeines}
 Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. 
 \\ Dazu dient die \textbf{ErrorAndWarningHandler} welcher in einer Wrapper-Klasse als Singleton implementiert wurde. In dieser Klasse ist für jeden möglichen Fehler eine Boolean Variable angelegt. Beim Auftreten eines Fehlers wird die zum Fehler gehörende Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
-
-\newpage
 
 \subsubsection{Errors und Warnungen aktivieren/deaktivieren}
 Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
@@ -433,8 +430,6 @@ Die JsonArray kann wie folgt aussehen, wenn Errors sowie auch Warnungen enthalte
 	] 
 } 
 \end{lstlisting}
-
-\newpage
 
 \begin{comment} % auskommentiert, weil es wahrschienlich weggenommen wird
 \subsubsection{Listenmodel}
@@ -485,11 +480,13 @@ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werd
 \end{lstlisting}
 Im Generic steht als Erstes der Rückgabewert von \textbf{get()} und als Zweites der Datentyp des Übergabewertes von \textbf{publish()}.
 
+\newpage
+
 \subsubsection{EDT}
 Im \ac{EDT} wird der Quellcode sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die GUI für den Benutzer merklich blockiert. In der Regel wird gesagt, dass dann ein SwingWorker verwendet werden soll, wenn die Möglichkeit besteht, dass die GUI für 100 Millisekunden oder mehr blockiert.
 
 \subsubsection{TimeUnit}
-Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. Deswegen wird die Methode \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm für 500 Millisekunden, ohne Rechenleistung zu konsumieren. Dadurch wird der Prozessor nicht so stark ausgelastet. 
+Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. \\ Deswegen wird die Methode \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm für 500 Millisekunden, ohne Rechenleistung zu konsumieren. Dadurch wird der Prozessor nicht so stark ausgelastet. 
 
 \subsubsection{Methoden des SwingWorkers}
 \begin{itemize}
@@ -549,6 +546,9 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann b
             lbDate.setText(chunk[2]);
         }
 \end{lstlisting}
+
+\newpage
+
 \item[•] cancel()
 \\ Mit \inlinecode{JavaStyle}{.cancel()} kann ein SwingWorker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker abbrechen]
@@ -650,6 +650,8 @@ Diese Methode kann nur im EDT aufgerufen werden. Wenn diese Methode nicht im EDT
         });
 \end{lstlisting}
 
+\newpage
+
 Bis jetzt wurde der Singleton nur implementiert. Nun muss noch eine Methode implementiert werden um die \textbf{Instance} des Objekts abfragen zu können. Diese Methode sieht wie folgt aus:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow.getInstance()]
 public static MainWindow getInstance()
@@ -743,6 +745,9 @@ Im \textbf{Constructor} der \textbf{TimeManagement} Klasse werden, wenn das Fens
 \vspace{10pt}
 
 Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird überprüft, ob sich die Inhalte der Spinner verändert haben. Um dies zu überprüfen werden Events verwendet. Dafür wird für jeden Spinner das folgende Event verwendet:
+
+\newpage
+
 \begin{lstlisting}[style=JavaStyle, caption=Spinner Event]
     private void spTime1StateChanged(javax.swing.event.ChangeEvent evt)                                     
     {                                         
@@ -776,6 +781,9 @@ Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei 
 \vspace{10pt}
 
 Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und ComboBoxen werden anschließend in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
+
+\newpage
+
 \begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
 // ... Code ...
 
@@ -807,17 +815,20 @@ public BasicDBObject getNewTimeDoc()
   \end{center}
   \caption{CreateAndRegisterUser}
   \label{CreateAndRegisterUser}
-  \vspace{-10pt}
+  \vspace{0pt}
 \end{wrapfigure}
 Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen.Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Nutzen hätte mehrere Benutzer zu haben. Da der angelegte Benutzer nur benötigt wird sich auf der Webseite der Anlage anzumelden, ist es ausreichend nur einen Benutzer anlegen zu können. Die GUI ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
-\\ Die GUI der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
+\\ \\ Die GUI der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
 \\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch werden der Benutzer und das Passwort in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
 \\ \\ Während das Dialogfenster geöffnet ist blockiert der EDT an der Stelle, an der das Dialogfenster geöffnet wurde.
 
 \vspace{10pt}
 
 Um das Passwort einzugeben wird ein \textbf{PasswordField} verwendet. Diese Eingabefeld wird speziell dazu verwendet Passwörter einzugeben. Eine Besonderheit davon ist, dass die Passwörter nicht als Text sonder als Sternchen dargestellt werden. Eine weitere ist, dass der Inhalt eine Zeichenkette ist, also ein Feld von Characters: \textbf{char[]}. Weiters unterscheidet sich auch das Abfragen des Inhaltes im Vergleich mit einem normalen Textfeld. Beim \textbf{PasswordField} kann der Inhalt mit \textbf{passwordField.getPassword()} abgefragt werden.
-\\ \\ Um das Passwort im Programm besser verarbeiten zu können wird es wie folgt in einen String umformatiert:
+
+\newpage
+
+Um das Passwort im Programm besser verarbeiten zu können wird es wie folgt in einen String umformatiert:
 \begin{lstlisting}[style=Javastyle, caption=char zu String]
 	String string_password = valueOf(char_password);
 \end{lstlisting}
@@ -825,9 +836,7 @@ Beim Umformatieren des Passworts in einen String könnte ein Fehler auftreten we
 
 \vspace{10pt}
 
-Um dem Benutzer Sicherheit zu gewährleisten wird das Passwort, bevor es in der Datenbank gespeichert wird, gehasht. Um das Password zu hashen wird der \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
-\\ Für das Hashen des Passworts wurde auf Stackoverflow \footfullcite{Stackoverflow_Hashen} recherchiert.
-\\ Das Password wurde wie folgt gehasht:
+Um dem Benutzer Sicherheit zu gewährleisten wird das Passwort, bevor es in der Datenbank gespeichert wird, wie folgt gehasht: 
 \begin{lstlisting}[style=Javastyle, caption=Hash Passwort]
     public static String hash(String passwordToHash, String salt)
     {
@@ -860,6 +869,10 @@ Um dem Benutzer Sicherheit zu gewährleisten wird das Passwort, bevor es in der 
         return generatedPassword;
     }
 \end{lstlisting}
+
+Um das Password zu hashen wird der Hashalgorithmus \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
+\\ Für das Hashen des Passworts wurde auf Stackoverflow \footfullcite{Stackoverflow_Hashen} recherchiert.
+
 Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden welcher vor dem Hashen des Passworts am Passwort angehängt wird. Somit wird die Entschlüsselung des Passwort nochmals erschwert. Der  \textbf{salt} wird normalerweise als Byte-Array und nicht als String deklariert.
 
 \vspace{10pt}
@@ -910,6 +923,9 @@ Dieses Fenster ist aus Sicherheitsgründen nur dann aufrufbar, wenn der Maschine
 \\ Der Benutzer kann nun beide Motoren unabhänging voneinander steuern. Er kann die Motoren in und gegen den Uhrzeigersinn drehen. Dazu muss er den Knopf mit der jeweiligen Drehrichtung im Steuerungsfenster klicken. Die Motoren sind mit dem jeweiligen Stop-Knopf wieder stopbar.
 \\ Falls die Motoren vom Benutzer vor dem Schließen des Fensters nicht gestoppt werden, werden diese automatisch vom Programm gestopt. Dies dient dazu, dass sichergestellt ist, dass die Motoren immer gestoppt werden.
 \\ Die Methode zum Schließen des Fensters, welche auch die Motoren stoppt, sieht wie folgt aus:
+
+\newpage
+
 \begin{lstlisting}[style=JavaStyle, caption=Motoren stoppen und Fenster schließen]
 	private void onClose(java.awt.event.ActionEvent evt)                                
     	{                                 
@@ -985,6 +1001,9 @@ Dieses Fenster ist, im Gegensatz zu \textbf{ManualControl}, auch aufrufbar, wenn
 Die Drehrichtungen und die Zustände werden mithilfe des \textbf{pi4j Singleton} (Kapitel \ref{subsec:pi4j}) erfasst. In dieser Klasse sind Methoden implementiert, die diese Messungen durchführen können.
 \\ Um dies annähernd echtzeitfähig zu realisieren wird ein SwingWorker verwendet. Im \textbf{doInBackground()} dieses SwingWorkers, siehe Code-Beispiel \ref{SwingWorker_MotorSensorStatus}, werden die Zustände der Motoren und Sensoren abgefragt. Diese Zustände werden mit einem \textbf{publish()} an ein \textbf{process()} übergeben. Im \textbf{process()} werden die Zustände in die Label der GUI geschrieben.
 \\ Das \textbf{process()} sieht wie folgt aus:
+
+\newpage
+
 \begin{lstlisting}[style=JavaStyle, caption= Label aktualisieren]
 	@Override
     protected void process(List<String[]> chunks)
@@ -1161,6 +1180,8 @@ Wenn nun der Knopf \textbf{Update starten} gedrückt wird, wird folgende Methode
         }        
     }
 \end{lstlisting}
+
+\newpage
 
 \begin{lstlisting}[style=JavaStyle, caption= Writer]
     private void write()
