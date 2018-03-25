@@ -89,7 +89,7 @@ Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie 
 \ac{HTML} ist eine Markup Language, zu Deutsch Auszeichnungssprache, das bedeutet, es ist keine Programmiersprache, sondern beinhaltet Informationen, wie etwas dargestellt werden soll. Eine \ac{HTML} Datei ist rein textuell und erst durch ein Programm, z.B. einen Browser, wird die Datei formatiert dargestellt. \ac{HTML} ist der Standard für alle Websites im Internet. Eine \ac{HTML} Datei kann aus drei Teilen bestehen. Dem eigentlichem \ac{HTML}, JavaScript und Styles. JavaScript und Styles können, zur besseren Übersicht, in eigenen Dateien ausgelagert werden.
 
 \subsection{CSS}
-\ac{CSS} sind die Style Dateien einer Website. In einer \ac{CSS} Datei steht, wie ein \ac{HTML} Element aussieht. Mithilfe von Styles kann z.B. Die Farbe, Größe, Platzierung, Schriftart und vieles mehr eines Elementes bestimmt werden. Da das Design in eine eigene Datei ausgelagert wurde, muss es eine Zuweisung zwischen \ac{CSS} und \ac{HTML} geben. Dafür gibt es drei Arten. Entweder man weist es jedem Element diesen Typs zu, nur einem Element mit einer bestimmten ID oder jedem Element einer bestimmten Klasse.
+\ac{CSS} sind die Style Dateien einer Website. In einer \ac{CSS} Datei steht, wie ein \ac{HTML} Element aussieht. Mithilfe von Styles kann z.B. Die Farbe, Größe, Platzierung, Schriftart und vieles mehr eines Elementes bestimmt werden. Da das Design in eine eigene Datei ausgelagert wurde, muss es eine Zuweisung zwischen \ac{CSS} und \ac{HTML} geben. Dafür gibt es drei Arten. Entweder man weist es jedem Element diesen Typs zu, nur einem Element mit einer bestimmten ID oder jedem Element einer bestimmten Klasse. Mit dem Schlüsselwort \inlinecode{css}{!important} kann man bestimmen, welcher Style bevorzugt genommen wird, wenn eine Doppelbelegung existiert.
 
 \begin{lstlisting}[caption=Zuweisen von Design an HTML,style=css,label=CSS-Beispiel]
 body { // Zuweisung an alle Elemente eines Typs
@@ -423,6 +423,8 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
   }
 }
 \end{lstlisting}
+
+
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
