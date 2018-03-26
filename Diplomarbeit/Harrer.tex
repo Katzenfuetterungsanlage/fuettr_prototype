@@ -5,19 +5,19 @@
 
 \section{Anforderungen}
 \subsection{Programm}
-Die Hauptaufgabe des Programms, welches am Raspberry Pi laufen soll, ist es dem Benutzer eine Möglichkeit zum Steuern der Katzenfütterungsanlage zu Verfügung zu stellen. Weiters soll das Programm die Motoren steuern und die Sensoren in der Anlage auswerten können. Für diese Aufgabe sollen die \ac{GPIO} Pins am Raspberry verwendet werden.
+Die Hauptaufgabe des Programms, welches am Raspberry Pi laufen soll, ist es, dem Benutzer eine Möglichkeit zum Steuern der Katzenfütterungsanlage zur Verfügung zu stellen. Weiters soll das Programm die Motoren steuern und die Sensoren in der Anlage auswerten können. Für diese Aufgabe sollen die \ac{GPIO} Pins am Raspberry verwendet werden.
 \subsection{Design - Benutzerinterface}
 Der Benutzer soll mit Hilfe eines kleinen Touchdisplays die Möglichkeit haben die Anlage zu steuern. Deswegen muss darauf geachtet werden, dass alle \ac{GUI} Fenster sinnvoll per Touch-Gesten verwendbar sind.
 Das Design der \ac{GUI}-Fenster soll einfach und übersichtlich gestaltet werden. Auf der Hauptseite, also der Seite die immer zu sehen ist, sollen Informationen dargestellt werden, die dem Benutzer einen schnellen Überblick über den Zustand der Anlage geben. Alle anderen nicht direkt ersichtlichen Funktionen sollen über sinnvoll benamte Menüpunkte erreichbar sein.
 \subsection{Externe Steuerung}
-Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen mit welchem man anschließend über eine Webseite auf die Anlage zugreifen kann. Weiters soll das Java Programm (Server) mit der Web-Applikation (Client) kommunizieren, also Daten austauschen, können.
+Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen, mit welchem man anschließend über eine Webseite auf die Anlage zugreifen kann. Weiters soll das Java Programm (Server) mit der Web-Applikation (Client) kommunizieren, also Daten austauschen können.
 
 \newpage
 
 \section{Voruntersuchung}
 \subsection{Wieso Java und nicht C?}
 Zu Beginn musste entschieden werden mit welcher Programmiersprache gearbeitet werden soll. Zur Auswahl standen Java und C.
-Vorteile von C:
+\\Vorteile von C:
 \begin{itemize}
 \item[•] Programme sind ressourcenschonender
 \item[•] Hardwarenahe Programmierung einfach durchführbar, direkter Zugriff auf die Pins
@@ -31,7 +31,7 @@ Vorteile von Java:
 Nach dem Gegenüberstellen der Vorteile wurde Java als Programmiersprache gewählt.
 
 \subsection{Wieso das Raspberry Pi 3 Model B?}
-Schon zu Beginn der Diplomarbeit war klar, dass mit deinem Raspberry gearbeitet werden soll. Nun musste entschieden werden welches Model verwendet werden soll.
+Schon zu Beginn der Diplomarbeit war klar, dass mit einem Raspberry gearbeitet werden soll. Nun musste entschieden werden, welches Model verwendet werden soll.
 \\ Technische Daten des Raspberry Pi 3 Model B:
 \begin{itemize}
 \item[•] Rechenleistung (CPU hat 4 Kerne und eine Taktfrequenz von 1,2GHz)
@@ -67,10 +67,10 @@ Aufgrund dieser Anforderungen wurde das Touchdisplay von Raspberry gewählt.
 
 \subsection{Wieso pi4j?}
 Da Java als Programmiersprache gewählt wurde, musste eine Möglichkeit die \ac{GPIO}-Pins anzusteuern gefunden werden.
-Da bei der Recherche außer \ac{pi4j} Java kaum etwas gefunden wurde, wurde \ac{pi4j} gewählt. Weiters vorteilhaft ist, dass das Ansteuern der Pins über die Java Software nicht sehr kompliziert ist. Hierfür müssen nur die Bibliotheken von \ac{pi4j} in das Projekt eingebunden werden.
+Weil bei der Recherche außer \ac{pi4j} Java kaum etwas gefunden wurde, wurde \ac{pi4j} gewählt. Weiters vorteilhaft ist, dass das Ansteuern der Pins über die Java Software nicht sehr kompliziert ist. Hierfür müssen nur die Bibliotheken von \ac{pi4j} in das Projekt eingebunden werden.
 
 \subsection{Wieso Mongodb?}
-Eine Datenbank wurde gewählt, weil es gegenüber des Speicherns der Daten in eine Datei mehrere Vorteile aufweist. 
+Eine Datenbank wurde gewählt, weil sie, gegenüber dem Speichern der Daten in eine Datei, mehrere Vorteile aufweist. 
 \subsubsection{Vorteil gegenüber Daten in Datei speichern}
 Vorteile einer Datenbank:
 \begin{itemize}
@@ -96,7 +96,7 @@ Vergleich von Mongodb mit mySQL:
 \end{itemize}
 \end{itemize}
 
-Aufgrund dieser Gründe wurde Mongodb als Datenbank gewählt.
+Aufgrund dieser oben angeführten Fakten wurde Mongodb als Datenbank gewählt.
 
 \subsection{Kommunikation mit der Web-Applikation}
 Der Server mit dem die Web-Applikation kommunizieren kann, wird aufgrund der gewählten Programmiersprache, in Java geschrieben. Der Server und die Web-Applikation laufen am gleichen System und kommunizieren über einen Socket. Der Server wird im Hintergrund aktiv sein und auf Anfragen der Web-Applikation warten. Je nach Anfrage wird der Server Daten zurück senden oder Methoden im Programm aufrufen. Die Daten, die bei der Kommunikation ausgetauscht werden, haben den Datentyp \ac{JSON}.
@@ -104,7 +104,7 @@ Der Server mit dem die Web-Applikation kommunizieren kann, wird aufgrund der gew
 \newpage
 
 \section{Umsetzung}
-Bei der Umsetzung, also beim Schreiben des Programms, wurde wie folgt vorgegangen. Zuerst wurden alle \ac{GUI}-Fenster per Hand grob entworfen. Anschließend wurden diese im Netbeans als javax.swing.JFrame Form erstellt. Genaueres über die \ac{GUI}-Fenster folgt unter Punkt 2.3.4. Danach wurden grundlegende Funktionen die das Programm zu erfüllen hat implementiert. Weiters wurden noch die Klassen: Mongodb, \ac{pi4j}, der Server und der ErrorAndWarningHandler als Singleton implementiert. 
+Bei der Umsetzung, also beim Schreiben des Programms, wurde wie folgt vorgegangen. Zuerst wurden alle \ac{GUI}-Fenster per Hand grob entworfen. Anschließend wurden diese im Netbeans als javax.swing.JFrame Form erstellt. Genaueres über die \ac{GUI}-Fenster folgt unter Punkt 2.3.4. Danach wurden grundlegende Funktionen, die das Programm zu erfüllen hat, implementiert. Weiters wurden noch die Klassen: Mongodb, \ac{pi4j}, der Server und der ErrorAndWarningHandler als Singleton implementiert. 
 \\ \\ 
 Nun folgen ausführlichere Beschreibungen über die oben angeführten Klassen.
 
@@ -112,28 +112,28 @@ Nun folgen ausführlichere Beschreibungen über die oben angeführten Klassen.
 \subsubsection{Allgemeines}
 Mongodb ist ein schemenlose Datenbank. Schemenlos bedeutet, dass die Daten keine besondere Formatierung brauchen um gespeichert zu werden. Zusätzlich wird jedem gespeichertem Datensatz automatisch ein einmaliger Identifikator gegeben. Weiters ist Mongodb open source, das bedeutet, dass es kostenfrei ist.
 \\
-Bei einer schemenbehafteten Datenbank werden die Daten, in einer Tabelle, in Reihen und Spalten gegliedert. Um eine solche Datenbank effizient nutzen zu können wird ein einmaliger Identifikator verwendet. Dieser verkürzt das Suchen eines Datensatzes.
+Bei einer schemenbehafteten Datenbank werden die Daten in einer Tabelle in Reihen und Spalten gegliedert. Um eine solche Datenbank effizient nutzen zu können, wird ein einmaliger Identifikator verwendet. Dieser verkürzt das Suchen eines Datensatzes.
 \\ \\ 
 In Mongodb werden die Daten in Collections gespeichert. Die in den Collections gespeicherten Datensätze werden Documents genannt. 
 \\ \\
-Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werden. In unserem konkreten Fall am Raspberry startet die Datenbank beim Starten des Raspberry automatisch. Weiters kann in der Konsole mit dem Befehl \textbf{mongo}, sofern die Datenbank gestartet ist, die Mongo-Shell geöffnet werden. In der Shell können alle angelegten Datenbanken verwaltet werden. Unter verwalten wird das Ändern, Hinzufügen und Löschen von Daten verstanden. Es können auch neue Datenbanken angelegt oder alte Datenbanken gelöscht werden. 
+Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werden. In unserem konkreten Fall am Raspberry startet die Datenbank beim Starten des Raspberry automatisch. Weiters kann in der Konsole mit dem Befehl \textbf{mongo}, sofern die Datenbank gestartet ist, die Mongo-Shell geöffnet werden. In der Shell können alle angelegten Datenbanken verwaltet werden. Unter Verwalten wird das Ändern, Hinzufügen und Löschen von Daten verstanden. Es können auch neue Datenbanken angelegt oder alte Datenbanken gelöscht werden. 
 \\ Befehle:
 \begin{itemize} 
-\item[•] \textbf{\inlinecode{JavaStyle}{show dbs}} ... zeigt alle angelegten Datenbanken an
-\item[•] \textbf{\inlinecode{JavaStyle}{show collections}} ... zeigt alle collections in einer Datenbank
+\item[•] \textbf{\inlinecode{JavaStyle}{show dbs}} ... anzeigen aller angelegten Datenbanken
+\item[•] \textbf{\inlinecode{JavaStyle}{show collections}} ... anzeigen aller Collections in einer Datenbank
 \item[•] \textbf{\inlinecode{JavaStyle}{use}} ... verwenden einer Datenbank, falls die Datenbank noch nicht existiert wird sie neu erstellt 
 \\     (Beispiel: \inlinecode{JavaStyle}{use <Datenbankname>} )
 \item[•] \textbf{\inlinecode{JavaStyle}{drop()}} ... löschen einer Datenbank
 \\     (Beispiel: \inlinecode{JavaStyle}{<Datenbankname>.drop()} )
 \item[•] \textbf{\inlinecode{JavaStyle}{find()}} ... suchen nach bestimmten Daten 
 \\     (Beispiel: \inlinecode{JavaStyle}{db.data.find()} )
-\item[•] \textbf{\inlinecode{JavaStyle}{count()}} ... zählt die Dokumente in einer Collection
+\item[•] \textbf{\inlinecode{JavaStyle}{count()}} ... zählen der Dokumente in einer Collection
 \\     (Beispiel: \inlinecode{JavaStyle}{db.<Collectionname>.count()} )
 \item[•] \textbf{\inlinecode{JavaStyle}{insert()}} ... hinzufügen eines Dokumentes
 \\     (Beispiel: \inlinecode{JavaStyle}{db.data.insert(\{"time1":"13:30"\}} )
 \item[•] \textbf{\inlinecode{JavaStyle}{updateOne()}} ... updaten von Daten
 \\     (Beispiel: \inlinecode{JavaStyle}{db.data.updateOne(<DokumentID>, <Daten>)} )
-\item[•] \textbf{\inlinecode{JavaStyle}{deleteOne()}} ... löschen eins Dokumentes
+\item[•] \textbf{\inlinecode{JavaStyle}{deleteOne()}} ... löschen eines Dokumentes
 \\     (Beispiel: \inlinecode{JavaStyle}{db.data.deleteOne(<DokumentID>)} )
 \end{itemize}
 
@@ -141,14 +141,14 @@ Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werde
 Ein \ac{DBMS} verwaltet eine oder mehrere Datenbanken. Mehrere Datenbanken werden dabei benötigt, wenn mehrere Anwendungen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein \ac{DBMS} ist Mongodb.
 
 \subsubsection{Singleton}
-Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ein Objekt der Datenbank erzeugt. Das bedeutet, dass nur von diesem Objekt aus auf die Datenbank zugegriffen wird und nur eine Verbindung geöffnet wird.
-\\ Ein weiterer Vorteil davon ist, dass wenn einmal eine andere Datenbank verwendet werden sollte, nur diese eine Klasse geändert werden muss, weil nur in dieser Klasse der Code für die spezifische Datenbank enthalten ist. Diese Art von Klasse nennt man Wrapper-Klasse. Das bedeutet, dass diese Klasse einen Teil des Codes des Programms beinhaltet, welcher nur in dieser Klasse vorkommt.
+Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ein Objekt der Datenbank erzeugt. Das bedeutet, dass nur von diesem Objekt aus auf die Datenbank zugegriffen und nur eine Verbindung geöffnet wird.
+\\ Ein weiterer Vorteil ist, dass wenn einmal eine andere Datenbank verwendet werden sollte, nur diese eine Klasse geändert werden muss, weil nur in dieser Klasse der Code für die spezifische Datenbank enthalten ist. Diese Art von Klasse nennt man Wrapper-Klasse. Das bedeutet, dass diese Klasse einen Teil des Codes des Programms beinhaltet, welcher nur in dieser Klasse vorkommt.
 
 \subsubsection{Code Beispiele}
 Da am Raspberry die neueste Version von Mongodb nicht funktioniert, wird die Version 2.14.2 verwendet. Weitere Details zu diesem Thema sind unter Punkt 2.4.1 zu finden.
 \\ Aus diesem Grund sind auch die Methoden, die als Beispiele angeführt sind, von der älteren Version. 
 \\ \\ 
-Als Erstes muss eine Verbindung mit der Datenbank aufgebaut werden. Falls die Datenbank noch nicht existiert wird sie automatisch erstellt.
+Als Erstes muss eine Verbindung mit der Datenbank aufgebaut werden. Falls die Datenbank noch nicht existiert, wird sie automatisch erstellt.
 Dies ist in Java mit folgenden Methoden möglich:
 \begin{lstlisting}[style=JavaStyle, caption=Mit Mongodb verbinden]
 	MongoClient mongodb = new MongoClient();
@@ -179,7 +179,7 @@ Anschließend kann mit der Datenbank gearbeitet werden.
 \end{lstlisting}
 \end{itemize}
 
-Bevor das Java Programm beendet wird sollte die Verbindung zur Datenbank wie folgt getrennt werden: 
+Bevor das Java Programm beendet wird, sollte die Verbindung zur Datenbank wie folgt getrennt werden: 
 \begin{lstlisting}[style=JavaStyle, caption=Verbindung zur Datenbank trennen]
 	mongodb.close();
 \end{lstlisting}
@@ -194,7 +194,7 @@ Im Code-Beispiel \ref{BspDokumentSuchen} wird in der Collection \textbf{collUser
 
 \subsection{pi4j} \label{subsec:pi4j}
 \subsubsection{Allgemeines}
-Es wird die open source Software \ac{pi4j}, welche Bibliotheken zur Verfügung stellt, mit denen es möglich ist, von einem Java Programm, wenn es auf einem Raspberry ausgeführt wird, auf die \ac{GPIO}-Pins dess Raspberrys zuzugreifen, verwendet. Dabei kann ein \ac{GPIO}-Pin als In- oder Ouput definiert werden. Wenn ein Pin als Output definiert wird, kann er den Zustand High (+3,3V) oder Low (0V) haben. Mit einem Input Pin, können digitale Signale gemessen werden. Das Ergebnis der Messung ist wieder High oder Low. Weiters ist es auch möglich einem Pin einen Listener zuzuweisen. Dieser Listener wartet bis auf diesem Pin ein Event auftritt und führt dann zum Beispiel eine Methode aus. 
+Es wird die open source Software \ac{pi4j}, welche Bibliotheken zur Verfügung stellt, mit denen es möglich ist, von einem Java Programm, wenn es auf einem Raspberry ausgeführt wird, auf die \ac{GPIO}-Pins des Raspberrys zuzugreifen, verwendet. Dabei kann ein \ac{GPIO}-Pin als In- oder Ouput definiert werden. Wenn ein Pin als Output definiert wird, kann er den Zustand High (+3,3V) oder Low (0V) haben. Mit einem Input Pin, können digitale Signale gemessen werden. Das Ergebnis der Messung ist entweder High oder Low. Weiters ist es auch möglich einem Pin einen Listener zuzuweisen. Dieser Listener wartet bis auf diesem Pin ein Event auftritt und führt dann zum Beispiel eine Methode aus. 
 \\ \\
 
 \begin{wrapfigure}{l}{0.5\textwidth}
@@ -209,7 +209,7 @@ Es wird die open source Software \ac{pi4j}, welche Bibliotheken zur Verfügung s
 
 \footnotetext{\autoref{Abhaengigkeiten} Quelle: \url{http://pi4j.com/dependency.html} (besucht am: 02/03/2018)}
 
-Die Software \ac{pi4j} stellt mithilfe des \ac{JNI} eine Verbindung von der \ac{JVM} zu dem nativen System des Raspberys her. Dadurch wird es möglich ist zu sehen, wie vom Java-Programm auf die Pins zugefriffen wird.
+Die Software \ac{pi4j} stellt mithilfe des \ac{JNI} eine Verbindung von der \ac{JVM} zu dem nativen System des Raspberys her. Dadurch wird es möglich vom Java-Programm auf die Pins zuzugreifen.
 \\ Der konkrete Zugriff erfolgt über die Bibliothek \textbf{libwiringPi}.
 
 
@@ -232,7 +232,7 @@ Die Software \ac{pi4j} stellt mithilfe des \ac{JNI} eine Verbindung von der \ac{
 In der Abbildung \ref{Pin Numbering Sheme} ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt sind.
 \\ \\
 Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den 29 \ac{GPIO}-Pins kann der Programmierer selbst entscheiden, welche Funktion der Pin wahrnehmen soll.
-\\Pins auf die über die mit \ac{pi4j} nicht zugegriffen werden kann sind:
+\\Pins auf die mit \ac{pi4j} nicht zugegriffen werden kann, sind:
 \begin{itemize}
 \item[•] Power mit 3,3V oder 5V
 \item[•] Ground
@@ -267,8 +267,8 @@ Diese \ac{GPIO}-Pins werden, wie folgenden Tabelle 2.1 veranschaulicht, verwende
 \label{Pinbelegung}
 \end{table}
 
-Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+3,3V). Wenn der Sensor nicht betätigt ist liefert dieser Low (0V). 
-\\ Um einen Motor einzuschalten müssen jeweils zwei \ac{GPIO}-Pins auf High geschalten werden. Zuerst muss der Motor aktiviert werden. Wenn der Motor nicht aktiviert ist, ist er ausgeschalten und vom Stromnetz getrennt. Weiters muss dann noch ein weiterer \ac{GPIO}-Pin auf High geschalten werden. Dieser weitere Pin gibt die Drehrichtung des Motors an. 
+Wenn einer der beiden Sensoren betätigt wird, liefert dieser das Signal High (+3,3V). Wenn der Sensor nicht betätigt ist, liefert dieser Low (0V). 
+\\ Um einen Motor einzuschalten, müssen jeweils zwei \ac{GPIO}-Pins auf High geschalten werden. Zuerst muss der Motor aktiviert werden. Wenn der Motor nicht aktiviert ist, ist er ausgeschalten und vom Stromnetz getrennt. Weiters muss dann noch ein weiterer \ac{GPIO}-Pin auf High geschalten werden. Dieser weitere Pin gibt die Drehrichtung des Motors an. 
 
 \vspace{10pt}
 
@@ -303,19 +303,19 @@ Die \ac{GPIO}-Pins des Raspberrys werden nicht direkt mit den Motoren und Sensor
 Die benötigten Methoden von \ac{pi4j} wurden in einer Wrapper-Klasse als Singleton implementiert. Es wird ein Singleton verwendet, weil der benötigte Controller für die Pins nur einmal erzeugt werden kann. Wenn der Controller trotzdem öfters erzeugt wird, wird  eine Exception geworfen. Der Singleton wird nun dazu verwendet, dass auf die Pins von unterschiedlichen Klassen zugegriffen werden kann.
 
 \subsubsection{Code Beispiele}
-Um mit den \ac{GPIO}-Pins arbeiten zu können muss zu Beginn ein Controller erstellt werden. Dies ist wie folgt möglich:
+Um mit den \ac{GPIO}-Pins arbeiten zu können, muss zu Beginn ein Controller erstellt werden. Dies ist wie folgt möglich:
 \begin{lstlisting}[style=JavaStyle, caption=\ac{GPIO}-Controller erstellen]
 	GpioController controller = com.pi4j.io.gpio.GpioFactory.getInstance();
 \end{lstlisting}
-Wenn der Controller erstellt ist kann auf die Pins, mit denen gearbeitet werden soll, zugegriffen werden. Bei einem Pin kann auch eine \textbf{ShutDownOption} angeben werden. Diese gibt an in welchen Zustand der Pin vor dem Herunterfahren gesetzt wird. Dieser Zugriff erfolgt wie folgt: 
+Wenn der Controller erstellt ist, kann auf die Pins, mit denen gearbeitet werden soll, zugegriffen werden. Bei einem Pin kann auch eine \textbf{ShutDownOption} angeben werden. Diese gibt an in welchen Zustand der Pin vor dem Herunterfahren gesetzt wird. Dieser Zugriff erfolgt wie folgt: 
 \begin{itemize}
-\item[•] Zugreigen auf einen Pin als digitalen Input-Pin:
-\begin{lstlisting}[style=JavaStyle, caption=Zugriff auf einen Pin als Inpput]
+\item[•] Zugreifen auf einen Pin als digitalen Input-Pin:
+\begin{lstlisting}[style=JavaStyle, caption=Zugriff auf einen Pin als Input]
 	GpioPinDigitalInput pin = controller.provisionDigitalInputPin(
 		RaspiPin.GPIO_00, PinPullResistance.PULL_DOWN);
 	pin.setShutdownOptions(true);
 \end{lstlisting}
-\item[•] Zugreigen auf einen Pin als digitalen Output-Pin:
+\item[•] Zugreifen auf einen Pin als digitalen Output-Pin:
 \begin{lstlisting}[style=JavaStyle, caption=Zugriff auf einen Pin als Output]
 	GpioPinDigitalOutput pin = controller.provisionDigitalOutputPin(
 		RaspiPin.GPIO_02, PinState.LOW);
