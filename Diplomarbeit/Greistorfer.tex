@@ -392,7 +392,6 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
   }
   .bigger-h1 {
     font-size: 1.4rem !important;
-    border-bottom: 2px solid white;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -401,7 +400,6 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
   }
   .bigger-h1 {
     font-size: 1.6rem !important;
-    border-bottom: 2px solid white;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -410,7 +408,6 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
   }
   .bigger-h1 {
     font-size: 1.8rem !important;
-    border-bottom: 2px solid white;
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -419,12 +416,11 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
   }
   .bigger-h1 {
     font-size: 2rem !important;
-    border-bottom: 2px solid white;
   }
 }
 \end{lstlisting}
 
-
+Durch \inlinecode{css}{@media only screen and (max-width: ZAHLpx)} wird die Bildschirmbreite bestimmt und alle Styles innerhalb der Klammern werden nur dann angewandt, wenn der Ausdruck in der Klammer zutrifft. 
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
