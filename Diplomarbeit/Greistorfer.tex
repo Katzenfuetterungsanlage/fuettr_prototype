@@ -420,7 +420,13 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
 }
 \end{lstlisting}
 
-Durch \inlinecode{css}{@media only screen and (max-width: ZAHLpx)} wird die Bildschirmbreite bestimmt und alle Styles innerhalb der Klammern werden nur dann angewandt, wenn der Ausdruck in der Klammer zutrifft. 
+Durch \inlinecode{css}{@media only screen and (max-width: ZAHLpx)} wird die Bildschirmbreite bestimmt und alle Styles innerhalb der Klammern werden nur dann angewandt, wenn der Ausdruck in der Klammer zutrifft. In der Klammer wird die Schriftgröße des \inlinecode{css}{body} Elements und allen Elementen der Klasse \inlinecode{css}{.bigger-h1} angepasst.
+
+\paragraph*{Login}\mbox{}\\
+Auf der Login Seite befindet sich rechts oben ein Dropdownmenü, in dem die Sprache geändert werden kann. Dies ist gelöst durch ein \inlinecode{HTML}{*ngFor}. Wenn das Menü geschlossen ist, wird dort die Flagge der aktuellen Sprache angezeigt, Österreich bei Deutsch und Großbritannien bei Englisch. Wenn man auf das Menü klickt, klappen alle Sprachen, die zur Auswahl stehen herunter und der Benutzer kann auf eine klicken. Die verschiedenen Auswahlmöglichkeiten sind Links, die den Benutzer auf den jeweiligen Sprachcode umleiten und die Seite somit in der gewünschten Sprache anzeigen. In der Mitte der Seite befindet sich ein Bootstrap Jumbotron. Damit verändert sich die Hintergrundfarbe und es entsteht eine klare Abhebung. Innerhalb des Jumbotrons ist ein \ac{HTML} Formular, in das der Benutzername und das Password vom Benutzer hineingeschrieben werden. Beim Klick auf den Knopf \textit{Anmelden} werden diese Daten dem Server übermittelt. Sollte das Anmelden geglückt sein, so wird automatisch die Startseite angezeigt.
+
+\paragraph*{Startseite}\mbox{}\\
+Auf der linken Seite befindet sich ein Jumbotron, in dem 
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
@@ -484,7 +490,7 @@ toMinutes(time: string): number {
 Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird aktualisiert, so wird eine Anfrage an den Server gesendet siehe \ref{sec:ums-server-funktion}. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht teilt dem Benutzer mit, dass das System aktualisiert. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
 
 \paragraph*{Login}\mbox{}\\
-Das Login funktioniert auf der Basis des Angular Auth Guards. Dieser schützt gewisse Routes gegen unbefugte Benutzer. Im Login bekommen wir, bei erfolgreicher Authentifikation einen \ac{JWT} vom Server, den wir in einer Variable speichern und dann im \inlinecode{bash}{Authorization} Header bei Bedarf mitschicken. Dies geschieht durch einen sogenannten \textit{Interceptor}, der den \ac{HTTP} Request nimmt und ihn klont, da \ac{HTTP} Requests in Angular nicht veränderbar sind, und dann darauf den \inlinecode{bash}{Authorization} Header gibt.
+Das Login funktioniert auf der Basis des Angular Auth Guards. Dieser schützt gewisse Routes gegen unbefugte Benutzer. Im Login bekommen wir, bei erfolgreicher Authentifikation einen \ac{JWT} vom Server, den wir in einer Variable speichern und dann im \inlinecode{bash}{Authorization} Header bei Bedarf mitschicken. Dies geschieht durch einen sogenannten \textit{Interceptor}, der den \ac{HTTP} Request nimmt und ihn klont, da \ac{HTTP} Requests in Angular nicht veränderbar sind, und dann zusätzlich den \inlinecode{bash}{Authorization} Header hinzufügt.
 
 \subsubsection{Internationalization}
 \label{sec:ums-client-i18n}
@@ -498,18 +504,18 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 \begin{tabular}{@{}llll@{}}
 \toprule
 \multicolumn{1}{|l|}{\textbf{\ac{HTTP} Request Typ}} & \multicolumn{1}{l|}{\textbf{\ac{URI}}} & \multicolumn{1}{l|}{\textbf{Server Response}} & \multicolumn{1}{l|}{\textbf{Beispiel}}                                                                                                          \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/ip}                             & \multicolumn{1}{l|}{IP}                  & \multicolumn{1}{l|}{\{''ip":"62.116.40.166"\}}                                                                                                                                                                                                                       \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/version}                        & \multicolumn{1}{l|}{Version}             & \multicolumn{1}{l|}{\{"version": "beta@1.0.0"\}}                                                                                                                                                                                                                     \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/ip}                             & \multicolumn{1}{l|}{IP}                  & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\{''ip":"62.116.40.166"\}}}}                                                                                                                                                                                                                       \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/version}                        & \multicolumn{1}{l|}{Version}             & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\{"version": "beta@1.0.0"\}}}}                                                                                                                                                                                                                     \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/getUpdate}                      & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \midrule
 \multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/shutdown}                       & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=times}            & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,"time2":"13:20",\\ "time2\_active":true,"time3":"14:20","time3\_active":true,\\ "time4":"15:20","time4\_active":true\}\end{tabular}}                                           \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=status}           & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"nextFeeding":"-","lastFeeding":''ausstehend",\\"nextFeedingIn":''-'',"machineState":false\}\end{tabular}}                                                                                                            \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=info}             & \multicolumn{1}{l|}{Info}                & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{''serialnumber":"17",''internal":"Raspberry Pi 3 Model B",\\ "wlanState":"not connected"\}\end{tabular}}                                                                                                            \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=positions}        & \multicolumn{1}{l|}{Positionen}          & \multicolumn{1}{l|}{\{"motor1":''-'',"motor2":''-'',''sensor1":''-'',''sensor2":''-''\}}                                                                                                                                                                                         \\ \midrule
-\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe?q=errors\_warnings} & \multicolumn{1}{l|}{Errors und Warnings} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{''Errors":{[}\{"message":''Error","hidden":false\},\\ \{"message":''Error2","hidden":false\}{]},\\ "Warnings":{[}\{"message":"Warning","hidden":false\},\\ "message":"Warning2","hidden":false\}{]}\}\end{tabular}} \\ \midrule
-\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere?q=times}              & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,"time2":"13:20",\\ "time2\_active":true,"time3":"14:20","time3\_active":true,\\ "time4":"15:20","time4\_active":true\}\end{tabular}}                                           \\ \midrule
-\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere?q=changeState}        & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\{''state":"true"\}}                                                                                                                                                                                                                             \\ \midrule
-\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/login}                              & \multicolumn{1}{l|}{\ac{JWT}}          & \multicolumn{1}{l|}{\ttfamily{\{"token":"...",''isLoggedIn":true\}}}                                                                                                                                                                                                             \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe/times}            & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,\\"time2":"13:20","time2\_active":true,\\"time3":"14:20","time3\_active":true,\\"time4":"15:20","time4\_active":true\}\end{tabular}}}}                                           \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe/status}           & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\begin{tabular}[c]{@{}l@{}}\{"nextFeeding":"-","lastFeeding":\\''ausstehend","nextFeedingIn":''-'',\\"machineState":false\}\end{tabular}}}}                                                                                                            \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe/info}             & \multicolumn{1}{l|}{Info}                & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\begin{tabular}[c]{@{}l@{}}\{''serialnumber":"17",''internal":"Raspberry\\Pi 3 Model B", "wlanState":"not connected"\}\end{tabular}}}}                                                                                                            \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe/positions}        & \multicolumn{1}{l|}{Positionen}          & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\begin{tabular}[c]{@{}l@{}}\{"motor1":''-'',"motor2":''-'',''sensor1":''-'',\\''sensor2":''-''\}\end{tabular}}}}                                                                                                                                                                                         \\ \midrule
+\multicolumn{1}{|l|}{GET}  & \multicolumn{1}{l|}{/api/callMeMaybe/errors\_warnings} & \multicolumn{1}{l|}{Errors und Warnings} & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\begin{tabular}[c]{@{}l@{}}\{''Errors":{[}\{"message":''Error","hidden":\\false\}{]},"Warnings":{[}\{"message":"Warning",\\"hidden":false\}{]}\}\end{tabular}}}} \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere/times}              & \multicolumn{1}{l|}{Zeiten}              & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\begin{tabular}[c]{@{}l@{}}\{"time1":"12:20","time1\_active":true,\\"time2":"13:20","time2\_active":true,\\"time3":"14:20","time3\_active":true,\\"time4":"15:20","time4\_active":true\}\end{tabular}}}}                                           \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/api/putMeHere/changeState}        & \multicolumn{1}{l|}{Status}              & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\{''state":"true"\}}}}                                                                                                                                                                                                                             \\ \midrule
+\multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/login}                              & \multicolumn{1}{l|}{\ac{JWT}}          & \multicolumn{1}{l|}{\footnotesize{\ttfamily{\{"token":"...",''isLoggedIn":true\}}}}                                                                                                                                                                                                             \\ \midrule
 \multicolumn{1}{|l|}{POST} & \multicolumn{1}{l|}{/logout}                             & \multicolumn{1}{l|}{200 OK}              & \multicolumn{1}{l|}{}                                                                                                                                                                                                                                                \\ \bottomrule
 \end{tabular}
 \caption{Übertragungsprotokoll Webserver - Webclient}
@@ -529,11 +535,11 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 		[api
 			[version]
 			[callMeMaybe
-				[?q{=}times]
-				[?q{=}status]
-				[?q{=}info]
-				[?q{=}positions]
-				[?q{=}errors\_warnings]			
+				[times]
+				[status]
+				[info]
+				[positions]
+				[errors\_warnings]			
 			]
 			[getUpdate]
 			[shutdown]
@@ -549,8 +555,8 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 	[\textit{root}
 		[api
 			[putMeHere
-				[?q{=}times]
-				[?q{=}changeState]			
+				[times]
+				[changeState]			
 			]	
 		]
 		[login]
@@ -614,6 +620,7 @@ Wenn eine Anfrage auf \textit{root} (/) eintrifft, entscheidet der Server, ausge
 public async login(req: express.Request, res: express.Response, next: express.NextFunction) {
   let User: Login = { token: '', isLoggedIn: false };
   let done = false;
+  let token = '';
   const username = req.body.user;
   const userpass = SHA512(req.body.password).toString();
   const Users = await FuettrDB.Instance.getUsers();
@@ -621,28 +628,20 @@ public async login(req: express.Request, res: express.Response, next: express.Ne
     let name = JSON.parse(JSON.stringify(Users[i])).user_name;
     let pass = JSON.parse(JSON.stringify(Users[i])).user_password;
     if (userpass === pass && username === name) {
-      jwt.sign({ user: username }, this._privkey, { expiresIn: '10h', algorithm: 'RS256' }, (err, token) => {
-        if (err != undefined) {
-          log.warn(err);
-        }
-        if (token != undefined) {
-          User.token = token;
-          User.isLoggedIn = true;
-          res.send(JSON.stringify(User));
-          done = true;
-        }
-      });
+      token = await jwt.sign({ user: username }, this._privkey, { expiresIn: '10h', algorithm: 'RS256' });
     }
   }
-  setTimeout(() => {
-    if (!done) {
-      res.status(401).send(JSON.stringify(User));
-    }
-  }, 2000);
+  if (token !== '') {
+    User.token = token;
+    User.isLoggedIn = true;
+    res.send(JSON.stringify(User));
+  } else {
+    res.status(401).send(JSON.stringify(User));
+  }
 }
 \end{lstlisting}
 
-In der Login Methode wird zuerst das im Request befindliche Passwort gehashed. Dann werden alle Benutzer aus der Datenbank ausgelesen und mit dem Benutzer im Request verglichen. Sind Benutzername und Passworthash gleich, so wird mit der Methode \inlinecode{TS}{jwt.sign()} ein \ac{JWT} erstellt und signiert. Dieser Token wird in ein Objekt gepackt und dem Client als Antwort gesendet. Wird innerhalb einer Zeitspanne von zwei Sekunden keine Übereinstimmung gefunden, so sendet der Server den Status 401 (Unauthorized). 
+In der Login Methode wird zuerst das im Request befindliche Passwort gehashed. Nur hashen wird im Normalfall als nicht ausreichend betrachtet und weitere Faktoren, wie z.B. der Benutzername oder eine gewisse Zeichenkette werden noch mit gehashed. Dann werden alle Benutzer aus der Datenbank ausgelesen und mit dem Benutzer im Request verglichen. Sind Benutzername und Passworthash gleich, so wird mit der Methode \inlinecode{TS}{jwt.sign()} ein \ac{JWT} erstellt und signiert. Dieser Token wird in ein Objekt gepackt und dem Client als Antwort gesendet. Sollte keiner der Benutzer übereinstimmen, so wird ein leerer Token und der Fehlercode 401 Unauthorized gesendet.
 
 \begin{lstlisting}[caption=Update Methode,label=update methode,style=TS]
 public update(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -714,10 +713,15 @@ Die Kommunikation mit dem Java-Programm erfolgt über Node.js' eigenes \textit{h
 
 \subsection{Verbinden mit WLAN}
 \label{sec:ums-wlan}
+Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir diese Aufgabe ebenfalls zu. 
 
-\section{Zusammenfassung und Verbesserungsmöglichkeiten}
-\label{sec:zusammenfassung}
+\section{Verbesserungsmöglichkeiten und Zusammenfassung}
+\label{sec:verbesserung-und-zusammenfassung}
 
 \subsubsection{Verbesserungsmöglichkeiten}
 \label{sec:verbesserung}
-Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst, wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, dass ist für Angular optimiert. Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen, dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
+Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. \\ \\
+Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst, wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. \\ \\
+Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, dass ist für Angular optimiert. \\ \\
+Eine größere Auswahl an Sprachen können noch angeboten werden, aber da ich nur Deutsch und Englisch beherrsche, war dies nicht möglich. \\ \\
+Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen, dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
