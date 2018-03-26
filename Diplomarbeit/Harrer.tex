@@ -19,13 +19,13 @@ Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Kat
 Zu Beginn musste entschieden werden mit welcher Programmiersprache gearbeitet werden soll. Zur Auswahl standen Java und C.
 Vorteile von C:
 \begin{itemize}
-\item[1] Programme sind ressourcenschonender
-\item[2] Hardwarenahe Programmierung einfach durchführbar, direkter Zugriff auf die Pins
+\item[•] Programme sind ressourcenschonender
+\item[•] Hardwarenahe Programmierung einfach durchführbar, direkter Zugriff auf die Pins
 \end{itemize}
 Vorteile von Java:
 \begin{itemize}
-\item[1] Erstellen einer \ac{GUI} mit Java Swing ist einfacher (weil es im Unterricht erlernt wurde)
-\item[2] In Java kann nur sauber programmiert werden (aufgrund der Überprüfung des Compilers)
+\item[•] Erstellen einer \ac{GUI} mit Java Swing ist einfacher (weil es im Unterricht erlernt wurde)
+\item[•] In Java kann nur sauber programmiert werden (aufgrund der Überprüfung des Compilers)
 \end{itemize}
 
 Nach dem Gegenüberstellen der Vorteile wurde Java als Programmiersprache gewählt.
@@ -34,16 +34,16 @@ Nach dem Gegenüberstellen der Vorteile wurde Java als Programmiersprache gewäh
 Schon zu Beginn der Diplomarbeit war klar, dass mit deinem Raspberry gearbeitet werden soll. Nun musste entschieden werden welches Model verwendet werden soll.
 \\ Technische Daten des Raspberry Pi 3 Model B:
 \begin{itemize}
-\item[1] Rechenleistung (CPU hat 4 Kerne und eine Taktfrequenz von 1,2GHz)
-\item[2] Anzahl der \ac{GPIO}-Pins (26)
-\item[3] \ac{WLAN} Fähigkeit
+\item[•] Rechenleistung (CPU hat 4 Kerne und eine Taktfrequenz von 1,2GHz)
+\item[•] Anzahl der \ac{GPIO}-Pins (26)
+\item[•] \ac{WLAN} Fähigkeit
 \end{itemize}
 
-Technische Daten des Raspberry Pi 2:
+Technische Daten des Raspberry Pi 2 Model B:
 \begin{itemize}
-\item[1] Rechenleistung (CPU hat 4 Kerne und eine Taktfrequenz von 0,9GHz)
-\item[2] Anzahl der \ac{GPIO}-Pins (26)
-\item[3] keine \ac{WLAN}-Fähigkeit
+\item[•] Rechenleistung (CPU hat 4 Kerne und eine Taktfrequenz von 0,9GHz)
+\item[•] Anzahl der \ac{GPIO}-Pins (26)
+\item[•] keine \ac{WLAN}-Fähigkeit
 \end{itemize}
 
 Wir haben das Raspberry Pi 3 Model B, aufgrund der oben angeführten technischen Daten, gewählt. Den größten Einfluss auf die Entscheidung hatte dabei die \ac{WLAN}-Fähigkeit. Das liegt daran, dass dadurch die Anlage überall im Haus aufgestellt werden kann und keine Ethernetschnittstelle benötigt wird. Ein weiterer positiver Aspekt des Raspberry Pi 3 ist die höhere Rechenleistung.
@@ -74,25 +74,25 @@ Eine Datenbank wurde gewählt, weil es gegenüber des Speicherns der Daten in ei
 \subsubsection{Vorteil gegenüber Daten in Datei speichern}
 Vorteile einer Datenbank:
 \begin{itemize}
-\item[1] Professionellere Lösung als das Speichern in eine Datei
-\item[2] Beim Speichern von großen Datenmengen effizienter
-\item[3] Es kann vom Java Programm und vom Webserver zugegriffen werden, ohne dass es zu einem Fehler kommt
-\item[4] Das Suchen von Daten ist einfacher
+\item[•] Professionellere Lösung als das Speichern in eine Datei
+\item[•] Beim Speichern von großen Datenmengen effizienter
+\item[•] Es kann vom Java Programm und vom Webserver zugegriffen werden, ohne dass es zu einem Fehler kommt
+\item[•] Das Suchen von Daten ist einfacher
 \end{itemize}
 \subsubsection{Vergleich mit anderen Datenbanken}
 Vergleich von Mongodb mit mySQL:
 \begin{itemize}
 \item[•] Mongodb
 \begin{itemize}
-\item[1] Mongodb ist schemenlos und open source
-\item[2] Zugriffskonzept basiert auf \ac{JSON}
-\item[3] Benutzern können keine Berechtigungen gegeben/genommen werden
+\item[•] Mongodb ist schemenlos und open source
+\item[•] Zugriffskonzept basiert auf \ac{JSON}
+\item[•] Benutzern können keine Berechtigungen gegeben/genommen werden
 \end{itemize}
 \item[•] mySQL
 \begin{itemize}
-\item[1] mySQL hat ein Datenschema und ist open source
-\item[2] Zugriffskonzept auf mehrere Arten
-\item[3] Benutzern können Berechtigungen gegeben/genommen werden
+\item[•] mySQL hat ein Datenschema und ist open source
+\item[•] Zugriffskonzept auf mehrere Arten
+\item[•] Benutzern können Berechtigungen gegeben/genommen werden
 \end{itemize}
 \end{itemize}
 
