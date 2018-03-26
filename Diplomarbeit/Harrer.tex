@@ -65,7 +65,7 @@ Aufgrund dieser Anforderungen wurde das Touchdisplay von Raspberry gewählt.
 \item[•] Der Preis beträgt 70\euro{}
 \end{itemize}
 
-\subsection{Wieso \ac{pi4j}?}
+\subsection{Wieso pi4j?}
 Da Java als Programmiersprache gewählt wurde, musste eine Möglichkeit die \ac{GPIO}-Pins anzusteuern gefunden werden.
 Da bei der Recherche außer \ac{pi4j} Java kaum etwas gefunden wurde, wurde \ac{pi4j} gewählt. Weiters vorteilhaft ist, dass das Ansteuern der Pins über die Java Software nicht sehr kompliziert ist. Hierfür müssen nur die Bibliotheken von \ac{pi4j} in das Projekt eingebunden werden.
 
@@ -137,8 +137,8 @@ Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werde
 \\     (Beispiel: \inlinecode{JavaStyle}{db.data.deleteOne(<DokumentID>)} )
 \end{itemize}
 
-\subsubsection{\ac{DBMS}}
-Ein Datenbankmanagementsystem verwaltet eine oder mehrere Datenbanken. Mehrere Datenbanken werden dabei benötigt, wenn mehrere Anwendungen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein \ac{DBMS} ist Mongodb.
+\subsubsection{\ac{Datenbankmanagementsystem}}
+Ein \ac{DBMS} verwaltet eine oder mehrere Datenbanken. Mehrere Datenbanken werden dabei benötigt, wenn mehrere Anwendungen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein \ac{DBMS} ist Mongodb.
 
 \subsubsection{Singleton}
 Der Datenbankzugriff wurde in einem Singleton implementiert. Dadurch wird nur ein Objekt der Datenbank erzeugt. Das bedeutet, dass nur von diesem Objekt aus auf die Datenbank zugegriffen wird und nur eine Verbindung geöffnet wird.
@@ -411,7 +411,7 @@ public void setFeedingHasFailedError (Boolean errorOn)
 In diesem konkreten Beispiel wird der Error, der dem Benutzer mitteilt, dass eine Fütterung fehlgeschlagen hat, aktiviert. Mit dem Parameter \textbf{errorOn} kann bestimmt werden, ob der Error aktiv oder inaktiv sein soll. Wenn der Parameter \textbf{true} ist, ist der Error aktiv. Daraus folgt, dass der Error inaktiv ist, wenn \textbf{errorOn = false} ist. 
 \\ In dieser Methode wird zusätzlich ein Zeitstempel erstellt. Dieser Zeitstempel wird nur erstellt, wenn der Error aktiviert wird. 
 
-\subsubsection{\ac{JSON}-Object} \label{subsubsec:Array}
+\subsubsection{JSON-Object} \label{subsubsec:Array}
 Diese Klasse stellt auch die \ac{JSON}-Object zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird. Dieses \ac{JSON}-Object beinhaltet zwei \ac{JSON}-Arrays.
 
 Das \ac{JSON}-Object kann wie folgt aussehen, wenn Errors sowie auch Warnungen enthalten sind:
@@ -482,7 +482,7 @@ Im Generic steht als Erstes der Rückgabewert von \textbf{get()} und als Zweites
 
 \newpage
 
-\subsubsection{\ac{EDT}}
+\subsubsection{EDT}
 Im \ac{EDT} wird der Quellcode sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die \ac{GUI} für den Benutzer merklich blockiert. In der Regel wird gesagt, dass dann ein SwingWorker verwendet werden soll, wenn die Möglichkeit besteht, dass die \ac{GUI} für 100 Millisekunden oder mehr blockiert.
 
 \subsubsection{TimeUnit}
@@ -1223,7 +1223,7 @@ Mit der \ac{pi4j} Version 1.1 ist das Problem aufgetreten, dass am Raspberry Pi 
 \\ Wenn dieses Projekt weiter fortgeführt wird, sollte überprüft werden, ob von der Snapshotversion auf eine Betaversion gewechselt werden kann.
 
 \subsection{Verbesserungsmöglichkeiten}
-\subsubsection{\ac{GUI} auf "Touchscreen-Design\grqq{} abändern}
+\subsubsection{GUI auf "Touchscreen-Design\grqq{} abändern}
 Die \ac{GUI}, die momentan bei der Anlage in Verwendung ist, ist nicht optimal um über einen Touchscreen-Display bedient zu werden.
 \\ Dabei sollte vor allem die Navigation überarbeitet werden: 
 \\Für die Navigation sollte keine Menüleiste verwendet werden. Es wäre besser, wenn Pfeile verwendet werden, um zwischen den Fenstern zu wechseln. Eine andere Möglichkeit wäre, wenn die Fenster über eigene Icons im Hauptfenster aufrufbar wären.
