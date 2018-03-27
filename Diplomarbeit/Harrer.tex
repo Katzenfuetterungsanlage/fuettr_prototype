@@ -67,7 +67,7 @@ Aufgrund dieser Anforderungen wurde das Touchdisplay von Raspberry gewählt.
 
 \subsection{Wieso pi4j?}
 Da Java als Programmiersprache gewählt wurde, musste eine Möglichkeit die \ac{GPIO}-Pins anzusteuern gefunden werden.
-Weil bei der Recherche außer \ac{pi4j} Java kaum etwas gefunden wurde, wurde \ac{pi4j} gewählt. Weiters vorteilhaft ist, dass das Ansteuern der Pins über die Java Software nicht sehr kompliziert ist. Hierfür müssen nur die Bibliotheken von \ac{pi4j} in das Projekt eingebunden werden.
+Weil bei der Recherche außer \ac{pi4j} kaum etwas gefunden wurde, wurde \ac{pi4j} gewählt. Weiters vorteilhaft ist, dass das Ansteuern der Pins über die Java Software nicht sehr kompliziert ist. Hierfür müssen nur die Bibliotheken von \ac{pi4j} in das Projekt eingebunden werden.
 
 \subsection{Wieso Mongodb?}
 Eine Datenbank wurde gewählt, weil sie, gegenüber dem Speichern der Daten in eine Datei, mehrere Vorteile aufweist. 
@@ -137,7 +137,7 @@ Die Datenbank kann in der Konsole mit dem Befehl \textbf{mongod} gestartet werde
 \\     (Beispiel: \inlinecode{JavaStyle}{db.data.deleteOne(<DokumentID>)} )
 \end{itemize}
 
-\subsubsection{\ac{Datenbankmanagementsystem}}
+\subsubsection{Datenbankmanagementsystem}
 Ein \ac{DBMS} verwaltet eine oder mehrere Datenbanken. Mehrere Datenbanken werden dabei benötigt, wenn mehrere Anwendungen oder Programme jeweils eine eigene Datenbank brauchen. Ein Beispiel für ein \ac{DBMS} ist Mongodb.
 
 \subsubsection{Singleton}
@@ -231,7 +231,7 @@ Die Software \ac{pi4j} stellt mithilfe des \ac{JNI} eine Verbindung von der \ac{
 
 In der Abbildung \ref{Pin Numbering Sheme} ist zu sehen wie die Pins bei einem Raspberry Pi 3 Model B belegt sind.
 \\ \\
-Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den 29 \ac{GPIO}-Pins kann der Programmierer selbst entscheiden, welche Funktion der Pin wahrnehmen soll.
+Am Raspberry haben einige Pins schon fest zugewiesene Funktionen, aber bei den 26 \ac{GPIO}-Pins kann der Programmierer selbst entscheiden, welche Funktion der Pin wahrnehmen soll.
 \\Pins auf die mit \ac{pi4j} nicht zugegriffen werden kann, sind:
 \begin{itemize}
 \item[•] Power mit 3,3V oder 5V
@@ -247,7 +247,7 @@ Zum Ansteuern der Motoren und Auswerten der Sensoren wurden nur \ac{GPIO}-Pins v
 
 \newpage
 
-Diese \ac{GPIO}-Pins werden, wie folgenden Tabelle 2.1 veranschaulicht, verwendet:
+Diese \ac{GPIO}-Pins werden, wie in der folgenden Tabelle 2.1 veranschaulicht, verwendet:
 
 \begin{table}[htb]
 \centering
@@ -357,7 +357,7 @@ Die Kommunikation zwischen Server und Client basiert bei der Katzenfütterungsan
 \\ Als Timeout wurden 10 Sekunden gewählt, weil das sinnvoll zu sein scheint.
 \\ \\
 Wenn der Request des Clients mit einem \textbf{GET} beginnt, bedeutet das, dass der Client Daten vom Server fordert. Beginnt der Request mit einem \textbf{PUT}, bedeutet das, dass der Client dem Server Daten schicken will.
-\\ Nach jedem \textbf{GET} oder \textbf{PUT} folgt ein Befehl der angibt, welche Daten der Client fordert oder welche Daten der Client dem Server schicken will.
+\\ Nach jedem \textbf{GET} oder \textbf{PUT} folgt die URI welche angibt, welche Daten der Client fordert oder welche Daten der Client dem Server schicken will.
 \\ \\
 Die folgende Tabelle zeigt alle gültigen Requests und die jeweilige Response darauf:
 
@@ -376,7 +376,7 @@ PUT                                   & /ChangeMachineState               & Der 
 
 \subsubsection{Response-GET}
 Wenn der Server eine Request mit dem Beginn \textbf{GET} bekommt, muss er dem Client die Daten schicken. 
-\\ Bei der Katzenfütterungsanlage werden dem Client die ganzen auftretenten Errors und Warnungen, vom Server geschickt. Die Errors und Warnungen werdem dem Client als \ac{JSON}-Array gesendet. Diese \ac{JSON}-Array wird in der Klasse, welche alle Errors and Warnungen verarbeitet, erstellt. Die \ac{JSON}-Array ist unter Punkt \ref{subsubsec:Array} dargestellt. 
+\\ Bei der Katzenfütterungsanlage werden dem Client die ganzen auftretenten Errors und Warnungen, vom Server geschickt. Die Errors und Warnungen werdem dem Client als \ac{JSON}-Object gesendet. Dieses \ac{JSON}-Object wird in der Klasse, welche alle Errors and Warnungen verarbeitet, erstellt. Das \ac{JSON}-Object ist unter Punkt \ref{subsubsec:Array} dargestellt. 
 
 \subsubsection{Response-PUT}
 Wenn der Server einen Request mit dem Beginn \textbf{PUT} bekommt, muss er Daten vom Client entgegen nehmen.
@@ -387,7 +387,7 @@ Um den Request zu verarbeiten wurde die Klasse \textbf{ConnectionThread} geschri
 \begin{itemize}
 \item[1] Der Request wird eingelesen.
 \item[2] Danach wird überprüft, ob der Request "GET\grqq{} oder "PUT\grqq{} enthält. Wenn keine dieser beiden Funktionen enthalten ist, wird eine Fehlermeldung gesendet.
-\item[3] Wenn dies überprüft wurde und kein Fehler aufgetreten ist, wird der \ac{URI} überprüft. Über den \ac{URI} erfährt der Server was er machen soll. Der Inhalt des Befehls ist ein String und wird im Übertragungsprotokoll festgelegt.
+\item[3] Wenn dies überprüft wurde und kein Fehler aufgetreten ist, wird der \ac{URI} überprüft. Über den \ac{URI} erfährt der Server was er machen soll. Der Inhalt des \ac{URI} ist ein String und wird im Übertragungsprotokoll festgelegt.
 \end{itemize}
 
 \subsection{Errors und Warnungsverarbeitung}
@@ -398,25 +398,25 @@ Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Pro
 \subsubsection{Errors und Warnungen aktivieren/deaktivieren}
 Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
 \begin{lstlisting}[style=JavaStyle, caption=Error setzen]
-public void setFeedingHasFailedError (Boolean errorOn)
-    {
-        error_hasFeedingFailed = errorOn;
-        if (errorOn == true)
-        {
-            failedFeedingTime = String.format("%1$tH:%1$tM", 
-            	new Date(System.currentTimeMillis()));
-        }   
-    }
+	public void setFeedingHasFailedError (Boolean errorOn)
+	{
+		error_hasFeedingFailed = errorOn;
+		if (errorOn == true)
+		{
+		failedFeedingTime = String.format("%1$tH:%1$tM", 
+			new Date(System.currentTimeMillis()));
+		}   
+	}
 \end{lstlisting}
 In diesem konkreten Beispiel wird der Error, der dem Benutzer mitteilt, dass eine Fütterung fehlgeschlagen hat, aktiviert. Mit dem Parameter \textbf{errorOn} kann bestimmt werden, ob der Error aktiv oder inaktiv sein soll. Wenn der Parameter \textbf{true} ist, ist der Error aktiv. Daraus folgt, dass der Error inaktiv ist, wenn \textbf{errorOn = false} ist. 
 \\ In dieser Methode wird zusätzlich ein Zeitstempel erstellt. Dieser Zeitstempel wird nur erstellt, wenn der Error aktiviert wird. 
 
 \subsubsection{JSON-Object} \label{subsubsec:Array}
-Diese Klasse stellt auch die \ac{JSON}-Object zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird. Dieses \ac{JSON}-Object beinhaltet zwei \ac{JSON}-Arrays.
+Diese Klasse stellt auch das \ac{JSON}-Object zur Verfügung, welches dann dem Client (Web-Applikation) geschickt wird. Dieses \ac{JSON}-Object beinhaltet zwei \ac{JSON}-Arrays.
 
 Das \ac{JSON}-Object kann wie folgt aussehen, wenn Errors sowie auch Warnings enthalten sind:
 
-\begin{lstlisting}[language=json,firstnumber=1, caption=\ac{JSON}-Objekt mit Errors und Warnings]
+\begin{lstlisting}[language=json,firstnumber=1, caption=\ac{JSON}-Object mit Errors und Warnings]
 { 
 	"Errors": 
 	[ 
@@ -470,7 +470,7 @@ Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI
 \end{comment}  % kommentar ende
 
 \subsection{SwingWorker}
-Der SwingWorker in Java wird benötigt, wenn eine Methode mehr Zeit benötigt und somit die \ac{GUI} blockieren würde. Mithilfe des SwingWorkers, aus der Klasse javax.swing, kann diese Aktion in einem Hintergrund-Thread ausgeführt werden. Der Vorteil davon ist, dass die \ac{GUI} bedienbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
+Der SwingWorker in Java wird benötigt, wenn eine Methode mehr Zeit benötigt und somit die \ac{GUI} blockieren würde. Mithilfe des SwingWorkers, aus der Klasse javax.swing, kann diese Aktion in einem Hintergrund-Thread ausgeführt werden. Der Vorteil davon ist, dass die \ac{GUI} bedienbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Methode, die mehr Zeit benötigt, abgearbeitet wird.
 \\ \\
 Das oben geführte Beispiel könnte auch mit der Klasse Thread gelöst werden. Der Hauptgrund für die Verwendung von SwingWorker ist, dass der SwingWorker für die Verwendung in Applikationen mit \ac{GUI} optimiert ist. Der SwingWorker verfügt über Methoden mit denen nach oder während des Ablaufens des Hintergrundprozesses auf die \ac{GUI}-Elemente zugegriffen werden kann.
 \\ \\ 
@@ -589,7 +589,7 @@ Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben.
   \label{MainWindow}
   \vspace{20pt}
 \end{wrapfigure}
-Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In diesem Fenster wird dem Benutzer ein allgemeiner Überblick über die Anlage zur Verfügung gestellt. Somit sind alle wichtigen Informationen schnell und leicht ersichtlich. Weiters ist das \textbf{MainWindow} das Hauptfenster des Programms. Über diese sind alle Dialog-, Steuerungs- und Informationsfenster erreichbar. Diese Fenster werden von Kapitel\ref{TimeManagement} bis Kapitel \ref{Update} genauer beschrieben. Das Aufrufen von anderen Fenstern ist über die Menüleiste, welche sich oben in der \ac{GUI} befindet, möglich. 
+Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In diesem Fenster wird dem Benutzer ein allgemeiner Überblick über die Anlage zur Verfügung gestellt. Somit sind alle wichtigen Informationen schnell und leicht ersichtlich. Weiters ist das \textbf{MainWindow} das Hauptfenster des Programms. Über dieses sind alle Dialog-, Steuerungs- und Informationsfenster erreichbar. Diese Fenster werden von Kapitel \ref{TimeManagement} bis Kapitel \ref{Update} genauer beschrieben. Das Aufrufen von anderen Fenstern ist über die Menüleiste, welche sich oben in der \ac{GUI} befindet, möglich. 
 \\ \\ Unter den Menüs der Menüleiste sind folgende Menüpunkte zu finden:
 \begin{itemize}
 \item[1] Raspberry
@@ -724,10 +724,10 @@ Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfigurier
   \end{center}
   \caption{Spinner Konfiguration}
   \label{SpinnerKonfiguration}
-  \vspace{-20pt}
+  \vspace{-10pt}
 \end{wrapfigure}
 \\ \\ In diesem Fenster ist der Code, welcher in den ersten vier Zeilen steht, hinzuzufügen. 
-\\ Hier wird das Modell für den Spinner gesetzt. Dieses Model gibt an, dass der Spinner ein Datum darstellen soll. Weiters wird nicht festgelegt wie das Datum angezeigt werden soll. Hier wird die Uhrzeit dargestellt. 
+\\ Hier wird das Modell für den Spinner gesetzt. Dieses Model gibt an, dass der Spinner ein Datum darstellen soll. Weiters wird noch festgelegt wie das Datum angezeigt werden soll. Hier wird die Uhrzeit dargestellt. 
 \\ \\ Diese Schritte müssen für alle der vier verwendeten Spinner angewendet werden.
 
 \vspace{30pt}
@@ -744,7 +744,7 @@ Im \textbf{Constructor} der \textbf{TimeManagement} Klasse werden, wenn das Fens
 
 \vspace{10pt}
 
-Bevor das Fenster geschlossen wird, wird beim Drücken von \textbf{Abbrechen} gedrückt wird, wird überprüft, ob sich die Inhalte der Spinner verändert haben. Um dies zu überprüfen werden Events verwendet. Dafür wird für jeden Spinner das folgende Event verwendet:
+Bevor das Fenster geschlossen wird, wird beim Drücken von \textbf{Abbrechen} überprüft, ob sich die Inhalte der Spinner verändert haben. Um dies zu überprüfen werden Events verwendet. Dafür wird für jeden Spinner das folgende Event verwendet:
 
 \newpage
 
@@ -754,7 +754,7 @@ Bevor das Fenster geschlossen wird, wird beim Drücken von \textbf{Abbrechen} ge
         saved = false;
     }   
 \end{lstlisting} 
-Dieses Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendet wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Siehe Code-Beispiel \ref{TimeManagementSpeichern} Zusätzlich kann dann ausgewählt werden, ob wirklich ohne zu speichern beendet werden soll.
+Dieses Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verändert wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Siehe Code-Beispiel \ref{TimeManagementSpeichern} Zusätzlich kann dann ausgewählt werden, ob wirklich ohne zu speichern beendet werden soll.
 
 \begin{lstlisting}[style=Javastyle, caption=TimeManagement Fenster schließen, label=TimeManagementSpeichern]
  private void onCancel(java.awt.event.ActionEvent evt)                          
@@ -797,7 +797,7 @@ newTimeDoc = new BasicDBObject("identifier", "Times")
                         .append("time4", time4)
                         .append("time4_active", time4_active);
 \end{lstlisting}
-Dieses Dokument wird anschließen mit folgender \textbf{Getter-Methode} für andere Klassen, konkret für das \textbf{MainWindow}, zugänglich gemacht:
+Dieses Dokument wird anschließend mit folgender \textbf{Getter-Methode} für andere Klassen, konkret für das \textbf{MainWindow}, zugänglich gemacht:
 \begin{lstlisting}[style=Javastyle, caption=Zeitendokument Getter-Methode]
 public BasicDBObject getNewTimeDoc()
     {
@@ -815,7 +815,7 @@ public BasicDBObject getNewTimeDoc()
   \end{center}
   \caption{CreateAndRegisterUser}
   \label{CreateAndRegisterUser}
-  \vspace{0pt}
+  \vspace{10pt}
 \end{wrapfigure}
 Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Sinn machen würde, wenn mehrere Benutzer angelegt werden. Der angelegte Benutzer wird nur benötigt, um sich auf der Webseite der Anlage anzumelden. Deshalb ist es ausreichend nur einen Benutzer anlegen zu können. Die \ac{GUI} ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
 \\ \\ Die \ac{GUI} der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
@@ -824,7 +824,7 @@ Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit e
 
 \vspace{10pt}
 
-Um das Passwort einzugeben wird ein \textbf{PasswordField} verwendet. Dieses Eingabefeld wird speziell dazu verwendet Passwörter einzugeben. Eine Besonderheit davon ist, dass die Passwörter nicht als Text sondern als Sternchen dargestellt werden. Eine weitere Besonderheit ist, dass der Inhalt eine Zeichenkette ist, also ein Feld von Characters: \textbf{char[]}. Weiters unterscheidet sich auch das Abfragen des Inhaltes im Vergleich mit einem normalen Textfeld. Beim \textbf{PasswordField} kann der Inhalt mit \textbf{passwordField.getPassword()} abgefragt werden.
+Um das Passwort einzugeben wird ein \textbf{PasswordField} verwendet. Dieses Eingabefeld wird speziell dazu verwendet Passwörter einzugeben. Eine Besonderheit davon ist, dass die Passwörter nicht als Text sondern als Sternchen dargestellt werden. Eine weitere Besonderheit ist, dass der Inhalt eine Zeichenkette ist, also ein Feld von Characters: \textbf{char[]}. Weiters unterscheidet sich auch das Abfragen des Inhaltes im Vergleich mit einem normalen Textfeld. Beim \textbf{PasswordField} kann der Inhalt mit \inlinecode{JavaStyle}{passwordField.getPassword()} abgefragt werden.
 
 \newpage
 
@@ -832,7 +832,7 @@ Um das Passwort im Programm besser verarbeiten zu können wird es wie folgt in e
 \begin{lstlisting}[style=Javastyle, caption=char zu String]
 	String string_password = valueOf(char_password);
 \end{lstlisting}
-Beim Umformatieren des Passworts in einen String könnte ein Fehler auftreten wenn Sonderzeichen verwendet werden. Deshalb sollte verhindert werden, dass der Benutzer Sonderzeichen eingibt oder das Programm angepasst werden, so dass Sonderzeichen verwendet werden können.
+Beim Umformatieren des Passworts in einen String könnte ein Fehler auftreten wenn Sonderzeichen verwendet werden. Deshalb sollte verhindert werden, dass der Benutzer Sonderzeichen eingibt oder das Programm angepasst werden, so dass Sonderzeichen nicht verwendet werden können.
 
 \vspace{10pt}
 
@@ -946,9 +946,10 @@ Neben dem Bereich für die Steuerung befindet sich noch ein Bereich in dem die E
 \vspace{10pt}
 
 Die Motoren werden gesteuert, indem beim Drücken eines Knopfes, eine Methode aus dem \textbf{\ac{pi4j} Singleton} (Kaptiel \ref{subsec:pi4j}) aufgerufen wird. Das Singleton-Objekt steuert in weiterer Folge die Output-Pins.
-\\ Wenn ein Knopf gedrückt wird, wird die jeweilige zum Knopf gehörente Methode aufgerufen. Dies kann wie folgt aussehen:
+\\ Wenn ein Knopf gedrückt wird, wird die jeweilige zum Knopf gehörende Methode aufgerufen. Dies kann wie folgt aussehen:
 \begin{lstlisting}[style=JavaStyle, caption=Motoren drehen] 
-	private void onMoveEngine1Counterclockwise(java.awt.event.ActionEvent evt)                                               
+	private void onMoveEngine1Counterclockwise(
+			java.awt.event.ActionEvent evt)                                               
     	{                                                   
         	pi4jInstance.moveEngine1Counterclockwise();
     	}  
