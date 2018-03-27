@@ -127,7 +127,7 @@ Express ist ein Javascript Modul, das auf dem Node.js Modul \textit{http} bzw \t
 \item[•] \textbf{boolean}: true oder false
 \item[•] \textbf{number}: Eine vorzeichenbehaftete Zahl, die auch die E Notation unterstützt z.B. 0.2E4 (=2000)
 \item[•] \textbf{Array}: Eine geordnete Liste von 0 oder mehreren Werten innerhalb eckiger Klammern, Elemente sind getrennt durch Kommas.
-\item[•] \textbf{Object}: Eine ungeordnete Sammlung von Name-Wert-Paaren, wo die Namen, die auch Keys genannt werden, Strings sind. Jeder Key sollte eindeutig sein. Innerhalb geschwungener Klammern. Paare sind durch Komma getrennt
+\item[•] \textbf{Object}: Eine ungeordnete Sammlung von Name-Wert-Paaren, wo die Namen, die auch Keys genannt werden, Strings sind. Jeder Key sollte eindeutig sein. Befindet sich innerhalb geschwungener Klammern. Paare sind durch Komma getrennt
 \item[•] \textbf{null}: Ein leerer Wert
 \end{itemize}
 
@@ -806,9 +806,9 @@ GET                     & /errors\_warnings   & \begin{tabular}[c]{@{}l@{}}JSON 
 
 Die Kommunikation mit dem Java-Programm erfolgt über Node.js' eigenes \textit{http} Modul. Das Modul hat Methoden, mit denen Server und Clients erstellt werden können. Die Kommunikation erfolgt über den lokalen Port 666. Auf diesem Port wartet der Server vom Java-Programm auf Anfragen. Der Webserver, der in diesem Falle zum Client wird, sendet einfache \ac{HTTP} \textit{GET} und \textit{POST} Anfragen an den Java-Server. Dieser antwortet dann mit der gewünschten Resource.
 
-\subsection{Verbinden mit WLAN}
+\subsection{Verbinden mit WLAN im Java Programm}
 \label{sec:ums-wlan}
-Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir diese Aufgabe ebenfalls zu. Das Verbinden mit dem \ac{WLAN} auf dem Raspberry ist ein einfacher Eintrag in eine Textdatei die unter \inlinecode{bash}{/etc/wpa\_supplicant/wpa\_supplicant.conf} zu finden ist. Über den Befehl \inlinecode{bash}{sudo iwlist wlan0 scan} können alle \ac{WLAN} Netzwerke, die in Reichweite sind, angezeigt werden. Dieser Befehl wird beim Initialisieren des Fensters ausgeführt. Dieser Befehl liefert einen String zurück, welcher in einer Variable gespeichert wird. In diesem String stehen alle verfügbaren Netzwerke. Die Namen der Netzwerke müssen aus dem String extrahiert und in einer Liste gespeichert werden. Diese Liste wird in einem Dropdownmenü angezeigt. Klickt der Benutzer auf einen Eintrag, so muss er noch zusätzlich das Passwort eingeben. Beim Klick auf den Knopf \textit{Verbinden} wird das Netzwerk mit dem Passwort in der \textit{wpa\_supplicant.conf} Datei gespeichert. 
+Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir diese Aufgabe ebenfalls zu. Das Verbinden mit dem \ac{WLAN} auf dem Raspberry ist ein einfacher Eintrag in eine Textdatei die unter \inlinecode{bash}{/etc/wpa\_supplicant/wpa\_supplicant.conf} zu finden ist. Über den Befehl \inlinecode{bash}{sudo iwlist wlan0 scan} können alle \ac{WLAN} Netzwerke, die in Reichweite sind, angezeigt werden. Dieser Befehl wird beim Initialisieren des Fensters ausgeführt. Dieser Befehl liefert einen String zurück, welcher in einer Variable gespeichert wird. In diesem String stehen alle verfügbaren Netzwerke. Die Namen der Netzwerke müssen aus dem String extrahiert und in einer Liste gespeichert werden. Diese Liste wird in einem Dropdownmenü angezeigt. Klickt der Benutzer auf einen Eintrag, so muss er noch zusätzlich das Passwort eingeben. Beim Klick auf den Knopf \textit{Verbinden} wird das Netzwerk mit dem Passwort in der \textit{wpa\_supplicant.conf} Datei gespeichert. Bei erfolgreicher Verbindung wird in die Datenbank geschrieben, dass das Raspberry mit dem \ac{WLAN} verbunden ist.
 
 \begin{lstlisting}[caption=WLAN Konfigurationsbeispiel,label=wlan-datei-beispiel,style=bash]
 network={
@@ -816,6 +816,10 @@ network={
     psk="testingPassword"
 }
 \end{lstlisting}
+
+\section{Raspberry PI}
+\label{sec:raspi}
+Im Laufe des Arbeitens kam die Idee auf, ein Skript für das Raspberry zu schreiben, damit bei einem neuen, leerem System nicht alles per Hand installiert werden muss. Diese Skript bot auch die Möglichkeit, im Falle eines kommerziellen Gebrauchs der Maschine, sehr schnell und sehr viele Geräte mit der Software zu versorgen. Das Skript installiert Node.js, MongoDB, Java, Git, Angular und alle Module, die von der App gebraucht werden. Es lädt das Repository herunter und baut alle Komponenten der Software. Es konfiguriert alles und startet alle Teile der Software. Das ganze Skript ist in der Standard Sprache der Linux Shell geschrieben. Das Skript kann über den Befehl \inlinecode{bash}{bash -c "\$(curl -sL https://goo.gl/npRzS6)"} ausgeführt werden.
 
 \section{Verbesserungsmöglichkeiten und Zusammenfassung}
 \label{sec:verbesserung-und-zusammenfassung}
@@ -827,3 +831,7 @@ Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenb
 Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, das ist für Angular optimiert. \\ \\
 Eine größere Auswahl an Sprachen können noch angeboten werden, aber da ich nur Deutsch und Englisch beherrsche, war dies nicht möglich. \\ \\
 Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen, dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
+
+\subsubsection{Zusammenfassung}
+\label{sec:zusammenfassung}
+Viele Abschnitte und Funktionen wurden öfters programmiert und sehr oft überarbeitet, da erst im laufe des Arbeitens die Sprache TypeScript erlernt wurde und viele Facetten dieser Sprache erst bei längerem Arbeiten zum Vorschein treten. Es gab keine großen Komplikationen. Der Terminplan wurde immer eingehalten. Die Zusammenarbeit mit den Kollegen war, bis auf obiges genanntes Problem, meist aufschlussreich und konstruktiv.
