@@ -16,7 +16,7 @@ Ein Programm, das Zugriff auf eine Ressource oder einen Dienst in einem Netzwerk
 
 \subsection{Client}
 \label{sec:begrr-client}
-Ein Programm das auf einen Server zugreift
+Ein Programm, das auf einen Server zugreift
 
 \section{Anforderungen}
 \label{sec:anforderungen}
@@ -27,7 +27,7 @@ Auf der Katzenfütterungsanlage läuft ein Webserver, der es ermöglicht, dass d
 
 \subsection{Client}
 \label{sec:anf-client}
-Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über einen Webbrowser zu steuern. Ein Benutzername und ein Passwort sind erforderlich, damit man das Gerät bedienen kann. Das Design soll eindeutig und übersichtlich gehalten sein. Auf der Startseite sollen die eingestellten Fütterungszeiten zu sehen sein und eine allgemeine Übersicht. Über eine Navigationsleiste sollen die weiteren Seiten erreichbar sein:
+Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über einen Webbrowser zu steuern. Ein Benutzername und ein Passwort sind erforderlich, damit man das Gerät bedienen kann. Das Design soll eindeutig und übersichtlich gehalten sein. Auf der Startseite sollen die eingestellten Fütterungszeiten und eine allgemeine Übersicht zu sehen sein. Über eine Navigationsleiste sollen die weiteren Seiten erreichbar sein:
 
 \begin{itemize}
 \item[•]Fütterrungszeiten
@@ -41,7 +41,7 @@ Der Client soll dem Benutzer ermöglichen, die Katzenfütterungsanlage über ein
 
 \subsection{HTTP/HTTPS}
 \label{sec:vor-http}
-Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://developer.mozilla.org/de/docs/Web/HTTP}} ist der Kommunikationsstandart auf dem das Internet basiert. Eine HTTP Session wird über eine Anfrage über das \ac{TCP} an einen Server auf den Port 80 initiiert. Der Server, der auf diesem Port auf eine Anfrage wartet sendet eine Statusmeldung wie z.B. \inlinecode{bash}{HTTP/1.1 200 OK} und eventuell eine eigene Nachricht zurück. Diese Nachricht ist meist die angeforderte Resource oder eine Fehlermeldung. \ac{HTTPS} ist die verschlüsselte Version von \ac{HTTP}. Die meist gebrauchten Anfragen sind:
+Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://developer.mozilla.org/de/docs/Web/HTTP}} ist der Kommunikationsstandard auf dem das Internet basiert. Eine HTTP Session wird über eine Anfrage über das \ac{TCP} an einen Server auf den Port 80 initiiert. Der Server, der auf diesem Port auf eine Anfrage wartet, sendet eine Statusmeldung wie z.B. \inlinecode{bash}{HTTP/1.1 200 OK} und eventuell eine eigene Nachricht zurück. Diese Nachricht ist meist die angeforderte Resource oder eine Fehlermeldung. \ac{HTTPS} ist die verschlüsselte Version von \ac{HTTP}. Die meist gebrauchten Anfragen sind:
 
 \begin{itemize}
 \item[•] \textbf{GET}: Fordert eine Repräsentation der Ressource an. Ein GET Request darf nur Daten abfragen und darf keinen anderen Einfluss haben.
@@ -62,7 +62,7 @@ Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://dev
 
 \subsection{JavaScript}
 \label{sec:vor-js}
-JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzufügen und animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas Ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr Information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
+JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzuzufügen und zu animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas Ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr Information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
 
 \subsection{TypeScript}
 \label{sec:vor-ts}
@@ -73,7 +73,7 @@ TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript
 \item[•] \textbf{number}: eine vorzeichenbehaftete Gleitkommazahl, kann auch hexadezimal, octal oder binär sein, von JavaScript übernommen
 \item[•] \textbf{boolean}: true oder false, von JavaScript übernommen
 \item[•] \textbf{array}: eine Liste von Elementen des gleichen Datentyps, von JavaScript übernommen
-\item[•] \textbf{tuple}: eine Liste von Elementen unterschiedlichen Datentyps deren Anzahl bekannt ist
+\item[•] \textbf{tuple}: eine Liste von Elementen unterschiedlichen Datentyps, deren Anzahl bekannt ist
 \item[•] \textbf{enum}: eine Möglichkeit, numerischen Werten Namen zu geben
 \item[•] \textbf{any}: Datentyp unbekannt, wird behandelt wie in JavaScript
 \item[•] \textbf{void}: kein Datentyp, meist Rückgabewert bei Funktionen
@@ -86,10 +86,10 @@ Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie 
 
 \subsection{HTML}
 \label{sec:vor-html}
-\ac{HTML} ist eine Markup Language, zu Deutsch Auszeichnungssprache, das bedeutet, es ist keine Programmiersprache, sondern beinhaltet Informationen, wie etwas dargestellt werden soll. Eine \ac{HTML} Datei ist rein textuell und erst durch ein Programm, z.B. einen Browser, wird die Datei formatiert dargestellt. \ac{HTML} ist der Standard für alle Websites im Internet. Eine \ac{HTML} Datei kann aus drei Teilen bestehen. Dem eigentlichem \ac{HTML}, JavaScript und Styles. JavaScript und Styles können, zur besseren Übersicht, in eigenen Dateien ausgelagert werden.
+\ac{HTML} ist eine Markup Language, zu Deutsch Auszeichnungssprache, dies bedeutet, sie ist keine Programmiersprache, sondern beinhaltet nur Informationen, wie etwas dargestellt werden soll. Eine \ac{HTML} Datei ist rein textuell und wird erst durch ein Programm, z.B. einen Browser, formatiert dargestellt. \ac{HTML} ist der Standard für alle Websites im Internet. Eine \ac{HTML} Datei kann aus drei Teilen bestehen. Dem eigentlichem \ac{HTML}, JavaScript und Styles. JavaScript und Styles können zur besseren Übersicht in eigenen Dateien ausgelagert werden.
 
 \subsection{CSS}
-\ac{CSS} sind die Style Dateien einer Website. In einer \ac{CSS} Datei steht, wie ein \ac{HTML} Element aussieht. Mithilfe von Styles kann z.B. Die Farbe, Größe, Platzierung, Schriftart und vieles mehr eines Elementes bestimmt werden. Da das Design in eine eigene Datei ausgelagert wurde, muss es eine Zuweisung zwischen \ac{CSS} und \ac{HTML} geben. Dafür gibt es drei Arten. Entweder man weist es jedem Element diesen Typs zu, nur einem Element mit einer bestimmten ID oder jedem Element einer bestimmten Klasse. Mit dem Schlüsselwort \inlinecode{css}{!important} kann man bestimmen, welcher Style bevorzugt genommen wird, wenn eine Doppelbelegung existiert.
+\ac{CSS} sind die Style Dateien einer Website. In einer \ac{CSS} Datei steht, wie ein \ac{HTML} Element aussieht. Mithilfe von Styles kann z.B. die Farbe, Größe, Platzierung, Schriftart und vieles mehr eines Elementes bestimmt werden. Da das Design in eine eigene Datei ausgelagert wurde, muss es eine Zuweisung zwischen \ac{CSS} und \ac{HTML} geben. Dafür gibt es drei Arten. Entweder man weist es jedem Element dieses Typs zu, nur einem Element mit einer bestimmten ID oder jedem Element einer bestimmten Klasse. Mit dem Schlüsselwort \inlinecode{css}{!important} kann man bestimmen, welcher Style bevorzugt genommen wird, wenn eine Doppelbelegung existiert.
 
 \begin{lstlisting}[caption=Zuweisen von Design an HTML,style=css,label=CSS-Beispiel]
 body { // Zuweisung an alle Elemente eines Typs
@@ -108,15 +108,15 @@ body { // Zuweisung an alle Elemente eines Typs
 
 \subsection{DOM}
 \label{sec:vor-dom}
-Das \ac{DOM} ist die Objektrepräsentation des \ac{HTML} Dokuments. Durch das \ac{DOM} kann eine JavaScript Anwendung \ac{HTML} Elemente ändern, entfernen, und hinzufügen, \ac{HTML} Attribute ändern, entfernen und hinzufügen und \ac{CSS} Styles ändern. Das \ac{DOM} wird vom Browser beim Laden der Website erstellt. 
+Das \ac{DOM} ist die Objektrepräsentation des \ac{HTML} Dokuments. Durch das \ac{DOM} kann eine JavaScript Anwendung \ac{HTML} Elemente ändern, entfernen oder hinzufügen, sowie \ac{HTML} Attribute ändern, entfernen oder hinzufügen und \ac{CSS} Styles ändern. Das \ac{DOM} wird vom Browser beim Laden der Website erstellt. 
 
 \subsection{Node.js}
 \label{sec:vor-node}
-Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mit kopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
+Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mitkopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
 
 \subsection{express}
 \label{sec:vor-express}
-Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. In diesen Modulen ist bereits alles enthalten, dass benötigt wird, um einen Webserver zu programmieren. Express nimmt uns die meiste Arbeit ab und bietet viele weitere Möglichkeiten\footnote{Weitere Information zu express unter \url{https://expressjs.com/}}.
+Express ist ein Javascript Modul, das auf dem Node.js Modul \textit{http} bzw \textit{https} aufbaut. In diesen Modulen ist bereits alles enthalten, was benötigt wird, um einen Webserver zu programmieren. Express nimmt uns die meiste Arbeit ab und bietet viele weitere Möglichkeiten\footnote{Weitere Information zu express unter \url{https://expressjs.com/}}.
 
 \subsection{JSON}
 \label{sec:vor-json}
@@ -153,11 +153,11 @@ Express ist ein Javascript Modul, dass auf dem Node.js Modul \textit{http} bzw \
 
 \subsection{JSON Web Token}
 \label{sec:vor-jwt}
-\ac{JWT} ist ein JSON-basierter, offener Standard für das erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client beide überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen. Dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorithmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature steht der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
+\ac{JWT} ist ein JSON-basierter offener Standard für das Erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen: dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorithmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature stehen der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
 
 \subsection{MongoDB}
 \label{sec:vor-mongo}
-MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank, im Vergleich zu schemenbehafteten Datenbanken, keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBMS}, das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind z.B. die Datenbank \textit{fuettr} ist über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
+MongoDB ist eine schemenlose Datenbank. Schemenlos bedeutet, dass die Datenbank im Vergleich zu schemenbehafteten Datenbanken keine klare Strukturierung benötigt. Einer schemenlosen Datenbank kann man einfach Daten geben und wieder abfragen. Eine schemenbehaftete Datenbank ist in Zeilen und Spalten unterteilt. Diese müssen vorher feststehen. Da Raspian, das Betriebssystem vom Raspberry Pi, nur 32 Bit ist und MongoDB ab Version 3 nur mehr in 64 Bit erhältlich ist, mussten wir auf eine ältere Version wechseln. Die Verbindung der MongoDB Datenbank erfolgt über einen Driver. Der Driver muss mit der Datenbankversion übereinstimmen. MongoDB ist ein \ac{DBMS}. Das bedeutet, ein Server läuft auf dem Port 27017, über den alle Datenbanken im System erreichbar sind, beispielsweise ist die Datenbank \textit{fuettr} über \inlinecode{bash}{localhost:27017/fuettr} erreichbar. Eine Gruppe von Daten nennt man Collection. Zugriff auf die Datenbank erfolgt serverseitig wie folgt:
 
 \begin{lstlisting}[caption=Verbinden mit dem \ac{DBMS},style=TS]
 const dbServer = await mongodb.MongoClient.connect(url);
@@ -215,12 +215,12 @@ Eine Angular Library ist ein Modul, das \textit{Modules} exportiert. Diese könn
 Ein \textit{Component} kontrolliert einen Teil des Bildschirms, den sogenannten \textit{view}. Die Logik des \textit{Component}s wird in einer Klasse definiert. Die Klasse interagiert mit dem \textit{view} durch eine \ac{API} von Eigenschaften und Methoden.
 
 \paragraph*{Lifecycle Hooks}\mbox{}\\
-Ein Lebenszyklus in Angular ist immer der Lebenszyklus des jeweiligen \textit{Components}. Ein \textit{Component} kann erstellt, verändert und zerstört werden. Zu jedem Stadium gibt es eine Methode, die automatisch je nach Stadium von Angular aufgerufen werden. Die am häufigsten verwendeten sind:
+Ein Lebenszyklus in Angular ist immer der Lebenszyklus des jeweiligen \textit{Components}. Ein \textit{Component} kann erstellt, verändert und zerstört werden. Zu jedem Stadium gibt es eine Methode, die automatisch je nach Stadium von Angular aufgerufen wird. Die am häufigsten verwendeten sind:
 
 \begin{itemize}
-\item[•] \textbf{OnInit()}: Wird aufgerufen, wenn der \textit{Component} erstellt wird. Die dazugehörige Methode ist \inlinecode{TS}{ngOnInit()}. Zeitaufwendige Operationen sollten hier aufgerufen werden, anstatt im constructor, da das den Erzeugungsvorgang verlangsamen würden.
-\item[•] \textbf{OnDestroy()}: Wird aufgerufen, wenn der \textit{Component} zerstört wird. Die dazugehörige Methode ist \inlinecode{TS}{ngOnDestroy()}. Hier sollten alle laufenden Prozesse, wie Intervals und Callbacks beendet werden.
-\item[•] \textbf{OnChanges()/DoCheck()}: Werden aufgerufen, wenn sich irgentetwas an der \textit{Component} ändert. Die dazugehörige Methoden sind \inlinecode{TS}{ngOnChanges()} und \inlinecode{TS}{ngDoCheck()}.
+\item[•] \textbf{OnInit()}: Wird aufgerufen, wenn der \textit{Component} erstellt wird. Die dazugehörige Methode ist \inlinecode{TS}{ngOnInit()}. Zeitaufwendige Operationen sollten anstatt im constructor hier aufgerufen werden, da das den Erzeugungsvorgang verlangsamen würde.
+\item[•] \textbf{OnDestroy()}: Wird aufgerufen, wenn der \textit{Component} zerstört wird. Die dazugehörige Methode ist \inlinecode{TS}{ngOnDestroy()}. Hier sollten alle laufenden Prozesse wie Intervals und Callbacks beendet werden.
+\item[•] \textbf{OnChanges()/DoCheck()}: Werden aufgerufen, wenn sich irgendetwas an der \textit{Component} ändert. Die dazugehörige Methoden sind \inlinecode{TS}{ngOnChanges()} und \inlinecode{TS}{ngDoCheck()}.
 \end{itemize}
 
 Alle Lifecycle Hooks müssen von der Klasse mit \inlinecode{TS}{implements} implementiert und von \textit{@angular/core} importiert werden.
@@ -256,26 +256,26 @@ Die meisten Zusatzbefehle werden für \textit{Data Binding} verwendet.
 
 \subsubsection{Data binding}
 \label{sec:ang-data-binding}
-Ohne Framework wäre der Programmierer dafür verantwortlich, sicherzustellen, dass Daten in \ac{HTML} Elemente geschrieben werden und dass auf Benutzerinteraktionen reagiert wird. Das ist aufwendig, Fehleranfällig und schwer zu lesen. Angulars Lösung dafür nennt sich \textit{data binding}. Der Programmierer muss nur mehr im \ac{HTML} Template Angular mitteilen, wie die beiden Seiten verbunden werden sollen. In der Abbilung \ref{Angular Databinding} sind die vier möglichen Arten von \textit{data binding} dargestellt. Jede Art hat eine Richtung, vom \ac{DOM} zum \ac{DOM} oder in beide Richtungen.
+Ohne Framework wäre der Programmierer dafür verantwortlich sicherzustellen, dass Daten in \ac{HTML} Elemente geschrieben werden und dass auf Benutzerinteraktionen reagiert wird. Das ist aufwendig, fehleranfällig und schwer zu lesen. Angulars Lösung dafür nennt sich \textit{data binding}. Der Programmierer muss nur mehr im \ac{HTML} Template Angular mitteilen, wie die beiden Seiten verbunden werden sollen. In der Abbilung \ref{Angular Databinding} sind die vier möglichen Arten von \textit{data binding} dargestellt. Jede Art hat eine Richtung, vom \ac{DOM} zum \ac{DOM} oder in beide Richtungen.
 
 \begin{itemize}
 \item[•] \inlinecode{Html}{<span>\{\{variable\}\}</span>} Der Wert der Variable in den Klammern wird anstelle des Klammerausdrucks dargestellt. Wenn sich der Wert ändert, ändert sich auch der Wert im \ac{DOM}
 \item[•] \inlinecode{Html}{<span [hidden]="hide"></span>} übergibt den Wert in der angegebenen Variable in das angegebene Attribut
 \item[•] \inlinecode{Html}{<span (click)="clicked(\$event)"></span>} ruft die angegebene Methode auf, wenn das angegebene Event auftritt, in diesem Fall ein click-Event
-\item[•] \inlinecode{Html}{<input [(ngModel)]="variable">} der Wert im Eingabefeld und in der Variable sind voneinander abhängig, ändert sich der eine, so ändert sich der andere zum gleichen
+\item[•] \inlinecode{Html}{<input [(ngModel)]="variable">} der Wert im Eingabefeld und in der Variable sind voneinander abhängig, ändert sich der eine, so ändert sich zugleich der andere zum gleichen Wert
 \end{itemize}
 
 \subsubsection{Services}
 \label{sec:ang-services}
-Services sind Klassen, die eine Aufgabe erfüllen, unabhängig von allem anderen. Sie werden vor allem verwendet, wenn eine Aufgabe etwas Zeit erfordert, wie z.B. eine Serveranfrage. Services bieten auch die Möglichkeit, dass \textit{Components} Zugriff auf eine gemensame Variable haben, da Angular keine globalen Variablen hat. Services müssen vom \textit{Dependency Injector} injiziert werden. Der \textit{Dependency Injector} indiziert alle Abhängigkeiten in eine \textit{Component}.
+Services sind Klassen, die eine Aufgabe erfüllen, unabhängig von allem anderen. Sie werden vor allem verwendet, wenn eine Aufgabe etwas Zeit erfordert wie z.B. eine Serveranfrage. Services bieten auch die Möglichkeit, dass \textit{Components} Zugriff auf eine gemeinsame Variable haben, da Angular keine globalen Variablen hat. Services müssen vom \textit{Dependency Injector} injiziert werden. Der \textit{Dependency Injector} indiziert alle Abhängigkeiten in eine \textit{Component}.
 
 \subsection{Angular CLI}
 \label{sec:vor-angular-cli}
-Das Angular \ac{CLI} ist ein JavaScript Modul, das über den \ac{npm} installiert werden kann. Mithilfe des \ac{CLI} ist das erstellen und übersetzen von Angular Anwendungen um vieles erleichtert. Ein neues Projekt erstellt man mit \inlinecode{bash}{ng new <projektname>} und übersetzt wird mit \inlinecode{bash}{ng build}. Mit der Option \inlinecode{bash}{--prod} wird die Anwendung kompakter und für den Einsatz im produktiven Umfeld übersetzt.
+Das Angular \ac{CLI} ist ein JavaScript Modul, das über den \ac{npm} installiert werden kann. Mithilfe des \ac{CLI} ist das Erstellen und Übersetzen von Angular Anwendungen um vieles erleichtert. Ein neues Projekt erstellt man mit \inlinecode{bash}{ng new <projektname>} und übersetzt wird mit \inlinecode{bash}{ng build}. Mit der Option \inlinecode{bash}{--prod} wird die Anwendung kompakter und für den Einsatz im produktiven Umfeld übersetzt.
 
 \subsection{Bootstrap}
 \label{sec:vor-bootstrap}
-Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefertigte Komponenten auf unserer Website zu verwenden. An erster Stelle stehen bei Bootstrap responsive Design und Mobilgeräte. Responsive bedeutet, dass die Elemente sich an die breite des Bildschirms anpassen. Dadurch erspart man sich als nicht sehr designaffiner Programmierer viel Arbeit. Auf der offiziellen Bootstrap Website kann man außerdem verschiedene Themes auswählen. Bootstrap wurde von Twitter entwickelt und ist entweder über den \ac{npm} oder über Bootstraps eigenes \ac{CDN} erhältlich.
+Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefertigte Komponenten auf unserer Website zu verwenden. An erster Stelle stehen bei Bootstrap responsive Design und Mobilgeräte. Responsive bedeutet, dass die Elemente sich an die Breite des Bildschirms anpassen. Dadurch erspart man sich als nicht sehr designaffiner Programmierer viel Arbeit. Auf der offiziellen Bootstrap Website kann man außerdem verschiedene Themes auswählen. Bootstrap wurde von Twitter entwickelt und ist entweder über den \ac{npm} oder über Bootstraps eigenes \ac{CDN} erhältlich.
 
 \section{Umsetzung}
 \label{sec:umsetzung}
@@ -306,7 +306,7 @@ Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefer
 
 Das Projekt ist so strukturiert, dass eine klare Trennung zwischen Client und Server herrscht.
 \paragraph*{Server} Im \textit{keys} Ordner befinden sich der öffentliche und private Schlüssel, die vom install Script erstellt werden. Im \textit{public} Ordner befinden sich die Ressourcen, die direkt vom Server gesendet werden, z.B. Fehlermeldungsseiten. Im \textit{src} Ordner sind die TypeScript Arbeitsdateien. Diese werden in den \textit{dist} Ordner übersetzt.
-\paragraph*{Client} Der Client Ordner hat den Namen \textit{ngx}, dass sagt aus, es ist ein Angular Projekt, die Angular Version ist aber egal. Im \textit{src} Ordner befinden sich alle Dateien, die das Angular \ac{CLI} benötigt, um die Anwendung zu bauen. Im \textit{assets} Ordner befinden sich alle Ressourcen, die die Anwendung benötigt, wie z.B. Bilder. Im Ordner \textit{i18n} befinden sich die Dateien, die das \ac{CLI} braucht, um die Anwendung in mehrere Sprachen zu übersetzen. Im \textit{app} Ordner befindet sich die eigentlich Anwendung. Die Anwendung ist klar getrennt in den Ordner \textit{components} und \textit{services}.
+\paragraph*{Client} Der Client Ordner hat den Namen \textit{ngx}, das sagt aus, es ist ein Angular Projekt, die Angular Version ist aber nicht weiter angegeben. Im \textit{src} Ordner befinden sich alle Dateien, die das Angular \ac{CLI} benötigt, um die Anwendung zu bauen. Im \textit{assets} Ordner befinden sich alle Ressourcen, die die Anwendung benötigt wie z.B. Bilder. Im Ordner \textit{i18n} befinden sich die Dateien, die das \ac{CLI} braucht, um die Anwendung in mehrere Sprachen zu übersetzen. Im \textit{app} Ordner befindet sich die eigentliche Anwendung. Die Anwendung ist klar getrennt in den Ordner \textit{components} und \textit{services}.
 
 \subsection{Client}
 \label{sec:ums-client}
@@ -337,7 +337,7 @@ Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt.
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde, oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \\
+Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -369,11 +369,11 @@ Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \newpage
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Update-Seite kann der Benutzer nach Updates suchen, Updates starten oder die Maschine herunterfahren. Wenn der Benutzer auf den Herunterfahren-Button klickt, der sich auf der linken Seite ganz unten befindet, wird er gewarnt, dass die Maschine nur mehr über das Aus- und wieder Einstecken des Netzteils Startbar ist.\\
+Auf der Update-Seite kann der Benutzer nach Updates suchen, Updates starten oder die Maschine herunterfahren. Wenn der Benutzer auf den Herunterfahren-Button klickt, der sich auf der linken Seite ganz unten befindet, wird er gewarnt, dass die Maschine nur mehr über das Aus- und wieder Einstecken des Netzteils startbar ist.\\
 
 \subsubsection{Design}
 \label{sec:ums-client-design}
-Für das Design der Website wurde Bootstrap ausgewählt, da es bereits viele Positionierungsmöglichkeiten bietet und ohne viel Aufwand im Client verwendet werden kann. Bootstrap ist außerdem für Mobilgeräte und alle Bildschirmgrößen optimiert. Es bietet die Möglichkeit für Dropdownmenüs, Menüleisten und Popups. Diese Funktionen werden bei Bootstrap im Normalfall über JQuery\footnote{Mehr zu JQuery unter \url{https://jquery.com/}} gesteuert, aber da JQuery eine weitere externe JavaScript Bibliothek ist, wurde stattdessen das JavaScript Modul \textit{ng-bootstrap} verwendet. Dieses Ist eine Erweiterung für Angular, mit dem sich die Bootstrap Komponenten steuern lassen. Damit dies funktioniert muss \textit{ng-bootstrap} im \textit{Module} unserer Applikation eingebunden werden.
+Für das Design der Website wurde Bootstrap ausgewählt, da es bereits viele Positionierungsmöglichkeiten bietet und ohne viel Aufwand im Client verwendet werden kann. Bootstrap ist außerdem für Mobilgeräte und alle Bildschirmgrößen optimiert. Es bietet die Möglichkeit für Dropdownmenüs, Menüleisten und Popups. Diese Funktionen werden bei Bootstrap im Normalfall über JQuery\footnote{Mehr zu JQuery unter \url{https://jquery.com/}} gesteuert, aber da JQuery eine weitere externe JavaScript Bibliothek ist, wurde stattdessen das JavaScript Modul \textit{ng-bootstrap} verwendet. Dieses ist eine Erweiterung für Angular, mit dem sich die Bootstrap Komponenten steuern lassen. Damit dies funktioniert, muss \textit{ng-bootstrap} im \textit{Module} unserer Applikation eingebunden werden.
 
 \begin{lstlisting}[caption=app.module (Auszug) Importieren von ng-bootstrap,label=import-ng-bootstrap,style=TS]
 ...
@@ -383,7 +383,7 @@ imports: [NgbModule.forRoot(), ...]
 ...
 \end{lstlisting}
 
-Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich mich für das \textit{Superhero} Thema von der Seite \url{https://bootswatch.com/superhero/}. Da mir die orange Farbe nicht gefiel, änderte ich sie auf einen dunkleren Grauton, den ich aus einem Bild einer süßen Babykatze genommen habe. Bootstrap hat außerdem eine Standartschriftart, die ich geändert habe. Alle Schriftarten sind von der Seite \url{https://fonts.google.com/} genommen worden, da diese in Google's \ac{CDN} sind und somit ziemlich sicher die meiste Zeit verfügbar sind. Gewählt wurden die Schriftarten Ubuntu für alle Knöpfe und die Navigationsleiste, Allerta für alle Texte und Concert One für das Logo. Damit die Schrift auf allen Geräten gut lesbar ist und nicht zu groß wird, mussten die Schriftgrößen entsprechen der Bildschirmbreite angepasst werden.
+Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich mich für das \textit{Superhero} Thema von der Seite \url{https://bootswatch.com/superhero/}. Da mir die orange Farbe nicht gefiel, änderte ich sie auf einen dunkleren Grauton, den ich aus einem Bild einer süßen Babykatze genommen habe. Bootstrap hat außerdem eine Standartschriftart, die ich geändert habe. Alle Schriftarten sind von der Seite \url{https://fonts.google.com/} genommen worden, da diese in Google's \ac{CDN} sind und somit ziemlich sicher die meiste Zeit verfügbar sind. Gewählt wurden die Schriftarten Ubuntu für alle Knöpfe und die Navigationsleiste, Allerta für alle Texte und Concert One für das Logo. Damit die Schrift auf allen Geräten gut lesbar ist und nicht zu groß wird, mussten die Schriftgrößen der Bildschirmbreite entsprechend angepasst werden.
 
 \begin{lstlisting}[caption=Schriftgrößen entsprechend der Bildschirmbreite,label=css-font-sizes,style=css]
 @media only screen and (max-width: 576px) {
@@ -423,7 +423,7 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
 Durch \inlinecode{css}{@media only screen and (max-width: ZAHLpx)} wird die Bildschirmbreite bestimmt und alle Styles innerhalb der Klammern werden nur dann angewandt, wenn der Ausdruck in der Klammer zutrifft. In der Klammer wird die Schriftgröße des \inlinecode{css}{body} Elements und allen Elementen der Klasse \inlinecode{css}{.bigger-h1} angepasst.
 
 \paragraph*{Login}\mbox{}\\
-Auf der Login Seite befindet sich rechts oben ein Dropdownmenü, in dem die Sprache geändert werden kann. Dies ist gelöst durch ein \inlinecode{HTML}{*ngFor}. Wenn das Menü geschlossen ist, wird dort die Flagge der aktuellen Sprache angezeigt, Österreich bei Deutsch und Großbritannien bei Englisch. Wenn man auf das Menü klickt, klappen alle Sprachen, die zur Auswahl stehen, herunter und der Benutzer kann auf eine klicken. Die verschiedenen Auswahlmöglichkeiten sind Links, die den Benutzer auf den jeweiligen Sprachcode umleiten und die Seite somit in der gewünschten Sprache anzeigen. In der Mitte der Seite befindet sich ein Bootstrap Jumbotron. Ein Jumbotron ist dafür gedacht, auf etwas Aufmerksamkeit zu ziehen. Damit verändert sich die Hintergrundfarbe und es entsteht eine klare Abhebung. Innerhalb des Jumbotrons ist ein \ac{HTML} Formular, in das der Benutzername und das Password vom Benutzer hineingeschrieben werden. Beim Klick auf den Knopf \textit{Anmelden} werden diese Daten dem Server übermittelt. Sollte das Anmelden geglückt sein, so wird automatisch die Startseite angezeigt. Auf allen weiteren Seiten ist rechts oben ein Knopf, mit dem sich der Benutzer abmelden kann.
+Auf der Login Seite befindet sich rechts oben ein Dropdownmenü, in dem die Sprache geändert werden kann. Dies ist gelöst durch ein \inlinecode{HTML}{*ngFor}. Wenn das Menü geschlossen ist, wird dort die Flagge der aktuellen Sprache angezeigt, Österreich bei Deutsch und Großbritannien bei Englisch. Wenn man auf das Menü klickt, klappen alle Sprachen herunter, die zur Auswahl stehen und der Benutzer kann auf eine klicken. Die verschiedenen Auswahlmöglichkeiten sind Links, die den Benutzer auf den jeweiligen Sprachcode umleiten und die Seite somit in der gewünschten Sprache anzeigen. In der Mitte der Seite befindet sich ein Bootstrap Jumbotron. Ein Jumbotron ist dafür gedacht, auf etwas Aufmerksamkeit zu ziehen. Damit verändert sich die Hintergrundfarbe und es entsteht eine klare Abhebung. Innerhalb des Jumbotrons ist ein \ac{HTML} Formular, in das der Benutzername und das Password vom Benutzer hineingeschrieben werden. Beim Klick auf den Knopf \textit{Anmelden} werden diese Daten dem Server übermittelt. Sollte das Anmelden geglückt sein, so wird automatisch die Startseite angezeigt. Auf allen weiteren Seiten ist rechts oben ein Knopf, mit dem sich der Benutzer abmelden kann.
 
 \paragraph*{Startseite}\mbox{}\\
 Auf der linken Seite befindet sich ein Jumbotron, in dem die letzte Fütterungszeit, die nächste Fütterungszeit und die Zeit bis zur nächsten Fütterung angezeigt werden. Auf der rechten Seite werden die aktiven Fütterungszeiten angezeigt. Sollte eine Zeit deaktiviert werden, so wird sie auch nicht in dieser Liste angezeigt. Der Jumbotron und die Liste sind mithilfe von Bootstrap in einem Verhältnis von 2:1 nebeneinander angeordnet. Sollte die Bildschirmbreite zu klein werden, entweder, weil die Seite auf einem Mobilgerät angezeigt wird, oder weil der Benutzer das Browserfenster klein darstellt, so werden die beiden Elemente untereinander dargestellt. Unterhalb des Jumbotrons werden auftretende Fehler und Warnungen angezeigt. Dies ist wiederum mit zwei \inlinecode{HTML}{*ngFor} gelöst. Die Fehler und Warnungen sind Bootstrap Alerts. Sie sind dafür gedacht, dem Benutzer auf etwas aufmerksam zu machen. Sie können durch ein x auf der rechten Seite geschlossen werden. Am unteren Bildschirmrand ist eine Leiste, die die gleiche Farbe wie die Navigationsleiste hat. Auf ihr wird links angezeigt, ob die Maschine ein- oder ausgeschalten ist.
@@ -500,13 +500,13 @@ Auf dieser Seite befinden sich vier Elemente, die mithilfe von Bootstrap in vier
 In der Mitte der Seite befindet sich ein Jumbotron, der die ganze Seitenbreite umfasst. In ihm ist eine Tabelle, die mit der Bootstrap Klasse \inlinecode{css}{.table-hover} gestyled wurde. Diese Klasse bewirkt, dass die Zeile, über die der Mauszeiger sich gerade befindet, hervorgehoben wird. Dadurch kann der Benutzer leichter erkennen, in welcher Zeile er gerade liest.
 
 \paragraph*{Aktualisierungen}\mbox{}\\
-Auf dieser Seite befindet sich nur ein Knopf in der Mitte, der ein Popup, ein sogenanntes Modal, 
+Auf dieser Seite befindet sich nur ein Knopf in der Mitte, der ein Popup, ein sogenanntes Modal, anzeigt. Dies ist durch \textit{ng-bootstrap} gelöst. Bei Aufruf der Seite wird überprüft, ob eine Softwareaktualisierung verfügbar ist. Im Modal wird dann angezeigt, ob eine Aktualisierung verfügbar ist und wie lange es gedauert hat, bis die Überprüfung abgeschlossen war. Sollte eine Aktualisierung verfügbar sein, so wird ein Knopf angezeigt, über den der Benutzer den Aktualisierungsvorgang starten kann. Wird der Aktualisierungsvorgang gestartet, so wird der Knopf deaktiviert, sodass er nicht mehr anklickbar ist. Ein Ladebalken zeigt dem Benutzer, dass der Vorgang unbestimmte Zeit dauert. In dem Ladebalken steht ein Text, der dem Benutzer mitteilt, in welchem Stadium das Raspberry sich befindet, siehe \autoref{par:funk-upd}.
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
 
 \paragraph*{Struktur} \mbox {}\\
-Der Haupt-\textit{Component}, der geladen wird, wenn die Seite aufgerufen wird, ist \textit{app.component}. In seinem Template ist die Navigationsleiste, die sich alle Seiten teilen. Alle weiteren Seiten werden im \inlinecode{html}{<router-outlet></router-outlet>} angezeigt. Das ist ein \ac{HTML}-Tag der von Angulars Router zur Verfügung gestellt wird. Ein Router ist ein Service, dass das Navigieren der Seite ermöglicht. Damit das funktioniert, muss dem Router mitgeteilt werden, wie die Seite aufgebaut ist. Dies geschieht im \textit{router.module}:
+Der Haupt-\textit{Component}, der geladen wird, wenn die Seite aufgerufen wird, ist \textit{app.component}. In seinem Template ist die Navigationsleiste, die sich alle Seiten teilen. Alle weiteren Seiten werden im \inlinecode{html}{<router-outlet></router-outlet>} angezeigt. Das ist ein \ac{HTML}-Tag der von Angulars Router zur Verfügung gestellt wird. Ein Router ist ein Service, welches das Navigieren der Seite ermöglicht. Damit das funktioniert, muss dem Router mitgeteilt werden, wie die Seite aufgebaut ist. Dies geschieht im \textit{router.module}:
 
 \begin{lstlisting}[caption=Routes Definition,style=TS]
 const routes: Routes = [
@@ -528,7 +528,7 @@ const routes: Routes = [
 ];
 \end{lstlisting}
 
-Jede Route bekommt ein data Objekt übergeben, dass bei Aufruf der \textit{Component} dem @Input Decorator injiziert wird. Der jeweilige \textit{Component} ändert damit den Titel der Seite. Alle Routes, bis auf \textit{login} und \textit{404} sind von einem AuthGuard geschützt, dass bedeutet, nur authorisierte Benutzer können diese Routes aufrufen. Der Request auf \textit{root} \inlinecode{TS}{path: ''} wird umgeleitet auf \textit{login}. Für jeden Request, dessen Route nicht definiert ist, wird der 404 Component geladen: \inlinecode{TS}{path: '**'}. Um auf eine andere Seite innerhalb der Applikation zu gelangen gibt es zwei Möglichkeiten. Einmal über ein \ac{HTML} Element auf das der Benutzer klickt mittels \ac{HTML} Attribut \inlinecode{HTML}{routerLink} oder auf der TypeScript Seite.
+Jede Route bekommt ein data Objekt übergeben, das bei Aufruf der \textit{Component} dem @Input Decorator injiziert wird. Der jeweilige \textit{Component} ändert damit den Titel der Seite. Alle Routes, außer \textit{login} und \textit{404} sind von einem AuthGuard geschützt, das bedeutet, nur authorisierte Benutzer können diese Routes aufrufen. Der Request auf \textit{root} \inlinecode{TS}{path: ''} wird umgeleitet auf \textit{login}. Für jeden Request, dessen Route nicht definiert ist, wird der 404 Component geladen: \inlinecode{TS}{path: '**'}. Um auf eine andere Seite innerhalb der Applikation zu gelangen, gibt es zwei Möglichkeiten. Einmal über ein \ac{HTML} Element, auf das der Benutzer klickt mittels \ac{HTML} Attribut \inlinecode{HTML}{routerLink} oder auf der TypeScript Seite.
 
 \begin{lstlisting}[caption=Weiterleitung mittels \ac{HTML} Attributes,label=html-redirect,style=HTML]
 <a class="nav-link" routerLink="/feed" i18n>...</a>
@@ -539,11 +539,11 @@ this.router.navigateByUrl('/home');
 \end{lstlisting}
 
 \paragraph*{\ac{HTTP} Service}\mbox{}\\
-Da alle \textit{Components} Daten vom Server holen und manche auch Daten zum Server schicken, war es die logische Schlussfolgerung, ein Service zu erstellen, das egal welche Art von \ac{HTTP} Anfrage verarbeiten kann. Dieses Service ist \textit{http.service}. Alle Anfragen, egal ob \textit{GET} oder \textit{PUT} werden von diesem Service getätigt. Das Service importiert Angular's \textit{HttpClient}, mit dem es sehr einfach ist, Anfragen zu erstellen und die Antworten zu verarbeiten. Die Antworten vom Server sind vom Typ \textit{application/json}, das bedeutet, sie sind \ac{JSON}-Dateien, die der \textit{HttpClient} dann in Objekte umwandelt. Diese Objekte werden dem \textit{Component} übergeben, sobald die Anfrage abgeschlossen wurde.
+Da alle \textit{Components} Daten vom Server holen und manche auch Daten zum Server schicken, war es die logische Schlussfolgerung, ein Service zu erstellen, das jede Art von \ac{HTTP} Anfrage verarbeiten kann. Dieses Service ist \textit{http.service}. Alle Anfragen, egal ob \textit{GET} oder \textit{PUT} werden von diesem Service getätigt. Das Service importiert Angular's \textit{HttpClient}, mit dem es sehr einfach ist, Anfragen zu erstellen und die Antworten zu verarbeiten. Die Antworten vom Server sind vom Typ \textit{application/json}, das bedeutet, sie sind \ac{JSON}-Dateien, die der \textit{HttpClient} dann in Objekte umwandelt. Diese Objekte werden dem \textit{Component} übergeben, sobald die Anfrage abgeschlossen wurde.
 
 \paragraph*{Fütterungszeiten}\mbox{}\\
 \label{par:funk-fuettr}
-Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook (siehe \ref{sec:ang-components}). Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten.
+Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit außer Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook (siehe \ref{sec:ang-components}). Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten.
 
 \begin{lstlisting}[caption=Zeiten Parser,style=TS,label=zeiten_parser,captionpos=t]
 toMinutes(time: string): number {
@@ -581,6 +581,7 @@ animations: [
 Bei dem zu animierenden Element wird \inlinecode{HTML}{[@NameDerAnimation]="auslöserVariable"} in die Attribute geschrieben. Ändert sich diese Variable, so wird die Animation gestartet. Animiert werden kann alles, dass durch Styles bestimmt werden kann.
 
 \paragraph*{Updates}\mbox{}\\
+\label{par:funk-upd}
 Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird aktualisiert, so wird eine Anfrage an den Server gesendet siehe \ref{sec:ums-server-funktion}. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht teilt dem Benutzer mit, dass das System aktualisiert. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
 
 \paragraph*{Login}\mbox{}\\
@@ -588,7 +589,7 @@ Das Login funktioniert auf der Basis des Angular Auth Guards. Dieser schützt ge
 
 \subsubsection{Internationalization}
 \label{sec:ums-client-i18n}
-Um die Webseite in mehreren Sprache anzeigen zu können, muss sie in allen Sprachen extra übersetzt sein. Das würde bedeuten, für jede Sprache wird ein eigenes Angular Projekt benötigt. Das wäre sehr viel Speicherplatz und Rechenleistung. Glücklicherweise bietet Angular eine Möglichkeit, die App in mehrere Sprachen zu übersetzen, ohne die ganze App neu zu schreiben. Diese Möglichkeit nennt sich Internationalization oder kurz i18n. Angluar muss nur wissen, welche Teile wie übersetzt werden sollen. Dafür schreiben wir bei allen \ac{HTML} Elementen, deren Text wir übersetzen wollen i18n zu den Attributen. \inlinecode{Html}{<h4 i18n>Zeit 1:</h4>}. Mit dem Kommando \inlinecode{bash}{ng xi18n --output-path src/i18n} werden alle Texte in eine Datei namens \textit{messages.xlf} extrahiert. Diese Datei wird dann kopiert, für jede Sprache eine neue Datei. Jede Datei wird entsprechend des Sprachencodes umbenannt, für Deutsch wäre das \textit{messages.de.xlf}. In dieser Datei steht jeder Text in einem \inlinecode{bash}{<source>} Tag. Diese Texte werden übersetzt und unterhalb in einen \inlinecode{bash}{<target>} Tag geschrieben. Im Falle dieser Arbeit wurden die Texte alle in Deutsch und Englisch übersetzt. Zum bauen des mehrsprachigen Projekts muss Angular mitgeteilt werden, welche Sprachen und welche Dateien es verwenden soll. Unter Linux geht das mit dem Kommando \inlinecode{bash}{for lang in en de; do ng build --output-path}\\\inlinecode{bash}{=dist/\$lang --aot --prod --bh \$lang/ --i18n-file=src/i18n/messages.\$lang.xlf}\\\inlinecode{bash}{--i18n-format=xlf --locale=\$lang; done}. Dieses Kommando baut unsere Applikation in den \textit{dist} Ordner, jede Sprache bekommt dabei ihren eigenen Unterordner, der Dem Sprachencode entspricht.
+Um die Webseite in mehreren Sprachen anzeigen zu können, muss sie in allen Sprachen extra übersetzt sein. Das würde bedeuten, für jede Sprache wird ein eigenes Angular Projekt benötigt. Das wäre sehr viel Speicherplatz und Rechenleistung. Glücklicherweise bietet Angular eine Möglichkeit, die App in mehrere Sprachen zu übersetzen, ohne die ganze App neu zu schreiben. Diese Möglichkeit nennt sich Internationalization oder kurz i18n. Angluar muss nur wissen, welche Teile wie übersetzt werden sollen. Dafür schreiben wir bei allen \ac{HTML} Elementen, deren Text wir übersetzen wollen i18n zu den Attributen. \inlinecode{Html}{<h4 i18n>Zeit 1:</h4>}. Mit dem Kommando \inlinecode{bash}{ng xi18n --output-path src/i18n} werden alle Texte in eine Datei namens \textit{messages.xlf} extrahiert. Diese Datei wird dann kopiert, für jede Sprache eine neue Datei. Jede Datei wird entsprechend des Sprachencodes umbenannt, für Deutsch wäre das \textit{messages.de.xlf}. In dieser Datei steht jeder Text in einem \inlinecode{bash}{<source>} Tag. Diese Texte werden übersetzt und unterhalb in einen \inlinecode{bash}{<target>} Tag geschrieben. Im Falle dieser Arbeit wurden die Texte alle in Deutsch und Englisch übersetzt. Zum Bauen des mehrsprachigen Projekts muss Angular mitgeteilt werden, welche Sprachen und welche Dateien es verwenden soll. Unter Linux geht das mit dem Kommando \inlinecode{bash}{for lang in en de; do ng build --output-path}\\\inlinecode{bash}{=dist/\$lang --aot --prod --bh \$lang/ --i18n-file=src/i18n/messages.\$lang.xlf}\\\inlinecode{bash}{--i18n-format=xlf --locale=\$lang; done}. Dieses Kommando baut unsere Applikation in den \textit{dist} Ordner, jede Sprache bekommt dabei ihren eigenen Unterordner, der dem Sprachencode entspricht.
 
 \subsubsection{Kommunikation mit dem Server}
 \label{sec:ums-client-kommunikation}
@@ -661,7 +662,7 @@ Der Client benötigt viele Daten vom Server und sendet einige an den Server. Das
 
 \subsubsection{Funktion}
 \label{sec:ums-server-funktion}
-Da auf einem Port nur ein Programm auf Anfragen warten kann und sichergestellt sein soll, dass der Server nur einmal gestartet wird, wird der Server als Singleton ausgeführt. Das bedeutet, der Konstruktor der Klasse ist nicht öffentlich. Stattdessen gibt es einen Getter, der überprüft, ob ein Objekt der Klasse bereits existiert. Sollte ein Objekt bereits erstell sein, so wird dieses zurückgegeben. Existiert noch kein Objekt, so wird eines erstellt und danach zurückgegeben. Der Server wir gestartet, indem dem Node.js Modul \textit{http} das Server Objekt übergeben wird: \inlinecode{TS}{const server = http.createServer(this._express).listen(port)}
+Da auf einem Port nur ein Programm auf Anfragen warten kann und sichergestellt sein soll, dass der Server nur einmal gestartet wird, wird der Server als Singleton ausgeführt. Das bedeutet, der Konstruktor der Klasse ist nicht öffentlich. Stattdessen gibt es einen Getter, der überprüft, ob ein Objekt der Klasse bereits existiert. Sollte ein Objekt bereits erstellt sein, so wird dieses zurückgegeben. Existiert noch kein Objekt, so wird eines erstellt und danach zurückgegeben. Der Server wir gestartet, indem dem Node.js Modul \textit{http} das Server Objekt übergeben wird: \inlinecode{TS}{const server = http.createServer(this._express).listen(port)}
 
 \begin{lstlisting}[caption=Server Singleton,label=server_singleton,style=TS]
 public static get Instance(): Server {
@@ -672,7 +673,7 @@ public static get Instance(): Server {
 }
 \end{lstlisting}
 
-Der Server wurde mit dem JavaScript Modul \textit{express} programmiert. Express ist aufgebaut mit sogenannten Middlewares. Diese werden bei eintreffen einer Anfrage der Reihe nach durchgegangen, bis eine Middleware der Anfrage entspricht. Wenn z.B. die Anfrage \inlinecode{bash}{HTTP/1.1 GET /api/version} eintrifft, werden die Middlewares nach der Reihe durchgegangen. Jede Middleware mit \inlinecode{TS}{use}, solange kein Pfad mit angegeben wurde, wird ausgeführt, alle anderen werden übersprungen. Die nächste Middleware, die ausgeführt wird, ist \inlinecode{TS}{get('/api/version', ...)}. Wird in dieser Middleware \inlinecode{TS}{next()} aufgerufen, so werden alle weiteren Middlewares durchgegangen. Sollte \inlinecode{TS}{next()} nicht aufgerufen werden, so werden keine weiteren Middlewares durchgegangen.
+Der Server wurde mit dem JavaScript Modul \textit{express} programmiert. Express ist aufgebaut mit sogenannten Middlewares. Diese werden bei Eintreffen einer Anfrage der Reihe nach durchgegangen, bis eine Middleware der Anfrage entspricht. Wenn z.B. die Anfrage \inlinecode{bash}{HTTP/1.1 GET /api/version} eintrifft, werden die Middlewares nach der Reihe durchgegangen. Jede Middleware mit \inlinecode{TS}{use}, solange kein Pfad mit angegeben wurde, wird ausgeführt, alle anderen werden übersprungen. Die nächste Middleware, die ausgeführt wird, ist \inlinecode{TS}{get('/api/version', ...)}. Wird in dieser Middleware \inlinecode{TS}{next()} aufgerufen, so werden alle weiteren Middlewares durchgegangen. Sollte \inlinecode{TS}{next()} nicht aufgerufen werden, so werden keine weiteren Middlewares durchgegangen.
 
 \begin{lstlisting}[style=TS,caption=Middlewares,label=middlewares]
 this._express.use(bodyparser.json());
@@ -694,7 +695,7 @@ this._express.use('/api', ApiRoutes.ApiRouter.Routes);
 this._express.use('/', AppRoutes.AppRouter.Routes);
 \end{lstlisting}
 
-Die beiden Middlewares \inlinecode{TS}{bodyparser.json()} und \inlinecode{TS}{bodyparser.urlencoded()} bereiten den Request so auf, dass er vom Rest der Middlewares verstanden werden kann. Diese Middlewares kommen vom JavaScript Modul \textit{body-parser}. Die Middleware \inlinecode{TS}{requestLanguage()} ist ein JavaScript Modul, dass aus dem Request-Header den Header \inlinecode{bash}{Accept-Language} ausliest und für die weitere Verarbeitung in \inlinecode{TS}{req.language} speichert. Pug Engine ist eine rendering Engine, das bedeutet, damit können \ac{HTML} Seiten während der Serverlaufzeit generiert werden, somit können Variablen eingefügt werden. \inlinecode{TS}{express.static()} stellt ein Verzeichnis mit allen Unterverzeichnissen zur Verfügung. Das gleiche Prinzip wie bei einem Apache Webserver. Die beiden Seiten des Servers, die Client Seite, und die \ac{API} sind in eigene Dateien ausgelagert. Somit herrscht ein klare Trennung zwischen dem, was der Benutzer zu sehen bekommt und dem, das nur die JavaScript Applikation sieht. Alle \textit{get} und \textit{post} Middlewares haben eine Callback Methode. In dieses bearbeiten wir alle Anfragen und beantworten sie.
+Die beiden Middlewares \inlinecode{TS}{bodyparser.json()} und \inlinecode{TS}{bodyparser.urlencoded()} bereiten den Request so auf, dass er vom Rest der Middlewares verstanden werden kann. Diese Middlewares kommen vom JavaScript Modul \textit{body-parser}. Die Middleware \inlinecode{TS}{requestLanguage()} ist ein JavaScript Modul, dass aus dem Request-Header den Header \inlinecode{bash}{Accept-Language} ausliest und für die weitere Verarbeitung in \inlinecode{TS}{req.language} speichert. Pug Engine ist eine rendering Engine, das bedeutet, damit können \ac{HTML} Seiten während der Serverlaufzeit generiert werden, somit können Variablen eingefügt werden. \inlinecode{TS}{express.static()} stellt ein Verzeichnis mit allen Unterverzeichnissen zur Verfügung. Das gleiche Prinzip wie bei einem Apache Webserver. Die beiden Seiten des Servers, die Client Seite, und die \ac{API} sind in eigene Dateien ausgelagert. Somit herrscht ein klare Trennung zwischen dem, was der Benutzer zu sehen bekommt und dem, das nur die JavaScript Applikation sieht. Alle \textit{get} und \textit{post} Middlewares haben eine Callback Methode. In dieser bearbeiten wir alle Anfragen und beantworten sie.
 
 \begin{lstlisting}[caption=Sprachenauswahl,style=TS,label=sprachenauswahl]
 public languageselector(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -708,7 +709,7 @@ public languageselector(req: express.Request, res: express.Response, next: expre
 }
 \end{lstlisting}
 
-Wenn eine Anfrage auf \textit{root} (/) eintrifft, entscheidet der Server, ausgehend von dem Wert, der in \inlinecode{TS}{req.language} steht, in welcher Sprache der Benutzer die Webseite zu sehen bekommt. Ist der Wert entweder \textit{de-De} oder \textit{de-AT}, so wird die deutsche Seite angezeigt, bei allen anderen Werten, wird die englische Seite angezeigt. Dies geschieht durch weiterleiten des Requests auf entweder \textit{/de} oder \textit{/en}. 
+Wenn eine Anfrage auf \textit{root} (/) eintrifft, entscheidet der Server, ausgehend von dem Wert, der in \inlinecode{TS}{req.language} steht, in welcher Sprache der Benutzer die Webseite zu sehen bekommt. Ist der Wert entweder \textit{de-De} oder \textit{de-AT}, so wird die deutsche Seite angezeigt, bei allen anderen Werten, wird die englische Seite angezeigt. Dies geschieht durch Weiterleiten des Requests auf entweder \textit{/de} oder \textit{/en}. 
 
 \begin{lstlisting}[style=TS,caption=Login Methode,label=login]
 public async login(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -735,7 +736,7 @@ public async login(req: express.Request, res: express.Response, next: express.Ne
 }
 \end{lstlisting}
 
-In der Login Methode wird zuerst das im Request befindliche Passwort gehashed. Nur hashen wird im Normalfall als nicht ausreichend betrachtet und weitere Faktoren, wie z.B. der Benutzername oder eine gewisse Zeichenkette werden noch mit gehashed. Dann werden alle Benutzer aus der Datenbank ausgelesen und mit dem Benutzer im Request verglichen. Sind Benutzername und Passworthash gleich, so wird mit der Methode \inlinecode{TS}{jwt.sign()} ein \ac{JWT} erstellt und signiert. Dieser Token wird in ein Objekt gepackt und dem Client als Antwort gesendet. Sollte keiner der Benutzer übereinstimmen, so wird ein leerer Token und der Fehlercode 401 Unauthorized gesendet.
+In der Login Methode wird zuerst das im Request befindliche Passwort gehashed. Nur hashen wird im Normalfall als nicht ausreichend betrachtet und weitere Faktoren wie z.B. der Benutzername oder eine gewisse Zeichenkette werden noch mit gehashed. Dann werden alle Benutzer aus der Datenbank ausgelesen und mit dem Benutzer im Request verglichen. Sind Benutzername und Passworthash gleich, so wird mit der Methode \inlinecode{TS}{jwt.sign()} ein \ac{JWT} erstellt und signiert. Dieser Token wird in ein Objekt gepackt und dem Client als Antwort gesendet. Sollte keiner der Benutzer übereinstimmen, so wird ein leerer Token und der Fehlercode 401 Unauthorized gesendet.
 
 \begin{lstlisting}[caption=Update Methode,label=update methode,style=TS]
 public update(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -759,11 +760,11 @@ public update(req: express.Request, res: express.Response, next: express.NextFun
 }
 \end{lstlisting}
 
-Beim Request auf \textit{/api/getUpdates} soll die Software aktualisiert und das Raspberry neu gestartet werden. Dafür wurde Node.Js' \textit{child\_process} Modul verwendet. Dieses Modul gibt uns die Möglichkeit, shells zu starten, in der wir dann Konsolenbefehle ausführen können. Zuerst wird das Repository aktualisiert mit \inlinecode{bash}{git pull}. Danach wird das System neugestartet mit \inlinecode{bash}{sudo reboot}. Vorher wird in eine Datei, die vom Raspberry Startup Script rc.local überprüft wird, true geschrieben. Wenn in dieser Datei true steht, werden beim starten des Raspberry alle Komponenten der Software neu gebaut.
+Beim Request auf \textit{/api/getUpdates} soll die Software aktualisiert und das Raspberry neu gestartet werden. Dafür wurde Node.Js' \textit{child\_process} Modul verwendet. Dieses Modul gibt uns die Möglichkeit, shells zu starten, in der wir dann Konsolenbefehle ausführen können. Zuerst wird das Repository aktualisiert mit \inlinecode{bash}{git pull}. Danach wird das System neugestartet mit \inlinecode{bash}{sudo reboot}. Vorher wird in eine Datei, die vom Raspberry Startup Script rc.local überprüft wird, true geschrieben. Wenn in dieser Datei true steht, werden beim Starten des Raspberry alle Komponenten der Software neu gebaut.
 
 \subsubsection{MongoDB}
 \label{sec:ums-server-mongo}
-Alle Daten, die nicht direkt vom Java-Programm benötigt werden, werden in eine Datenbank gespeichert. Über diese Datenbank haben sowohl das Java-Programm als auch der Webserver Zugriff auf die gemeinsamen Daten wie die Fütterungszeiten und Geräteinformationen. Da MongoDB eine Schemenlose Datenbank ist, können wir die Daten einfach dem \ac{DBMS} übergeben und sie werden gespeichert. Da Zugriff auf die Datenbank ebenfalls nur einmal erfolgen sollte, wurde die Klasse ebenfalls als Singleton ausgeführt. 
+Alle Daten, die nicht direkt vom Java-Programm benötigt werden, werden in eine Datenbank gespeichert. Über diese Datenbank haben sowohl das Java-Programm als auch der Webserver Zugriff auf die gemeinsamen Daten wie die Fütterungszeiten und Geräteinformationen. Da MongoDB eine Schemenlose Datenbank ist, können wir die Daten einfach dem \ac{DBMS} übergeben und sie werden gespeichert. Da ein Zugriff auf die Datenbank ebenfalls nur einmal erfolgen sollte, wurde die Klasse ebenfalls als Singleton ausgeführt. 
 
 \begin{lstlisting}[caption=Verbindung mit der Datenbank,style=TS,label=database-connection]
 const url = 'mongodb://localhost:27017/fuettr';
@@ -787,7 +788,7 @@ try {
 }
 \end{lstlisting}
 
-Die Verbindung mit dem \ac{DBMS} geschieht über die Methode \inlinecode{TS}{MongoClient.connect()}. Da wir uns dazu entschieden haben, jeden Datensatz in eine eigene Collection zu speichern, müssen Anfangs alle Collections den verschiedenen Variablen zugewiesen werden. Beim Verbinden wird außerdem überprüft, ob die Collections leer sind. Ist dies der Fall, so werden Standardwerte in die Collections geschrieben. \\\\
+Die Verbindung mit dem \ac{DBMS} geschieht über die Methode \inlinecode{TS}{MongoClient.connect()}. Da wir uns dazu entschieden haben, jeden Datensatz in eine eigene Collection zu speichern, müssen anfangs alle Collections den verschiedenen Variablen zugewiesen werden. Beim Verbinden wird außerdem überprüft, ob die Collections leer sind. Ist dies der Fall, so werden Standardwerte in die Collections geschrieben. \\\\
 
 \subsubsection{Kommunikation mit dem Java Programm}
 \label{sec:ums-server-java}
@@ -807,7 +808,14 @@ Die Kommunikation mit dem Java-Programm erfolgt über Node.js' eigenes \textit{h
 
 \subsection{Verbinden mit WLAN}
 \label{sec:ums-wlan}
-Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir diese Aufgabe ebenfalls zu. 
+Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir diese Aufgabe ebenfalls zu. Das Verbinden mit dem \ac{WLAN} auf dem Raspberry ist ein einfacher Eintrag in eine Textdatei die unter \inlinecode{bash}{/etc/wpa\_supplicant/wpa\_supplicant.conf} zu finden ist. Über den Befehl \inlinecode{bash}{sudo iwlist wlan0 scan} können alle \ac{WLAN} Netzwerke, die in Reichweite sind, angezeigt werden. Dieser Befehl wird beim Initialisieren des Fensters ausgeführt. Dieser Befehl liefert einen String zurück, welcher in einer Variable gespeichert wird. In diesem String stehen alle verfügbaren Netzwerke. Die Namen der Netzwerke müssen aus dem String extrahiert und in einer Liste gespeichert werden. Diese Liste wird in einem Dropdownmenü angezeigt. Klickt der Benutzer auf einen Eintrag, so muss er noch zusätzlich das Passwort eingeben. Beim Klick auf den Knopf \textit{Verbinden} wird das Netzwerk mit dem Passwort in der \textit{wpa\_supplicant.conf} Datei gespeichert. 
+
+\begin{lstlisting}[caption=WLAN Konfigurationsbeispiel,label=wlan-datei-beispiel,style=bash]
+network={
+    ssid="testing"
+    psk="testingPassword"
+}
+\end{lstlisting}
 
 \section{Verbesserungsmöglichkeiten und Zusammenfassung}
 \label{sec:verbesserung-und-zusammenfassung}
@@ -816,6 +824,6 @@ Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir dies
 \label{sec:verbesserung}
 Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. \\ \\
 Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst, wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. \\ \\
-Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, dass ist für Angular optimiert. \\ \\
+Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, das ist für Angular optimiert. \\ \\
 Eine größere Auswahl an Sprachen können noch angeboten werden, aber da ich nur Deutsch und Englisch beherrsche, war dies nicht möglich. \\ \\
 Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen, dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
