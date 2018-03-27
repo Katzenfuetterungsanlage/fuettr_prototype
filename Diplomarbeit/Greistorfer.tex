@@ -423,10 +423,84 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
 Durch \inlinecode{css}{@media only screen and (max-width: ZAHLpx)} wird die Bildschirmbreite bestimmt und alle Styles innerhalb der Klammern werden nur dann angewandt, wenn der Ausdruck in der Klammer zutrifft. In der Klammer wird die Schriftgröße des \inlinecode{css}{body} Elements und allen Elementen der Klasse \inlinecode{css}{.bigger-h1} angepasst.
 
 \paragraph*{Login}\mbox{}\\
-Auf der Login Seite befindet sich rechts oben ein Dropdownmenü, in dem die Sprache geändert werden kann. Dies ist gelöst durch ein \inlinecode{HTML}{*ngFor}. Wenn das Menü geschlossen ist, wird dort die Flagge der aktuellen Sprache angezeigt, Österreich bei Deutsch und Großbritannien bei Englisch. Wenn man auf das Menü klickt, klappen alle Sprachen, die zur Auswahl stehen herunter und der Benutzer kann auf eine klicken. Die verschiedenen Auswahlmöglichkeiten sind Links, die den Benutzer auf den jeweiligen Sprachcode umleiten und die Seite somit in der gewünschten Sprache anzeigen. In der Mitte der Seite befindet sich ein Bootstrap Jumbotron. Damit verändert sich die Hintergrundfarbe und es entsteht eine klare Abhebung. Innerhalb des Jumbotrons ist ein \ac{HTML} Formular, in das der Benutzername und das Password vom Benutzer hineingeschrieben werden. Beim Klick auf den Knopf \textit{Anmelden} werden diese Daten dem Server übermittelt. Sollte das Anmelden geglückt sein, so wird automatisch die Startseite angezeigt.
+Auf der Login Seite befindet sich rechts oben ein Dropdownmenü, in dem die Sprache geändert werden kann. Dies ist gelöst durch ein \inlinecode{HTML}{*ngFor}. Wenn das Menü geschlossen ist, wird dort die Flagge der aktuellen Sprache angezeigt, Österreich bei Deutsch und Großbritannien bei Englisch. Wenn man auf das Menü klickt, klappen alle Sprachen, die zur Auswahl stehen, herunter und der Benutzer kann auf eine klicken. Die verschiedenen Auswahlmöglichkeiten sind Links, die den Benutzer auf den jeweiligen Sprachcode umleiten und die Seite somit in der gewünschten Sprache anzeigen. In der Mitte der Seite befindet sich ein Bootstrap Jumbotron. Ein Jumbotron ist dafür gedacht, auf etwas Aufmerksamkeit zu ziehen. Damit verändert sich die Hintergrundfarbe und es entsteht eine klare Abhebung. Innerhalb des Jumbotrons ist ein \ac{HTML} Formular, in das der Benutzername und das Password vom Benutzer hineingeschrieben werden. Beim Klick auf den Knopf \textit{Anmelden} werden diese Daten dem Server übermittelt. Sollte das Anmelden geglückt sein, so wird automatisch die Startseite angezeigt. Auf allen weiteren Seiten ist rechts oben ein Knopf, mit dem sich der Benutzer abmelden kann.
 
 \paragraph*{Startseite}\mbox{}\\
-Auf der linken Seite befindet sich ein Jumbotron, in dem 
+Auf der linken Seite befindet sich ein Jumbotron, in dem die letzte Fütterungszeit, die nächste Fütterungszeit und die Zeit bis zur nächsten Fütterung angezeigt werden. Auf der rechten Seite werden die aktiven Fütterungszeiten angezeigt. Sollte eine Zeit deaktiviert werden, so wird sie auch nicht in dieser Liste angezeigt. Der Jumbotron und die Liste sind mithilfe von Bootstrap in einem Verhältnis von 2:1 nebeneinander angeordnet. Sollte die Bildschirmbreite zu klein werden, entweder, weil die Seite auf einem Mobilgerät angezeigt wird, oder weil der Benutzer das Browserfenster klein darstellt, so werden die beiden Elemente untereinander dargestellt. Unterhalb des Jumbotrons werden auftretende Fehler und Warnungen angezeigt. Dies ist wiederum mit zwei \inlinecode{HTML}{*ngFor} gelöst. Die Fehler und Warnungen sind Bootstrap Alerts. Sie sind dafür gedacht, dem Benutzer auf etwas aufmerksam zu machen. Sie können durch ein x auf der rechten Seite geschlossen werden. Am unteren Bildschirmrand ist eine Leiste, die die gleiche Farbe wie die Navigationsleiste hat. Auf ihr wird links angezeigt, ob die Maschine ein- oder ausgeschalten ist.
+
+\paragraph*{Fütterungszeiten}\mbox{}\\
+Unter der Überschrift befindet sich ein Schalter, der es dem Benutzer ermöglicht, die MAschine ei- und auszuschalten. Dieser Schalter ist eine normale \ac{HTML} Checkbox, die durch \ac{CSS} Styling wie ein Schalter designet wurde.
+
+\begin{lstlisting}[caption=HTML Schalter,label=html-schalter,style=HTML]
+<label class="switch">
+  <input type="checkbox" [(ngModel)]="machine_state">
+  <span class="slider"></span>
+</label>
+\end{lstlisting}
+
+\begin{lstlisting}[caption=CSS Schalter,label=css-schalter,style=css]
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  border-radius: 34px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider :before {
+  border-radius: 50%;
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input :checked + .slider {
+  background-color: #2196f3;
+}
+
+input :focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input :checked + .slider :before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+\end{lstlisting}
+
+Mit dem \inlinecode{css}{:before} Selector wird ein Element vor dem tatsächlichen Element eingefügt. Dies wird gemacht, da das \textit{input} Element nicht so dargestellt werden kann, wie wir es gerne möchten. Mit \inlinecode{css}{display: none;} blenden wir das \textit{input} Element aus. Mit \inlinecode{css}{transform:}, \inlinecode{css}{-webkit-transform:} und \inlinecode{css}{-ms-transform:} wird der Schalter animiert und es wird sichergestellt, dass alle herkömmlichen Browser es unterstützen. Darunter kann der Benutzer die Fütterungszeiten einstellen. Die \textit{input} Elemente sind durch Bootstrap in zwei Spalten im Verhältnis 1:1 angeordnet. Darunter befinden sich zwei Knöpfe, mit denen man die Eingabe der Zeiten abbrechen und bestätigen kann. Bei erfolgreicher Speicherung wird neben dem Speichern ein Knopf eingeblendet, auf dem \textit{Gespeichert} steht. Dies wird durch Angular Animationen ermöglicht, siehe \autoref{par:funk-fuettr}. Sollte das Speichern fehlschlagen, sei es durch Verbindungsprobleme oder einem falschen bzw. abgelaufenen Tokens, so wird unter dem Speichern Knopf über die ganze Seite ein Alert angezeigt, der dem Benutzer mitteilt, dass das Speichern fehlgeschlagen ist. Alle Eingegebenen Daten werden laufend überprüft, siehe \autoref{par:funk-fuettr}.
+
+\paragraph*{Positionen}\mbox{}\\
+Auf dieser Seite befinden sich vier Elemente, die mithilfe von Bootstrap in vier gleich großen Spalten angeordnet sind. Wenn die Bildschirmbreite zu klein wird, so werden sie untereinander angezeigt.
+
+\paragraph*{Geräteinformationen}\mbox{}\\
+In der Mitte der Seite befindet sich ein Jumbotron, der die ganze Seitenbreite umfasst. In ihm ist eine Tabelle, die mit der Bootstrap Klasse \inlinecode{css}{.table-hover} gestyled wurde. Diese Klasse bewirkt, dass die Zeile, über die der Mauszeiger sich gerade befindet, hervorgehoben wird. Dadurch kann der Benutzer leichter erkennen, in welcher Zeile er gerade liest.
+
+\paragraph*{Aktualisierungen}\mbox{}\\
+Auf dieser Seite befindet sich nur ein Knopf in der Mitte, der ein Popup, ein sogenanntes Modal, 
 
 \subsubsection{Funktion}
 \label{sec:ums-client-funktion}
@@ -468,7 +542,8 @@ this.router.navigateByUrl('/home');
 Da alle \textit{Components} Daten vom Server holen und manche auch Daten zum Server schicken, war es die logische Schlussfolgerung, ein Service zu erstellen, das egal welche Art von \ac{HTTP} Anfrage verarbeiten kann. Dieses Service ist \textit{http.service}. Alle Anfragen, egal ob \textit{GET} oder \textit{PUT} werden von diesem Service getätigt. Das Service importiert Angular's \textit{HttpClient}, mit dem es sehr einfach ist, Anfragen zu erstellen und die Antworten zu verarbeiten. Die Antworten vom Server sind vom Typ \textit{application/json}, das bedeutet, sie sind \ac{JSON}-Dateien, die der \textit{HttpClient} dann in Objekte umwandelt. Diese Objekte werden dem \textit{Component} übergeben, sobald die Anfrage abgeschlossen wurde.
 
 \paragraph*{Fütterungszeiten}\mbox{}\\
-Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook (siehe \ref{sec:ang-components}). Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten. Dies ist realisiert durch eine Checkbox, die mit \ac{CSS} wie ein Schalter gestyled wurde.
+\label{par:funk-fuettr}
+Die Eingabe wurde realisiert durch \ac{HTML} input Elemente vom Typ \textit{time}. Da \textit{time} Browserabhängig ist und ältere Browser es als \textit{text} interpretieren könnten, und die Application auf allen Browsern funktionieren soll, werden alle Eingabefelder auf Richtigkeit überprüft. Außerdem sollen alle Zeiten in aufsteigender Reihenfolge eingegeben werden. Der \textit{time} Typ ist eigentlich nur ein string, das bedeutet, um die Reihenfolge zu überprüfen, müssen diese zuerst in Zahlen umgewandelt werden. Das geht mit der Funktion \inlinecode{TS}{parseInt()}. Ein string von einem \textit{time} input sieht meistens so aus: \inlinecode{TS}{'12:34'} Wenn die Zeit leer ist, sieht er so aus: \inlinecode{TS}{'--:--'} Auf diese beiden Arten muss unser Parser vorbereitet sein. Der Parser wandelt den string in Minuten um, danach werden sie verglichen. Sollte eine Zeit ungültig sein oder sollte eine Zeit ausser Reihenfolge sein, so wird der Speicher-Button deaktiviert. Überprüft wird, sobald der User etwas ändert. Dies geschieht durch den DoCheck() Lifecycle Hook (siehe \ref{sec:ang-components}). Über den Fütterungszeiten kann man außerdem die Maschine ein und ausschalten.
 
 \begin{lstlisting}[caption=Zeiten Parser,style=TS,label=zeiten_parser,captionpos=t]
 toMinutes(time: string): number {
@@ -485,6 +560,25 @@ toMinutes(time: string): number {
   return timeHours * 60 + timeMinutes;
 }
 \end{lstlisting}
+
+Neben dem Speichern Knopf wird bei erfolgreicher Speicherung ein weiterer Knopf animiert. Dies geschieht durch Angular Animationen.
+
+\begin{lstlisting}[caption=Animieren des Knopfs,label=button-animation,style=TS]
+animations: [
+  trigger('SaveAnimation', [
+    state('false', style({ opacity: '0.0' })),
+    state('true', style({ opacity: '1.0' })),
+    transition('* => *', animate('300ms'))
+  ]),
+  trigger('FailAnimation', [
+    state('false', style({ opacity: '0.0' })),
+    state('true', style({ opacity: '1.0' })),
+    transition('* => *', animate('300ms'))
+  ])
+]
+\end{lstlisting}
+
+Bei dem zu animierenden Element wird \inlinecode{HTML}{[@NameDerAnimation]="auslöserVariable"} in die Attribute geschrieben. Ändert sich diese Variable, so wird die Animation gestartet. Animiert werden kann alles, dass durch Styles bestimmt werden kann.
 
 \paragraph*{Updates}\mbox{}\\
 Auf der Updates Seite kann der Benutzer nach neuen Updates suchen und das Gerät updaten. Realisiert wurde dies durch eine Anfrage an Github, wo eine Datei namens \textit{version.json} liegt. Diese wird verglichen mit der Datei, die auf dem System liegt. Dieser Vergleich geschieht bereits im OnInit() Lifecycle Hook (siehe \ref{sec:ang-components}). Der User kann nochmal nach Updates suchen, wenn er dies möchte. Sollte ein Update verfügbar sein, so wird der Button aktiv und der Benutzer kann sich dazu entscheiden, dass Gerät upzudaten. Wird aktualisiert, so wird eine Anfrage an den Server gesendet siehe \ref{sec:ums-server-funktion}. Der Client beginnt, dauerhaft Anfragen zu senden, bis eine fehlschlägt. Eine Nachricht teilt dem Benutzer mit, dass das System aktualisiert. Dann werden so lange Anfragen gesendet, bis wieder eine Antwort ankommt. Dann wird die Seite automatisch neu geladen. Der Updatevorgang ist damit abgeschlossen.
