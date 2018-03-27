@@ -4,20 +4,20 @@
 
 \section{Anforderung Elektronik Variante 1}
 \subsection{Aktoren}
-Die Anforderungen der Aktoren im Elektrischen Teil, bestehen darin ein Förderband und eine Drehplatte zu drehen. Für beide Anwendungen werden Motoren mit einem hohen Drehmoment und einer niedrigen Drehzahl benötigt. Weiters dürfen sich die Motoren nicht drehen, wenn sie nicht angesteuert werden.
-Zur Positionierung, Befestigung und Durchführung anderer linearer Bewegungen werden weiteres Hubmagnete inf Form von Zylindermagneten benötigt. Diese Hubmagnete haben die Aufgabe Futterbeutel zu verschieben, zu positionieren, festzuhalten und einen Scherenhebel zum öffnen der Futterbeutel zu betätigen.  
+Die Aufgabe der Aktoren im Elektrischen Teil, besteht darin ein Förderband und eine Drehplatte anzutreiben. Für beide Anwendungen werden Motoren mit einem hohen Drehmoment und einer niedrigen Drehzahl benötigt. Weiteres dürfen sich die Motoren nicht drehen, wenn sie nicht angesteuert werden.
+Zur Positionierung, Befestigung und Durchführung anderer linearer Bewegungen werden weiteres Hubmagnete in Form von Zylindermagneten benötigt. Diese Hubmagnete haben die Aufgabe Futterbeutel zu verschieben, zu positionieren, festzuhalten und einen Scherenhebel zum öffnen der Futterbeutel zu betätigen.  
 \subsection{Sensoren}
-Die Anforderung der Sensoren im elektrischen Teil, bestehen darin zu erkennen, ob ein Objekt vor ihnen steht. Dadurch kann überprüft werden, ob Futterschüsseln und Futterbeutel and der richtigen Stelle stehen.
+Die Aufgabe der Sensoren im elektrischen Teil, besteht darin zu erkennen, ob ein Objekt vor ihnen steht. Dadurch kann überprüft werden, ob Futterschüsseln und Futterbeutel an der richtigen Stelle stehen.
 \subsection{Ansteuerungen}
-Die Aufgabe der Ansteuerung ist es, Raspberry-, Arduino- und Sensor-Signale, mit den passenden Pins der einzelnen Ansteuerungen zu verbinden. 
+Die Aufgabe der Ansteuerung ist es, mithilfe eines Raspberrys und einem Arduino Nano, Motoren anzusteuern so wie Sensoren abzufragen. 
 
 \section{Anforderung Elektronik Variante 2}
-\subsection{Aktoren}
-Die Anforderungen der Aktoren im Elektrischen Teil, bestehen darin ein Förderband und eine Drehplatte zu drehen. Für beide Anwendungen werden Motoren mit einem hohen Drehmoment und einer niedrigen Drehzahl benötigt. Weiteres dürfen sich die Motoren nicht drehen, wenn sie nicht angesteuert werden.
+\subsection{Aktoren}zu drehe
+Die Aufgabe der Aktoren im Elektrischen Teil, besteht darin ein Förderband und eine Drehplatte anzutreiben. Für beide Anwendungen werden Motoren mit einem hohen Drehmoment und einer niedrigen Drehzahl benötigt. Weiteres dürfen sich die Motoren nicht drehen, wenn sie nicht angesteuert werden.
 \subsection{Sensoren}
-Die Anforderung der Sensoren im elektrischen Teil, bestehen darin zu erkennen, ob ein Objekt vor ihnen steht. Dadurch kann überprüft werden, ob Futterschüsseln und Futterbeutel and der richtigen Stelle stehen.
+Die Aufgabe der Sensoren im elektrischen Teil, besteht darin zu erkennen, ob ein Objekt vor ihnen steht. Dadurch kann überprüft werden, ob Futterschüsseln und Futterbeutel and der richtigen Stelle stehen.
 \subsection{Ansteuerungen}
-Die Aufgabe der Ansteuerung ist es, Raspberry-, Arduino- und Sensor-Signale, mit den passenden Pins der einzelnen Ansteuerungen zu verbinden.
+Die Aufgabe der Ansteuerung ist es, mithilfe eines Raspberrys und einem Arduino Nano, Motoren anzusteuern so wie Sensoren abzufragen. 
 \newpage
 \section{Variante 1}
 \subsection{Aktoren}
@@ -106,7 +106,7 @@ Der Gesamtschaltplan wurde in ProfiCad realisiert. Der Schaltplan beinhaltet die
 Für ein einfacheres Verständnis wird der Gesamtschaltplan in kleinere Elemente aufgeteilt und in Unterpunkten beschrieben
 \newpage
 \subsubsection{Motoransteuerung Variante 1}
-Gleichstrom Schneckengetriebemotoren haben die Fähigkeit sich in beide Richtungen zu drehen, je nach polarität der Anschlüsse. Um eine Softwaretechnische einfache Ansteuerung ermöglichen zu können, wird oft eine H-Brücke zur ansteuerung der Motoren verwendet. Diese H-Brücke besteht aus vier Transistoren. Für Motoren mit höheren Stromanforderungen werden MOSFET-Transistoren verwendet. Die Schaltung besteht aus zwei P-Kanal MOSFET T1, T3 und aus zwei N-Kanal MOSFET T2, T4. Die Schaltung laut Abbildung \ref{HBridge}, wurde aus dem Web\footfullcite{HBridge} entnommen und abgeändert. Dabei wurden die Bauteilwerte der MOSFETs und Teile der Schaltung übernommen. Der Raspberry steuert über Optokoppler die MOSFETs. Dabei wird über eine entsprechende Vorschaltung entweder das Gate vom MOSFET auf Ground- oder 12V-Potenzial gezogen. Zur veranschaulichung, wurden in Abbildung \ref{HBridge} die Raspberry Pins mit einer Klemme ersetzt, wobie die Klemme 1, T1, Klemme 2, T2, Klemme 3, T3 und Klemme 4, T4 steuert. 
+Der Gleichstrom Schneckengetriebemotor in unserer Anwendung kann in beide Richtungen betrieben werden, je nach polarität der Anschlüsse. Um eine Softwaretechnische einfache Ansteuerung ermöglichen zu können, wird oft eine H-Brücke zur ansteuerung der Motoren verwendet. Diese H-Brücke besteht aus vier Transistoren. Für Motoren mit höheren Stromanforderungen werden MOSFET-Transistoren verwendet. Die Schaltung besteht aus zwei P-Kanal MOSFET T1, T3 und aus zwei N-Kanal MOSFET T2, T4. Die Schaltung laut Abbildung \ref{HBridge}, wurde aus dem Web\footfullcite{HBridge} entnommen und abgeändert. Dabei wurden die Bauteilwerte der MOSFETs und Teile der Schaltung übernommen. Der Raspberry steuert über Optokoppler die MOSFETs. Dabei wird über eine entsprechende Vorschaltung entweder das Gate vom MOSFET auf Ground- oder 12V-Potenzial gezogen. Zur veranschaulichung, wurden in Abbildung \ref{HBridge} die Raspberry Pins mit einer Klemme ersetzt, wobie die Klemme 1, T1, Klemme 2, T2, Klemme 3, T3 und Klemme 4, T4 steuert. 
 
 Es gibt bei dieser Ansteuerungsart folgende erwünschte Zustände der Klemmen: \\
 \begin{table}[htb]
