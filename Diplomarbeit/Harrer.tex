@@ -347,11 +347,11 @@ Vor dem Beenden des Java Programmes sollte der Controller wie folgt heruntergefa
 
 \subsection{Server-Client-Kommunikation}
 \subsubsection{Server}
-Der Server wird beim Starten des Java Programmes mithilfe des SwingWorkers in einem eigenen Hintergrund-Thread gestartet. In diesem Hintergrund-Thread wartet der Server bis ein Client versucht Kontakt mit ihm aufzunehmen. Wenn die Verbindung akzeptiert wird, wird ein neuer Thread geöffnet in dem die Kommunikation mit diesem Client abläuft. Sobald die Kommunikation beendet ist wird der zuvor geöffnete Thread wieder geschlossen. 
-\\ Der Server wurde auch als Singleton implementiert damit von anderen Klassen einfach auf ihn zugegriffen werden kann.
+Der Server wird beim Starten des Java Programmes mithilfe des SwingWorkers in einem eigenen Hintergrund-Thread gestartet. In diesem Hintergrund-Thread wartet der Server bis ein Client versucht Kontakt mit ihm aufzunehmen. Wenn die Verbindung akzeptiert wird, wird ein neuer Thread geöffnet in dem die Kommunikation mit diesem Client abläuft. Sobald die Kommunikation beendet ist, wird der zuvor geöffnete Thread wieder geschlossen. 
+\\ Der Server wurde auch als Singleton implementiert, damit von anderen Klassen einfach auf ihn zugegriffen werden kann.
 
 \subsubsection{Übertragungsprotokoll}
-Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was ein gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. Weiters wird festgelegt auf welchen Technologien die Kommunikation basiert. Zusätzlich wird noch der Verbindungsaufbau sowie der Abbau beschrieben.
+Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was eine gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. Weiters wird festgelegt auf welchen Technologien die Kommunikation basiert. Zusätzlich wird noch der Verbindungsaufbau sowie der Abbau beschrieben.
 \\ \\
 Die Kommunikation zwischen Server und Client basiert bei der Katzenfütterungsanlage auf Sockets. Diese Sockets basieren auf \ac{TCP}. Dies ist ein verbindungsorientiertes Protokoll. Das bedeutet, dass Pakete automatisch erneut geschickt werden, wenn bei der Übertragung ein Fehler passiert ist oder das Paket verloren gegangen ist. Der Verbingungsaufbau und Abbau erfolgt bei diesem Protokoll über das IDLE-RQ Verfahren.
 \\ Als Timeout wurden 10 Sekunden gewählt, weil das sinnvoll zu sein scheint.
@@ -375,8 +375,8 @@ PUT                                   & /ChangeMachineState               & Der 
 \end{table}
 
 \subsubsection{Response-GET}
-Wenn der Server einen Request mit dem Beginn \textbf{GET} bekommt, muss er dem Client die Daten schicken. 
-\\ Bei der Katzenfütterungsanlage werden dem Client vom Server die ganzen auftretenten Errors und Warnungen geschickt. Die Errors und Warnungen werdem dem Client als \ac{JSON}-Array geschickt. Diese \ac{JSON}-Array wird in der Klasse, welche alle Errors and Warnungen verarbeitet, erstellt. Die \ac{JSON}-Array ist unter Punkt \ref{subsubsec:Array} dargestellt. 
+Wenn der Server eine Request mit dem Beginn \textbf{GET} bekommt, muss er dem Client die Daten schicken. 
+\\ Bei der Katzenfütterungsanlage werden dem Client die ganzen auftretenten Errors und Warnungen, vom Server geschickt. Die Errors und Warnungen werdem dem Client als \ac{JSON}-Array gesendet. Diese \ac{JSON}-Array wird in der Klasse, welche alle Errors and Warnungen verarbeitet, erstellt. Die \ac{JSON}-Array ist unter Punkt \ref{subsubsec:Array} dargestellt. 
 
 \subsubsection{Response-PUT}
 Wenn der Server einen Request mit dem Beginn \textbf{PUT} bekommt, muss er Daten vom Client entgegen nehmen.
@@ -393,7 +393,7 @@ Um den Request zu verarbeiten wurde die Klasse \textbf{ConnectionThread} geschri
 \subsection{Errors und Warnungsverarbeitung}
 \subsubsection{Allgemeines}
 Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. 
-\\ Dazu dient die \textbf{ErrorAndWarningHandler} welcher in einer Wrapper-Klasse als Singleton implementiert wurde. In dieser Klasse ist für jeden möglichen Fehler eine Boolean Variable angelegt. Beim Auftreten eines Fehlers wird die zum Fehler gehörende Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
+\\ Dazu dient der \textbf{ErrorAndWarningHandler} welcher in einer Wrapper-Klasse als Singleton implementiert wurde. In dieser Klasse ist für jeden möglichen Fehler eine Boolean Variable angelegt. Beim Auftreten eines Fehlers wird die zum Fehler gehörende Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
 
 \subsubsection{Errors und Warnungen aktivieren/deaktivieren}
 Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
@@ -414,9 +414,9 @@ In diesem konkreten Beispiel wird der Error, der dem Benutzer mitteilt, dass ein
 \subsubsection{JSON-Object} \label{subsubsec:Array}
 Diese Klasse stellt auch die \ac{JSON}-Object zur Verfügung, welche dann dem Client (Web-Applikation) geschickt wird. Dieses \ac{JSON}-Object beinhaltet zwei \ac{JSON}-Arrays.
 
-Das \ac{JSON}-Object kann wie folgt aussehen, wenn Errors sowie auch Warnungen enthalten sind:
+Das \ac{JSON}-Object kann wie folgt aussehen, wenn Errors sowie auch Warnings enthalten sind:
 
-\begin{lstlisting}[language=json,firstnumber=1, caption=\ac{JSON}-Objekt mit Errors und Warnungen]
+\begin{lstlisting}[language=json,firstnumber=1, caption=\ac{JSON}-Objekt mit Errors und Warnings]
 { 
 	"Errors": 
 	[ 
@@ -472,7 +472,7 @@ Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI
 \subsection{SwingWorker}
 Der SwingWorker in Java wird benötigt, wenn eine Methode mehr Zeit benötigt und somit die \ac{GUI} blockieren würde. Mithilfe des SwingWorkers, aus der Klasse javax.swing, kann diese Aktion in einem Hintergrund-Thread ausgeführt werden. Der Vorteil davon ist, dass die \ac{GUI} bedienbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Aktion, die mehr Zeit benötigt, abgearbeitet wird.
 \\ \\
-Das oben geführte Beispiel könnte auch mit der Klasse Thread gelöst werden. Der Hauptgrund für die Verwendung von SwingWorker ist, dass der SwingWorker für die Verwendung in Applikationen mit \ac{GUI} optimiert ist. Der SwingWorker verfügt über Methoden mit denen nach oder während des Ablaufens des Hintergrundprozzes auf die \ac{GUI}-Elemente zugegriffen werden kann.
+Das oben geführte Beispiel könnte auch mit der Klasse Thread gelöst werden. Der Hauptgrund für die Verwendung von SwingWorker ist, dass der SwingWorker für die Verwendung in Applikationen mit \ac{GUI} optimiert ist. Der SwingWorker verfügt über Methoden mit denen nach oder während des Ablaufens des Hintergrundprozesses auf die \ac{GUI}-Elemente zugegriffen werden kann.
 \\ \\ 
 Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werden:
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker Klasse erstellen]
@@ -509,7 +509,7 @@ Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert is
             return 1;
         }
 \end{lstlisting} 
-Wenn der SwingWorker beendet wird, während wegen der Methode \\ \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} gewartet wird, wird eine \textbf{InterruptedException} geworfen.
+Wenn der SwingWorker beendet wird, während er aufgrund der Methode \\ \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} wartet, wird eine \textbf{InterruptedException} geworfen.
 
 \vspace{10pt}
 
@@ -526,7 +526,7 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann b
 \end{lstlisting} 
 
 \item[•] done()
-\\ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im \ac{EDT} aufgerufen. Im \textbf{done()} können dann \ac{GUI}-Elemente bearbeitet werden. Wenn das Code-Beispiel \ref{SwingWorkerOhneWhileSchleife} als Beispiel herangezogen wird könnte die \textbf{done()} wie folgt aussehen:
+\\ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im \ac{EDT} aufgerufen. Im \textbf{done()} können dann \ac{GUI}-Elemente bearbeitet werden. Im Code-Beispiel \ref{SwingWorkerOhneWhileSchleife} ist ein Beispiel wie das \textbf{done()} aussehen könnte:
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker done()]
         @Override
         protected void done()
@@ -558,17 +558,17 @@ Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des SwingWorker
 \end{itemize}
 
 \subsection{GUI-Fenster}
-Die \ac{GUI}-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich alle \ac{GUI}-Fenster mit berühren des Touchscreens, mit einem Finger, zu bedienen. 
+Die \ac{GUI}-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich, alle \ac{GUI}-Fenster durch das Berühren des Touchscreens, mit einem Finger, zu bedienen. 
 \\ Beim Starten des Raspberrys wird das Programm automatisch gestartet. Dabei wird das MainWindow, also das Hauptfenster des Programms, als Vollbild am Display angezeigt. Somit ist es dem Benutzer nur möglich das Programm zu bedienen und nicht zur grafischen Oberfläche des Raspberrybetriebsystems zu gelangen. Genaueres zum Autostart unter Kapitel \ref{subsubsec:Autostart}.
 
 \subsubsection{Java-Programm im Autostart}\label{subsubsec:Autostart}
-Um auf einem Betriebssystem, dass auf Linux basiert, ein Java-Programm zu starten gibt es zwei Möglichkeiten.
+Um auf einem Betriebssystem, das auf Linux basiert, ein Java-Programm zu starten, gibt es zwei Möglichkeiten.
 \begin{itemize}
 \item[1] \textbf{rc.local}
 \\ Eine Möglichkeit ist die \textbf{rc.local}. Mit der \textbf{rc.local} können aber nur Programme ohne grafische Oberfläche gestartet werden. In diese muss folgender Befehl geschrieben werden: 
 \\ \textbf{java -jar /home/pi/main.jar \&}.
 \item[2] \textbf{autostart}
-\\ Dies zweite Möglichkeit ist \textbf{autostart}. Hier ist der X-Server, welcher für eine grafische Ausgabe benötigt wird, bereits aktiv. Somit können nun Java-Programme mit einer grafischen Oberfläche gestartet werden. Die Datei \textbf{autostart} ist unter folgendem Pfad zu finden : 
+\\ Die zweite Möglichkeit ist \textbf{autostart}. Hier ist der X-Server, welcher für eine grafische Ausgabe benötigt wird, bereits aktiv. Somit können nun Java-Programme mit einer grafischen Oberfläche gestartet werden. Die Datei \textbf{autostart} ist unter folgendem Pfad zu finden : 
 \\ \textbf{/home/<user/.config/lxsession/LXDE-<user>/autostart}. 
 \\ In die Datei muss dann noch folgender Befehl eingegeben werden: 
 \\ \textbf{@java -jar /home/pi/main.jar \&}.
@@ -589,7 +589,7 @@ Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben.
   \label{MainWindow}
   \vspace{20pt}
 \end{wrapfigure}
-Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In diesem Fenster wird dem Benutzer ein allgemeiner Überblick über die Anlage zur Verfügung gestellt. Somit können alle wichtigen Informationen schnell und leicht ersichtlich. Weiters ist das \textbf{MainWindow} das Hauptfenster des Programms. Über diese sind alle Dialog-, Steuerungs- und Informationsfenster erreichbar. Diese Fenster werden von Kapitel\ref{TimeManagement} bis Kapitel \ref{Update} genauer beschrieben. Das Aufrufen von anderen Fenstern ist über die Menüleiste, welche sich oben in der \ac{GUI} befindet, möglich. 
+Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In diesem Fenster wird dem Benutzer ein allgemeiner Überblick über die Anlage zur Verfügung gestellt. Somit sind alle wichtigen Informationen schnell und leicht ersichtlich. Weiters ist das \textbf{MainWindow} das Hauptfenster des Programms. Über diese sind alle Dialog-, Steuerungs- und Informationsfenster erreichbar. Diese Fenster werden von Kapitel\ref{TimeManagement} bis Kapitel \ref{Update} genauer beschrieben. Das Aufrufen von anderen Fenstern ist über die Menüleiste, welche sich oben in der \ac{GUI} befindet, möglich. 
 \\ \\ Unter den Menüs der Menüleiste sind folgende Menüpunkte zu finden:
 \begin{itemize}
 \item[1] Raspberry
@@ -618,7 +618,7 @@ Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In d
 
 \vspace{10pt}
 
-Das \textbf{MainWindow} ist als Singleton implementiert, weil dadurch nicht jedes mal, wenn eine andere Klasse auf ein Datenelement des \textbf{MainWindow} zugreift, ein neues Objekt von \textbf{MainWindow} erzeugt wird. Somit wird ein nur Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
+Das \textbf{MainWindow} ist als Singleton implementiert, weil dadurch nicht jedes Mal, wenn eine andere Klasse auf ein Datenelement des \textbf{MainWindow} zugreift, ein neues Objekt von \textbf{MainWindow} erzeugt wird. Somit wird nur ein Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow createInstance()]
 public static MainWindow createInstance()
     {
@@ -636,7 +636,7 @@ public static MainWindow createInstance()
         return instance;
     }
 \end{lstlisting}
-Diese Methode kann nur im \ac{EDT} aufgerufen werden. Wenn diese Methode nicht im \ac{EDT} aufgerufen wird oder das Objekt bereits besteht, wird eine jeweils eigene Exception geworfen.
+Diese Methode kann nur im \ac{EDT} aufgerufen werden. Wenn diese Methode nicht im \ac{EDT} aufgerufen wird oder das Objekt bereits besteht, wird jeweils eine eigene Exception geworfen.
 \\ \\ Diese Methode wird in der \textbf{main} Methode der Klasse wie folgt aufgerufen:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow createInstance() Aufruf]
 	java.awt.EventQueue.invokeLater(new Runnable()
@@ -667,12 +667,12 @@ public static MainWindow getInstance()
 
 \vspace{10pt}
 
-In der \ac{GUI} werden je nach Maschinenstatus gewisse Funktionen blockiert. Folgende Funktionen sind blockiert, wenn die Fütterung aktiviert ist:
+In der \ac{GUI} werden je nach Maschinenstatus gewisse Funktionen blockiert. Wenn die Fütterung aktiviert ist, sind folgende Funktionen blockiert:
 \begin{itemize}
 \item[1] manuelle Steuerung
 \item[2] Update
 \end{itemize}
-Das Blockieren das Funktionen wird mit folgender Methode gemacht:
+Das Blockieren der Funktionen wird mit folgender Methode gemacht:
 \begin{lstlisting}[style=JavaStyle, caption=GUI Elemente blockieren]
 private void updateGUIElements()
     {
@@ -704,19 +704,19 @@ private void updateGUIElements()
   \vspace{0pt}
 \end{wrapfigure}
 In der Klasse \textbf{TimeManagement} ist es dem Benutzer möglich alle Zeiten zu verwalten. Das \ac{GUI}-Fenster dieser Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
-\\ \\ Es können bis zu vier verschiedene Zeiten gewählt werden. Dabei müssen die Zeiten, bei Zeit 1 beginnend, aufsteigend angeordnet werden. Zusätzlich können Zeiten auch deaktiviert werden. Um eine Zeit zu deaktivieren muss das Häkchen vor der Zeit weggenommen werden.
-\\ Wenn die Zeiten ausgewählt wurden, kann mit \textbf{Ok} bestätigt werden. Somit werden die Daten in das Programm übernommen und in die Datenbank gespeichert. Weiters schließt sich noch das Fenster.
+\\ \\ Es können bis zu vier verschiedene Zeiten gewählt werden. Dabei müssen die Zeiten, bei Zeit 1 beginnend, aufsteigend angeordnet werden. Zusätzlich können Zeiten auch deaktiviert werden. Um eine Zeit zu deaktivieren, muss das Häkchen vor der Zeit weggenommen werden.
+\\ Wenn die Zeiten ausgewählt wurden, kann mit \textbf{Ok} bestätigt werden. Somit werden die Daten in das Programm übernommen und in der Datenbank gespeichert. Weiters schließt sich noch das Fenster.
 \\ Falls \textbf{Abbrechen} gedrückt wird, werden die Änderungen nicht übernommen und das Fenster schließt sich.
 \\ \\ Wenn das Dialogfenster im \ac{EDT} aufgerufen wird, blockiert der \ac{EDT} an dieser Stelle so lange, bis das Dialogfenster wieder geschlossen wird.
 
 \vspace{10pt}
 
-Es sind nur vier Fütterungen pro Tag möglich, weil die Katzenfütterungsanlage ein kleines Futtermagazin hat. Aus diesem Grund würde das Magazin bei mehreren Fütterungen sehr schnell leeren. Wenn das nun passiert erfüllt die Katzenfütterungsanlage ihren Zweck nicht mehr, weil die Maschine fast täglich nachgefüllt werden muss.
-\\ Da die Fütterungen am Tag begrenzt sind wurden die Anzahl der Zeiten nicht variabel sondern mit einem Maximum realisiert.
+Es sind nur vier Fütterungen pro Tag möglich, weil die Katzenfütterungsanlage ein kleines Futtermagazin hat. In diesem Fall würde sich das Magazin bei mehreren Fütterungen sehr schnell leeren. Wenn das nun passiert würde die Katzenfütterungsanlage ihren Zweck nicht mehr erfüllen, weil die Maschine fast täglich nachgefüllt werden müsste.
+\\ Da die Fütterungen am Tag begrenzt sind, wurde die Anzahl der Zeiten nicht variabel sondern mit einem Maximum realisiert.
 
 \newpage
 
-Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss in Netbeans, im Designmodus der \ac{GUI}, Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: \\
+Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss in Netbeans, im Designmodus der \ac{GUI}, ein Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: \\
 \begin{wrapfigure}{l}{0.7\textwidth}
 \vspace{-20pt}
   \begin{center}
@@ -727,12 +727,12 @@ Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfigurier
   \vspace{-20pt}
 \end{wrapfigure}
 \\ \\ In diesem Fenster ist der Code, welcher in den ersten vier Zeilen steht, hinzuzufügen. 
-\\ Hier wird das Model für den Spinner gesetzt. Dieses Model gibt an, dass der Spinner ein Datum darstellen soll. Weiters wird nicht festgelegt was vom Datum angezeigt werden soll. Hier wird die Uhrzeit dargestellt. 
-\\ \\ Diese Schritte sind für alle der vier verwendeten Spinner verwendet werden.
+\\ Hier wird das Modell für den Spinner gesetzt. Dieses Model gibt an, dass der Spinner ein Datum darstellen soll. Weiters wird nicht festgelegt wie das Datum angezeigt werden soll. Hier wird die Uhrzeit dargestellt. 
+\\ \\ Diese Schritte müssen für alle der vier verwendeten Spinner angewendet werden.
 
 \vspace{30pt}
 
-Zusätlich muss noch für jeden Spinner folgende Methode, im Constructor nach \textbf{initComponents();}, aufgerufen werden:
+Zusätzlich muss noch für jeden Spinner folgende Methode im Constructor nach \textbf{initComponents();} aufgerufen werden:
 \begin{lstlisting}[style=Javastyle, caption=Spinner Zeitzone]
 	JSpinner.DateEditor at1 = new JSpinner.DateEditor(spTime1, "HH:mm");
         	spTime1.setEditor(at1);
@@ -740,11 +740,11 @@ Zusätlich muss noch für jeden Spinner folgende Methode, im Constructor nach \t
 
 \vspace{10pt}
 
-Im \textbf{Constructor} der \textbf{TimeManagement} Klasse werden, wenn das Fenster geöffnet wird, alle Spinner mit den momentanen Zeiten gefüllt. Zusätzlich werden noch die Häkchen, die festlegen ob eine Zeit aktiv ist, gesetzt.
+Im \textbf{Constructor} der \textbf{TimeManagement} Klasse werden, wenn das Fenster geöffnet wird, alle Spinner mit den aktuellen Zeiten gefüllt. Zusätzlich werden noch die Häkchen, die festlegen ob eine Zeit aktiv ist, gesetzt.
 
 \vspace{10pt}
 
-Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird überprüft, ob sich die Inhalte der Spinner verändert haben. Um dies zu überprüfen werden Events verwendet. Dafür wird für jeden Spinner das folgende Event verwendet:
+Bevor das Fenster geschlossen wird, wird beim Drücken von \textbf{Abbrechen} gedrückt wird, wird überprüft, ob sich die Inhalte der Spinner verändert haben. Um dies zu überprüfen werden Events verwendet. Dafür wird für jeden Spinner das folgende Event verwendet:
 
 \newpage
 
@@ -754,7 +754,7 @@ Bevor das Fenster geschlossen wird, wenn \textbf{Abbrechen} gedrückt wird, wird
         saved = false;
     }   
 \end{lstlisting} 
-Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendet wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Siehe Code-Beispiel \ref{TimeManagementSpeichern} Zusätzlich kann dann ausgewählt werden, ob wirklich ohne zu speichern beendet werden soll.
+Dieses Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei wird dann eine Boolean-Variable, die bekannt gibt, ob etwas verwendet wurde, auf \textbf{false} gesetzt. Wenn diese Boolean-Variable auf \textbf{false} ist, wird vor dem Beenden dem Benutzer eine Warnung ausgegeben, dass noch nicht gespeichert wurde. Siehe Code-Beispiel \ref{TimeManagementSpeichern} Zusätzlich kann dann ausgewählt werden, ob wirklich ohne zu speichern beendet werden soll.
 
 \begin{lstlisting}[style=Javastyle, caption=TimeManagement Fenster schließen, label=TimeManagementSpeichern]
  private void onCancel(java.awt.event.ActionEvent evt)                          
@@ -780,7 +780,7 @@ Diese Event wird aufgerufen, wenn der Inhalt der Spinners verwendet wird. Dabei 
 
 \vspace{10pt}
 
-Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und ComboBoxen werden anschließend in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
+Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinner, wenn sie geändert wurden, aus den Spinnern geholt. Zusätzlich wird das Gleiche mit den ComboBoxes gemacht. Die Inhalte der Spinner und ComboBoxen werden anschließend in ein Dokument, also ein Format das für die Datenbank verständlich ist, gespeichert. Das Dokument sieht wie folgt aus:
 
 \newpage
 
@@ -817,14 +817,14 @@ public BasicDBObject getNewTimeDoc()
   \label{CreateAndRegisterUser}
   \vspace{0pt}
 \end{wrapfigure}
-Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen.Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Nutzen hätte mehrere Benutzer zu haben. Da der angelegte Benutzer nur benötigt wird sich auf der Webseite der Anlage anzumelden, ist es ausreichend nur einen Benutzer anlegen zu können. Die \ac{GUI} ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
+Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Sinn machen würde, wenn mehrere Benutzer angelegt werden. Der angelegte Benutzer wird nur benötigt, um sich auf der Webseite der Anlage anzumelden. Deshalb ist es ausreichend nur einen Benutzer anlegen zu können. Die \ac{GUI} ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
 \\ \\ Die \ac{GUI} der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
-\\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch werden der Benutzer und das Passwort in das Programm übernommen und in die Datenbank gespeichert. Anschließend erscheint ein Informationsfenster welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
+\\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden, kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch werden der Benutzer und das Passwort in das Programm übernommen und in der Datenbank gespeichert. Anschließend erscheint ein Informationsfenster, welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
 \\ \\ Während das Dialogfenster geöffnet ist blockiert der \ac{EDT} an der Stelle, an der das Dialogfenster geöffnet wurde.
 
 \vspace{10pt}
 
-Um das Passwort einzugeben wird ein \textbf{PasswordField} verwendet. Diese Eingabefeld wird speziell dazu verwendet Passwörter einzugeben. Eine Besonderheit davon ist, dass die Passwörter nicht als Text sonder als Sternchen dargestellt werden. Eine weitere ist, dass der Inhalt eine Zeichenkette ist, also ein Feld von Characters: \textbf{char[]}. Weiters unterscheidet sich auch das Abfragen des Inhaltes im Vergleich mit einem normalen Textfeld. Beim \textbf{PasswordField} kann der Inhalt mit \textbf{passwordField.getPassword()} abgefragt werden.
+Um das Passwort einzugeben wird ein \textbf{PasswordField} verwendet. Dieses Eingabefeld wird speziell dazu verwendet Passwörter einzugeben. Eine Besonderheit davon ist, dass die Passwörter nicht als Text sondern als Sternchen dargestellt werden. Eine weitere Besonderheit ist, dass der Inhalt eine Zeichenkette ist, also ein Feld von Characters: \textbf{char[]}. Weiters unterscheidet sich auch das Abfragen des Inhaltes im Vergleich mit einem normalen Textfeld. Beim \textbf{PasswordField} kann der Inhalt mit \textbf{passwordField.getPassword()} abgefragt werden.
 
 \newpage
 
@@ -832,11 +832,11 @@ Um das Passwort im Programm besser verarbeiten zu können wird es wie folgt in e
 \begin{lstlisting}[style=Javastyle, caption=char zu String]
 	String string_password = valueOf(char_password);
 \end{lstlisting}
-Beim Umformatieren des Passworts in einen String könnte ein Fehler auftreten wenn Sonderzeichen verwendet werden. Deshalb sollte verhindert werden, dass der Benutzer Sonderzeichen eingibt oder das Programm anpassen, so dass Sonderzeichen verwendet werden können.
+Beim Umformatieren des Passworts in einen String könnte ein Fehler auftreten wenn Sonderzeichen verwendet werden. Deshalb sollte verhindert werden, dass der Benutzer Sonderzeichen eingibt oder das Programm angepasst werden, so dass Sonderzeichen verwendet werden können.
 
 \vspace{10pt}
 
-Um dem Benutzer Sicherheit zu gewährleisten wird das Passwort, bevor es in der Datenbank gespeichert wird, wie folgt gehasht: 
+Um dem Benutzer Sicherheit zu gewährleisten, wird das Passwort, bevor es in der Datenbank gespeichert wird, wie folgt gehasht: 
 \begin{lstlisting}[style=Javastyle, caption=Hash Passwort]
     public static String hash(String passwordToHash, String salt)
     {
@@ -870,25 +870,25 @@ Um dem Benutzer Sicherheit zu gewährleisten wird das Passwort, bevor es in der 
     }
 \end{lstlisting}
 
-Um das Password zu hashen wird der Hashalgorithmus \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
+Um das Passwort zu hashen wird der Hashalgorithmus \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
 \\ Für das Hashen des Passworts wurde auf Stackoverflow \footfullcite{Stackoverflow_Hashen} recherchiert.
 
-Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden welcher vor dem Hashen des Passworts am Passwort angehängt wird. Somit wird die Entschlüsselung des Passwort nochmals erschwert. Der  \textbf{salt} wird normalerweise als Byte-Array und nicht als String deklariert.
+Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden, welcher vor dem Hashen des Passworts am Passwort angehängt wird. Somit wird die Entschlüsselung des Passworts nochmals erschwert. Der  \textbf{salt} wird normalerweise als Byte-Array und nicht als String deklariert.
 
 \vspace{10pt}
 
-Bevor das Fenster geschlossen wird, wenn \textbf{Update} gedrückt wird, wird überprüft, ob sich die Inhalte der Text- und Passwortfelder verändert haben. Dabei wird vom Event überwacht, ob in dem Feld ein neues Zeichen eingegeben wird. Danach wird eine Boolean-Variable, die angibt ob gespeichert wurde, auf \textbf{false} gesetzt. Das Event für das Textfeld sieht wie folgt aus:
+Beim Drücken von \textbf{Ok}, wird, bevor bevor das Fenster geschlossen wird überprüft, ob sich die Inhalte der Text- und Passwortfelder verändert haben. Dabei wird vom Event überwacht, ob in dem Feld ein neues Zeichen eingegeben wird. Danach wird eine Boolean-Variable, die angibt ob gespeichert wurde, auf \textbf{false} gesetzt. Das Event für das Textfeld sieht wie folgt aus:
 \begin{lstlisting}[style=Javastyle, caption=Textfeld Event]
 	private void tfUserNameKeyPressed(java.awt.event.KeyEvent evt)                                       
 	{                                           
 		saved = false;
 	}
 \end{lstlisting}
-Wenn die Variable \textbf{false} ist, also noch nicht gespeichert wurde, wird dem Benutzer die Warnung ausgegeben werden, dass die veränderten Daten noch nicht gespeichert sind.
+Wenn die Variable \textbf{false} ist wird dem Benutzer die Warnung angezeigt, dass die veränderten Daten noch nicht gespeichert wurden.
 
 \vspace{10pt}
 
-Wenn das Dialogfenster mit \textbf{Ok} bestätigt wird, wird das Benutzername und das Passwort in ein Dokument, welches für die Datenbank verständlich ist, gespeichert. Dieses Dokument sieht wie folgt aus:
+Wenn das Dialogfenster mit \textbf{Ok} bestätigt wird, wird der Benutzername und das Passwort in ein Dokument, welches für die Datenbank verständlich ist, gespeichert. Dieses Dokument sieht wie folgt aus:
 \begin{lstlisting}[style=Javastyle, caption=Benutzerdokument]
 newUserDoc = new BasicDBObject("identifier", "User").append("user_name", 
 	user_name).append("user_password", hashedPassword);
@@ -914,11 +914,11 @@ In der Klasse \textbf{ManualControl} wird eine manuelle Steuerung für die Motor
 
 \vspace{10pt}
 
-Wie beim Dialogfenster blockiert das Steuerfenster den \ac{EDT} der Stelle wo es geöffnet wurde bis es wieder geschlossen wird.
+Wie beim Dialogfenster blockiert das Steuerfenster den \ac{EDT} an der Stelle, wo es geöffnet wurde, bis es wieder geschlossen wird.
 
 \vspace{10pt}
 
-Dieses Fenster ist aus Sicherheitsgründen nur dann aufrufbar, wenn der Maschinenzustand auf Aus ist. Der Grund dafür ist, dass es zu Fehlern kommen kann, wenn während einer Fütterung ein Motor ein oder aus geschalten wird.
+Dieses Fenster ist aus Sicherheitsgründen nur dann aufrufbar, wenn der Maschinenzustand auf \textbf{Aus} ist. Der Grund dafür ist, dass es zu Fehlern kommen kann, wenn während einer Fütterung ein Motor ein- oder ausgeschalten wird.
 \\ Weiters wird der Benutzer bevor er dieses Steuerfenster öffnet darüber informiert, dass er nun direkt die Motoren steuert. Zusätzlich wird der Benutzer gefragt, ob er die Steuerung wirklich öffnen will.
 \\ Der Benutzer kann nun beide Motoren unabhänging voneinander steuern. Er kann die Motoren in und gegen den Uhrzeigersinn drehen. Dazu muss er den Knopf mit der jeweiligen Drehrichtung im Steuerungsfenster klicken. Die Motoren sind mit dem jeweiligen Stopp-Knopf wieder stoppbar.
 \\ Falls die Motoren vom Benutzer vor dem Schließen des Fensters nicht gestoppt werden, werden diese automatisch vom Programm gestoppt. Dies dient dazu, dass sichergestellt ist, dass die Motoren immer gestoppt werden.
@@ -976,12 +976,12 @@ In der Klasse \textbf{Positionsinformation} wird dem Benutzer eine Übersicht ü
 
 \vspace{10pt}
 
-Wie beim Dialogfenster blockiert das Informationsfenster den \ac{EDT}, an der Stelle wo es geöffnet wurde, bis es wieder geschlossen wird.
+Wie beim Dialogfenster blockiert das Informationsfenster den \ac{EDT} an der Stelle, wo es geöffnet wurde, bis es wieder geschlossen wird.
 
 \vspace{10pt}
 
 Dieses Fenster ist, im Gegensatz zu \textbf{ManualControl}, auch aufrufbar, wenn die Fütterung aktiviert, also der Maschinenzustand auf \textbf{Ein}, ist.
-\\ Bei der Anzeige für Drehrichtung der Motoren und die Zustände der Sensoren kann folgendes angezeigt werden:
+\\ Bei der Anzeige für die Drehrichtung der Motoren und die Zustände der Sensoren kann Folgendes angezeigt werden:
 \begin{itemize}
 \item[1] Motoren
   \begin{itemize}
@@ -1080,11 +1080,11 @@ Bei diesem Code-Beispiel wird zu Beginn, die Collection in der die benötigten I
 
 \vspace{10pt}
 
-Der Name, des in der Anlage verbaute Rechners, wird in der Datenbank eingelesen. Dies funktioniert indem die aus der Datenbank gelesenen Dateien von einem String in ein JsonObject umgewandelt werden. Anschließend kann aus dem JsonObject dar Name des verbauten Rechners ausgelesen werden.
+Der Name, des in der Anlage verbauten Rechners, wird von der Datenbank eingelesen. Dies funktioniert indem die aus der Datenbank gelesenen Dateien von einem String in ein JsonObject umgewandelt werden. Anschließend kann aus dem JsonObject der Name des verbauten Rechners ausgelesen werden.
 
 \vspace{50pt}
 
-Der WLAN-Status wird wie der Name des internen Rechners aus der Datenbank eingelesen. Der WLAN-Status wird in die Datenbank geschrieben, wenn sich der Raspberry mit einem WLAN verbindet. Genauers dazu ist unter Kapitel \ref{sec:ums-wlan} zu finden.
+Der WLAN-Status wird, wie der Name des internen Rechners aus der Datenbank eingelesen. Der WLAN-Status wird in die Datenbank geschrieben, wenn sich der Raspberry mit einem WLAN verbindet. Genauers dazu ist unter Kapitel \ref{sec:ums-wlan} zu finden.
 
 \vspace{10pt}
 
@@ -1130,23 +1130,23 @@ Die Version wird sowie die \ac{IP}-Adresse von einem Server abgefragt. Das Abfra
   \end{minipage}
   \vspace{0pt}
 \end{figure}
-Mit der \textbf{Update} Klasse ist es dem Benutzer möglich die Software seiner Anlage aktuell zu halten. Die \ac{GUI} der Klasse ist auch ein Steuerfenster. Deswegen werden kein \textbf{Ok} und \textbf{Abbrechen} benötigt und es kann ein Knopf \textbf{Schließen} verwendet werden. Während einem Update ist der \textbf{Schließen} Knopf nicht verfügbar.
+Mit der \textbf{Update} Klasse ist es dem Benutzer möglich die Software seiner Anlage aktuell zu halten. Die \ac{GUI} der Klasse ist auch ein Steuerfenster. Deswegen werden kein \textbf{Ok} und \textbf{Abbrechen} benötigt und es kann ein Knopf \textbf{Schließen} verwendet werden. Während eines Updates ist der \textbf{Schließen} Knopf nicht verfügbar.
 
 \vspace{10pt}
 
-Wie beim Dialogfenster blockiert das Steuerfenster den \ac{EDT} an der Stelle wo es geöffnet wurde bis es wieder geschlossen wird.
+Wie beim Dialogfenster blockiert das Steuerfenster den \ac{EDT} an der Stelle, wo es geöffnet wurde, bis es wieder geschlossen wird.
 
 \vspace{10pt}
 
-Wenn das Fenster aufgerufen wird, hat es das Aussehen aus der Abbildung \ref{Update}. Nun kann der Benutzer das Fenster schließen oder den Knopf \textbf{Auf Updates überprüfen} drücken. Sofern ein Update gefunden wird, wird der Knopf \textbf{Update starten} aktiviert und das Label ändert sich von \textbf{-} auf \textbf{Verfügbar}. Also sieht das Fenster aus wie in Abbildung \ref{Update2}.
+Wenn das Fenster aufgerufen wird, hat es das Aussehen aus der Abbildung \ref{Update}. Nun kann der Benutzer das Fenster schließen oder den Knopf \textbf{Auf Updates überprüfen} drücken. Sofern ein Update gefunden wird, wird der Knopf \textbf{Update starten} aktiviert und das Label ändert sich von \textbf{-} auf \textbf{Verfügbar}. Danach sieht das Fenster aus wie in Abbildung \ref{Update2}.
 
 \vspace{10pt}
 
-Beim Überprüfen auf Updates wird die lokale Versionsnummer am Raspberry mit der globalen Versionsnummer am Git-Repository verglichen. Wenn die Versionen nicht übereinstimmen ist ein Update verfügbar. Obwohl die Versionsnummer immer chronologisch nach oben gezählt wird, wird auch ein Update gemacht wenn die Versionsnummer niedriger wird. Der Grund dafür ist, wenn eine Version einmal einen schwerwiegenden Fehler beinhaltet, ist es ohne Probleme möglich auf die vorherige Version zurück zu gehen. 
+Beim Überprüfen auf Updates wird die lokale Versionsnummer am Raspberry mit der globalen Versionsnummer am Git-Repository verglichen. Wenn die Versionen nicht übereinstimmen ist ein Update verfügbar. Obwohl die Versionsnummer immer chronologisch nach oben gezählt wird, wird auch ein Update gemacht wenn die Versionsnummer niedriger wird. Der Grund dafür ist, wenn eine Version einmal einen schwerwiegenden Fehler beinhaltet, ist es ohne Probleme möglich, auf die vorherige Version zurück zu gehen. 
 
 \vspace{10pt}
 
-Die Daten für das Update werden von einem Git-Repository herunter geladen. Dies wird mit einem \textbf{git pull} Befehl gemacht. Anschließend wird am Raspberry eine Datei bearbeitet, welche dem Raspberry beim Startet mitteilt, dass die Programme neu zu bauen sind. Nach jedem Update wird das Raspberry automatisch neu gestartet.
+Die Daten für das Update werden von einem Git-Repository heruntergeladen. Dies wird mit einem \textbf{git pull} Befehl gemacht. Anschließend wird am Raspberry eine Datei bearbeitet, welche dem Raspberry beim Starten mitteilt, dass die Programme neu zu bauen sind. Nach jedem Update wird das Raspberry automatisch neu gestartet.
 
 \vspace{10pt}
 
@@ -1206,7 +1206,7 @@ Der Pfad, der zum Speicherort der Datei führt, beinhaltet den Benutzernamen des
 
 \vspace{10pt}
 
-Wenn das Update, zum Beispiel durch einen Stromausfall, unterbrochen wird, sollte das kein Problem darstellen. Sofern der Stromausfall während dem Downloaden eintritt, wird am Raspberry nichts verändert, weil das Neubauen der Programme erst beim Neustarten des Raspberrys gemacht wird. Wenn nun der Download unterbrochen wird, wird die Datei, die dem Raspberry mitteilt, dass die Programme neu zu bauen sind, nicht bearbeitet. Nach dem Stromausfall kann das Raspberry normal gestartet werden und das Update kann neu gestartet werden.
+Wenn das Update, zum Beispiel durch einen Stromausfall, unterbrochen wird, sollte das kein Problem darstellen. Sofern der Stromausfall während dem Downloaden eintritt, wird am Raspberry nichts verändert, weil das Neubauen der Programme erst beim Neustarten des Raspberrys gemacht wird. Wenn nun der Download unterbrochen wird, wird die Datei, die dem Raspberry mitteilt, dass die Programme neu zu bauen sind, nicht bearbeitet. Nach dem Stromausfall kann das Raspberry normal gestartet und somit das Update erneut ausgeführt werden.
 
 \newpage
 
@@ -1218,19 +1218,19 @@ Mit Mongodb gab es ein Problem am Raspberry. Die neueren Versionen werden nämli
 \\ Es gibt auch Möglichkeiten die neuen Versionen am Raspberry verwenden zu können. Diese Lösungen sind im Rahmen einer Diplomarbeit zu zeitintensiv.
 \\ Wenn das Projekt weiter geführt werden sollte, sollte überprüft werden, ob die neueste Version von Mongodb mit dem Raspberry kompatibel ist.
 \subsubsection{Probleme mit pi4j}
-Mit der \ac{pi4j} Version 1.1 ist das Problem aufgetreten, dass am Raspberry Pi 3 die \ac{GPIO}-Pins nicht gefunden wurden. Um sicherzugehen, dass der Fehler nicht im Programm liegt wurde das Code-Beispiel von \ac{pi4j} verwendet. Auch beim Testen mit diesem Code trat der Fehler, dass die \ac{GPIO}-Pins nicht gefunden werden können, auf.
-\\ Dieses Problem wurde mit dem verwenden von der \ac{pi4j} Version 1.2 Snapshot gelöst. Mit der Snapshotversion werden nun alle Pins gefunden
+Mit der \ac{pi4j} Version 1.1 ist das Problem aufgetreten, dass am Raspberry Pi 3 die \ac{GPIO}-Pins nicht gefunden wurden. Um sicherzugehen, dass der Fehler nicht im Programm liegt, wurde das Code-Beispiel von \ac{pi4j} verwendet. Auch beim Testen mit diesem Code trat der Fehler, dass die \ac{GPIO}-Pins nicht gefunden werden können, auf.
+\\ Dieses Problem wurde mit dem Verwenden von der \ac{pi4j} Version 1.2 Snapshot gelöst. Mit der Snapshotversion werden nun alle Pins gefunden
 \\ Wenn dieses Projekt weiter fortgeführt wird, sollte überprüft werden, ob von der Snapshotversion auf eine Betaversion gewechselt werden kann.
 
 \subsection{Verbesserungsmöglichkeiten}
 \subsubsection{GUI auf "Touchscreen-Design\grqq{} abändern}
 Die \ac{GUI}, die momentan bei der Anlage in Verwendung ist, ist nicht optimal um über einen Touchscreen-Display bedient zu werden.
 \\ Dabei sollte vor allem die Navigation überarbeitet werden: 
-\\Für die Navigation sollte keine Menüleiste verwendet werden. Es wäre besser, wenn Pfeile verwendet werden, um zwischen den Fenstern zu wechseln. Eine andere Möglichkeit wäre, wenn die Fenster über eigene Icons im Hauptfenster aufrufbar wären.
+\\Für die Navigation sollte keine Menüleiste verwendet werden. Es wäre besser, wenn Pfeile verwendet werden, um zwischen den Fenstern zu wechseln. Eine andere Möglichkeit wäre, die Fenster über eigene Icons im Hauptfenster aufzurufen.
 \subsubsection{Bessere Benutzerverwaltung - Mehrere Benutzer anlegen}
-Es könnte eine Möglichkeit geschaffen werden, mehrere Benutzer anzulegen. Dadurch wäre es möglich, Benutzer zu speichern, obwohl momentan ein anderer Benutzer eingeloggt ist. Dazu muss die \ac{GUI} zum verwalten der Benutzer auch abgeändert werden. Zuerst muss unterschieden werden, ob ein Benutzer angelegt werden soll oder ob man sich mit einem Benutzer auf der Anlage anmelden will. Weiters könnte noch eine Übersicht über alle, an der Anlage angelegten Benutzer, hinzugefügt werden.
+Es könnte eine Möglichkeit geschaffen werden, mehrere Benutzer anzulegen. Dadurch wäre es möglich, Benutzer zu speichern, obwohl momentan ein anderer Benutzer eingeloggt ist. Dazu muss die \ac{GUI} zum Verwalten der Benutzer auch abgeändert werden. Zuerst muss unterschieden werden, ob ein Benutzer angelegt werden soll oder ob man sich mit einem Benutzer auf der Anlage anmelden will. Weiters könnte noch eine Übersicht über alle, an der Anlage angelegten Benutzer, hinzugefügt werden.
 \subsubsection{Selbst erstellbare Vorlagen in denen Zeiten gespeichert werden}
 Die Bedienung könnte dem Benutzer erleichtert werden, wenn er bereits bestehende oder selbst erstellte Vorlagen verwenden könnte. In diesen Vorlagen könnten die Fütterungszeiten und ob diese aktiv sind gespeichert werden. Diese Profile werden zusammen mit dem Benutzernamen auf einem Server abgespeichert. Daraus folgt, dass dem Benutzer, wenn er die Anlage wechselt und er sich erneut anmeldet, wieder alle Vorlagen zur Verfügung stehen. Dann kann er eine Vorlage auswählen und muss nicht alle Zeiten manuell einstellen.
 
 \subsection{Zusammenfassung}
-Bei der Umsetzung hat es, abgesehen von den oben angeführten, keine weiteren Probleme gegeben. Der Zeitplan wurde nicht ganz eingehalten. Dabei wurden öfters die Reihenfolge der Arbeitsschritte verändert. Terminlich gibt es keine große Verzögerung.
+Bei der Umsetzung hat es, abgesehen von den oben angeführten, keine weiteren Probleme gegeben. Der Zeitplan wurde nicht ganz eingehalten. Dabei wurde öfters die Reihenfolge der Arbeitsschritte verändert. Terminlich gibt es keine große Verzögerung.
