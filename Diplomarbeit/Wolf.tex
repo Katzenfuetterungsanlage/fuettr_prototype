@@ -242,7 +242,7 @@ Ein Signal, dass nach dem oben angeführten Programm generiert wird sieht wie in
 
 \end{center}
 \end{figure}
-
+\newpage
 \subsubsection{Optokoppler}
 
 Die Optokoppler in unserer Anwendung werden zur Potenzialerhöhung oder Potenzialvernidriegung von 3,3V auf 5V oder umgekehrt verwendet. Durch eine LED und einem Phototransistor werden die Schaltkreise getrennt. Wenn an der LED eine Spannung anliegt, beginnt sie zulLeuchten und erhöht damit die Leitfähigkeit des Phototransistors. Dadurch ermöglicht ein Stromfluss der LED-Schaltung einen Stromfluss in der Phototransistor-Schaltung.
@@ -262,21 +262,23 @@ Kennlinie des Optokopplers:
   	\label{Opto_Vce_Ic}
   \end{minipage}
 \end{figure}
-
-\newpage
 \subsubsection{Gesamtschaltplan}
-\begin{figure}[H] 
-\begin{center}
-
-\includegraphics[width=12cm]{Bilder/Schaltplan/Blockschaltbild}
+\begin{figure}[H]
+\begin{minipage}[t]{6cm}
+\vspace{0pt}
+\centering
+\includegraphics[width=8cm]{Bilder/Schaltplan/Blockschaltbild}
 \caption{Blockschaltbild}
 \label{Blockschaltbild}
-
-\end{center}
-\end{figure}
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{7cm}
+\vspace{0pt}
 Das Blockschaltbild vereinfacht die Gesamtschaltung und zeigt an, welche Bauteile miteinander verbunden sind. Die einzelnen Bauteile werden in den weiteren Punkten noch genauer beschrieben.
 Verbindungen der Schaltpläne erfolgen mittels der Klemmen X1 bis X6.
+\end{minipage}
+\end{figure}
+
  
 \subsubsection{Verkabelung der Motoransteuerung mit dazugehörigen Elementen}
 \begin{figure}[H] 
@@ -297,6 +299,7 @@ Die Motoransteuerung besteht aus folgenden Komponenten:\\
 \item Den Widerständen R1 bis R6, welche den Strom begrenzen, damit der Optokoppler nicht überlastet wird.
 \item Den Pulldown-Widerständen R7 bis R12 welche ein floaten, also eine fehlerhafte Spannung an den Input-Pins der Motorsteuerung verhindern sollen. \\
 \end{itemize}
+\newpage
 \textbf{Genereller Ablauf:}
 \begin{enumerate}
 \item Der Arduino Nano erzeugt ein dauerhaftes PWM-Signal, welches an die PWM-Inputs D6 und D5, über die Klemme X4, der Motoransteuerung gelegt wird.
@@ -345,6 +348,7 @@ Die Sensoransteuerung besteht aus folgenden Komponenten:
 \item Den Widerständen R17 und R18, welche einen Spannungsabfall erzeugen, damit der Optokoppler nicht überlastet wird.
 \item Den Pulldown-Widerständen R15 und R16 welche ein floaten, also eine fehlerhafte Spannung an den Input-Pins des Raspberrys verhindern sollen.\\
 \end{itemize}
+\newpage
 \textbf{Genereller Ablauf:}
 \begin{enumerate}
 \item Wenn der Sensor eine Reflektor-Fläche vor sich erkennt, schaltet der Phototransistor im Sensor durch.
@@ -371,6 +375,7 @@ $R_{17,18}=\frac{U}{I}=\frac{U_{5V}-U_{Optokoppler 10mA}-U_{CE(SAT)}}{I_{Optokop
 \end{center}
 
 Da der Ausgangsstrom durch den Eingangsstrom bestimmt wird, kann zur vereinfachten Berechnung durch die Kennlinie von Abbildung \ref{Opto_Vce_Ic} ein Eingangsstrombereich angenommen werden. Dadurch kann mithilfe der Kennlinie von Abbildung \ref{Opto_Vf_If} die abfallende Spannung am Optokoppler abgelesen werden. Mithilfe dieser Werte kann ein Widerstandsbereich berechnet werden, in dem der Widerstandswert liegen muss, damit der Ausgangsstrom hoch genug ist. Der berechnete Widerstandsbereich von $R_{17,18}$ beträgt 210$\Omega$-430$\Omega$. Es wird für diese Schaltung ein 680$\Omega$ Widerstand ausgewählt.
+\newpage
 \item R13 und R14:\\
 Die Spannung die abfallen muss und der Strom der fließt, kann aus dem Datenblatt des Sensors entnommen werden.\\
 $U_{F 50mA}=$1,45V \\
@@ -404,7 +409,7 @@ Die Spannungen werden an die Klemmen X1 und X2 gelegt.
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=15cm]{Bilder/Schaltplan/Raspberry_Verkabelung}
+\includegraphics[width=12cm]{Bilder/Schaltplan/Raspberry_Verkabelung}
 \caption{Raspberry Schaltplan}
 \label{Rasp_Circuit}
 
@@ -431,27 +436,21 @@ Der Arduino wird über die Klemme X2 versorgt.
 \section{Mechanische Konstruktion}
 \subsection{Motorhalterung Futterschüsseldrehplatte}
 Der Motor der Drehplatte wird an der Spitze der Welle befestigt. Der Motor wird über die Motoraufnahme mit der Decke der Anlage verschraubt. Damit wird dir Motor auf der richtigen Höhe gehalten und ist gegen Drehung gesichert. Die genauen Höhe der Platte kann noch nicht bestimmt werden, da die Gesamthöhe der Anlage und damit die Deckenhöhe nicht festgelegt wurde. Die Position der Befestigung auf der Decke ist noch nicht festgelegt, da die genaue Position der Wände der Anlage noch nicht festgelegt wurden und die Werte von diesen Positionen abhängig sind. Die Motoraufnahme wird mit drei M5 Schrauben an der Decke befestigt. Der Motor wird mit Zwei M10 Schrauben mit Muttern an der Motoraufnahme befestigt.
-
 \begin{figure}[H] 
 \begin{center}
-
-\includegraphics[width=7cm]{Bilder/Inventor/Motoraufnahme}
+\includegraphics[width=10cm]{Bilder/Inventor/Motoraufnahme}
 \caption{Motoraufnahme}
 \label{Motoraufnahme}
-
 \end{center}
 \end{figure}
-
+\newpage
 \subsection{Motorhalterung Förderband}
 Der Motor für das Förderband wird am Ende der Welle befestigt. Der Motor wird auf eine Aufnahme geschraubt und mithilfe eines Winkels an der rechten Stütze des Förderbandes befestigt. Die genaue Position variiert nach Förderbandlänge und muss nach Auslegung dimensioniert werden. Der Winkel wird mit drei M5 Schrauben an die Motoraufnahme geschraubt. Der Motor wird mit zwei M10 Schrauben mit Muttern an der Motoraufnahme befestigt. Der Winkel wird mit vier M6 Schrauben mit Muttern an der Förderbandstütze befestigt.
-
 \begin{figure}[H] 
 \begin{center}
-
-\includegraphics[width=10cm]{Bilder/Inventor/Motorhalterung_Foerderband}
+\includegraphics[width=9cm]{Bilder/Inventor/Motorhalterung_Foerderband}
 \caption{Motorhalterung Förderband}
 \label{Motor_mount_foerd}
-
 \end{center}
 \end{figure}
 \subsection{Sensorhalterung Futterschüsseldrehplatte}
