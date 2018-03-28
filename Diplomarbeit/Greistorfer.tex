@@ -52,12 +52,15 @@ Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://dev
 
 \subsubsection{HTTP Status Codes}
 \label{sec:http-status-codes}
+
+Bei jeder Anfrage sendet ein Webserver zumindest einen Statuscode als Antwort zurück.
+
 \begin{itemize}
-\item[•] \textbf{1xx}: Information
-\item[•] \textbf{2xx}: Erfolg
-\item[•] \textbf{3xx}: Umleitung
-\item[•] \textbf{4xx}: Client Fehler
-\item[•] \textbf{5xx}: Server Fehler
+\item[•] \textbf{1xx}: \textbf{Information} Alle Statuscodes die mit 1 beginnen sind rein informelle Codes.
+\item[•] \textbf{2xx}: \textbf{Erfolg} Statuscodes die mit 2 beginnen sagen dem Empfänger, dass seine Anfrage verstanden und akzeptiert wurde.
+\item[•] \textbf{3xx}: \textbf{Umleitung} Diese Statuscodes indizieren dem Client, dass er weiter Schritte durchführen muss, um die Anfrage zu vervollständigen.
+\item[•] \textbf{4xx}: \textbf{Client Fehler} Ein Statuscode, der mit 4 beginnt, bedeutet, dass ein Fehler auf der Seite des Clients aufgetreten ist.
+\item[•] \textbf{5xx}: \textbf{Server Fehler} Wenn der Statuscode mit einer 5 beginnt, bedeutet das, dass auf der Seite des Servers ein Fehler aufgetreten ist.
 \end{itemize}
 
 \subsection{JavaScript}
@@ -277,6 +280,7 @@ Das Angular \ac{CLI} ist ein JavaScript Modul, das über den \ac{npm} installier
 \label{sec:vor-bootstrap}
 Bootstrap ist eine CSS Bibliothek, die die Möglichkeit bietet, bereits vorgefertigte Komponenten auf unserer Website zu verwenden. An erster Stelle stehen bei Bootstrap responsive Design und Mobilgeräte. Responsive bedeutet, dass die Elemente sich an die Breite des Bildschirms anpassen. Dadurch erspart man sich als nicht sehr designaffiner Programmierer viel Arbeit. Auf der offiziellen Bootstrap Website kann man außerdem verschiedene Themes auswählen. Bootstrap wurde von Twitter entwickelt und ist entweder über den \ac{npm} oder über Bootstraps eigenes \ac{CDN} erhältlich.
 
+\newpage
 \section{Umsetzung}
 \label{sec:umsetzung}
 
@@ -325,7 +329,7 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \newpage
+Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -337,7 +341,7 @@ Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt.
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \\
+Auf der Fütterungszeiten-Seite kann der Benutzer die Katzenfütterungsanlage ein und ausschalten. Dies wurde mit einer Checkbox realisiert, die durch Styles wie ein Schalter gestaltet wurde. Darunter können die Fütterungszeiten geändert und deaktiviert werden. Siehe Abbildung \ref{Fütterungszeiten}. Der Button 'Speichern' wird deaktiviert, sobald eine Zeit ungültig eingegeben wurde oder wenn die Zeiten nicht in aufsteigender Reihenfolge sortiert sind. \newpage
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -357,7 +361,7 @@ Auf der Geräteinformations-Seite werden die wichtigsten Daten über das Gerät 
 \item[•]IP Adresse
 \item[•]Softwareversion
 \end{itemize}
-Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \newpage
+Die IP-Adresse ist die aktuelle \textbf{externe} IP-Adresse. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -423,13 +427,13 @@ Da Bootstrap ohne etwas zu verändern etwas langweilig aussieht, entschied ich m
 Durch \inlinecode{css}{@media only screen and (max-width: ZAHLpx)} wird die Bildschirmbreite bestimmt und alle Styles innerhalb der Klammern werden nur dann angewandt, wenn der Ausdruck in der Klammer zutrifft. In der Klammer wird die Schriftgröße des \inlinecode{css}{body} Elements und allen Elementen der Klasse \inlinecode{css}{.bigger-h1} angepasst.
 
 \paragraph*{Login}\mbox{}\\
-Auf der Login Seite befindet sich rechts oben ein Dropdownmenü, in dem die Sprache geändert werden kann. Dies ist gelöst durch ein \inlinecode{HTML}{*ngFor}. Wenn das Menü geschlossen ist, wird dort die Flagge der aktuellen Sprache angezeigt, Österreich bei Deutsch und Großbritannien bei Englisch. Wenn man auf das Menü klickt, klappen alle Sprachen herunter, die zur Auswahl stehen und der Benutzer kann auf eine klicken. Die verschiedenen Auswahlmöglichkeiten sind Links, die den Benutzer auf den jeweiligen Sprachcode umleiten und die Seite somit in der gewünschten Sprache anzeigen. In der Mitte der Seite befindet sich ein Bootstrap Jumbotron. Ein Jumbotron ist dafür gedacht, auf etwas Aufmerksamkeit zu ziehen. Damit verändert sich die Hintergrundfarbe und es entsteht eine klare Abhebung. Innerhalb des Jumbotrons ist ein \ac{HTML} Formular, in das der Benutzername und das Passwort vom Benutzer hineingeschrieben werden. Beim Klick auf den Knopf \textit{Anmelden} werden diese Daten dem Server übermittelt. Sollte das Anmelden geglückt sein, so wird automatisch die Startseite angezeigt. Auf allen weiteren Seiten ist rechts oben ein Knopf, mit dem sich der Benutzer abmelden kann.
+Auf der Login Seite befindet sich rechts oben ein Dropdownmenü, in dem die Sprache geändert werden kann. Dies ist gelöst durch ein \inlinecode{HTML}{*ngFor}. Wenn das Menü geschlossen ist, wird dort die Flagge der aktuellen Sprache angezeigt, Österreich bei Deutsch und Großbritannien bei Englisch. Wenn man auf das Menü klickt, klappen alle Sprachen herunter, die zur Auswahl stehen und der Benutzer kann auf eine klicken. Die verschiedenen Auswahlmöglichkeiten sind Links, die den Benutzer auf den jeweiligen Sprachcode umleiten und die Seite somit in der gewünschten Sprache anzeigen. In der Mitte der Seite befindet sich ein Bootstrap Jumbotron. Ein Jumbotron ist dafür gedacht, auf etwas Aufmerksamkeit zu ziehen. Damit verändert sich die Hintergrundfarbe und es entsteht eine klare Abhebung. Innerhalb des Jumbotrons ist ein \ac{HTML} Formular, in das der Benutzername und das Passwort vom Benutzer hineingeschrieben werden. Beim Klick auf den Knopf \textit{Anmelden} werden diese Daten dem Server übermittelt. Sollte das Anmelden geglückt sein, wird automatisch die Startseite angezeigt. Auf allen weiteren Seiten ist rechts oben ein Knopf, mit dem sich der Benutzer abmelden kann.
 
 \paragraph*{Startseite}\mbox{}\\
-Auf der linken Seite befindet sich ein Jumbotron, in dem die letzte Fütterungszeit, die nächste Fütterungszeit und die Zeit bis zur nächsten Fütterung angezeigt werden. Auf der rechten Seite werden die aktiven Fütterungszeiten angezeigt. Sollte eine Zeit deaktiviert werden, so wird sie auch nicht in dieser Liste angezeigt. Der Jumbotron und die Liste sind mithilfe von Bootstrap in einem Verhältnis von 2:1 nebeneinander angeordnet. Sollte die Bildschirmbreite zu klein werden, entweder, weil die Seite auf einem Mobilgerät angezeigt wird, oder weil der Benutzer das Browserfenster klein darstellt, so werden die beiden Elemente untereinander dargestellt. Unterhalb des Jumbotrons werden auftretende Fehler und Warnungen angezeigt. Dies ist wiederum mit zwei \inlinecode{HTML}{*ngFor} gelöst. Die Fehler und Warnungen sind Bootstrap Alerts. Sie sind dafür gedacht, dem Benutzer auf etwas aufmerksam zu machen. Sie können durch ein x auf der rechten Seite geschlossen werden. Am unteren Bildschirmrand ist eine Leiste, die die gleiche Farbe wie die Navigationsleiste hat. Auf ihr wird links angezeigt, ob die Maschine ein- oder ausgeschalten ist.
+Auf der linken Seite befindet sich ein Jumbotron, in dem die letzte Fütterungszeit, die nächste Fütterungszeit und die Zeit bis zur nächsten Fütterung angezeigt werden. Auf der rechten Seite werden die aktiven Fütterungszeiten angezeigt. Sollte eine Zeit deaktiviert werden, so wird sie auch nicht in dieser Liste angezeigt. Der Jumbotron und die Liste sind mithilfe von Bootstrap in einem Verhältnis von 2:1 nebeneinander angeordnet. Sollte die Bildschirmbreite zu klein werden, weil die Seite auf einem Mobilgerät angezeigt wird, oder weil der Benutzer das Browserfenster klein darstellt, so werden die beiden Elemente untereinander dargestellt. Unterhalb des Jumbotrons werden auftretende Fehler und Warnungen angezeigt. Dies ist wiederum mit zwei \inlinecode{HTML}{*ngFor} gelöst. Die Fehler und Warnungen sind Bootstrap Alerts. Sie sind dafür gedacht, dem Benutzer auf etwas aufmerksam zu machen. Sie können durch ein x auf der rechten Seite geschlossen werden. Am unteren Bildschirmrand ist eine Leiste, die die gleiche Farbe wie die Navigationsleiste hat. Auf ihr wird links angezeigt, ob die Maschine ein- oder ausgeschaltet ist.
 
 \paragraph*{Fütterungszeiten}\mbox{}\\
-Unter der Überschrift befindet sich ein Schalter, der es dem Benutzer ermöglicht, die MAschine ei- und auszuschalten. Dieser Schalter ist eine normale \ac{HTML} Checkbox, die durch \ac{CSS} Styling wie ein Schalter designet wurde.
+Unter der Überschrift befindet sich ein Schalter, der es dem Benutzer ermöglicht, die Maschine ein- und auszuschalten. Dieser Schalter ist eine normale \ac{HTML} Checkbox, die durch \ac{CSS} Styling wie ein Schalter designet wurde.
 
 \begin{lstlisting}[caption=HTML Schalter,label=html-schalter,style=HTML]
 <label class="switch">
@@ -497,7 +501,7 @@ Mit dem \inlinecode{css}{:before} Selector wird ein Element vor dem tatsächlich
 Auf dieser Seite befinden sich vier Elemente, die mithilfe von Bootstrap in vier gleich großen Spalten angeordnet sind. Wenn die Bildschirmbreite zu klein wird, so werden sie untereinander angezeigt.
 
 \paragraph*{Geräteinformationen}\mbox{}\\
-In der Mitte der Seite befindet sich ein Jumbotron, der die ganze Seitenbreite umfasst. In ihm ist eine Tabelle, die mit der Bootstrap Klasse \inlinecode{css}{.table-hover} gestyled wurde. Diese Klasse bewirkt, dass die Zeile, über die der Mauszeiger sich gerade befindet, hervorgehoben wird. Dadurch kann der Benutzer leichter erkennen, in welcher Zeile er gerade liest.
+In der Mitte der Seite befindet sich ein Jumbotron, der die ganze Seitenbreite umfasst. In ihm ist eine Tabelle, die mit der Bootstrap Klasse \inlinecode{css}{.table-hover} gestyled wurde. Diese Klasse bewirkt, dass die Zeile, über der der Mauszeiger sich gerade befindet, hervorgehoben wird. Dadurch kann der Benutzer leichter erkennen, in welcher Zeile er gerade liest.
 
 \paragraph*{Aktualisierungen}\mbox{}\\
 Auf dieser Seite befindet sich nur ein Knopf in der Mitte, der ein Popup, ein sogenanntes Modal, anzeigt. Dies ist durch \textit{ng-bootstrap} gelöst. Bei Aufruf der Seite wird überprüft, ob eine Softwareaktualisierung verfügbar ist. Im Modal wird dann angezeigt, ob eine Aktualisierung verfügbar ist und wie lange es gedauert hat, bis die Überprüfung abgeschlossen war. Sollte eine Aktualisierung verfügbar sein, so wird ein Knopf angezeigt, über den der Benutzer den Aktualisierungsvorgang starten kann. Wird der Aktualisierungsvorgang gestartet, so wird der Knopf deaktiviert, sodass er nicht mehr anklickbar ist. Ein Ladebalken zeigt dem Benutzer, dass der Vorgang unbestimmte Zeit dauert. In dem Ladebalken steht ein Text, der dem Benutzer mitteilt, in welchem Stadium das Raspberry sich befindet, siehe \autoref{par:funk-upd}.
@@ -506,7 +510,7 @@ Auf dieser Seite befindet sich nur ein Knopf in der Mitte, der ein Popup, ein so
 \label{sec:ums-client-funktion}
 
 \paragraph*{Struktur} \mbox {}\\
-Der Haupt-\textit{Component}, der geladen wird, wenn die Seite aufgerufen wird, ist \textit{app.component}. In seinem Template ist die Navigationsleiste, die sich alle Seiten teilen. Alle weiteren Seiten werden im \inlinecode{html}{<router-outlet></router-outlet>} angezeigt. Das ist ein \ac{HTML}-Tag der von Angulars Router zur Verfügung gestellt wird. Ein Router ist ein Service, welches das Navigieren der Seite ermöglicht. Damit das funktioniert, muss dem Router mitgeteilt werden, wie die Seite aufgebaut ist. Dies geschieht im \textit{router.module}:
+Der Haupt-\textit{Component}, der geladen wird, wenn die Seite aufgerufen wird, ist \textit{app.component}. In seinem Template ist die Navigationsleiste, die sich alle Seiten teilen. Alle weiteren Seiten werden im \inlinecode{html}{<router-outlet></router-outlet>} angezeigt. Das ist ein \ac{HTML}-Tag, der von Angulars Router zur Verfügung gestellt wird. Ein Router ist ein Service, welches das Navigieren der Seite ermöglicht. Damit das funktioniert, muss dem Router mitgeteilt werden, wie die Seite aufgebaut ist. Dies geschieht im \textit{router.module}:
 
 \begin{lstlisting}[caption=Routes Definition,style=TS]
 const routes: Routes = [
@@ -709,7 +713,7 @@ public languageselector(req: express.Request, res: express.Response, next: expre
 }
 \end{lstlisting}
 
-Wenn eine Anfrage auf \textit{root} (/) eintrifft, entscheidet der Server, ausgehend von dem Wert, der in \inlinecode{TS}{req.language} steht, in welcher Sprache der Benutzer die Webseite zu sehen bekommt. Ist der Wert entweder \textit{de-De} oder \textit{de-AT}, so wird die deutsche Seite angezeigt, bei allen anderen Werten, wird die englische Seite angezeigt. Dies geschieht durch Weiterleiten des Requests auf entweder \textit{/de} oder \textit{/en}. 
+Wenn eine Anfrage auf \textit{root} (/) eintrifft, entscheidet der Server, ausgehend von dem Wert, der in \inlinecode{TS}{req.language} steht, in welcher Sprache der Benutzer die Webseite zu sehen bekommt. Ist der Wert entweder \textit{de-De} oder \textit{de-AT}, so wird die deutsche Seite angezeigt, bei allen anderen Werten, wird die englische Seite angezeigt. Dies geschieht durch Weiterleiten des Requests auf entweder \textit{/de} oder \textit{/en}. Die Angular Applikation wird durch ein \inlinecode{TS}{use(express.static())} zur Verfügung gestellt.
 
 \begin{lstlisting}[style=TS,caption=Login Methode,label=login]
 public async login(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -808,7 +812,7 @@ Die Kommunikation mit dem Java-Programm erfolgt über Node.js' eigenes \textit{h
 
 \subsection{Verbinden mit WLAN im Java Programm}
 \label{sec:ums-wlan}
-Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir diese Aufgabe ebenfalls zu. Das Verbinden mit dem \ac{WLAN} auf dem Raspberry ist ein einfacher Eintrag in eine Textdatei die unter \inlinecode{bash}{/etc/wpa\_supplicant/wpa\_supplicant.conf} zu finden ist. Über den Befehl \inlinecode{bash}{sudo iwlist wlan0 scan} können alle \ac{WLAN} Netzwerke, die in Reichweite sind, angezeigt werden. Dieser Befehl wird beim Initialisieren des Fensters ausgeführt. Dieser Befehl liefert einen String zurück, welcher in einer Variable gespeichert wird. In diesem String stehen alle verfügbaren Netzwerke. Die Namen der Netzwerke müssen aus dem String extrahiert und in einer Liste gespeichert werden. Diese Liste wird in einem Dropdownmenü angezeigt. Klickt der Benutzer auf einen Eintrag, so muss er noch zusätzlich das Passwort eingeben. Beim Klick auf den Knopf \textit{Verbinden} wird das Netzwerk mit dem Passwort in der \textit{wpa\_supplicant.conf} Datei gespeichert. Bei erfolgreicher Verbindung wird in die Datenbank geschrieben, dass das Raspberry mit dem \ac{WLAN} verbunden ist.
+Da das Verbinden mit dem \ac{WLAN} mit Netzwerktechnik zu tun hat, fiel mir diese Aufgabe ebenfalls zu. Das Verbinden mit dem \ac{WLAN} auf dem Raspberry ist ein einfacher Eintrag in eine Textdatei, die unter \inlinecode{bash}{/etc/wpa\_supplicant/wpa\_supplicant.conf} zu finden ist. Über den Befehl \inlinecode{bash}{sudo iwlist wlan0 scan} können alle \ac{WLAN} Netzwerke, die in Reichweite sind, angezeigt werden. Dieser Befehl wird beim Initialisieren des Fensters ausgeführt und liefert einen String zurück, welcher in einer Variable gespeichert wird. In diesem String stehen alle verfügbaren Netzwerke. Die Namen der Netzwerke müssen aus dem String extrahiert und in einer Liste gespeichert werden. Diese Liste wird in einem Dropdownmenü angezeigt. Klickt der Benutzer auf einen Eintrag, so muss er noch zusätzlich das Passwort eingeben. Beim Klick auf den Knopf \textit{Verbinden} wird das Netzwerk mit dem Passwort in der \textit{wpa\_supplicant.conf} Datei gespeichert. Bei erfolgreicher Verbindung wird in die Datenbank geschrieben, dass das Raspberry mit dem \ac{WLAN} verbunden ist.
 
 \begin{lstlisting}[caption=WLAN Konfigurationsbeispiel,label=wlan-datei-beispiel,style=bash]
 network={
@@ -819,7 +823,7 @@ network={
 
 \section{Raspberry PI}
 \label{sec:raspi}
-Im Laufe des Arbeitens kam die Idee auf, ein Skript für das Raspberry zu schreiben, damit bei einem neuen, leerem System nicht alles per Hand installiert werden muss. Diese Skript bot auch die Möglichkeit, im Falle eines kommerziellen Gebrauchs der Maschine, sehr schnell und sehr viele Geräte mit der Software zu versorgen. Das Skript installiert Node.js, MongoDB, Java, Git, Angular und alle Module, die von der App gebraucht werden. Es lädt das Repository herunter und baut alle Komponenten der Software. Es konfiguriert alles und startet alle Teile der Software. Das ganze Skript ist in der Standard Sprache der Linux Shell geschrieben. Das Skript kann über den Befehl \inlinecode{bash}{bash -c "\$(curl -sL https://goo.gl/npRzS6)"} ausgeführt werden.
+Im Laufe des Arbeitens kam die Idee auf, ein Skript für das Raspberry zu schreiben, damit bei einem neuen, leeren System nicht alles per Hand installiert werden muss. Diese Skript bot auch die Möglichkeit, im Falle eines kommerziellen Gebrauchs der Maschine sehr schnell und sehr viele Geräte mit der Software zu versorgen. Das Skript installiert Node.js, MongoDB, Java, Git, Angular und alle Module, die von der App gebraucht werden. Es lädt das Repository herunter und baut alle Komponenten der Software. Es konfiguriert alles und startet alle Teile der Software. Das ganze Skript ist in der Standard Sprache der Linux Shell geschrieben. Das Skript kann über den Befehl \inlinecode{bash}{bash -c "\$(curl -sL https://goo.gl/npRzS6)"} ausgeführt werden.
 
 \section{Verbesserungsmöglichkeiten und Zusammenfassung}
 \label{sec:verbesserung-und-zusammenfassung}
@@ -827,11 +831,11 @@ Im Laufe des Arbeitens kam die Idee auf, ein Skript für das Raspberry zu schrei
 \subsubsection{Verbesserungsmöglichkeiten}
 \label{sec:verbesserung}
 Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. \\ \\
-Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst, wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. \\ \\
+Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. \\ \\
 Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, das ist für Angular optimiert. \\ \\
 Eine größere Auswahl an Sprachen können noch angeboten werden, aber da ich nur Deutsch und Englisch beherrsche, war dies nicht möglich. \\ \\
-Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen, dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
+Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen. Dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
 
 \subsubsection{Zusammenfassung}
 \label{sec:zusammenfassung}
-Viele Abschnitte und Funktionen wurden öfters programmiert und sehr oft überarbeitet, da erst im laufe des Arbeitens die Sprache TypeScript erlernt wurde und viele Facetten dieser Sprache erst bei längerem Arbeiten zum Vorschein treten. Es gab keine großen Komplikationen. Der Terminplan wurde immer eingehalten. Die Zusammenarbeit mit den Kollegen war, bis auf obiges genanntes Problem, meist aufschlussreich und konstruktiv.
+Viele Abschnitte und Funktionen wurden öfters programmiert und sehr oft überarbeitet, da erst im laufe des Arbeitens die Sprache TypeScript erlernt wurde und viele Facetten dieser Sprache erst bei längerem Arbeiten zum Vorschein treten. Es gab keine großen Komplikationen. Der Terminplan wurde immer eingehalten. Die Zusammenarbeit mit den Kollegen war bis auf oben genanntes Problem meist aufschlussreich und konstruktiv.
