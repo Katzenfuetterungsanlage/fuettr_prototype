@@ -724,7 +724,7 @@ Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfigurier
   \end{center}
   \caption{Spinner Konfiguration}
   \label{SpinnerKonfiguration}
-  \vspace{-10pt}
+  \vspace{0pt}
 \end{wrapfigure}
 \\ \\ In diesem Fenster ist der Code, welcher in den ersten vier Zeilen steht, hinzuzufügen. 
 \\ Hier wird das Modell für den Spinner gesetzt. Dieses Model gibt an, dass der Spinner ein Datum darstellen soll. Weiters wird noch festgelegt wie das Datum angezeigt werden soll. Hier wird die Uhrzeit dargestellt. 
@@ -815,7 +815,7 @@ public BasicDBObject getNewTimeDoc()
   \end{center}
   \caption{CreateAndRegisterUser}
   \label{CreateAndRegisterUser}
-  \vspace{10pt}
+  \vspace{20pt}
 \end{wrapfigure}
 Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Sinn machen würde, wenn mehrere Benutzer angelegt werden. Der angelegte Benutzer wird nur benötigt, um sich auf der Webseite der Anlage anzumelden. Deshalb ist es ausreichend nur einen Benutzer anlegen zu können. Die \ac{GUI} ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
 \\ \\ Die \ac{GUI} der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
@@ -1007,15 +1007,15 @@ Die Drehrichtungen und die Zustände werden mithilfe des \textbf{\ac{pi4j} Singl
 
 \begin{lstlisting}[style=JavaStyle, caption= Label aktualisieren]
 	@Override
-    protected void process(List<String[]> chunks)
-    {
-         String state[] = chunks.get((chunks.size() - 1));
+	protected void process(List<String[]> chunks)
+	{
+		String state[] = chunks.get((chunks.size() - 1));
             
-         lbSensor1.setText(state[0]);
-         lbSensor2.setText(state[1]);
-         lbEngine1.setText(state[2]);
-         lbEngine2.setText(state[3]);
-    } 
+		lbSensor1.setText(state[0]);
+		lbSensor2.setText(state[1]);
+		lbEngine1.setText(state[2]);
+		lbEngine2.setText(state[3]);
+	} 
 \end{lstlisting}
 Das \textbf{doInBackground()} ist wie folgt implementiert:
 \begin{lstlisting}[style=JavaStyle, caption= Motor- und Sensorzustände, label=SwingWorker_MotorSensorStatus]
