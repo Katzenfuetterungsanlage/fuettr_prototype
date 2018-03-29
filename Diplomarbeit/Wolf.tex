@@ -98,7 +98,7 @@ Wir haben uns  darauf festgelegt nur mit sicherer niedriger Gleichspannung zu ar
 
 \end{center}
 \end{figure}
-Zur Kühlung des Raspberrys, findet ein externer 12V-Lüfter Verwendung, welcher einen Luftstrom um den Raspberry und den $\mu$Controller erzeugt.
+Zur Kühlung des Raspberrys, findet ein externer 12V-Lüfter Verwendung, welcher einen Luftstrom um den Raspberry und den \ac{uC}ontroller erzeugt.
 \subsection{Sensoren}
 Der ausgewählte optische Sensor wurde in Variante 1 bereits beschrieben. Für genauere Informationen lesen Sie bitte in Punkt 4.3.2 nach.
 Es werden zwei dieser Sensoren zur Positionierung verwendet. Der Sensor muss nur erkennen, ob sich eine Reflektorfläche vor ihm befindet. Bei der Futterschüsseldrehplatte wird am Rand der Scheibe, an der Position jeder Futterschüssel ein Reflektorstreifen verwendet. Dadurch kann mit der Software gezählt und erkannt werden, welche Futterschüssel sich aktuell vor dem Sensor befindet. Im Futterbeutelmagazin wird der Sensor dazu verwendet, um erkennen zu können, ob ein Futterbeutel für die Fütterung verfügbar ist. Wird vom Sensor, nach Drehen des Motors, kein weiterer Futterbeutel erkannt, wird von der Software, falls nötig, ein Fehler ausgegeben und der Benutzer informiert. Der Reflektorstreifen wird auf der Verschlussklemme jedes Futterbeutels befestigt.
@@ -165,7 +165,7 @@ Dieser Schaltplan dient nur als Beispiel-Schaltung und wurde aufgrund der Motora
 
 \end{center}
 \end{figure}
-Aus sicherheits- und kostentechnischen Gründen, wurde von einer manuell gesteuerten H-Brücke auf ein fertiges Motorsteuerungsmodul umgestiegen. Der Vorteil dieser Ansteuerung besteht darin, dass ein Kurzschluss der H-Brücke hardwaretechnisch ausgeschlossen werden kann und damit nicht von der Software abgesichert werden muss. Das Motormodul verfügt außerdem über eine interne Strommessung für jeden der zwei unterstützten Motoren. Diese Messung kann bei Bedarf abgefragt werden. Für unsere Anwendung ist dies jedoch nicht erforderlich. Der Motortreiber unterstützt zwei Motoren, welche mit bis zu 30 Ampere bei 16V betrieben werden können, bevor der IC überhitzt oder andere Bauteile zerstört werden. Die Ansteuerung jedes Motors erfolgt über ein digitales Signal. Motor Nr.1 kann über den Pin AI0 aktiviert (enabled) werden. Dies dient zur Sicherung, dass der Motor nicht aus Versehen betätigt werden kann, solange der AI0 Pin nicht auf HIGH ist. Der enable Pin für Motor Nr.2 ist AI1. Um Motor Nr.1 im Uhrzeigersinn drehen zu lassen, muss der Pin D7 mit einem HIGH Signal und der Pin D8 mit einem LOW Signal angesteuert werden. Um Motor Nr.2 gegen den Uhrzeigersinn drehen zu lassen, muss der Pin D8 mit einem HIGH Signal und der Pin D7 mit einem LOW Signal angesteuert werden. Um den Motor Nr.1 bremsen zu können, muss Pin D8 und D7 mit entweder einem HIGH oder einem LOW Signal angesteuert werden. Für Motor Nr.2 ist die Funktionsweise gleich, jedoch muss der Pin D7 mit Pin D4 und Pin D8 mit Pin D9 ersetzt werden. Die externe Stromversorgung für den IC von 5V erfolgt über den VCC Pin. Die externe Stromversorgung für die Motoren erfolgt über den PWR Pin. Zusätzlich muss der GND Pin noch mit einem der beiden Ground Anschlüsse der externen Stromversorgungen verbunden werden. Motor Nr.1 wird über die Outputs A1 und B1 versorgt. Motor Nr.2 wird über die Outputs A2 und B2 versorgt. Beim Anschluss der Motoren muss auf die Polung geachtet und gegebenenfalls getestet werden, ob sich die Motoren auch wirklich beim Ansteuern der D7 oder D4 Pins im Uhrzeigersinn drehen und nicht gegen den Uhrzeigersinn. Falls beim Motor gekennzeichnet, sollte der Pluspol des Motors mit dem A1 beziehungsweise dem A2 Pin verbunden werden. Der Motortreiber verfügt auch über eine interne Drehzahlregelung, welche extra für beide Motoren über zwei PWM Input Pins gesteuert werden kann. Die Drehzahl kann über den Duty Cycle des PWM Signals geregelt werden.
+Aus sicherheits- und kostentechnischen Gründen, wurde von einer manuell gesteuerten H-Brücke auf ein fertiges Motorsteuerungsmodul umgestiegen. Der Vorteil dieser Ansteuerung besteht darin, dass ein Kurzschluss der H-Brücke hardwaretechnisch ausgeschlossen werden kann und damit nicht von der Software abgesichert werden muss. Das Motormodul verfügt außerdem über eine interne Strommessung für jeden der zwei unterstützten Motoren. Diese Messung kann bei Bedarf abgefragt werden. Für unsere Anwendung ist dies jedoch nicht erforderlich. Der Motortreiber unterstützt zwei Motoren, welche mit bis zu 30 Ampere bei 16V betrieben werden können, bevor der IC überhitzt oder andere Bauteile zerstört werden. Die Ansteuerung jedes Motors erfolgt über ein digitales Signal. Motor Nr.1 kann über den Pin AI0 aktiviert (enabled) werden. Dies dient zur Sicherung, dass der Motor nicht aus Versehen betätigt werden kann, solange der AI0 Pin nicht auf HIGH ist. Der enable Pin für Motor Nr.2 ist AI1. Um Motor Nr.1 im Uhrzeigersinn drehen zu lassen, muss der Pin D7 mit einem HIGH Signal und der Pin D8 mit einem LOW Signal angesteuert werden. Um Motor Nr.2 gegen den Uhrzeigersinn drehen zu lassen, muss der Pin D8 mit einem HIGH Signal und der Pin D7 mit einem LOW Signal angesteuert werden. Um den Motor Nr.1 bremsen zu können, muss Pin D8 und D7 mit entweder einem HIGH oder einem LOW Signal angesteuert werden. Für Motor Nr.2 ist die Funktionsweise gleich, jedoch muss der Pin D7 mit Pin D4 und Pin D8 mit Pin D9 ersetzt werden. Die externe Stromversorgung für den IC von 5V erfolgt über den VCC Pin. Die externe Stromversorgung für die Motoren erfolgt über den PWR Pin. Zusätzlich muss der GND Pin noch mit einem der beiden Ground Anschlüsse der externen Stromversorgungen verbunden werden. Motor Nr.1 wird über die Outputs A1 und B1 versorgt. Motor Nr.2 wird über die Outputs A2 und B2 versorgt. Beim Anschluss der Motoren muss auf die Polung geachtet und gegebenenfalls getestet werden, ob sich die Motoren auch wirklich beim Ansteuern der D7 oder D4 Pins im Uhrzeigersinn drehen und nicht gegen den Uhrzeigersinn. Falls beim Motor gekennzeichnet, sollte der Pluspol des Motors mit dem A1 beziehungsweise dem A2 Pin verbunden werden. Der Motortreiber verfügt auch über eine interne Drehzahlregelung, welche extra für beide Motoren über zwei \ac{PWM} Input Pins gesteuert werden kann. Die Drehzahl kann über den Duty Cycle des \ac{PWM} Signals geregelt werden.
 \subsubsection{PWM-Signal-erzeugung für Motoransteuerung}
 \begin{figure}[H] 
 \begin{center}
@@ -176,33 +176,33 @@ Aus sicherheits- und kostentechnischen Gründen, wurde von einer manuell gesteue
 
 \end{center}
 \end{figure}
-Ein PWM Signal ist ein periodisches Rechteck-Signal. Eine Periode wird als Duty Cycle bezeichnet. Dieser Duty Cycle enthält eine Prozentangabe, welche aussagt, wie viel Prozent des Duty Cycles HIGH und wie viel Prozent LOW sind. Ein Signal mit einem Duty Cycle von 100\% sagt aus, dass eine Periodendauer zu 100\% aus einem HIGH Signal und zu 0\% aus einem LOW Signal besteht. Ein Duty Cycle von 25\% sagt aus, dass eine Periode zu 25\% aus einem HIGH Signal und zu 75\% aus einem LOW Signal besteht. Das PWM Signal kann von manchen ICs intern aufgenommen und der Duty Cycle ausgemessen werden. Dabei muss jedoch beachtet werden, dass die Frequenz des PWM Signals nicht die maximale Schaltfrequenz des ICs übersteigt. In den meisten Fällen wird diese Frequenz, wie bei unserem Motortreiber, im Datenblatt angegeben. Das PWM kann entweder über eigene ICs mit PWM Generatoren oder $\mu$Cs mit internen PWM Generatoren erzeugt werden. Das System muss nur über eine Echtzeitfähigkeit besitzen, damit der Duty Cycle keine Takte beim Zählen überspringen und nicht die Frequenz fehlerhaft werden kann. 
-Unser PWM Generator wurde mithilfe eines Arduino Nanos realisiert. Mithilfe des $\mu$C Atmega328P wird der interne Zähler (Timer 2) dazu verwendet, einen Output Pin in den richtigen Abständen zu toggeln (von HIGH auf LOW oder umgekehrt schalten) um ein PWM Signal zu erzeugen.
+Ein \ac{PWM} Signal ist ein periodisches Rechteck-Signal. Eine Periode wird als Duty Cycle bezeichnet. Dieser Duty Cycle enthält eine Prozentangabe, welche aussagt, wie viel Prozent des Duty Cycles HIGH und wie viel Prozent LOW sind. Ein Signal mit einem Duty Cycle von 100\% sagt aus, dass eine Periodendauer zu 100\% aus einem HIGH Signal und zu 0\% aus einem LOW Signal besteht. Ein Duty Cycle von 25\% sagt aus, dass eine Periode zu 25\% aus einem HIGH Signal und zu 75\% aus einem LOW Signal besteht. Das \ac{PWM} Signal kann von manchen ICs intern aufgenommen und der Duty Cycle ausgemessen werden. Dabei muss jedoch beachtet werden, dass die Frequenz des \ac{PWM} Signals nicht die maximale Schaltfrequenz des ICs übersteigt. In den meisten Fällen wird diese Frequenz, wie bei unserem Motortreiber, im Datenblatt angegeben. Das \ac{PWM} kann entweder über eigene ICs mit \ac{PWM} Generatoren oder \ac{uC}s mit internen \ac{PWM} Generatoren erzeugt werden. Das System muss nur über eine Echtzeitfähigkeit besitzen, damit der Duty Cycle keine Takte beim Zählen überspringen und nicht die Frequenz fehlerhaft werden kann. 
+Unser \ac{PWM} Generator wurde mithilfe eines Arduino Nanos realisiert. Mithilfe des \ac{uC} Atmega328P wird der interne Zähler (Timer 2) dazu verwendet, einen Output Pin in den richtigen Abständen zu toggeln (von HIGH auf LOW oder umgekehrt schalten) um ein \ac{PWM} Signal zu erzeugen.
 
 
 \begin{itemize}
 \item verwendete Register:
 \begin{itemize}
-\item TCCR2A: Im TCCR2A Register wird festgelegt, in welchem Modus der Timer laufen soll und was mit den Pins OC2A und OC2B passieren soll, wenn der der aktuelle Timer-Wert mit einem der beiden Output Compare Register übereinstimmt. Die Bits COM2A1 und COM2A0 setzen im Fast-PWM Modus fest, ob der OC2A Pin nicht beeinflusst wird und nicht verbunden ist, vom WGM22 Bit abhängig ist oder bei einem Compare Match, also wenn das Output Compare Register OCR2A mit dem aktuellen Timer Wert übereinstimmt, der OC2A Pin gesetzt und beim Reset des Timers resetet wird (non-inverting Mode), oder bei einem Compare Match der OC2A Pin resetet und beim Reset des Timers gesetzt wird (inverting Mode). \\ Die selbe Funktion haben die Bits COM2B1 und COM2B0, nur dass der Pin OC2B verändert und mit dem Compare Registe OCR2B verglichen wird. \\
-Die Bits WGM21 und WGM20 setzen den Modus des Signalgenerators, die vom Timer unterstützt werden. Es gibt grundsätzlich drei Modi, in denen der Signalgenerator laufen kann: CTC, Fast PWM, PWM Phase Correct. \\
+\item TCCR2A: Im TCCR2A Register wird festgelegt, in welchem Modus der Timer laufen soll und was mit den Pins OC2A und OC2B passieren soll, wenn der der aktuelle Timer-Wert mit einem der beiden Output Compare Register übereinstimmt. Die Bits COM2A1 und COM2A0 setzen im Fast-\ac{PWM} Modus fest, ob der OC2A Pin nicht beeinflusst wird und nicht verbunden ist, vom WGM22 Bit abhängig ist oder bei einem Compare Match, also wenn das Output Compare Register OCR2A mit dem aktuellen Timer Wert übereinstimmt, der OC2A Pin gesetzt und beim Reset des Timers resetet wird (non-inverting Mode), oder bei einem Compare Match der OC2A Pin resetet und beim Reset des Timers gesetzt wird (inverting Mode). \\ Die selbe Funktion haben die Bits COM2B1 und COM2B0, nur dass der Pin OC2B verändert und mit dem Compare Registe OCR2B verglichen wird. \\
+Die Bits WGM21 und WGM20 setzen den Modus des Signalgenerators, die vom Timer unterstützt werden. Es gibt grundsätzlich drei Modi, in denen der Signalgenerator laufen kann: CTC, Fast \ac{PWM}, \ac{PWM} Phase Correct. \\
 \begin{itemize}
 \item Im CTC Modus kann der TOP Wert, zu dem der Counter zählt, immer bei jedem vollständigen Zählvorgang geändert werden. Der Zähler zählt in Form eines Sägezahn Signals und toggled den Pin immer, wenn der Top Wert erreicht wird.\\
-\item Im Fast PWM Modus zählt der Zähler in Form eines Sägezahnsignals und es wird bei jedem Zählschritt überprüft, ob der aktuelle Wert des Zählers mit dem Output Compare Register übereinstimmt. Was passiert, wenn die Werte übereinstimmen, wird in den COM2xx Bits festgelegt. Die Frequenz des Ausgangssignals am Pin kann nur über einen Prescaler verändert werden. Das bedeutet, dass die Frequenz nur sieben Frequenzen mit dem internen Timer annehmen kann. Das OCR2x Register kann während des Betriebes geändert werden. Damit kann der Duty Cycle während des Betriebes geändert werden. \\
-\item Der PWM Phase Correct Modus, lässt den Zähler von Bottom zu Top und wieder zu Bottom zählen. Das bewirkt, dass er Zähler in Form eines Dreiecksignals zählt. Somit ist das Ausgangs PWM Signal immer symmetrisch um den BOTTOM und TOP Wert des Zählers. Daher bleibt das Signal immer Phasen-korrekt. Der Nachteil dieses Modus ist, dass er nur die halbe Frequenz des Fast PWM Modus erreichen kann. Der PWM Phase Correct Modus kann auch nur sieben Frequenzen annehmen.\\
+\item Im Fast \ac{PWM} Modus zählt der Zähler in Form eines Sägezahnsignals und es wird bei jedem Zählschritt überprüft, ob der aktuelle Wert des Zählers mit dem Output Compare Register übereinstimmt. Was passiert, wenn die Werte übereinstimmen, wird in den COM2xx Bits festgelegt. Die Frequenz des Ausgangssignals am Pin kann nur über einen Prescaler verändert werden. Das bedeutet, dass die Frequenz nur sieben Frequenzen mit dem internen Timer annehmen kann. Das OCR2x Register kann während des Betriebes geändert werden. Damit kann der Duty Cycle während des Betriebes geändert werden. \\
+\item Der \ac{PWM} Phase Correct Modus, lässt den Zähler von Bottom zu Top und wieder zu Bottom zählen. Das bewirkt, dass er Zähler in Form eines Dreiecksignals zählt. Somit ist das Ausgangs \ac{PWM} Signal immer symmetrisch um den BOTTOM und TOP Wert des Zählers. Daher bleibt das Signal immer Phasen-korrekt. Der Nachteil dieses Modus ist, dass er nur die halbe Frequenz des Fast \ac{PWM} Modus erreichen kann. Der \ac{PWM} Phase Correct Modus kann auch nur sieben Frequenzen annehmen.\\
 \end{itemize} 
-\item TCCR2B: Im TCCR2B Register wird für unsere Anwendung der Prescaler festgelegt, um die Frequenz des PWM-Signales einzustellen. Dazu werden die Bits 0 bis 2 verwendet. Das sind die Bits CS20, CS21 und CS22. Die Bits FOC2A, FOC2B und WGM22 werden in unserer Anwendung nicht benötigt und können ignoriert werden. \\
-\item OCR2A: Das Register OCR2A ist das Output Compare Match Register für den OC2A Pin. Das Register kann einen Wert zwischen 0 und 255 haben, wobei im Fast PWM Modus 0 einem Duty Cycle von 0\% und 255 einem Duty Cycle von 100\% entspricht.\\
-\item OCR2B: Das Register OCR2B ist das Output Compare Match Register für den OC2B Pin. Das Register kann einen Wert zwischen 0 und 255 haben, wobei im Fast PWM Modus 0 einem Duty Cycle von 0\% und 255 einem Duty Cycle von 100\% entspricht.\\
+\item TCCR2B: Im TCCR2B Register wird für unsere Anwendung der Prescaler festgelegt, um die Frequenz des \ac{PWM}-Signales einzustellen. Dazu werden die Bits 0 bis 2 verwendet. Das sind die Bits CS20, CS21 und CS22. Die Bits FOC2A, FOC2B und WGM22 werden in unserer Anwendung nicht benötigt und können ignoriert werden. \\
+\item OCR2A: Das Register OCR2A ist das Output Compare Match Register für den OC2A Pin. Das Register kann einen Wert zwischen 0 und 255 haben, wobei im Fast \ac{PWM} Modus 0 einem Duty Cycle von 0\% und 255 einem Duty Cycle von 100\% entspricht.\\
+\item OCR2B: Das Register OCR2B ist das Output Compare Match Register für den OC2B Pin. Das Register kann einen Wert zwischen 0 und 255 haben, wobei im Fast \ac{PWM} Modus 0 einem Duty Cycle von 0\% und 255 einem Duty Cycle von 100\% entspricht.\\
 \item DDRD: Im Register DDRD können I/O Pins als Output Pins gesetzt werden. Es muss nur das Bit des entsprechenden Pins gesetzt werden.\\
 \item DDRB: Im Register DDRB können I/O Pins als Output Pins gesetzt werden. Es muss nur das Bit des entsprechenden Pins gesetzt werden.\\
 \end{itemize}
 \item Frequenz berechnen:\\
-Die maximal Frequenz des PWM-Signals für die Motoransteuerung beträgt 20kHz. Das bedeutet, dass man einen Frequenzwert so nahe wie möglich, aber unter der maximalen Frequenz wählen soll.\\
-Berechnen lässt sich die Frequenz des PWM-Signals mit folgender Formel:
+Die maximal Frequenz des \ac{PWM}-Signals für die Motoransteuerung beträgt 20kHz. Das bedeutet, dass man einen Frequenzwert so nahe wie möglich, aber unter der maximalen Frequenz wählen soll.\\
+Berechnen lässt sich die Frequenz des \ac{PWM}-Signals mit folgender Formel:
 \begin{align*}
 f_{OC2xPWM}=\frac{f_{clk\_I/O}}{N*256} \\
 \end{align*} 
-f$_{OC2xPWM}$ ist die Frequenz, die das PWM-Signal haben wird.\\
+f$_{OC2xPWM}$ ist die Frequenz, die das \ac{PWM}-Signal haben wird.\\
 f$_{clk_I/O}$ ist die Taktfrequenz des Atmega328P, also 16MHz. \\
 N ist der Wert des Prescalers, welcher im TCCR2B Register festgelegt wird. \\
 
@@ -225,7 +225,7 @@ void app_main (void)
 \begin{itemize}
 \item DDRD: Im DDRD Register wird der PD3 Pin auf Output geschaltet.
 \item DDRB: Im DDRB Register wird der PB3 Pin auf Output geschaltet.
-\item TCCR2A: Im TCCR2A Register wird der Non-Inverting Fast-PWM Modus eingestellt für OC2A und OC2B. 
+\item TCCR2A: Im TCCR2A Register wird der Non-Inverting Fast-\ac{PWM} Modus eingestellt für OC2A und OC2B. 
 \item TCCR2B: Im TCCR2B Register wird der Prescaler festgelegt. 
 \item OCR2A: Im OCR2A Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% 
 \item OCR2B: Im OCR2B Register wird der Duty Cycle festgelegt. 0 entspricht 0\% und 255 entspricht 100\% 
@@ -236,8 +236,8 @@ Ein Signal, dass nach dem oben angeführten Programm generiert wird, sieht wie i
 \begin{figure}[H] 
 \begin{center}
 
-\includegraphics[width=13cm]{Bilder/PWM/pwm}
-\caption{PWM}
+\includegraphics[width=13cm]{Bilder/PWM/PWM}
+\caption{PWM-Signal}
 \label{PWM}
 
 \end{center}
@@ -302,12 +302,12 @@ Die Motoransteuerung besteht aus folgenden Komponenten:\\
 \newpage
 \textbf{Genereller Ablauf:}
 \begin{enumerate}
-\item Der Arduino Nano erzeugt ein dauerhaftes PWM-Signal, welches an die PWM-Inputs D6 und D5, über die Klemme X4, der Motoransteuerung gelegt wird.
+\item Der Arduino Nano erzeugt ein dauerhaftes \ac{PWM}-Signal, welches an die \ac{PWM}-Inputs D6 und D5, über die Klemme X4, der Motoransteuerung gelegt wird.
 \item Die GPIO-Pins geben ein High-Signal über die Klemme X3, von 3,3V aus, welches die Optokoppler ansteuert. 
 \item Der Optokoppler schaltet seinen internen Phototransistor durch und ermöglicht einen Stromfluss.
 \item Der Strom fließt nun von der 5V Spannungsversorgung über die Klemme X2, über den Optokoppler in den Input-Pin der Motoransteuerung.
 \item Je nach Ansteuerung der Pins, dreht sich einer oder beide Motoren im oder gegen den Uhrzeigersinn, oder werden gebremst. Dabei fließt ein Strom von der 12V Spannungsversorgung über die Klemme X1, über die Motoransteuerung zu den Motoren.
-\item Die Motoransteuerung regelt die Spannung an den Motoren mittels des PWM-Signals und regelt auch die Drehrichtung der Motoren je nach Ansteuerung.
+\item Die Motoransteuerung regelt die Spannung an den Motoren mittels des \ac{PWM}-Signals und regelt auch die Drehrichtung der Motoren je nach Ansteuerung.
 \end{enumerate}
 \textbf{Berechnungen:}
 \begin{itemize}
@@ -538,7 +538,7 @@ Die Halterungen des Förderbandes sind in unserer Konstruktion überdimensionier
 \subsection{Zukünftige Verbesserungen}
 \begin{itemize}
 \item \textbf{Konstruktion:} Bei erneuter Arbeit an einem Projekt, sollten eher einfache Varianten verwendet werden, die gegebenenfalls noch verbessert und ergänzt werden können, als direkt mit einer schwierigen Variante zu beginnen, welche zu viel Zeit in Anspruch nimmt.
-\item \textbf{Elektronik:} Bei der Elektronik muss ich in Zukunft versuchen eher bereits fertige Module für Schaltungen zu verwenden, als diese selbst zu entwerfen. Fertige Module sind meistens günstiger zu erwerben, als die einzelnen Bauteile und verfügen meist über zusätzliche Funktionen, welche die eigene Schaltung nicht bieten könnte. Als Beispiel wird die Motoransteuerung hergenommen. Die fertige Motoransteuerung ist günstiger als die selbst gezeichnete H-Brücke und verfügt zusätzlich über eine Drehzahlregelung mittels PWM-Signal, internen Sicherungen gegen Kurzschlüsse und kann die Ströme der Motoren messen.
+\item \textbf{Elektronik:} Bei der Elektronik muss ich in Zukunft versuchen eher bereits fertige Module für Schaltungen zu verwenden, als diese selbst zu entwerfen. Fertige Module sind meistens günstiger zu erwerben, als die einzelnen Bauteile und verfügen meist über zusätzliche Funktionen, welche die eigene Schaltung nicht bieten könnte. Als Beispiel wird die Motoransteuerung hergenommen. Die fertige Motoransteuerung ist günstiger als die selbst gezeichnete H-Brücke und verfügt zusätzlich über eine Drehzahlregelung mittels \ac{PWM}-Signal, internen Sicherungen gegen Kurzschlüsse und kann die Ströme der Motoren messen.
 \item \textbf{Dokumentation:} Ich würde in Zukunft die Dokumentation parallel zur generellen Arbeit im Projekt beginnen, um eine Überforderung zum Schluss des Projektes zu vermeiden.
 \end{itemize}
 \subsection{Tatsächlicher Zeitpunkt der erreichten Meilensteine}
