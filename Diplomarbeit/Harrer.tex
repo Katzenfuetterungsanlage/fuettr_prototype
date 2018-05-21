@@ -8,30 +8,42 @@
 Die Hauptaufgabe des Programms, welches am Raspberry Pi laufen soll, ist es, dem Benutzer eine Möglichkeit zum Steuern der Katzenfütterungsanlage zur Verfügung zu stellen. Weiters soll das Programm die Motoren steuern und die Sensoren in der Anlage auswerten können. Für diese Aufgabe sollen die \ac{GPIO} Pins am Raspberry verwendet werden.
 \subsection{Design - Benutzerinterface}
 Der Benutzer soll mit Hilfe eines kleinen Touchdisplays die Möglichkeit haben die Anlage zu steuern. Deswegen muss darauf geachtet werden, dass alle \ac{GUI} Fenster sinnvoll per Touch-Gesten verwendbar sind.
-Das Design der \ac{GUI}-Fenster soll einfach und übersichtlich gestaltet werden. Auf der Hauptseite, also der Seite die immer zu sehen ist, sollen Informationen dargestellt werden, die dem Benutzer einen schnellen Überblick über den Zustand der Anlage geben. Alle anderen nicht direkt ersichtlichen Funktionen sollen über sinnvoll benamte Menüpunkte erreichbar sein.
+Das Design der \ac{GUI}-Fenster soll einfach und übersichtlich gestaltet werden. Auf der Hauptseite, also der Seite die immer zu sehen ist, sollen Informationen dargestellt werden, die dem Benutzer einen schnellen Überblick über den Zustand der Anlage geben. Alle anderen nicht direkt ersichtlichen Funktionen sollen über sinnvoll benannte Menüpunkte erreichbar sein.
 \subsection{Externe Steuerung}
-Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen, mit welchem man anschließend über eine Webseite auf die Anlage zugreifen kann. Weiters soll das Java Programm (Server) mit der Web-Applikation (Client) kommunizieren, also Daten austauschen können.
+Da die Katzenfütterungsanlage die Katze füttern soll, wenn die Familie der Katze auf Urlaub ist, sollte die Anlage auch über das Internet erreichbar sein. Dafür gibt es die Möglichkeit einen Benutzer auf der Anlage anzulegen, mit welchem man anschließend über eine Webseite auf die Anlage zugreifen kann. Weiters soll das Java Programm (der Server) mit der Web-Applikation (dem Client) über Sockets kommunizieren, also Daten austauschen können.
 
 \newpage
 
 \section{Voruntersuchung}
 \subsection{Wieso Java und nicht C?}
-Zu Beginn musste entschieden werden mit welcher Programmiersprache gearbeitet werden soll. Zur Auswahl standen Java und C.
+Zu Beginn musste entschieden werden mit welcher Programmiersprache gearbeitet werden soll. Zur Auswahl standen Java und C, weil diese beiden Sprachen im Unterricht am stärksten behandelt wurden.
 \\Vorteile von C:
 \begin{itemize}
 \item[•] Programme sind ressourcenschonender
 \item[•] Hardwarenahe Programmierung einfach durchführbar, direkter Zugriff auf die Pins
 \end{itemize}
+
+Nachteile von C:
+\begin{itemize}
+\item[•] C ist nicht Multi-Threading fähig
+\item[•] Die großen Freiheiten des Programmierers können zu einem unleserlichem Code führen
+\end{itemize}
+
 Vorteile von Java:
 \begin{itemize}
 \item[•] Erstellen einer \ac{GUI} mit Java Swing ist einfacher (weil es im Unterricht erlernt wurde)
 \item[•] In Java kann nur sauber programmiert werden (aufgrund der Überprüfung des Compilers)
 \end{itemize}
 
-Nach dem Gegenüberstellen der Vorteile wurde Java als Programmiersprache gewählt.
+Nachteile von Java:
+\begin{itemize}
+\item[•] Java-Programme haben eine schlechtere Performance als C-Programme 
+\end{itemize}
+
+Nach dem Gegenüberstellen der Vor- und Nachteile wurde Java als Programmiersprache gewählt.
 
 \subsection{Wieso das Raspberry Pi 3 Model B?}
-Schon zu Beginn der Diplomarbeit war klar, dass mit einem Raspberry gearbeitet werden soll. Nun musste entschieden werden, welches Model verwendet werden soll.
+Schon zu Beginn der Diplomarbeit war klar, dass mit einem Raspberry gearbeitet werden soll, weil bereits im Unterricht mit dem Raspberry gearbeitet wurde und weil an das Raspberry ein Display angeschlossen werden kann. Nun musste entschieden werden, welches Model verwendet werden soll.
 \\ Technische Daten des Raspberry Pi 3 Model B:
 \begin{itemize}
 \item[•] Rechenleistung (CPU hat 4 Kerne und eine Taktfrequenz von 1,2GHz)
@@ -46,7 +58,7 @@ Technische Daten des Raspberry Pi 2 Model B:
 \item[•] keine \ac{WLAN}-Fähigkeit
 \end{itemize}
 
-Wir haben das Raspberry Pi 3 Model B, aufgrund der oben angeführten technischen Daten, gewählt. Den größten Einfluss auf die Entscheidung hatte dabei die \ac{WLAN}-Fähigkeit. Das liegt daran, dass dadurch die Anlage überall im Haus aufgestellt werden kann und keine Ethernetschnittstelle benötigt wird. Ein weiterer positiver Aspekt des Raspberry Pi 3 ist die höhere Rechenleistung.
+Wir haben das Raspberry Pi 3 Model B, aufgrund der oben angeführten technischen Daten, gewählt. Den größten Einfluss auf die Entscheidung hatte dabei die \ac{WLAN}-Fähigkeit. Das liegt daran, dass dadurch die Anlage überall im Haus aufgestellt werden kann und keine Ethernetschnittstelle benötigt wird. Beim Raspberry Pi 2 ist es mit einem WLAN USB Device auch möglich eine WLAN-Verbindung herzustellen. Aber es ist uns wichtig, dass das Raspberry sich, ohne der Hilfe eines zusätzlichen Devices, mit dem WLAN verbinden kann. Ein weiterer positiver Aspekt des Raspberry Pi 3 ist die höhere Rechenleistung.
 
 \subsection{Auswahl eines Touchdisplays}
 Das Display muss folgende Anforderungen erfüllen:
@@ -76,7 +88,7 @@ Vorteile einer Datenbank:
 \begin{itemize}
 \item[•] Professionellere Lösung als das Speichern in eine Datei
 \item[•] Beim Speichern von großen Datenmengen effizienter
-\item[•] Es kann vom Java Programm und vom Webserver zugegriffen werden, ohne dass es zu einem Fehler kommt
+\item[•] Es kann vom Java Programm und vom Webserver zugegriffen werden, ohne dass es zu einem Fehler kommt, wenn ein DBMS mit Server verwendet wird
 \item[•] Das Suchen von Daten ist einfacher
 \end{itemize}
 \subsubsection{Vergleich mit anderen Datenbanken}
@@ -86,20 +98,20 @@ Vergleich von Mongodb mit mySQL:
 \begin{itemize}
 \item[•] Mongodb ist schemenlos und open source
 \item[•] Zugriffskonzept basiert auf \ac{JSON}
-\item[•] Benutzern können keine Berechtigungen gegeben/genommen werden
+\item[•] Das Speichern von Daten mit einem stark strukturiertem Datenmodell ist einfach
 \end{itemize}
 \item[•] mySQL
 \begin{itemize}
-\item[•] mySQL hat ein Datenschema und ist open source
+\item[•] mySQL hat ein Datenschema und ist nur teilweise open source (PostgreSQL ist open source)
 \item[•] Zugriffskonzept auf mehrere Arten
-\item[•] Benutzern können Berechtigungen gegeben/genommen werden
+\item[•] Unflexibel bei Daten mit einem stark strukturiertem Datenmodell
 \end{itemize}
 \end{itemize}
 
-Aufgrund dieser oben angeführten Fakten wurde Mongodb als Datenbank gewählt.
+Aufgrund dieser oben angeführten Fakten wurde Mongodb als Datenbank gewählt. Ausschlaggebend ist, dass Mongodb open source ist. Weiters ist es für die Web-Applikation leichter Daten zu speichern, da bereits mit \ac{JSON} formatierten Daten gearbeitet wird.
 
 \subsection{Kommunikation mit der Web-Applikation}
-Der Server mit dem die Web-Applikation kommunizieren kann, wird aufgrund der gewählten Programmiersprache, in Java geschrieben. Der Server und die Web-Applikation laufen am gleichen System und kommunizieren über einen Socket. Der Server wird im Hintergrund aktiv sein und auf Anfragen der Web-Applikation warten. Je nach Anfrage wird der Server Daten zurück senden oder Methoden im Programm aufrufen. Die Daten, die bei der Kommunikation ausgetauscht werden, haben den Datentyp \ac{JSON}.
+Der Server mit dem die Web-Applikation kommunizieren kann, wird aufgrund der gewählten Programmiersprache, in Java geschrieben. Der Server und die Web-Applikation laufen am gleichen System und kommunizieren über Sockets. Der Server wird im Hintergrund aktiv sein und auf Anfragen der Web-Applikation warten. Je nach Anfrage wird der Server Daten zurück senden oder Methoden im Programm aufrufen. Die Daten, die bei der Kommunikation ausgetauscht werden, sind im \ac{JSON} Format codiert.
 
 \newpage
 
