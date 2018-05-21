@@ -372,8 +372,22 @@ Der Server wird beim Starten des Java Programmes mithilfe des SwingWorkers in ei
 \subsubsection{Übertragungsprotokoll}
 Im Übertragungsprotokoll wird festgelegt wie die Kommunikation zwischen Server und Client abläuft. Hier wird festgelegt was eine gültige Request (Anfrage) ist und wie die Response (Antwort) auf den jeweiligen Request aussieht. Weiters wird festgelegt auf welchen Technologien die Kommunikation basiert. Zusätzlich wird noch der Verbindungsaufbau sowie der Abbau beschrieben.
 \\ \\
-Die Kommunikation zwischen Server und Client basiert bei der Katzenfütterungsanlage auf Sockets. Diese Sockets basieren auf \ac{TCP}. Dies ist ein verbindungsorientiertes Protokoll. Das bedeutet, dass Pakete automatisch erneut geschickt werden, wenn bei der Übertragung ein Fehler passiert ist oder das Paket verloren gegangen ist. Der Verbingungsaufbau und Abbau erfolgt bei diesem Protokoll über das IDLE-RQ Verfahren.
-\\ Als Timeout wurden 10 Sekunden gewählt, weil das sinnvoll zu sein scheint.
+Die Kommunikation zwischen Server und Client basiert bei der Katzenfütterungsanlage auf Sockets. Diese Sockets basieren auf \ac{TCP/IP}. Dies ist ein verbindungsorientiertes Protokoll. Das bedeutet, dass Pakete automatisch erneut geschickt werden, wenn bei der Übertragung ein Fehler passiert ist oder das Paket verloren gegangen ist.
+\\ Eine Kommunikation über einen Socket kann wie folgt aussehen. Bei beiden Auflistungen kann der Socket am Ende jeweils noch geschlossen werden.
+\begin{itemize}
+\item[•] Clientseitig
+	\begin{itemize}
+	\item[1] Socket erstellen
+	\item[2] Datenpaket an eine Adresse verschicken
+    \end{itemize}
+\item[•] Serverseitig
+	\begin{itemize}
+	\item[1] Socket erstellen
+	\item[2] Den Socket eine Adresse geben
+	\item[3] Auf Datenpakete warten
+    \end{itemize}
+\end{itemize}
+Als Timeout wurden 5 Sekunden gewählt, weil das sinnvoll zu sein scheint.
 \\ \\
 Wenn der Request des Clients mit einem \textbf{GET} beginnt, bedeutet das, dass der Client Daten vom Server fordert. Beginnt der Request mit einem \textbf{PUT}, bedeutet das, dass der Client dem Server Daten schicken will.
 \\ Nach jedem \textbf{GET} oder \textbf{PUT} folgt die URI welche angibt, welche Daten der Client fordert oder welche Daten der Client dem Server schicken will.
@@ -411,8 +425,13 @@ Um den Request zu verarbeiten wurde die Klasse \textbf{ConnectionThread} geschri
 
 \subsection{Errors und Warnungsverarbeitung}
 \subsubsection{Allgemeines}
-Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. 
-\\ Dazu dient der \textbf{ErrorAndWarningHandler} welcher in einer Wrapper-Klasse als Singleton implementiert wurde. In dieser Klasse ist für jeden möglichen Fehler eine Boolean Variable angelegt. Beim Auftreten eines Fehlers wird die zum Fehler gehörende Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
+Der Benutzer der Katzenfütterungsanlage muss über Fehler, die während des Programmablaufs auftreten, informiert werden. Über folgende Fehler wird der Benutzer der Anlage informiert: fehlgeschlagene Fütterungen und Futtermagazin ist leer. Weiters wird der Benutzer über folgende Warnung informiert: es wurde noch kein Benutzer angelegt.
+\\ Wenn zu Beispiel das Futtermagazin leer ist und anschließend nachgefüllt wird, wird die nächste Fütterung normal ausgeführt. Die Warnung das kein Benutzer angelegt ist, wird nicht mehr angezeigt sobald einer angelegt wurde.
+\\ \\ Dazu dient der \textbf{ErrorAndWarningHandler} welcher in einer Wrapper-Klasse als Singleton implementiert wurde. In dieser Klasse ist für jeden möglichen Fehler eine Boolean Variable angelegt. Beim Auftreten eines Fehlers wird die zum Fehler gehörende Boolean Variable auf \textbf{true} gesetzt. Beim Erstellen der Liste, die die Errors und Warnungen enthält, werden die jeweiligen Boolean-Variablen abgefragt. Wenn die Boolean-Variable \textbf{true} ist, wird der Error oder die Warnung hinzugefügt. 
+
+\vspace{10pt}
+
+Fehler auf die der Benutzer nicht reagieren kann, also Fehler die im Programm auftreten, werden dem Benutzer nicht angezeigt. Diese Fehler werden mit Hilfe eines Loggigs verarbeitet und anschließend mit Zeitstempel in einer Logging-Datei gespeichert. 
 
 \subsubsection{Errors und Warnungen aktivieren/deaktivieren}
 Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
@@ -422,8 +441,8 @@ Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu set
 		error_hasFeedingFailed = errorOn;
 		if (errorOn == true)
 		{
-		failedFeedingTime = String.format("%1$tH:%1$tM", 
-			new Date(System.currentTimeMillis()));
+		failedFeedingTime = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss")
+			.format(new java.util.Date());
 		}   
 	}
 \end{lstlisting}
@@ -489,7 +508,7 @@ Die Errors und Warnungen, die in der Liste gespeichert werden, werden in der GUI
 \end{comment}  % kommentar ende
 
 \subsection{SwingWorker}
-Der SwingWorker in Java wird benötigt, wenn eine Methode mehr Zeit benötigt und somit die \ac{GUI} blockieren würde. Mithilfe des SwingWorkers, aus der Klasse javax.swing, kann diese Aktion in einem Hintergrund-Thread ausgeführt werden. Der Vorteil davon ist, dass die \ac{GUI} bedienbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Methode, die mehr Zeit benötigt, abgearbeitet wird.
+Der SwingWorker in Java.Swing wird benötigt, wenn eine Methode mehr Zeit benötigt und somit die \ac{GUI} blockieren würde. Mithilfe des SwingWorkers, aus der Klasse javax.swing, kann diese Aktion in einem Hintergrund-Thread ausgeführt werden. Der Vorteil davon ist, dass die \ac{GUI} bedienbar bleibt und nicht blockiert. Dafür wird dann mit Hilfe des SwingWorkers ein Hintergrund-Thread geöffnet in dem die Methode, die mehr Zeit benötigt, abgearbeitet wird.
 \\ \\
 Das oben geführte Beispiel könnte auch mit der Klasse Thread gelöst werden. Der Hauptgrund für die Verwendung von SwingWorker ist, dass der SwingWorker für die Verwendung in Applikationen mit \ac{GUI} optimiert ist. Der SwingWorker verfügt über Methoden mit denen nach oder während des Ablaufens des Hintergrundprozesses auf die \ac{GUI}-Elemente zugegriffen werden kann.
 \\ \\ 
@@ -497,21 +516,21 @@ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werd
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker Klasse erstellen]
 	private class Worker extends SwingWorker<Object, String> { } 
 \end{lstlisting}
-Im Generic steht als Erstes der Rückgabewert von \textbf{get()} und als Zweites der Datentyp des Übergabewertes von \textbf{publish()}.
+Im Generic steht als Erstes der Datentyp des Rückgabewerts von \textbf{get()} und als Zweites der Datentyp des Übergabewertes von \textbf{publish()}. Diese beiden Methoden sind für die Übermittlung eines Zwischenergebnisses.
 
 \newpage
 
 \subsubsection{EDT}
-Im \ac{EDT} wird der Quellcode sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die \ac{GUI} für den Benutzer merklich blockiert. In der Regel wird gesagt, dass dann ein SwingWorker verwendet werden soll, wenn die Möglichkeit besteht, dass die \ac{GUI} für 100 Millisekunden oder mehr blockiert.
+Im Java Swing \ac{EDT} wird der Quellcode sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die \ac{GUI} für den Benutzer merklich blockiert. In der Regel wird gesagt, dass dann ein SwingWorker verwendet werden soll, wenn die Möglichkeit besteht, dass die \ac{GUI} für 1 Millisekunden oder mehr blockiert.
 
 \subsubsection{TimeUnit}
 Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert ist, wiederholen sich die Methoden in der Schleife nach jedem Durchgang wieder. Wenn dies ohne ein Warten passiert, wird sehr viel Prozessorleistung benötigt. \\ Deswegen wird die Methode \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} verwendet. Mit dieser Methode wartet das Programm für 500 Millisekunden, ohne Rechenleistung zu konsumieren. Dadurch wird der Prozessor nicht so stark ausgelastet. 
 
 \subsubsection{Methoden des SwingWorkers}
 \begin{itemize}
-\item[•] doInBackground()
-\\ Mit \textbf{doInBackground()} wird ein neuer Hintergrund-Thread erstellt. Dieser Thread läuft parallel zum \ac{EDT}. Der Hintergrund-Thread wird geschlossen, wenn der SwingWorker mit \inlinecode{JavaStyle}{.cancel()} beendet wird oder sich der SwingWorker selbst beendet, weil er alle Methoden abgearbeitet hat. In einem Hintergrund-Thread darf nicht auf die \ac{GUI}-Elemente von javax.swing.JFrame zugegriffen werden. 
-\\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher durch das Beenden des SwingWorkers mit \inlinecode{JavaStyle}{.cancel()} beendbar ist.
+\item[•] \inlinecode{JavaStyle}{doInBackground()}
+\\ Mit \textbf{doInBackground()} wird dem SwingWorker mitgeteilt welche Methoden im Hintergrund auszuführen sind. Wenn der Swingworker anschließend mit \inlinecode{JavaStyle}{.execute()} ausgeführt wird, wird ein neuer Hintergrund-Thread erstellt. Dieser Thread läuft parallel zum \ac{EDT}. Der Hintergrund-Thread wird  geschlossen, wenn mit \inlinecode{JavaStyle}{.cancel()} ein Flag, welches dem SwingWorker mitteilt, dass er sich demnächst beenden soll, gesetzt wird. Weiters kann sich der Hintergrund-Thread beenden, wenn alle Methoden abgearbeitet wurden oder im Thread eine Exception geworfen wird. In einem Hintergrund-Thread darf nicht auf die \ac{GUI}-Elemente von Java Swing zugegriffen werden. 
+\\ Im folgenden Beispiel wird ein Hintergrund-Thread gezeigt, welcher durch das Beenden des SwingWorkers mit \inlinecode{JavaStyle}{.cancel(true)} beendbar ist.
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker \inlinecode{JavaStyle}{doInBackground()} mit while Schleife]
         @Override
         protected Object doInBackground() throws Exception
@@ -528,7 +547,7 @@ Wenn ein Hintergrund-Thread mit einer \textbf{while() Schleife} implementiert is
             return 1;
         }
 \end{lstlisting} 
-Wenn der SwingWorker beendet wird, während er aufgrund der Methode \\ \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} wartet, wird eine \textbf{InterruptedException} geworfen.
+Wenn der SwingWorker beendet wird, während er aufgrund der Methode \\ \inlinecode{JavaStyle}{TimeUnit.MILLISECONDS.sleep(500);} wartet, wird eine \textbf{InterruptedException} geworfen. Dies ist nur der Fall, wenn der SwingWorker mit \inlinecode{JavaStyle}{.cancel(true)} beendet wird.
 
 \vspace{10pt}
 
@@ -549,35 +568,42 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann b
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker done()]
         @Override
         protected void done()
-        {
-             String time = get();
+        {	
+        	try
+        	{
+            	String time = get();
+        	}
+        	catch (Exception ex)
+            {
+                Logger.getLogger(ex.getMessage()).log(Level.SEVERE, null, ex);
+            }
         }
 \end{lstlisting}
 \item[•] process()
 \\ Wenn in einem Hintergrund-Thread \inlinecode{JavaStyle}{publish();} aufgerufen wird, wird im \ac{EDT} \textbf{process()} aufgerufen. Hier können wieder \ac{GUI}-Elemente bearbeitet werden.
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker process()]
         @Override
-        protected void process(List<String[]> chunks)
+        protected void process(List<String> chunks)
         {
-            String[] chunk = chunks.get((chunks.size() - 1));
+            String chunk = chunks.get((chunks.size() - 1));
             
-            lbTimeOfDay.setText(chunk[0]);
-            lbDate.setText(chunk[2]);
+            lbDate.setText(chunk);
         }
 \end{lstlisting}
 
 \newpage
 
 \item[•] cancel()
-\\ Mit \inlinecode{JavaStyle}{.cancel()} kann ein SwingWorker beendet werden. Dafür muss folgender Befehl aufgerufen werden:
+\\ Mit \inlinecode{JavaStyle}{.cancel(true)} kann ein SwingWorker beendet werden. Das \textbf{true} in den Klammern bedeutet, dass ein Thread-Interrupt an den Thread gesendet. Wenn statt \textbf{true false} verwendet wird, wird das Flag erst beim nächsten Schleifendurchlauf überprüft.
+\\ Dafür muss folgender Befehl aufgerufen werden:
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker abbrechen]
-	    worker.cancel();
+	    worker.cancel(true);
 \end{lstlisting}
 Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des SwingWorkers.
 \end{itemize}
 
 \subsection{GUI-Fenster}
-Die \ac{GUI}-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich, alle \ac{GUI}-Fenster durch das Berühren des Touchscreens, mit einem Finger, zu bedienen. 
+Die \ac{GUI}-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich, alle \ac{GUI}-Fenster durch das Berühren des Touchscreens, mit einem Finger, zu bedienen. Das Bedienen mit mehreren Fingern und die Verwendung von Touch-Gesten sind nicht möglich.
 \\ Beim Starten des Raspberrys wird das Programm automatisch gestartet. Dabei wird das MainWindow, also das Hauptfenster des Programms, als Vollbild am Display angezeigt. Somit ist es dem Benutzer nur möglich das Programm zu bedienen und nicht zur grafischen Oberfläche des Raspberrybetriebsystems zu gelangen. Genaueres zum Autostart unter Kapitel \ref{subsubsec:Autostart}.
 
 \subsubsection{Java-Programm im Autostart}\label{subsubsec:Autostart}
@@ -586,12 +612,13 @@ Um auf einem Betriebssystem, das auf Linux basiert, ein Java-Programm zu starten
 \item[1] \textbf{rc.local}
 \\ Eine Möglichkeit ist die \textbf{rc.local}. Mit der \textbf{rc.local} können aber nur Programme ohne grafische Oberfläche gestartet werden. In diese muss folgender Befehl geschrieben werden: 
 \\ \textbf{java -jar /home/pi/main.jar \&}.
+Da für das Java-Programm eine grafische Oberfläche verwendet wird, wird diese Möglichkeit nicht verwendet.
 \item[2] \textbf{autostart}
 \\ Die zweite Möglichkeit ist \textbf{autostart}. Hier ist der X-Server, welcher für eine grafische Ausgabe benötigt wird, bereits aktiv. Somit können nun Java-Programme mit einer grafischen Oberfläche gestartet werden. Die Datei \textbf{autostart} ist unter folgendem Pfad zu finden : 
 \\ \textbf{/home/<user/.config/lxsession/LXDE-<user>/autostart}. 
 \\ In die Datei muss dann noch folgender Befehl eingegeben werden: 
 \\ \textbf{@java -jar /home/pi/main.jar \&}.
-\\Das \textbf{@} am Beginn der Zeile sagt aus, dass das Programm, wenn es nicht ordnungsgemäß geschlossen wird, automatisch neu geöffnet wird.
+\\Das \textbf{@} am Beginn der Zeile sagt aus, dass das Programm, wenn es nicht ordnungsgemäß geschlossen wird oder es sich durch einen Fehler beendet, automatisch neu geöffnet wird.
 \end{itemize} 
 Bei beiden Möglichkeiten wird jeweils \textbf{main.jar} als Programm angegeben. Dies stellt im Fall eines Programms mit \ac{GUI} das Hauptfenster dar. Bei der Katzenfütterungsanlage ist es das \textbf{MainWindow}.
 \\ \\ Die Abkürzung \textbf{.jar} steht für "Java Archive".
@@ -637,7 +664,7 @@ Das \textbf{MainWindow} besteht aus einer \textbf{javax.swing.JFrame Form}. In d
 
 \vspace{10pt}
 
-Das \textbf{MainWindow} ist als Singleton implementiert, weil dadurch nicht jedes Mal, wenn eine andere Klasse auf ein Datenelement des \textbf{MainWindow} zugreift, ein neues Objekt von \textbf{MainWindow} erzeugt wird. Somit wird nur ein Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
+Das \textbf{MainWindow} ist als Singleton implementiert, weil dadurch nicht jedes Mal, wenn eine andere Klasse auf ein Datenelement des \textbf{MainWindow} zugreift, ein neues Objekt von \textbf{MainWindow} erzeugt wird. Das gleiche gilt, wenn auf die Getter- und Setter-Methoden des \textbf{MainWindow} zugegriffen wird. Somit wird nur ein Objekt des \textbf{MainWindow} erstellt. Das Singleton-Objekt wurde wie folgt erstellt:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow createInstance()]
 public static MainWindow createInstance()
     {
@@ -671,7 +698,8 @@ Diese Methode kann nur im \ac{EDT} aufgerufen werden. Wenn diese Methode nicht i
 
 \newpage
 
-Bis jetzt wurde der Singleton nur implementiert. Nun muss noch eine Methode implementiert werden um die \textbf{Instance} des Objekts abfragen zu können. Diese Methode sieht wie folgt aus:
+Bis jetzt wurde der Singleton nur implementiert. Nun muss noch eine Methode implementiert werden um die \textbf{Instance} des Objekts abfragen zu können. Jedoch sollte zuvor, also beim Erstellen der \textbf{Instance}, überprüft werden, ob im EDT gearbeitet wird. Wenn das nicht der Fall ist, wird eine Exception geworfen.
+\\ Die Methode zum Abfragen der \textbf{Instance} sieht wie folgt aus:
 \begin{lstlisting}[style=JavaStyle, caption=MainWindow.getInstance()]
 public static MainWindow getInstance()
     {
@@ -735,7 +763,7 @@ Es sind nur vier Fütterungen pro Tag möglich, weil die Katzenfütterungsanlage
 
 \newpage
 
-Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. Dazu muss in Netbeans, im Designmodus der \ac{GUI}, ein Rechtsklick auf den Spinner gemacht werden. Weiters muss \textbf{Customize Code} ausgewählt werden. Anschließend öffnet sich folgendes Fenster: \\
+Um in den Spinnern Uhrzeiten anzeigen zu lassen, müssen diese davor konfiguriert werden. 
 \begin{wrapfigure}{l}{0.7\textwidth}
 \vspace{-20pt}
   \begin{center}
@@ -806,16 +834,28 @@ Wenn das Fenster mit \textbf{Ok} geschlossen wird, werden die Inhalte der Spinne
 \begin{lstlisting}[style=Javastyle, caption=Zeitendokument]
 // ... Code ...
 
-newTimeDoc = new BasicDBObject("identifier", "Times")
-                        .append("time1", time1)
-                        .append("time1_active", time1_active)
-                        .append("time2", time2)
-                        .append("time2_active", time2_active)
-                        .append("time3", time3)
-                        .append("time3_active", time3_active)
-                        .append("time4", time4)
-                        .append("time4_active", time4_active);
+try
+{
+	newTimeDoc = new BasicDBObject("identifier", "Times")
+					.append("time1", time1)
+					.append("time1_active", time1_active)
+					.append("time2", time2)
+					.append("time2_active", time2_active)
+					.append("time3", time3)
+					.append("time3_active", time3_active)
+					.append("time4", time4)
+					.append("time4_active", time4_active);
+}
+catch (Exception ex)
+{
+	Logger.getLogger(ex.getMessage()).log(Level.SEVERE, null, ex);
+}
 \end{lstlisting}
+
+Bevor die die Zeiten in das Dokument geschrieben werden, werden diese noch überprüft. Hierbei wird die Reihenfolge der Zeiten überprüft. Es ist wichtig, dass die Zeiten in aufsteigender Reihenfolge geordnet sind.
+
+\vspace{10pt}
+
 Dieses Dokument wird anschließend mit folgender \textbf{Getter-Methode} für andere Klassen, konkret für das \textbf{MainWindow}, zugänglich gemacht:
 \begin{lstlisting}[style=Javastyle, caption=Zeitendokument Getter-Methode]
 public BasicDBObject getNewTimeDoc()
