@@ -876,7 +876,7 @@ public BasicDBObject getNewTimeDoc()
   \label{CreateAndRegisterUser}
   \vspace{20pt}
 \end{wrapfigure}
-Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Sinn machen würde, wenn mehrere Benutzer angelegt werden. Der angelegte Benutzer wird nur benötigt, um sich auf der Webseite der Anlage anzumelden. Deshalb ist es ausreichend nur einen Benutzer anlegen zu können. Die \ac{GUI} ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
+Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Sinn machen würde, wenn mehrere Benutzer angelegt werden. Der angelegte Benutzer wird nur benötigt, um sich auf der Webseite der Anlage anzumelden. Wenn mehrere Benutzer anlegbar wären, könnte der Benutzer der Anlage sich mit mehreren Accounts auf der Website anmelden. Da dies keine Vorteile verschafft ist es ausreichend nur einen Benutzer anlegen zu können. Die \ac{GUI} ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
 \\ \\ Die \ac{GUI} der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
 \\ \\ Es ist nur möglich einen Benutzer anzulegen. Wenn bereits ein Benutzer angelegt ist und dann ein neuer angelegt wird, wird der alte Benutzer überschrieben. Um einen neuen Benutzer anzulegen müssen folgende Felder ausgefüllt werden: Benutzername, Passwort und Passwort wiederholen. Wenn eines dieser Felder leer gelassen wird, wird eine Fehlermeldung ausgegeben. Weiters wird eine Fehlermeldung ausgegeben, wenn die beiden Passwörter nicht übereinstimmen. Wenn alle drei Eingabefelder korrekt ausgefüllt wurden, kann der Benutzer angelegt werden indem \textbf{Ok} gedrückt wird. Dadurch werden der Benutzer und das Passwort in das Programm übernommen und in der Datenbank gespeichert. Anschließend erscheint ein Informationsfenster, welches den Benutzer darüber informiert, dass der Benutzer erfolgreich angelegt wurde. Danach schließt sich das Dialogfenster. Wenn anstatt von \textbf{Ok} \textbf{Abbrechen} gedrückt wird, schließt sich das Dialogfenster und die Änderungen werden verworfen.
 \\ \\ Während das Dialogfenster geöffnet ist blockiert der \ac{EDT} an der Stelle, an der das Dialogfenster geöffnet wurde.
@@ -932,7 +932,7 @@ Um dem Benutzer Sicherheit zu gewährleisten, wird das Passwort, bevor es in der
 Um das Passwort zu hashen wird der Hashalgorithmus \textbf{SHA-512} verwendet. Im Programm wird das Passwort nur einmal gehasht. Falls die Katzenfütterungsanlage in Serie gehen sollte, sollte das Passwort öfters gehasht werden um die Sicherheit zu erhöhen.
 \\ Für das Hashen des Passworts wurde auf Stackoverflow \footfullcite{Stackoverflow_Hashen} recherchiert.
 
-Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden, welcher vor dem Hashen des Passworts am Passwort angehängt wird. Somit wird die Entschlüsselung des Passworts nochmals erschwert. Der  \textbf{salt} wird normalerweise als Byte-Array und nicht als String deklariert.
+Mit dem Parameter \textbf{String salt} kann noch ein String übergeben werden, welcher vor dem Hashen des Passworts am Passwort angehängt wird. Der \textbf{salt} stellt somit sicher, dass bei gleichen Passwörtern ein jeweils anderer Hash erzeugt wird. Der  \textbf{salt} wird normalerweise als Byte-Array und nicht als String deklariert.
 
 \vspace{10pt}
 
