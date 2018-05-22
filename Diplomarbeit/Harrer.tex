@@ -1102,7 +1102,11 @@ Das \textbf{doInBackground()} ist wie folgt implementiert:
         }
 
 \end{lstlisting}
-In diesem \textbf{doInBackground()} werde  alle 100 Millisekunden die Motordrehrichtungen und die Sensorzustände abgefragt. Somit ist das nur eine annähernd echtzeitfähige Abfrage der Zustände. Dies wird so realisiert um die Prozessorauslastung zu verringern.
+In diesem \textbf{doInBackground()} werden  alle 100 Millisekunden die Motordrehrichtungen und die Sensorzustände abgefragt. Wobei diese 100 Millisekunden eine Mindestzeit sind und bei hoher Systemauslastung mehr werden können. Somit ist das nur eine annähernd echtzeitfähige Abfrage der Zustände. Dies wird so realisiert um die Prozessorauslastung zu verringern.
+
+\vspace{10pt}
+
+Zum Abfragen und Speicher der Sensorwerte und Motordrehrichtungen wäre eine Datenhaltungsklasse eine bessere Lösung. Bei der Zuordnung der Array können leicht Fehler passieren. Es wäre zum Beispiel möglich einen Index zu vertauschen.
 
 \newpage
 
@@ -1144,7 +1148,8 @@ Der Name, des in der Anlage verbauten Rechners, wird von der Datenbank eingelese
 
 \vspace{50pt}
 
-Der WLAN-Status wird, wie der Name des internen Rechners aus der Datenbank eingelesen. Der WLAN-Status wird in die Datenbank geschrieben, wenn sich der Raspberry mit einem WLAN verbindet. Genauers dazu ist unter Kapitel \ref{sec:ums-wlan} zu finden.
+Der Name des in der Anlage verbauten Rechners, also der internen Rechners wird aus der Datenbank eingelesen. 
+\\ Der WLAN-Status wird ebenfalls aus der Datenbank eingelesen. Genaueres dazu ist unter Kapitel \ref{sec:ums-wlan} zu finden.
 
 \vspace{10pt}
 
@@ -1274,12 +1279,12 @@ Wenn das Update, zum Beispiel durch einen Stromausfall, unterbrochen wird, sollt
 
 \subsection{Probleme}
 \subsubsection{Problem mit Mongodb am Raspberry}
-Mit Mongodb gab es ein Problem am Raspberry. Die neueren Versionen werden nämlich nicht unterstützt. Aus diesem Grund musste auf die älteste erhältliche Version 2.14.2 zurückgegriffen werden.
+Mit Mongodb gab es ein Problem am Raspberry. Die neueren Versionen unterstützen keine 32-Bit Betriebssysteme mehr. Der Raspberry PI 3 hat zwar einen 64-Bit Prozessor aber das verwendete Betriebssystem arbeitet nur mit 32-Bit. Aus diesem Grund musste auf die älteste erhältliche Version 2.14.2 zurückgegriffen werden, weil diese 32-Bit Systeme noch unterstützt.
 \\ Es gibt auch Möglichkeiten die neuen Versionen am Raspberry verwenden zu können. Diese Lösungen sind im Rahmen einer Diplomarbeit zu zeitintensiv.
 \\ Wenn das Projekt weiter geführt werden sollte, sollte überprüft werden, ob die neueste Version von Mongodb mit dem Raspberry kompatibel ist.
 \subsubsection{Probleme mit pi4j}\label{subsubsec:ProblemePi4j} 
 Mit der \ac{pi4j} Version 1.1 ist das Problem aufgetreten, dass am Raspberry Pi 3 die \ac{GPIO}-Pins nicht gefunden wurden. Um sicherzugehen, dass der Fehler nicht im Programm liegt, wurde das Code-Beispiel von \ac{pi4j} verwendet. Auch beim Testen mit diesem Code trat der Fehler, dass die \ac{GPIO}-Pins nicht gefunden werden können, auf.
-\\ Dieses Problem wurde mit dem Verwenden von der \ac{pi4j} Version 1.2 Snapshot gelöst. Mit der Snapshotversion werden nun alle Pins gefunden
+\\ Dieses Problem wurde mit dem Verwenden von der \ac{pi4j} Version 1.2 Snapshot gelöst. Mit der Snapshotversion werden nun alle Pins gefunden. Das Problem an der Snapshotversion ist, dass diese noch in der Entwicklung ist und somit noch Fehler enthalten sein können. Der Nachteil der Snapshotversion ist somit, dass sie noch in der Entwicklung ist und Fehler enthalten kann.
 \\ Wenn dieses Projekt weiter fortgeführt wird, sollte überprüft werden, ob von der Snapshotversion auf eine Betaversion gewechselt werden kann.
 
 \subsection{Verbesserungsmöglichkeiten}
