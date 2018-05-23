@@ -56,16 +56,16 @@ Das \ac{HTTP}\footnote{Weitere Informationen zu \ac{HTTP} unter \url{https://dev
 Bei jeder Anfrage sendet ein Webserver zumindest einen Statuscode als Antwort zurück.
 
 \begin{itemize}
-\item[•] \textbf{1xx}: \textbf{Information} Alle Statuscodes die mit 1 beginnen sind rein informelle Codes.
-\item[•] \textbf{2xx}: \textbf{Erfolg} Statuscodes die mit 2 beginnen sagen dem Empfänger, dass seine Anfrage verstanden und akzeptiert wurde.
-\item[•] \textbf{3xx}: \textbf{Umleitung} Diese Statuscodes indizieren dem Client, dass er weiter Schritte durchführen muss, um die Anfrage zu vervollständigen.
-\item[•] \textbf{4xx}: \textbf{Client Fehler} Ein Statuscode, der mit 4 beginnt, bedeutet, dass ein Fehler auf der Seite des Clients aufgetreten ist.
-\item[•] \textbf{5xx}: \textbf{Server Fehler} Wenn der Statuscode mit einer 5 beginnt, bedeutet das, dass auf der Seite des Servers ein Fehler aufgetreten ist.
+\item[•] \textbf{1xx}: \textbf{Information} Alle Statuscodes die mit 1 beginnen sind rein informelle Codes. Beispiele: 100: Wenn der Client nur einen Header schickt, weil der Body sehr groß ist, wird durch diesen Statuscode dem Client mitgeteilt, dass er den Body senden kann.
+\item[•] \textbf{2xx}: \textbf{Erfolg} Statuscodes die mit 2 beginnen sagen dem Empfänger, dass seine Anfrage verstanden und akzeptiert wurde. Beispiele: 200: Standardantwort bei erfolgreichen Anfragen, 201: Ressource erstellt.
+\item[•] \textbf{3xx}: \textbf{Umleitung} Diese Statuscodes indizieren dem Client, dass er weiter Schritte durchführen muss, um die Anfrage zu vervollständigen. Beispiele: 304: Der Client besitzt bereits die aktuellste Version dieser Ressource und sie wird nicht noch einmal übertragen.
+\item[•] \textbf{4xx}: \textbf{Client Fehler} Ein Statuscode, der mit 4 beginnt, bedeutet, dass ein Fehler auf der Seite des Clients aufgetreten ist. Beispiele: 403: Die Anfrage war gültig, doch dem Client fehlt die Berechtigung, auf die Ressource zugreifen zu dürfen, 404: Die gefragte Ressource existiert nicht.
+\item[•] \textbf{5xx}: \textbf{Server Fehler} Wenn der Statuscode mit einer 5 beginnt, bedeutet das, dass auf der Seite des Servers ein Fehler aufgetreten ist. Beispiele: 500: Interner Server Fehler
 \end{itemize}
 
 \subsection{JavaScript}
 \label{sec:vor-js}
-JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzuzufügen und zu animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variable nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Damit etwas Ähnliches erzielt werden kann, gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald etwas vorher abgeschlossen wurde. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr Information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
+JavaScript ist die Programmiersprache des Internets. Jeder herkömmliche Browser ist in der Lage, JavaScript auszuführen. Mit JavaScript ist es möglich, das Aussehen einer Webseite während der Laufzeit zu ändern, Dinge zu entfernen, hinzuzufügen und zu animieren. JavaScript ist heute eine objektorientierte Sprache. Es hebt sich von anderen Sprachen vor allem dadurch ab, dass die Datentypen von Variablen nicht fix sind. Das bedeutet, wenn eine Variable den Datentyp \textit{number} hat und es wird ein String angehängt, verändert sich der Datentyp automatisch auf \textit{string}. Der Datentyp ist also vom Inhalt der Variable abhängig. JavaScript kann nur in einem Thread laufen, das bedeutet, es gibt kein echtes Multithreading. Multithreading wird erzielt indem Operationen nacheinander aufgerufen werden. Dabe wird immer zwischen dem ''Hauptthread'' und den Hintergrundoperationen abgewechselt. Zusätzlich gibt es die Möglichkeit von Callback Methoden. Diese werden ausgeführt, sobald die dazugehörige Funktion abgeschlossen ist. Damit ist es möglich, Dinge, die länger brauchen, im ''Hintergrund'' laufen zu lassen\footnote{Mehr Information zu Callbacks, Promises und JavaScript unter \url{https://www.w3schools.com/js/default.asp}}.
 
 \subsection{TypeScript}
 \label{sec:vor-ts}
@@ -85,7 +85,7 @@ TypeScript ist eine, von Microsoft entwickelte, Weiterentwicklung von JavaScript
 \item[•] \textbf{never}: wenn ein Wert niemals auftreten kann z.B. eine Funktion die immer einen Fehler produziert
 \end{itemize}
 
-Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie sogenannte Type Annotations. Diese können bei den meisten bekannteren Modulen über den \ac{npm} installiert werden. Diese Pakete haben den Namenspräfix \textit{@types/}, das bedeutet, dass zum Beispiel die Type Annotations des Express Moduls über \inlinecode{bash}{npm install --save-dev @types/express} installiert werden können. Sollten keine Type Annotations für ein Modul vorhanden sein, muss man diese selbst erstellen.
+Damit JavaScript Module von TypeScript verwendet werden können, benötigen sie sogenannte Type Annotations. Diese können, sofern sie nicht sowieso im Paket enthalten sind, bei den meisten bekannteren Modulen über den \ac{npm} installiert werden. Diese Pakete haben den Namenspräfix \textit{@types/}, das bedeutet, dass zum Beispiel die Type Annotations des Express Moduls über \inlinecode{bash}{npm install --save-dev @types/express} installiert werden können. Sollten keine Type Annotations für ein Modul vorhanden sein, muss man diese selbst erstellen.
 
 \subsection{HTML}
 \label{sec:vor-html}
@@ -115,7 +115,7 @@ Das \ac{DOM} ist die Objektrepräsentation des \ac{HTML} Dokuments. Durch das \a
 
 \subsection{Node.js}
 \label{sec:vor-node}
-Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \ac{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, updaten, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mitkopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
+Node.js ist eine Laufzeitumgebung, die es ermöglicht, dass Javascript direkt auf einem Rechner ausgeführt werden kann. Node.js kommt mit dem \acf{npm}. Mithilfe diesem Tools ist es möglich, Module zu installieren, aktualisieren, löschen und veröffentlichen. Diese Module werden im Ordner \textit{/node\_modules} installiert und in der Datei \textit{package.json} unter \textit{dependencies}, oder mit der option \inlinecode{bash}{--save-dev} unter \textit{dev-dependencies} eingetragen. Ein neues Projekt erstellt man mit \inlinecode{bash}{npm init}. Dieses Tool erstellt die Datei \textit{package.json}, in der alle Abhängigkeiten und Informationen über das Projekt stehen. Wenn man ein Projekt kopiert, braucht man den \textit{/node\_modules} Ordner nicht mitkopieren. Man muss nur im Zielordner einmal \inlinecode{bash}{npm install} aufrufen.
 
 \subsection{express}
 \label{sec:vor-express}
@@ -126,7 +126,7 @@ Express ist ein Javascript Modul, das auf dem Node.js Modul \textit{http} bzw \t
 \ac{JSON} ist die Textrepräsentation eines JavaScript Objekts\footnote{Weitere Informationen zu \ac{JSON} unter \url{https://www.json.org/}}. Die möglichen Datentypen sind:
 
 \begin{itemize}
-\item[•] \textbf{string}: 0 oder mehrere unicode Zeichen innerhalb Doppelhochkommas
+\item[•] \textbf{string}: 0 oder mehrere Unicode Zeichen innerhalb Doppelhochkommas
 \item[•] \textbf{boolean}: true oder false
 \item[•] \textbf{number}: Eine vorzeichenbehaftete Zahl, die auch die E Notation unterstützt z.B. 0.2E4 (=2000)
 \item[•] \textbf{Array}: Eine geordnete Liste von 0 oder mehreren Werten innerhalb eckiger Klammern, Elemente sind getrennt durch Kommas.
@@ -156,7 +156,7 @@ Express ist ein Javascript Modul, das auf dem Node.js Modul \textit{http} bzw \t
 
 \subsection{JSON Web Token}
 \label{sec:vor-jwt}
-\ac{JWT} ist ein JSON-basierter offener Standard für das Erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Dadurch können Server und Client überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen: dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorithmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. In der Signature stehen der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
+\ac{JWT} ist ein JSON-basierter offener Standard für das Erstellen von Access Tokens. Mithilfe eines \ac{JWT} kann ein Client sich ausweisen. Ein \ac{JWT} wird vom Server entweder mit einem Secret oder seinem privaten Schlüssel signiert. Ein Secret ist eine Zeichenkette, die als Verschlüsselungsbasis dient und die der Programmierer frei wählen kann. Dadurch können Server und Client überprüfen, ob der Token legitim ist. Ein \ac{JWT} besteht aus drei Teilen: dem Header, der Payload und der Signature. Im Header steht der fürs Verschlüsseln der Signatur benutzte Algorithmus z.B: \inlinecode{JSON}{\{"alg":"RS256","typ":"JWT"\}}. Im Payload stehen die Daten, die entweder den Client ausweisen oder ähnliche Information. Beispiel: \inlinecode{JSON}{\{"user": "cat", "iat": 1520875121, "exp": 1520911121\}} \textit{iat} bedeutet \textit{issued at} und sagt aus, wann der Token generiert wurde. \textit{exp} bedeutet \textit{expires} und sagt aus, ab wann der Token nicht mehr gültig ist. In der Signature stehen der Key, der unsignierte Token, das ist der Header und die Payload Base64 codiert, und die Signatur. Alle drei Teile werden Base64 codiert und mittels Punkt voneinander getrennt.
 
 \subsection{MongoDB}
 \label{sec:vor-mongo}
@@ -215,7 +215,7 @@ Eine Angular Library ist ein Modul, das \textit{Modules} exportiert. Diese könn
 
 \subsubsection{Components}
 \label{sec:ang-components}
-Ein \textit{Component} kontrolliert einen Teil des Bildschirms, den sogenannten \textit{view}. Die Logik des \textit{Component}s wird in einer Klasse definiert. Die Klasse interagiert mit dem \textit{view} durch eine \ac{API} von Eigenschaften und Methoden.
+Ein \textit{Component} kontrolliert einen Teil der Web-Page, den sogenannten \textit{view}. Die Logik des \textit{Component}s wird in einer Klasse definiert. Die Klasse interagiert mit dem \textit{view} durch eine \ac{API} von Eigenschaften und Methoden.
 
 \paragraph*{Lifecycle Hooks}\mbox{}\\
 Ein Lebenszyklus in Angular ist immer der Lebenszyklus des jeweiligen \textit{Components}. Ein \textit{Component} kann erstellt, verändert und zerstört werden. Zu jedem Stadium gibt es eine Methode, die automatisch je nach Stadium von Angular aufgerufen wird. Die am häufigsten verwendeten sind:
@@ -329,7 +329,7 @@ Das Design sollte übersichtlich und einfach gestaltet werden. Der Benutzer soll
   \vspace{-10pt}
 \end{wrapfigure}
 
-Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese in einem *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \\
+Auf der Startseite sind alle wichtigen Informationen übersichtlich dargestellt. Auf der linken Seite werden die Uhrzeit der letzten erfolgreichen Fütterung, die Zeit der nächsten Fütterung und die Zeit bis zur nächsten Fütterung dargestellt. Darunter werden Fehler und Warnungen, falls welche auftreten sollten, angezeigt. Da unbekannt ist, wie viele Fehler und Warnungen auftreten, werden diese mithilfe eines *ngFor aufgelistet. Auf der rechten Seite sind die aktiven Fütterungszeiten aufgelistet. \\
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 \vspace{-10pt}
@@ -582,7 +582,7 @@ animations: [
 ]
 \end{lstlisting}
 
-Bei dem zu animierenden Element wird \inlinecode{HTML}{[@NameDerAnimation]="auslöserVariable"} in die Attribute geschrieben. Ändert sich diese Variable, so wird die Animation gestartet. Animiert werden kann alles, dass durch Styles bestimmt werden kann.
+Bei dem zu animierenden Element wird \inlinecode{HTML}{[@NameDerAnimation]="ausloeserVariable"} in die Attribute geschrieben. Ändert sich diese Variable, so wird die Animation gestartet. Animiert werden kann alles, dass durch Styles bestimmt werden kann.
 
 \paragraph*{Updates}\mbox{}\\
 \label{par:funk-upd}
@@ -677,7 +677,7 @@ public static get Instance(): Server {
 }
 \end{lstlisting}
 
-Der Server wurde mit dem JavaScript Modul \textit{express} programmiert. Express ist aufgebaut mit sogenannten Middlewares. Diese werden bei Eintreffen einer Anfrage der Reihe nach durchgegangen, bis eine Middleware der Anfrage entspricht. Wenn z.B. die Anfrage \inlinecode{bash}{HTTP/1.1 GET /api/version} eintrifft, werden die Middlewares nach der Reihe durchgegangen. Jede Middleware mit \inlinecode{TS}{use}, solange kein Pfad mit angegeben wurde, wird ausgeführt, alle anderen werden übersprungen. Die nächste Middleware, die ausgeführt wird, ist \inlinecode{TS}{get('/api/version', ...)}. Wird in dieser Middleware \inlinecode{TS}{next()} aufgerufen, so werden alle weiteren Middlewares durchgegangen. Sollte \inlinecode{TS}{next()} nicht aufgerufen werden, so werden keine weiteren Middlewares durchgegangen.
+Der Server wurde mit dem JavaScript Modul \textit{express} programmiert. Express ist aufgebaut mit sogenannten Middlewares. Diese werden bei Eintreffen einer Anfrage der Reihe nach durchgegangen, bis eine Middleware der Anfrage entspricht. Wenn z.B. die Anfrage \inlinecode{bash}{HTTP/1.1 GET /api/version} eintrifft, werden die Middlewares nacheinander aufgerufen. Jede Middleware mit \inlinecode{TS}{use}, solange kein Pfad mit angegeben wurde, wird ausgeführt, alle anderen werden übersprungen. Die nächste Middleware, die ausgeführt wird, ist \inlinecode{TS}{get('/api/version', ...)}. Wird in dieser Middleware \inlinecode{TS}{next()} aufgerufen, so werden alle weiteren Middlewares durchgegangen. Sollte \inlinecode{TS}{next()} nicht aufgerufen werden, so werden keine weiteren Middlewares durchgegangen.
 
 \begin{lstlisting}[style=TS,caption=Middlewares,label=middlewares]
 this._express.use(bodyparser.json());
@@ -722,10 +722,10 @@ public async login(req: express.Request, res: express.Response, next: express.Ne
   let token = '';
   const username = req.body.user;
   const userpass = SHA512(req.body.password).toString();
-  const Users = await FuettrDB.Instance.getUsers();
+  const users = await FuettrDB.Instance.getUsers();
   for (let i = 0; i < Users.length; i++) {
-    let name = JSON.parse(JSON.stringify(Users[i])).user_name;
-    let pass = JSON.parse(JSON.stringify(Users[i])).user_password;
+    let name = users[i].user_name;
+    let pass = users[i].user_password;
     if (userpass === pass && username === name) {
       token = await jwt.sign({ user: username }, this._privkey, { expiresIn: '10h', algorithm: 'RS256' });
     }
@@ -744,21 +744,26 @@ In der Login Methode wird zuerst das im Request befindliche Passwort gehashed. N
 
 \begin{lstlisting}[caption=Update Methode,label=update methode,style=TS]
 public update(req: express.Request, res: express.Response, next: express.NextFunction) {
-  fs.writeFileSync(path.join(__dirname, '../../../build'), 'true');
+  res.sendFile(path.join(__dirname, 'views/update.html'));
   child.exec(`git pull`, (error, stdout, stderr) => {
-    if (stdout !== '') {
+    if (!(stdout === '' || stdout === undefined || stdout === null)) {
       log.info(stdout);
     }
-    if (error !== null) {
+    if (!(error === undefined || error === null)) {
       log.warn(error);
     }
-    child.exec(`sudo reboot`, (error, stdout, stderr) => {
-      if (stdout !== '') {
-        log.info(stdout);
+    fs.writeFile(path.join(__dirname, '../../../build'), 'true', error => {
+      if (!(error === undefined || error === null)) {
+        return;
       }
-      if (error !== null) {
-        log.warn(error);
-      }
+      child.exec(`sudo reboot`, (error, stdout, stderr) => {
+        if (!(stdout === '' || stdout === undefined || stdout === null)) {
+          log.info(stdout);
+        }
+        if (!(error === undefined || error === null) ) {
+          log.warn(error);
+        }
+      });
     });
   });
 }
@@ -832,7 +837,7 @@ Im Laufe des Arbeitens kam die Idee auf, ein Skript für das Raspberry zu schrei
 \label{sec:verbesserung}
 Da die Sprache TypeScript erst im Rahmen dieser Diplomarbeit erlernt wurde, sind viele Unreinheiten im Code zu finden. Es wurde sehr viel experimentiert und ausprobiert. Viele Dinge können verbessert werden. \\ \\
 Eine umfangreichere Verwendung der Datenbank wäre besser gewesen. In der Datenbank selbst wäre es besser gewesen, die Benutzer in eine eigene Collection zu tun und alle anderen Daten in einer Collection zusammenzufassen. Außerdem wären andere Namen besser für die Collections gewesen. Ich war dabei allerdings an meinen Kollegen gebunden, der voreilig die Namen und Unterteilungen festlegte, ohne Rücksprache zu halten und im Nachhinein es nicht mehr ändern wollte. \\ \\
-Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootsrtap kann man Google Material verwenden, das ist für Angular optimiert. \\ \\
+Im Client Design kann die Seite für Mobilgeräte optimiert werden. Statt Bootstrap kann man Google Material verwenden, das ist für Angular optimiert. \\ \\
 Eine größere Auswahl an Sprachen können noch angeboten werden, aber da ich nur Deutsch und Englisch beherrsche, war dies nicht möglich. \\ \\
 Sicherheitstechnisch könnte man den Server als \ac{HTTPS} Server ausführen. Dazu benötigt man allerdings eine fixe IP und ein Zertifikat.
 
