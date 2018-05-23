@@ -49,7 +49,7 @@ Nach einigen Problemen und Variantenänderungen in der Mechanik, wurde die Motor
 \end{figure}
 Die Auswahl des Sensors für unsere Anwendung wurde durch folgende Kriterien beeinflusst: Befestigungsmöglichkeiten, Preis und zusätzlich benötigte Ansteuerungen.
 Kapazitive und induktive Näherungsschalter lassen sich einfach befestigen, sind jedoch in der Anschaffung teuer. Die Reichweite der Sensoren ist nicht sehr groß, was aber für unsere Anwendung nicht relevant ist. Für diese Arten von Sensoren werden zusätzliche Ansteuerungen benötigt. Diese Ansteuerungen sind meistens etwas teuerer und benötigen zur Kommunikation mit einem Raspberry eine Schnittstelle.
-Aus diesen Gründen haben wir uns in diesem Anwendungsbereich für einen optischen Näherungsschalter entschieden. Dieser beinhaltet ein fertiges Modul bestehend aus einer Infrarot LED und einem Infrarot Fototransistor. Dieses Modul ist preiswert und leicht zu befestigen. Dadurch, dass unsere Anwendung keine genaue Abstandsmessung erfordert, wird keine zusätzliche Ansteuerung benötigt. Zur Stromversorgung reichen 5V Gleichspannung mit einem laut Datenblatt berechneten Vorwiderstand. Die Auswertung erfolgt durch einen digitalen Input-Pin des Raspberrys. Sobald sich eine Reflektorfläche vor dem Sensor bewegt, wird der Fototransistor niederohmig und ermöglicht einen Stromfluss. Dadurch liegt eine Spannung von 3,3V am Input-Pin an und wird vom Raspberry als HIGH-Zustand angesehen. Wenn die Reflektorfläche vom Modul nicht mehr erfasst wird, sperrt der Fototransistor, der Stromfluss wird unterbunden und am Input-Pin liegen nur mehr 0V an, was als LOW-Zustand angesehen wird. \\
+Aus diesen Gründen haben wir uns in diesem Anwendungsbereich für einen optischen Näherungsschalter entschieden. Dieser beinhaltet ein fertiges Modul bestehend aus einer Infrarot LED und einem Infrarot Fototransistor. Dieses Modul ist preiswert und leicht zu befestigen. \\Dadurch, dass unsere Anwendung keine genaue Abstandsmessung erfordert, wird keine zusätzliche Ansteuerung benötigt. Zur Stromversorgung reichen 5V Gleichspannung mit einem laut Datenblatt berechneten Vorwiderstand. Die Auswertung erfolgt durch einen digitalen Input-Pin des Raspberrys. Sobald sich eine Reflektorfläche vor dem Sensor bewegt, wird der Fototransistor niederohmig und ermöglicht einen Stromfluss. Dadurch liegt eine Spannung von 3,3V am Input-Pin an und wird vom Raspberry als HIGH-Zustand angesehen. Wenn die Reflektorfläche vom Modul nicht mehr erfasst wird, sperrt der Fototransistor, der Stromfluss wird unterbunden und am Input-Pin liegen nur mehr 0V an, was als LOW-Zustand angesehen wird. \\
 
 Kennlinie des Sensors:
 
@@ -153,7 +153,7 @@ Kennlinie der Transistoren:
 \end{center}
 \end{figure}
 
-Dieser Schaltplan dient nur als Beispiel-Schaltung und wurde aufgrund der Motoransteuerung Variante 2, nicht mehr weiter verfolgt. Um die Schaltung wirklich benutzen zu können, müsste eine Sicherung gegen einen Kurzschluss eingebaut werden. Für unsere Anwendung müsste eine Drehzahlregelung der Motoren Verwendung finden.
+Dieser Schaltplan dient nur als Beispiel-Schaltung und wurde aufgrund der Motoransteuerung Variante 2, nicht mehr weiter verfolgt. Um die Schaltung wirklich benutzen zu können, müsste eine Sicherung gegen einen Kurzschluss eingebaut werden. Für unsere Anwendung müsste eine Drehzahlregelung mittels PWM-Signal implementiert werden.
 \newpage
 \subsubsection{Motoransteuerung Variante 2}
 \begin{figure}[H] 
