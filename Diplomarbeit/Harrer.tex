@@ -216,7 +216,7 @@ Es wird die open source Software \ac{pi4j}, welche Bibliotheken zur Verfügung s
   \end{center}
   \caption[Abhängigkeiten]{Abhängigkeiten\protect\footnotemark}
   \label{Abhaengigkeiten}
-  \vspace{-160pt}
+  \vspace{-20pt}
 \end{wrapfigure}
 
 \footnotetext{\autoref{Abhaengigkeiten} Quelle: \url{http://pi4j.com/dependency.html} (besucht am: 02/03/2018)}
@@ -408,12 +408,14 @@ Die folgende Tabelle zeigt alle gültigen Requests und die jeweilige Response da
 \hline
 \multicolumn{2}{|c|}{\textbf{Request}}                                    & \multicolumn{1}{c|}{\multirow{2}{*}{\textbf{Response}}}                                          \\ \cline{1-2}
 \multicolumn{1}{|c|}{\textbf{Aktion}} & \multicolumn{1}{c|}{\textbf{\ac{URI}}} & \multicolumn{1}{c|}{}                                                                            \\ \hline
-GET                                   & /errors\_warnings \textbackslash r\textbackslash n                & Der Server schickt dem Client die aktuell anzuzeigenden Errors und Warnungen in einer Json-Array  \\ \hline
-GET                                   & /ChangeMachineState \textbackslash r\textbackslash n              & Der Server ruft eine Methode auf um den Maschinenzustand zu ändern                               \\ \hline
+GET                                   & /errors\_warnings                 & Der Server schickt dem Client die aktuell anzuzeigenden Errors und Warnungen in einer Json-Array  \\ \hline
+GET                                   & /ChangeMachineState               & Der Server ruft eine Methode auf um den Maschinenzustand zu ändern                               \\ \hline
 \end{tabular}
 \caption{Übertragungsprotokoll}
 \label{Übertragungsprotokoll}
 \end{table}
+
+Am Ende eines jeden Request steht ein \ac{CRLF}. Das \ac{CRLF} steht für eine Leere Zeile welche angibt, dass der Request zu Ende ist. Eine leere Zeile wird im Programm mit Hilfe von \inlinecode{JavaStyle}{\\r\\n} implementiert.
 
 \subsubsection{Response-GET}
 Wenn der Server eine Request mit dem Beginn \textbf{GET} bekommt, muss er dem Client die Daten schicken. Anschließend wird noch die URI überprüft, um festzustellen was gemacht werden muss.
@@ -453,6 +455,9 @@ Fehler auf die der Benutzer nicht reagieren kann, also Fehler die im Programm au
 
 \subsubsection{Errors und Warnungen aktivieren/deaktivieren}
 Um die Boolean-Variable, die die Errors and Warnungen aktiviert, auf true zu setzen, muss die jeweils zum Error oder zur Warnung gehörende Methode aufgerufen werden. Diese Methode kann wie folgt aussehen:
+
+\newpage
+
 \begin{lstlisting}[style=JavaStyle, caption=Error setzen]
 	public void setFeedingHasFailedError (Boolean errorOn)
 	{
@@ -536,8 +541,6 @@ Um den SwingWorker verwenden zu können, muss die Klasse wie folgt erstellt werd
 \end{lstlisting}
 Im Generic steht als Erstes der Datentyp des Rückgabewerts von \textbf{get()} und als Zweites der Datentyp des Übergabewertes von \textbf{publish()}. Diese beiden Methoden sind für die Übermittlung eines Zwischenergebnisses.
 
-\newpage
-
 \subsubsection{EDT}
 Im Java Swing \ac{EDT} wird der Quellcode sequentiell abgearbeitet. Dies bedeutet, dass alle Methoden ihre benötigte Zeit in Anspruch nehmen und danach die jeweils Nächste ausgeführt wird. Im Grunde wird dann ein SwingWorker verwendet, wenn die \ac{GUI} für den Benutzer merklich blockiert. In der Regel wird gesagt, dass dann ein SwingWorker verwendet werden soll, wenn die Möglichkeit besteht, dass die \ac{GUI} für 1 Millisekunden oder mehr blockiert.
 
@@ -583,6 +586,9 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann b
 
 \item[•] done()
 \\ Wenn ein Hintergrund-Thread beendet wird, wird \textbf{done()} im \ac{EDT} aufgerufen. Im \textbf{done()} können dann \ac{GUI}-Elemente bearbeitet werden. Im Code-Beispiel \ref{SwingWorkerOhneWhileSchleife} ist ein Beispiel wie das \textbf{done()} aussehen könnte:
+
+\newpage
+
 \begin{lstlisting}[style=JavaStyle, caption=SwingWorker done()]
         @Override
         protected void done()
@@ -609,8 +615,6 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann b
         }
 \end{lstlisting}
 
-\newpage
-
 \item[•] cancel()
 \\ Mit \inlinecode{JavaStyle}{.cancel(true)} kann ein SwingWorker beendet werden. Das \textbf{true} in den Klammern bedeutet, dass ein Thread-Interrupt an den Thread gesendet. Wenn statt \textbf{true false} verwendet wird, wird das Flag erst beim nächsten Schleifendurchlauf überprüft.
 \\ Dafür muss folgender Befehl aufgerufen werden:
@@ -619,6 +623,8 @@ Folgender Hintergrund-Thread arbeitet die Methoden nur einmal ab und wird dann b
 \end{lstlisting}
 Bei diesem Methodenaufruf ist \textbf{worker} die Objektvariable des SwingWorkers.
 \end{itemize}
+
+\newpage
 
 \subsection{GUI-Fenster}
 Die \ac{GUI}-Fenster stellen die grafische Oberfläche für den Benutzer zur Verfügung. Da ein Touchscreen-Display verwendet wird, ist es möglich, alle \ac{GUI}-Fenster durch das Berühren des Touchscreens, mit einem Finger, zu bedienen. Das Bedienen mit mehreren Fingern und die Verwendung von Touch-Gesten sind nicht möglich.
@@ -892,7 +898,7 @@ public BasicDBObject getNewTimeDoc()
   \end{center}
   \caption{CreateAndRegisterUser}
   \label{CreateAndRegisterUser}
-  \vspace{20pt}
+  \vspace{10pt}
 \end{wrapfigure}
 Die Klasse \textbf{CreateAndRegisterUser} bietet dem Benutzer die Möglichkeit einen Benutzer anzulegen. Es ist deshalb nur ein Benutzer anlegbar, weil es bei der Anlage keinen Sinn machen würde, wenn mehrere Benutzer angelegt werden. Der angelegte Benutzer wird nur benötigt, um sich auf der Webseite der Anlage anzumelden. Wenn mehrere Benutzer anlegbar wären, könnte der Benutzer der Anlage sich mit mehreren Accounts auf der Website anmelden. Da dies keine Vorteile verschafft ist es ausreichend nur einen Benutzer anlegen zu können. Die \ac{GUI} ist in Abbildung \ref{CreateAndRegisterUser} zu sehen.
 \\ \\ Die \ac{GUI} der Klasse ist ein Dialogfenster. Bei Dialogfenstern ist es üblich, dass sie mit \textbf{Ok} und \textbf{Abbrechen} bedienbar sind.
