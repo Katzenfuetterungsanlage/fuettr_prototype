@@ -50,18 +50,19 @@ bibliography=totocnumbered,											% Literaturverzeichnis
 \usepackage{booktabs}												% bessere tabellen
 \usepackage{lscape}													% landscape
 \usepackage[autostyle]{csquotes}									% Zitate
+% \usepackage{titlesec}
 
 \input{biber}
-\include{chapter_style}
-\include{colors}
-\include{listings}
+% \input{chapter_style}
+\input{colors}
+\input{listings}
 
 \setlength{\parindent}{0em}
  
 \subject{\includegraphics[scale=0.7]{Bilder/Logo}}
 \title{Katzenfütterungsanlage}
 \subtitle{HTBLA Kaindorf an der Sulm\\Grazer Straße 202, A-8430 Kaindorf an der Sulm\\Ausbildungsschwerpunkt Mechatronik und Automatisierungstechnik}
-\author{Florian Greistorfer, Florian Harrer, Dominik Pichler, Julian Wolf}
+\author{Florian Greistorfer \and Florian Harrer \and Dominik Pichler \and Julian Wolf}
 \date{Abgabedatum: 05.04.2018}
 \publishers{Betreut von:\\Dipl.-Ing. Manfred Steiner\\Dipl.-Ing. Dr. Gerhard Pretterhofer\\Otto Schuller BEd.}
 \begin{document}
@@ -69,7 +70,7 @@ bibliography=totocnumbered,											% Literaturverzeichnis
 \maketitle
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{4}
-\input{opening}
+\include{opening}
 
 \tableofcontents
 \mainmatter
